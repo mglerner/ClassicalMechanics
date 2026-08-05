@@ -26,9 +26,10 @@ Fall 2025 PHY 317 closely (Taylor, _Classical Mechanics_). Sources in
   the syllabus version.
 - Final: required Ch 12 problem + optional grade-replacement problems
   (one per exam chapter, replace-if-higher), per Will's design.
-- Will's calendar also has a nice "Prerequisites" column keyed to Knight
-  and to Felder & Felder ("Math Methods") chapters — worth carrying into
-  the Moodle version.
+- Will's "Prerequisites" column (just-in-time review pointers keyed to
+  Knight and to Felder & Felder "Math Methods" chapters) is included in
+  the Schedule sheet. His syllabus framing: use it for proactive review
+  before class, or "just-after-time" review when a topic is rough.
 
 ## Grading (1000 points total)
 
