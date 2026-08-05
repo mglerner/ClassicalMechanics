@@ -11,5 +11,5 @@ including the previous professor's course archive) live in `private/`, a
 gitignored symlink to `~/Dropbox/__Smith/Classes/317-Classical/private/`.
 Dropbox is the backup; nothing under `private/` goes to GitHub.
 
-Likely textbook: Taylor, _Classical Mechanics_ (what the previous professor
-used) — to be decided.
+Textbook: Taylor, _Classical Mechanics_ (following Will Raven's Fall 2025
+PHY 317). First offering: Fall 2026; planning in `SyllabusAndFirstDay/2026/`.
