@@ -1,0 +1,23 @@
+# Symlink to Dropbox: solutions, exams, grades, other professors' materials.
+# Never commit; Dropbox is the backup.
+private
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+# Mac
+.DS_Store
+
+# Python
+*.py[cod]
+__pycache__/
+.ipynb_checkpoints
+
+# Emacs backup files
+*~
+
+# Dropbox sync conflict files (in case any sneak in)
+*conflicted copy*
