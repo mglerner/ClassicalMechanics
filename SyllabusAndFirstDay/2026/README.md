@@ -41,7 +41,10 @@ whether to keep that or fold attendance into the point total.
 
 ## Assumptions to verify
 
-- MWF meeting pattern (same caveat as PHY 210).
+- **MWF meeting pattern: VERIFIED 2026-08-17** via the registrar's
+  listing: W/F 1:20-2:35 PM + Mon 1:40-2:55 PM (shifted Monday time,
+  same MWF days, so the 39-meeting mapping holds), Sabin-Reed 308,
+  4 credits, 9 enrolled as of 8/17. Prereqs PHY 210 & 215.
 - Will used **Mathematica**; I lean Python. Decide before adapting his
   materials (his archive: `~/Dropbox/__Smith/Classes/317-Classical/`,
   including Seth Hopper's older course — exploring that is deferred).
