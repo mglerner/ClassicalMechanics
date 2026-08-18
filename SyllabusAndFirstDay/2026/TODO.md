@@ -52,20 +52,76 @@ worth a proper inventory pass before building HW:
 
 ## Open decisions
 
-7. Mathematica -> Python: Will AND Seth both used Mathematica; Michael
-   leans Python (same call as PHY 210, where Python won). Decide
-   before adapting either's computational materials.
-8. Attendance: Will used grade caps (4 misses -> max B), not points;
-   the 1000-point conversion currently has no attendance category.
-   PHY 210 uses PCCI-turn-in-as-participation -- decide whether 317
-   gets PCCIs/participation points too, or keeps Will's caps, or
-   neither (9 students; attendance may take care of itself).
+7. Mathematica -> Python: the backup makes the cost concrete. 21 of
+   Will's 22 notebooks are built on Manipulate (interactive sliders;
+   2masses_3springs.nb has 20 of them), so a Python port means
+   Jupyter + ipywidgets, not plain matplotlib. Mathematica is
+   load-bearing in exactly one place (HW13 chaos, with a dedicated
+   Helper.nb) and decorative-but-pervasive elsewhere. Options: port
+   (real work), keep Mathematica for 317 only, or hybrid (port HW13's
+   helper, drop the rest to optional demos).
+8. Attendance + seminars: Will used grade caps (4 misses -> max B),
+   not points, AND +0.5 final-grade points per physics seminar
+   attended (4 max) -- neither is in the 1000-point conversion.
+   Decide: PCCIs/participation points like 210, Will's caps +
+   seminar bonus, or neither (9 students).
 9. Syllabus rewrite (tufte-handout like PHY 210's? shared AI policy
    with 210 -- start from Will's F2025 statement, which is already the
    newer text).
-10. Verify Will's calendar mapping against his actual F2025 delivered
-    pace if artifacts exist (his Dropbox folder
-    `317-Classical/Will/` is EMPTY -- sources are only
-    SmithPreMichaelArtifacts/PHY317 F2025 Syllabus.pdf +
-    WillClassicalCalendar.docx; ask Will if more exists).
+10. RESOLVED 2026-08-17: Will's full Moodle backup extracted to
+    `private/WillF2025/MoodleCourse/extracted/` (structure.txt = the
+    course map + appendices). Recovered: all 13 HW sets + solutions,
+    11 skeleton-slide chapter decks (typed slides completed with live
+    tablet ink -- a format worth copying), per-chapter day-by-day
+    in-class problem records, the delivered schedule with the full
+    Prerequisites column, 22 Mathematica notebooks, the 7-deck linear
+    algebra review (keyed to Felder Ch 6), Norsen's
+    generalized-coordinates guest deck, and the department "AI prompts
+    for students" doc. The 39-slot mapping is CONFIRMED against his
+    delivered pace, and Exam 3 = Ch 8, 9, 11 is CONFIRMED (the
+    calendar rows' "Ch 9-11" is Will's typo; the syllabus's 3x3
+    redemption-problem arithmetic proves it).
 11. Mountain Day holder is Mon Oct 5 (a guess); same caveat as 210.
+
+## New items from the Moodle backup (2026-08-17)
+
+12. HW due-date fixes in the generator (Will's practice vs our
+    mechanical Fridays): (a) shift HW11 from Fri Nov 20 to Mon Nov 23
+    to avoid a 14-day HW11->HW12 gap over Thanksgiving (Will did the
+    same shift); (b) HW13 currently lands Fri Dec 11 = the second
+    chaos lecture -- move to Mon Dec 14 or into reading period (Will
+    gave 6 days); (c) note HW01 is due after only two meetings
+    (content checks out -- Will's HW01 is pure Ch 1 -- but it's a
+    fast first week). Also: Will's stated "Fridays at 10pm" drifted
+    in practice; pick one time and keep it.
+13. Exam 1 trade-off (aware, accepted for now): our placement gives
+    an unbroken Ch 5 block but a 17-day Ch 4 -> Exam 1 gap (Will's
+    was 7). The Prerequisites column + a review PCCI can bridge it.
+14. ASK WILL: his exams. NO exam content exists anywhere -- not in
+    the backup (never posted to Moodle), not in his empty Dropbox
+    folder. We have the exam design (3 problems, one per chapter;
+    redemption final with 9 optional problems) but zero instruments.
+15. HW grading rubric: Will's syllabus has a +/check/-/X rubric WITH
+    a reflection-resubmission policy the calendar never mentioned --
+    read it before writing our HW policy (syllabus PDF sec., in
+    extracted/01_Course_Information/).
+16. Moodle build for 317: restore the .mbz (clean no-users export,
+    needs mod_subsection >= 4.5 -- Smith is on 5.0.9); replace Will's
+    personal Google booking link; verify the Library Research Guide
+    LTI resolves; the gradebook is net-new work (his was a flat
+    1300-pt HW sum; exams/final never in Moodle; add our 1000-pt
+    categories + droplow=1).
+17. COPYRIGHT cautions before reusing Will's Moodle shell: the full
+    808-page scanned Taylor textbook is posted in Course Information,
+    and the 22 Look-At/In-Class PDFs are Taylor Instructor Solutions
+    Manual image excerpts. Decide what to keep/replace; don't blindly
+    re-post.
+18. Syllabus rewrite inputs: the department "AI prompts for students"
+    doc (extracted/01_Course_Information/) alongside Will's AI
+    statement; the just-in-time/just-after-time Prerequisites framing
+    (02_Schedule/_section_summary.txt) is worth quoting.
+19. Jackknife problem placement, refined: Will's HW07 already
+    contains his own custom brachistochrone-as-tautochrone problem,
+    and HW06 has an RLC-SHO analogy -- his sets DO carry custom
+    problems, so adding jackknife as a custom problem on the Ch 7
+    (Lagrangian/constraints) set matches his pattern exactly.
