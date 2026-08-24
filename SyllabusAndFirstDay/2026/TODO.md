@@ -140,3 +140,14 @@ worth a proper inventory pass before building HW:
     fluctuation-theorem material already appears in his Earlham 360
     project-ideas list); Liouville -> phase-space measure -> entropy
     production is the spine of that arc.
+    UPDATE 2026-08-24: full Stage-1 materials now exist at
+    `../../../FluctuationTheorems/01-classical-mechanics/` (module
+    notes, self-contained handout deriving Liouville via the 2D
+    divergence theorem, problem set + solutions, and
+    phase_space_flow.py -- verified running: Hamiltonian flow
+    conserves hull area, damped flow contracts as e^(-gamma t/m)).
+    The incoming plan sizes this at 25-35 min of one chaos lecture
+    plus 3-4 problems folded into the last set, a bit more than the
+    original 15-min estimate -- decide the budget when building the
+    chaos-unit decks. Content is unreviewed-by-Michael chat-session
+    output; read before teaching.
