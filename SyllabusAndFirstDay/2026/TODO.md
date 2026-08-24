@@ -125,3 +125,18 @@ worth a proper inventory pass before building HW:
     and HW06 has an RLC-SHO analogy -- his sets DO carry custom
     problems, so adding jackknife as a custom problem on the Ch 7
     (Lagrangian/constraints) set matches his pattern exactly.
+
+20. Liouville aside in the chaos unit (added 2026-08-24): neither Will
+    nor Seth ever taught Liouville (Taylor 13.7; Will's course never
+    reaches Ch 13, and Seth's Ch 13 notes stop short of it). Plan: a
+    ~15-min aside during the Ch 12 chaos days -- Hamiltonian flows
+    conserve phase-space volume, so ATTRACTORS REQUIRE DISSIPATION
+    (why the damped driven pendulum can have one and the ideal
+    pendulum can't). Frame the volume conservation as zero divergence
+    of the phase-space flow: a direct callback to the Feynman
+    divergence unit these students just had in PHY 210. Context: this
+    is the first step in Michael's long-term arc toward teaching the
+    fluctuation theorems at an undergraduate level (Green-Kubo /
+    fluctuation-theorem material already appears in his Earlham 360
+    project-ideas list); Liouville -> phase-space measure -> entropy
+    production is the spine of that arc.
