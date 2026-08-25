@@ -151,3 +151,11 @@ worth a proper inventory pass before building HW:
     original 15-min estimate -- decide the budget when building the
     chaos-unit decks. Content is unreviewed-by-Michael chat-session
     output; read before teaching.
+
+21. Mid-semester feedback on Moodle (decided 2026-08-25, both
+    courses; same design as 210 -- see MathematicalPhysics
+    SyllabusAndFirstDay/2026/MoodleBuildSpec.md section 0): anonymous
+    Feedback activity, open around mid-semester, at least three
+    questions -- what's working well / what's not working well and
+    how can the instructor make things better / what can you, as the
+    student, do to make the class better?
