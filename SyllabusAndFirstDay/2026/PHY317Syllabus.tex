@@ -24,6 +24,19 @@
 \lstset{language=Python, basicstyle=\ttfamily\small, columns=fullflexible,
   keepspaces=true, commentstyle=\itshape, showstringspaces=false,
   xleftmargin=1.5em, frame=none}
+% Links must be OBVIOUS (Michael, 2026-09-02): underline every \href and
+% \url (same ulem trick as the 210 syllabus) and use a visible blue rather
+% than Seth's near-black. \uline can't hyphenate, so give TeX some slack.
+\usepackage[normalem]{ulem}
+\definecolor{linkblue}{rgb}{0.0,0.2,0.75}
+\hypersetup{linkcolor=linkblue,urlcolor=linkblue,anchorcolor=linkblue}
+\setlength{\emergencystretch}{1.5em}
+\AtBeginDocument{%
+  \let\syllabushref\href
+  \renewcommand{\href}[2]{\syllabushref{#1}{\uline{#2}}}%
+  \let\syllabusurl\url
+  \renewcommand{\url}[1]{\uline{\syllabusurl{#1}}}%
+}
 \newcommand{\todonote}[1]{{\color{red} \textbf{[TODO: #1]}}}
 \pagestyle{fancy}
 
@@ -42,8 +55,8 @@
 \textit{Prerequisites:} PHY 210 and PHY 215 & \textit{Python:} \url{https://posit.smith.edu} \\[1ex]
 \end{tabular}~
 
-\textit{Office hours:} {\color{red}\textbf{TO BE SET}} after the week-1
-scheduling \href{https://www.when2meet.com/?38080171-R99td}{poll}. I
+\textit{Office hours:} {\color{red}\textbf{TO BE SET}} after the
+\href{https://www.when2meet.com/?38080171-R99td}{week-1 scheduling poll}. I
 also have an open-door policy: stop in whenever my door is open, which
 is most of the time.
 
