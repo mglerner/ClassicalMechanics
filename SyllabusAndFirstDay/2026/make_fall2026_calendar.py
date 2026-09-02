@@ -234,8 +234,24 @@ EXTRA_DUE = {}
 # listed two) so the <15-minute promise holds. Exam days get none.
 PCCI = {
     # No PCCI on day 1 (nobody has the syllabus before the first class).
-    date(2026, 9, 11): "Read the syllabus; bring one question or comment",
-    # Ch 1-4 entries: see TODO (filled from Will's Ch 1-4 Look-At sets).
+    # Ch 1 (Will's Look-At, no day split: 1.4, 1.6, 1.10, 1.11, 1.31, 1.35)
+    date(2026, 9, 11): "Read the syllabus and bring one question or comment; "
+                       "and 1.10",
+    # Ch 2 (Will's Look-At: Wed 2.1, 2.5, 2.7 / Fri 2.16, 2.25 / Mon 2.49;
+    # he circled 2.7 in class)
+    date(2026, 9, 14): "2.7",
+    date(2026, 9, 16): "2.25",
+    date(2026, 9, 18): "2.49",
+    # Ch 3 (Will's Look-At: Wed 3.7 / Fri 3.16, 3.17, 3.25 / Mon 3.32)
+    date(2026, 9, 21): "3.7",
+    date(2026, 9, 23): "3.16",
+    date(2026, 9, 25): "3.32",
+    # Ch 4 (Will's Look-At: Wed 4.7, 4.16 / Fri 4.31 / Mon 4.41)
+    date(2026, 9, 28): "4.7",
+    date(2026, 9, 30): "4.31",
+    date(2026, 10, 2): "4.41",
+    date(2026, 10, 5): "Bring one Ch 1-4 problem you want worked in the "
+                       "problem session (skip if Mountain Day)",
     # Ch 5
     date(2026, 10, 7): "5.1",
     date(2026, 10, 9): "5.21",

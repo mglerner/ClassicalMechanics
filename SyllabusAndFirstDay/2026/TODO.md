@@ -40,7 +40,7 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 - **PCCIs** (2026-09-02): same machinery as 210, sourced from Will's
   "Look-At" problems (his pre-class problems, one per day, easiest star
   where he listed two) or a one-line reading prompt where he had none.
-  Ch 5-12 entries are in the generator; Ch 1-4 pending the deck reads.
+  Every class day except day 1 has one, in the generator.
 - **HW graded on correctness with Will's +/check/-/X rubric and his
   reflection-resubmission option** (2026-09-02; in the syllabus). His
   "include an assessment" convention (limiting case / units / known
@@ -121,12 +121,19 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 
 ## Build tasks
 
-13. Prep packs 01-05 (weeks 1-2): folders and Will/Seth sources are in
-    place at `private/F2026PrepPacks/`; `00-prep-notes.md` per day
-    pending the Ch 1-2 deck reads (in progress 2026-09-02). Then 06-11
-    (Ch 3-4) from the Ch 3-4 read.
-14. Ch 1-4 PCCIs into the generator from Will's Look-At sets (same
-    source as 13).
+13. Prep packs: 01-05 (weeks 1-2) DONE 2026-09-02 -- `00-prep-notes.md`
+    per day + Will/Seth sources at `private/F2026PrepPacks/`. Packs 06-11
+    (Ch 3-4, weeks 3-4) have folders + sources + the raw deck extraction
+    (`RAW-will-ch3-ch4-deck-extraction.md`) but no `00-prep-notes.md`
+    yet. Headline errata already known for them: Will's Ch 3 deck has NO
+    Monday ink (exported before the moment-of-inertia class); Ch 4
+    slides 14-15 have (1/2) m xdot^2 = U - E (should be E - U); HW03's
+    3.36 solution uses I = 2mb (should be 2mb^2); HW04's solutions are
+    numbered off by one against the assignment; in-class 4.26 has no
+    posted solution anywhere.
+14. DONE 2026-09-02: PCCIs for every class day are in the generator
+    (Will's Look-At problems, one per day; reading prompts where he had
+    none). Only day 1 has none, by design.
 15. HW coverage audit, Taylor edition: every assigned problem's section
     vs the date that section is taught, using the OCR'd section
     boundaries in `private/F2026PrepPacks/_shared/will-problem-tables.md`
@@ -136,8 +143,9 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 16. `private/MoodleBuild/build_317.py` (after the shell backup exists;
     see that directory's README). Then the two-number gate: course total
     0 before, 1000 after.
-17. Python ports, in order of need: 1.50 starter notebook (HW01, due
-    Sep 16); Linear Drag / Linear Drag Range (class 03-04 demos); Rockets
+17. Python ports, in order of need: 1.50 starter notebook DONE
+    2026-09-02 (`NewtonsLaws/skateboard_1_50.ipynb`, executed; attach to
+    HW01); Linear Drag / Linear Drag Range (class 03-04 demos); Rockets
     (class 06); then chapter by chapter. HW13 helper by late November.
 18. Seth's order-of-magnitude assignment (12 hand-computed solar-system
     questions ending with the falling Moon predicting g; full solutions
