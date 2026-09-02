@@ -115,7 +115,17 @@ CONTENT = [
     ("Multiple variables; generalized coordinates", "6.4", ""),
     ("Lagrange's equations; Hamilton's principle", "7.1", ""),
     ("Constrained systems; generalized coordinates", "7.2-7.3", ""),
-    ("Examples of Lagrange's equations; Lagrange multipliers", "7.5, 7.9",
+    # 7.8 added 2026-09-02 (Michael asked for a simple Noether's theorem):
+    # Taylor 7.8 IS the simple version -- translation invariance of L gives
+    # conservation of P, time-translation invariance gives conservation of
+    # the Hamiltonian, and Taylor names Noether explicitly. Will never
+    # assigned 7.8 (his only Noether mention was one line of Ch 4 ink).
+    # Will's row read "7.5, 7.9" with the topic "Lagrange multipliers";
+    # in Taylor, multipliers are 7.10 and 7.9 is magnetic forces. The topic
+    # is what he taught (his HW08 has 7.10-the-problem, none from 7.9), so
+    # the reading says 7.10. Flagged in TODO.
+    ("Examples of Lagrange's equations; Noether's theorem (symmetries and "
+     "conservation laws); Lagrange multipliers", "7.5, 7.8, 7.10",
      ""),
     ("Central forces; reduced mass; equations of motion", "8.1-8.4",
      "Knight: Ch. 12 (Gravity)"),
@@ -200,8 +210,10 @@ HWS = [
      "6.4, 7.1-7.3: several variables; Lagrange's equations; constraints",
      "6.23 [hints], 6.24 [advanced, optional], 6.27, 7.3, 7.10 [hint], 7.14"),
     (9, date(2026, 11, 11), date(2026, 11, 4), {7, 8},
-     "7.5, 7.9, 8.1-8.2: Lagrangian examples; multipliers; two-body setup",
-     "7.27, 7.31, 7.34, 7.38 [optional challenge], 8.2"),
+     "7.5, 7.8, 7.9, 8.1-8.2: Lagrangian examples; Noether; multipliers; "
+     "two-body setup",
+     "7.27, 7.31, 7.34, 7.38 [optional challenge], 7.46 [Noether: rotational "
+     "invariance gives conservation of L_z], 8.2"),
     (10, date(2026, 11, 18), date(2026, 11, 9), {8},
      "8.3-8.8: central-force motion, orbits, changing orbits",
      "8.9, 8.13, 8.14 [optional challenge], 8.15, 8.18, 8.23"),

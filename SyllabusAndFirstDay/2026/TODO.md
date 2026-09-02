@@ -63,6 +63,22 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
   min of that lecture + 3-4 problems on HW13.
 - **Mid-semester anonymous Feedback activity** (2026-08-25, both
   courses): open at fall break; three questions (in the spec).
+- **Noether's theorem, simple version** (Michael asked 2026-09-02):
+  Taylor 7.8 added to the Mon Nov 2 reading (translation invariance of
+  L -> total momentum conserved, with the five-line proof; time
+  independence of L -> the Hamiltonian conserved and = T + U for
+  natural coordinates; Taylor names Noether explicitly). Taylor 7.46
+  (rotational invariance -> L_z conserved) added to HW09. Will never
+  assigned 7.8; his only Noether mention was one line of Ch 4 ink
+  ("translation invariance -> from Noether's theorem, cons. of
+  momentum", slide 24), which is now a forward pointer. Budget ~15 min
+  of the Nov 2 class; the PCCI stays 7.17. Ties to the fluctuation
+  theorem arc (Hamiltonian, phase space) later.
+- Section-label check (2026-09-02): Will's calendar row "7.5, 7.9 --
+  Lagrange multipliers" mislabels: in Taylor, multipliers are 7.10 and
+  7.9 is magnetic forces (his HW08 has problem 7.10 and nothing from
+  section 7.9). Our reading now says 7.5, 7.8, 7.10. CONFIRM when
+  building that deck.
 
 ## Registrar facts (verified 2026-08-17)
 
