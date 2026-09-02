@@ -72,8 +72,13 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 
 ## Before the first class (Wed Sep 9)
 
-1. Syllabus reds: office hours (week-1 poll), tutor/help-room hours.
-   Post to Moodle as the GitHub raw link (master) like 210's.
+1. Syllabus: the one red left is office hours, set after the week-1
+   poll (the SAME When2Meet poll as 210's, decided 2026-09-02; Michael
+   splits the responses by student name). No course tutors for 317 and
+   no physics help room (Michael, 2026-09-02), so no tutor line.
+   Syllabus restyled 2026-09-02 in Seth's layout, no prose preamble;
+   Will's AI statement + prompts + example problem (now in Python)
+   reused with credit. Post to Moodle as the GitHub raw link (master).
 2. Moodle shell: Collapsed Topics; section names per the spec; syllabus
    link; the schedule Sheet (convert the xlsx ONCE; embed range
    `A1:I16`, note column I); anonymous Feedback; office-hours poll;

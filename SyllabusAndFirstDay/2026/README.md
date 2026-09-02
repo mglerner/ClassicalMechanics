@@ -27,10 +27,17 @@ Mathematica notebooks).
 - `PHY317 F2026 Calendar.xlsx` -- the generated calendar: "Schedule"
   (two chunks split at fall break, for the Moodle embed; the script
   prints the ranges), "HW Problem Lists", "Grade Categories".
-- `PHY317Syllabus.tex` / `.pdf` -- tufte-handout syllabus, same preamble
-  and section rhythm as PHY 210's. Build: `pdflatex` twice. Margin
-  figures from `make_syllabus_figures.py` (`brachistochrone.pdf`,
-  `chaos_pendulum.pdf`).
+- `PHY317Syllabus.tex` / `.pdf` -- the syllabus, in Seth Hopper's
+  PHYS 425 layout (margin section titles; `seth-preamble.tex` is his
+  preamble, itself the public "Simple LaTeX CV Template") rather than
+  PHY 210's tufte-handout, for some style diversity. No prose preamble
+  (decided 2026-09-02). Will Raven's AI statement, prompts, and example
+  homework problem are reused with credit; the example is redone in
+  Python (SymPy). Build: `pdflatex` twice (delete stale `.aux` if
+  switching from the old tufte build).
+- `make_syllabus_figures.py` (`brachistochrone.pdf`, `chaos_pendulum.pdf`)
+  -- margin figures from the earlier tufte version; no longer in the
+  syllabus, kept as slide assets.
 - `MoodleBuildSpec.md` -- the Moodle course design (sections, assignments,
   gradebook, schedule embed, build protocol). Companion to PHY 210's.
 - `TODO.md` -- the living task list; decisions and open items live THERE.
