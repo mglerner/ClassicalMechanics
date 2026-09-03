@@ -168,12 +168,14 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     (Ch 5-12 done there; Ch 1-4 boundaries still to recover). The
     Wednesday rule makes violations unlikely, but PHY 210's audit found
     real ordering defects under a rule that also looked safe.
-16. DONE 2026-09-03: `private/MoodleBuild/build_317.py` ->
+16. RESTORED 2026-09-03 (Michael: "went well"). `private/MoodleBuild/build_317.py` ->
     `PHY317-F2026-course.mbz` (11 chapter sections, 4 grade categories +
     2 participation items, 17 assignments; validated: gradebook 1000,
-    ustar + index + declarations). Michael: delete the exemplar HW01 and
-    Exam 1, check the gate (course total 0), MERGE-restore once, check
-    1000. Then section 0 by hand (see the README there).
+    ustar + index + declarations). The course is live: sections 0-13,
+    gradebook 1000, 17 assignments. ANY further Moodle change is either
+    by hand in Moodle or a NEW merge-only mbz containing ONLY new
+    material -- never re-restore this file. Remaining by hand: section 0
+    (item 2).
 17. Python ports, in order of need: 1.50 starter notebook DONE
     2026-09-02 (`NewtonsLaws/skateboard_1_50.ipynb`); Linear Drag and
     Linear Drag Range DONE 2026-09-03 (`Drag/linear_drag.ipynb`,
