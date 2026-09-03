@@ -76,7 +76,9 @@ CONTENT = [
     ("Trajectories and range; quadratic air drag", "2.3-2.4",
      "Knight: Ch. 4 (Kinematics in 2D)\nMath Methods: Ch. 1 (Intro to ODEs)\n"
      "Other: Algebra, graphs, integrals, derivatives"),
-    ("Lorentz force law; cyclotron motion", "2.5",
+    # Reading widened 2.5 -> 2.5-2.7 (coverage audit 2026-09-03): Will's
+    # labels were narrower than what he taught; HW02's 2.53 is section 2.7.
+    ("Lorentz force law; cyclotron motion", "2.5-2.7",
      "Knight: Ch. 3 (Vectors), Ch. 22-23 (Electromagnetism Review)\n"
      "Math Methods: Ch. 3 (Complex numbers, Euler's equation), "
      "Ch. 8 (Vector Calculus)\nOther: Cross products"),
@@ -137,7 +139,8 @@ CONTENT = [
      "Math Methods: Ch. 8 (Vector Calculus)"),
     ("Angular velocity; rotating frames", "9.3-9.5",
      "Math Methods: Ch. 8 (Vectors in Curvilinear Coordinates)"),
-    ("Centrifugal force; Coriolis force", "9.6-9.7", ""),
+    # 9.6-9.7 -> 9.6-9.8 (audit 2026-09-03): HW11's 9.28, 9.29 are 9.8.
+    ("Centrifugal force; Coriolis force", "9.6-9.8", ""),
     ("Coupled oscillators; two masses and three springs", "11.1-11.2",
      "Knight: Ch. 15 (Oscillations)\nMath Methods: Ch. 6 "
      "(Eigenvectors/Eigenvalues)\nReview the ideas behind basis vectors"),
@@ -149,11 +152,13 @@ CONTENT = [
     # catch-up day becomes the review day right before Exam 3.
     ("Double pendulum", "11.4", ""),
     ("Catch-up / review day (Exam 3 is Monday)", "", ""),
-    ("Chaos: the driven damped pendulum; period doubling", "12.1-12.3", ""),
+    # 12.1-12.3 -> 12.1-12.5 (audit 2026-09-03): Will's chaos notebooks are
+    # bifurcation and Lyapunov exponents = 12.4-12.5; HW13 draws on both.
+    ("Chaos: the driven damped pendulum; period doubling", "12.1-12.4", ""),
     # Liouville aside lives here (TODO item 20; materials in
     # ../../../FluctuationTheorems/01-classical-mechanics/).
     ("Chaos: sensitivity to initial conditions; Liouville aside",
-     "12.1-12.3", ""),
+     "12.4-12.5", ""),
     ("Last day: review and wrap-up", "", ""),
 ]
 

@@ -162,12 +162,16 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 14. DONE 2026-09-02: PCCIs for every class day are in the generator
     (Will's Look-At problems, one per day; reading prompts where he had
     none). Only day 1 has none, by design.
-15. HW coverage audit, Taylor edition: every assigned problem's section
-    vs the date that section is taught, using the OCR'd section
-    boundaries in `private/F2026PrepPacks/_shared/will-problem-tables.md`
-    (Ch 5-12 done there; Ch 1-4 boundaries still to recover). The
-    Wednesday rule makes violations unlikely, but PHY 210's audit found
-    real ordering defects under a rule that also looked safe.
+15. DONE 2026-09-03: HW coverage audit, Taylor edition.
+    `audit_taylor_coverage.py` maps every assigned problem to its Taylor
+    section (section headers OCR'd from the scanned PDF: tesseract over
+    all 808 pages, text in `private/TaylorOCR/`, PDF page = book page +
+    15) and that section to the first class day whose reading covers it.
+    Result: 71 problems, 0 taught on or after their due date. The 8
+    initial flags were reading LABELS narrower than what Will taught, now
+    widened in the generator: Ch 2 day 3 = 2.5-2.7 (2.53 is 2.7), Ch 9
+    day 3 = 9.6-9.8 (9.28/9.29), chaos days = 12.1-12.4 and 12.4-12.5
+    (12.7-12.13). Rerun the audit after any HWS or CONTENT edit.
 16. RESTORED 2026-09-03 (Michael: "went well"). `private/MoodleBuild/build_317.py` ->
     `PHY317-F2026-course.mbz` (11 chapter sections, 4 grade categories +
     2 participation items, 17 assignments; validated: gradebook 1000,
