@@ -22,6 +22,7 @@
 \usepackage{booktabs}
 \usepackage{listings}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \lstset{language=Python, basicstyle=\ttfamily\small, columns=fullflexible,
   keepspaces=true, commentstyle=\itshape, showstringspaces=false,
   xleftmargin=1.5em, frame=none}
@@ -388,7 +389,7 @@ in the direction shown in this picture:
   \node[below] at (2.6,-0.08) {$m$};
   \draw[<->] (0,-0.45) -- (2.6,-0.45) node[midway,below] {$\rho$};
   \draw[thick] (0,1.72) -- (2.6,0) node[midway,above right] {$r$};
-  \draw[->,very thick,red] (2.6,0) -- (1.9,0.46) node[above,red] {$d\vec F$};
+  \draw[-{Latex[length=3mm,width=2.4mm]},line width=1.6pt,red] (2.6,0) -- (1.9,0.46) node[above,red] {$d\vec F$};
   \draw (1.9,0) arc[start angle=180, end angle=146.5, radius=0.7];
   \node at (1.55,0.2) {$\alpha$};
 \end{tikzpicture}
