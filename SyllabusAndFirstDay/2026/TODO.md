@@ -148,11 +148,12 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 
 ## Build tasks
 
-13. Prep packs: 01-05 (weeks 1-2) DONE 2026-09-02 -- `00-prep-notes.md`
-    per day + Will/Seth sources at `private/F2026PrepPacks/`. Packs 06-11
-    (Ch 3-4, weeks 3-4) have folders + sources + the raw deck extraction
-    (`RAW-will-ch3-ch4-deck-extraction.md`) but no `00-prep-notes.md`
-    yet. Headline errata already known for them: Will's Ch 3 deck has NO
+13. Prep packs 01-11 (weeks 1-4, through Fri Oct 2) DONE (01-05 on
+    2026-09-02, 06-11 on 2026-09-03): `00-prep-notes.md` per day +
+    Will/Seth sources + the raw deck extractions at
+    `private/F2026PrepPacks/`. Next to build: 12 (Mon Oct 5 holder) and
+    the Ch 5 packs 13-16, which need a Ch 5 deck read first (Will's
+    Ch 5 deck is 4 days / ~30 slides). Headline errata for Ch 3-4: Will's Ch 3 deck has NO
     Monday ink (exported before the moment-of-inertia class); Ch 4
     slides 14-15 have (1/2) m xdot^2 = U - E (should be E - U); HW03's
     3.36 solution uses I = 2mb (should be 2mb^2); HW04's solutions are
@@ -171,9 +172,12 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     see that directory's README). Then the two-number gate: course total
     0 before, 1000 after.
 17. Python ports, in order of need: 1.50 starter notebook DONE
-    2026-09-02 (`NewtonsLaws/skateboard_1_50.ipynb`, executed; attach to
-    HW01); Linear Drag / Linear Drag Range (class 03-04 demos); Rockets
-    (class 06); then chapter by chapter. HW13 helper by late November.
+    2026-09-02 (`NewtonsLaws/skateboard_1_50.ipynb`); Linear Drag and
+    Linear Drag Range DONE 2026-09-03 (`Drag/linear_drag.ipynb`,
+    `Drag/linear_drag_range.ipynb`, executed); next Rockets (class 06,
+    Mon Sep 21: Tsiolkovsky + the gravity-tax slider as a parameter
+    sweep), then Ch 5 (2DHM, DampedOscillations, FourierSeriesOfSquareWave).
+    HW13 helper by late November.
 18. Seth's order-of-magnitude assignment (12 hand-computed solar-system
     questions ending with the falling Moon predicting g; full solutions
     at `private/F2026PrepPacks/_shared/Seth order-of-magnitude
