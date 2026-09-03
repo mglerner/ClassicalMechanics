@@ -101,12 +101,12 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
    Syllabus restyled 2026-09-02 in Seth's layout, no prose preamble;
    Will's AI statement + prompts + example problem (now in Python)
    reused with credit. Post to Moodle as the GitHub raw link (master).
-2. Moodle shell: Collapsed Topics; section names per the spec; syllabus
-   link; the schedule Sheet (convert the xlsx ONCE; embed range
-   `A1:I16`, note column I); anonymous Feedback; office-hours poll;
-   Will's "AI prompts for students" PDF. Then the exemplar HW + exam
-   assignments, -nu backup -> `private/MoodleBuild/`, so `build_317.py`
-   can be written and the 17 assignments merged in.
+2. Moodle shell: settings, sections 0-2 and the exemplars DONE
+   2026-09-03; the mbz is built (item 16). Still by hand after the
+   restore: syllabus link; the schedule Sheet (convert the xlsx ONCE;
+   embed range `A1:I16`, note column I); anonymous + mid-semester
+   Feedback; office-hours poll; Will's "AI prompts for students" PDF;
+   attach the 1.50 notebook to HW01.
 3. Week-1 decks (classes 01, 02) from prep packs 01-02 once their
    `00-prep-notes.md` exist (deck reads in progress 2026-09-02).
 4. Zoom recurring meeting for this section (MWF at 1:20/1:40 -- two
@@ -168,9 +168,12 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     (Ch 5-12 done there; Ch 1-4 boundaries still to recover). The
     Wednesday rule makes violations unlikely, but PHY 210's audit found
     real ordering defects under a rule that also looked safe.
-16. `private/MoodleBuild/build_317.py` (after the shell backup exists;
-    see that directory's README). Then the two-number gate: course total
-    0 before, 1000 after.
+16. DONE 2026-09-03: `private/MoodleBuild/build_317.py` ->
+    `PHY317-F2026-course.mbz` (11 chapter sections, 4 grade categories +
+    2 participation items, 17 assignments; validated: gradebook 1000,
+    ustar + index + declarations). Michael: delete the exemplar HW01 and
+    Exam 1, check the gate (course total 0), MERGE-restore once, check
+    1000. Then section 0 by hand (see the README there).
 17. Python ports, in order of need: 1.50 starter notebook DONE
     2026-09-02 (`NewtonsLaws/skateboard_1_50.ipynb`); Linear Drag and
     Linear Drag Range DONE 2026-09-03 (`Drag/linear_drag.ipynb`,

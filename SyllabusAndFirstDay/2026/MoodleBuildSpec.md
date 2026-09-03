@@ -25,43 +25,39 @@ students' Moodle calendar.
 
 ## Sections (Collapsed Topics)
 
-0. **General / Course Information** -- syllabus (the GitHub raw link to
-   `PHY317Syllabus.pdf` on master, as for PHY 210, so commits update it
-   live); the Course Calendar Page (schedule embed, below); posit.smith.edu
-   pointer; office-hours info; Will's "AI prompts for students" PDF
-   (re-posted with credit -- it is a department document); anonymous
-   feedback via a Moodle Feedback activity (anonymous, multiple
-   submissions allowed, one open textarea); the week-1 office-hours
-   scheduling poll (temporary); and the SECOND Feedback activity,
-   **mid-semester feedback** (decided 2026-08-25, both courses), hidden
-   until fall break, at least these three textarea questions:
+As built 2026-09-03 (Michael made 0-2 by hand; the mbz creates 3-13):
+
+0. **General** -- syllabus (the GitHub raw link to `PHY317Syllabus.pdf` on
+   main, so commits update it live); the Course Calendar Page (schedule
+   embed, below); posit.smith.edu pointer; office-hours info; Will's "AI
+   prompts for students" PDF (a department document); anonymous feedback
+   via a Moodle Feedback activity (anonymous, multiple submissions, one
+   open textarea); the week-1 office-hours scheduling poll (temporary);
+   and the SECOND Feedback activity, **mid-semester feedback** (decided
+   2026-08-25, both courses), hidden until fall break, at least these
+   three textarea questions:
    1. What's working well?
    2. What's not working well, and how can the instructor make things
       better?
    3. What can you, as the student, do to make the class better?
-1. **Homework** -- standing section, Will-style: the 13 HW assignments.
-   Each assignment's description carries that week's problem list (the
-   generator's HW Problem Lists tab is the source) with custom problems
-   written out in full. Section name carries the standing rule
-   ("Homework -- Wednesdays 10:00 PM"); NO section summary (merge
-   restores reinstate stale summaries; see the PHY 210 MoodleBuild
-   README).
-2. **Ch 1: Newton's laws**
-3. **Ch 2: Projectiles and charged particles**
-4. **Ch 3: Momentum and angular momentum**
-5. **Ch 4: Energy**
-6. **Ch 5: Oscillations**
-7. **Ch 6: Calculus of variations**
-8. **Ch 7: Lagrange's equations**
-9. **Ch 8: Two-body central-force problems**
-10. **Ch 9: Mechanics in non-inertial frames**
-11. **Ch 11: Coupled oscillators and normal modes** (+ a link to the
-    PHY 210 linear-algebra review material; Will delegated a whole
-    subsection of his own PHY 210 decks here -- ours can point at
-    Felder Ch 6 and the PHY 210 course page instead)
-12. **Ch 12: Nonlinear mechanics and chaos**
-13. **Exams** -- the three exam assignments + the final; practice
-    problems / solutions as each exam approaches.
+1. **Homework** -- the 13 HW assignments. Section name carries NO dates
+   (Michael, 2026-09-03: the assignments already carry them). NO section
+   summary anywhere (merge restores reinstate stale summaries).
+2. **Exams** -- the three exam assignments + the final; practice
+   problems / solutions as each exam approaches.
+3. **Ch 1: Newton's laws**
+4. **Ch 2: Projectiles and charged particles**
+5. **Ch 3: Momentum and angular momentum**
+6. **Ch 4: Energy**
+7. **Ch 5: Oscillations**
+8. **Ch 6: Calculus of variations**
+9. **Ch 7: Lagrange's equations**
+10. **Ch 8: Two-body central-force problems**
+11. **Ch 9: Mechanics in non-inertial frames**
+12. **Ch 11: Coupled oscillators and normal modes** (+ a pointer to
+    Felder Ch 6 / the PHY 210 page for the eigenvector prerequisite; Will
+    embedded his own PHY 210 decks here)
+13. **Ch 12: Nonlinear mechanics and chaos**
 
 Per-chapter sections hold: the posted class-notes PDFs (GoodNotes
 exports after each class, Will's "updated with class markings"
@@ -130,9 +126,9 @@ hw-descriptions.html` once written (build task).
 
 Categories (aggregation Natural):
 - Participation & PCCIs -- 70 pts; graded on paper; two manual items
-  ("Participation through fall break" /28 for 14 days, "Participation
-  after fall break" /50 for 25 days; the four drops are handled on the
-  paper tally, as in PHY 210).
+  ("Participation through fall break" /25, "Participation after fall
+  break" /45 -- the 70 split in proportion to 14 and 25 class days; the
+  four drops are handled on the paper tally, as in PHY 210).
 - Weekly homework -- 13 x 25, **droplow = 1** on the category.
 - Exams -- 3 assignments @ 190.
 - Final exam -- 1 assignment @ 60.
@@ -154,25 +150,16 @@ with a regenerated `.ARCHIVE_INDEX` first and the double-quoted XML
 declaration; never rehearse in a sandbox course; restore exactly once;
 the mbz must carry no section summaries.
 
-The 317 shell differs from 210's in ONE useful way: it starts with a
-single (course) grade category, so `restore_gradebook_structure_step`
-RUNS on the first merge and the mbz's `gradebook.xml` is applied. That
-means one merge-only mbz can carry sections + categories + all 17
-assignments, provided it is built against a -nu backup of the actual
-317 shell (section ids, course id, context ids). Protocol:
-
-1. Michael: in the F2026 PHY 317 shell, set the course format to
-   Collapsed Topics, hand-build ONE HW assignment (PDF-only, 1 file)
-   and one exam assignment (no submission) as exemplars, back up with
-   -nu, drop the mbz in `private/MoodleBuild/`.
-2. Script (`private/MoodleBuild/build_317.py`, to be adapted from
-   PHY 210's `build_assignments.py`): name sections 1-13, build the
-   four grade categories, clone the two exemplars into 13 + 4
-   assignments with dates from `make_fall2026_calendar.HWS` (one source
-   of truth), strip everything that already exists live, validate,
-   pack.
-3. Michael: delete the two exemplars in Moodle, restore with MERGE,
-   check the two-number gate (course total 0 -> 1000).
+DONE 2026-09-03: Michael built sections 0-2 and the two exemplar
+assignments in the shell (course 57083) and dropped the -nu backup in
+`private/MoodleBuild/`; `build_317.py` produced
+`PHY317-F2026-course.mbz`, one merge-only file with the 11 chapter
+sections, the 4 grade categories + 2 participation items, and all 17
+assignments. Two things differ from the 210 build and make this a single
+file: the shell has one grade category, so Moodle's gradebook restore
+step runs on merge and creates ours; and a merge restore creates section
+numbers that do not exist in the target. The restore protocol and the
+two-number gate (0 before, 1000 after) are in that directory's README.
 
 ## Deliberately NOT doing
 
