@@ -1,3 +1,11 @@
 *.ipynb filter=nbstripout
 *.zpln filter=nbstripout
 *.ipynb diff=ipynb
+
+# To commit a notebook WITH its outputs (a worked example, a demo whose
+# plots should show on GitHub), exempt it from the filter here, e.g.
+#   Examples/*.ipynb   -filter -diff
+#   Drag/demo.ipynb    -filter -diff
+# or, keeping the filter on, tag individual cells `keep_output` (or set
+# notebook metadata "keep_output": true) and nbstripout leaves those
+# outputs alone.
