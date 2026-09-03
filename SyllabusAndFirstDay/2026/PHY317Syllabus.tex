@@ -21,6 +21,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{listings}
+\usepackage{tikz}
 \lstset{language=Python, basicstyle=\ttfamily\small, columns=fullflexible,
   keepspaces=true, commentstyle=\itshape, showstringspaces=false,
   xleftmargin=1.5em, frame=none}
@@ -64,13 +65,12 @@ is most of the time.
 
 \section{Course structure}
 %
-PHY 317 is Smith's upper-level mechanics course. It builds directly on
-PHY 117 (and a little of PHY 118) and uses the mathematics from PHY 210
-constantly. We follow Taylor: Newtonian mechanics with realistic forces
-(Ch.\ 1--4), oscillations (Ch.\ 5), the calculus of variations and
-Lagrangian mechanics (Ch.\ 6--7), central forces and orbits (Ch.\ 8),
-non-inertial frames (Ch.\ 9), coupled oscillators and normal modes
-(Ch.\ 11), and chaos (Ch.\ 12).
+PHY 317 is Smith's upper-level mechanics course, designed to build on PHY 117
+(and a little of PHY 118) and to use the mathematics from PHY 210. We'll follow
+Taylor: Newtonian mechanics with realistic forces (Ch.\ 1--4), oscillations (Ch.\
+5), the calculus of variations and Lagrangian mechanics (Ch.\ 6--7), central
+forces and orbits (Ch.\ 8), non-inertial frames (Ch.\ 9), coupled oscillators
+and normal modes (Ch.\ 11), and chaos (Ch.\ 12).
 
 \medskip
 The course meets three times a week for 75 minutes, with a lot of group
@@ -79,18 +79,17 @@ homework, three in-class exams, and a final exam with redemption
 problems. The grade breakdown is below. Read the assigned sections
 \emph{before} class; class time assumes you have.
 
-\medskip
-\textbf{Just-in-time review.} The course calendar on Moodle has a
-``Prerequisites'' column that lists, for each new topic, the earlier
-material it leans on (by Knight chapter for intro physics and by Felder
-\& Felder chapter for math methods). There are two good ways to use it:
-\emph{just-in-time} -- review those concepts before we get to the topic
--- or \emph{just-after-time} -- if a new idea is rough going, use the
-list to find and shore up the foundation right after class. If you find the prerequisite material itself is
-the problem, come see me early; closing a gap in week 3 is easy and in
-week 10 it is not.\footnote{Much of this syllabus, and much of this
-course, is taken (with permission) from Will Raven. Thanks, Will!
-Smaller bits are taken from Seth Hopper. Thanks, Seth!}
+\medskip \textbf{Just-in-time review.} The course calendar on Moodle has a
+``Prerequisites'' column that lists, for each new topic, the earlier material it
+leans on (by Knight chapter for intro physics and by Felder \& Felder chapter
+for math methods). There are two good ways to use it: \emph{just-in-time} --
+review those concepts before we get to the topic -- or \emph{just-after-time} --
+if a new idea is rough going, use the list to find and shore up the foundation
+right after class. If you find the prerequisite material itself is the problem,
+come see me early; closing a gap in week 3 is far easier than closing it in week
+10.\footnote{Much of this syllabus, and much of this course, is taken (with
+  permission) from Will Raven at Smith. Thanks, Will! Smaller bits are taken from Seth
+  Hopper at Earlham. Thanks, Seth!}
 
 \bigskip
 
@@ -98,21 +97,16 @@ Smaller bits are taken from Seth Hopper. Thanks, Seth!}
 %
 By the end of this course, the assiduous student will $\ldots$
 \begin{itemize}
-\item[$\ldots$] set up and solve the equations of motion for a mechanical
-  system in whatever coordinates the problem wants -- Cartesian, polar,
-  or generalized -- starting from Newton's laws or from a Lagrangian;
-\item[$\ldots$] use the conservation laws (momentum, angular momentum,
-  energy) as \emph{tools}, and know when each one applies and why;
-\item[$\ldots$] analyze oscillations: damped, driven, resonant, coupled,
-  and their normal modes;
-\item[$\ldots$] solve the central-force problem and read an orbit off an
-  effective potential; work in accelerating and rotating frames;
+  \item[$\ldots$] learn, with mathematical rigor, about a variety of features of
+    classical systems, including energy, momentum, oscillations, Lagrangian
+    dynamics, the two body problem, among other subjects.
+\item[$\ldots$] use conservation laws (momentum, angular momentum,
+  energy) as \emph{tools}, knowing when each one applies and why;
 \item[$\ldots$] explain what chaos is and is not, and recognize it in a
   simulation;
 \item[$\ldots$] use Python to solve equations of motion numerically, to
-  check analytic results, and to explore what happens when the algebra
-  gives out;
-\item[$\ldots$] and check their work the way physicists do: units,
+  check analytic results, and as a tool for exploration;
+\item[$\ldots$] reinforce the assessment toolkit of physics: units,
   limiting cases, symmetry, and plugging the answer back in.
 \end{itemize}
 
@@ -145,7 +139,7 @@ due) is posted on Moodle and kept up to date there. In outline:
 \medskip
 \textbf{Key dates.}
 \begin{tabular}[t]{@{}ll@{}}
-Mon Oct 5   & Mountain Day holder\\
+Mon Oct 5   & Mountain Day placeholder\\
 Mon Oct 12  & No class (autumn recess)\\
 Mon Oct 19  & Exam 1 (Ch.\ 2--4)\\
 Fri Nov 13  & Exam 2 (Ch.\ 5--7)\\
@@ -154,9 +148,9 @@ Mon Dec 7   & Exam 3 (Ch.\ 8, 9, 11)\\
 Dec 19--22  & Final exam period (self-scheduled)\\
 \end{tabular}
 
-\medskip
-Mountain Day is announced the morning of; if it lands on a class day,
-that day's material shifts into the Oct 5 holder.
+%\medskip
+%Mountain Day is announced the morning of; if it lands on a class day,
+%that day's material shifts into the Oct 5 holder.
 
 \bigskip
 
@@ -214,25 +208,39 @@ you less than 15 minutes; if one doesn't, please tell me.
 \medskip
 Turning in the day's PCCI is also how attendance is recorded, and your
 four lowest participation days are dropped, so occasional absences and
-off days cost you nothing. This is a small class, and it runs on group
+off days cost you nothing. This is a small class, and it depends on group
 work at the board; your classmates are a resource for you and vice versa,
 and that in-class work is one of the main benefits of a school like
 Smith. If you have an accommodation, please come talk to me so that we
-can make the class work for both of us, but \emph{in general}, I will
+can make the class work for both of us. \emph{In general}, I will
 expect you to miss no more than four classes, and missing more than four
 may adversely affect your grade.
+% Will's grade caps, removed 2026-09-03 pending his advice (put back by
+% uncommenting if he recommends them):
+%\begin{itemize}
+%    \item if you miss more than \textbf{4 classes}, the highest grade you can earn is a \textbf{B}.
+%    \item if you miss more than \textbf{8 classes}, the highest grade you can earn is a \textbf{C}.
+%    \item if you miss more than \textbf{12 classes}, the highest grade you can earn is a \textbf{D}.
+%    \item if you miss more than \textbf{16 classes}, you will fail the course.
+%\end{itemize}
+%Please prioritize consistent attendance to support your learning and success in this course.
+%
+%\medskip
+%Additional absences due to emergencies, illnesses, or other extenuating
+%circumstances can be approved for this class through conversations with your
+%class Dean.
 
 \bigskip
 
 \section{Homework}
 %
-Physics is learned by doing problems, and upper-level mechanics problems
+We learn physics by doing problems, and upper-level mechanics problems
 are long: expect a set of five or six Taylor problems each week, most of
 them substantial. Homework is posted on Moodle and due there
-\textbf{Wednesdays by 10:00 PM} as a single PDF of your written work
-(photos of handwritten pages are fine; combine them into one PDF). A few
-due dates move to sit before an exam or a break; the Moodle calendar is
-authoritative. Most weeks one problem is \textbf{computational}, done in
+\textbf{Wednesdays by 10:00 PM} (usually) as a single PDF of your written work
+(photos of handwritten pages are fine; combine them into one PDF). I move a few
+due dates around due to exams and breaks, but Moodle's due dates count as authoritative.
+Most weeks one problem is \textbf{computational}, done in
 Python on posit.smith.edu (see \emph{Python} below); include your code
 and its plots in the PDF.
 
@@ -262,16 +270,29 @@ of them, and it is worth points in the rubric.
   \item[X] $= 25\%$: There was a lot of confusion on the topic.
     Submitting a completely correct solution along with an in-depth
     reflection on the problem increases your grade up to a 75\%.
-  \item[$0$:] You skipped the problem.
+  \item[$0$:] You skipped the problem. \textbf{Don't do this!} You get 25\% just
+    for writing \emph{something} down!
 \end{itemize}
-Your reflection should address why you got the problem wrong, your
-initial misconceptions, and, most importantly, what you have learned to
-correct those misconceptions. Research in pedagogy highlights reflection
-as one of the most effective learning tools. Resubmissions and
-reflections are due within 10 days after the homework is returned and
-must be submitted on a separate paper along with the next homework set.
-Reflections that lack sufficient depth or fail to demonstrate meaningful
-engagement with the problem will result in fewer points.
+Your reflection should address why you got the problem wrong, your initial
+misconceptions, and, most importantly, what you have learned to correct those
+misconceptions. Research in pedagogy highlights reflection as one of the most
+effective learning tools. Resubmissions and reflections are due within
+\textbf{10 days after the homework is returned} and must be submitted on a
+separate paper along with the next homework set. Reflections that lack
+sufficient depth or fail to demonstrate meaningful engagement with the problem
+will result in fewer points.
+
+\section{Late policy}
+%
+It is extremely hard to catch up on late work (usually things are late
+because you are busy, and people don't tend to get less busy!). That is
+why every category has built-in drops: four participation days, one full
+homework set. My strong suggestion, when life happens, is to use the
+drops and prioritize getting your schedule back under control.
+
+\medskip
+Unless approved beforehand \emph{late homework will receive at most half
+  credit}. Homework greater than one week late will not be accepted.
 
 \bigskip
 
@@ -292,54 +313,27 @@ the exam is given.
 \textbf{The final exam}, during the December 19--22 self-scheduled exam
 period, has two parts:
 \begin{enumerate}
-  \item \textbf{Required} (60 points): one problem on Chapter 12 (chaos),
-    the only chapter not covered by an in-class exam.
+  \item \textbf{Required} (60 points): one problem on Chapter 12 (chaos) is
+    mandatory.
+    
   \item \textbf{Optional grade-replacement problems}: nine more problems,
     one for each chapter that appeared on the three exams (Chapters 2--9
-    and 11). Attempt any of them. For each one you solve, the new score
+    and 11). You may attempt any of them. For each one you solve, the new score
     \emph{replaces} your score on the corresponding exam problem if and
     only if it is higher. There is no penalty for an attempt; this can
     only improve your grade.
 \end{enumerate}
 Do the required problem first; then do as many redemption problems as
-you want and have time for. I keep per-problem exam scores all semester
-precisely so this works.
+you want and have time for.
 
 \medskip
-\textbf{Partial credit, and how to get it.} Several of the problems in
-this class are quite challenging. For the harder problems, my goal is to
-have you make the strongest possible effort toward \textbf{understanding}
-the solution. Thus, if you cannot fully solve a problem, say whatever you
-can about the way in which a solution would proceed from where you stop;
-say whatever you can about the qualitative behavior of a solution; say
-whatever you can about the physical meaning of the solution. And always,
-always: \textbf{check your units}, \textbf{check the limiting cases}, and
-\textbf{plug your solution back into the equation of motion}. You are
-never done solving an equation of motion until you have verified that
-your solution works.
+\textbf{Partial credit, and how to get it.} Just like with homework problems,
+make sure to write \emph{something} down. The more of your thought process you
+write down, the more credit I can give you. Assess things. If your assessment
+says you got something wrong, but you don't know what you got wrong \emph{say that}!
 
 \bigskip
 
-\section{Late policy}
-%
-It is extremely hard to catch up on late work (usually things are late
-because you are busy, and people don't tend to get less busy!). That is
-why every category has built-in drops: four participation days, one full
-homework set. My strong suggestion, when life happens, is to use the
-drops and prioritize getting your schedule back under control.
-
-\medskip
-Beyond the drops: all students start the term with \textbf{3 free late
-passes}. You can spend a late pass to extend a homework set to the
-following class period with no penalty. Late passes are not automatic --
-email me before the deadline to say you're using one, and once declared
-it is spent whether or not you turn the work in by the extended date.
-Late passes cannot be applied to PCCIs (their whole value is priming you
-for that day's class -- the drops cover them), to exams, or to the final.
-After your free passes are spent, further extensions cost 10\%, then
-20\%, and so on, of that assignment's points.
-
-\bigskip
 
 \section{Python \\ (and \\ Mathematica)}
 %
@@ -357,12 +351,12 @@ prefer it, you may use it for any computational problem.
 Two expectations:
 \begin{enumerate}
   \item \textbf{Simplification first.} For homework and exams, anything
-    that can be done with physics -- an integral that vanishes by
+    that can be done with concepts -- an integral that vanishes by
     symmetry or because the integrand is odd, a limit you can read off --
-    gets done on paper first. The computer confirms; it does not replace
-    your understanding of the core principles.
-  \item \textbf{Exploration and assessment.} Use the computer to push
-    past the algebra: vary a parameter, plot the thing, check a limiting
+    should be done on paper first. Computational tools can be used to confirm
+    these results, but should not replace your understanding of the core principles.
+  \item \textbf{Exploration and assessment.} Use computational tools to push
+    past the algebra: vary a parameter, plot something, check a limiting
     case numerically. Say in your write-up what you predicted
     \emph{before} running it and what you concluded \emph{after}.
 \end{enumerate}
@@ -374,32 +368,64 @@ gravitational force on a point mass $m$ at a distance $\rho$ from the
 $z$-axis.}
 
 \medskip
-\emph{Solution.} First I consider the force on $m$ due to a short segment
-$dz$ of the rod at height $z$ above $m$. It has magnitude
-$dF = G m\,\mu\,dz / r^2$, directed toward the segment, where $r =
-\sqrt{z^2 + \rho^2}$. To find the total force I need to integrate from
-$z = -\infty$ to $+\infty$. When I do, the $z$-components cancel by
-symmetry (the segment at $-z$ pulls up exactly as hard as the one at $z$
-pulls down), and the component perpendicular to the plane of the rod and
-the mass vanishes by cylindrical symmetry. So I only need the radial
-component, $dF_\rho = -dF \cos\alpha = -G m \mu\, \rho\, dz / r^3$,
-with the minus sign because it points toward the rod. That leaves
+\emph{Solution.} First, I want to consider the force on $m$ due to a
+short segment $dz$ of the rod at a height $z$ above $m$. The force has
+magnitude
 \[
-  F_\rho = -G m \mu \rho \int_{-\infty}^{\infty} \frac{dz}{(z^2+\rho^2)^{3/2}} .
+  dF = \frac{G m \mu\, dz}{r^2}, \qquad r = \sqrt{z^2 + \rho^2},
 \]
-I used Python for the last step -- SymPy for the integral itself, and
+in the direction shown in this picture:
+\begin{center}
+\begin{tikzpicture}[scale=1.15]
+  \draw[very thick] (0,-2.0) -- (0,2.6);
+  \draw[->] (0,2.6) -- (0,3.1) node[above] {$z$};
+  \draw[->] (0,0) -- (3.6,0) node[right] {$\rho$};
+  \node[below left] at (0,0) {$O$};
+  \fill[gray!60] (-0.1,1.6) rectangle (0.1,1.84);
+  \node[left] at (-0.14,1.72) {$dz$};
+  \draw[<->] (0.4,0.05) -- (0.4,1.67) node[midway,right] {$z$};
+  \fill (2.6,0) circle (0.07);
+  \node[below] at (2.6,-0.08) {$m$};
+  \draw[->,thick] (0,1.72) -- (2.52,0.05) node[midway,above right] {$r$};
+  \draw[->,very thick,red] (2.6,0) -- (1.9,0.46) node[above,red] {$d\vec F$};
+  \draw (1.9,0) arc[start angle=180, end angle=146.5, radius=0.7];
+  \node at (1.55,0.2) {$\alpha$};
+\end{tikzpicture}
+\end{center}
+To find the total force, I need to integrate from $z = -\infty$ to
+$+\infty$. When we do this, the $z$-components $dF_z$ will cancel due to
+symmetry: the segment at $-z$ pulls up exactly as hard as the one at
+$+z$ pulls down. In addition, the component into the page must also be
+zero due to cylindrical symmetry. So I just need to find the radial
+component,
+\[
+  dF_\rho = -\,dF \cos\alpha = -\frac{G m \mu\, dz}{r^2}\,\frac{\rho}{r}
+          = -\frac{G m \mu\, \rho\, dz}{(z^2+\rho^2)^{3/2}},
+\]
+with the minus sign because it points toward the rod (the $-\hat\rho$
+direction). Since we are integrating over $z$, I have expressed $r$ in
+terms of $z$; note that $\rho$ is independent of $z$. Then
+\[
+  F_\rho = -G m \mu \rho \int_{-\infty}^{\infty} \frac{dz}{(z^2+\rho^2)^{3/2}}
+         = -\frac{2 G m \mu}{\rho}.
+\]
+I used Python for the last step -- SymPy for the integral itself -- and
 then, just for fun, I had it confirm that the $z$-component really is
-zero (it must be: the integrand is odd):
+zero. It must be, since $dF_z = dF \sin\alpha = G m \mu\, z\, dz / r^3$
+is odd in $z$:
+\[
+  F_z = G m \mu \int_{-\infty}^{\infty} \frac{z\, dz}{(z^2+\rho^2)^{3/2}} = 0 .
+\]
 \begin{lstlisting}
 import sympy as sp
 G, m, mu, rho = sp.symbols("G m mu rho", positive=True)
 z = sp.symbols("z", real=True)
 r = sp.sqrt(z**2 + rho**2)
 F_rho = sp.integrate(-G*m*mu*rho / r**3, (z, -sp.oo, sp.oo))
-F_z   = sp.integrate(-G*m*mu*z   / r**3, (z, -sp.oo, sp.oo))
+F_z   = sp.integrate( G*m*mu*z   / r**3, (z, -sp.oo, sp.oo))
 print(F_rho, F_z)     # prints:  -2*G*m*mu/rho   0
 \end{lstlisting}
-So the final answer is
+The final answer is then
 \[
   \vec F = -\frac{2 G m \mu}{\rho}\,\hat{\rho} .
 \]
@@ -557,11 +583,10 @@ weekends), you should email me again or drop by my office to ask your
 question in person. I cannot guarantee that I will regularly check my
 email on evenings or on weekends.
 
-\medskip
-I expect that you will check your Smith email at least once per day: 24
-hours after I email the class, I expect everyone has read it. Emailed
-assignments, due dates, and policy changes carry the same weight as this
-syllabus, and the same goes for Moodle.
+\medskip I expect that you will check your Smith email at least once per day: 24
+hours after I email the class, I expect everyone has read it (excluding
+weekends, of course). Emailed assignments, due dates, and policy changes carry
+the same weight as this syllabus, and the same goes for Moodle.
 
 \medskip
 \textbf{Workload.} This course should take about 12 hours of your time
@@ -654,23 +679,24 @@ something isn't working.
 
 \bigskip
 
+%\section{Getting help}
+%%
+%\textbf{Books.} Taylor is unusually readable; most weeks the reading is
+%the best preparation you can do. When you want a second voice: Morin,
+%\textit{Introduction to Classical Mechanics}, has the best problem
+%collection in the subject (with solutions) and a more demanding style;
+%Kleppner \& Kolenkow, \textit{An Introduction to Mechanics}, is the
+%classic at a slightly lower level and is excellent on rotating frames and
+%angular momentum; Marion \& Thornton, \textit{Classical Dynamics of
+%Particles and Systems}, is the traditional alternative to Taylor and
+%covers the same ground in a different order. Feynman's lecture on the
+%principle of least action (Volume II, Chapter 19, free at
+%\href{https://www.feynmanlectures.caltech.edu/}{feynmanlectures.caltech.edu})
+%is worth reading once we reach Lagrangians. Later in your career:
+%Goldstein, \textit{Classical Mechanics}, the graduate standard.
+%
 \section{Getting help}
 %
-\textbf{Books.} Taylor is unusually readable; most weeks the reading is
-the best preparation you can do. When you want a second voice: Morin,
-\textit{Introduction to Classical Mechanics}, has the best problem
-collection in the subject (with solutions) and a more demanding style;
-Kleppner \& Kolenkow, \textit{An Introduction to Mechanics}, is the
-classic at a slightly lower level and is excellent on rotating frames and
-angular momentum; Marion \& Thornton, \textit{Classical Dynamics of
-Particles and Systems}, is the traditional alternative to Taylor and
-covers the same ground in a different order. Feynman's lecture on the
-principle of least action (Volume II, Chapter 19, free at
-\href{https://www.feynmanlectures.caltech.edu/}{feynmanlectures.caltech.edu})
-is worth reading once we reach Lagrangians. Later in your career:
-Goldstein, \textit{Classical Mechanics}, the graduate standard.
-
-\medskip
 \textbf{People and places.} There are many resources at Smith to help you
 succeed in this course and in your college career:
 \begin{itemize}

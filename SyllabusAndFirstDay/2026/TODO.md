@@ -29,14 +29,20 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
   and must precede the Ch 5-7 exam). The move also gives a review day
   right before it, as Exam 3 already has. Cost: Ch 7 -> Exam 2 gap
   11 days (Will's 7). Revert = one index in `EXAMS` + swap two rows.
-  MICHAEL TO CONFIRM (it is the one place the calendar departs from
-  Will's weekday pattern).
+  CONFIRMED by Michael 2026-09-03.
 - **Grading: 1000 points** (2026-09-02): participation/PCCIs 39 drop 4
   @ 2 = 70; HW 13 drop 1 @ 25 = 300; exams 3 @ 190 = 570; final
   (required Ch 12 problem) 60. Will's proportions with PHY 210's
   participation machinery; each exam problem (~63) and the final's (60)
-  worth about the same, as in his design. Will's attendance grade caps
-  and +0.5/seminar bonus dropped. MICHAEL TO CONFIRM.
+  worth about the same, as in his design. CONFIRMED by Michael
+  2026-09-03. Will's attendance grade caps are OUT for now (Michael has
+  asked Will about them and will put them back if he advises it; the
+  block is commented out in the syllabus, ready to uncomment). Seminar
+  bonus dropped.
+- **Late policy = Will's** (Michael's hand edit 2026-09-03): late
+  homework at most half credit unless approved beforehand; more than a
+  week late not accepted. The 210-style late passes are gone from this
+  course. The drops (4 participation days, 1 HW) stay.
 - **PCCIs** (2026-09-02): same machinery as 210, sourced from Will's
   "Look-At" problems (his pre-class problems, one per day, easiest star
   where he listed two) or a one-line reading prompt where he had none.
