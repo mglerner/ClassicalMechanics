@@ -174,10 +174,15 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 17. Python ports, in order of need: 1.50 starter notebook DONE
     2026-09-02 (`NewtonsLaws/skateboard_1_50.ipynb`); Linear Drag and
     Linear Drag Range DONE 2026-09-03 (`Drag/linear_drag.ipynb`,
-    `Drag/linear_drag_range.ipynb`, executed); next Rockets (class 06,
-    Mon Sep 21: Tsiolkovsky + the gravity-tax slider as a parameter
-    sweep), then Ch 5 (2DHM, DampedOscillations, FourierSeriesOfSquareWave).
-    HW13 helper by late November.
+    `Drag/linear_drag_range.ipynb`); Rockets DONE 2026-09-03
+    (`Momentum/rockets.ipynb`). All four are INTERACTIVE via ipywidgets
+    `interact` (decided 2026-09-03: match Will's Manipulate; 21 of his 22
+    notebooks had sliders), written for JupyterLab on posit.smith.edu, no
+    fallback -- if posit stays broken, Michael will ask for Colab
+    versions. ipywidgets + numpy/scipy/sympy/matplotlib must be in
+    /opt/python/3.12.3 there (in the ITS ticket). Next: Ch 5 (2DHM,
+    DampedOscillations, FourierSeriesOfSquareWave). HW13 helper by late
+    November.
 18. Seth's order-of-magnitude assignment (12 hand-computed solar-system
     questions ending with the falling Moon predicting g; full solutions
     at `private/F2026PrepPacks/_shared/Seth order-of-magnitude
