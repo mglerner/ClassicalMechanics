@@ -24,18 +24,20 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
   HW06 Fri Oct 23 (Exam 1 Monday), HW11 Mon Nov 23 (Thanksgiving),
   HW12 Fri Dec 4 (before Exam 3), HW13 Wed Dec 16 (reading period).
   All encoded in the generator's `HWS`, with hard-fail guards.
-- **Exam 2 on FRIDAY Nov 13** (2026-09-02), not Will's Monday: on the
-  Monday, HW08 and HW09 fell two days apart (HW09 is the Ch 7 practice
-  and must precede the Ch 5-7 exam). The move also gives a review day
-  right before it, as Exam 3 already has. Cost: Ch 7 -> Exam 2 gap
-  11 days (Will's 7). Revert = one index in `EXAMS` + swap two rows.
-  CONFIRMED by Michael 2026-09-03.
-- **Grading: 1000 points** (2026-09-02): participation/PCCIs 39 drop 4
-  @ 2 = 70; HW 13 drop 1 @ 25 = 300; exams 3 @ 190 = 570; final
-  (required Ch 12 problem) 60. Will's proportions with PHY 210's
-  participation machinery; each exam problem (~63) and the final's (60)
-  worth about the same, as in his design. CONFIRMED by Michael
-  2026-09-03. Will's attendance grade caps are OUT for now (Michael has
+- **Exam dates (revised 2026-09-04, Michael)**: Exam 1 Fri Oct 9
+  (Will's exact slot), Exam 2 Wed Nov 11, Exam 3 Mon Dec 7. Rule: an
+  exam comes after the last homework on its chapters is RETURNED, so
+  HW04 is due Mon Oct 5 (back Wed Oct 7) and HW09 Fri Nov 6 (back Mon
+  Nov 9, the review day). Ch 5 days shift one slot later (5.3-5.4 Wed
+  Oct 14 ... 5.7-5.8 Mon Oct 19); changing orbits moves to Fri Nov 13,
+  after Exam 2 (Ch 8 is not on it). Coverage audit still 0 violations.
+  MOODLE IS ALREADY LIVE with the old dates/points: hand edits listed
+  in item 16.
+- **Grading: 1000 points** (revised 2026-09-04 by Michael, in the
+  syllabus and the generator): participation/PCCIs 39 drop 4 @ 3.2 =
+  112; HW 13 drop 1 @ 24 = 288; exams 3 @ 180 = 540; final 60. Every
+  exam-type problem (3 per exam + the final's required one) is exactly
+  60 points. Will's attendance grade caps are OUT for now (Michael has
   asked Will about them and will put them back if he advises it; the
   block is commented out in the syllabus, ready to uncomment). Seminar
   bonus dropped.
@@ -130,8 +132,9 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 8. Exam note sheet: one handwritten 8.5x11 both sides (mirrors 210;
    Will's syllabus was silent). Confirm.
 9. HW09 keeps Will's 8.2 even though 8.1-8.2 is taught Wed Nov 4 and
-   the set is due Wed Nov 11 -- fine under the Wednesday rule; noted
-   because Will flagged HW09 as "an intensive homework set".
+   the set is now due FRIDAY Nov 6 (two days; it is the one easy
+   problem on the set). Will flagged HW09 as "an intensive homework
+   set"; with the Friday due date it also has five days, not seven.
 10. Copyright before posting anything of Will's: the 808-page Taylor
     scan and the 22 Look-At/In-Class PDFs (ISM image excerpts) do NOT
     get re-posted. Post our own worked solutions in our own hand.
@@ -180,6 +183,20 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     by hand in Moodle or a NEW merge-only mbz containing ONLY new
     material -- never re-restore this file. Remaining by hand: section 0
     (item 2).
+    MOODLE HAND EDITS NEEDED (2026-09-04 changes; the mbz is spent, so
+    these are by hand; unknown whether Michael has done any):
+    - Exam 1: due Fri Oct 9 13:20 (was Mon Oct 19 13:40); max grade 180.
+    - Exam 2: due Wed Nov 11 13:20 (was Fri Nov 13); max grade 180.
+    - Exam 3: max grade 180 (date unchanged).
+    - HW04: due Mon Oct 5 22:00 (was Wed Oct 7); Restrict access date
+      Thu Sep 24 (was Sep 27); description = regenerated HW04 block in
+      hw-descriptions.html (it now says "due Monday").
+    - HW09: due Fri Nov 6 22:00 (was Wed Nov 11); Restrict access date
+      Tue Oct 27 (was Nov 1); description = regenerated HW09 block.
+    - HW01-HW13: max grade 24 (was 25) -- Gradebook setup, 13 edits.
+    - Participation manual items: 40 (through fall break) + 72 (after)
+      = 112 (were 25 + 45 = 70).
+    Gate after: course total reads 1000 again.
 17. Python ports, in order of need: 1.50 starter notebook DONE
     2026-09-02 (`NewtonsLaws/skateboard_1_50.ipynb`); Linear Drag and
     Linear Drag Range DONE 2026-09-03 (`Drag/linear_drag.ipynb`,

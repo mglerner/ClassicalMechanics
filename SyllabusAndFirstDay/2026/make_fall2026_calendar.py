@@ -18,6 +18,7 @@ Usage: python make_fall2026_calendar.py OUTPUT.xlsx
 """
 import sys
 from datetime import date, timedelta
+from pathlib import Path
 
 import openpyxl
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
@@ -48,19 +49,21 @@ def class_days():
 # order. Readings are Taylor chapter/sections, read before class.
 # Prerequisites are Will's just-in-time review pointers: Knight = intro
 # physics (PHY 117/118), Math Methods = Felder & Felder (PHY 210).
-# Exams are pinned to slot indices. Will gave Monday exams; Exams 1 and 3
-# keep that. Exam 2 moved to FRIDAY Nov 13 (decided 2026-09-02): on the
-# Monday it forced HW08 and HW09 to land two days apart in the run-up
-# (HW09 is the Ch 7 practice and must precede the Ch 5-7 exam), and the
-# move also puts the catch-up day right before the exam as a review day,
-# exactly as Exam 3 already has. Cost: Ch 7 -> Exam 2 gap grows from 7 to
-# 11 days. Revert = index 27 -> 25 plus swapping the two CONTENT rows
-# around it. Every slot is 75 min, so weekday changes nothing else.
+# Exams are pinned to slot indices (0-based). Decided 2026-09-04 (Michael):
+# exams as early as the homework allows -- each exam comes after the last
+# homework on its chapters has been RETURNED.
+#   Exam 1 = index 13 = Fri Oct 9: Will's exact slot (his slot 14 of 39,
+#     the class after 5.1-5.2). HW04 (Ch 4) is due Mon Oct 5 and comes back
+#     Wed Oct 7.
+#   Exam 2 = index 26 = Wed Nov 11 (Will's was 27). HW09 (the Ch 7
+#     practice) is due Fri Nov 6 and comes back Mon Nov 9, the review day.
+#   Exam 3 = index 35 = Mon Dec 7 (Will's was 37; Michael: fine as is).
+# Every slot is 75 min, so the weekday changes nothing else.
 # Exam coverage per Will's syllabus (his calendar row "Ch 9-11" for Exam 3
 # was a typo; the 3x3 redemption-problem arithmetic proves 8, 9, 11).
 EXAMS = {
-    16: ("EXAM 1 (Ch 2-4)", {2, 3, 4}),          # Mon Oct 19
-    27: ("EXAM 2 (Ch 5-7)", {5, 6, 7}),          # Fri Nov 13
+    13: ("EXAM 1 (Ch 2-4)", {2, 3, 4}),          # Fri Oct 9
+    26: ("EXAM 2 (Ch 5-7)", {5, 6, 7}),          # Wed Nov 11
     35: ("EXAM 3 (Ch 8, 9, 11)", {8, 9, 11}),    # Mon Dec 7
 }
 CONTENT = [
@@ -133,8 +136,10 @@ CONTENT = [
      "Knight: Ch. 12 (Gravity)"),
     ("Orbits", "8.5-8.6",
      "Math Methods: Ch. 1 (ODEs)\nCalculus I & II"),
+    # Review day BEFORE Exam 2 (Wed); Ch 8 is not on Exam 2, so changing
+    # orbits can follow the exam.
+    ("Catch-up / review day (Exam 2 is Wednesday)", "", ""),
     ("Changing orbits", "8.7-8.8", "Calculus I & II"),
-    ("Catch-up / review day (Exam 2 is Friday)", "", ""),
     ("Accelerating frames; tides", "9.1-9.2",
      "Math Methods: Ch. 8 (Vector Calculus)"),
     ("Angular velocity; rotating frames", "9.3-9.5",
@@ -170,10 +175,12 @@ CONTENT = [
 # defect PHY 210's coverage audit found). Rule adopted 2026-09-02:
 #
 #   HW is due WEDNESDAYS at 10:00 PM and covers the previous Mon/Wed/Fri
-#   (five days after the last class it draws on), with three one-offs:
-#   HW06 Fri Oct 23 (Exam 1 is the Monday), HW12 Fri Dec 4 (the Ch 11
-#   practice must precede Exam 3), HW11 Mon Nov 23 (the Wednesday is
-#   Thanksgiving; Will made the same Monday move). HW13 lands in reading
+#   (five days after the last class it draws on), with these one-offs:
+#   HW04 Mon Oct 5 (so it is back before Exam 1 on Fri Oct 9); HW06 Fri
+#   Oct 23 (5.7-5.8 is taught Mon Oct 19); HW09 Fri Nov 6 (so it is back
+#   Mon Nov 9, before Exam 2 on Wed Nov 11); HW11 Mon Nov 23 (the
+#   Wednesday is Thanksgiving; Will made the same Monday move); HW12 Fri
+#   Dec 4 (the Ch 11 practice must precede Exam 3). HW13 lands in reading
 #   period (Will's was the day after his last class).
 #
 # Tuples: (hw, due, covers_through, chapters, covers, problems).
@@ -196,15 +203,15 @@ HWS = [
      "Ch 3: momentum, rockets, center of mass, angular momentum",
      "3.8, 3.13 [uses 3.11(b) from class], 3.19, 3.35, 3.36; challenge: "
      "chain pulled off a table at constant speed"),
-    (4, date(2026, 10, 7), date(2026, 10, 2), {4},
+    (4, date(2026, 10, 5), date(2026, 10, 2), {4},
      "Ch 4: energy",
      "4.4, 4.8, 4.13 [optional math review], 4.24(a-c), 4.36, 4.39 "
      "[advanced, optional], 4.53; custom: variation of gravity with height"),
-    (5, date(2026, 10, 14), date(2026, 10, 9), {5},
-     "5.1-5.4: SHO, 2D oscillators, damping",
+    (5, date(2026, 10, 14), date(2026, 10, 7), {5},
+     "5.1-5.2: Hooke's law, simple harmonic motion",
      "5.4 [geometry diagram supplied], 5.7, 5.13"),
-    (6, date(2026, 10, 23), date(2026, 10, 16), {5},
-     "5.5-5.8: driven oscillators, resonance, Fourier series",
+    (6, date(2026, 10, 23), date(2026, 10, 19), {5},
+     "5.3-5.8: 2D and damped oscillators, resonance, Fourier series",
      "5.28, 5.32 [optional], 5.43; custom: RLC circuit as an SHO; custom: "
      "square-wave Fourier drive (or 5.49)"),
     (7, date(2026, 10, 28), date(2026, 10, 23), {6},
@@ -214,12 +221,14 @@ HWS = [
     (8, date(2026, 11, 4), date(2026, 10, 30), {6, 7},
      "6.4, 7.1-7.3: several variables; Lagrange's equations; constraints",
      "6.23 [hints], 6.24 [advanced, optional], 6.27, 7.3, 7.10 [hint], 7.14"),
-    (9, date(2026, 11, 11), date(2026, 11, 4), {7, 8},
+    # Fri, not Wed: back on Mon Nov 9 before Exam 2. 8.2 (taught Wed Nov 4)
+    # gets only two days; it is the one easy problem on the set.
+    (9, date(2026, 11, 6), date(2026, 11, 4), {7, 8},
      "7.5, 7.8, 7.9, 8.1-8.2: Lagrangian examples; Noether; multipliers; "
      "two-body setup",
      "7.27, 7.31, 7.34, 7.38 [optional challenge], 7.46 [Noether: rotational "
      "invariance gives conservation of L_z], 8.2"),
-    (10, date(2026, 11, 18), date(2026, 11, 9), {8},
+    (10, date(2026, 11, 18), date(2026, 11, 13), {8},
      "8.3-8.8: central-force motion, orbits, changing orbits",
      "8.9, 8.13, 8.14 [optional challenge], 8.15, 8.18, 8.23"),
     (11, date(2026, 11, 23), date(2026, 11, 20), {8, 9},
@@ -271,9 +280,9 @@ PCCI = {
                        "problem session (skip if Mountain Day)",
     # Ch 5
     date(2026, 10, 7): "5.1",
-    date(2026, 10, 9): "5.21",
-    date(2026, 10, 14): "5.35",
-    date(2026, 10, 16): "5.47",
+    date(2026, 10, 14): "5.21",
+    date(2026, 10, 16): "5.35",
+    date(2026, 10, 19): "5.47",
     # Ch 6-7
     date(2026, 10, 21): "6.3",
     date(2026, 10, 23): "6.8",
@@ -285,8 +294,8 @@ PCCI = {
     # Ch 8
     date(2026, 11, 4): "8.6",
     date(2026, 11, 6): "8.19",
-    date(2026, 11, 9): "8.28",
-    date(2026, 11, 11): "Bring one Ch 5-7 problem you want worked in review",
+    date(2026, 11, 9): "Bring one Ch 5-7 problem you want worked in review",
+    date(2026, 11, 13): "8.28",
     # Ch 9
     date(2026, 11, 16): "9.1",
     date(2026, 11, 18): "9.7",
@@ -308,14 +317,114 @@ PCCI = {
     date(2026, 12, 14): "Bring one question for the final-exam review",
 }
 
+
+# ------------------------------------------------- chapter problem lists
+# Will's three streams per chapter, transcribed from his F2025 Moodle
+# backup (private/F2026PrepPacks/_shared/will-problem-tables.md and the
+# Ch 1-4 deck extractions): "Look at" = problems students study before
+# class (solutions posted; OUR PCCIs are drawn from these, one per day),
+# "In class" = worked together in class, "Homework" = the graded sets
+# (kept exactly as Will assigned them, plus 7.46 on HW09). Days are
+# class days within the chapter in our sequence. This feeds the
+# "Chapter Problems" sheet and ChapterProblemLists.md, the source for the
+# chapter-opening slide (Look at / In class / Homework, three columns).
+CHAPTER_PROBLEMS = {
+    1: dict(lookat=[["1.4", "1.6", "1.10", "1.11", "1.31", "1.35"]],
+            inclass=[["1.9", "1.18", "1.26", "1.43", "1.47", "1.48"]],
+            hw=[("HW01", ["1.27", "1.45", "1.46", "1.49", "1.50 (computational)"])]),
+    2: dict(lookat=[["2.1", "2.5", "2.7"], ["2.16", "2.25"], ["2.49"]],
+            inclass=[["2.4", "2.11", "2.12", "2.13"], ["2.33", "2.34", "2.35", "2.41"],
+                     ["2.52", "2.54"]],
+            hw=[("HW02", ["2.14", "2.31", "2.36", "2.39", "2.42", "2.53"])]),
+    3: dict(lookat=[["3.7"], ["3.16", "3.17", "3.25"], ["3.32"]],
+            inclass=[["3.5", "3.10", "3.11"], ["3.21", "3.27"], ["3.29", "3.34"]],
+            hw=[("HW03", ["3.8", "3.13", "3.19", "3.35", "3.36",
+                          "Challenge: chain lifted at constant speed"])]),
+    4: dict(lookat=[["4.7", "4.16"], ["4.31"], ["4.41"]],
+            inclass=[["4.2", "4.3", "4.12", "4.15"], ["4.23", "4.26", "4.28"],
+                     ["4.46", "4.48"]],
+            hw=[("HW04", ["4.4", "4.8", "4.13 (optional)", "4.24(a-c)",
+                          "Variation of gravity with height", "4.36",
+                          "4.39 (advanced, optional)", "4.53"])]),
+    5: dict(lookat=[["5.1", "5.3"], ["5.21"], ["5.35"], ["5.47"]],
+            inclass=[["5.6", "5.8", "5.12"], ["5.22", "5.26"],
+                     ["5.40", "5.41", "5.42", "5.44"], ["5.49"]],
+            hw=[("HW05", ["5.4", "5.7", "5.13"]),
+                ("HW06", ["5.28", "5.32 (optional)", "5.43", "RLC circuit as an SHO",
+                          "Square-wave drive (or 5.49)"])]),
+    6: dict(lookat=[["6.3", "6.4"], ["6.8"], ["6.20"]],
+            inclass=[["6.1", "6.2"], ["6.9", "6.18"], ["6.21", "6.25"]],
+            hw=[("HW07", ["6.7", "6.11", "6.14", "6.17", "Brachistochrone revisited"]),
+                ("HW08", ["6.23", "6.24 (advanced, optional)", "6.27"])]),
+    7: dict(lookat=[["7.1", "7.2"], [], ["7.17", "7.19"]],
+            inclass=[["7.4", "7.8"], ["7.9"], ["7.20", "7.33", "7.36"]],
+            hw=[("HW08", ["7.3", "7.10", "7.14"]),
+                ("HW09", ["7.27", "7.31", "7.34", "7.38 (optional challenge)",
+                          "7.46 (Noether)"])]),
+    8: dict(lookat=[["8.6", "8.8"], ["8.19", "8.20"], ["8.28", "8.32"]],
+            inclass=[["8.3", "8.10"], ["8.12", "8.21"], ["8.29", "8.33", "8.34"]],
+            hw=[("HW09", ["8.2"]),
+                ("HW10", ["8.9", "8.13", "8.14 (optional challenge)", "8.15", "8.18", "8.23"]),
+                ("HW11", ["8.27 (optional challenge)", "8.33"])]),
+    9: dict(lookat=[["9.1"], ["9.7"], ["9.12", "9.13"]],
+            inclass=[["9.2"], ["9.8"], ["9.14", "9.16", "9.19"]],
+            hw=[("HW11", ["9.3", "9.9", "9.15", "9.17", "9.28", "9.29 (optional challenge)"])]),
+    11: dict(lookat=[["11.1"], [], []],
+             inclass=[["11.2", "11.3"], ["11.5"], []],
+             hw=[("HW12", ["11.6", "11.9", "11.12", "11.14", "11.17 (optional)"])]),
+    12: dict(lookat=[[], []],
+             inclass=[["driven-pendulum notebook: period exploration, Poincare section"],
+                      ["bifurcation diagram, Lyapunov exponent"]],
+             hw=[("HW13", ["12.1", "12.6", "12.7", "12.8-12.10 (optional)",
+                           "12.13 + parts (b), (c)"])]),
+}
+
+
+def write_chapter_problems(wb, md_path):
+    """One sheet row per chapter-day, plus a markdown file for the slides."""
+    header_font = Font(bold=True)
+    header_fill = PatternFill("solid", fgColor="D9E1F2")
+    wrap = Alignment(wrap_text=True, vertical="top")
+    ws = wb.create_sheet("Chapter Problems")
+    ws.append(["Chapter", "Day", "Look at (PCCI source)", "In class", "Homework"])
+    for cell in ws[1]:
+        cell.font = header_font; cell.fill = header_fill
+    lines = ["# Chapter problem lists (Taylor, Classical Mechanics 2005)", "",
+             "Three streams per chapter, in Will Raven's F2025 format: **Look at** =",
+             "study before class (solutions posted; our PCCIs are one of these per",
+             "day), **In class** = worked together, **Homework** = the graded set.",
+             "Generated by `make_fall2026_calendar.py` from `CHAPTER_PROBLEMS`; the",
+             "chapter-opening slide is these three columns.", ""]
+    for ch, d in CHAPTER_PROBLEMS.items():
+        ndays = max(len(d["lookat"]), len(d["inclass"]))
+        hw_lines = [f"{name}: " + ", ".join(items) for name, items in d["hw"]]
+        for i in range(ndays):
+            la = ", ".join(d["lookat"][i]) if i < len(d["lookat"]) else ""
+            ic = ", ".join(d["inclass"][i]) if i < len(d["inclass"]) else ""
+            ws.append([ch if i == 0 else None, f"Day {i + 1}", la, ic,
+                       "\n".join(hw_lines) if i == 0 else None])
+        lines += [f"## Chapter {ch}", "",
+                  "| Day | Look at | In class |", "| --- | --- | --- |"]
+        for i in range(ndays):
+            la = ", ".join(d["lookat"][i]) if i < len(d["lookat"]) else "--"
+            ic = ", ".join(d["inclass"][i]) if i < len(d["inclass"]) else "--"
+            lines.append(f"| {i + 1} | {la or '--'} | {ic or '--'} |")
+        lines += ["", "Homework: " + "; ".join(hw_lines), ""]
+    for row in ws.iter_rows(min_row=2):
+        for cell in row:
+            cell.alignment = wrap
+    for j, w in enumerate([9, 7, 30, 44, 60]):
+        ws.column_dimensions[openpyxl.utils.get_column_letter(j + 1)].width = w
+    Path(md_path).write_text("\n".join(lines))
+
 # ---------------------------------------------------------------- build
 def build(outpath):
     days = list(class_days())
     n = len(days)
     assert len(CONTENT) + len(EXAMS) == n, (
         f"{len(CONTENT)} content + {len(EXAMS)} exams for {n} class meetings")
-    assert all(days[i].weekday() in (0, 4) for i in EXAMS), (
-        "exam not on a Monday or Friday")
+    assert all(days[i].weekday() in (0, 2, 4) for i in EXAMS), (
+        "exam not on a class day")
     exam_days = {days[i]: EXAMS[i] for i in EXAMS}
     assert all(d in days for d in PCCI), "PCCI assigned to a non-class day"
     assert not any(d in exam_days for d in PCCI), "PCCI on an exam day"
@@ -475,15 +584,15 @@ def build(outpath):
     for cell in gc[1]:
         cell.font = header_font
         cell.fill = header_fill
-    # Decided 2026-09-02, mirroring PHY 210's participation machinery on
-    # top of Will's weights (HW 30%, exams 21% x 3, final 7%). Each exam
-    # is three problems (one per chapter) at ~63 pts; the final's required
-    # Ch 12 problem is 60 pts, so every exam-type problem is worth about
-    # the same, as in Will's design. Course total must be exactly 1000.
+    # Revised 2026-09-04 (Michael): each exam is three problems, one per
+    # chapter, and the final's required problem is one more of the same
+    # kind -- so every exam-type problem is worth exactly 60 points
+    # (3 x 60 = 180 per exam), and the remainder is split as participation
+    # 112 + homework 288. Course total must be exactly 1000.
     cats = [
-        ("Attendance/participation (PCCIs)", 39, 4, 2),
-        ("Weekly Homework", 13, 1, 25),
-        ("Exams", 3, 0, 190),
+        ("Attendance/participation (PCCIs)", 39, 4, 3.2),
+        ("Weekly Homework", 13, 1, 24),
+        ("Exams", 3, 0, 180),
         ("Final exam (Ch 12 problem)", 1, 0, 60),
     ]
     total = sum((num - drop) * pts for _, num, drop, pts in cats)
@@ -494,9 +603,11 @@ def build(outpath):
     for j, w in enumerate([34, 9, 7, 12, 13]):
         gc.column_dimensions[openpyxl.utils.get_column_letter(j + 1)].width = w
 
+    write_chapter_problems(wb, Path(outpath).with_name("ChapterProblemLists.md"))
+
     wb.save(outpath)
     print(f"wrote {outpath}: {len(rows)} schedule rows, {n} class meetings, "
-          f"{len(HWS)} HWs, grade total {total}")
+          f"{len(HWS)} HWs, grade total {total:g}")
 
 if __name__ == "__main__":
     build(sys.argv[1])

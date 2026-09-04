@@ -73,6 +73,11 @@ personal Google appointment-booking link.
 
 ## Schedule embed (same design as PHY 210)
 
+UPDATE 2026-09-04: Michael moved the calendar out of a Page in section 0
+into its OWN collapsible section (in both courses), together with the
+basic course information; one click expands or collapses it. The iframe
+mechanics below are unchanged, only the container differs.
+
 The generator writes the "Schedule" tab as TWO CHUNKS split at fall
 break and prints the ranges on every run; current build:
 chunk 1 = `A1:I16` (Sep 9 - Oct 12), chunk 2 = `A17:I46` (Oct 14 on).
@@ -105,10 +110,10 @@ pacing change never leaves a stale problem list on display.
 
 | Assignment | Due               | Pts | Notes                                                                               |
 | ---------- | ----------------- | --- | ----------------------------------------------------------------------------------- |
-| HW01..HW13 | see generator     | 25  | Wednesdays 22:00; HW06 Fri Oct 23, HW11 Mon Nov 23, HW12 Fri Dec 4, HW13 Wed Dec 16 |
-| Exam 1     | Mon Oct 19, 13:40 | 190 | no submission; Ch 2-4                                                               |
-| Exam 2     | Fri Nov 13, 13:20 | 190 | no submission; Ch 5-7                                                               |
-| Exam 3     | Mon Dec 7, 13:40  | 190 | no submission; Ch 8, 9, 11                                                          |
+| HW01..HW13 | see generator     | 24  | Wednesdays 22:00; HW04 Mon Oct 5, HW06 Fri Oct 23, HW09 Fri Nov 6, HW11 Mon Nov 23, HW12 Fri Dec 4, HW13 Wed Dec 16 |
+| Exam 1     | Fri Oct 9, 13:20  | 180 | no submission; Ch 2-4                                                               |
+| Exam 2     | Wed Nov 11, 13:20 | 180 | no submission; Ch 5-7                                                               |
+| Exam 3     | Mon Dec 7, 13:40  | 180 | no submission; Ch 8, 9, 11                                                          |
 | Final exam | Tue Dec 22, 15:00 | 60  | no submission; required Ch 12 problem; timestamp = end of the self-scheduled window |
 
 One due TIME everywhere: 22:00 (Will's drifted between 18:00, 22:00
@@ -125,12 +130,12 @@ hw-descriptions.html` once written (build task).
 ## Gradebook (mirrors the 1000-point scheme, natively)
 
 Categories (aggregation Natural):
-- Participation & PCCIs -- 70 pts; graded on paper; two manual items
-  ("Participation through fall break" /25, "Participation after fall
-  break" /45 -- the 70 split in proportion to 14 and 25 class days; the
-  four drops are handled on the paper tally, as in PHY 210).
-- Weekly homework -- 13 x 25, **droplow = 1** on the category.
-- Exams -- 3 assignments @ 190.
+- Participation & PCCIs -- 112 pts; graded on paper; two manual items
+  ("Participation through fall break" /40, "Participation after fall
+  break" /72 -- the 112 split roughly in proportion to 14 and 25 class
+  days; the four drops are handled on the paper tally, as in PHY 210).
+- Weekly homework -- 13 x 24, **droplow = 1** on the category.
+- Exams -- 3 assignments @ 180 (three 60-point problems each).
 - Final exam -- 1 assignment @ 60.
 Total 1000; verify against the generator's Grade Categories sheet.
 

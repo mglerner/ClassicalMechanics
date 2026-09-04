@@ -46,28 +46,34 @@ Mathematica notebooks).
 
 - Will's 39 F2025 slots map one-to-one onto Fall 2026's 39 MWF meetings
   (Wed Sep 9 - Mon Dec 14). His Mountain Day holder is kept (Mon Oct 5).
-- Exams: **Mon Oct 19** (Ch 2-4), **Fri Nov 13** (Ch 5-7), **Mon Dec 7**
-  (Ch 8, 9, 11). Exam 2 moved off Will's Monday to the Friday so the
-  Ch 7 homework can precede it without two sets landing two days apart,
-  and so a review day sits right before it (as one already does before
-  Exam 3). Final = required Ch 12 problem + nine optional redemption
+- Exams: **Fri Oct 9** (Ch 2-4; Will's exact slot, the class after
+  5.1-5.2), **Wed Nov 11** (Ch 5-7; Will's was two days later), **Mon
+  Dec 7** (Ch 8, 9, 11). Rule (Michael, 2026-09-04): each exam comes
+  after the last homework on its chapters has been RETURNED, so HW04 is
+  due Mon Oct 5 and HW09 Fri Nov 6, and a review day precedes Exams 2
+  and 3. Final = required Ch 12 problem + nine optional redemption
   problems, per Will's design.
-- Homework: Will's 13 sets kept intact; **due Wednesdays 10:00 PM**,
-  covering the previous Mon/Wed/Fri. Our semester opens on a Wednesday,
-  so Will's Friday deadlines would have landed on the last teaching day
-  of each block. One-offs: HW06 Fri Oct 23, HW11 Mon Nov 23, HW12 Fri
-  Dec 4, HW13 Wed Dec 16 (reading period).
+- Homework: Will's 13 sets kept intact (plus 7.46 on HW09); **due
+  Wednesdays 10:00 PM**, covering the previous Mon/Wed/Fri. Our semester
+  opens on a Wednesday, so Will's Friday deadlines would have landed on
+  the last teaching day of each block. One-offs: HW04 Mon Oct 5, HW06
+  Fri Oct 23, HW09 Fri Nov 6, HW11 Mon Nov 23, HW12 Fri Dec 4, HW13 Wed
+  Dec 16 (reading period).
+- Chapter problem lists (Look at / In class / Homework, Will's three
+  streams; the chapter-opening slide) are generated too: the "Chapter
+  Problems" tab and `ChapterProblemLists.md`. PCCIs are drawn from the
+  Look-at column, one per day; the homework sets are untouched.
 - The double-pendulum day and the pre-Exam-3 catch-up day are swapped
   relative to Will's order (review day right before the exam).
 
 ## Grading (1000 points total, enforced by the generator)
 
-Participation/PCCIs 39 drop 4 @ 2 = 70; HW 13 drop 1 @ 25 = 300; exams
-3 @ 190 = 570; final (required Ch 12 problem) 60. Will's proportions
-(HW 30%, exams 63%, final 7%) with PHY 210's participation machinery
-added on top; each exam problem and the final's problem are worth about
-the same (~63 vs 60). Will's attendance grade caps and seminar bonus are
-dropped in favor of points.
+Revised 2026-09-04: participation/PCCIs 39 drop 4 @ 3.2 = 112; HW 13
+drop 1 @ 24 = 288; exams 3 @ 180 = 540; final (required Ch 12 problem)
+60. Each exam is three problems, one per chapter, and the final's
+required problem is one more of the same kind, so **every exam-type
+problem is worth exactly 60 points**. Will's attendance grade caps are
+kept (pending his advice); his seminar bonus is dropped.
 
 ## Registrar facts (verified 2026-08-17)
 
