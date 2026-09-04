@@ -19,8 +19,12 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
   machinery). 21 of Will's 22 notebooks use Manipulate, so ports are
   Jupyter + ipywidgets or plain matplotlib parameter sweeps.
 - **HW due Wednesdays 10:00 PM**, covering the previous Mon/Wed/Fri
-  (2026-09-02). Our semester opens on a Wednesday, so Will's Friday
-  deadlines would land ON each block's last teaching day. One-offs:
+  (2026-09-02; RECONFIRMED 2026-09-04 after weighing Fridays: our
+  chapters run Mon/Wed/Fri, so Will's Friday deadline would land on a
+  chapter's last teaching day, and a Friday-of-the-following-week rule
+  would push Exam 1 to Wed Oct 14 and Exam 2 to Mon Nov 16 under the
+  homework-back-first rule. Wednesdays keep the exams where Michael
+  wants them). One-offs:
   HW06 Fri Oct 23 (Exam 1 Monday), HW11 Mon Nov 23 (Thanksgiving),
   HW12 Fri Dec 4 (before Exam 3), HW13 Wed Dec 16 (reading period).
   All encoded in the generator's `HWS`, with hard-fail guards.
