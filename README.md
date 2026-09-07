@@ -16,7 +16,7 @@ PHY 317). First offering: Fall 2026; planning in `SyllabusAndFirstDay/2026/`.
 
 ## Notebooks
 
-Class notebooks are Jupyter, meant to run on posit.smith.edu (JupyterLab)
+Class notebooks are Jupyter, meant to run on jupyterhub.smith.edu (JupyterLab)
 and interactive via ipywidgets. They are committed **without outputs**:
 `nbstripout` is installed as a git clean filter (`.gitattributes`), so a
 working copy can be run and saved with its plots intact and git still

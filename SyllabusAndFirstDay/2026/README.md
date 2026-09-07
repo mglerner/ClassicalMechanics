@@ -83,7 +83,7 @@ PHY 317 01: W/F 1:20-2:35 PM + Mon 1:40-2:55 PM, Sabin-Reed 308, 4 cr,
 ## Course machinery
 
 - LMS: Moodle (design in `MoodleBuildSpec.md`). Programming: Python
-  (Jupyter on posit.smith.edu), Mathematica permitted for students who
+  (Jupyter on jupyterhub.smith.edu), Mathematica permitted for students who
   prefer it.
 - Private materials (solutions, exams, grades, other professors' files)
   go in `../../private/` -> `~/Dropbox/__Smith/Classes/317-Classical/private/`

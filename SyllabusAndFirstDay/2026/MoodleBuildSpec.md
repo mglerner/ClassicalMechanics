@@ -29,7 +29,7 @@ As built 2026-09-03 (Michael made 0-2 by hand; the mbz creates 3-13):
 
 0. **General** -- syllabus (the GitHub raw link to `PHY317Syllabus.pdf` on
    main, so commits update it live); the Course Calendar Page (schedule
-   embed, below); posit.smith.edu pointer; office-hours info; Will's "AI
+   embed, below); jupyterhub.smith.edu pointer; office-hours info; Will's "AI
    prompts for students" PDF (a department document); anonymous feedback
    via a Moodle Feedback activity (anonymous, multiple submissions, one
    open textarea); the week-1 office-hours scheduling poll (temporary);

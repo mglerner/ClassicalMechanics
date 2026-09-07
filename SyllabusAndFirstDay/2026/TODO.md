@@ -118,7 +118,7 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 4. Zoom recurring meeting for this section (MWF at 1:20/1:40 -- two
    different start times; the web portal handles it; see the 210 TODO
    item 24 for the rig).
-5. posit.smith.edu: confirm the 317 students have access; post a
+5. jupyterhub.smith.edu: confirm the 317 students have access; post a
    starter notebook for 1.50 with HW01.
 
 ## Open decisions
@@ -203,14 +203,17 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     Gate after: course total reads 1000 again.
 17. Python ports, in order of need: 1.50 starter notebook DONE
     2026-09-02 (`NewtonsLaws/skateboard_1_50.ipynb`); Linear Drag and
-    Linear Drag Range DONE 2026-09-03 (`Drag/linear_drag.ipynb`,
-    `Drag/linear_drag_range.ipynb`); Rockets DONE 2026-09-03
+    Linear Drag Range DONE 2026-09-03 (`Drag/`); Rockets DONE 2026-09-03
     (`Momentum/rockets.ipynb`). All four are INTERACTIVE via ipywidgets
-    `interact` (decided 2026-09-03: match Will's Manipulate; 21 of his 22
-    notebooks had sliders), written for JupyterLab on posit.smith.edu, no
-    fallback -- if posit stays broken, Michael will ask for Colab
-    versions. ipywidgets + numpy/scipy/sympy/matplotlib must be in
-    /opt/python/3.12.3 there (in the ITS ticket). Next: Ch 5 (2DHM,
+    `interact` (match Will's Manipulate; 21 of his 22 notebooks had
+    sliders). PLATFORM DECIDED 2026-09-07: **jupyterhub.smith.edu**, not
+    posit.smith.edu -- posit's Workbench could not start sessions at all
+    (ITS ticket) and its Python has almost no packages; the hub has
+    numpy 1.26 / scipy 1.14 / sympy 1.14 / matplotlib 3.9 / ipywidgets
+    8.1 / ipympl 0.9 and the slider test passed. Off campus the hub needs
+    the Smith VPN (Michael's concern only; students are on campus). The
+    hub's default matplotlib backend is ipympl, so every notebook pins
+    `%matplotlib inline` in its setup cell. Next: Ch 5 (2DHM,
     DampedOscillations, FourierSeriesOfSquareWave). HW13 helper by late
     November.
 18. Seth's order-of-magnitude assignment (12 hand-computed solar-system

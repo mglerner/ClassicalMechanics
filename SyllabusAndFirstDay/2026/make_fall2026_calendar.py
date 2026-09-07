@@ -312,7 +312,7 @@ PCCI = {
     date(2026, 12, 9): "Read 12.1-12.2: in a sentence, what does it mean "
                        "for an equation of motion to be linear, and what do "
                        "we lose when it isn't?",
-    date(2026, 12, 11): "Log into posit.smith.edu and open the driven-"
+    date(2026, 12, 11): "Log into jupyterhub.smith.edu and open the driven-"
                         "pendulum notebook on Moodle; bring your laptop",
     date(2026, 12, 14): "Bring one question for the final-exam review",
 }
