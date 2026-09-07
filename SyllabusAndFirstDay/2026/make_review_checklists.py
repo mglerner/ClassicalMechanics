@@ -39,7 +39,9 @@ EVERY_DAY = [
 DAY_LOGISTICS = {
     date(2026, 9, 9): ["Printed syllabus, one per student (9) + a spare",
                        "PRINT the four-color voting cards, one set per student (shared/VotingCardLandscape.pdf)"],
-    date(2026, 9, 11): ["Check HW01 is visible on Moodle with the 1.50 notebook attached"],
+    date(2026, 9, 11): ["Students' LAPTOPS (announced Wednesday) for the ten-minute jupyterhub walkthrough",
+                        "Your own laptop logged into jupyterhub.smith.edu with the HW01 notebook already uploaded",
+                        "Check HW01 is visible on Moodle with the clean skateboard_1_50.ipynb attached"],
     date(2026, 10, 9): ["Exam 1: printed copies + a spare; per-problem score sheet ready"],
     date(2026, 11, 11): ["Exam 2: printed copies + a spare; per-problem score sheet ready"],
     date(2026, 12, 7): ["Exam 3: printed copies + a spare; per-problem score sheet ready"],
