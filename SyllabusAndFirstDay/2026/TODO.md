@@ -111,7 +111,8 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
    2026-09-03; the mbz is built (item 16). Still by hand after the
    restore: syllabus link; the schedule Sheet (convert the xlsx ONCE;
    embed range `A1:I16`, note column I); anonymous + mid-semester
-   Feedback; office-hours poll; Will's "AI prompts for students" PDF;
+   Feedback; office-hours poll (the department AI-prompts PDF is NOT
+   posted; its syllabus mention was removed 2026-09-07);
    attach the 1.50 notebook to HW01.
 3. Week-1 decks (classes 01, 02) from prep packs 01-02 once their
    `00-prep-notes.md` exist (deck reads in progress 2026-09-02).
