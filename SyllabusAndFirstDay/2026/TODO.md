@@ -154,7 +154,10 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     and homework alike); the Homework section holds only the 13 upload
     assignments. Sets that straddle chapters go under the LATER chapter,
     named to say so: HW08 -> Ch 7 "(Ch 6-7)", HW09 -> Ch 8 "(Ch 7-8)",
-    HW11 -> Ch 9 "(Ch 8-9)".
+    HW11 -> Ch 9 "(Ch 8-9)". BUILT 2026-09-07 as a merge mbz
+    (`private/MoodleBuild/build_317_solutions.py`): 33 PDFs, errata notes
+    for Ch 1-4 in the descriptions; Look-At/in-class files open the day
+    after the chapter ends (stricter than Will, one flag to change).
 11. Will's Ch 9 deck taught the Coriolis unit with LATITUDE where Taylor
     uses CO-LATITUDE; caught by a student on 12/07, after the unit. The
     backup deck is the corrected revision, but re-derive from Taylor
