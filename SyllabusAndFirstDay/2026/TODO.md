@@ -158,6 +158,12 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     (`private/MoodleBuild/build_317_solutions.py`): 33 PDFs, errata notes
     for Ch 1-4 in the descriptions; Look-At/in-class files open the day
     after the chapter ends (stricter than Will, one flag to change).
+    MERGED 2026-09-07. STILL TO WRITE, our own solutions (Michael): every
+    computational problem Will solved in Mathematica -- 1.50 (HW01),
+    the HW06 square-wave drive / 5.32, 12.7 and the Ch 12 chaos items
+    (HW13) -- plus 7.46 Noether (HW09, ours), 4.26 (Ch 4 in-class), and
+    the HW03 3.36 / 3.35(c) fixes. Post each as its own resource next to
+    Will's file with the same release date.
 11. Will's Ch 9 deck taught the Coriolis unit with LATITUDE where Taylor
     uses CO-LATITUDE; caught by a student on 12/07, after the unit. The
     backup deck is the corrected revision, but re-derive from Taylor
