@@ -149,7 +149,12 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     HW10's was the one exception, posted after the fact). Will's
     ISM-excerpt PDFs (the 22 Look-At/In-Class files and his HW solution
     files) DO get re-posted, on that schedule; fix the known errata
-    first (items 11, 13) or post with a note.
+    first (items 11, 13) or post with a note. WHERE (2026-09-07): all
+    solution PDFs go in the CHAPTER sections (Look-At = PCCI, in-class,
+    and homework alike); the Homework section holds only the 13 upload
+    assignments. Sets that straddle chapters go under the LATER chapter,
+    named to say so: HW08 -> Ch 7 "(Ch 6-7)", HW09 -> Ch 8 "(Ch 7-8)",
+    HW11 -> Ch 9 "(Ch 8-9)".
 11. Will's Ch 9 deck taught the Coriolis unit with LATITUDE where Taylor
     uses CO-LATITUDE; caught by a student on 12/07, after the unit. The
     backup deck is the corrected revision, but re-derive from Taylor
