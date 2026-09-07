@@ -146,8 +146,10 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     In-Class solution PDFs open all along, posted at the start of each
     chapter; HOMEWORK solutions posted early but date-restricted to open
     at the due date and time (Will: "available from" shown to students;
-    HW10's was the one exception, posted after the fact). Whether to
-    re-post his ISM-excerpt PDFs or write our own is still open.
+    HW10's was the one exception, posted after the fact). Will's
+    ISM-excerpt PDFs (the 22 Look-At/In-Class files and his HW solution
+    files) DO get re-posted, on that schedule; fix the known errata
+    first (items 11, 13) or post with a note.
 11. Will's Ch 9 deck taught the Coriolis unit with LATITUDE where Taylor
     uses CO-LATITUDE; caught by a student on 12/07, after the unit. The
     backup deck is the corrected revision, but re-derive from Taylor
