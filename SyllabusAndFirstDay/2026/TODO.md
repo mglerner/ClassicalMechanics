@@ -140,9 +140,14 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
    the set is now due FRIDAY Nov 6 (two days; it is the one easy
    problem on the set). Will flagged HW09 as "an intensive homework
    set"; with the Friday due date it also has five days, not seven.
-10. Copyright before posting anything of Will's: the 808-page Taylor
-    scan and the 22 Look-At/In-Class PDFs (ISM image excerpts) do NOT
-    get re-posted. Post our own worked solutions in our own hand.
+10. Posting Will's materials (decided 2026-09-07): the Taylor scan IS
+    posted (Course Information label; Michael's call, assuming Will
+    cleared it). Solutions follow Will's release pattern: Look-At and
+    In-Class solution PDFs open all along, posted at the start of each
+    chapter; HOMEWORK solutions posted early but date-restricted to open
+    at the due date and time (Will: "available from" shown to students;
+    HW10's was the one exception, posted after the fact). Whether to
+    re-post his ISM-excerpt PDFs or write our own is still open.
 11. Will's Ch 9 deck taught the Coriolis unit with LATITUDE where Taylor
     uses CO-LATITUDE; caught by a student on 12/07, after the unit. The
     backup deck is the corrected revision, but re-derive from Taylor
