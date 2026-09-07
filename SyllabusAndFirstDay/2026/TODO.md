@@ -187,20 +187,19 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     by hand in Moodle or a NEW merge-only mbz containing ONLY new
     material -- never re-restore this file. Remaining by hand: section 0
     (item 2).
-    MOODLE HAND EDITS NEEDED (2026-09-04 changes; the mbz is spent, so
-    these are by hand; unknown whether Michael has done any):
-    - Exam 1: due Fri Oct 9 13:20 (was Mon Oct 19 13:40); max grade 180.
-    - Exam 2: due Wed Nov 11 13:20 (was Fri Nov 13); max grade 180.
-    - Exam 3: max grade 180 (date unchanged).
-    - HW04: due Mon Oct 5 22:00 (was Wed Oct 7); Restrict access date
-      Thu Sep 24 (was Sep 27); description = regenerated HW04 block in
-      hw-descriptions.html (it now says "due Monday").
-    - HW09: due Fri Nov 6 22:00 (was Wed Nov 11); Restrict access date
-      Tue Oct 27 (was Nov 1); description = regenerated HW09 block.
-    - HW01-HW13: max grade 24 (was 25) -- Gradebook setup, 13 edits.
-    - Participation manual items: 40 (through fall break) + 72 (after)
-      = 112 (were 25 + 45 = 70).
-    Gate after: course total reads 1000 again.
+    MOODLE UPDATE for the 2026-09-04/07 changes (exam dates, points, HW04
+    and HW09 dates, all descriptions incl. HW01's GitHub notebook link):
+    NOT by hand -- rebuild the assignments (decided 2026-09-07; merge
+    cannot modify activities, so delete-and-recreate):
+    1. Moodle: delete HW01-HW13, Exam 1-3, Final exam (bulk actions in
+       the Homework and Exams sections). Leave categories, the two
+       participation items, and all sections.
+    2. Back up (-nu), drop the mbz in private/MoodleBuild/.
+    3. `python build_317_assignments.py <that mbz>` (smoke-tested
+       2026-09-07 against a fabricated post-deletion backup; it reads
+       the LIVE category and section ids by name).
+    4. Merge-restore PHY317-F2026-assignments.mbz ONCE.
+    5. By hand: participation items to 40 and 72. Gate: total 1000.
 17. Python ports, in order of need: 1.50 starter notebook DONE
     2026-09-02 (`NewtonsLaws/skateboard_1_50.ipynb`); Linear Drag and
     Linear Drag Range DONE 2026-09-03 (`Drag/`); Rockets DONE 2026-09-03
