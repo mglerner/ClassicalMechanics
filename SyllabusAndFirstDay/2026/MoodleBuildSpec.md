@@ -61,10 +61,13 @@ As built 2026-09-03 (Michael made 0-2 by hand; the mbz creates 3-13):
 
 Per-chapter sections hold: the posted class-notes PDFs (GoodNotes
 exports after each class, Will's "updated with class markings"
-practice), the Python notebooks (ported from Will's Mathematica
-notebooks where they are worth porting; Will's .nb files posted as
-optional extras for students who have Mathematica), and the PCCI
-statement for each day if it is not simply a Taylor problem number.
+practice), the Python notebooks as **links to GitHub** (decided
+2026-09-07: `https://github.com/mglerner/ClassicalMechanics/blob/main/...`,
+never uploads -- the repo stores them output-free and edits propagate;
+students use the page's download button, then upload to jupyterhub),
+Will's .nb files as optional extras for students who have Mathematica,
+and the PCCI statement for each day if it is not simply a Taylor
+problem number.
 
 What is deliberately NOT posted, from Will's shell: the Taylor scan;
 the Look-At / In-Class "solutions" PDFs (ISM excerpts -- use them to
