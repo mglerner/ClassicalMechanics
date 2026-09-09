@@ -71,11 +71,13 @@ def pcci_on(d):
     return CAL.PCCI.get(d, "")
 
 
-def items(problems, d=None):
-    """One <li> per problem; bold the one that is that day's PCCI."""
+def items(problems, when=None):
+    """One <li> per problem; mark the one that is a PCCI. `when` is the day
+    the list belongs to, or the list of days when one list covers them all."""
+    dates = [] if when is None else (when if isinstance(when, list) else [when])
     out = []
     for p in problems:
-        is_pcci = d is not None and re.search(r"(^|[^\d.])" + re.escape(p) + r"($|[^\d])", pcci_on(d))
+        is_pcci = any(re.search(r"(^|[^\d.])" + re.escape(p) + r"($|[^\d])", pcci_on(d)) for d in dates)
         out.append(f"<li>{'<b class=pcci>' + p + '</b>' if is_pcci else p}</li>")
     return "<ul>" + "".join(out) + "</ul>"
 
@@ -86,7 +88,7 @@ def day_lists(lists, days):
         return [(fmt(d), lst, d) for d, lst in zip(days, lists)]
     if len(lists) == 1:
         label = "both days" if len(days) == 2 else "all days"
-        return [(label, lists[0], None)]
+        return [(label, lists[0], list(days))]
     return [(f"Day {i}", lst, None) for i, lst in enumerate(lists, 1)]
 
 
