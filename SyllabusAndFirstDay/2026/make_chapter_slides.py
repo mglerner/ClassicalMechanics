@@ -8,7 +8,7 @@ change to CHAPTER_PROBLEMS, HWS, PCCI, or the calendar:
 
     python make_chapter_slides.py
 
-Writes ChapterSlides/ChNN.html (and index.html). Generated; do not edit.
+Writes private/Decks/ChapterSlides/ChNN.html (and index.html). Generated; do not edit.
 """
 import re
 import sys
@@ -19,7 +19,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 import make_fall2026_calendar as CAL          # noqa: E402
 import make_review_checklists as CHK          # noqa: E402
 
-OUT = Path(__file__).parent / "ChapterSlides"
+# Prep material, not course-facing: lives with the decks in private/ (Dropbox).
+OUT = Path.home() / "coding/courses/ClassicalMechanics/private/Decks/ChapterSlides"
 TITLES = {
     1: "Newton's Laws of Motion", 2: "Projectiles and Charged Particles",
     3: "Momentum and Angular Momentum", 4: "Energy", 5: "Oscillations",

@@ -97,7 +97,7 @@ PHY 317 01: W/F 1:20-2:35 PM + Mon 1:40-2:55 PM, Sabin-Reed 308, 4 cr,
 
 ## Chapter-opening slides
 
-`make_chapter_slides.py` writes `ChapterSlides/ChNN.html`, one per
+`make_chapter_slides.py` writes `private/Decks/ChapterSlides/ChNN.html`, one per
 chapter: Will's three-column Look at / In class / Homework slide with OUR
 dates, lists, and HW due dates from the generator (that day's PCCI in
 bold). Open one in a browser, screenshot the card, paste it into the
