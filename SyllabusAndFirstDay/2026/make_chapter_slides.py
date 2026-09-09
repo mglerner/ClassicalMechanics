@@ -35,7 +35,8 @@ h1 { color: #c00000; font-weight: normal; font-size: 34px; margin: 0 0 18px 0; }
 .cols { display: flex; gap: 40px; }
 .col { flex: 1; font-size: 22px; }
 .col h2 { font-size: 22px; font-weight: normal; margin: 0 0 6px 0; }
-ul { margin: 0 0 10px 0; padding-left: 22px; }
+ul { margin: 0 0 8px 0; padding-left: 22px; }
+.day { margin-top: 4px; }
 li { margin: 2px 0; }
 .day { color: #444; }
 b.pcci { font-weight: bold; }
@@ -65,8 +66,8 @@ def items(problems, d=None):
     out = []
     for p in problems:
         is_pcci = d is not None and re.search(r"(^|[^\d.])" + re.escape(p) + r"($|[^\d])", pcci_on(d))
-        out.append(f"<b class=pcci>{p}</b>" if is_pcci else p)
-    return ", ".join(out)
+        out.append(f"<li>{'<b class=pcci>' + p + '</b>' if is_pcci else p}</li>")
+    return "<ul>" + "".join(out) + "</ul>"
 
 
 def day_lists(lists, days):
@@ -86,14 +87,14 @@ def slide(ch, days):
     h = [f"<!doctype html><meta charset=utf-8><title>Ch {ch} problems</title><style>{CSS}</style>",
          "<div class=slide>", f"<h1>Chapter {ch}: {TITLES[ch]} <span style='font-size:20px;color:#666'>({span})</span></h1>",
          "<div class=cols>"]
-    h.append("<div class=col><h2>Look at problems</h2><ul>")
+    h.append("<div class=col><h2>Look at problems</h2>")
     for label, lst, d in day_lists(cp["lookat"], days):
-        h.append(f"<li><span class=day>{label}:</span> {items(lst, d)}</li>")
-    h.append("</ul></div>")
-    h.append("<div class=col><h2>In class problems</h2><ul>")
+        h.append(f"<div class=day>{label}:</div>{items(lst, d)}")
+    h.append("</div>")
+    h.append("<div class=col><h2>In class problems</h2>")
     for label, lst, d in day_lists(cp["inclass"], days):
-        h.append(f"<li><span class=day>{label}:</span> {', '.join(lst)}</li>")
-    h.append("</ul></div>")
+        h.append(f"<div class=day>{label}:</div>{items(lst)}")
+    h.append("</div>")
     h.append(f"<div class=col><h2>Chapter {ch} homework</h2>")
     for name, probs in cp["hw"]:
         n = int(name[2:])
