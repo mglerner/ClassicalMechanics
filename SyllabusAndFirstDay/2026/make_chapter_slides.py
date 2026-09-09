@@ -1,0 +1,126 @@
+"""Chapter-opening problem slides (PHY 317 F2026), one HTML page per chapter.
+
+Will Raven opened each chapter with a three-column slide: Look at /
+In class / Homework. Ours are generated from the calendar generator so
+the day labels are OUR dates and the lists are OUR lists: screenshot the
+page and paste it into the chapter's GoodNotes deck. Rerun after any
+change to CHAPTER_PROBLEMS, HWS, PCCI, or the calendar:
+
+    python make_chapter_slides.py
+
+Writes ChapterSlides/ChNN.html (and index.html). Generated; do not edit.
+"""
+import re
+import sys
+from collections import defaultdict
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+import make_fall2026_calendar as CAL          # noqa: E402
+import make_review_checklists as CHK          # noqa: E402
+
+OUT = Path(__file__).parent / "ChapterSlides"
+TITLES = {
+    1: "Newton's Laws of Motion", 2: "Projectiles and Charged Particles",
+    3: "Momentum and Angular Momentum", 4: "Energy", 5: "Oscillations",
+    6: "Calculus of Variations", 7: "Lagrange's Equations",
+    8: "Two-Body Central-Force Problems", 9: "Mechanics in Noninertial Frames",
+    11: "Coupled Oscillators and Normal Modes", 12: "Nonlinear Mechanics and Chaos",
+}
+CSS = """
+body { background: #fff; margin: 0; padding: 24px; font-family: Calibri, Carlito, Helvetica, Arial, sans-serif; color: #000; }
+.slide { width: 1000px; padding: 28px 36px; box-sizing: border-box; }
+h1 { color: #c00000; font-weight: normal; font-size: 34px; margin: 0 0 18px 0; }
+.cols { display: flex; gap: 40px; }
+.col { flex: 1; font-size: 22px; }
+.col h2 { font-size: 22px; font-weight: normal; margin: 0 0 6px 0; }
+ul { margin: 0 0 10px 0; padding-left: 22px; }
+li { margin: 2px 0; }
+.day { color: #444; }
+b.pcci { font-weight: bold; }
+.foot { font-size: 20px; margin-top: 18px; }
+.foot small { color: #666; font-size: 16px; }
+"""
+
+
+def fmt(d):
+    return d.strftime("%a %b %-d")
+
+
+def chapter_days():
+    days = defaultdict(list)
+    for _n, d, _t, _r, ch, _cd in CHK.class_rows():
+        if ch:
+            days[ch].append(d)
+    return days
+
+
+def pcci_on(d):
+    return CAL.PCCI.get(d, "")
+
+
+def items(problems, d=None):
+    """One <li> per problem; bold the one that is that day's PCCI."""
+    out = []
+    for p in problems:
+        is_pcci = d is not None and re.search(r"(^|[^\d.])" + re.escape(p) + r"($|[^\d])", pcci_on(d))
+        out.append(f"<b class=pcci>{p}</b>" if is_pcci else p)
+    return ", ".join(out)
+
+
+def day_lists(lists, days):
+    """[(label, problems)] with a date label when the lists line up with the days."""
+    if len(lists) == len(days):
+        return [(fmt(d), lst, d) for d, lst in zip(days, lists)]
+    if len(lists) == 1:
+        label = "both days" if len(days) == 2 else "all days"
+        return [(label, lists[0], None)]
+    return [(f"Day {i}", lst, None) for i, lst in enumerate(lists, 1)]
+
+
+def slide(ch, days):
+    cp = CAL.CHAPTER_PROBLEMS[ch]
+    due = {hw: d for hw, d, *_ in CAL.HWS}
+    span = f"{fmt(days[0])} to {fmt(days[-1])}" if len(days) > 1 else fmt(days[0])
+    h = [f"<!doctype html><meta charset=utf-8><title>Ch {ch} problems</title><style>{CSS}</style>",
+         "<div class=slide>", f"<h1>Chapter {ch}: {TITLES[ch]} <span style='font-size:20px;color:#666'>({span})</span></h1>",
+         "<div class=cols>"]
+    h.append("<div class=col><h2>Look at problems</h2><ul>")
+    for label, lst, d in day_lists(cp["lookat"], days):
+        h.append(f"<li><span class=day>{label}:</span> {items(lst, d)}</li>")
+    h.append("</ul></div>")
+    h.append("<div class=col><h2>In class problems</h2><ul>")
+    for label, lst, d in day_lists(cp["inclass"], days):
+        h.append(f"<li><span class=day>{label}:</span> {', '.join(lst)}</li>")
+    h.append("</ul></div>")
+    h.append(f"<div class=col><h2>Chapter {ch} homework</h2>")
+    for name, probs in cp["hw"]:
+        n = int(name[2:])
+        h.append(f"<div><span class=day>{name}, due {fmt(due[n])}:</span></div><ul>")
+        h.extend(f"<li>{p}</li>" for p in probs)
+        h.append("</ul>")
+    h.append("</div></div>")
+    h.append("<div class=foot>Solutions to look at problems and in class problems are on Moodle."
+             "<br><small>Bold = that day's PCCI (due on paper at the start of class).</small></div>")
+    h.append("</div>")
+    return "\n".join(h) + "\n"
+
+
+def main():
+    OUT.mkdir(exist_ok=True)
+    days = chapter_days()
+    links = []
+    for ch in sorted(CAL.CHAPTER_PROBLEMS):
+        (OUT / f"Ch{ch:02d}.html").write_text(slide(ch, days[ch]))
+        links.append(f"<li><a href=Ch{ch:02d}.html>Chapter {ch}: {TITLES[ch]}</a> ({fmt(days[ch][0])})</li>")
+    (OUT / "index.html").write_text(
+        "<!doctype html><meta charset=utf-8><title>PHY 317 chapter slides</title>"
+        "<body style='font-family:Helvetica,Arial,sans-serif;padding:24px'>"
+        "<h1>PHY 317 F2026 chapter-opening problem slides</h1>"
+        "<p>Generated by make_chapter_slides.py from the calendar generator. Open one, screenshot the card, paste into the deck.</p>"
+        "<ul>" + "\n".join(links) + "</ul></body>\n")
+    print(f"wrote {len(links)} chapter slides to {OUT}")
+
+
+if __name__ == "__main__":
+    main()

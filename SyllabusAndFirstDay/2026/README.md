@@ -94,3 +94,12 @@ PHY 317 01: W/F 1:20-2:35 PM + Mon 1:40-2:55 PM, Sabin-Reed 308, 4 cr,
   go in `../../private/` -> `~/Dropbox/__Smith/Classes/317-Classical/private/`
   (gitignored symlink). Per-day prep packs: `../../private/F2026PrepPacks/`
   (see its README).
+
+## Chapter-opening slides
+
+`make_chapter_slides.py` writes `ChapterSlides/ChNN.html`, one per
+chapter: Will's three-column Look at / In class / Homework slide with OUR
+dates, lists, and HW due dates from the generator (that day's PCCI in
+bold). Open one in a browser, screenshot the card, paste it into the
+chapter's GoodNotes deck. Rerun after any generator change, together
+with the xlsx and the review checklists.
