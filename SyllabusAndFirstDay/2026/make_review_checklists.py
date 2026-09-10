@@ -39,7 +39,8 @@ EVERY_DAY = [
 ]
 # date -> items specific to that day
 DAY_LOGISTICS = {
-    date(2026, 9, 9): ["Printed syllabus, one per student (9) + a spare",
+    date(2026, 9, 9): ["Printed photo roster (private/Roster/PHY317-F2026-roster.pdf)",
+                       "Printed syllabus, one per student (9) + a spare",
                        "PRINT the four-color voting cards, one set per student (shared/VotingCardLandscape.pdf)"],
     date(2026, 9, 11): ["Students' LAPTOPS (announced Wednesday) for the ten-minute jupyterhub walkthrough",
                         "Your own laptop logged into jupyterhub.smith.edu with the HW01 notebook already uploaded",
