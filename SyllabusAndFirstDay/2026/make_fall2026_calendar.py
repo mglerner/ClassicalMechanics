@@ -37,6 +37,11 @@ NO_CLASS = {
     date(2026, 11, 27): "Thanksgiving",
 }
 
+# Days students must bring a laptop. The schedule sheet (embedded in Moodle)
+# tags the topic "[BRING LAPTOP]" and the review checklist repeats it, so one
+# list drives both (a student asked not to carry a laptop every day, 2026-09-14).
+LAPTOP_DAYS = {date(2026, 9, 11)}
+
 def class_days():
     d = FIRST_DAY
     while d <= LAST_DAY:
@@ -535,7 +540,7 @@ def build(outpath):
             web_header(r)
             split_row = r
         r += 1
-        vals = [wk, cn, d.strftime("%a %b %-d"), topic, reading, prereq,
+        vals = [wk, cn, d.strftime("%a %b %-d"), topic + (" [BRING LAPTOP]" if d in LAPTOP_DAYS else ""), reading, prereq,
                 pcci, hw, exam]
         for j, v in enumerate(vals, start=1):
             cell = ws.cell(row=r, column=j, value=v)
