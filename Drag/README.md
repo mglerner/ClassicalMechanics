@@ -1,8 +1,8 @@
 # Drag (Taylor Ch 2)
 
 Class notebooks for PHY 317, Python versions of Will Raven's Mathematica
-demos. Interactive via ipywidgets sliders (`interact`), like his
-Manipulate panels. Run on jupyterhub.smith.edu (JupyterLab); outputs are
+demos. Interactive via ipywidgets sliders (`interact`). 
+Run on jupyterhub.smith.edu (JupyterLab); outputs are
 cleared in git, so run the cells.
 
 - `linear_drag.ipynb` -- the f_quad/f_lin three-regime estimate; the
