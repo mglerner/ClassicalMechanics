@@ -35,13 +35,13 @@ FIRST_CLASS = date(2026, 9, 9)
 # so it lives here as data rather than in the hand-written prep notes.
 EVERY_DAY = [
     "iPad",
-    "Four-color voting cards",
+    "Voting cards",
 ]
 # date -> items specific to that day
 DAY_LOGISTICS = {
     date(2026, 9, 9): ["Printed photo roster (private/Roster/PHY317-F2026-roster.pdf)",
                        "Printed syllabus, one per student (9) + a spare",
-                       "PRINT the four-color voting cards, one set per student (shared/VotingCardLandscape.pdf)"],
+                       "PRINT the voting cards, one set per student (shared/VotingCardLandscape.pdf)"],
     date(2026, 9, 11): ["Chalk and whiteboard markers (board work: 1.43, the skateboard)",
                         "Students' LAPTOPS (announced Wednesday) for the ten-minute jupyterhub walkthrough",
                         "Your own laptop logged into jupyterhub.smith.edu with the HW01 notebook already uploaded",
