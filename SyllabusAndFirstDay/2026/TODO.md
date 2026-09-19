@@ -18,7 +18,16 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
   is load-bearing; the five Ch 12 class notebooks are the same
   machinery). 21 of Will's 22 notebooks use Manipulate, so ports are
   Jupyter + ipywidgets or plain matplotlib parameter sweeps.
-- **HW due Wednesdays 10:00 PM**, covering the previous Mon/Wed/Fri
+- **HW due Wednesdays 10:00 PM** -- PARTLY SUPERSEDED, DECISION OPEN
+  (2026-09-19): students asked for Fridays; HW01 and HW02 were moved to
+  Fri Sep 18 / Fri Sep 25 on Moodle by hand and the generator now records
+  those two. HW03-HW13 are still Wednesdays everywhere. The Friday
+  proposal with its three sub-decisions is
+  `private/MoodleBuild/hw-due-shift-2026-09-17.html`; the review report of
+  2026-09-19 (`~/coding/reports/courses-f2026-review-2026-09-19.html`)
+  lists what moves on Moodle and in the repo once decided. Original
+  decision follows.
+  Covering the previous Mon/Wed/Fri
   (2026-09-02; RECONFIRMED 2026-09-04 after weighing Fridays: our
   chapters run Mon/Wed/Fri, so Will's Friday deadline would land on a
   chapter's last teaching day, and a Friday-of-the-following-week rule
@@ -41,10 +50,9 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
   syllabus and the generator): participation/PCCIs 39 drop 4 @ 3.2 =
   112; HW 13 drop 1 @ 24 = 288; exams 3 @ 180 = 540; final 60. Every
   exam-type problem (3 per exam + the final's required one) is exactly
-  60 points. Will's attendance grade caps are OUT for now (Michael has
-  asked Will about them and will put them back if he advises it; the
-  block is commented out in the syllabus, ready to uncomment). Seminar
-  bonus dropped.
+  60 points. Will's attendance grade caps are IN (out on 2026-09-03,
+  restored by Michael the same day, commit 18bd029; live in the posted
+  syllabus, pending Will's advice). Seminar bonus dropped.
 - **Late policy = Will's** (Michael's hand edit 2026-09-03): late
   homework at most half credit unless approved beforehand; more than a
   week late not accepted. The 210-style late passes are gone from this
@@ -126,7 +134,13 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 
 6. Mountain Day holder is Mon Oct 5 (a guess); HW04 is due that day at
    10 PM regardless (Moodle deadline). If Mountain Day lands on a class
-   day, that day's content shifts into the holder.
+   day, that day's content shifts into the holder, and the Ch 1-4
+   problem session written in pack 12 does not run. If Mountain Day has
+   not happened by Oct 5 (or fell on a Tue/Thu), Oct 5 IS the problem
+   session. No rule exists for a Mountain Day AFTER Oct 5 (Oct 7 or Oct
+   9 would displace the exam itself; next free slot is the Nov 9
+   review day) -- decide when it happens. Generator and packs 11/12
+   reworded to this 2026-09-19.
 7. ASK WILL: his exams. NO exam content exists anywhere (not in the
    backup, not in Dropbox). We have the design (3 problems, one per
    chapter, ~25 min each; redemption final with 9 optional problems)
@@ -209,7 +223,11 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     by hand in Moodle or a NEW merge-only mbz containing ONLY new
     material -- never re-restore this file. Remaining by hand: section 0
     (item 2).
-    MOODLE UPDATE for the 2026-09-04/07 changes (exam dates, points, HW04
+    MOODLE UPDATE for the 2026-09-04/07 changes -- DONE (the live site as
+    of the 2026-09-19 backup has Oct 9 / Nov 11 / Dec 7, 180/180/180/60,
+    HW04 Mon Oct 5, HW09 Fri Nov 6, participation 40 + 72, total 1000).
+    Procedure kept for the record:
+    (exam dates, points, HW04
     and HW09 dates, all descriptions incl. HW01's GitHub notebook link):
     NOT by hand -- rebuild the assignments (decided 2026-09-07; merge
     cannot modify activities, so delete-and-recreate):

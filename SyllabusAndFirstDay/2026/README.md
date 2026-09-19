@@ -59,7 +59,9 @@ Mathematica notebooks).
   and 3. Final = required Ch 12 problem + nine optional redemption
   problems, per Will's design.
 - Homework: Will's 13 sets kept intact (plus 7.46 on HW09); **due
-  Wednesdays 10:00 PM**, covering the previous Mon/Wed/Fri. Our semester
+  Wednesdays 10:00 PM** as the plan of record (HW01 and HW02 were moved
+  to Fridays by hand, Sep 18 / Sep 25; a general Friday rule is an open
+  decision, see TODO.md), covering the previous Mon/Wed/Fri. Our semester
   opens on a Wednesday, so Will's Friday deadlines would have landed on
   the last teaching day of each block. One-offs: HW04 Mon Oct 5, HW06
   Fri Oct 23, HW09 Fri Nov 6, HW11 Mon Nov 23, HW12 Fri Dec 4, HW13 Wed

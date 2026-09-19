@@ -69,10 +69,14 @@ Will's .nb files as optional extras for students who have Mathematica,
 and the PCCI statement for each day if it is not simply a Taylor
 problem number.
 
-What is deliberately NOT posted, from Will's shell: the Taylor scan;
-the Look-At / In-Class "solutions" PDFs (ISM excerpts -- use them to
-PREPARE, post our own worked solutions in our own hand instead); his
-personal Google appointment-booking link.
+What is deliberately NOT posted, from Will's shell: his personal Google
+appointment-booking link. SUPERSEDED 2026-09-07 (TODO item 10): the Taylor
+scan IS posted (Course Information label, Michael's call assuming Will
+cleared it) and Will's Look-At / In-Class / HW solution PDFs ARE posted in
+the chapter sections on Will's release schedule, with errata notes in the
+descriptions. The 2026-09-02 plan had been to post only our own worked
+solutions; that remains the goal for the computational problems and the
+known-wrong items (TODO item 10's STILL TO WRITE list).
 
 ## Schedule embed (same design as PHY 210)
 
@@ -91,7 +95,7 @@ Note the extra Prerequisites column: ranges run to column **I**, not H.
   mints a new document id and orphans the published URL).
 - Publish to web -> Embed -> Schedule tab; auto-republish ON; access
   restriction OFF.
-- Course Calendar Page = iframe of the published URL + `&range=A1:I16`,
+- Course Calendar (built as a label named "Course Calendar/Schedule" in the Course Information section, not a Page) = iframe of the published URL + `&range=A1:I16`,
   width 100%, height ~800, plus a plain link to the unranged URL
   labeled "full-semester calendar".
 - AT FALL BREAK (Tue Oct 13): change the range parameter to `A17:I46`
@@ -171,7 +175,8 @@ two-number gate (0 before, 1000 after) are in that directory's README.
 
 ## Deliberately NOT doing
 
-- No restore of Will's .mbz; no Taylor scan; no ISM excerpts; no
+- No restore of Will's .mbz (the Taylor scan and the ISM-excerpt
+  solutions ARE posted since 2026-09-07, see above); no
   Google Forms; no extension-request form (late passes by email); no
   seminar-attendance bonus (Will's +0.5 per seminar has no home in a
   points scheme -- revisit if the department expects it); no Library

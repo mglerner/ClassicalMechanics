@@ -108,7 +108,10 @@ CONTENT = [
     ("Central forces; multiparticle systems", "4.8-4.10",
      "Knight: Ch. 12 (Gravity)\nMath Methods: Ch. 5 (Spherical "
      "Coordinates), Ch. 8 (Gradients in spherical)"),
-    ("Mountain Day holder (if Mountain Day has already happened: "
+    # Rule (TODO item 6): a Mountain Day that lands on a class day shifts
+    # that day's content into this holder. So the problem session runs only
+    # if Mountain Day has NOT yet happened (or fell on a Tue/Thu).
+    ("Mountain Day holder (if no class was lost to Mountain Day: "
      "Ch 1-4 problem session)", "", ""),
     ("Spring forces; simple harmonic oscillator", "5.1-5.2",
      "Knight: Ch. 15 (Oscillations)\nMath Methods: Ch. 6 (Oscillations)"),
@@ -195,15 +198,20 @@ CONTENT = [
 # covers its chapters. Problem lists from Will's F2025 PDFs (private/
 # WillF2025/MoodleCourse/extracted/03_Homework/); custom problems are
 # written out in full in the Moodle descriptions, not here.
+# HW01 and HW02 were moved to FRIDAYS on Moodle by hand (Sep 18 / Sep 25;
+# students asked, 2026-09-16). Recorded here 2026-09-19 so the generated
+# artifacts match the live site. The general Wednesday -> Friday decision for
+# HW03 onward is STILL OPEN (private/MoodleBuild/hw-due-shift-2026-09-17.html);
+# HW03-HW13 below are the Wednesday plan of record until Michael decides.
 HWS = [
-    (1, date(2026, 9, 16), date(2026, 9, 11), {1},
+    (1, date(2026, 9, 18), date(2026, 9, 11), {1},
      "Ch 1: Newton's laws, polar coordinates",
      "1.27, 1.45, 1.46, 1.49 [see in-class 1.47 for cylindrical "
      "coordinates], 1.50 [computational]"),
-    (2, date(2026, 9, 23), date(2026, 9, 18), {2},
+    (2, date(2026, 9, 25), date(2026, 9, 18), {2},
      "Ch 2: projectiles with drag; charged particles",
-     "2.14 [look up the integral], 2.31, 2.36, 2.39, 2.42 [2.41 done in "
-     "class], 2.53"),
+     "2.14 [look up the integral], 2.31, 2.36, 2.39, 2.42 [2.41 is in the "
+     "posted Ch 2 in-class solutions; read back in class Mon Sep 21], 2.53"),
     (3, date(2026, 9, 30), date(2026, 9, 25), {3},
      "Ch 3: momentum, rockets, center of mass, angular momentum",
      "3.8, 3.13 [uses 3.11(b) from class], 3.19, 3.35, 3.36; challenge: "
@@ -282,7 +290,7 @@ PCCI = {
     date(2026, 9, 30): "4.31",
     date(2026, 10, 2): "4.41",
     date(2026, 10, 5): "Bring one Ch 1-4 problem you want worked in the "
-                       "problem session (skip if Mountain Day)",
+                       "problem session (skip if this slot absorbed a Mountain Day class)",
     # Ch 5
     date(2026, 10, 7): "5.1",
     date(2026, 10, 14): "5.21",
