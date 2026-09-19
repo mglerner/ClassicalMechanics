@@ -18,16 +18,17 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
   is load-bearing; the five Ch 12 class notebooks are the same
   machinery). 21 of Will's 22 notebooks use Manipulate, so ports are
   Jupyter + ipywidgets or plain matplotlib parameter sweeps.
-- **HW due Wednesdays 10:00 PM** -- PARTLY SUPERSEDED, DECISION OPEN
-  (2026-09-19): students asked for Fridays; HW01 and HW02 were moved to
-  Fri Sep 18 / Fri Sep 25 on Moodle by hand and the generator now records
-  those two. HW03-HW13 are still Wednesdays everywhere. The Friday
-  proposal with its three sub-decisions is
-  `private/MoodleBuild/hw-due-shift-2026-09-17.html`; the review report of
-  2026-09-19 (`~/coding/reports/courses-f2026-review-2026-09-19.html`)
-  lists what moves on Moodle and in the repo once decided. Original
-  decision follows.
-  Covering the previous Mon/Wed/Fri
+- **HW due FRIDAYS 10:00 PM** (decided with the class 2026-09-19;
+  first affected set HW02, Fri Sep 25). Each set is due the Friday after
+  the block it draws on; HW04 Mon Oct 5, HW08 Wed Nov 4 and HW11 Mon Nov
+  23 stay because the exams and Thanksgiving do; HW13 is Fri Dec 18.
+  Generator, syllabus, descriptions and checklists updated 2026-09-19.
+  MOODLE STILL TO EDIT BY HAND (per set: due date, grading-due date, the
+  turn-in sentence, restrict-access date, and the HW solutions PDF's
+  restrict date): HW03 -> Fri Oct 2, HW05 -> Fri Oct 16, HW07 -> Fri Oct
+  30, HW10 -> Fri Nov 20, HW13 -> Fri Dec 18; HW02's text and solution
+  date too. Superseded decision follows for the record.
+  **HW due Wednesdays 10:00 PM**, covering the previous Mon/Wed/Fri
   (2026-09-02; RECONFIRMED 2026-09-04 after weighing Fridays: our
   chapters run Mon/Wed/Fri, so Will's Friday deadline would land on a
   chapter's last teaching day, and a Friday-of-the-following-week rule

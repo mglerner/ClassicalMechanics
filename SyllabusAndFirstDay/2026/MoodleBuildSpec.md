@@ -117,7 +117,7 @@ pacing change never leaves a stale problem list on display.
 
 | Assignment | Due               | Pts | Notes                                                                               |
 | ---------- | ----------------- | --- | ----------------------------------------------------------------------------------- |
-| HW01..HW13 | see generator     | 24  | Wednesdays 22:00; HW04 Mon Oct 5, HW06 Fri Oct 23, HW09 Fri Nov 6, HW11 Mon Nov 23, HW12 Fri Dec 4, HW13 Wed Dec 16 |
+| HW01..HW13 | see generator     | 24  | Fridays 22:00 (decided 2026-09-19; was Wednesdays); HW04 Mon Oct 5, HW08 Wed Nov 4, HW11 Mon Nov 23, HW12 Fri Dec 4, HW13 Wed Dec 16 |
 | Exam 1     | Fri Oct 9, 13:20  | 180 | no submission; Ch 2-4                                                               |
 | Exam 2     | Wed Nov 11, 13:20 | 180 | no submission; Ch 5-7                                                               |
 | Exam 3     | Mon Dec 7, 13:40  | 180 | no submission; Ch 8, 9, 11                                                          |

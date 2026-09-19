@@ -198,11 +198,16 @@ CONTENT = [
 # covers its chapters. Problem lists from Will's F2025 PDFs (private/
 # WillF2025/MoodleCourse/extracted/03_Homework/); custom problems are
 # written out in full in the Moodle descriptions, not here.
-# HW01 and HW02 were moved to FRIDAYS on Moodle by hand (Sep 18 / Sep 25;
-# students asked, 2026-09-16). Recorded here 2026-09-19 so the generated
-# artifacts match the live site. The general Wednesday -> Friday decision for
-# HW03 onward is STILL OPEN (private/MoodleBuild/hw-due-shift-2026-09-17.html);
-# HW03-HW13 below are the Wednesday plan of record until Michael decides.
+# DECIDED 2026-09-19 (the class, with Michael): homework is due FRIDAYS
+# 10:00 PM from HW02 on -- each set the Friday after the block it draws on
+# (HW02 was the first, moved from Wed Sep 23 to Fri Sep 25; HW01 had been
+# extended to Fri Sep 18). Exams stay put, so three sets keep non-Friday
+# dates: HW04 Mon Oct 5 (Exam 1 Fri Oct 9), HW08 Wed Nov 4 (HW09 owns Fri
+# Nov 6 before Exam 2), HW11 Mon Nov 23 (Fri Nov 27 is Thanksgiving; the
+# alternative Wed Dec 2 was not taken). HW13 moves to Fri Dec 18 (before the
+# Dec 19-22 finals). Rationale and options: private/MoodleBuild/
+# hw-due-shift-2026-09-17.html. Live Moodle still had HW03-HW13 on the old
+# dates at the 2026-09-19 backup; the report of that date lists the edits.
 HWS = [
     (1, date(2026, 9, 18), date(2026, 9, 11), {1},
      "Ch 1: Newton's laws, polar coordinates",
@@ -212,7 +217,7 @@ HWS = [
      "Ch 2: projectiles with drag; charged particles",
      "2.14 [look up the integral], 2.31, 2.36, 2.39, 2.42 [2.41 is in the "
      "posted Ch 2 in-class solutions; read back in class Mon Sep 21], 2.53"),
-    (3, date(2026, 9, 30), date(2026, 9, 25), {3},
+    (3, date(2026, 10, 2), date(2026, 9, 25), {3},
      "Ch 3: momentum, rockets, center of mass, angular momentum",
      "3.8, 3.13 [uses 3.11(b) from class], 3.19, 3.35, 3.36; challenge: "
      "chain pulled off a table at constant speed"),
@@ -220,14 +225,14 @@ HWS = [
      "Ch 4: energy",
      "4.4, 4.8, 4.13 [optional math review], 4.24(a-c), 4.36, 4.39 "
      "[advanced, optional], 4.53; custom: variation of gravity with height"),
-    (5, date(2026, 10, 14), date(2026, 10, 7), {5},
+    (5, date(2026, 10, 16), date(2026, 10, 7), {5},
      "5.1-5.2: Hooke's law, simple harmonic motion",
      "5.4 [geometry diagram supplied], 5.7, 5.13"),
     (6, date(2026, 10, 23), date(2026, 10, 19), {5},
      "5.3-5.8: 2D and damped oscillators, resonance, Fourier series",
      "5.28, 5.32 [optional], 5.43; custom: RLC circuit as an SHO; custom: "
      "square-wave Fourier drive (or 5.49)"),
-    (7, date(2026, 10, 28), date(2026, 10, 23), {6},
+    (7, date(2026, 10, 30), date(2026, 10, 23), {6},
      "6.1-6.3: calculus of variations, Euler-Lagrange, brachistochrone",
      "6.7, 6.11, 6.14, 6.17; custom: brachistochrone revisited (6.25 "
      "recast; tautochrone)"),
@@ -241,7 +246,7 @@ HWS = [
      "two-body setup",
      "7.27, 7.31, 7.34, 7.38 [optional challenge], 7.46 [Noether: rotational "
      "invariance gives conservation of L_z], 8.2"),
-    (10, date(2026, 11, 18), date(2026, 11, 13), {8},
+    (10, date(2026, 11, 20), date(2026, 11, 13), {8},
      "8.3-8.8: central-force motion, orbits, changing orbits",
      "8.9, 8.13, 8.14 [optional challenge], 8.15, 8.18, 8.23"),
     (11, date(2026, 11, 23), date(2026, 11, 20), {8, 9},
@@ -252,7 +257,7 @@ HWS = [
      "Ch 11: coupled oscillators, normal modes, double pendulum",
      "11.6, 11.9, 11.12, 11.14 [Lagrangian supplied as a check], 11.17 "
      "[optional]"),
-    (13, date(2026, 12, 16), date(2026, 12, 11), {12},
+    (13, date(2026, 12, 18), date(2026, 12, 11), {12},
      "Ch 12: chaos",
      "12.1, 12.6, 12.7 [computational: use the class program or write your "
      "own], 12.8-12.10 [optional], 12.13 + custom parts (b), (c)"),
