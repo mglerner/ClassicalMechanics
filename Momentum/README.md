@@ -1,8 +1,12 @@
 # Momentum (Taylor Ch 3)
 
-- `rockets.ipynb` -- Python version of Will Raven's Rockets Mathematica
-  notebook: Tsiolkovsky final speed vs exhaust speed for Space Shuttle
-  numbers, a static plot of problem 3.10 (momentum peaks at m = m0/e),
-  then the "gravity tax" during the burn with sliders for g and v_ex
-  (the visual payoff of in-class problem 3.11). Class 06 (Mon Sep 21).
-  Run on jupyterhub.smith.edu; outputs cleared in git.
+- `rockets.ipynb` -- class notebook for Taylor 3.1-3.2, split into two
+  parts. Part I (no gravity): problem 3.5, the equal-mass elastic
+  collision, drawn as vectors on the circle whose diameter is the
+  incoming velocity; problem 3.10, where the momentum peaks at
+  m = m0/e; and Tsiolkovsky final speed vs exhaust speed for Space
+  Shuttle numbers. Part II (gravity on): the "gravity tax" during the
+  burn with sliders for g and v_ex, our port of the one Manipulate in
+  Will Raven's `Rockets.nb`, and the visual payoff of in-class problem
+  3.11. Class 06 (Mon Sep 21). Run on jupyterhub.smith.edu; outputs
+  cleared in git.
