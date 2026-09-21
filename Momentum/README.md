@@ -2,6 +2,7 @@
 
 - `rockets.ipynb` -- Python version of Will Raven's Rockets Mathematica
   notebook: Tsiolkovsky final speed vs exhaust speed for Space Shuttle
-  numbers, then the "gravity tax" during the burn with sliders for g and
-  v_ex (the visual payoff of in-class problem 3.11). Class 06 (Mon
-  Sep 21). Run on jupyterhub.smith.edu; outputs cleared in git.
+  numbers, a static plot of problem 3.10 (momentum peaks at m = m0/e),
+  then the "gravity tax" during the burn with sliders for g and v_ex
+  (the visual payoff of in-class problem 3.11). Class 06 (Mon Sep 21).
+  Run on jupyterhub.smith.edu; outputs cleared in git.
