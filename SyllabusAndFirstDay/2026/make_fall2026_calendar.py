@@ -357,7 +357,7 @@ CHAPTER_PROBLEMS = {
     3: dict(lookat=[["3.7"], ["3.16", "3.17", "3.25"], ["3.32"]],
             inclass=[["3.5", "3.10", "3.11"], ["3.21", "3.27"], ["3.29", "3.34"]],
             hw=[("HW03", ["3.8", "3.13", "3.19", "3.35", "3.36",
-                          "Challenge: chain lifted at constant speed"])]),
+                          "chain lifted at constant speed (optional challenge)"])]),
     4: dict(lookat=[["4.7", "4.16"], ["4.31"], ["4.41"]],
             inclass=[["4.2", "4.3", "4.12", "4.15"], ["4.23", "4.26", "4.28"],
                      ["4.46", "4.48"]],

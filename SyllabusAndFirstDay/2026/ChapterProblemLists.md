@@ -32,7 +32,7 @@ Homework: HW02: 2.14, 2.31, 2.36, 2.39, 2.42, 2.53
 | 2 | 3.16, 3.17, 3.25 | 3.21, 3.27 |
 | 3 | 3.32 | 3.29, 3.34 |
 
-Homework: HW03: 3.8, 3.13, 3.19, 3.35, 3.36, Challenge: chain lifted at constant speed
+Homework: HW03: 3.8, 3.13, 3.19, 3.35, 3.36, chain lifted at constant speed (optional challenge)
 
 ## Chapter 4
 
