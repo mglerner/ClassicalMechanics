@@ -107,7 +107,13 @@ def plan_rows(lines, path):
     return rows
 
 
-def check_rows(rows, path, date):
+def active_minutes(rows, prob):
+    """Active minutes across the day whose row text mentions `prob`."""
+    return sum(r[2] for r in rows if r[3] == "Active"
+               and re.search(rf"\b{re.escape(prob)}\b", r[5]))
+
+
+def check_rows(rows, path, date, board):
     weekday = datetime.date.fromisoformat(date).weekday()
     if weekday not in CLASS_START:
         fail(f"{path}: {date} is not a class weekday")
@@ -125,14 +131,32 @@ def check_rows(rows, path, date):
         prev = b
     if prev != CLASS_START[weekday] + PERIOD:
         fail(f"{path}: last Stop is {clock(prev)}, want {clock(CLASS_START[weekday] + PERIOD)}")
+    # Groupwork guarantee (playbook 3a, Michael 2026-09-22): every class
+    # day works at least one in-class problem in student groups at the
+    # boards, two is the target, and the `Groupwork:` line says which.
+    if board is None:
+        fail(f"{path}: no `Groupwork:` line (playbook 3a). Write one under the "
+             f"table, e.g. `Groupwork: 3.21, 3.27`, or `Groupwork: none (exam)`.")
+    for prob in board:
+        total = active_minutes(rows, prob)
+        if total == 0:
+            fail(f"{path}: Groupwork names {prob}, but no Active row mentions it")
+    if board and len(board) < 2:
+        print(f"WARNING {path}: Groupwork names only {board[0]}; playbook 3a "
+              f"targets two problems worked by student groups")
+
     # Two-star budget guard (playbook section 4; 2.4 took 25 min on
     # 2026-09-14, 2.54(a) overran on 2026-09-18): a Taylor "(**)" problem
     # gets 20+ minutes across the day's rows, split over two rows if the
-    # 15-minute row cap demands it. Warn, do not fail: Michael may accept a
-    # scoped-down two-star deliberately, and says so in Ambiguities.
+    # 15-minute row cap demands it. Scoped to GROUPWORK problems since 3a: a
+    # FRONT or SUMMARY problem is deliberately not getting 20 minutes.
+    # Warn, do not fail: Michael may accept a scoped-down two-star
+    # deliberately, and says so in Ambiguities.
     for a, b, m, mode, _s, text in rows:
         for prob in re.findall(r"(\d+\.\d+)\s*\(\*\*\)", text):
-            total = sum(r[2] for r in rows if r[3] == "Active" and re.search(rf"\b{re.escape(prob)}\b", r[5]))
+            if prob not in board:
+                continue
+            total = active_minutes(rows, prob)
             if total < TWO_STAR_MIN:
                 print(f"WARNING {path}: {prob} (**) has {total} Active min across the day; "
                       f"playbook budget is {TWO_STAR_MIN}+")
@@ -173,6 +197,27 @@ def droppable(lines):
         if l.startswith("Droppable tail:"):
             return l[len("Droppable tail:"):].strip()
     return ""
+
+
+def tagged_line(lines, label):
+    for l in lines:
+        if l.startswith(label):
+            return l[len(label):].strip()
+    return None
+
+
+def groupwork(lines):
+    """Problems named on the `Groupwork:` line (playbook 3a), or None if absent.
+
+    "none (exam)" and the like parse to an empty list, which check_rows
+    accepts only on a day whose plan has no in-class problem at all.
+    """
+    raw = tagged_line(lines, "Groupwork:")
+    if raw is None:
+        return None
+    if raw.lower().startswith("none"):
+        return []
+    return [p.strip() for p in raw.split(",") if p.strip()]
 
 
 def html_escape(s):
@@ -315,7 +360,7 @@ def main():
             fail(f"{path}: missing 00-prep-notes.md")
         lines = path.read_text().splitlines()
         rows = plan_rows(lines, path)
-        check_rows(rows, path, date)
+        check_rows(rows, path, date, groupwork(lines))
         t = totals(rows)
         rewrite_totals(path, lines, totals_line(t))
         write_plan_html(path, n, date, topic(lines, path), rows, t, droppable(lines), frame_text(lines))
