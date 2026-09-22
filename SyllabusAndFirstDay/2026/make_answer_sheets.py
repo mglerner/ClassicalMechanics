@@ -33,6 +33,8 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
+from pathlib import Path
 
 import make_active_learning as M
 
@@ -40,6 +42,14 @@ SOL_DPI = 110            # readable on screen, small enough to screenshot
 SOL_GLOB = "*olution*.pdf"
 HW_RE = re.compile(r"\bHW\s*0*(\d+)", re.I)
 PAD = 0.004              # page-height fraction added above and below a crop
+
+# Taylor's own problem statements. One shared scan for the whole course, so
+# the band map is shared too rather than copied into 27 packs. Lines look
+# like `3.10 = 115@.700-.756` -- PDF page (book page + 15), then the band.
+TEXTBOOK = (Path.home() / "coding/courses/ClassicalMechanics/private/WillF2025"
+            / "MoodleCourse/extracted/01_Course_Information/Classical_Taylor.pdf")
+PROBLEM_BANDS = (Path.home() / "coding/courses/ClassicalMechanics/private"
+                 / "F2026PrepPacks/_shared")   # taylor-bands-ch*.txt, one per chapter
 
 CSS = """
 body { background: #fff; margin: 0; padding: 16px 18px; color: #111;
@@ -58,6 +68,9 @@ h2 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
 ul { margin: 0; padding-left: 17px; }
 li { font-size: 14.5px; line-height: 1.4; }
 .none { font-size: 13.5px; color: #777; font-style: italic; }
+.stmt { margin: 3px 0 5px 0; }
+.stmt img { width: 100%; border: 1px solid #e3e3e3; display: block;
+            margin: 2px 0 0 0; background: #fcfcfa; }
 .worked { margin: 5px 0 0 0; }
 .worked img { width: 100%; border: 1px solid #ddd; display: block;
               margin: 3px 0 0 0; }
@@ -120,6 +133,56 @@ def solutions_map(lines):
             else:
                 items.append((tok, None))
         out[(sub.strip().lower(), int(page.strip()))] = items
+    return out
+
+
+def problem_bands():
+    """-> {problem: [(pdf_page, top, bottom), ...]}; a statement may span pages."""
+    out = {}
+    for f in sorted(PROBLEM_BANDS.glob("taylor-bands-ch*.txt")):
+        for line in f.read_text().split("\n"):
+            line = line.split("#")[0].strip()
+            m = re.match(r"([\d.]+)\s*=\s*(\d+)@([\d.]+)-([\d.]+)$", line)
+            if m:
+                out.setdefault(m.group(1), []).append(
+                    (int(m.group(2)), float(m.group(3)), float(m.group(4))))
+    return out
+
+
+def crop_statements(pack_dir, wanted, bands):
+    """Cut each wanted problem's statement out of the textbook. -> {prob: [src]}."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return {}
+    todo = {q: bands[q] for q in wanted if q in bands}
+    if not todo or not TEXTBOOK.exists() or not shutil.which("pdftoppm"):
+        return {}
+    out_dir = pack_dir / "03-answers-files"
+    out_dir.mkdir(exist_ok=True)
+    cache = Path(tempfile.gettempdir()) / "taylor-pages"
+    cache.mkdir(exist_ok=True)
+    out = {}
+    for prob, spans in sorted(todo.items()):
+      for i, (page, top, bot) in enumerate(spans):
+        src = cache / f"p-{page}.png"
+        if not src.exists():
+            subprocess.run(["pdftoppm", "-png", "-r", str(SOL_DPI),
+                            "-f", str(page), "-l", str(page),
+                            str(TEXTBOOK), str(cache / "one")],
+                           check=True, capture_output=True)
+            made = sorted(cache.glob("one-*.png"))
+            if not made:
+                continue
+            made[0].rename(src)
+        im = Image.open(src)
+        w, h = im.size
+        y0, y1 = max(0, int((top - PAD) * h)), min(h, int((bot + PAD) * h))
+        if y1 <= y0:
+            continue
+        name = f"taylor-{prob.replace('.', '_')}-{i + 1}.png"
+        im.crop((0, y0, w, y1)).save(out_dir / name)
+        out.setdefault(prob, []).append(f"03-answers-files/{name}")
     return out
 
 
@@ -208,7 +271,8 @@ def listed_on(smap, pg):
     return None
 
 
-def render(n, date, topic, rows, groupwork, pcci, pages, smap, crops, claimed):
+def render(n, date, topic, rows, groupwork, pcci, pages, smap, crops,
+           claimed, stmts):
     gw, other, pcci_ent = [], [], []
     for prob, when, task, checks in row_entries(rows):
         if pcci and "PCCI" in task:
@@ -222,7 +286,7 @@ def render(n, date, topic, rows, groupwork, pcci, pages, smap, crops, claimed):
          f"<title>PHY 317 answers -- class {n:02d}</title><style>{CSS}</style>",
          f"<h1>Class {n:02d} answers<span class=when>{date} &middot; "
          f"{esc(topic)}</span></h1>"]
-    seen = set()
+    seen, shown_stmt = set(), set()
 
     def block(title, items):
         o.append(f"<h2>{title}</h2>")
@@ -234,6 +298,13 @@ def render(n, date, topic, rows, groupwork, pcci, pages, smap, crops, claimed):
                      f'<span class=when>{when}</span></div>')
             if task and task != prob:
                 o.append(f"<div class=task>{esc(task)}</div>")
+            if prob in stmts and prob not in shown_stmt:
+                shown_stmt.add(prob)
+                o.append(f'<div class=stmt><p class=cap>Taylor {esc(prob)}</p>'
+                         + "".join(f'<img src="{esc(src)}" '
+                                   f'alt="Taylor {esc(prob)}">'
+                                   for src in stmts[prob])
+                         + '</div>')
             o.append("<ul>" + "".join(f"<li>{esc(c)}</li>" for c in checks)
                      + "</ul>")
             if prob in crops and prob not in seen:
@@ -285,7 +356,8 @@ def pcci_number(rows):
 
 
 def main(only=None):
-    wrote = cropped = 0
+    wrote = cropped = statements = 0
+    bands = problem_bands()
     for n, date, path in M.pack_files():
         if only and f"{n:02d}" not in only:
             continue
@@ -297,12 +369,17 @@ def main(only=None):
         smap = solutions_map(lines)
         pages = render_pages(path.parent)
         crops, claimed = crop_problems(pages, smap)
+        wanted = {q for q, *_ in row_entries(rows) if q}
+        stmts = crop_statements(path.parent, wanted, bands)
         cropped += len(crops)
+        statements += len(stmts)
         (path.parent / "03-answers.html").write_text(
             render(n, date, M.topic(lines, path), rows, gw, pcci_number(rows),
-                   pages, smap, crops, claimed))
+                   pages, smap, crops, claimed, stmts))
         wrote += 1
-    print(f"wrote {wrote} answer sheets; {cropped} problem crops")
+    print(f"wrote {wrote} answer sheets; {cropped} solution crops; "
+          f"{statements} problem statements"
+          + ("" if bands else "  (no taylor-problem-bands.txt yet)"))
 
 
 if __name__ == "__main__":
