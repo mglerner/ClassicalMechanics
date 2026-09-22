@@ -123,6 +123,17 @@ def solutions_map(lines):
     return out
 
 
+def is_blank(png):
+    """True for an all-but-empty scan page (Ch7's in-class p4)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return False
+    im = Image.open(png).convert("L")
+    lo, hi = im.getextrema()
+    return lo > 235          # nothing darker than near-white anywhere
+
+
 def render_pages(pack_dir):
     """Rasterise every solution PDF page once. -> [{path, src, file, page, hw}]."""
     if not shutil.which("pdftoppm"):
@@ -137,6 +148,8 @@ def render_pages(pack_dir):
         for png in sorted(out_dir.glob(stem + "-*.png")):
             n = re.search(r"-(\d+)\.png$", png.name)
             if not n:
+                continue
+            if is_blank(png):
                 continue
             pages.append({"path": png, "src": f"03-answers-files/{png.name}",
                           "file": pdf.name, "stem": stem,
@@ -156,6 +169,15 @@ def crop_problems(pages, smap):
         return {}, set()
     crops, claimed = {}, set()
     for pg in pages:
+        banded = [(q, b) for q, b in
+                  (i for lst in [lst for (sub, page), lst in smap.items()
+                                 if sub in pg["file"].lower() and page == pg["page"]]
+                   for i in lst) if b]
+        for (qa, ba), (qb, bb) in zip(banded, banded[1:]):
+            if ba[1] + PAD > bb[0] - PAD:
+                print(f"WARNING {pg['file']} p{pg['page']}: {qa} and {qb} overlap "
+                      f"once PAD={PAD} is added ({ba[1]:.3f} vs {bb[0]:.3f}); "
+                      f"tighten a band or lower PAD")
         items = []
         for (sub, page), lst in smap.items():
             if sub in pg["file"].lower() and page == pg["page"]:
