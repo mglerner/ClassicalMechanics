@@ -529,13 +529,11 @@ def build(outpath):
     breaks_seen = set()
     due_on = {}
     for hw, due, _through, chapters, _covers, _problems in HWS:
+        # A graced set is simply listed on both dates; the column is narrow
+        # and Moodle carries which one is the deadline (Due vs Cut-off).
         label = f"HW{hw:02d} ({ch_label(chapters)})"
-        g = HW_GRACE.get(hw)
-        due_on.setdefault(due, []).append(
-            label + (f" - or {g:%a %b %-d}, no penalty" if g else ""))
-        if g:
-            due_on.setdefault(g, []).append(
-                f"{label} - extended from {due:%a %b %-d}")
+        for d in [due] + ([HW_GRACE[hw]] if hw in HW_GRACE else []):
+            due_on.setdefault(d, []).append(label)
     for d, label in EXTRA_DUE.items():
         due_on.setdefault(d, []).append(label)
     for d in days:
