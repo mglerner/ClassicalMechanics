@@ -229,8 +229,10 @@ CONTENT = [
 # extended to Fri Sep 18). Exams stay put, so three sets keep non-Friday
 # dates: HW04 Mon Oct 5 (Exam 1 Fri Oct 9), HW08 Wed Nov 4 (HW09 owns Fri
 # Nov 6 before Exam 2), HW11 Mon Nov 23 (Fri Nov 27 is Thanksgiving; the
-# alternative Wed Dec 2 was not taken). HW13 moves to Fri Dec 18 (before the
-# Dec 19-22 finals). Rationale and options: private/MoodleBuild/
+# alternative Wed Dec 2 was not taken). HW13 is due Mon Dec 14, the last
+# class day (Michael, 2026-09-24; it had been Fri Dec 18, in reading
+# period). Will's was Thu Dec 11, also his last week rather than reading
+# period, so this is closer to his. Nothing is now due on a non-class day. Rationale and options: private/MoodleBuild/
 # hw-due-shift-2026-09-17.html. Live Moodle still had HW03-HW13 on the old
 # dates at the 2026-09-19 backup; the report of that date lists the edits.
 HWS = [
@@ -282,7 +284,7 @@ HWS = [
      "Ch 11: coupled oscillators, normal modes, double pendulum",
      "11.6, 11.9, 11.12, 11.14 [Lagrangian supplied as a check], 11.17 "
      "[optional]"),
-    (13, date(2026, 12, 18), date(2026, 12, 11), {12},
+    (13, date(2026, 12, 14), date(2026, 12, 11), {12},
      "Ch 12: chaos",
      "12.1, 12.6, 12.7 [computational: use the class program or write your "
      "own], 12.8-12.10 [optional], 12.13 + custom parts (b), (c)"),
