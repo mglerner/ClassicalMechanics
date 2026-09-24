@@ -61,17 +61,27 @@ def class_days():
 # order. Readings are Taylor chapter/sections, read before class.
 # Prerequisites are Will's just-in-time review pointers: Knight = intro
 # physics (PHY 117/118), Math Methods = Felder & Felder (PHY 210).
-# Exams are pinned to slot indices (0-based). Decided 2026-09-04 (Michael):
-# exams as early as the homework allows -- each exam comes after the last
-# homework on its chapters has been RETURNED.
+# Decided 2026-09-04 (Michael): exams as early as the homework allows --
+# each exam comes after the last homework on its chapters has been
+# RETURNED. RELAXED 2026-09-24 to "due before the exam", which is what
+# Will actually did (his HW09 was due Fri Nov 7, Exam 2 Mon Nov 10, no
+# return in between). The stricter rule was ours, and it was the thing
+# forcing two sets onto adjacent class days. Michael: primary due dates
+# for two sets are never adjacent -- students moved HW to Fridays because
+# they lacked working time, and a set on each of two consecutive class
+# days is a nonstarter. Where a set is not returned in time, its solutions
+# go up the morning after it is due so students can self-check.
 #   Exam 1 = Fri Oct 16. Was Fri Oct 9 (Will's exact slot); moved after
 #     Mountain Day cost a meeting, because the Friday HW rule adopted
 #     2026-09-19 put HW04 on Oct 9 and a set must not be due after the
 #     exam that covers it. The move is a three-row rotation -- Ch 5 still
 #     gets Oct 9 / Oct 14 / Oct 19 -- and it buys what no earlier
 #     arrangement had: HW04 graded and RETURNED before the Ch 2-4 exam.
-#   Exam 2 = Wed Nov 11 (Will's was slot 27). HW09 (the Ch 7 practice) is
-#     due Fri Nov 6 and comes back Mon Nov 9, the review day.
+#   Exam 2 = Mon Nov 16. Was Wed Nov 11; moved 2026-09-24 so HW08 and
+#     HW09 each get their own Friday (Nov 6, Nov 13) instead of landing on
+#     Wed Nov 4 and Fri Nov 6. This is Will's own shape -- Exam 2 the class
+#     day after the HW, all of Ch 8 taught before it -- and it restores
+#     changing orbits (8.7-8.8) to its place ahead of the exam.
 #   Exam 3 = Mon Dec 7 (Will's was 37; Michael: fine as is).
 # Keyed by DATE. They were keyed by 0-based slot index until 2026-09-24,
 # when deleting a meeting silently moved all three exams; a date says what
@@ -81,7 +91,7 @@ def class_days():
 # was a typo; the 3x3 redemption-problem arithmetic proves 8, 9, 11).
 EXAMS = {
     date(2026, 10, 16): ("EXAM 1 (Ch 2-4)", {2, 3, 4}),
-    date(2026, 11, 11): ("EXAM 2 (Ch 5-7)", {5, 6, 7}),
+    date(2026, 11, 16): ("EXAM 2 (Ch 5-7)", {5, 6, 7}),
     date(2026, 12, 7): ("EXAM 3 (Ch 8, 9, 11)", {8, 9, 11}),
 }
 CONTENT = [
@@ -156,12 +166,15 @@ CONTENT = [
      "Knight: Ch. 12 (Gravity)"),
     ("Orbits", "8.5-8.6",
      "Math Methods: Ch. 1 (ODEs)\nCalculus I & II"),
-    # Review day BEFORE Exam 2 (Wed); Ch 8 is not on Exam 2, so changing
-    # orbits can follow the exam.
-    ("Catch-up / review day (Exam 2 is Wednesday)", "", ""),
     ("Changing orbits", "8.7-8.8", "Calculus I & II"),
+    # Our weekday grid gives one more slot before Exam 2 than Will's did,
+    # so Ch 9 splits: 9.1-9.2 runs Wed Nov 11, the rest after the exam.
+    # The alternative (a second catch-up day here) pushes Ch 11 onto Dec 4
+    # and costs the review day before Exam 3. Teaching Ch 9 ahead of a
+    # Ch 5-7 exam is no stranger than Ch 5 ahead of the Ch 2-4 exam.
     ("Accelerating frames; tides", "9.1-9.2",
      "Math Methods: Ch. 8 (Vector Calculus)"),
+    ("Catch-up / review day (Exam 2 is Monday)", "", ""),
     ("Angular velocity; rotating frames", "9.3-9.5",
      "Math Methods: Ch. 8 (Vectors in Curvilinear Coordinates)"),
     # 9.6-9.7 -> 9.6-9.8 (audit 2026-09-03): HW11's 9.28, 9.29 are 9.8.
@@ -248,20 +261,20 @@ HWS = [
      "6.1-6.3: calculus of variations, Euler-Lagrange, brachistochrone",
      "6.7, 6.11, 6.14, 6.17; custom: brachistochrone revisited (6.25 "
      "recast; tautochrone)"),
-    (8, date(2026, 11, 4), date(2026, 10, 30), {6, 7},
+    (8, date(2026, 11, 6), date(2026, 10, 30), {6, 7},
      "6.4, 7.1-7.3: several variables; Lagrange's equations; constraints",
      "6.23 [hints], 6.24 [advanced, optional], 6.27, 7.3, 7.10 [hint], 7.14"),
     # Fri, not Wed: back on Mon Nov 9 before Exam 2. 8.2 (taught Wed Nov 4)
     # gets only two days; it is the one easy problem on the set.
-    (9, date(2026, 11, 6), date(2026, 11, 4), {7, 8},
+    (9, date(2026, 11, 13), date(2026, 11, 4), {7, 8},
      "7.5, 7.8, 7.9, 8.1-8.2: Lagrangian examples; Noether; multipliers; "
      "two-body setup",
      "7.27, 7.31, 7.34, 7.38 [optional challenge], 7.46 [Noether: rotational "
      "invariance gives conservation of L_z], 8.2"),
-    (10, date(2026, 11, 20), date(2026, 11, 13), {8},
+    (10, date(2026, 11, 20), date(2026, 11, 9), {8},
      "8.3-8.8: central-force motion, orbits, changing orbits",
      "8.9, 8.13, 8.14 [optional challenge], 8.15, 8.18, 8.23"),
-    (11, date(2026, 11, 23), date(2026, 11, 20), {8, 9},
+    (11, date(2026, 11, 30), date(2026, 11, 20), {8, 9},
      "8.8, Ch 9: non-inertial frames, Coriolis",
      "8.27 [optional challenge], 8.33, 9.3, 9.9, 9.15 [Northampton "
      "colatitude 48 deg], 9.17, 9.28, 9.29 [optional challenge]"),
@@ -335,10 +348,10 @@ PCCI = {
     # Ch 8
     date(2026, 11, 4): "8.6",
     date(2026, 11, 6): "8.19",
-    date(2026, 11, 9): "Bring one Ch 5-7 problem you want worked in review",
-    date(2026, 11, 13): "8.28",
-    # Ch 9
-    date(2026, 11, 16): "9.1",
+    date(2026, 11, 9): "8.28",
+    # Ch 9 -- 9.1 before Exam 2 (Mon Nov 16), the rest after
+    date(2026, 11, 11): "9.1",
+    date(2026, 11, 13): "Bring one Ch 5-7 problem you want worked in review",
     date(2026, 11, 18): "9.7",
     date(2026, 11, 20): "9.12",
     # Ch 11
@@ -516,6 +529,17 @@ def build(outpath):
             if chaps & ex_ch:
                 assert g < ed, (
                     f"HW{hw:02d} grace {g} falls after {label} on {ed}")
+    # Michael 2026-09-24, hard rule: two sets are never due on consecutive
+    # class days. Students asked for Fridays because they lacked working
+    # time, and a full set on each of two class days in a row is a
+    # nonstarter -- so this is a guard, not a preference. Grace dates do
+    # not count; only the primary deadlines in HWS do.
+    in_order = sorted(hw_due.items(), key=lambda kv: kv[1])
+    for (a, da), (b, db) in zip(in_order, in_order[1:]):
+        between = [x for x in days if da < x <= db]
+        assert len(between) > 1, (
+            f"HW{a:02d} ({da}) and HW{b:02d} ({db}) are due on consecutive "
+            f"class days")
     assert sorted(hw_due) == list(range(1, 14)), "expected HW01..HW13"
     assert all(hw_due[i] < hw_due[i + 1] for i in range(1, 13)), (
         "HW due dates out of order")
