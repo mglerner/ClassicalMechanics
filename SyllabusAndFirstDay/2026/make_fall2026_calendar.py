@@ -32,6 +32,10 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 FIRST_DAY = date(2026, 9, 9)   # first MWF meeting (classes open Tue Sep 8)
 LAST_DAY = date(2026, 12, 14)  # last MWF meeting
 NO_CLASS = {
+    # Mountain Day 2026 fell on Wed Sep 23 (announced that morning; it is
+    # never known in advance). Adding it here drops the meeting, which
+    # shifts every later slot back one and consumes the Oct 5 holder below.
+    date(2026, 9, 23): "Mountain Day",
     date(2026, 10, 12): "Autumn recess",
     date(2026, 11, 25): "Thanksgiving",
     date(2026, 11, 27): "Thanksgiving",
@@ -57,19 +61,25 @@ def class_days():
 # Exams are pinned to slot indices (0-based). Decided 2026-09-04 (Michael):
 # exams as early as the homework allows -- each exam comes after the last
 # homework on its chapters has been RETURNED.
-#   Exam 1 = index 13 = Fri Oct 9: Will's exact slot (his slot 14 of 39,
-#     the class after 5.1-5.2). HW04 (Ch 4) is due Mon Oct 5 and comes back
-#     Wed Oct 7.
-#   Exam 2 = index 26 = Wed Nov 11 (Will's was 27). HW09 (the Ch 7
-#     practice) is due Fri Nov 6 and comes back Mon Nov 9, the review day.
-#   Exam 3 = index 35 = Mon Dec 7 (Will's was 37; Michael: fine as is).
+#   Exam 1 = Fri Oct 16. Was Fri Oct 9 (Will's exact slot); moved after
+#     Mountain Day cost a meeting, because the Friday HW rule adopted
+#     2026-09-19 put HW04 on Oct 9 and a set must not be due after the
+#     exam that covers it. The move is a three-row rotation -- Ch 5 still
+#     gets Oct 9 / Oct 14 / Oct 19 -- and it buys what no earlier
+#     arrangement had: HW04 graded and RETURNED before the Ch 2-4 exam.
+#   Exam 2 = Wed Nov 11 (Will's was slot 27). HW09 (the Ch 7 practice) is
+#     due Fri Nov 6 and comes back Mon Nov 9, the review day.
+#   Exam 3 = Mon Dec 7 (Will's was 37; Michael: fine as is).
+# Keyed by DATE. They were keyed by 0-based slot index until 2026-09-24,
+# when deleting a meeting silently moved all three exams; a date says what
+# it means and the build asserts it lands on a class day.
 # Every slot is 75 min, so the weekday changes nothing else.
 # Exam coverage per Will's syllabus (his calendar row "Ch 9-11" for Exam 3
 # was a typo; the 3x3 redemption-problem arithmetic proves 8, 9, 11).
 EXAMS = {
-    13: ("EXAM 1 (Ch 2-4)", {2, 3, 4}),          # Fri Oct 9
-    26: ("EXAM 2 (Ch 5-7)", {5, 6, 7}),          # Wed Nov 11
-    35: ("EXAM 3 (Ch 8, 9, 11)", {8, 9, 11}),    # Mon Dec 7
+    date(2026, 10, 16): ("EXAM 1 (Ch 2-4)", {2, 3, 4}),
+    date(2026, 11, 11): ("EXAM 2 (Ch 5-7)", {5, 6, 7}),
+    date(2026, 12, 7): ("EXAM 3 (Ch 8, 9, 11)", {8, 9, 11}),
 }
 CONTENT = [
     ("Syllabus; notation; Newton's laws; polar coordinates", "Ch. 1",
@@ -108,11 +118,10 @@ CONTENT = [
     ("Central forces; multiparticle systems", "4.8-4.10",
      "Knight: Ch. 12 (Gravity)\nMath Methods: Ch. 5 (Spherical "
      "Coordinates), Ch. 8 (Gradients in spherical)"),
-    # Rule (TODO item 6): a Mountain Day that lands on a class day shifts
-    # that day's content into this holder. So the problem session runs only
-    # if Mountain Day has NOT yet happened (or fell on a Tue/Thu).
-    ("Mountain Day holder (if no class was lost to Mountain Day: "
-     "Ch 1-4 problem session)", "", ""),
+    # The Mountain Day holder that sat here (a Ch 1-4 problem session if no
+    # class had been lost) was SPENT on 2026-09-24: Mountain Day took Wed
+    # Sep 23, so every slot from Sep 25 on moved back one into this one.
+    # That is the rule working as designed (TODO item 6), not a cut.
     ("Spring forces; simple harmonic oscillator", "5.1-5.2",
      "Knight: Ch. 15 (Oscillations)\nMath Methods: Ch. 6 (Oscillations)"),
     ("2D oscillators; damped SHO", "5.3-5.4",
@@ -217,11 +226,11 @@ HWS = [
      "Ch 2: projectiles with drag; charged particles",
      "2.14 [look up the integral], 2.31, 2.36, 2.39, 2.42 [2.41 is in the "
      "posted Ch 2 in-class solutions; read back in class Mon Sep 21], 2.53"),
-    (3, date(2026, 10, 2), date(2026, 9, 25), {3},
+    (3, date(2026, 10, 2), date(2026, 9, 28), {3},
      "Ch 3: momentum, rockets, center of mass, angular momentum",
      "3.8, 3.13 [uses 3.11(b) from class], 3.19, 3.35, 3.36; challenge: "
      "chain pulled off a table at constant speed"),
-    (4, date(2026, 10, 5), date(2026, 10, 2), {4},
+    (4, date(2026, 10, 9), date(2026, 10, 5), {4},
      "Ch 4: energy",
      "4.4, 4.8, 4.13 [optional math review], 4.24(a-c), 4.36, 4.39 "
      "[advanced, optional], 4.53; custom: variation of gravity with height"),
@@ -266,6 +275,18 @@ HWS = [
 # Extra (non-HW) due dates shown in the HW Due column.
 EXTRA_DUE = {}
 
+# No-penalty grace dates: {hw: date}. The set keeps its real deadline in
+# HWS -- that is what the guards below test and what Moodle's Due date must
+# say -- and the calendar shows a SECOND row on the grace date, which is
+# Moodle's Cut-off. Decided 2026-09-24: HW05 is due the day of Exam 1, and
+# Michael would rather extend the set than move either date.
+HW_GRACE = {5: date(2026, 10, 19)}
+
+# Sets deliberately due on an exam day. Allowed only where the exam does not
+# cover the set's chapters (HW05 is Ch 5; Exam 1 is Ch 2-4) -- the
+# chapters-overlap guard below is the one that actually matters.
+HW_ON_EXAM_DAY = {5}
+
 # ---------------------------------------------------------------- PCCIs
 # Pre-Class Check-Ins, same machinery as PHY 210 (decision 2026-09-02):
 # a short problem due on paper at the start of class, good-faith graded,
@@ -288,18 +309,17 @@ PCCI = {
     date(2026, 9, 18): "2.49",
     # Ch 3 (Will's Look-At: Wed 3.7 / Fri 3.16, 3.17, 3.25 / Mon 3.32)
     date(2026, 9, 21): "3.7",
-    date(2026, 9, 23): "3.16",
-    date(2026, 9, 25): "3.32",
+    date(2026, 9, 25): "3.16",
+    date(2026, 9, 28): "3.32",
     # Ch 4 (Will's Look-At: Wed 4.7, 4.16 / Fri 4.31 / Mon 4.41)
-    date(2026, 9, 28): "4.7",
-    date(2026, 9, 30): "4.31",
-    date(2026, 10, 2): "4.41",
-    date(2026, 10, 5): "Bring one Ch 1-4 problem you want worked in the "
-                       "problem session (skip if this slot absorbed a Mountain Day class)",
-    # Ch 5
+    date(2026, 9, 30): "4.7",
+    date(2026, 10, 2): "4.31",
+    date(2026, 10, 5): "4.41",
+    # The Oct 5 problem-session PCCI is gone with its slot (Mountain Day).
+    # Ch 5 -- Oct 16 is Exam 1, so 5.21 and 5.35 sit either side of recess.
     date(2026, 10, 7): "5.1",
-    date(2026, 10, 14): "5.21",
-    date(2026, 10, 16): "5.35",
+    date(2026, 10, 9): "5.21",
+    date(2026, 10, 14): "5.35",
     date(2026, 10, 19): "5.47",
     # Ch 6-7
     date(2026, 10, 21): "6.3",
@@ -436,14 +456,27 @@ def write_chapter_problems(wb, md_path):
     Path(md_path).write_text("\n".join(lines))
 
 # ---------------------------------------------------------------- build
+def ch_label(chapters):
+    """{6, 7} -> 'Ch 6-7'; {8, 9, 11} -> 'Ch 8-9, 11'."""
+    cs = sorted(chapters)
+    runs, start, prev = [], cs[0], cs[0]
+    for c in cs[1:]:
+        if c == prev + 1:
+            prev = c
+        else:
+            runs.append((start, prev))
+            start = prev = c
+    runs.append((start, prev))
+    return "Ch " + ", ".join(
+        str(a) if a == b else f"{a}-{b}" for a, b in runs)
+
 def build(outpath):
     days = list(class_days())
     n = len(days)
     assert len(CONTENT) + len(EXAMS) == n, (
         f"{len(CONTENT)} content + {len(EXAMS)} exams for {n} class meetings")
-    assert all(days[i].weekday() in (0, 2, 4) for i in EXAMS), (
-        "exam not on a class day")
-    exam_days = {days[i]: EXAMS[i] for i in EXAMS}
+    assert all(d in days for d in EXAMS), "exam not on a class day"
+    exam_days = dict(EXAMS)
     assert all(d in days for d in PCCI), "PCCI assigned to a non-class day"
     assert not any(d in exam_days for d in PCCI), "PCCI on an exam day"
 
@@ -457,7 +490,9 @@ def build(outpath):
             f"HW{hw:02d} due {due} but draws on class {through}")
         assert through in days, f"HW{hw:02d} covers_through is not a class day"
         assert due not in NO_CLASS, f"HW{hw:02d} due on a no-class day"
-        assert due not in exam_days, f"HW{hw:02d} due on an exam day"
+        assert due not in exam_days or hw in HW_ON_EXAM_DAY, (
+            f"HW{hw:02d} due on an exam day; if that is deliberate, add it "
+            f"to HW_ON_EXAM_DAY")
         assert due.weekday() < 5, f"HW{hw:02d} due on a weekend"
         for ed, (label, ex_ch) in exam_days.items():
             if chapters & ex_ch:
@@ -465,6 +500,19 @@ def build(outpath):
                     f"HW{hw:02d} (Ch {sorted(chapters)}) due {due}, after "
                     f"{label} on {ed}")
         hw_due[hw] = due
+    # Grace dates extend a set; they never replace its deadline, so the
+    # guards above still run against `due`.
+    for hw, g in HW_GRACE.items():
+        assert hw in hw_due, f"HW_GRACE names HW{hw:02d}, which has no set"
+        assert g > hw_due[hw], (
+            f"HW{hw:02d} grace {g} is not after its due date {hw_due[hw]}")
+        assert g.weekday() < 5, f"HW{hw:02d} grace date on a weekend"
+        assert g not in NO_CLASS, f"HW{hw:02d} grace date on a no-class day"
+        chaps = next(c for n, _d, _t, c, _cv, _p in HWS if n == hw)
+        for ed, (label, ex_ch) in exam_days.items():
+            if chaps & ex_ch:
+                assert g < ed, (
+                    f"HW{hw:02d} grace {g} falls after {label} on {ed}")
     assert sorted(hw_due) == list(range(1, 14)), "expected HW01..HW13"
     assert all(hw_due[i] < hw_due[i + 1] for i in range(1, 13)), (
         "HW due dates out of order")
@@ -477,11 +525,17 @@ def build(outpath):
     content_i = 0
     breaks_seen = set()
     due_on = {}
-    for hw, due in hw_due.items():
-        due_on.setdefault(due, []).append(f"HW{hw:02d}")
+    for hw, due, _through, chapters, _covers, _problems in HWS:
+        label = f"HW{hw:02d} ({ch_label(chapters)})"
+        g = HW_GRACE.get(hw)
+        due_on.setdefault(due, []).append(
+            label + (f" - or {g:%a %b %-d}, no penalty" if g else ""))
+        if g:
+            due_on.setdefault(g, []).append(
+                f"{label} - extended from {due:%a %b %-d}")
     for d, label in EXTRA_DUE.items():
         due_on.setdefault(d, []).append(label)
-    for slot_i, d in enumerate(days):
+    for d in days:
         iso_week = d.isocalendar()[1]
         if iso_week != last_week:
             week_no += 1
@@ -491,8 +545,8 @@ def build(outpath):
                 breaks_seen.add(bd)
                 rows.append((None, None, bd, f"No class - {why}",
                              "", "", "", "", ""))
-        if slot_i in EXAMS:
-            label, _ = EXAMS[slot_i]
+        if d in EXAMS:
+            label, _ = EXAMS[d]
             topic, reading, prereq, exam = label, "", "", label
         else:
             (topic, reading, prereq), exam = CONTENT[content_i], ""
@@ -572,10 +626,11 @@ def build(outpath):
     # ------------------------------------------------ HW problem lists
     hws = wb.create_sheet("HW Problem Lists")
     note = ("All problems from Taylor, Classical Mechanics (2005). Due "
-            "Wednesdays at 10:00 PM on Moodle unless the Due column says "
-            "otherwise (the exceptions sit right before an exam or a "
-            "break). Custom problems are written out in full on the "
-            "Moodle assignment page.")
+            "FRIDAYS at 10:00 PM on Moodle from HW02 on (decided with the "
+            "class 2026-09-19) unless the Due column says otherwise -- the "
+            "exceptions sit right before an exam or a break. Custom "
+            "problems are written out in full on the Moodle assignment "
+            "page.")
     hws.append([note])
     hws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=5)
     hws.cell(row=1, column=1).alignment = wrap

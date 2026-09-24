@@ -70,8 +70,8 @@ def class_rows():
     seen = {}
     rows = []
     for i, d in enumerate(days):
-        if i in CAL.EXAMS:
-            rows.append((i + 1, d, CAL.EXAMS[i][0], "", None, None))
+        if d in CAL.EXAMS:            # EXAMS keyed by date since 2026-09-24
+            rows.append((i + 1, d, CAL.EXAMS[d][0], "", None, None))
             continue
         topic, reading, _ = next(content)
         ch = chapter_of(reading) if reading else None

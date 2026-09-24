@@ -84,12 +84,12 @@ def sections_in(reading):
 
 def first_teach_dates():
     days = list(CAL.class_days())
-    exam_slots = set(CAL.EXAMS)
+    exam_days = set(CAL.EXAMS)        # EXAMS keyed by date since 2026-09-24
     content = iter(CAL.CONTENT)
     first = {}
     whole_chapter = {}
     for i, d in enumerate(days):
-        if i in exam_slots:
+        if d in exam_days:
             continue
         topic, reading, prereq = next(content)
         secs, chapters = sections_in(reading)
