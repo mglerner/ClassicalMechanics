@@ -27,6 +27,9 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 # Smith Fall 2026: classes Tue Sep 8 - Tue Dec 15.
 # MWF meetings; skip Mon Oct 12 (autumn recess), Wed Nov 25 + Fri Nov 27
 # (Thanksgiving). Cromwell Day (Tue Nov 10) doesn't hit MWF.
+# NO_CLASS values are the calendar row's text, not a reason appended to
+# "No class - ": Mountain Day is a Smith holiday, not an absence, and
+# Michael wants it to read as one.
 # PHY 317 meets W/F 1:20-2:35 and Mon 1:40-2:55 (registrar, verified
 # 2026-08-17) -- same MWF days, so the 39-meeting mapping holds.
 FIRST_DAY = date(2026, 9, 9)   # first MWF meeting (classes open Tue Sep 8)
@@ -35,10 +38,10 @@ NO_CLASS = {
     # Mountain Day 2026 fell on Wed Sep 23 (announced that morning; it is
     # never known in advance). Adding it here drops the meeting, which
     # shifts every later slot back one and consumes the Oct 5 holder below.
-    date(2026, 9, 23): "Mountain Day",
-    date(2026, 10, 12): "Autumn recess",
-    date(2026, 11, 25): "Thanksgiving",
-    date(2026, 11, 27): "Thanksgiving",
+    date(2026, 9, 23): "Mountain Day!!",
+    date(2026, 10, 12): "No class - Autumn recess",
+    date(2026, 11, 25): "No class - Thanksgiving",
+    date(2026, 11, 27): "No class - Thanksgiving",
 }
 
 # Days students must bring a laptop. The schedule sheet (embedded in Moodle)
@@ -543,7 +546,7 @@ def build(outpath):
         for bd, why in NO_CLASS.items():
             if bd not in breaks_seen and bd < d:
                 breaks_seen.add(bd)
-                rows.append((None, None, bd, f"No class - {why}",
+                rows.append((None, None, bd, why,
                              "", "", "", "", ""))
         if d in EXAMS:
             label, _ = EXAMS[d]
@@ -557,7 +560,7 @@ def build(outpath):
                      PCCI.get(d, ""), hw, exam))
     for bd, why in NO_CLASS.items():
         if bd not in breaks_seen:
-            rows.append((None, None, bd, f"No class - {why}",
+            rows.append((None, None, bd, why,
                          "", "", "", "", ""))
     # HW due on a non-class day (HW13 in reading period) gets its own row.
     for d, labels in due_on.items():
