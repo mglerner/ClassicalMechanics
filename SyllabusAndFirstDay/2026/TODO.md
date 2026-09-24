@@ -109,7 +109,9 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
 
 ## Before the first class (Wed Sep 9)
 
-1. Syllabus: the one red left is office hours, set after the week-1
+1. DONE (verified 2026-09-23: `\todonote` is defined but never used in
+   PHY317Syllabus.tex, so no red markers remain). Syllabus: the one red
+   left was office hours, set after the week-1
    poll (the SAME When2Meet poll as 210's, decided 2026-09-02; Michael
    splits the responses by student name). No course tutors for 317 and
    no physics help room (Michael, 2026-09-02), so no tutor line.
@@ -123,12 +125,16 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
    Feedback; office-hours poll (the department AI-prompts PDF is NOT
    posted; its syllabus mention was removed 2026-09-07);
    attach the 1.50 notebook to HW01.
-3. Week-1 decks (classes 01, 02) from prep packs 01-02 once their
+3. DONE (verified 2026-09-23: `private/Decks/Ch01/` and `Ch02/` both hold
+   class and annotated decks). Week-1 decks (classes 01, 02) from prep
+   packs 01-02 once their
    `00-prep-notes.md` exist (deck reads in progress 2026-09-02).
 4. Zoom recurring meeting for this section (MWF at 1:20/1:40 -- two
    different start times; the web portal handles it; see the 210 TODO
    item 24 for the rig).
-5. jupyterhub.smith.edu: confirm the 317 students have access; post a
+5. DONE (verified 2026-09-23: `NewtonsLaws/skateboard_1_50.ipynb` exists
+   and HW01's Moodle description links it). jupyterhub.smith.edu: confirm
+   the 317 students have access; post a
    starter notebook for 1.50 with HW01.
 
 ## Open decisions
