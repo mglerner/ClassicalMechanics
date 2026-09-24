@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1789840541.94292 "PHY317Syllabus.tex" "PHY317Syllabus.pdf" "PHY317Syllabus" 1789840542.72988 0
+["pdflatex"] 1790263476.50247 "PHY317Syllabus.tex" "PHY317Syllabus.pdf" "PHY317Syllabus" 1790263476.97619 0
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -180,9 +180,9 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1784226007 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "PHY317Syllabus.aux" 1789840542.66629 2203 9d4b2cbd85dd845080430bd721543e65 "pdflatex"
-  "PHY317Syllabus.out" 1789840542.66661 2643 132dce7d4dbc4d6a8ca1977cea6e40c3 "pdflatex"
-  "PHY317Syllabus.tex" 1789840524.55435 34951 0ba24e455b02c2636fa650c30f370cf8 ""
+  "PHY317Syllabus.aux" 1790263476.91965 2203 9d4b2cbd85dd845080430bd721543e65 "pdflatex"
+  "PHY317Syllabus.out" 1790263476.92015 2643 132dce7d4dbc4d6a8ca1977cea6e40c3 "pdflatex"
+  "PHY317Syllabus.tex" 1790263476.43335 35124 7a7d2f8b8726628e4b9d47ec6c9792ea ""
   "seth-preamble.tex" 1788379628.05476 7332 bb0e43be897d0ea7106464fecbf17110 ""
   (generated)
   "PHY317Syllabus.aux"
