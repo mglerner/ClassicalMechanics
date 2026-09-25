@@ -23,11 +23,15 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
   the block it draws on; HW04 Mon Oct 5, HW08 Wed Nov 4 and HW11 Mon Nov
   23 stay because the exams and Thanksgiving do; HW13 is Fri Dec 18.
   Generator, syllabus, descriptions and checklists updated 2026-09-19.
-  MOODLE STILL TO EDIT BY HAND (per set: due date, grading-due date, the
-  turn-in sentence, restrict-access date, and the HW solutions PDF's
-  restrict date): HW03 -> Fri Oct 2, HW05 -> Fri Oct 16, HW07 -> Fri Oct
-  30, HW10 -> Fri Nov 20, HW13 -> Fri Dec 18; HW02's text and solution
-  date too. Superseded decision follows for the record.
+  SUPERSEDED IN PART 2026-09-24 by the Mountain Day shift: Exam 1 moved to
+  Fri Oct 16 and Exam 2 to Mon Nov 16, which freed the Friday each of the
+  old exceptions was avoiding. Final dates are HW04 Fri Oct 9, HW05 Fri
+  Oct 16 (no penalty through Mon Oct 19), HW08 Wed Nov 4, HW09 Fri Nov 13,
+  HW11 Mon Nov 30 (Thanksgiving), HW13 Mon Dec 14. Twelve of thirteen sets
+  are Fridays; the build now asserts no two sets are due on consecutive
+  class days. MOODLE: DONE by hand 2026-09-25 (Michael), along with the
+  published Google Sheet behind the course calendar.
+  Superseded decision follows for the record.
   **HW due Wednesdays 10:00 PM**, covering the previous Mon/Wed/Fri
   (2026-09-02; RECONFIRMED 2026-09-04 after weighing Fridays: our
   chapters run Mon/Wed/Fri, so Will's Friday deadline would land on a
