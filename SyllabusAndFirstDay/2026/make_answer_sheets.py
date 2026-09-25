@@ -37,6 +37,8 @@ import tempfile
 from pathlib import Path
 
 import make_active_learning as M
+import make_review_checklists as CHK
+import make_fall2026_calendar as CAL
 
 SOL_DPI = 110            # readable on screen, small enough to screenshot
 SOL_GLOB = "*olution*.pdf"
@@ -272,7 +274,7 @@ def listed_on(smap, pg):
 
 
 def render(n, date, topic, rows, groupwork, pcci, pages, smap, crops,
-           claimed, stmts):
+           claimed, stmts, lookat=()):
     gw, other, pcci_ent = [], [], []
     for prob, when, task, checks in row_entries(rows):
         if pcci and "PCCI" in task:
@@ -319,6 +321,12 @@ def render(n, date, topic, rows, groupwork, pcci, pages, smap, crops,
     block(f"PCCI {esc(pcci) if pcci else ''}".strip(), pcci_ent)
     block("Groupwork " + (", ".join(groupwork) if groupwork else ""), gw)
     block("Everything else with an answer", other)
+    # Look-at problems are posted to students but never worked in class, so
+    # they are in no plan row; render whatever of them we cropped.
+    rest = [(p, "solution posted; not worked in class", "", [])
+            for p in lookat if p not in seen]
+    if rest:
+        block("Also on today's lists (posted, not worked in class)", rest)
 
     left = [p for p in pages if id(p) not in claimed]
     if left:
@@ -347,6 +355,38 @@ def render(n, date, topic, rows, groupwork, pcci, pages, smap, crops,
     return "\n".join(o)
 
 
+def lookat_for(n, key="lookat"):
+    """The day's look-at (or in-class) problems from Will's chapter lists.
+
+    Both can appear in no plan row: look-at problems are never worked at the
+    board, and Will's in-class list is a MENU, so our plan deliberately
+    schedules only some of it. Either way the solution is posted and Michael
+    can be asked about it, so it belongs on his sheet. Without this they were
+    cropped, marked claimed, and then rendered nowhere (found 2026-09-24:
+    17 packs were missing at least one).
+    """
+    for cn, _d, _topic, reading, ch, chday in CHK.class_rows():
+        if cn != n:
+            continue
+        if ch is None or ch not in CAL.CHAPTER_PROBLEMS:
+            return []
+        lst = CAL.CHAPTER_PROBLEMS[ch][key]
+        if len(lst) == 1:                      # chapter list not split by day
+            return list(lst[0])
+        return list(lst[chday - 1]) if chday - 1 < len(lst) else []
+    return []
+
+
+def posted_for(n):
+    """Everything the day owns, in-class menu first, then look-at."""
+    out = []
+    for key in ("inclass", "lookat"):
+        for p in lookat_for(n, key):
+            if p not in out:
+                out.append(p)
+    return out
+
+
 def pcci_number(rows):
     for _a, _b, _m, _mode, _src, text in rows:
         m = re.search(r"PCCI (\d+\.\d+)", text)
@@ -369,13 +409,13 @@ def main(only=None):
         smap = solutions_map(lines)
         pages = render_pages(path.parent)
         crops, claimed = crop_problems(pages, smap)
-        wanted = {q for q, *_ in row_entries(rows) if q}
+        wanted = {q for q, *_ in row_entries(rows) if q} | set(posted_for(n))
         stmts = crop_statements(path.parent, wanted, bands)
         cropped += len(crops)
         statements += len(stmts)
         (path.parent / "03-answers.html").write_text(
             render(n, date, M.topic(lines, path), rows, gw, pcci_number(rows),
-                   pages, smap, crops, claimed, stmts))
+                   pages, smap, crops, claimed, stmts, posted_for(n)))
         wrote += 1
     print(f"wrote {wrote} answer sheets; {cropped} solution crops; "
           f"{statements} problem statements"
