@@ -113,7 +113,7 @@ def active_minutes(rows, prob):
                and re.search(rf"\b{re.escape(prob)}\b", r[5]))
 
 
-def check_rows(rows, path, date, board):
+def check_rows(rows, path, date, board, day=None):
     weekday = datetime.date.fromisoformat(date).weekday()
     if weekday not in CLASS_START:
         fail(f"{path}: {date} is not a class weekday")
@@ -131,9 +131,12 @@ def check_rows(rows, path, date, board):
         prev = b
     if prev != CLASS_START[weekday] + PERIOD:
         fail(f"{path}: last Stop is {clock(prev)}, want {clock(CLASS_START[weekday] + PERIOD)}")
-    # Groupwork guarantee (playbook 3a, Michael 2026-09-22): every class
-    # day works at least one in-class problem in student groups at the
-    # boards, two is the target, and the `Groupwork:` line says which.
+    # Groupwork guarantee (playbook 3a, Michael 2026-09-22; one per day
+    # since 2026-09-27: "some work time each day, a mid-class problem OR
+    # problems at the end of class, alternating"): every class day works
+    # at least one in-class problem in student groups, and the
+    # `Groupwork:` line says which. An optional `Day: board` /
+    # `Day: work-time` line under it names which kind of day it is.
     if board is None:
         fail(f"{path}: no `Groupwork:` line (playbook 3a). Write one under the "
              f"table, e.g. `Groupwork: 3.21, 3.27`, or `Groupwork: none (exam)`.")
@@ -141,9 +144,6 @@ def check_rows(rows, path, date, board):
         total = active_minutes(rows, prob)
         if total == 0:
             fail(f"{path}: Groupwork names {prob}, but no Active row mentions it")
-    if board and len(board) < 2:
-        print(f"WARNING {path}: Groupwork names only {board[0]}; playbook 3a "
-              f"targets two problems worked by student groups")
 
     # Two-star budget guard (playbook section 4; 2.4 took 25 min on
     # 2026-09-14, 2.54(a) overran on 2026-09-18): a Taylor "(**)" problem
@@ -151,7 +151,11 @@ def check_rows(rows, path, date, board):
     # 15-minute row cap demands it. Scoped to GROUPWORK problems since 3a: a
     # FRONT or SUMMARY problem is deliberately not getting 20 minutes.
     # Warn, do not fail: Michael may accept a scoped-down two-star
-    # deliberately, and says so in Ambiguities.
+    # deliberately, and says so in Ambiguities. Skipped on a work-time day
+    # (playbook section 10): its guaranteed block is ten seated minutes on
+    # one named problem before the menu opens, by design.
+    if day == "work-time":
+        return
     for a, b, m, mode, _s, text in rows:
         for prob in re.findall(r"(\d+\.\d+)\s*\(\*\*\)", text):
             if prob not in board:
@@ -204,6 +208,12 @@ def tagged_line(lines, label):
         if l.startswith(label):
             return l[len(label):].strip()
     return None
+
+
+def day_kind(lines):
+    """'board' or 'work-time' from an optional `Day:` line (playbook section 10), else None."""
+    raw = tagged_line(lines, "Day:")
+    return raw.strip().lower() if raw else None
 
 
 def groupwork(lines):
@@ -328,12 +338,11 @@ def header_lines():
         "   class start (syllabus) for 75 minutes, Min = Stop - Start, and no row",
         "   exceeds 15 minutes; the script hard-fails otherwise.",
         "   The 'Longest non-Active' column is the longest run of back-to-back",
-        "   Lecture / Interactive / Logistics minutes; Smith's norm is no more",
-        "   than 15 instructor-led minutes at a time, so a '!' marks a day over it.",
-        "   Day 1 is an accepted exception: syllabus and introductions are",
-        "   instructor-led by nature; splitting them with a short pair task is the",
-        "   aspiration. The standing claim is: from class 2 onward, no plan asks",
-        "   students to sit for more than 15 minutes.",
+        "   Lecture / Interactive / Logistics minutes; the 15-minute cap is",
+        "   aspirational this term (Michael, 2026-09-27: runs up to 20 are",
+        "   accepted; 15 is hard only on the observed day), so a '!' marks a day",
+        "   over 15 for the record, not as a fault. Day 1 is instructor-led by",
+        "   nature.",
         "2. Every row's minutes land in exactly one mode. A chunk that mixes",
         "   modes is split into rows at the plan's own sentence boundaries, and",
         "   the split is named in that day's Ambiguities line.",
@@ -360,7 +369,7 @@ def main():
             fail(f"{path}: missing 00-prep-notes.md")
         lines = path.read_text().splitlines()
         rows = plan_rows(lines, path)
-        check_rows(rows, path, date, groupwork(lines))
+        check_rows(rows, path, date, groupwork(lines), day_kind(lines))
         t = totals(rows)
         rewrite_totals(path, lines, totals_line(t))
         write_plan_html(path, n, date, topic(lines, path), rows, t, droppable(lines), frame_text(lines))
