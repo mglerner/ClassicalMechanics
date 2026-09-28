@@ -16,6 +16,17 @@ Class periods, F2025 (his Ch 1 slide 1): Mon 3:05-4:20 PM, Wed/Fri 2:45-4:00
 PM, Eastern time. Timestamps in the InkML are UTC; converted with zoneinfo so
 the November classes (after the DST change) come out right.
 
+PowerPoint stores each trace's timeOffset as a signed 32-bit count of tenths
+of a millisecond, so within one ink context the offsets climb to about
++214,748 ms, wrap to about -214,748 ms, and climb again (found 2026-09-27 by
+the playbook review; the first version of this script read them literally,
+which capped every slide span near 7 minutes). The offsets are unwrapped per
+context: a drop of more than half the range adds one full range. A silence
+longer than the range (about 7.2 min) inside one context would hide a wrap,
+so long spans are lower bounds. Strokes are stored slightly out of time
+order (one context has a stroke 44 s before its stamp), so the guard fails
+the run only if a stroke precedes its context by more than half a range.
+
 Terms used in the output:
   content stroke  a stroke on a slide that received >= MIN_TRACES strokes that
                   day (a slide with fewer is a "mark": a circled problem number
@@ -47,6 +58,8 @@ TZ = ZoneInfo("America/New_York")
 MIN_TRACES = 10          # fewer strokes on a slide in a day = a mark, not content
 CLUSTER_GAP = 15 * 60    # seconds; a longer silence ends the content cluster
 MIN_DAY_TRACES = 20      # fewer strokes in a day = not a class (prep, a stray)
+WRAP_MS = 2 ** 32 / 1e4   # timeOffset wraps every 429,496.7 ms (signed 32-bit tenths of ms)
+GUARD_MS = WRAP_MS / 2    # strokes are stored slightly out of order (seen: -44 s); a stroke earlier than this is an unhandled wrap
 WINDOW_SLOP = dt.timedelta(minutes=15)   # ink this far outside the period still counts as class
 PERIOD = dt.timedelta(minutes=75)
 START = {0: dt.time(15, 5)}          # Monday
@@ -87,11 +100,20 @@ def deck(path):
                 if ts.tzinfo is None:
                     ts = ts.replace(tzinfo=dt.timezone.utc)
                 ctx[m.group(1)] = ts
+            carry = {}
+            prev = {}
             for m in re.finditer(r"<inkml:trace ([^>]*)>", x):
                 a = m.group(1)
                 c = re.search(r'contextRef="#([^"]+)"', a).group(1)
                 o = re.search(r'timeOffset="([^"]+)"', a)
                 o = float(o.group(1)) if o else 0.0
+                o += carry.get(c, 0.0)
+                if c in prev and o < prev[c] - WRAP_MS / 2:
+                    carry[c] = carry.get(c, 0.0) + WRAP_MS
+                    o += WRAP_MS
+                prev[c] = o
+                if o < -GUARD_MS:
+                    raise SystemExit(f"{path.name} {ink} context {c}: stroke at {o:.0f} ms precedes its context; unwrap failed")
                 times.append((ctx[c] + dt.timedelta(milliseconds=o)).astimezone(TZ))
         yield n, slide_texts(z, t), times
 
