@@ -46,8 +46,8 @@ DAY_LOGISTICS = {
                         "Students' LAPTOPS (announced Wednesday) for the ten-minute jupyterhub walkthrough",
                         "Your own laptop logged into jupyterhub.smith.edu with the HW01 notebook already uploaded",
                         "Check HW01 is visible on Moodle and its notebook link (GitHub) opens"],
-    date(2026, 10, 9): ["Exam 1: printed copies + a spare; per-problem score sheet ready"],
-    date(2026, 11, 11): ["Exam 2: printed copies + a spare; per-problem score sheet ready"],
+    date(2026, 10, 16): ["Exam 1: printed copies + a spare; per-problem score sheet ready"],   # exam moved to Oct 16 on 2026-09-24
+    date(2026, 11, 16): ["Exam 2: printed copies + a spare; per-problem score sheet ready"],   # exam is Mon Nov 16
     date(2026, 12, 7): ["Exam 3: printed copies + a spare; per-problem score sheet ready"],
     date(2026, 12, 11): ["iPad with the folio keyboard (AirPlay as usual) for the driven-pendulum notebook; students bring laptops"],
 }

@@ -47,7 +47,7 @@ NO_CLASS = {
 # Days students must bring a laptop. The schedule sheet (embedded in Moodle)
 # tags the topic "[BRING LAPTOP]" and the review checklist repeats it, so one
 # list drives both (a student asked not to carry a laptop every day, 2026-09-14).
-LAPTOP_DAYS = {date(2026, 9, 11)}
+LAPTOP_DAYS = {date(2026, 9, 11), date(2026, 12, 11)}
 
 def class_days():
     d = FIRST_DAY
