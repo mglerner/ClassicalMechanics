@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regrouping by pairs</title>
+<style>
+  :root { --bg:#fdfdfb; --fg:#1a1a24; --accent:#b22222; --rule:#ddd; --box:#f4f4ef;
+          --p12:#c0392b; --p13:#2563eb; --p23:#0d9488; --p14:#b45309; --p24:#7c3aed; --p34:#0e7490;
+          --p15:#65a30d; --p25:#be185d; --p35:#4b5563; --p45:#a16207;
+          --p16:#1d4ed8; --p26:#dc2626; --p36:#059669; --p46:#9333ea; --p56:#ea580c; }
+  body { max-width: 52em; margin: 2em auto; padding: 0 16px; color: var(--fg); background: var(--bg);
+         font-family: Georgia, "Times New Roman", serif; font-size: 18px; line-height: 1.5; }
+  h1 { font-family: -apple-system, "Helvetica Neue", sans-serif; color: var(--accent); font-size: 1.5em; margin-bottom: .1em; }
+  h2 { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: 1.1em; margin-top: 1.8em; border-bottom: 1px solid var(--rule); padding-bottom: .15em; }
+  .note { font-size: .9em; color: #555; }
+  .rule { background: var(--box); border-left: 4px solid var(--accent); padding: .6em 1em; margin: 1em 0; }
+  .controls { display: flex; flex-wrap: wrap; gap: .5em; align-items: center; margin: .8em 0; font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .9em; }
+  button { font: inherit; padding: .35em .9em; border: 1px solid #999; border-radius: 6px; background: #fff; cursor: pointer; }
+  button:hover { background: #f0f0ea; }
+  button:disabled { opacity: .4; cursor: default; }
+  select { font: inherit; padding: .2em .4em; }
+  .caption { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .95em; min-height: 3.2em; margin: .4em 0 .2em; }
+  svg { display: block; margin: .6em auto; max-width: 100%; }
+  .cell { cursor: pointer; }
+  .cell text { pointer-events: none; font-family: Georgia, serif; }
+  .cell.dim rect { opacity: .25; }
+  .cell.dim text { opacity: .25; }
+  .cell.hot rect { stroke: #000; stroke-width: 3; }
+  /* three-particle stage */
+  #stage { background: var(--box); border-radius: 10px; padding: 1em 1.2em; min-height: 11em; position: relative; }
+  .row { display: flex; align-items: center; flex-wrap: wrap; gap: .25em .4em; min-height: 2.4em; margin: .25em 0; }
+  .lab { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .8em; color: #666; width: 6.5em; flex: none; }
+  .term { display: inline-block; padding: .15em .5em; border-radius: 6px; color: #fff; font-weight: normal; white-space: nowrap; will-change: transform; }
+  .term b { font-weight: bold; }
+  .term sub { font-size: .7em; }
+  .op { display: inline-block; padding: 0 .1em; color: #333; }
+  .zero { color: #333; font-weight: bold; }
+  .ghost { position: fixed; pointer-events: none; z-index: 10; }
+  .c12 { background: var(--p12); } .c13 { background: var(--p13); } .c23 { background: var(--p23); }
+  .legend span { display: inline-block; padding: .05em .5em; border-radius: 5px; color: #fff; margin-right: .3em; }
+  table.count { border-collapse: collapse; margin: .6em 0; font-size: .95em; }
+  table.count td, table.count th { border: 1px solid var(--rule); padding: .25em .8em; text-align: center; }
+  table.count th { background: var(--box); font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .85em; }
+</style>
+</head>
+<body>
+
+<h1>Why regroup (3.24)?</h1>
+<p class="note">PHY 317, Chapter 3. The internal-torque step of the proof on Taylor pp. 93-95.</p>
+
+<div class="rule">
+<strong>The rule:</strong> Newton's third law is a statement about <em>pairs</em>. Any sum you intend to hit with the third law has to be organized by pairs first.
+The double sum in (3.24) is organized by particles: for each &alpha;, all the forces on it. The reaction to <b>F</b><sub>&alpha;&beta;</sub> lives under a different &alpha;.
+Regrouping puts each action and its reaction into the same term, where the third law can act on them.
+</div>
+
+<h2>1. The grid: every ordered pair, folded into unordered pairs</h2>
+<p>Row &alpha;, column &beta;. The cell (&alpha;, &beta;) is the term <b>r</b><sub>&alpha;</sub> &times; <b>F</b><sub>&alpha;&beta;</sub>. The diagonal is crossed out because a particle exerts no force on itself. The double sum visits every remaining cell. Cells with the same color are the same pair of particles. Hover a cell to see its partner; fold the grid to see the pairs meet.</p>
+
+<div class="controls">
+  <label>N = <select id="nsel"><option>3</option><option selected>4</option><option>5</option><option>6</option></select></label>
+  <button id="foldBtn">Fold along the diagonal</button>
+  <button id="unfoldBtn" disabled>Unfold</button>
+  <span id="gridCount"></span>
+</div>
+<svg id="grid" width="440" height="440" viewBox="0 0 440 440" aria-label="N by N grid of ordered pairs"></svg>
+<p class="caption" id="gridCap"></p>
+
+<table class="count">
+<tr><th>N</th><th>ordered terms N(N &minus; 1)</th><th>pairs N(N &minus; 1)/2</th></tr>
+<tr><td>3</td><td>6</td><td>3</td></tr>
+<tr><td>4</td><td>12</td><td>6</td></tr>
+<tr><td>5</td><td>20</td><td>10</td></tr>
+</table>
+
+<h2>2. Three particles: watch the six terms rearrange</h2>
+<p>Each colored box is one term of the double sum. The color is the pair of particles it belongs to:
+<span class="legend"><span class="c12">1, 2</span><span class="c13">1, 3</span><span class="c23">2, 3</span></span></p>
+
+<div class="controls">
+  <button id="backBtn" disabled>&larr; Back</button>
+  <button id="nextBtn">Next &rarr;</button>
+  <button id="resetBtn">Reset</button>
+  <span id="stepLabel"></span>
+</div>
+<div id="stage"></div>
+<p class="caption" id="stageCap"></p>
+
+<svg id="pic" width="420" height="260" viewBox="0 0 420 260" aria-label="three particles with the pair lines" style="display:none"></svg>
+
+<h2>3. Why each pair then vanishes</h2>
+<p>After the third law, each pair's torque is (<b>r</b><sub>&alpha;</sub> &minus; <b>r</b><sub>&beta;</sub>) &times; <b>F</b><sub>&alpha;&beta;</sub>. The vector <b>r</b><sub>&alpha;</sub> &minus; <b>r</b><sub>&beta;</sub> points along the line joining the two particles. A <em>central</em> force points along that same line. Two parallel vectors have zero cross product, so each pair contributes nothing, and only the external torques survive: that is (3.26).</p>
+<p>Equal and opposite forces alone are not enough. If <b>F</b><sub>&alpha;&beta;</sub> and <b>F</b><sub>&beta;&alpha;</sub> were equal and opposite but not along the line between the particles, they would form a couple, and the pair would have a net torque. The regrouping uses the third law; the vanishing uses the central-force assumption. They are two separate steps.</p>
+
+<script>
+(function () {
+  // ---------- Section 1: the grid ----------
+  var svg = document.getElementById('grid');
+  var nsel = document.getElementById('nsel');
+  var foldBtn = document.getElementById('foldBtn');
+  var unfoldBtn = document.getElementById('unfoldBtn');
+  var gridCap = document.getElementById('gridCap');
+  var gridCount = document.getElementById('gridCount');
+  var NS = 'http://www.w3.org/2000/svg';
+  var folded = false, cells = [], N = 4;
+  var palette = ['--p12','--p13','--p23','--p14','--p24','--p34','--p15','--p25','--p35','--p45','--p16','--p26','--p36','--p46','--p56'];
+  function pairIndex(a, b) { // unordered pair -> index, a<b, 1-based
+    var i = 0;
+    for (var q = 2; q <= N; q++) for (var p = 1; p < q; p++) { if (p === Math.min(a,b) && q === Math.max(a,b)) return i; i++; }
+    return 0;
+  }
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    (parent || svg).appendChild(e); return e;
+  }
+  function pos(a, b) { // top-left of cell (row a, col b), 1-based
+    var m = 40, size = (440 - 2*m) / N;
+    return { x: m + (b-1)*size, y: m + (a-1)*size, s: size };
+  }
+  function buildGrid() {
+    N = parseInt(nsel.value, 10); folded = false; foldBtn.disabled = false; unfoldBtn.disabled = true;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    cells = [];
+    var m = 40, size = (440 - 2*m) / N;
+    // headers
+    for (var i = 1; i <= N; i++) {
+      var t1 = el('text', { x: m + (i-0.5)*size, y: m - 12, 'text-anchor': 'middle', 'font-size': 15, fill: '#555' }); t1.textContent = 'β = ' + i;
+      var t2 = el('text', { x: m - 8, y: m + (i-0.5)*size + 5, 'text-anchor': 'end', 'font-size': 15, fill: '#555' }); t2.textContent = 'α = ' + i;
+    }
+    for (var a = 1; a <= N; a++) for (var b = 1; b <= N; b++) {
+      var p = pos(a, b);
+      var g = el('g', { 'class': 'cell', transform: 'translate(' + p.x + ',' + p.y + ')' });
+      if (a === b) {
+        el('rect', { width: size, height: size, fill: '#eee', stroke: '#bbb' }, g);
+        el('line', { x1: 4, y1: 4, x2: size-4, y2: size-4, stroke: '#999', 'stroke-width': 2 }, g);
+        el('line', { x1: size-4, y1: 4, x2: 4, y2: size-4, stroke: '#999', 'stroke-width': 2 }, g);
+        continue;
+      }
+      var col = getComputedStyle(document.documentElement).getPropertyValue(palette[pairIndex(a,b)]).trim();
+      el('rect', { width: size, height: size, fill: col, stroke: '#fff', 'stroke-width': 2, rx: 6 }, g);
+      var fs = N <= 4 ? 16 : 13;
+      var tx = el('text', { x: size/2, y: size/2 + fs*0.35, 'text-anchor': 'middle', 'font-size': fs, fill: '#fff' }, g);
+      // r_a x F_ab  using tspans
+      var t = document.createElementNS(NS, 'tspan'); t.setAttribute('font-weight', 'bold'); t.textContent = 'r'; tx.appendChild(t);
+      var s1 = document.createElementNS(NS, 'tspan'); s1.setAttribute('baseline-shift', 'sub'); s1.setAttribute('font-size', fs*0.7); s1.textContent = a; tx.appendChild(s1);
+      var x = document.createElementNS(NS, 'tspan'); x.textContent = ' × '; tx.appendChild(x);
+      var f = document.createElementNS(NS, 'tspan'); f.setAttribute('font-weight', 'bold'); f.textContent = 'F'; tx.appendChild(f);
+      var s2 = document.createElementNS(NS, 'tspan'); s2.setAttribute('baseline-shift', 'sub'); s2.setAttribute('font-size', fs*0.7); s2.textContent = '' + a + b; tx.appendChild(s2);
+      var c = { g: g, a: a, b: b, home: p };
+      cells.push(c);
+      (function (c) {
+        c.g.addEventListener('mouseenter', function () { hot(c, true); });
+        c.g.addEventListener('mouseleave', function () { hot(c, false); });
+      })(c);
+    }
+    gridCount.textContent = N*(N-1) + ' ordered terms, ' + N*(N-1)/2 + ' pairs';
+    gridCap.textContent = 'Each off-diagonal cell is one term of the double sum. The cell (α, β) and the cell (β, α) are the two halves of one action-reaction pair, mirror images across the diagonal.';
+  }
+  function hot(c, on) {
+    cells.forEach(function (d) {
+      var partner = (d.a === c.b && d.b === c.a) || d === c;
+      d.g.classList.toggle('hot', on && partner);
+      d.g.classList.toggle('dim', on && !partner);
+    });
+  }
+  function animateTo(g, from, to, ms, done) {
+    var t0 = null;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var u = Math.min(1, (ts - t0) / ms); var e = u < .5 ? 2*u*u : -1 + (4 - 2*u)*u;
+      g.setAttribute('transform', 'translate(' + (from.x + (to.x-from.x)*e) + ',' + (from.y + (to.y-from.y)*e) + ')');
+      if (u < 1) requestAnimationFrame(step); else if (done) done();
+    }
+    requestAnimationFrame(step);
+  }
+  function fold() {
+    folded = true; foldBtn.disabled = true;
+    var pending = 0;
+    cells.forEach(function (c) {
+      if (c.a > c.b) { // lower triangle flies to its mirror, offset so both stay visible
+        var m = pos(c.b, c.a); var off = m.s * 0.18;
+        pending++;
+        animateTo(c.g, c.home, { x: m.x + off, y: m.y + off }, 900, function () { pending--; if (!pending) unfoldBtn.disabled = false; });
+        c.g.parentNode.appendChild(c.g); // draw on top
+      }
+    });
+    gridCap.textContent = 'Folded: each lower-triangle term lands on its mirror image. Every stack is one unordered pair, (rα × Fαβ) + (rβ × Fβα), which is what "sum over β > α" means. N(N − 1) terms become N(N − 1)/2 pairs.';
+  }
+  function unfold() {
+    folded = false; unfoldBtn.disabled = true;
+    var pending = 0;
+    cells.forEach(function (c) {
+      if (c.a > c.b) {
+        var m = pos(c.b, c.a); var off = m.s * 0.18; pending++;
+        animateTo(c.g, { x: m.x + off, y: m.y + off }, c.home, 900, function () { pending--; if (!pending) foldBtn.disabled = false; });
+      }
+    });
+    gridCap.textContent = 'Each off-diagonal cell is one term of the double sum.';
+  }
+  nsel.addEventListener('change', buildGrid);
+  foldBtn.addEventListener('click', fold);
+  unfoldBtn.addEventListener('click', unfold);
+  buildGrid();
+
+  // ---------- Section 2: three particles ----------
+  var stage = document.getElementById('stage');
+  var cap = document.getElementById('stageCap');
+  var stepLabel = document.getElementById('stepLabel');
+  var backBtn = document.getElementById('backBtn'), nextBtn = document.getElementById('nextBtn'), resetBtn = document.getElementById('resetBtn');
+  var pic = document.getElementById('pic');
+  function r(i) { return '<b>r</b><sub>' + i + '</sub>'; }
+  function F(i, j) { return '<b>F</b><sub>' + i + j + '</sub>'; }
+  function rxF(i, j) { return r(i) + ' &times; ' + F(i, j); }
+  function cls(i, j) { return 'c' + Math.min(i,j) + Math.max(i,j); }
+  // term ids: t12 = r1 x F12, etc.
+  var steps = [
+    { label: 'Step 0 of 4', cap: 'The double sum written out for N = 3: for each particle α, the torque from each other particle β. Six terms. Notice that each color appears twice, in two different rows.',
+      rows: [
+        { lab: 'α = 1:', items: [ {id:'t12', html: rxF(1,2), c: cls(1,2)}, {op:'+'}, {id:'t13', html: rxF(1,3), c: cls(1,3)} ] },
+        { lab: 'α = 2:', items: [ {id:'t21', html: rxF(2,1), c: cls(2,1)}, {op:'+'}, {id:'t23', html: rxF(2,3), c: cls(2,3)} ] },
+        { lab: 'α = 3:', items: [ {id:'t31', html: rxF(3,1), c: cls(3,1)}, {op:'+'}, {id:'t32', html: rxF(3,2), c: cls(3,2)} ] } ] },
+    { label: 'Step 1 of 4: regroup by pairs', cap: 'Nothing has changed except the order of addition. Each row is now one unordered pair, action beside reaction. This is (3.24): the sum over β > α of the two terms in brackets.',
+      rows: [
+        { lab: 'pair 1, 2:', items: [ {op:'('}, {id:'t12', html: rxF(1,2), c: cls(1,2)}, {op:'+'}, {id:'t21', html: rxF(2,1), c: cls(2,1)}, {op:')'} ] },
+        { lab: 'pair 1, 3:', items: [ {op:'+ ('}, {id:'t13', html: rxF(1,3), c: cls(1,3)}, {op:'+'}, {id:'t31', html: rxF(3,1), c: cls(3,1)}, {op:')'} ] },
+        { lab: 'pair 2, 3:', items: [ {op:'+ ('}, {id:'t23', html: rxF(2,3), c: cls(2,3)}, {op:'+'}, {id:'t32', html: rxF(3,2), c: cls(3,2)}, {op:')'} ] } ] },
+    { label: 'Step 2 of 4: Newton’s third law', cap: 'Now the law can act, because both halves of each pair sit in the same bracket: F21 = −F12, F31 = −F13, F32 = −F23. Each pair now involves a single force.',
+      rows: [
+        { lab: 'pair 1, 2:', items: [ {op:'('}, {id:'t12', html: rxF(1,2), c: cls(1,2)}, {op:'&minus;'}, {id:'t21', html: r(2) + ' &times; ' + F(1,2), c: cls(2,1), morph: true}, {op:')'} ] },
+        { lab: 'pair 1, 3:', items: [ {op:'+ ('}, {id:'t13', html: rxF(1,3), c: cls(1,3)}, {op:'&minus;'}, {id:'t31', html: r(3) + ' &times; ' + F(1,3), c: cls(3,1), morph: true}, {op:')'} ] },
+        { lab: 'pair 2, 3:', items: [ {op:'+ ('}, {id:'t23', html: rxF(2,3), c: cls(2,3)}, {op:'&minus;'}, {id:'t32', html: r(3) + ' &times; ' + F(2,3), c: cls(3,2), morph: true}, {op:')'} ] } ] },
+    { label: 'Step 3 of 4: factor the common force', cap: 'The cross product distributes over subtraction, so each pair collapses to one term. This is (3.25). The vector in brackets is the line from particle β to particle α.',
+      merges: { t21: 't12', t31: 't13', t32: 't23' },
+      rows: [
+        { lab: 'pair 1, 2:', items: [ {id:'t12', html: '(' + r(1) + ' &minus; ' + r(2) + ') &times; ' + F(1,2), c: cls(1,2), morph: true} ] },
+        { lab: 'pair 1, 3:', items: [ {op:'+'}, {id:'t13', html: '(' + r(1) + ' &minus; ' + r(3) + ') &times; ' + F(1,3), c: cls(1,3), morph: true} ] },
+        { lab: 'pair 2, 3:', items: [ {op:'+'}, {id:'t23', html: '(' + r(2) + ' &minus; ' + r(3) + ') &times; ' + F(2,3), c: cls(2,3), morph: true} ] } ] },
+    { label: 'Step 4 of 4: central forces', cap: 'For a central force, F12 points along the line joining 1 and 2, which is exactly the direction of r1 − r2. Parallel vectors have zero cross product. Every pair vanishes, and only the external torques are left: (3.26). The picture shows the three pair lines with the force along each.',
+      rows: [
+        { lab: 'pair 1, 2:', items: [ {id:'t12', html: '(' + r(1) + ' &minus; ' + r(2) + ') &times; ' + F(1,2), c: cls(1,2)}, {op:'= 0', z: true} ] },
+        { lab: 'pair 1, 3:', items: [ {op:'+'}, {id:'t13', html: '(' + r(1) + ' &minus; ' + r(3) + ') &times; ' + F(1,3), c: cls(1,3)}, {op:'= 0', z: true} ] },
+        { lab: 'pair 2, 3:', items: [ {op:'+'}, {id:'t23', html: '(' + r(2) + ' &minus; ' + r(3) + ') &times; ' + F(2,3), c: cls(2,3)}, {op:'= 0', z: true} ] } ], pic: true }
+  ];
+  var cur = 0;
+  function rects() {
+    var out = {};
+    stage.querySelectorAll('.term').forEach(function (e) { out[e.dataset.id] = { r: e.getBoundingClientRect(), cls: e.className, html: e.innerHTML }; });
+    return out;
+  }
+  function render(i, animate) {
+    var before = rects();
+    var s = steps[i];
+    stage.innerHTML = '';
+    s.rows.forEach(function (row) {
+      var d = document.createElement('div'); d.className = 'row';
+      var l = document.createElement('span'); l.className = 'lab'; l.textContent = row.lab; d.appendChild(l);
+      row.items.forEach(function (it) {
+        var e = document.createElement('span');
+        if (it.op !== undefined) { e.className = 'op' + (it.z ? ' zero' : ''); e.innerHTML = it.op; }
+        else { e.className = 'term ' + it.c; e.dataset.id = it.id; e.innerHTML = it.html; if (it.morph) e.dataset.morph = '1'; }
+        d.appendChild(e);
+      });
+      stage.appendChild(d);
+    });
+    stepLabel.textContent = s.label; cap.textContent = s.cap;
+    pic.style.display = s.pic ? 'block' : 'none';
+    if (!animate) return;
+    var after = {};
+    stage.querySelectorAll('.term').forEach(function (e) { after[e.dataset.id] = e; });
+    // FLIP for terms that survive
+    Object.keys(after).forEach(function (id) {
+      var e = after[id];
+      if (before[id]) {
+        var nr = e.getBoundingClientRect(); var dx = before[id].r.left - nr.left, dy = before[id].r.top - nr.top;
+        var frames = [{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'translate(0,0)' }];
+        e.animate(frames, { duration: 800, easing: 'cubic-bezier(.4,0,.2,1)' });
+        if (e.dataset.morph) e.animate([{ filter: 'brightness(1)' }, { filter: 'brightness(1.6)', offset: .5 }, { filter: 'brightness(1)' }], { duration: 900, delay: 300 });
+      } else {
+        e.animate([{ opacity: 0, transform: 'scale(.8)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 500 });
+      }
+    });
+    // ghosts for merged terms: fly into their target, then fade
+    var merges = s.merges || {};
+    Object.keys(before).forEach(function (id) {
+      if (after[id]) return;
+      var b = before[id]; var g = document.createElement('span'); g.className = b.cls + ' ghost'; g.innerHTML = b.html;
+      g.style.left = b.r.left + 'px'; g.style.top = b.r.top + 'px'; document.body.appendChild(g);
+      var target = merges[id] && after[merges[id]] ? after[merges[id]].getBoundingClientRect() : b.r;
+      var anim = g.animate([{ transform: 'translate(0,0)', opacity: 1 }, { transform: 'translate(' + (target.left - b.r.left) + 'px,' + (target.top - b.r.top) + 'px) scale(.6)', opacity: 0 }], { duration: 800, easing: 'cubic-bezier(.4,0,.2,1)' });
+      anim.onfinish = function () { g.remove(); };
+    });
+    // op labels fade in
+    stage.querySelectorAll('.op').forEach(function (e) { e.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 600, delay: 400 }); });
+  }
+  function go(i) { cur = Math.max(0, Math.min(steps.length - 1, i)); render(cur, true); backBtn.disabled = cur === 0; nextBtn.disabled = cur === steps.length - 1; }
+  nextBtn.addEventListener('click', function () { go(cur + 1); });
+  backBtn.addEventListener('click', function () { go(cur - 1); });
+  resetBtn.addEventListener('click', function () { cur = 0; render(0, false); backBtn.disabled = true; nextBtn.disabled = false; });
+  render(0, false);
+
+  // ---------- the picture for step 4 ----------
+  (function () {
+    var P = { 1: [80, 200], 2: [330, 210], 3: [230, 50] };
+    var cols = { '12': 'var(--p12)', '13': 'var(--p13)', '23': 'var(--p23)' };
+    function e(tag, attrs, parent) { var x = document.createElementNS(NS, tag); for (var k in attrs) x.setAttribute(k, attrs[k]); (parent || pic).appendChild(x); return x; }
+    var defs = e('defs', {});
+    ['12','13','23'].forEach(function (k) {
+      var m = e('marker', { id: 'ah' + k, markerWidth: 8, markerHeight: 8, refX: 6, refY: 4, orient: 'auto', markerUnits: 'strokeWidth' }, defs);
+      e('path', { d: 'M0,0 L8,4 L0,8 z', fill: cols[k] }, m);
+    });
+    var O = [20, 240];
+    e('text', { x: O[0] - 8, y: O[1] + 16, 'font-size': 14, fill: '#555' }).textContent = 'O';
+    e('circle', { cx: O[0], cy: O[1], r: 3, fill: '#555' });
+    [['1','2'],['1','3'],['2','3']].forEach(function (pr) {
+      var a = P[pr[0]], b = P[pr[1]], k = pr[0] + pr[1];
+      e('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: cols[k], 'stroke-width': 2, 'stroke-dasharray': '6 5' });
+      // force on a due to b, along the line, drawn from a toward b (attractive)
+      var dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
+      e('line', { x1: a[0] + ux*14, y1: a[1] + uy*14, x2: a[0] + ux*60, y2: a[1] + uy*60, stroke: cols[k], 'stroke-width': 4, 'marker-end': 'url(#ah' + k + ')' });
+      var t = e('text', { x: a[0] + ux*40 + (-uy)*16, y: a[1] + uy*40 + ux*16, 'font-size': 14, fill: cols[k], 'font-weight': 'bold' });
+      t.textContent = 'F' + k;
+    });
+    // position vectors from O
+    Object.keys(P).forEach(function (i) {
+      e('line', { x1: O[0], y1: O[1], x2: P[i][0], y2: P[i][1], stroke: '#999', 'stroke-width': 1.5 });
+      e('circle', { cx: P[i][0], cy: P[i][1], r: 9, fill: '#1a1a24' });
+      e('text', { x: P[i][0] + 12, y: P[i][1] - 10, 'font-size': 15, fill: '#1a1a24' }).textContent = i;
+    });
+    e('text', { x: 150, y: 245, 'font-size': 13, fill: '#555' }).textContent = 'dashed: the line rα − rβ; thick arrow: the central force Fαβ, along it';
+  })();
+})();
+</script>
+</body>
+</html>
