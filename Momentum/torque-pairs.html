@@ -14,6 +14,15 @@
   h1 { font-family: -apple-system, "Helvetica Neue", sans-serif; color: var(--accent); font-size: 1.5em; margin-bottom: .1em; }
   h2 { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: 1.1em; margin-top: 1.8em; border-bottom: 1px solid var(--rule); padding-bottom: .15em; }
   .note { font-size: .9em; color: #555; }
+  .eq { text-align: center; font-size: 1.15em; margin: 1.1em 0 .3em; position: relative; }
+  .eq .eqno { position: absolute; right: 0; top: .35em; font-size: .85em; color: #555; }
+  .sum { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 .12em; line-height: 1; }
+  .sum .sig { font-size: 1.7em; }
+  .sum .lim { font-size: .62em; margin-top: .05em; white-space: nowrap; }
+  .enum { background: var(--box); border-radius: 10px; padding: .8em 1.1em; margin: .8em 0 1.2em; line-height: 2.1; }
+  .enum .side { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .8em; color: #666; display: block; line-height: 1.3; margin-top: .4em; }
+  .enum .term { font-size: .92em; }
+  .enum .idx { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .72em; color: #666; margin: 0 .2em 0 .5em; }
   .rule { background: var(--box); border-left: 4px solid var(--accent); padding: .6em 1em; margin: 1em 0; }
   .controls { display: flex; flex-wrap: wrap; gap: .5em; align-items: center; margin: .8em 0; font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .9em; }
   button { font: inherit; padding: .35em .9em; border: 1px solid #999; border-radius: 6px; background: #fff; cursor: pointer; }
@@ -30,7 +39,7 @@
   /* three-particle stage */
   #stage { background: var(--box); border-radius: 10px; padding: 1em 1.2em; min-height: 11em; position: relative; }
   .row { display: flex; align-items: center; flex-wrap: wrap; gap: .25em .4em; min-height: 2.4em; margin: .25em 0; }
-  .lab { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .8em; color: #666; width: 6.5em; flex: none; }
+  .lab { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .8em; color: #666; width: 8.5em; flex: none; }
   .term { display: inline-block; padding: .15em .5em; border-radius: 6px; color: #fff; font-weight: normal; white-space: nowrap; }
   .term b { font-weight: bold; }
   .term sub { font-size: .7em; }
@@ -54,9 +63,11 @@
 The double sum in (3.24) is organized by particles: for each &alpha;, all the forces on it. The reaction to <b>F</b><sub>&alpha;&beta;</sub> lives under a different &alpha;.
 Regrouping puts each action and its reaction into the same term, where the third law can act on them.
 </div>
+<div class="eq"><span class="sum"><span class="sig">&Sigma;</span><span class="lim">&alpha;</span></span><span class="sum"><span class="sig">&Sigma;</span><span class="lim">&beta;&ne;&alpha;</span></span> <b>r</b><sub>&alpha;</sub> &times; <b>F</b><sub>&alpha;&beta;</sub> &nbsp;=&nbsp; <span class="sum"><span class="sig">&Sigma;</span><span class="lim">&alpha;</span></span><span class="sum"><span class="sig">&Sigma;</span><span class="lim">&beta;&gt;&alpha;</span></span> ( <b>r</b><sub>&alpha;</sub> &times; <b>F</b><sub>&alpha;&beta;</sub> + <b>r</b><sub>&beta;</sub> &times; <b>F</b><sub>&beta;&alpha;</sub> )<span class="eqno">(3.24)</span></div>
+<p class="note" style="text-align:center">Taylor p. 94. Left side: the terms grouped by particle &alpha;. Right side: the same terms grouped by pair, each action next to its reaction.</p>
 
 <h2>1. The grid: every ordered pair, folded into unordered pairs</h2>
-<p>Row &alpha;, column &beta;. The cell (&alpha;, &beta;) is the term <b>r</b><sub>&alpha;</sub> &times; <b>F</b><sub>&alpha;&beta;</sub>. The diagonal is crossed out because a particle exerts no force on itself. The double sum visits every remaining cell. Cells with the same color are the same pair of particles. Hover a cell to see its partner; fold the grid to see the pairs meet.</p>
+<p>Row &alpha;, column &beta;. The cell (&alpha;, &beta;) is the term <b>r</b><sub>&alpha;</sub> &times; <b>F</b><sub>&alpha;&beta;</sub>. The diagonal is crossed out because a particle exerts no force on itself. The double sum visits every remaining cell. Cells with the same color are the same pair of particles. The whole grid is the left side of (3.24). Hover a cell to see its partner; fold the grid to see the right side, the pairs meeting.</p>
 
 <div class="controls">
   <label>N = <select id="nsel"><option>3</option><option selected>4</option><option>5</option><option>6</option></select></label>
@@ -77,6 +88,14 @@ Regrouping puts each action and its reaction into the same term, where the third
 <h2>2. Three particles: watch the six terms rearrange</h2>
 <p>Each colored box is one term of the double sum. The color is the pair of particles it belongs to:
 <span class="legend"><span class="c12">1, 2</span><span class="c13">1, 3</span><span class="c23">2, 3</span></span></p>
+<p>Here is (3.24) with N = 3, every term written out:</p>
+<div class="enum">
+<span class="side">Left side, grouped by particle (&alpha; = 1, 2, 3; &beta; runs over the other two):</span>
+<span class="idx">&alpha;=1:</span><span class="term c12"><b>r</b><sub>1</sub> &times; <b>F</b><sub>12</sub></span> + <span class="term c13"><b>r</b><sub>1</sub> &times; <b>F</b><sub>13</sub></span> &nbsp;+&nbsp; <span class="idx">&alpha;=2:</span><span class="term c12"><b>r</b><sub>2</sub> &times; <b>F</b><sub>21</sub></span> + <span class="term c23"><b>r</b><sub>2</sub> &times; <b>F</b><sub>23</sub></span> &nbsp;+&nbsp; <span class="idx">&alpha;=3:</span><span class="term c13"><b>r</b><sub>3</sub> &times; <b>F</b><sub>31</sub></span> + <span class="term c23"><b>r</b><sub>3</sub> &times; <b>F</b><sub>32</sub></span>
+<span class="side">Right side, grouped by pair (&beta; &gt; &alpha;, so the pairs are (1,2), (1,3), (2,3)):</span>
+<span class="idx">(1,2):</span>( <span class="term c12"><b>r</b><sub>1</sub> &times; <b>F</b><sub>12</sub></span> + <span class="term c12"><b>r</b><sub>2</sub> &times; <b>F</b><sub>21</sub></span> ) &nbsp;+&nbsp; <span class="idx">(1,3):</span>( <span class="term c13"><b>r</b><sub>1</sub> &times; <b>F</b><sub>13</sub></span> + <span class="term c13"><b>r</b><sub>3</sub> &times; <b>F</b><sub>31</sub></span> ) &nbsp;+&nbsp; <span class="idx">(2,3):</span>( <span class="term c23"><b>r</b><sub>2</sub> &times; <b>F</b><sub>23</sub></span> + <span class="term c23"><b>r</b><sub>3</sub> &times; <b>F</b><sub>32</sub></span> )
+</div>
+<p>Same six terms, same colors, a different order of addition. The animation below does the move one step at a time.</p>
 
 <div class="controls">
   <button id="backBtn" disabled>&larr; Back</button>
@@ -223,25 +242,25 @@ Regrouping puts each action and its reaction into the same term, where the third
         { lab: 'α = 3:', items: [ {id:'t31', html: rxF(3,1), c: cls(3,1)}, {op:'+'}, {id:'t32', html: rxF(3,2), c: cls(3,2)} ] } ] },
     { label: 'Step 1 of 4: regroup by pairs', cap: 'Nothing has changed except the order of addition. Each row is now one unordered pair, action beside reaction. This is (3.24): the sum over β > α of the two terms in brackets.',
       rows: [
-        { lab: 'pair 1, 2:', items: [ {op:'('}, {id:'t12', html: rxF(1,2), c: cls(1,2)}, {op:'+'}, {id:'t21', html: rxF(2,1), c: cls(2,1)}, {op:')'} ] },
-        { lab: 'pair 1, 3:', items: [ {op:'+ ('}, {id:'t13', html: rxF(1,3), c: cls(1,3)}, {op:'+'}, {id:'t31', html: rxF(3,1), c: cls(3,1)}, {op:')'} ] },
-        { lab: 'pair 2, 3:', items: [ {op:'+ ('}, {id:'t23', html: rxF(2,3), c: cls(2,3)}, {op:'+'}, {id:'t32', html: rxF(3,2), c: cls(3,2)}, {op:')'} ] } ] },
+        { lab: '(\u03B1,\u03B2) = (1,2):', items: [ {op:'('}, {id:'t12', html: rxF(1,2), c: cls(1,2)}, {op:'+'}, {id:'t21', html: rxF(2,1), c: cls(2,1)}, {op:')'} ] },
+        { lab: '(\u03B1,\u03B2) = (1,3):', items: [ {op:'+ ('}, {id:'t13', html: rxF(1,3), c: cls(1,3)}, {op:'+'}, {id:'t31', html: rxF(3,1), c: cls(3,1)}, {op:')'} ] },
+        { lab: '(\u03B1,\u03B2) = (2,3):', items: [ {op:'+ ('}, {id:'t23', html: rxF(2,3), c: cls(2,3)}, {op:'+'}, {id:'t32', html: rxF(3,2), c: cls(3,2)}, {op:')'} ] } ] },
     { label: 'Step 2 of 4: Newton’s third law', cap: 'Now the law can act, because both halves of each pair sit in the same bracket: F21 = −F12, F31 = −F13, F32 = −F23. Each pair now involves a single force.',
       rows: [
-        { lab: 'pair 1, 2:', items: [ {op:'('}, {id:'t12', html: rxF(1,2), c: cls(1,2)}, {op:'&minus;'}, {id:'t21', html: r(2) + ' &times; ' + F(1,2), c: cls(2,1), morph: true}, {op:')'} ] },
-        { lab: 'pair 1, 3:', items: [ {op:'+ ('}, {id:'t13', html: rxF(1,3), c: cls(1,3)}, {op:'&minus;'}, {id:'t31', html: r(3) + ' &times; ' + F(1,3), c: cls(3,1), morph: true}, {op:')'} ] },
-        { lab: 'pair 2, 3:', items: [ {op:'+ ('}, {id:'t23', html: rxF(2,3), c: cls(2,3)}, {op:'&minus;'}, {id:'t32', html: r(3) + ' &times; ' + F(2,3), c: cls(3,2), morph: true}, {op:')'} ] } ] },
+        { lab: '(\u03B1,\u03B2) = (1,2):', items: [ {op:'('}, {id:'t12', html: rxF(1,2), c: cls(1,2)}, {op:'&minus;'}, {id:'t21', html: r(2) + ' &times; ' + F(1,2), c: cls(2,1), morph: true}, {op:')'} ] },
+        { lab: '(\u03B1,\u03B2) = (1,3):', items: [ {op:'+ ('}, {id:'t13', html: rxF(1,3), c: cls(1,3)}, {op:'&minus;'}, {id:'t31', html: r(3) + ' &times; ' + F(1,3), c: cls(3,1), morph: true}, {op:')'} ] },
+        { lab: '(\u03B1,\u03B2) = (2,3):', items: [ {op:'+ ('}, {id:'t23', html: rxF(2,3), c: cls(2,3)}, {op:'&minus;'}, {id:'t32', html: r(3) + ' &times; ' + F(2,3), c: cls(3,2), morph: true}, {op:')'} ] } ] },
     { label: 'Step 3 of 4: factor the common force', cap: 'The cross product distributes over subtraction, so each pair collapses to one term. This is (3.25). The vector in brackets is the line from particle β to particle α.',
       merges: { t21: 't12', t31: 't13', t32: 't23' },
       rows: [
-        { lab: 'pair 1, 2:', items: [ {id:'t12', html: '(' + r(1) + ' &minus; ' + r(2) + ') &times; ' + F(1,2), c: cls(1,2), morph: true} ] },
-        { lab: 'pair 1, 3:', items: [ {op:'+'}, {id:'t13', html: '(' + r(1) + ' &minus; ' + r(3) + ') &times; ' + F(1,3), c: cls(1,3), morph: true} ] },
-        { lab: 'pair 2, 3:', items: [ {op:'+'}, {id:'t23', html: '(' + r(2) + ' &minus; ' + r(3) + ') &times; ' + F(2,3), c: cls(2,3), morph: true} ] } ] },
+        { lab: '(\u03B1,\u03B2) = (1,2):', items: [ {id:'t12', html: '(' + r(1) + ' &minus; ' + r(2) + ') &times; ' + F(1,2), c: cls(1,2), morph: true} ] },
+        { lab: '(\u03B1,\u03B2) = (1,3):', items: [ {op:'+'}, {id:'t13', html: '(' + r(1) + ' &minus; ' + r(3) + ') &times; ' + F(1,3), c: cls(1,3), morph: true} ] },
+        { lab: '(\u03B1,\u03B2) = (2,3):', items: [ {op:'+'}, {id:'t23', html: '(' + r(2) + ' &minus; ' + r(3) + ') &times; ' + F(2,3), c: cls(2,3), morph: true} ] } ] },
     { label: 'Step 4 of 4: central forces', cap: 'For a central force, F12 points along the line joining 1 and 2, which is exactly the direction of r1 − r2. Parallel vectors have zero cross product. Every pair vanishes, and only the external torques are left: (3.26). The picture shows the three pair lines with the force along each.',
       rows: [
-        { lab: 'pair 1, 2:', items: [ {id:'t12', html: '(' + r(1) + ' &minus; ' + r(2) + ') &times; ' + F(1,2), c: cls(1,2)}, {op:'= 0', z: true} ] },
-        { lab: 'pair 1, 3:', items: [ {op:'+'}, {id:'t13', html: '(' + r(1) + ' &minus; ' + r(3) + ') &times; ' + F(1,3), c: cls(1,3)}, {op:'= 0', z: true} ] },
-        { lab: 'pair 2, 3:', items: [ {op:'+'}, {id:'t23', html: '(' + r(2) + ' &minus; ' + r(3) + ') &times; ' + F(2,3), c: cls(2,3)}, {op:'= 0', z: true} ] } ], pic: true }
+        { lab: '(\u03B1,\u03B2) = (1,2):', items: [ {id:'t12', html: '(' + r(1) + ' &minus; ' + r(2) + ') &times; ' + F(1,2), c: cls(1,2)}, {op:'= 0', z: true} ] },
+        { lab: '(\u03B1,\u03B2) = (1,3):', items: [ {op:'+'}, {id:'t13', html: '(' + r(1) + ' &minus; ' + r(3) + ') &times; ' + F(1,3), c: cls(1,3)}, {op:'= 0', z: true} ] },
+        { lab: '(\u03B1,\u03B2) = (2,3):', items: [ {op:'+'}, {id:'t23', html: '(' + r(2) + ' &minus; ' + r(3) + ') &times; ' + F(2,3), c: cls(2,3)}, {op:'= 0', z: true} ] } ], pic: true }
   ];
   var cur = 0;
   function rects() {
