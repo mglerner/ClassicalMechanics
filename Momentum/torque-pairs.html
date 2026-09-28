@@ -65,7 +65,7 @@
 </head>
 <body>
 
-<h1>Why regroup (3.24)?</h1>
+<h1>Why are we regrouping things in (3.24)?</h1>
 <p class="note">PHY 317, Chapter 3. The internal-torque step of the proof on Taylor pp. 93-95.</p>
 
 <div class="rule">
@@ -102,6 +102,8 @@ Regrouping puts each action and its reaction into the same term, where the third
 <p>Each box is one term of the double sum. After grouping, the color is the pair of particles the term belongs to:
 <span class="legend"><span class="c12">1, 2</span><span class="c13">1, 3</span><span class="c23">2, 3</span></span></p>
 
+<div class="eq" id="eqTable"></div>
+
 <div class="controls">
   <button id="groupBtn">Group</button>
   <button id="ungroupBtn" disabled>Reset</button>
@@ -137,6 +139,7 @@ Regrouping puts each action and its reaction into the same term, where the third
     return '<span class="side" id="' + id + 'L">' + LHS + '</span> <span class="op">=</span> <span class="side" id="' + id + 'R">' + RHS + '</span><span class="eqno">(3.24)</span>';
   }
   document.getElementById('eqTop').innerHTML = eqHTML('top');
+  document.getElementById('eqTable').innerHTML = eqHTML('tbl');
   var eqGrid = document.getElementById('eqGrid');
   eqGrid.insertAdjacentHTML('beforeend', eqHTML('grid'));
   var hl = document.getElementById('hl');
