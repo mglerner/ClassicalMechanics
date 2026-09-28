@@ -43,6 +43,20 @@
   .term sub { font-size: .7em; }
   .op { display: inline-block; padding: 0 .1em; color: #333; }
   .c12 { background: var(--p12); } .c13 { background: var(--p13); } .c23 { background: var(--p23); }
+  table.pairs { border-collapse: collapse; width: 100%; margin: .4em 0 .6em; }
+  table.pairs th, table.pairs td { border: 1px solid var(--rule); padding: .45em .6em; vertical-align: middle; text-align: left; }
+  table.pairs th { background: var(--box); font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .78em; font-weight: normal; color: #555; }
+  table.pairs td.lab { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .85em; color: #666; white-space: nowrap; width: 4em; }
+  table.pairs .c3, table.pairs .c4 { display: none; }
+  table.pairs.show .c3, table.pairs.show .c4 { display: table-cell; }
+  table.pairs td.c3 { font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: .82em; color: #555; white-space: nowrap; }
+  table.pairs .plab { display: inline-block; margin-right: .8em; }
+  table.pairs .none { color: #aaa; font-style: italic; }
+  .term { transition: background-color .7s; }
+  .term.grey { background: #8a8a86; }
+  .slot { display: inline-block; white-space: nowrap; visibility: hidden; margin-right: .5em; }
+  .slot.on { visibility: visible; }
+  .ghost { position: fixed; pointer-events: none; z-index: 10; }
   .legend span { display: inline-block; padding: .05em .5em; border-radius: 5px; color: #fff; margin-right: .3em; }
   table.count { border-collapse: collapse; margin: .6em 0; font-size: .95em; }
   table.count td, table.count th { border: 1px solid var(--rule); padding: .25em .8em; text-align: center; }
@@ -85,20 +99,24 @@ Regrouping puts each action and its reaction into the same term, where the third
 </table>
 
 <h2>2. Three particles, every term written out</h2>
-<p>Each colored box is one term of the double sum. The color is the pair of particles it belongs to:
+<p>Each box is one term of the double sum. After grouping, the color is the pair of particles the term belongs to:
 <span class="legend"><span class="c12">1, 2</span><span class="c13">1, 3</span><span class="c23">2, 3</span></span></p>
 
-<div class="block" id="byAlpha">
-  <div class="head">Left side of (3.24), grouped by particle: one row per &alpha;, and &beta; runs over the other two. Each color appears in two different rows.</div>
+<div class="controls">
+  <button id="groupBtn">Group</button>
+  <button id="ungroupBtn" disabled>Reset</button>
+  <span id="groupCap">The six terms of the double sum, one row per &alpha;.</span>
 </div>
-
-<div class="block" id="byPair">
-  <div class="head">Right side of (3.24), grouped by pair (&beta; &gt; &alpha;): the same six terms, one row per pair, action beside reaction.</div>
-</div>
-
-<div class="block" id="afterN3">
-  <div class="head">After Newton's third law (<b>F</b><sub>&beta;&alpha;</sub> = &minus;<b>F</b><sub>&alpha;&beta;</sub>) and factoring: each pair row becomes one term. This is (3.25).</div>
-</div>
+<table class="pairs" id="pairsTable">
+<thead><tr>
+  <th></th>
+  <th>left side of (3.24): for each &alpha;, the torques from every &beta; &ne; &alpha;</th>
+  <th class="c3">pairs with &beta; &gt; &alpha;</th>
+  <th class="c4">right side, after (3.25): (<b>r</b><sub>&alpha;</sub> &minus; <b>r</b><sub>&beta;</sub>) &times; <b>F</b><sub>&alpha;&beta;</sub> for each of those pairs</th>
+</tr></thead>
+<tbody id="pairsBody"></tbody>
+</table>
+<p class="note">Column 4 is column 2 regrouped: each pair (&alpha;, &beta;) takes its two terms, one from row &alpha; and one from row &beta;, applies <b>F</b><sub>&beta;&alpha;</sub> = &minus;<b>F</b><sub>&alpha;&beta;</sub>, and factors. The row &alpha; = 3 has no pair with &beta; &gt; 3, so its column-4 entry is empty: its two terms were used by rows 1 and 2.</p>
 
 <h2>3. Why each pair then vanishes</h2>
 <p>After the third law, each pair's torque is (<b>r</b><sub>&alpha;</sub> &minus; <b>r</b><sub>&beta;</sub>) &times; <b>F</b><sub>&alpha;&beta;</sub>. The vector <b>r</b><sub>&alpha;</sub> &minus; <b>r</b><sub>&beta;</sub> points along the line joining the two particles. A <em>central</em> force points along that same line. Two parallel vectors have zero cross product, so each pair contributes nothing, and only the external torques survive: that is (3.26).</p>
@@ -239,24 +257,63 @@ Regrouping puts each action and its reaction into the same term, where the third
   window.addEventListener('resize', function () { moveHL(folded ? 'R' : 'L'); });
   buildGrid();
 
-  // ---------- Section 2: static colored rows ----------
+  // ---------- Section 2: the table ----------
   function cls(i, j) { return 'c' + Math.min(i,j) + Math.max(i,j); }
-  function term(i, j, html) { return '<span class="term ' + cls(i,j) + '">' + (html || (r(i) + ' &times; ' + F(i, j))) + '</span>'; }
-  function row(lab, inner) { return '<div class="row"><span class="lab">' + lab + '</span>' + inner + '</div>'; }
-  var plus = '<span class="op">+</span>';
-  document.getElementById('byAlpha').insertAdjacentHTML('beforeend',
-    row('α = 1:', term(1,2) + plus + term(1,3)) +
-    row('α = 2:', term(2,1) + plus + term(2,3)) +
-    row('α = 3:', term(3,1) + plus + term(3,2)));
-  document.getElementById('byPair').insertAdjacentHTML('beforeend',
-    row('(α,β) = (1,2):', '<span class="op">(</span>' + term(1,2) + plus + term(2,1) + '<span class="op">)</span>') +
-    row('(α,β) = (1,3):', '<span class="op">+ (</span>' + term(1,3) + plus + term(3,1) + '<span class="op">)</span>') +
-    row('(α,β) = (2,3):', '<span class="op">+ (</span>' + term(2,3) + plus + term(3,2) + '<span class="op">)</span>'));
+  function term(i, j) { return '<span class="term grey" data-t="' + i + j + '">' + r(i) + ' &times; ' + F(i, j) + '</span>'; }
   function fac(i, j) { return '(' + r(i) + ' &minus; ' + r(j) + ') &times; ' + F(i, j); }
-  document.getElementById('afterN3').insertAdjacentHTML('beforeend',
-    row('(α,β) = (1,2):', term(1,2, fac(1,2))) +
-    row('(α,β) = (1,3):', '<span class="op">+</span>' + term(1,3, fac(1,3))) +
-    row('(α,β) = (2,3):', '<span class="op">+</span>' + term(2,3, fac(2,3))));
+  var PAIRS = [[1,2],[1,3],[2,3]];
+  var body = document.getElementById('pairsBody');
+  var rowsHTML = '';
+  for (var a = 1; a <= 3; a++) {
+    var others = [1,2,3].filter(function (b) { return b !== a; });
+    var mine = PAIRS.filter(function (pr) { return pr[0] === a; });
+    var c3 = mine.length ? mine.map(function (pr) { return '<span class="plab">(\u03B1,\u03B2) = (' + pr[0] + ',' + pr[1] + '):</span>'; }).join('') : '<span class="none">no \u03B2 &gt; ' + a + '</span>';
+    var c4 = mine.length ? mine.map(function (pr, k) { return '<span class="slot" data-p="' + pr[0] + pr[1] + '">' + ((a > 1 || k > 0) ? '<span class="op">+</span> ' : '') + '<span class="term ' + cls(pr[0], pr[1]) + '">' + fac(pr[0], pr[1]) + '</span></span>'; }).join('') : '<span class="none">&mdash;</span>';
+    rowsHTML += '<tr><td class="lab">\u03B1 = ' + a + '</td><td>' + term(a, others[0]) + ' <span class="op">+</span> ' + term(a, others[1]) + '</td><td class="c3">' + c3 + '</td><td class="c4">' + c4 + '</td></tr>';
+  }
+  body.innerHTML = rowsHTML;
+  var table = document.getElementById('pairsTable');
+  var groupBtn = document.getElementById('groupBtn'), ungroupBtn = document.getElementById('ungroupBtn'), groupCap = document.getElementById('groupCap');
+  function termEl(ab) { return body.querySelector('.term[data-t="' + ab + '"]'); }
+  function group() {
+    groupBtn.disabled = true;
+    table.classList.add('show');
+    groupCap.textContent = 'Step 1: list the pairs with \u03B2 > \u03B1, row by row. Row 3 has none.';
+    setTimeout(function () {
+      PAIRS.forEach(function (pr) {
+        var k = cls(pr[0], pr[1]);
+        termEl('' + pr[0] + pr[1]).classList.replace('grey', k);
+        termEl('' + pr[1] + pr[0]).classList.replace('grey', k);
+      });
+      groupCap.textContent = 'Step 2: color each term by its pair. Each color appears in two different rows: that is the whole problem with the double sum.';
+    }, 900);
+    setTimeout(function () {
+      groupCap.textContent = 'Step 3: each pair collects its two terms into row \u03B1, applies the third law, and factors.';
+      PAIRS.forEach(function (pr, k) {
+        var slot = body.querySelector('.slot[data-p="' + pr[0] + pr[1] + '"]');
+        var target = slot.querySelector('.term').getBoundingClientRect();
+        [termEl('' + pr[0] + pr[1]), termEl('' + pr[1] + pr[0])].forEach(function (src) {
+          var b = src.getBoundingClientRect();
+          var g = src.cloneNode(true); g.classList.add('ghost'); g.removeAttribute('data-t');
+          g.style.left = b.left + 'px'; g.style.top = b.top + 'px'; document.body.appendChild(g);
+          var an = g.animate([{ transform: 'translate(0,0)', opacity: 1 }, { transform: 'translate(' + (target.left - b.left) + 'px,' + (target.top - b.top) + 'px)', opacity: .15 }],
+                             { duration: 1000, delay: k * 350, easing: 'cubic-bezier(.4,0,.2,1)' });
+          an.onfinish = function () { g.remove(); slot.classList.add('on'); slot.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 400 }); };
+        });
+      });
+      setTimeout(function () { ungroupBtn.disabled = false; groupCap.textContent = 'Column 4 is (3.25) written out: three terms, one per pair, each along the line joining its two particles.'; }, 2200);
+    }, 2300);
+  }
+  function ungroup() {
+    ungroupBtn.disabled = true;
+    table.classList.remove('show');
+    body.querySelectorAll('.term[data-t]').forEach(function (e) { e.className = 'term grey'; });
+    body.querySelectorAll('.slot').forEach(function (e) { e.classList.remove('on'); });
+    groupCap.textContent = 'The six terms of the double sum, one row per \u03B1.';
+    groupBtn.disabled = false;
+  }
+  groupBtn.addEventListener('click', group);
+  ungroupBtn.addEventListener('click', ungroup);
 
   // ---------- Section 3: the picture ----------
   (function () {
@@ -277,7 +334,7 @@ Regrouping puts each action and its reaction into the same term, where the third
       e('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: cols[k], 'stroke-width': 2, 'stroke-dasharray': '6 5' });
       var dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
       e('line', { x1: a[0] + ux*14, y1: a[1] + uy*14, x2: a[0] + ux*60, y2: a[1] + uy*60, stroke: cols[k], 'stroke-width': 4, 'marker-end': 'url(#ah' + k + ')' });
-      var t = e('text', { x: a[0] + ux*40 + (-uy)*16, y: a[1] + uy*40 + ux*16, 'font-size': 14, fill: cols[k], 'font-weight': 'bold' });
+      var t = e('text', { x: a[0] + ux*72 + (-uy)*14, y: a[1] + uy*72 + ux*14 + 5, 'font-size': 14, fill: cols[k], 'font-weight': 'bold' });
       t.textContent = 'F' + k;
     });
     Object.keys(P).forEach(function (i) {
@@ -285,7 +342,7 @@ Regrouping puts each action and its reaction into the same term, where the third
       e('circle', { cx: P[i][0], cy: P[i][1], r: 9, fill: '#1a1a24' });
       e('text', { x: P[i][0] + 12, y: P[i][1] - 10, 'font-size': 15, fill: '#1a1a24' }).textContent = i;
     });
-    e('text', { x: 150, y: 245, 'font-size': 13, fill: '#555' }).textContent = 'dashed: the line rα − rβ; thick arrow: the central force Fαβ, along it';
+    e('text', { x: 60, y: 252, 'font-size': 13, fill: '#555' }).textContent = 'dashed: the line rα − rβ; thick arrow: the central force Fαβ, along it';
   })();
 })();
 </script>
