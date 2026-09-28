@@ -211,7 +211,7 @@ CONTENT = [
 #   (five days after the last class it draws on), with these one-offs:
 #   HW04 Mon Oct 5 (so it is back before Exam 1 on Fri Oct 9); HW06 Fri
 #   Oct 23 (5.7-5.8 is taught Mon Oct 19); HW09 Fri Nov 6 (so it is back
-#   Mon Nov 9, before Exam 2 on Wed Nov 11); HW11 Mon Nov 23 (the
+#   Mon Nov 9, before Exam 2 on Wed Nov 11); HW11 Mon Nov 30 (the
 #   Wednesday is Thanksgiving; Will made the same Monday move); HW12 Fri
 #   Dec 4 (the Ch 11 practice must precede Exam 3). HW13 lands in reading
 #   period (Will's was the day after his last class).
@@ -228,7 +228,7 @@ CONTENT = [
 # (HW02 was the first, moved from Wed Sep 23 to Fri Sep 25; HW01 had been
 # extended to Fri Sep 18). Exams stay put, so three sets keep non-Friday
 # dates: HW04 Mon Oct 5 (Exam 1 Fri Oct 9), HW08 Wed Nov 4 (HW09 owns Fri
-# Nov 6 before Exam 2), HW11 Mon Nov 23 (Fri Nov 27 is Thanksgiving; the
+# Nov 6 before Exam 2), HW11 Mon Nov 30 (Fri Nov 27 is Thanksgiving; the
 # alternative Wed Dec 2 was not taken). HW13 is due Mon Dec 14, the last
 # class day (Michael, 2026-09-24; it had been Fri Dec 18, in reading
 # period). Will's was Thu Dec 11, also his last week rather than reading
@@ -269,7 +269,7 @@ HWS = [
     # Fri, not Wed: back on Mon Nov 9 before Exam 2. 8.2 (taught Wed Nov 4)
     # gets only two days; it is the one easy problem on the set.
     (9, date(2026, 11, 13), date(2026, 11, 4), {7, 8},
-     "7.5, 7.8, 7.9, 8.1-8.2: Lagrangian examples; Noether; multipliers; "
+     "7.5, 7.8, 7.10, 8.1-8.2: Lagrangian examples; Noether; multipliers; "
      "two-body setup",
      "7.27, 7.31, 7.34, 7.38 [optional challenge], 7.46 [Noether: rotational "
      "invariance gives conservation of L_z], 8.2"),
