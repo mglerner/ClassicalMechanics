@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write 03-answers.html: one answer sheet per prep pack (PHY 317).
+"""Write _gen/answers.html (embedded in class-NN.html by shared/make_pack_html.py): one answer sheet per prep pack (PHY 317).
 
 Michael's own sheet, so it quotes the solutions manual freely. What goes on
 a screen or into a student deck is his call, not the generator's.
@@ -160,8 +160,8 @@ def crop_statements(pack_dir, wanted, bands):
     todo = {q: bands[q] for q in wanted if q in bands}
     if not todo or not TEXTBOOK.exists() or not shutil.which("pdftoppm"):
         return {}
-    out_dir = pack_dir / "03-answers-files"
-    out_dir.mkdir(exist_ok=True)
+    out_dir = pack_dir / "_gen" / "answer-images"
+    out_dir.mkdir(parents=True, exist_ok=True)
     cache = Path(tempfile.gettempdir()) / "taylor-pages"
     cache.mkdir(exist_ok=True)
     out = {}
@@ -184,7 +184,7 @@ def crop_statements(pack_dir, wanted, bands):
             continue
         name = f"taylor-{prob.replace('.', '_')}-{i + 1}.png"
         im.crop((0, y0, w, y1)).save(out_dir / name)
-        out.setdefault(prob, []).append(f"03-answers-files/{name}")
+        out.setdefault(prob, []).append(f"answer-images/{name}")
     return out
 
 
@@ -203,11 +203,11 @@ def render_pages(pack_dir):
     """Rasterise every solution PDF page once. -> [{path, src, file, page, hw}]."""
     if not shutil.which("pdftoppm"):
         return []
-    out_dir = pack_dir / "03-answers-files"
+    out_dir = pack_dir / "_gen" / "answer-images"
     pages = []
     for pdf in sorted(pack_dir.glob(SOL_GLOB)):
         stem = re.sub(r"[^A-Za-z0-9]+", "-", pdf.stem).strip("-").lower()[:48]
-        out_dir.mkdir(exist_ok=True)
+        out_dir.mkdir(parents=True, exist_ok=True)
         subprocess.run(["pdftoppm", "-png", "-r", str(SOL_DPI), str(pdf),
                         str(out_dir / stem)], check=True, capture_output=True)
         for png in sorted(out_dir.glob(stem + "-*.png")):
@@ -216,7 +216,7 @@ def render_pages(pack_dir):
                 continue
             if is_blank(png):
                 continue
-            pages.append({"path": png, "src": f"03-answers-files/{png.name}",
+            pages.append({"path": png, "src": f"answer-images/{png.name}",
                           "file": pdf.name, "stem": stem,
                           "page": int(n.group(1)),
                           "hw": bool(HW_RE.search(pdf.name))})
@@ -261,7 +261,7 @@ def crop_problems(pages, smap):
             name = f"{pg['stem']}-p{pg['page']}-{prob.replace('.', '_')}.png"
             im.crop((0, top, w, bot)).save(pg["path"].parent / name)
             crops.setdefault(prob, []).append(
-                (f"03-answers-files/{name}", f"{pg['file']}, p{pg['page']}"))
+                (f"answer-images/{name}", f"{pg['file']}, p{pg['page']}"))
             claimed.add(id(pg))
     return crops, claimed
 
@@ -413,7 +413,7 @@ def main(only=None):
         stmts = crop_statements(path.parent, wanted, bands)
         cropped += len(crops)
         statements += len(stmts)
-        (path.parent / "03-answers.html").write_text(
+        (path.parent / "_gen" / "answers.html").write_text(
             render(n, date, M.topic(lines, path), rows, gw, pcci_number(rows),
                    pages, smap, crops, claimed, stmts, posted_for(n)))
         wrote += 1
