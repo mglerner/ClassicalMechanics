@@ -95,6 +95,20 @@ def segments(text):
     return [s.strip() for s in text.split("<br>") if s.strip()]
 
 
+def problem_numbers(s):
+    """Taylor problem numbers in a plan cell. Not: equation numbers, written alone in parentheses
+    ("(5.60)", "(9.30)"); decimals with a leading zero (0.015) or four decimals (4.6692); computed values ("= 1.7", "/1.38"); figures, equations, tables, examples ("Fig. 12.9")."""
+    out = []
+    for m in re.finditer(r"(?<![\d.])([1-9]\d?\.[1-9]\d{0,2})(?![.\d])", s):
+        a, b = m.start(), m.end()
+        if s[a - 1:a] == "(" and s[b:b + 1] == ")":
+            continue
+        if re.search(r"([=/*]\s*|\b(Fig|Figure|Eq|Eqs|Table|Example|Ex)\.?\s*)$", s[max(0, a - 8):a]):
+            continue
+        out.append(m.group(1))
+    return out
+
+
 def row_entries(rows):
     """[(problem-or-None, when, task, [checks])] for rows that carry answers."""
     out = []
@@ -106,7 +120,7 @@ def row_entries(rows):
         body = [s for s in segs if not s.startswith(SKIP_AS_TASK)]
         # the number can sit in any non-Check line: many rows open with a
         # "We're about to find ..." frame.
-        probs = [q for s in body for q in re.findall(r"\b(\d+\.\d+)\b", s)]
+        probs = [q for s in body for q in problem_numbers(s)]
         task = next((s for s in body if re.search(r"\b\d+\.\d+\b", s)),
                     body[0] if body else "")
         out.append((probs[0] if probs else None, M.clock(a), task, checks))
