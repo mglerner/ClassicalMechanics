@@ -216,6 +216,11 @@ CONTENT = [
 #   Dec 4 (the Ch 11 practice must precede Exam 3). HW13 lands in reading
 #   period (Will's was the day after his last class).
 #
+# UPDATED 2026-09-24 (exams moved to Fri Oct 16 and Mon Nov 16; see EXAMS):
+# the one-off dates in the two paragraphs above are history. The HWS tuples
+# below hold the current dates (HW04 Fri Oct 9, HW08 Fri Nov 6, HW09 Fri
+# Nov 13).
+#
 # Tuples: (hw, due, covers_through, chapters, covers, problems).
 # covers_through = the last class day whose material the set draws on;
 # the build asserts due > covers_through, that no due date lands on a
@@ -266,8 +271,8 @@ HWS = [
     (8, date(2026, 11, 6), date(2026, 10, 30), {6, 7},
      "6.4, 7.1-7.3: several variables; Lagrange's equations; constraints",
      "6.23 [hints], 6.24 [advanced, optional], 6.27, 7.3, 7.10 [hint], 7.14"),
-    # Fri, not Wed: back on Mon Nov 9 before Exam 2. 8.2 (taught Wed Nov 4)
-    # gets only two days; it is the one easy problem on the set.
+    # Due Fri Nov 13, before Exam 2 on Mon Nov 16 (both moved 2026-09-24;
+    # the exam rule is now "due before the exam"). 8.2 is taught Wed Nov 4.
     (9, date(2026, 11, 13), date(2026, 11, 4), {7, 8},
      "7.5, 7.8, 7.10, 8.1-8.2: Lagrangian examples; Noether; multipliers; "
      "two-body setup",
