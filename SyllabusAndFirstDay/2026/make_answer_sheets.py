@@ -77,6 +77,24 @@ def problem_bands():
     return out
 
 
+def trim_margins(im, pad=14, edge=0.03):
+    """Cut blank margin off all four sides of a crop (Michael, 2026-10-03: the key crop had wide
+    white margins). Ink = a few dark pixels in a row or column, ignoring the outer edges where
+    crop marks and scan borders live."""
+    import numpy as np
+    a = np.asarray(im.convert("L"))
+    h, w = a.shape
+    inner = a[int(edge * h):h - int(edge * h), int(edge * w):w - int(edge * w)]
+    dark = inner < 160
+    rows = np.flatnonzero(dark.sum(axis=1) >= 3)
+    cols = np.flatnonzero(dark.sum(axis=0) >= 3)
+    if not len(rows) or not len(cols):
+        return im
+    y0 = max(0, rows[0] + int(edge * h) - pad); y1 = min(h, rows[-1] + int(edge * h) + pad)
+    x0 = max(0, cols[0] + int(edge * w) - pad); x1 = min(w, cols[-1] + int(edge * w) + pad)
+    return im.crop((x0, y0, x1, y1))
+
+
 def crop_statements(pack_dir, wanted, bands):
     """Cut each wanted problem's statement out of the textbook. -> {prob: [src]}."""
     try:
@@ -109,7 +127,7 @@ def crop_statements(pack_dir, wanted, bands):
         if y1 <= y0:
             continue
         name = f"taylor-{prob.replace('.', '_')}-{i + 1}.png"
-        im.crop((0, y0, w, y1)).save(out_dir / name)
+        trim_margins(im.crop((0, y0, w, y1))).save(out_dir / name)
         out.setdefault(prob, []).append(f"answer-images/{name}")
     return out
 
@@ -185,7 +203,7 @@ def crop_problems(pages, smap):
             if bot <= top:
                 continue
             name = f"{pg['stem']}-p{pg['page']}-{prob.replace('.', '_')}.png"
-            im.crop((0, top, w, bot)).save(pg["path"].parent / name)
+            trim_margins(im.crop((0, top, w, bot))).save(pg["path"].parent / name)
             crops.setdefault(prob, []).append(
                 (f"answer-images/{name}", f"{pg['file']}, p{pg['page']}"))
             claimed.add(id(pg))
