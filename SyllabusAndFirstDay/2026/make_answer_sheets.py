@@ -1,34 +1,18 @@
 #!/usr/bin/env python3
-"""Write _gen/answers.html (embedded in class-NN.html by shared/make_pack_html.py): one answer sheet per prep pack (PHY 317).
+"""Write _gen/crops.json per prep pack (PHY 317): the crops the pack page shows.
 
-Michael's own sheet, so it quotes the solutions manual freely. What goes on
-a screen or into a student deck is his call, not the generator's.
+Taylor's own problem statement (from the textbook scan, bands in _shared/taylor-bands-ch<N>.txt)
+and the ISM worked solution (from the pack's solution PDFs via the `Solutions:` line) for the
+PCCI, for every problem named in the notes' In-class problems section, and for the day's posted
+lists (Will's in-class menu and look-at problems); plus the solution pages nothing claimed.
+shared/make_pack_html.py places each crop under its problem.
 
-Two layers, both derived from `00-prep-notes.md` so there is no second copy
-of an answer to drift:
+    Solutions: in-class#1 = 3.5@.132-.377, 3.10@.377-.541; look-at#1 = 3.32@.1-.4
 
-1. The `Check:` lines under each plan row -- the answers, already curated
-   per day, grouped by the `Groupwork:` line (playbook 3a).
-2. The fully worked solution for each problem, cropped out of the pack's
-   ISM solution PDF and shown directly under that problem's checks.
-
-The crop comes from the optional `Solutions:` line, which maps a page to
-the problems on it and where they sit vertically:
-
-    Solutions: in-class#1 = 3.5@.11-.38, 3.10@.37-.54, 3.11@.53-.90
-
-`in-class` is any substring of the PDF's filename, `#1` is the page, and
-`@a-b` is the problem's band as a fraction of page height. A problem may
-appear on several pages (3.11 runs over a page break); each gets its own
-crop. A problem listed without a band still labels the page.
-
-A chapter's solution PDF covers all of its days at once, so without the
-bands every day's sheet carries the whole chapter. Pages that no crop
-claims are shown whole at the end, labelled with what is on them.
-
-    python make_answer_sheets.py            # all packs
-    python make_answer_sheets.py 07 08      # just these
+    python make_answer_sheets.py            # all packs in the current format
+    python make_answer_sheets.py 06 07      # just these
 """
+import json
 import re
 import shutil
 import subprocess
@@ -36,7 +20,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-import make_active_learning as M
+sys.path.insert(0, str(Path.home() / "coding/courses/shared"))
+import packnotes as P  # noqa: E402
 import make_review_checklists as CHK
 import make_fall2026_calendar as CAL
 
@@ -53,83 +38,10 @@ TEXTBOOK = (Path.home() / "coding/courses/ClassicalMechanics/private/WillF2025"
 PROBLEM_BANDS = (Path.home() / "coding/courses/ClassicalMechanics/private"
                  / "F2026PrepPacks/_shared")   # taylor-bands-ch*.txt, one per chapter
 
-CSS = """
-body { background: #fff; margin: 0; padding: 16px 18px; color: #111;
-       font-family: "Iowan Old Style", Palatino, Georgia, serif;
-       font-variant-numeric: tabular-nums; }
-h1 { font-size: 19px; margin: 0 0 2px 0; font-weight: normal; }
-h1 .when { font-size: 14px; font-style: italic; color: #666; margin-left: 10px; }
-h2 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-     color: #6b6b6b; margin: 16px 0 6px 0; font-weight: normal;
-     border-bottom: 1px solid #ccc; padding-bottom: 3px; }
-.prob { margin: 0 0 14px 0; break-inside: avoid; }
-.num { font-weight: bold; font-size: 15px; }
-.num .when { font-weight: normal; font-style: italic; color: #777;
-             font-size: 12.5px; margin-left: 6px; }
-.task { font-size: 13.5px; color: #333; margin: 1px 0 2px 0; }
-ul { margin: 0; padding-left: 17px; }
-li { font-size: 14.5px; line-height: 1.4; }
-.none { font-size: 13.5px; color: #777; font-style: italic; }
-.stmt { margin: 3px 0 5px 0; }
-.stmt img { width: 100%; border: 1px solid #e3e3e3; display: block;
-            margin: 2px 0 0 0; background: #fcfcfa; }
-.worked { margin: 5px 0 0 0; }
-.worked img { width: 100%; border: 1px solid #ddd; display: block;
-              margin: 3px 0 0 0; }
-.cap { font-size: 12.5px; color: #666; font-style: italic; margin: 0; }
-.sol { margin: 0 0 20px 0; break-inside: avoid; }
-.sol img { width: 100%; border: 1px solid #ccc; display: block; }
-.warn { background: #fff3cd; border: 1px solid #e0cd8a; padding: 7px 10px;
-        font-size: 13px; margin: 14px 0 0 0; }
-@media print { body { padding: 0; } h2 { break-after: avoid; } }
-"""
 
-SKIP_AS_TASK = ("Check:", "Read back:", "Next:", "Check ")
-
-
-def esc(s):
-    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-
-
-def segments(text):
-    return [s.strip() for s in text.split("<br>") if s.strip()]
-
-
-def problem_numbers(s):
-    """Taylor problem numbers in a plan cell. Not: equation numbers, written alone in parentheses
-    ("(5.60)", "(9.30)"); decimals with a leading zero (0.015) or four decimals (4.6692); computed values ("= 1.7", "/1.38"); figures, equations, tables, examples ("Fig. 12.9")."""
-    out = []
-    for m in re.finditer(r"(?<![\d.])([1-9]\d?\.[1-9]\d{0,2})(?![.\d])", s):
-        a, b = m.start(), m.end()
-        if s[a - 1:a] == "(" and s[b:b + 1] == ")":
-            continue
-        if re.search(r"([=/*]\s*|\b(Fig|Figure|Eq|Eqs|Table|Example|Ex)\.?\s*)$", s[max(0, a - 8):a]):
-            continue
-        out.append(m.group(1))
-    return out
-
-
-def row_entries(rows):
-    """[(problem-or-None, when, task, [checks])] for rows that carry answers."""
-    out = []
-    for a, b, m, mode, _src, text in rows:
-        segs = segments(text)
-        checks = [s for s in segs if s.startswith("Check")]
-        if not checks:
-            continue
-        body = [s for s in segs if not s.startswith(SKIP_AS_TASK)]
-        # the number can sit in any non-Check line: many rows open with a
-        # "We're about to find ..." frame.
-        probs = [q for s in body for q in problem_numbers(s)]
-        task = next((s for s in body if re.search(r"\b\d+\.\d+\b", s)),
-                    body[0] if body else "")
-        out.append((probs[0] if probs else None, M.clock(a), task, checks))
-    return out
-
-
-def solutions_map(lines):
+def solutions_map(notes):
     """-> {(filename-substring, page): [(problem, band-or-None)]}."""
-    raw = M.tagged_line(lines, "Solutions:")
+    raw = notes.tagged_line("Solutions:")
     out = {}
     if not raw:
         return out
@@ -287,88 +199,6 @@ def listed_on(smap, pg):
     return None
 
 
-def render(n, date, topic, rows, groupwork, pcci, pages, smap, crops,
-           claimed, stmts, lookat=()):
-    gw, other, pcci_ent = [], [], []
-    for prob, when, task, checks in row_entries(rows):
-        if pcci and "PCCI" in task:
-            pcci_ent.append((prob, when, task, checks))
-        elif prob and prob in groupwork:
-            gw.append((prob, when, task, checks))
-        else:
-            other.append((prob, when, task, checks))
-
-    o = ["<!doctype html><meta charset=utf-8>",
-         f"<title>PHY 317 answers -- class {n:02d}</title><style>{CSS}</style>",
-         f"<h1>Class {n:02d} answers<span class=when>{date} &middot; "
-         f"{esc(topic)}</span></h1>"]
-    seen, shown_stmt = set(), set()
-
-    def block(title, items):
-        o.append(f"<h2>{title}</h2>")
-        if not items:
-            o.append("<p class=none>none</p>")
-            return
-        for prob, when, task, checks in items:
-            o.append(f'<div class=prob><div class=num>{prob or "&mdash;"}'
-                     f'<span class=when>{when}</span></div>')
-            if task and task != prob:
-                o.append(f"<div class=task>{esc(task)}</div>")
-            if prob in stmts and prob not in shown_stmt:
-                shown_stmt.add(prob)
-                o.append(f'<div class=stmt><p class=cap>Taylor {esc(prob)}</p>'
-                         + "".join(f'<img src="{esc(src)}" '
-                                   f'alt="Taylor {esc(prob)}">'
-                                   for src in stmts[prob])
-                         + '</div>')
-            o.append("<ul>" + "".join(f"<li>{esc(c)}</li>" for c in checks)
-                     + "</ul>")
-            if prob in crops and prob not in seen:
-                seen.add(prob)
-                o.append("<div class=worked>")
-                for src, cap in crops[prob]:
-                    o.append(f'<p class=cap>worked solution &middot; {esc(cap)}</p>'
-                             f'<img src="{esc(src)}" alt="{esc(prob)}">')
-                o.append("</div>")
-            o.append("</div>")
-
-    block(f"PCCI {esc(pcci) if pcci else ''}".strip(), pcci_ent)
-    block("Groupwork " + (", ".join(groupwork) if groupwork else ""), gw)
-    block("Everything else with an answer", other)
-    # Look-at problems are posted to students but never worked in class, so
-    # they are in no plan row; render whatever of them we cropped.
-    rest = [(p, "solution posted; not worked in class", "", [])
-            for p in lookat if p not in seen]
-    if rest:
-        block("Also on today's lists (posted, not worked in class)", rest)
-
-    left = [p for p in pages if id(p) not in claimed]
-    if left:
-        o.append("<h2>Other solution pages</h2>")
-        o.append("<p class=warn>Shown whole because no problem on them is "
-                 "cropped for today.</p>")
-        for pg in sorted(left, key=lambda g: (g["hw"], g["file"], g["page"])):
-            listed = listed_on(smap, pg)
-            bits = []
-            if listed:
-                bits.append("on this page: " + esc(", ".join(listed)))
-            elif smap:
-                bits.append("not listed on the <code>Solutions:</code> line")
-            else:
-                bits.append("no <code>Solutions:</code> line in the prep notes")
-            if pg["hw"]:
-                m = HW_RE.search(pg["file"])
-                bits.append("homework set"
-                            + (f" HW{int(m.group(1)):02d}" if m else ""))
-            o.append(f'<div class=sol><p class=cap>{" &middot; ".join(bits)}</p>'
-                     f'<p class=cap>{esc(pg["file"])}, page {pg["page"]}</p>'
-                     f'<img src="{esc(pg["src"])}" alt="{esc(pg["file"])}"></div>')
-
-    o.append("<footer>Generated by make_answer_sheets.py from the plan table "
-             "in 00-prep-notes.md -- edit the plan, not this file.</footer>")
-    return "\n".join(o)
-
-
 def lookat_for(n, key="lookat"):
     """The day's look-at (or in-class) problems from Will's chapter lists.
 
@@ -400,40 +230,58 @@ def posted_for(n):
                 out.append(p)
     return out
 
-
-def pcci_number(rows):
-    for _a, _b, _m, _mode, _src, text in rows:
-        m = re.search(r"PCCI (\d+\.\d+)", text)
-        if m:
-            return m.group(1)
-    return ""
-
-
 def main(only=None):
+    """Write _gen/crops.json per pack: Taylor's statement and the ISM crop for the PCCI, for every
+    problem named in the In-class problems section, and for the day's posted lists (Will's
+    in-class menu and look-at problems), plus the solution pages nothing claimed.
+    shared/make_pack_html.py places them under the problems on the pack page."""
     wrote = cropped = statements = 0
     bands = problem_bands()
-    for n, date, path in M.pack_files():
+    for n, date, path in P.pack_files("317"):
         if only and f"{n:02d}" not in only:
             continue
-        lines = path.read_text().split("\n")
-        rows = M.plan_rows(lines, path)
-        if not rows:
+        if not path.exists():
             continue
-        gw = M.groupwork(lines) or []
-        smap = solutions_map(lines)
-        pages = render_pages(path.parent)
+        notes = P.Notes(path)
+        if notes.old_format:
+            continue
+        pack = path.parent
+        smap = solutions_map(notes)
+        pages = render_pages(pack)
         crops, claimed = crop_problems(pages, smap)
-        wanted = {q for q, *_ in row_entries(rows) if q} | set(posted_for(n))
-        stmts = crop_statements(path.parent, wanted, bands)
+        wanted = list(notes.all_problems())
+        for q in posted_for(n):
+            if q not in wanted:
+                wanted.append(q)
+        stmts = crop_statements(pack, set(wanted), bands)
         cropped += len(crops)
         statements += len(stmts)
-        (path.parent / "_gen" / "answers.html").write_text(
-            render(n, date, M.topic(lines, path), rows, gw, pcci_number(rows),
-                   pages, smap, crops, claimed, stmts, posted_for(n)))
+        problems = {}
+        for q in wanted:
+            if q in stmts:
+                problems.setdefault(q, {})["statement"] = stmts[q]
+            if q in crops:
+                problems.setdefault(q, {})["worked"] = crops[q]
+        for q, lst in crops.items():          # a Solutions: crop for a problem no list named
+            problems.setdefault(q, {}).setdefault("worked", lst)
+        pcci = notes.pcci_problems()
+        unclaimed = []
+        for pg in pages:
+            if id(pg) in claimed:
+                continue
+            listed = listed_on(smap, pg)
+            note = f"on this page: {', '.join(listed)}" if listed else ("not on the Solutions: line" if smap else "no Solutions: line")
+            if pg["hw"]:
+                m = HW_RE.search(pg["file"])
+                note += "; homework set" + (f" HW{int(m.group(1)):02d}" if m else "")
+            unclaimed.append({"src": pg["src"], "file": pg["file"], "page": pg["page"], "note": note})
+        (pack / "_gen").mkdir(exist_ok=True)
+        json.dump({"pcci": {"id": notes.pcci_id(), "images": []},
+                   "problems": problems, "unclaimed": unclaimed},
+                  open(pack / "_gen" / "crops.json", "w"), indent=1)
         wrote += 1
-    print(f"wrote {wrote} answer sheets; {cropped} solution crops; "
-          f"{statements} problem statements"
-          + ("" if bands else "  (no taylor-problem-bands.txt yet)"))
+    print(f"wrote {wrote} crops.json; {cropped} solution crops; {statements} problem statements"
+          + ("" if bands else "  (no taylor-bands yet)"))
 
 
 if __name__ == "__main__":
