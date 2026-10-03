@@ -276,7 +276,7 @@ def main(only=None):
                 note += "; homework set" + (f" HW{int(m.group(1)):02d}" if m else "")
             unclaimed.append({"src": pg["src"], "file": pg["file"], "page": pg["page"], "note": note})
         (pack / "_gen").mkdir(exist_ok=True)
-        json.dump({"pcci": {"id": notes.pcci_id(), "images": []},
+        json.dump({"pcci": {"id": notes.pcci_id(), "images": []}, "posted": posted_for(n),
                    "problems": problems, "unclaimed": unclaimed},
                   open(pack / "_gen" / "crops.json", "w"), indent=1)
         wrote += 1
