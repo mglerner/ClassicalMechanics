@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write _gen/crops.json per prep pack (PHY 317): the crops the pack page shows.
+"""Write crops.json (in the pack's build folder) per prep pack (PHY 317): the crops the pack page shows.
 
 Taylor's own problem statement (from the textbook scan, bands in _shared/taylor-bands-ch<N>.txt)
 and the ISM worked solution (from the pack's solution PDFs via the `Solutions:` line) for the
@@ -104,7 +104,7 @@ def crop_statements(pack_dir, wanted, bands):
     todo = {q: bands[q] for q in wanted if q in bands}
     if not todo or not TEXTBOOK.exists() or not shutil.which("pdftoppm"):
         return {}
-    out_dir = pack_dir / "_gen" / "answer-images"
+    out_dir = P.layout(pack_dir)["build"] / "answer-images"
     out_dir.mkdir(parents=True, exist_ok=True)
     cache = Path(tempfile.gettempdir()) / "taylor-pages"
     cache.mkdir(exist_ok=True)
@@ -147,9 +147,9 @@ def render_pages(pack_dir):
     """Rasterise every solution PDF page once. -> [{path, src, file, page, hw}]."""
     if not shutil.which("pdftoppm"):
         return []
-    out_dir = pack_dir / "_gen" / "answer-images"
+    out_dir = P.layout(pack_dir)["build"] / "answer-images"
     pages = []
-    for pdf in sorted(pack_dir.glob(SOL_GLOB)):
+    for pdf in P.pdfs(pack_dir, SOL_GLOB):
         stem = re.sub(r"[^A-Za-z0-9]+", "-", pdf.stem).strip("-").lower()[:48]
         out_dir.mkdir(parents=True, exist_ok=True)
         subprocess.run(["pdftoppm", "-png", "-r", str(SOL_DPI), str(pdf),
@@ -249,7 +249,7 @@ def posted_for(n):
     return out
 
 def main(only=None):
-    """Write _gen/crops.json per pack: Taylor's statement and the ISM crop for the PCCI, for every
+    """Write crops.json (in the pack's build folder) per pack: Taylor's statement and the ISM crop for the PCCI, for every
     problem named in the In-class problems section, and for the day's posted lists (Will's
     in-class menu and look-at problems), plus the solution pages nothing claimed.
     shared/make_pack_html.py places them under the problems on the pack page."""
@@ -263,7 +263,7 @@ def main(only=None):
         notes = P.Notes(path)
         if notes.old_format:
             continue
-        pack = path.parent
+        pack = P.pack_of(path)
         smap = solutions_map(notes)
         pages = render_pages(pack)
         crops, claimed = crop_problems(pages, smap)
@@ -293,10 +293,10 @@ def main(only=None):
                 m = HW_RE.search(pg["file"])
                 note += "; homework set" + (f" HW{int(m.group(1)):02d}" if m else "")
             unclaimed.append({"src": pg["src"], "file": pg["file"], "page": pg["page"], "note": note})
-        (pack / "_gen").mkdir(exist_ok=True)
+        P.layout(pack)["build"].mkdir(exist_ok=True)
         json.dump({"pcci": {"id": notes.pcci_id(), "images": []}, "posted": posted_for(n),
                    "problems": problems, "unclaimed": unclaimed},
-                  open(pack / "_gen" / "crops.json", "w"), indent=1)
+                  open(P.layout(pack)["build"] / "crops.json", "w"), indent=1)
         wrote += 1
     print(f"wrote {wrote} crops.json; {cropped} solution crops; {statements} problem statements"
           + ("" if bands else "  (no taylor-bands yet)"))
