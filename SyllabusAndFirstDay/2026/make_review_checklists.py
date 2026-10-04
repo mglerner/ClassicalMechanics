@@ -13,7 +13,7 @@ edit:
 
     python make_review_checklists.py
 
-Writes `01-review-checklist.md` into every existing prep-pack folder
+Writes `_gen/review-checklist.md` into every existing prep-pack folder
 (matched by the NN- class-number prefix) and the whole-semester
 `REVIEW-SCHEDULE.md` at the prep-pack root. Both are generated files;
 do not edit them by hand.
