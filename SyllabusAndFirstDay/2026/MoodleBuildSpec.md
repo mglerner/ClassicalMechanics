@@ -115,13 +115,13 @@ below. Same visibility rule as PHY 210: each assignment is hidden by a
 Restrict-access DATE condition until 1.5 weeks before it is due, so a
 pacing change never leaves a stale problem list on display.
 
-| Assignment | Due               | Pts | Notes                                                                               |
-| ---------- | ----------------- | --- | ----------------------------------------------------------------------------------- |
+| Assignment | Due               | Pts | Notes                                                                                                                                |
+| ---------- | ----------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | HW01..HW13 | see generator     | 24  | Fridays 22:00 (decided 2026-09-19; was Wednesdays); HW04 Mon Oct 5, HW08 Wed Nov 4, HW11 Mon Nov 23, HW12 Fri Dec 4, HW13 Wed Dec 16 |
-| Exam 1     | Fri Oct 9, 13:20  | 180 | no submission; Ch 2-4                                                               |
-| Exam 2     | Wed Nov 11, 13:20 | 180 | no submission; Ch 5-7                                                               |
-| Exam 3     | Mon Dec 7, 13:40  | 180 | no submission; Ch 8, 9, 11                                                          |
-| Final exam | Tue Dec 22, 15:00 | 60  | no submission; required Ch 12 problem; timestamp = end of the self-scheduled window |
+| Exam 1     | Fri Oct 9, 13:20  | 180 | no submission; Ch 2-4                                                                                                                |
+| Exam 2     | Wed Nov 11, 13:20 | 180 | no submission; Ch 5-7                                                                                                                |
+| Exam 3     | Mon Dec 7, 13:40  | 180 | no submission; Ch 8, 9, 11                                                                                                           |
+| Final exam | Tue Dec 22, 15:00 | 60  | no submission; required Ch 12 problem; timestamp = end of the self-scheduled window                                                  |
 
 One due TIME everywhere: 22:00 (Will's drifted between 18:00, 22:00
 and 23:59 within one semester; pick one, keep it).
@@ -147,9 +147,17 @@ Categories (aggregation Natural):
 Total 1000; verify against the generator's Grade Categories sheet.
 
 Redemption bookkeeping: keep PER-PROBLEM exam scores in a private
-spreadsheet (three per exam, ~63 pts each); the Moodle exam item holds
-the sum. After the final, edit the Moodle exam items upward where a
-redemption problem beat the original. The same lesson as PHY 210:
+spreadsheet (three per exam, 60 pts each, one check-scale mark per
+problem as the syllabus says); the Moodle exam item holds the sum. After
+the final, edit the Moodle exam items upward where a redemption problem
+beat the original.
+
+Exam redos (syllabus 2026-10-03): when each exam is handed back, add an
+"Exam N redo" assignment (file submission, one PDF, due one week after
+the hand-back, 0 points of its own) so the deadline lands on every
+student's calendar. A redo raises the per-problem score in the
+spreadsheet (check- -> 85%, X -> 75%) and the Moodle exam item is edited
+to the new sum; the redo assignment itself is not graded. The same lesson as PHY 210:
 per-problem records from day one, or the redemption final cannot be
 scored.
 
