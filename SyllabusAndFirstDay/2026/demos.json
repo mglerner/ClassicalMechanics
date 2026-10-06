@@ -1,0 +1,1382 @@
+[
+ {
+  "id": "coffee-filters-quadratic-drag",
+  "name": "Terminal velocity of stacked coffee filters",
+  "classes": [
+   4,
+   3
+  ],
+  "fit": "Quadratic drag: v_t proportional to sqrt(m), so 4 filters fall at twice the terminal speed of 1 (Taylor 2.4).",
+  "duration_min": 4,
+  "tier": "good",
+  "materials": [
+   "basket-style coffee filters (a sleeve of 50)",
+   "meter stick or two marked heights (1 m and 2 m)"
+  ],
+  "pira": "2C30.65",
+  "prediction": "I drop a stack of 4 filters from 2 m and a single filter from 1 m at the same instant. Which lands first? (a) the stack (b) the single (c) they land together.",
+  "observe": "They land together (to within the reaction time of the dropper).",
+  "explain": "With f = c v^2, v_t = sqrt(mg/c); 4x the mass doubles v_t, so the stack covers twice the distance in the same time once both are at terminal speed (the short transient is the same fraction of the fall for both). With linear drag (Taylor 2.2) the stack would need 4x the height.",
+  "pitfalls": [
+   "Filters must nest tightly; a loose stack tumbles.",
+   "Hold both flat and release by opening the fingers, not by pulling down.",
+   "Practice once before class; it fails visibly when the release is uneven."
+  ],
+  "refs": [
+   {
+    "title": "Clemson 1C30.65 Terminal velocity - stacked coffee filters",
+    "url": "https://science.clemson.edu/physics/labs/Demo_Web/Demos/1c30.65.htm",
+    "note": "states the 4-from-2 m vs 1-from-1 m version"
+   }
+  ],
+  "video": {
+   "youtube_id": "cIqPgkUxfdo",
+   "title": "2C30.65 - Terminal Velocity of Coffee Filters - 1v4 (UMDemoLab)"
+  },
+  "image": null,
+  "diy": "",
+  "notes": "Past (class 03/04). Cheapest demo on this list; worth keeping for next year.",
+  "status": "next-year",
+  "buy": []
+ },
+ {
+  "id": "helmholtz-cyclotron",
+  "name": "Helmholtz coils + e/m tube: cyclotron motion",
+  "classes": [
+   5
+  ],
+  "status": "done",
+  "tier": "good",
+  "duration_min": 8,
+  "fit": "Lorentz force and cyclotron frequency (Taylor 2.5-2.7): the electron beam circles in the uniform field of the coils.",
+  "prediction": "",
+  "observe": "Done on Fri Sep 18 (class 05).",
+  "explain": "",
+  "materials": [
+   "Helmholtz coil pair with e/m (fine-beam) tube and supplies"
+  ],
+  "pira": "5H30.60",
+  "pitfalls": [],
+  "refs": [],
+  "video": null,
+  "image": null,
+  "diy": "",
+  "notes": "Already delivered; here for the record and next year's map.",
+  "buy": []
+ },
+ {
+  "id": "spinning-stool-drop-dumbbells",
+  "name": "Rotating stool / platform with dumbbells (release version)",
+  "classes": [
+   8
+  ],
+  "fit": "Conservation of angular momentum for a system with internal vs external torque (Taylor 3.4-3.5).",
+  "duration_min": 5,
+  "tier": "good",
+  "materials": [
+   "rotating stool or platform",
+   "two dumbbells (2-3 kg)",
+   "soft landing (gym mat) for the release variant"
+  ],
+  "pira": "1Q40.10",
+  "prediction": "Upper-division twist on the arms-in/arms-out demo: I spin with arms out holding weights, then simply open my hands and let the weights go. My spin rate (a) increases (b) stays the same (c) decreases.",
+  "observe": "Spin rate is unchanged at the moment of release (then slows only from bearing friction).",
+  "explain": "Releasing exerts no torque about the axis; each weight leaves with the angular momentum it already had, so the person keeps I_person*omega with I_person unchanged. Students who think 'less mass, less I, spin faster' are applying L conservation to the wrong system.",
+  "pitfalls": [
+   "SAFETY: released weights fly off tangentially. Use bean bags or soft weights, spin slowly, clear the front rows, or lower the weights onto a mat rather than letting go.",
+   "Start the spin with arms in (UT Austin safety note)."
+  ],
+  "refs": [
+   {
+    "title": "UT Austin 1Q40.10 Rotating stools with weights",
+    "url": "https://lecturedemos.ph.utexas.edu/demo/69",
+    "note": "standard version and safety note"
+   }
+  ],
+  "video": {
+   "youtube_id": "j6zRk_gVuE8",
+   "title": "Rotating Platform and Dumbbells, 1Q40.10 (UW-Madison Physics Lecture Demonstrations)"
+  },
+  "image": null,
+  "diy": "",
+  "notes": "Past (class 08). The video shows the standard arms-in version; the release twist is what makes it worth an upper-division vote.",
+  "status": "next-year",
+  "buy": []
+ },
+ {
+  "id": "high-road-low-road",
+  "name": "High road / low road (two-track race, one track with a dip)",
+  "classes": [
+   10,
+   17
+  ],
+  "fit": "Reading a potential-energy graph: same start and end heights, different speed history (Taylor 4.4-4.7); also a preview of the brachistochrone.",
+  "duration_min": 4,
+  "tier": "good",
+  "materials": [
+   "two-track race apparatus (straight track and a track with a dip, same endpoints)",
+   "two identical steel balls"
+  ],
+  "pira": "1D15.20",
+  "prediction": "Two identical balls start together; one track is flat, the other dips and comes back up to the same height. Which finishes first? (a) flat (b) dip (c) tie.",
+  "observe": "The ball on the dipping track wins; both leave the track with the same speed.",
+  "explain": "Energy conservation fixes speed at each height, not travel time; the dipping ball spends the run at higher speed. Tie to T = integral ds / v, which is exactly the functional of Taylor 6.1-6.3.",
+  "pitfalls": [
+   "Release must be simultaneous (use a gate or a ruler across both).",
+   "Tracks need to be level at the ends."
+  ],
+  "refs": [
+   {
+    "title": "U Iowa 1D15.20 High Road Low Road",
+    "url": "https://instructional-resources.physics.uiowa.edu/node/1196",
+    "note": "description and long TPT/AJP reference list"
+   }
+  ],
+  "video": {
+   "youtube_id": "cP5257x6rp8",
+   "title": "1D15.20 - High Road Low Road Movie (UMDemoLab)"
+  },
+  "image": null,
+  "diy": "Two lengths of aluminum angle or U-channel, one bent with a dip, screwed to a board.",
+  "notes": "Not done on class 10; the 2-minute warm-up version right before the brachistochrone (class 17 or 18) still works. Past (class 10). If not done then, it makes a 2-minute warm-up on class 17/18 right before the brachistochrone.",
+  "status": "next-year",
+  "buy": []
+ },
+ {
+  "id": "damping-regimes",
+  "name": "Underdamped vs near-critical vs overdamped oscillator",
+  "classes": [
+   13
+  ],
+  "fit": "Damped SHO regimes, and that heavy overdamping returns to equilibrium SLOWER than critical (Taylor 5.4).",
+  "duration_min": 5,
+  "tier": "maybe",
+  "materials": [
+   "three identical springs and masses with paddles/discs",
+   "three tall cylinders: water, a glycerin-water mix, pure glycerin or corn syrup",
+   "ring stands"
+  ],
+  "pira": "3A50.11",
+  "prediction": "Three identical oscillators, pulled down the same amount and released, in light, medium and very heavy damping. Which one is back at (and stays at) equilibrium first? (a) lightest (b) medium (c) heaviest.",
+  "observe": "The medium (near-critical) one settles first; the very heavily damped one creeps back slowest.",
+  "explain": "Overdamped decay is dominated by exp[-(beta - sqrt(beta^2 - w0^2)) t], whose rate falls toward w0^2/(2 beta) as beta grows; critical damping (beta = w0) gives the fastest non-oscillating return (Taylor 5.4).",
+  "pitfalls": [
+   "Hitting near-critical damping takes trial-and-error mixing; prepare and test the day before.",
+   "A submerged mass also gains added fluid mass, which shifts the frequency (the UW 3A60.43 note sees a resonance shift in water); do not attribute that shift to damping.",
+   "Sticky cleanup."
+  ],
+  "refs": [],
+  "video": {
+   "youtube_id": "Eb2iYmG_GWY",
+   "title": "3A50.11 - Overdamped Oscillator (UMDemoLab)"
+  },
+  "image": null,
+  "diy": "Paper-cup paddles on hanging masses in graduated cylinders.",
+  "notes": "Only if a damped-oscillator set already exists; otherwise spend class 13 on the Y-pendulum. Only if the stockroom already has a damped-oscillator set; otherwise skip and spend class 13 on the Y-pendulum. No catalog page I could load documents the three-regime race; the UMD video shows the overdamped case.",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "y-pendulum-lissajous",
+  "name": "Y-suspended (Blackburn) pendulum / sand pendulum, 2:1 tuned",
+  "classes": [
+   13
+  ],
+  "fit": "Anisotropic 2D oscillator: independent x and y frequencies, Lissajous orbits (Taylor 5.3).",
+  "duration_min": 6,
+  "tier": "good",
+  "materials": [
+   "Y (bifilar) pendulum with a heavy bob on a tall stand, or the stockroom sand pendulum",
+   "fine sand and black paper/cloth, OR an LED in the bob and a phone on long exposure",
+   "tape measure to set the Y junction"
+  ],
+  "pira": "3A80.10",
+  "prediction": "The pendulum is tuned so one direction oscillates exactly twice as fast as the other. I pull the bob diagonally and release it from rest. The path is (a) a straight diagonal line (b) an ellipse (c) a figure-8 (d) a U-shaped arc traced back and forth.",
+  "observe": "A U-shaped (parabolic) arc traced back and forth; any small mistuning makes it slowly morph through a figure-8 and back.",
+  "explain": "Released from rest, x = A cos(w t), y = B cos(2 w t) = B(2x^2/A^2 - 1): a parabola. A figure-8 needs a quarter-period phase offset (a sideways push). Isotropic case (Taylor 5.3) gives lines/ellipses; frequency ratio and relative phase set the Lissajous shape.",
+  "pitfalls": [
+   "For 2:1 the swing length perpendicular to the Y plane (top bar to bob) must be 4x the length from the Y junction to the bob.",
+   "Sand versions are messy and slow to set up (~10 min, Stony Brook); the LED + long-exposure photo is cleaner and projectable.",
+   "Students will vote (c) if they know Lissajous pictures from oscilloscopes; that is the point."
+  ],
+  "refs": [
+   {
+    "title": "U Iowa 3A80.10 Sand Pendulum",
+    "url": "https://instructional-resources.physics.uiowa.edu/node/3531",
+    "note": "apparatus and references (Whitaker AJP 2001, Pizzo TPT 1987)"
+   },
+   {
+    "title": "Stony Brook G1-71 Lissajous Figures - Sand Pendulum",
+    "url": "https://labdemos.physics.sunysb.edu/g.-vibrations-and-mechanical-waves/g1.-simple-harmonic-motion/lissajous-figures-sand-pendulum",
+    "note": "bifilar setup, 10 min setup"
+   }
+  ],
+  "video": {
+   "youtube_id": "NsB_jaYF4Po",
+   "title": "3A70.u3 - Bi frequency Pendulum Movie (UMDemoLab)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Lissajous-Figur_--_2020_--_7766.jpg",
+   "credit": "Dietmar Rabich, Wikimedia Commons",
+   "license": "CC BY-SA 4.0"
+  },
+  "diy": "Two strings tied to a bar, joined by a ring or a sliding bead at the Y junction, heavy bob below; LED in the bob for a long-exposure photo.",
+  "notes": "Ask for the junction to be adjustable (sliding ring) so the ratio can be set in class.",
+  "status": "recommended",
+  "buy": []
+ },
+ {
+  "id": "bartons-pendulums",
+  "name": "Barton's pendulums",
+  "classes": [
+   14
+  ],
+  "fit": "Amplitude AND phase vs natural frequency shown all at once: one driver, many pendulums of different length (Taylor 5.5-5.6).",
+  "duration_min": 5,
+  "tier": "good",
+  "materials": [
+   "Barton's pendulums apparatus (heavy driver pendulum on a common string or axle, 6-10 light pendulums of graded length)",
+   "OR string, paper cones/washers and one heavy bob"
+  ],
+  "pira": "3A60.30",
+  "prediction": "The heavy pendulum drives all the light ones at its own frequency. Compare the pendulum longer than the driver, the one of equal length, and one shorter. Which swings in step with the driver, which a quarter cycle behind, which opposite? And which has the biggest amplitude?",
+  "observe": "Equal length: biggest amplitude, a quarter cycle behind. Shorter (higher w0): small, nearly in step. Longer (lower w0, so driven above resonance): small, nearly opposite.",
+  "explain": "Each light pendulum sits at a different w/w0 on the same A(w) and delta(w) curves; the row of pendulums is a snapshot of Taylor's resonance amplitude and phase curves (Sec 5.6) along the w0 axis.",
+  "pitfalls": [
+   "Light bobs (paper cones) give low Q and broad phase transitions; good for seeing all three phases at once, bad for a sharp peak.",
+   "The driver loses energy to the others; restart it once."
+  ],
+  "refs": [
+   {
+    "title": "UT Austin 3A60.30 Driven Mechanical Resonance: Barton's Pendula",
+    "url": "https://lecturedemos.ph.utexas.edu/demo/114",
+    "note": "axle-driven version"
+   }
+  ],
+  "video": {
+   "youtube_id": "W4YaemEauGo",
+   "title": "F-J's Physics - Barton's Pendulums and Resonance - Video 35 (Anthony Francis-Jones)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Barton%27s_pendulums.svg",
+   "credit": "Amitchell125, Wikimedia Commons",
+   "license": "CC BY-SA 4.0"
+  },
+  "diy": "A horizontal string between two stands, a heavy bob (100-200 g) on one hanging string and light washer or paper-cone bobs on the rest; 20 minutes to build.",
+  "notes": "Alternative to the driven spring for class 14, not an addition. Alternative to driven-resonance-phase, not an addition: pick one for class 14. Barton's shows phase across w0 in one glance; the driven spring shows the sharpness and the large-amplitude-for-tiny-drive better.",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "driven-resonance-phase",
+  "name": "Driven mass on a spring: phase lag through resonance (hand- or motor-driven)",
+  "classes": [
+   14,
+   16
+  ],
+  "fit": "Forced damped SHO: amplitude A(w) and phase delta(w) going 0 -> pi/2 -> pi through w0 (Taylor 5.5-5.6).",
+  "duration_min": 8,
+  "tier": "must",
+  "materials": [
+   "soft spring (period ~1 s) and 200-500 g mass",
+   "either a hand-held top end, or a motor/crank driver with speed control (UCSB 40.45 style), or a PASCO wave driver (SF-9324, now WA-9855) plus a function generator",
+   "a pointer or tape flag on the driver and on the mass so the phase is visible from the back row"
+  ],
+  "pira": "3A60.40",
+  "prediction": "I drive the top of the spring and slowly raise the drive frequency. Vote three times: when I drive well below w0, at w0, and well above w0, the mass is (a) in step with my hand (b) a quarter cycle behind (c) half a cycle behind (moves opposite my hand) (d) a quarter cycle ahead. Bonus: as w passes w0, does the phase change gradually over a wide band or abruptly?",
+  "observe": "Below w0 the mass follows the hand; at resonance it lags by a quarter cycle with a large amplitude for a tiny hand motion; above w0 it moves opposite the hand with small amplitude. With light damping the switch happens over a narrow band.",
+  "explain": "x(t) = A cos(wt - delta), tan(delta) = 2 beta w / (w0^2 - w^2): delta = pi/2 exactly at w0, and the transition width is about 2 beta, so a high-Q spring flips sharply (Taylor 5.5-5.6). The quarter-cycle lag at resonance is what makes the driver's power positive all cycle.",
+  "pitfalls": [
+   "Hand-driving needs a little practice to keep the drive frequency steady above resonance.",
+   "Let transients die (several 1/beta) before calling each vote; the transient beats are the Taylor 5.5 homogeneous solution and confuse the phase.",
+   "Motor-crank drivers: if the string jumps the pulley, stop at once (UCSB note)."
+  ],
+  "refs": [
+   {
+    "title": "UCSB 40.45 Driven mass-spring",
+    "url": "https://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/40.45.html",
+    "note": "motor-crank driver; describes phase 0 -> 90 -> 180 degrees"
+   },
+   {
+    "title": "PASCO Mechanical Wave Driver SF-9324 manual",
+    "url": "https://cdn.pasco.com/product_document/Mechanical-Wave-Driver-Manual-SF-9324.pdf",
+    "note": "0.1 Hz-5 kHz, up to 7 mm p-p at low frequency; any waveform"
+   },
+   {
+    "title": "PASCO SF-9324 product page (discontinued; replacement WA-9855)",
+    "url": "https://www.pasco.com/product/SF-9324",
+    "note": "replacement product named"
+   }
+  ],
+  "video": {
+   "youtube_id": "djorG3M-mvU",
+   "title": "3A60.40 - Driven Oscillators - Resonance with a Ball and Spring (UMDemoLab)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Phaseshift_across_resonance_%28forced_harmonic_oscillator%29.gif",
+   "credit": "Jacopo Bertolotti, Wikimedia Commons",
+   "license": "CC0"
+  },
+  "diy": "Hand-driven version needs only a spring, a mass and a ring stand; it is the version most departments actually run.",
+  "notes": "Same apparatus serves the square-wave drive on class 16. Most strong students know 'pi/2 at resonance' from the formula; the votes that split the room are the above-resonance one (mass opposite the hand) and the sharpness question. Same apparatus serves the square-wave demo on class 16.",
+  "status": "recommended",
+  "buy": [
+   "nothing for the hand-driven version; PASCO WA-9855 wave driver + generator for the motor version"
+  ]
+ },
+ {
+  "id": "square-wave-subharmonic-drive",
+  "name": "Square-wave drive at w0/3 vs w0/2 (Fourier components find the resonance)",
+  "classes": [
+   16
+  ],
+  "fit": "Fourier-series analysis of a driven SHO: only the harmonic near w0 matters, and a 50% square wave has odd harmonics only (Taylor 5.7-5.8; HW06 'square-wave drive').",
+  "duration_min": 8,
+  "tier": "good",
+  "materials": [
+   "same high-Q spring + mass as driven-resonance-phase",
+   "PASCO wave driver (SF-9324 or WA-9855) clamped above the spring",
+   "function generator with square-wave output down to ~0.2 Hz and enough current (PASCO PI-8127, WA-9867 is sine only, or an 850 Universal Interface)"
+  ],
+  "pira": "",
+  "prediction": "The spring-mass has natural frequency f0. I drive the top with a SQUARE wave. Which drive frequency gives a big response? (a) only f0 (b) f0 and f0/2 (c) f0 and f0/3 (d) f0, f0/2 and f0/3.",
+  "observe": "Strong response at f0, a clearly large one at f0/3 (about a third of the f0 amplitude), and almost nothing at f0/2.",
+  "explain": "A 50%-duty square wave of frequency f contains f, 3f, 5f, ... with amplitudes 1, 1/3, 1/5; there is no 2f. At f0/3 the third harmonic sits on the resonance and Taylor 5.8's sum is dominated by that one term; at f0/2 no term is near w0. (A pulse train or an off-50% duty cycle would put back the even harmonics.)",
+  "pitfalls": [
+   "UNTESTED as a lecture demo: no catalog entry found. Bench-test it first; upgrade to 'must' if it works, since it ties directly to the HW06 square-wave problem.",
+   "The driver's stroke is only ~7 mm p-p; it needs a spring with Q of order 20+ so the f0/3 response is visible from the back (estimate: ~1.5 mm third-harmonic drive x Q).",
+   "Duty cycle must be 50% or f0/2 will also respond weakly.",
+   "Wait out transients at each frequency."
+  ],
+  "refs": [
+   {
+    "title": "PASCO Mechanical Wave Driver SF-9324 manual",
+    "url": "https://cdn.pasco.com/product_document/Mechanical-Wave-Driver-Manual-SF-9324.pdf",
+    "note": "states square, triangle and sawtooth drive are allowed; 0.1 Hz lower limit"
+   }
+  ],
+  "video": null,
+  "image": null,
+  "diy": "Hand version: move the top of the spring in abrupt up/down steps on a metronome at f0/3 (step every 1.5 natural periods) vs f0/2 (step every natural period); cruder but shows the same thing.",
+  "notes": "Bench-test first (no catalog entry). If it works it ties straight to HW06's square-wave problem. Strong prediction: most students expect f0/2 to work 'like pushing a swing every other time'. That intuition is right for a short push (pulse train) and wrong for a symmetric square wave, which is a nice follow-up question.",
+  "status": "recommended",
+  "buy": [
+   "nothing new if the driven-resonance spring + PASCO wave driver + a square-wave generator exist; bench test"
+  ]
+ },
+ {
+  "id": "soap-film-catenoid",
+  "name": "Soap-film catenoid between two rings (and its collapse)",
+  "classes": [
+   17,
+   18
+  ],
+  "fit": "Calculus of variations: minimal surface of revolution is a catenoid; Euler-Lagrange gives STATIONARY, not necessarily minimum (Taylor 6.1-6.2).",
+  "duration_min": 6,
+  "tier": "good",
+  "materials": [
+   "two wire rings ~10-15 cm diameter on handles or on two ring-stand clamps (one on a lab jack for smooth separation)",
+   "bubble solution (dish soap + glycerin, made the day before)",
+   "shallow tray",
+   "ruler behind the rings, dark background, side lighting"
+  ],
+  "pira": "",
+  "prediction": "I make a film between two coaxial rings and slowly pull them apart. What happens? (a) the waist thins smoothly to zero, then pops (b) the film suddenly snaps to two flat disks while the waist is still about half the ring radius (c) the film bulges outward. Follow-up: once the catenoid has MORE area than two flat disks, does it switch to disks right away?",
+  "observe": "The film snaps to two flat disks at a separation of about 1.33 R, with the waist still about 0.55 R; it survives well past the point (about 1.06 R) where two disks would have less area.",
+  "explain": "Euler-Lagrange for minimal area of revolution gives y = c cosh((x - x0)/c) (Taylor 6.2-type problem). For h/R < 1.33 there are two catenoid solutions (one stable, one unstable); between 1.06 and 1.33 the stable catenoid is only a LOCAL minimum; beyond 1.33 no catenoid exists. Real-world proof that E-L finds stationary paths, not global minima.",
+  "pitfalls": [
+   "Solution quality matters: make it the day before; glycerin helps films last.",
+   "Pull slowly and steadily; jerky motion pops the film early.",
+   "Visibility: needs side light and a dark background, or a document camera."
+  ],
+  "refs": [
+   {
+    "title": "CU Boulder minimal surface demo (soap film catenoid)",
+    "url": "https://physicslabs.colorado.edu/demos/fluid-mechanics/surface-tension/minimal-surface/",
+    "note": "hand-held rings over a tray"
+   },
+   {
+    "title": "Ito and Sato, In-situ observation of a soap film catenoid (Eur. J. Phys. 31, 357 (2010))",
+    "url": "https://arxiv.org/abs/0711.3256",
+    "note": "measures neck radius vs separation; explicitly framed as observing Euler-Lagrange solutions"
+   }
+  ],
+  "video": {
+   "youtube_id": "XqKDZB9nxDI",
+   "title": "Catenoid collapse 1 (Davide Michieletto)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Catenoid.svg",
+   "credit": "Krishnavedala, Wikimedia Commons",
+   "license": "CC BY-SA 3.0"
+  },
+  "diy": "Two coat-hanger wire loops of equal size; bubble solution from dish soap, water and glycerin.",
+  "notes": "Numbers to quote: critical separation h/R ~ 1.325; neck radius at collapse ~ 0.55 R; area crossover with two disks at h/R ~ 1.055.",
+  "status": "recommended",
+  "buy": []
+ },
+ {
+  "id": "sugar-gradient-laser",
+  "name": "Laser beam curving in a sugar-water refractive-index gradient",
+  "classes": [
+   17
+  ],
+  "fit": "Fermat's principle as a variational problem: light minimizes optical path integral n ds, so it bends toward higher n (Taylor 6.1).",
+  "duration_min": 5,
+  "tier": "good",
+  "materials": [
+   "clear Plexiglas or glass tank (aquarium, ~20-40 L)",
+   "~0.5-1 kg sugar",
+   "green laser pointer",
+   "funnel and index card or tube for layering",
+   "a little milk or fluorescein (optional) to make the beam visible"
+  ],
+  "pira": "6A40.40",
+  "prediction": "Concentrated sugar water on the bottom, fresh water on top, a smooth gradient between. I aim the laser horizontally into the middle of the gradient. The beam (a) goes straight (b) curves up toward the fresh water (c) curves down toward the sugar.",
+  "observe": "The beam curves downward, can hit the bottom, reflect, and arc down again ('bouncing beam').",
+  "explain": "Optical path L = integral n(y) ds; the Euler-Lagrange path bends toward larger n (denser sugar), like the inverse of a hot-road mirage (Taylor 6.1 frames Fermat as the motivating example; problems treat n(y) media). Stirring removes the gradient and the beam straightens: a clean control.",
+  "pitfalls": [
+   "Prep: the gradient needs one to two nights to develop (SFU asks for three days' notice); a fresh tank lasts about two weeks (Oberlin).",
+   "Move the tank gently; any sloshing mixes the gradient.",
+   "Laser eye safety (class 2/3R, no reflections toward the audience).",
+   "Sticky spills."
+  ],
+  "refs": [
+   {
+    "title": "SFU 6A40.40 Variable Index of Refraction Tank",
+    "url": "https://www.sfu.ca/physics/demos/demos-experiments/variable-index-burnaby.html",
+    "note": "prep recipe and timing"
+   },
+   {
+    "title": "Oberlin DCS 6A40.40 Variable index of refraction display",
+    "url": "https://www2.oberlin.edu/physics/catalog/demonstrations/optics/variablendisplay.html",
+    "note": "sugar quantities; lasts ~2 weeks"
+   }
+  ],
+  "video": {
+   "youtube_id": "sft3QYZjNCU",
+   "title": "Bending Light with a Sugar Gradient (SFU Physics)"
+  },
+  "image": null,
+  "diy": "Any clear rectangular container; layering with a funnel through a tube resting on the bottom. Laser-in-gelatin (refraction at a gelatin block surface) is cheaper but shows ordinary Snell refraction only, not a curved path, so it is the weaker choice for a variational class.",
+  "notes": "Needs 1-2 nights to settle: ask by Fri Oct 16. Needs to be ordered by Fri Oct 16 for Wed Oct 21. Not a must: strong students may predict (c) correctly from Snell's law; its value is the visual and the stir-to-straighten control.",
+  "status": "option",
+  "buy": [
+   "sugar (0.5-1 kg), a clear tank; order/prep by Fri Oct 16"
+  ]
+ },
+ {
+  "id": "brachistochrone-tautochrone",
+  "name": "Brachistochrone race (straight vs circular arc vs cycloid) + tautochrone release",
+  "classes": [
+   18,
+   19
+  ],
+  "fit": "The brachistochrone solved in Taylor 6.3 (Euler-Lagrange -> cycloid), and the cycloid's tautochrone property as a second, less familiar result (HW07 'Brachistochrone revisited').",
+  "duration_min": 10,
+  "tier": "must",
+  "materials": [
+   "three-track brachistochrone race (straight, circular arc, cycloid, common endpoints) with a simultaneous release gate",
+   "a cycloid track (or the cycloid track of the race set) long enough to release two balls from different heights, ideally a double-sided 'U' cycloid so balls released from opposite sides meet at the bottom",
+   "matched steel balls (or sandblasted balls; see pitfalls)",
+   "phone for slow-motion video, projected"
+  ],
+  "pira": "1D15.50, 1D15.53, 1D15.55",
+  "prediction": "Vote 1: same start and finish, which ball wins: (a) straight line (b) circular arc (c) cycloid (d) tie. Vote 2 (the one that splits the room): on the cycloid, I release one ball from the very top and one from halfway down at the same instant; which reaches the bottom first? (a) the top one (b) the lower one (c) they arrive together. Optional vote 3: if the finish is far enough sideways, the fastest track dips BELOW the finish and climbs back up; would you bet on a track that goes below the finish line?",
+  "observe": "Cycloid wins, circle second, straight last (by an audible margin). On the cycloid, balls released from any height reach the bottom together (from opposite sides they collide exactly at the bottom).",
+  "explain": "T = integral sqrt(1 + y'^2)/sqrt(2 g y) dx; Euler-Lagrange (Taylor 6.3) gives x = a(theta - sin theta), y = a(1 - cos theta). Tautochrone: along the cycloid the arc length from the bottom satisfies s'' = -(g/4a) s exactly, a perfect SHO, so the time to the bottom is pi sqrt(a/g) for ANY start. For a ball that rolls without slipping, kinetic energy is (1 + k) x (1/2) m v^2 with k constant, which just rescales g -> g/(1 + k): both the race order and the tautochrone survive (k = 2/5 for a solid ball on a flat contact; larger on two-rail tracks).",
+  "pitfalls": [
+   "Slipping at the steep start: Wesleyan's quad track notes the brachistochrone ball 'should win, but doesn't because the brachistochrone slides before rolling'. Fix: start balls slightly below the vertical cusp, use sandblasted (rough) balls, or a grooved track. Rehearse the race before class.",
+   "Approximation to flag: the ball's CENTER follows a curve offset from the track by the ball radius, not an exact cycloid; keep ball radius << generating-circle radius so the tautochrone timing is close.",
+   "Most students have seen the Vsauce video and will vote cycloid on vote 1; that is fine, vote 2 (tautochrone) is the real prediction.",
+   "Use a release gate; hand releases give a 50 ms spread, comparable to the margins.",
+   "Steel balls off the end of a track: catch them."
+  ],
+  "refs": [
+   {
+    "title": "U Iowa 1D15.50 Brachistochrone",
+    "url": "https://instructional-resources.physics.uiowa.edu/node/4261",
+    "note": "standard straight/circle/cycloid set; references incl. Milsom TPT 2021, Edge TPT 1985, Greenslade TPT 2013"
+   },
+   {
+    "title": "U Iowa 1D15.53 Cycloid Track (tautochrone)",
+    "url": "https://instructional-resources.physics.uiowa.edu/node/1216",
+    "note": "two balls from any points meet at the bottom"
+   },
+   {
+    "title": "Wesleyan 1D15.50 Brachistochrone",
+    "url": "https://physicsdemos.site.wesleyan.edu/home/mechanics/1d/1d15-50-brachistochrone",
+    "note": "wooden parabola/circle/cycloid set; tautochrone use"
+   },
+   {
+    "title": "Wesleyan 1D15.55 Quad Track",
+    "url": "https://physicsdemos.site.wesleyan.edu/home/mechanics/1d/1d15-55-quad-track/",
+    "note": "the slipping failure mode and sandblasted-ball fix"
+   },
+   {
+    "title": "Swarthmore Cycloid Ramp",
+    "url": "https://demos.swarthmore.edu/physics/?p=6509",
+    "note": "in-house tautochrone ramp with a metal tube at the bottom to make the simultaneous arrival audible"
+   },
+   {
+    "title": "Rutgers 1D15.50 Brachistochrone/Tautochrone",
+    "url": "https://demos.physics.rutgers.edu/index.php?d=163",
+    "note": "double-sided track; balls from any height meet in the middle"
+   },
+   {
+    "title": "UT Austin 1M50.20 Brachistochrone curve",
+    "url": "https://lecturedemos.ph.utexas.edu/demo/354",
+    "note": "three-track release-gate set; setup notes"
+   },
+   {
+    "title": "U Toronto Me-046 Brachistochrone track",
+    "url": "https://ugdemos.physics.utoronto.ca/db/demos/brachistochrone-track",
+    "note": "rotating panel resets the balls"
+   },
+   {
+    "title": "Akoglu, Mazharimousavi, Halilsoy, Cycloid experiment for freshmen physics labs (Turk. J. Phys. 42, 84 (2018))",
+    "url": "https://arxiv.org/abs/1702.06597",
+    "note": "grooved-track build with a billiard ball"
+   },
+   {
+    "title": "Thingiverse 2196388 Brachistochrone Curve Demonstration (Taevinrude)",
+    "url": "https://www.thingiverse.com/thing:2196388",
+    "note": "3D-printable three-path race, parametric for ball size (10 mm default)"
+   },
+   {
+    "title": "Samtech Brachistochrone Model (India)",
+    "url": "https://samtechlabs.com/brachistochrone-model/",
+    "note": "the only commercial listing found; 29 cm, two tracks; too small for a lecture hall"
+   }
+  ],
+  "video": {
+   "youtube_id": "yXupjp7FGRo",
+   "title": "1D15.55 - Race Track - Brachistochrone Wins (UMDemoLab)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Tautochrone_curve.gif",
+   "credit": "Claudio Rocchini, rewritten by Geek3, Wikimedia Commons",
+   "license": "CC BY 2.5"
+  },
+  "diy": "Only one small commercial product found (Science First 'Cycloidal Ramps' 14180, desk scale; see To buy): Arbor Scientific, PASCO, Eisco and the Ward's/Sargent-Welch family list nothing, and every university set found (Wesleyan, Swarthmore, UT Austin, Toronto, Rutgers, Iowa) is shop-built. Options: (1) shop build: plot x = a(theta - sin theta), y = a(1 - cos theta) full-size (a ~ 15-20 cm gives a ~1 m track), cut two MDF or acrylic profiles per track, run a two-rail track or bent aluminum U-channel along them; add a hinged release gate. (2) 3D print: Thingiverse 2196388 (race) at desk scale, projected with a document camera or slow-mo phone. (3) Tautochrone only: one double-sided cycloid (Rutgers/Swarthmore style) is the single most valuable piece if only one gets built.",
+  "notes": "Second video for the tautochrone: zyGQjaTa8NE 'The Fastest Track - The Tautochrone Curve' (The Action Lab). Popular background: skvnj67YGmw 'The Brachistochrone' (Vsauce). Second image: https://upload.wikimedia.org/wikipedia/commons/6/63/Brachistochrone.gif (Robert Ferreol, public domain). If the build is not ready by Fri Oct 23, it still works on class 19 or as an opener on 20; the tautochrone also returns as an SHO example.",
+  "status": "planned",
+  "buy": [
+   "Lecture scale: a shop build (cycloid profiles from x = a(th - sin th), y = a(1 - cos th), a ~ 15-20 cm); plus a double-sided cycloid for the tautochrone",
+   "Desk scale: Science First 'Cycloidal Ramps' SKU 14180 (~$115; two grooved cycloid ramps, 4 balls, chime; tautochrone + brachistochrone configurations) -- found via a Science First listing and a Flinn product page (13275) that now 404s, so verify it is still sold; needs the document camera",
+   "Or 3D print Thingiverse 2196388 (three-path race) at desk scale"
+  ]
+ },
+ {
+  "id": "swinging-spring",
+  "name": "Swinging spring (elastic pendulum) at 2:1 internal resonance",
+  "classes": [
+   19,
+   22
+  ],
+  "fit": "A two-generalized-coordinate system (r, phi) whose Lagrangian couples the coordinates; energy sloshes between bounce and swing (Taylor 6.4, 7.1-7.5).",
+  "duration_min": 6,
+  "tier": "good",
+  "materials": [
+   "soft spring (e.g. a long extension spring or a slinky junior)",
+   "mass of a few hundred grams",
+   "rigid overhead support (ring stand clamped to a heavy base or a ceiling hook)",
+   "tape measure"
+  ],
+  "pira": "",
+  "prediction": "I start the mass bouncing straight up and down, with no sideways motion at all. After a minute, it is (a) still bouncing straight up and down (b) swinging side to side, with the bounce gone, then back again, repeatedly (c) moving chaotically.",
+  "observe": "The vertical bounce dies away as a sideways pendulum swing grows; then the energy flows back into bouncing, repeatedly (and the swing plane wanders).",
+  "explain": "L = (1/2)m(r'^2 + r^2 phi'^2) + m g r cos(phi) - (1/2)k(r - l0)^2 couples r and phi; with the bounce frequency twice the swing frequency, the bounce parametrically pumps the swing (autoparametric resonance). A demo where the generalized-coordinate equations predict something no free-body diagram suggests.",
+  "pitfalls": [
+   "Tuning: need sqrt(k/m) = 2 sqrt(g/L), which means the static stretch must be 1/4 of the hanging length L (pivot to center of mass). Tune by sliding mass or trimming; test before class.",
+   "A heavy spring adds its own mass corrections; tune empirically.",
+   "Support must be rigid; a wobbly stand couples in its own motion."
+  ],
+  "refs": [
+   {
+    "title": "Wikipedia: Elastic pendulum",
+    "url": "https://en.wikipedia.org/wiki/Elastic_pendulum",
+    "note": "Lagrangian and the two coupled E-L equations"
+   }
+  ],
+  "video": {
+   "youtube_id": "MUJmKl7QfDU",
+   "title": "What If Swings Had Springs Instead Of Ropes: Autoparametric Resonance (Steve Mould)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Spring_pendulum.gif",
+   "credit": "Pasimi, Wikimedia Commons",
+   "license": "CC BY-SA 4.0"
+  },
+  "diy": "Stockroom spring + slotted masses; nothing to buy.",
+  "notes": "Good for class 22 ('examples of Lagrange's equations') if 19 is full. Also previews Ch 11 coupled oscillators.",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "ball-in-rotating-hoop",
+  "name": "Ball (bead) in a rotating vertical hoop",
+  "classes": [
+   21,
+   30
+  ],
+  "fit": "Constrained system with one generalized coordinate (theta) in a rotating frame: equilibria theta = 0 and cos(theta) = g/(w^2 R), a pitchfork bifurcation at w^2 = g/R (Taylor's bead-on-a-spinning-hoop example in Ch 7).",
+  "duration_min": 7,
+  "tier": "must",
+  "materials": [
+   "vertical hoop or U-shaped ring (~25-30 cm diameter, top cut away) with a ball or a drilled bead running on it",
+   "variable-speed motor or variable-speed drill with a clamp mount",
+   "phone tachometer app or strobe to read the spin rate",
+   "safety shield or clear the front row"
+  ],
+  "pira": "1D50.57",
+  "prediction": "Vote 1: as I slowly increase the spin from zero, the ball (a) starts to rise as soon as the hoop turns (b) stays at the bottom until a definite spin rate, then rises (c) jumps straight to the side of the hoop. Vote 2: at very high spin, does the ball reach the level of the hoop's center (90 degrees)? Vote 3 (UCSB version): a brass ball and a plastic ball of the same size: which rides higher?",
+  "observe": "Nothing happens until the spin passes a threshold (about 1.1-1.3 rev/s for a 15 cm radius), then the ball climbs; it approaches but never reaches 90 degrees; heavy and light balls ride at the same angle.",
+  "explain": "L = (1/2)m R^2 (theta'^2 + w^2 sin^2 theta) + m g R cos theta. Equilibria: theta = 0 always; cos theta = g/(w^2 R) only when w^2 > g/R, where the bottom becomes unstable. theta -> 90 degrees only as w -> infinity; m cancels. Taylor uses this example to show Lagrange's method handling a moving constraint where the 'energy' that is conserved is not T + U.",
+  "pitfalls": [
+   "Friction causes hysteresis: Iowa needs ~1.6 rev/s to start the ball moving even though the theoretical threshold is lower. Spin up past it, then slow down to show the ball returning to the bottom near the threshold.",
+   "For a ball rolling in a channel, use R = distance from axis-point to ball CENTER; rolling does not change the equilibrium angle (it is static in the rotating frame).",
+   "Spinning hardware: clamp the drill, guard it, keep hair/clothing away."
+  ],
+  "refs": [
+   {
+    "title": "Wesleyan 1D50.57 Ball in a Hoop",
+    "url": "https://physicsdemos.site.wesleyan.edu/home/mechanics/1d/1d50-57-ball-in-a-hoop",
+    "note": "wooden U-hoop on a stationary drill"
+   },
+   {
+    "title": "UCSB 16.21 Balls on rotating hoops",
+    "url": "https://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/16.21.html",
+    "note": "brass vs plastic balls ride at the same angle; cos theta = g/(w^2 R)"
+   },
+   {
+    "title": "Bead on a rotating circular hoop: a simple yet feature-rich dynamical system (arXiv 1112.4697)",
+    "url": "https://arxiv.org/abs/1112.4697",
+    "note": "bifurcation, symmetry breaking, critical slowing down"
+   },
+   {
+    "title": "UCLA Lecture Demonstration Manual: Centripetal Force (variable-speed rotator with balls on semicircular wires)",
+    "url": "https://demoweb.physics.ucla.edu/content/10-centripetal-force",
+    "note": "the commercial hoop accessory"
+   }
+  ],
+  "video": {
+   "youtube_id": "dmyfpeV5asE",
+   "title": "1D50.57 - Balls on a Hoop (UMDemoLab)"
+  },
+  "image": null,
+  "diy": "Wesleyan's version is a wooden hoop with the top cut off, on a vertical rod chucked into a stationary drill; a bicycle rim section or a bent clear tube with a marble inside also works.",
+  "notes": "Taylor Example 7.6/7.7 and Problem 7.28 (checked against the OCR'd text). Run it on class 21 (Lagrangian with a moving constraint) and bring it back on class 30 in the rotating frame (gravity + centrifugal balance gives the same cos theta = g/(w^2 R); bifurcation at w = sqrt(g/R), about 1.6 rev/s for R = 10 cm). Second video: bzAkoj0x-sw '1D50.57 Balls in a Hoop' (wesphysdemo). I recall this as a worked Taylor Ch 7 example (Sec 7.5 or 7.6 region) but did not check the example number against the book; confirm before citing it on a slide.",
+  "status": "recommended",
+  "buy": []
+ },
+ {
+  "id": "kapitza-inverted-pendulum",
+  "name": "Kapitza pendulum: inverted pendulum stabilized by a vibrating pivot",
+  "classes": [
+   21,
+   22
+  ],
+  "fit": "Pendulum with a prescribed moving support: the Lagrangian with a time-dependent constraint gives a surprising stable inverted equilibrium (Taylor 7.2-7.5 'pendulum with moving support' setups).",
+  "duration_min": 5,
+  "tier": "maybe",
+  "materials": [
+   "light rigid pendulum (20-30 cm rod) on a low-friction pivot",
+   "high-frequency vertical shaker: a jigsaw or reciprocating saw with the blade replaced by the pivot mount, or an old electric shaver mechanism (Butikov)",
+   "clamps, safety glasses, guard"
+  ],
+  "pira": "3A60.61",
+  "prediction": "I hold the pendulum straight UP and shake its pivot rapidly up and down. When I let go, it (a) falls over as usual (b) falls over faster (c) stays upright and wobbles about vertical.",
+  "observe": "It stays upright and, nudged, oscillates slowly about the vertical.",
+  "explain": "Averaging over the fast drive gives an effective potential with a minimum at the top when (a nu)^2 > 2 g l (a = drive amplitude, nu = drive angular frequency, l = pendulum length; adjust l for a physical pendulum). A jigsaw with ~1 cm amplitude at ~50 Hz gives (a nu)^2 ~ 10 m^2/s^2, enough for l up to about 0.5 m.",
+  "pitfalls": [
+   "Power tools: blade removed, tool clamped, guard, eye protection, noise.",
+   "Needs a shop-built pivot adapter; budget a build session and a bench test.",
+   "The full derivation (method of averaging) is beyond Taylor Ch 7; present the effective-potential result as a teaser, not a derivation."
+  ],
+  "refs": [
+   {
+    "title": "Wikipedia: Kapitza's pendulum",
+    "url": "https://en.wikipedia.org/wiki/Kapitza%27s_pendulum",
+    "note": "stability condition (a nu)^2 > 2 g l; Kapitza's own call to include it in lecture demonstrations"
+   },
+   {
+    "title": "Butikov, On the dynamic stabilization of an inverted pendulum, Am. J. Phys. (2001), DOI 10.1119/1.1365403",
+    "url": "https://butikov.itmo.ru/Inverted.pdf",
+    "note": "qualitative explanation and theory"
+   }
+  ],
+  "video": {
+   "youtube_id": "4_qKjAKn3oQ",
+   "title": "3A60.61 - Inverted Pendulum Movie (UMDemoLab)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Kapitza_pendulum.svg",
+   "credit": "Chetvorno, Wikimedia Commons",
+   "license": "CC0"
+  },
+  "diy": "Reciprocating saw or jigsaw with a 3D-printed or machined pivot block in place of the blade.",
+  "notes": "A shop build; the better second project if the shop is already building the brachistochrone. Spectacular but a build project; 'maybe' only because of build time and safety. If the shop is building the brachistochrone set, this is a better second project than anything else on Ch 7. Also returns in Ch 12 (chaos) as a parametrically driven pendulum.",
+  "status": "option",
+  "buy": [
+   "shop build: jigsaw pivot adapter"
+  ]
+ },
+ {
+  "id": "spandex-orbits-precession",
+  "name": "Marble orbits on a stretched spandex sheet ('gravity well'), used to show that non-1/r^2 orbits precess",
+  "classes": [
+   24
+  ],
+  "fit": "Class 24 (Taylor 8.4-8.6): effective potential and why only the inverse-square (and Hooke) force gives closed orbits; the spandex is a DIFFERENT force law, which is the point.",
+  "duration_min": 7,
+  "tier": "maybe",
+  "materials": [
+   "Spandex stretched on a hoop or frame (about 1-1.5 m), heavy central ball, marbles or steel balls",
+   "Phone camera overhead with long-exposure or trail app to show the rosette"
+  ],
+  "pira": "",
+  "prediction": "I launch a marble into an elliptical-looking orbit around the central ball. Watch the farthest point of each loop. The angle between successive farthest points is: (A) exactly 360 degrees (closed ellipse, like Kepler); (B) about 180 degrees; (C) something else, so the orbit traces a rosette; (D) the marble always spirals straight in.",
+  "observe": "The orbit is a precessing rosette that decays inward over several loops; it does not retrace an ellipse.",
+  "explain": "Taylor 8.4 and Fig. 8.7(b): for most force laws the radial period differs from the angular period, so bounded orbits do not close; inverse-square and the isotropic oscillator are the only important exceptions (Bertrand). The sheet's shape gives a force that is not 1/r^2 (and the sheet's own sagging mass matters), so the marble precesses. Middleton and Langston predict about 197 degrees between successive apocenters for small orbits in an empty sheet (nearly Hooke-like, 180) and above 360 degrees deep in a well with a heavy central mass.",
+  "pitfalls": [
+   "Known pedagogical problems: the rubber-sheet picture uses real gravity to make the dip, so it is circular as a model of gravity; it shows only space, not spacetime; it is often sold as 'how GR works', which it is not. Frame it explicitly as 'an orbit in a different central force', not as gravity.",
+   "Rolling friction makes orbits decay within several loops; launch with a ramp for repeatability.",
+   "Takes floor or table space and 10 min setup; a big piece of spandex sags unevenly."
+  ],
+  "refs": [
+   {
+    "title": "Middleton and Langston, Elliptical-like orbits on a warped spandex fabric (arXiv 1601.03996)",
+    "url": "https://arxiv.org/abs/1601.03996",
+    "note": "Apocenter-to-apocenter angle about 197 deg (empty sheet, small radii) and above 360 deg deep in a massive well."
+   },
+   {
+    "title": "Middleton and Langston, Circular orbits on a warped spandex fabric (arXiv 1312.3893; AJP)",
+    "url": "https://arxiv.org/abs/1312.3893",
+    "note": "The fabric's own mass can dominate the orbital characteristics; Kepler-like law differs from T^2 ~ r^3."
+   },
+   {
+    "title": "U Toronto UG demos: S.pandex Orbits",
+    "url": "https://ugdemos.physics.utoronto.ca/db/demos/s-pandex-orbits",
+    "note": "Catalog entry; cites White and Walker, 'The shape of the spandex and orbits upon its surface' (AJP 70, 48, 2002), whose analysis gives T^3 ~ r^2 rather than Kepler's T^2 ~ r^3 for circular orbits in the small-slope regime."
+   }
+  ],
+  "video": {
+   "youtube_id": "cHySqQtb-rk",
+   "title": "Spandex Gravity Well (+instructions to make your own!) (UToledoPhysAstro, 3:24)"
+  },
+  "image": null,
+  "diy": "Spandex from a fabric store over a hula hoop or embroidery frame on a table, a shot-put or bowling ball in the middle.",
+  "notes": "Only as the anti-Kepler prediction (orbits that do NOT close); never as 'how gravity works'. Worth it only as the anti-Kepler POE above; skip if it would be run as 'this is how gravity works'. A different Paul Nord clip (YouTube L6UqJZlUPzo, 'Gravity Well') shows tidal stretching of a string of balls on the sheet, a possible class 26 tides visual with the same caveats.",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "orbit-catchup-sim",
+  "name": "Orbital rendezvous paradox: to catch a satellite ahead of you, fire backward (simulation)",
+  "classes": [
+   25
+  ],
+  "fit": "Class 25 (Taylor 8.8 changes of orbit): a tangential burn changes the energy and hence the period, and a lower orbit is faster, so slowing down is how you catch up.",
+  "duration_min": 7,
+  "tier": "good",
+  "materials": [
+   "Projector + a short Python notebook (two bodies in the same circular orbit, an impulsive tangential burn on one, animate both)",
+   "Optional: PhET My Solar System for a no-code orbit visual"
+  ],
+  "pira": "",
+  "prediction": "You and a target satellite share a circular orbit; the target is 10 degrees ahead. To catch it, you briefly fire your thruster: (A) forward-pointing exhaust backward, speeding up along the orbit; (B) slowing down along the orbit; (C) toward Earth; (D) away from Earth.",
+  "observe": "The sped-up craft rises to a higher, slower orbit and falls further behind; the slowed craft drops to a lower, shorter-period orbit and gains on the target, then a second burn matches orbits.",
+  "explain": "Taylor 8.8: a tangential thrust at a point multiplies the speed by a thrust factor lambda; the new orbit is an ellipse through that point, with period set by the new semimajor axis (Kepler's third law). Slowing down lowers a, shortens the period, so after one lap you are ahead of where you would have been. Ties to Taylor Example 8.6 (transfer between orbits).",
+  "pitfalls": [
+   "A simulation, not a demo: it earns time only through the vote. The classic wrong answer is (A).",
+   "Do the burn-and-wait over whole revolutions; showing a partial revolution can look like the slower craft is losing.",
+   "Hohmann transfers proper have no physical tabletop demo worth the minutes (see Skips)."
+  ],
+  "refs": [
+   {
+    "title": "PhET My Solar System",
+    "url": "https://phet.colorado.edu/en/simulations/my-solar-system",
+    "note": "No-code orbit sim; does not do impulsive burns, so the notebook is better for the catch-up question."
+   }
+  ],
+  "video": {
+   "youtube_id": "9wDAm-dlht4",
+   "title": "8.01x - Lect 22 - Kepler's Laws, Elliptical Orbits, Satellites, Orbital Changes (Walter Lewin, 49 min; the orbital-change segment only)"
+  },
+  "image": null,
+  "diy": "The notebook is about 30 lines with scipy solve_ivp; no apparatus.",
+  "notes": "A simulation, not a demo: earns its minutes only through the vote. No lab-manager action. No lab-manager action. The Lewin lecture is the best-known treatment of orbit changes, but note that MIT removed his courses from MIT OpenCourseWare in 2014 after a harassment finding; Michael may prefer not to show it. I did not verify the timestamp of the orbit-change segment.",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "frames-of-reference-film",
+  "name": "PSSC film 'Frames of Reference' (Hume and Ivey, 1960), rotating-table segment",
+  "classes": [
+   29,
+   26
+  ],
+  "fit": "Class 29 (rotating frames, Taylor 9.3-9.5): two physicists on a rotating table show the same motion from the inertial and rotating cameras; a backup or companion for the live puck demo.",
+  "duration_min": 8,
+  "tier": "good",
+  "materials": [
+   "Projector with audio",
+   "The clip, pre-cued to the rotating-table segment"
+  ],
+  "pira": "1E10.20",
+  "prediction": "Pause just before the puck is pushed across the rotating table: from the camera fixed to the table, will the puck go straight, curve left, or curve right? Then: will the camera on the ceiling agree?",
+  "observe": "The table camera shows a curved path; the ceiling camera shows a straight line. The film also shows the apparent forces in a linearly accelerating frame.",
+  "explain": "Same as the live puck demo: Taylor 9.5 Newton's second law in a rotating frame, with the centrifugal and Coriolis terms. The film's accelerating-frame half also serves class 26 (Taylor 9.1, inertial force -mA).",
+  "pitfalls": [
+   "The full film is 27 min; only a few minutes fit. I did not verify the timestamp of the rotating-table segment. Find and note it before class.",
+   "Black-and-white 1960 production; the pacing is slow, so narrate over it at 1.25x or mute and talk.",
+   "Uploads of old PSSC films come and go; download or keep a fallback ID (several copies exist)."
+  ],
+  "refs": [
+   {
+    "title": "Wesleyan Physics Demos, 1E Relative Motion",
+    "url": "https://physicsdemos.site.wesleyan.edu/?p=118",
+    "note": "Lists the film as PIRA 1E10.20 'Frames Of Reference Movie'."
+   }
+  ],
+  "video": {
+   "youtube_id": "bJMYoj4hHqU",
+   "title": "Frames of Reference (1960) (full film, 27:26)"
+  },
+  "image": null,
+  "diy": "",
+  "notes": "Film clip; backup or companion for the live puck. No lab-manager action beyond AV. Alternative ID with the second half only: 053nYXFfjZE ('Frames of Reference (1960) [part 2 of 2]').",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "helium-balloon-accelerometer",
+  "name": "Helium balloon (and hanging air balloon) in an accelerating box or cart",
+  "classes": [
+   26,
+   30
+  ],
+  "fit": "Class 26 (Taylor 9.1, Example 9.1 pendulum in an accelerating car): in the accelerating frame g_eff = g - A, and buoyancy points opposite g_eff; the same -mA trick is what Taylor uses for tides in 9.2.",
+  "duration_min": 5,
+  "tier": "good",
+  "materials": [
+   "Clear box on a cart (or a closed clear jar held in the hand) with a helium balloon tethered to the floor and an air balloon hung from the top",
+   "Alternative: UCLA-style accelerometer, a cork or ball tethered in a sealed jar of water or glycerin",
+   "Optional: rotating platform to show both balloons respond to centripetal acceleration (class 30 tie-in)"
+  ],
+  "pira": "1G20.75 (from a search snippet of the Wisconsin PIRA wiki, which blocks fetches; not verified)",
+  "prediction": "I accelerate the cart sharply to the right. Which way does the tethered helium balloon lean? (A) left (backward, like everything else); (B) right (forward); (C) it stays vertical; (D) left first, then right. And the hanging air balloon?",
+  "observe": "The helium balloon leans forward (right), into the acceleration; the hanging air balloon swings backward (left). On sudden stopping both reverse.",
+  "explain": "In the cart frame there is an inertial force -mA on every bit of matter, including the air, so effective gravity is g - A, tilted backward. The air's pressure gradient lines up with g_eff, and buoyancy points opposite g_eff: up and forward. Taylor 9.1 (Example 9.1 is the hanging pendulum version). On a turntable the balloon leans inward, the same logic with centrifugal force (9.6).",
+  "pitfalls": [
+   "Must be in a closed box or jar: open-air balloons in a lecture room respond to drafts, and the effect needs the enclosed air to accelerate with the box.",
+   "Fresh helium the same day; a sagging balloon barely leans.",
+   "Accelerate sharply but briefly; a smooth push shows almost nothing."
+  ],
+  "refs": [
+   {
+    "title": "Purdue Physics Demos 1E-02: Balloon Paradox",
+    "url": "https://www.physics.purdue.edu/demos/display_page.php?item=1E-02",
+    "note": "Helium and air balloons in a cage on a cart; explanation via local effective gravity."
+   },
+   {
+    "title": "UCLA Lecture Demonstration Manual, Uniform Circular Motion 40: Simple Accelerometer",
+    "url": "https://demoweb.physics.ucla.edu/content/40-simple-accelerometer",
+    "note": "Tethered ball in glycerin; walk with it, then put it on a turntable."
+   }
+  ],
+  "video": null,
+  "image": null,
+  "diy": "A large clear storage bin with a lid, a helium balloon taped to the floor, an air balloon taped to the lid, on a lab cart. Under $20.",
+  "notes": "Opener for the tides day: it sets up '-mA on everything, including the air'. Short, cheap and the vote reliably splits. Class 26 is shared with tides; this can be the opener, and the tides discussion then reuses 'inertial force -mA everywhere'.",
+  "status": "recommended",
+  "buy": [
+   "helium balloon the same day; clear bin"
+  ]
+ },
+ {
+  "id": "coriolis-puck-turntable",
+  "name": "Coriolis: low-friction puck across a rotating turntable, filmed by a fixed camera and by a camera riding the turntable",
+  "classes": [
+   30,
+   29
+  ],
+  "fit": "Class 30 (Taylor 9.7 Coriolis force): the same straight-line motion is a straight line in the lab frame and a curve in the rotating frame, so the Coriolis (and centrifugal) terms are bookkeeping for the frame, not new interactions.",
+  "duration_min": 9,
+  "tier": "must",
+  "materials": [
+   "Rotating platform or large lazy-susan turntable (>= 60 cm), motor-driven or hand-spun at roughly 0.3-0.5 rev/s",
+   "Low-friction puck: dry-ice puck, air-hockey puck on an air table, or a battery 'hover' puck toy (cheapest)",
+   "Two phone cameras: one on a boom above the table (lab frame), one clamped to the turntable looking down (rotating frame); both to the projector, side by side",
+   "Optional: carbon paper on the platform plus a steel ball (PIRA 1E30.28 version) for a permanent trace"
+  ],
+  "pira": "1E30.28; 1E30.26; 1E30.11",
+  "prediction": "The turntable spins counterclockwise seen from above. A puck is launched from the center straight toward a mark on the rim. What do the two cameras show? (A) straight line in both; (B) straight in the lab camera, curving LEFT in the turntable camera; (C) straight in the lab camera, curving RIGHT in the turntable camera; (D) curved in both. Follow-up vote: a puck sits AT REST in the lab, just above the spinning table. What does the turntable camera see? (A) at rest; (B) moves in a straight line; (C) moves on a circle clockwise; (D) spirals outward.",
+  "observe": "Lab camera: straight line, and the rim mark has rotated away by the time the puck arrives. Turntable camera: the path curves to the right (clockwise), the northern-hemisphere sense. The puck at rest in the lab traces a clockwise circle at the table's angular speed in the rotating view.",
+  "explain": "In the rotating frame F = -2m Omega x v (Coriolis) + m(Omega x r) x Omega (centrifugal), Taylor 9.5-9.7. For CCW Omega the Coriolis force is to the right of the velocity. For the puck at rest in the lab, the rotating observer sees uniform circular motion at speed Omega r, which needs net inward force m Omega^2 r: the Coriolis force supplies 2 m Omega^2 r inward and the centrifugal force m Omega^2 r outward, so the sum is exactly right. This is Taylor Problems 9.20-9.21 (frictionless puck on a turntable, including the cusps when the puck is momentarily at rest in the rotating frame).",
+  "pitfalls": [
+   "Do NOT use a ball ROLLING without slipping on the platform and call its lab-frame path straight: friction from the moving surface makes a uniform rolling ball circle in the lab frame at 2/7 of the table's angular speed (see UVa ref). Use a sliding low-friction puck, or keep the crossing time short compared to 1/Omega and say so.",
+   "Spin slowly (a few seconds per revolution) or the puck crosses in a blur; rehearse launch speed so the curvature is obvious but the puck does not leave the table.",
+   "Side-by-side live feeds need two phones and a capture setup; test the projector path. Fallback: show the UCLA SpinLab video.",
+   "Setup about 15 min the first time; dry ice needs gloves."
+  ],
+  "refs": [
+   {
+    "title": "UMD Lecture Demonstrations D5-11: Coriolis effect - ball on rotating platform",
+    "url": "https://lecdem.physics.umd.edu/d/d5/1655-d5-11.html",
+    "note": "Catalog entry; also uses a globe to connect CCW/CW to the hemispheres."
+   },
+   {
+    "title": "Wesleyan Physics Demos, 1E Relative Motion (PIRA 1E20 Foucault, 1E30 Coriolis list)",
+    "url": "https://physicsdemos.site.wesleyan.edu/?p=118",
+    "note": "PIRA codes: 1E30.11 draw the Coriolis curve, 1E30.26 Coriolis dish and TV, 1E30.27 rotating platform and video, 1E30.28 ball on turntable with carbon paper."
+   },
+   {
+    "title": "Improving students' understanding of rotating frames of reference using videos from different perspectives (arXiv 1902.10216)",
+    "url": "https://arxiv.org/abs/1902.10216",
+    "note": "PER study supporting the two-camera format."
+   },
+   {
+    "title": "Rolling Sphere on Inclined Rotating Plane (UVa graduate mechanics notes, M. Fowler)",
+    "url": "https://galileoandeinstein.phys.virginia.edu/7010/CM_29_Rolling_Sphere.html",
+    "note": "Derives the 2/7 Omega circling of a rolling ball on a turntable; the reason to use a sliding puck."
+   },
+   {
+    "title": "Tracking the Coriolis Force (ComPADRE / OSP Tracker)",
+    "url": "https://www.compadre.org/osp/items/detail.cfm?ID=12042",
+    "note": "Tracker video-analysis of a ball on a merry-go-round, including the rotating-frame transform; useful if students want to analyze the class video."
+   },
+   {
+    "title": "Purdue ME 274: The merry-go-round and the Coriolis component of acceleration",
+    "url": "https://www.purdue.edu/freeform/me274/animations/the-merry-go-round-and-the-coriolis-component-of-acceleration/",
+    "note": "Split-screen fixed vs rotating observer on a real merry-go-round."
+   }
+  ],
+  "video": {
+   "youtube_id": "Bsufq2y_FVA",
+   "title": "Chapter 1: Coriolis Effect (UCLA SpinLab, 2:13; ball down a ramp on a rotary table, camera in the rotating frame, both rotation senses and rates)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Corioliskraftanimation.gif",
+   "credit": "Hubi (de.wikipedia), Wikimedia Commons",
+   "license": "CC BY-SA 3.0"
+  },
+  "diy": "Lazy-susan bearing under a 60 cm plywood disc, a hover-puck toy, and two phones on clamps. PIRA 1E30.11 is the zero-cost version: draw a straight line with a marker across a disc while it turns, then stop the disc and look at the curve.",
+  "notes": "The one rotating-frame demo to run if only one fits. Strongest single demo in Ch 9. If only one rotating-frame demo fits, this is it. Ties to class 05 (cyclotron): the Coriolis force has the same form as qv x B, which Taylor uses later (Problem 9.22 Larmor).",
+  "status": "recommended",
+  "buy": [
+   "hover-puck toy (cheap) if no air table / dry ice; two phone clamps"
+  ]
+ },
+ {
+  "id": "foucault-pendulum",
+  "name": "Foucault pendulum: Smith's 1965 installation if it still runs; otherwise a pendulum over a hand-turned turntable",
+  "classes": [
+   30
+  ],
+  "fit": "Class 30 (Taylor 9.9 Foucault pendulum): precession at Omega cos(theta) with theta the colatitude, i.e. Omega sin(latitude), clockwise in the northern hemisphere.",
+  "duration_min": 4,
+  "tier": "good",
+  "materials": [
+   "Smith's Foucault pendulum, if operational (Academy Pendulum Sales lists a 1965 Smith installation; location and status unknown)",
+   "Fallback: pendulum on a tripod over a lazy-susan turntable (PIRA 1E20.20)",
+   "Tape or chalk mark for the swing plane"
+  ],
+  "pira": "1E20.10; 1E20.20",
+  "prediction": "We mark the swing plane at the start of class and look again 75 min later. How far will it have turned? (A) not at all; (B) about 13 degrees; (C) about 19 degrees; (D) about 90 degrees. Which way?",
+  "observe": "In Northampton (latitude about 42.3 N) the plane turns about 12-13 degrees clockwise (seen from above) in 75 min.",
+  "explain": "Taylor 9.9: the plane precesses at Omega cos(theta), theta the colatitude, which is 15 deg/h x sin(42.3 deg) = about 10 deg/h, so about 12.6 deg in 75 min, and a full turn in about 36 h. (C) is the pole value, a common trap; (A) is the 'pendulum only swings back and forth' answer. The turntable model shows only that the swing plane is fixed in the inertial frame, not the latitude factor.",
+  "pitfalls": [
+   "Only works if the real pendulum runs and is near the classroom: mark at the start, check at the end (2 min each).",
+   "The turntable model is a weak substitute (everyone predicts it correctly); use it only as a 30-second illustration.",
+   "Real Foucault pendula pick up ellipticity and drive artifacts; the measured rate can be off by tens of percent."
+  ],
+  "refs": [
+   {
+    "title": "Academy Pendulum Sales: Foucault pendulum installations list",
+    "url": "https://academypendulums.com/foucault-pendulum-displays.html",
+    "note": "Lists '1965 Smith College Northampton MA, USA'. Current status not verified."
+   },
+   {
+    "title": "UCLA Lecture Demonstration Manual, Uniform Circular Motion 30: Principle of a Foucault Pendulum",
+    "url": "https://demoweb.physics.ucla.edu/node/443",
+    "note": "Pendulum suspended over a rotating turntable keeps its plane of swing."
+   },
+   {
+    "title": "Wesleyan Physics Demos, 1E Relative Motion",
+    "url": "https://physicsdemos.site.wesleyan.edu/?p=118",
+    "note": "PIRA 1E20.10 full Foucault pendulum, 1E20.20 model on a rotating turntable."
+   }
+  ],
+  "video": null,
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Panth%C3%A9on_Pendule_de_Foucault2.JPG",
+   "credit": "Remih, Wikimedia Commons",
+   "license": "CC BY-SA 3.0"
+  },
+  "diy": "Turntable model: a ring stand on a lazy susan with a string pendulum; 10 minutes to build.",
+  "notes": "FIRST QUESTION FOR THE LAB MANAGER: does Smith's 1965 Foucault pendulum still exist and run, and where? If yes this is nearly free (mark the plane at the start of class, check at the end). First question for the lab manager: does Smith's Foucault pendulum still exist and run, and where? If yes, this is nearly free and worth doing; if no, skip the turntable model unless time is spare.",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "rotating-water-cork",
+  "name": "Rotating water: paraboloid surface, with a tethered cork and a hanging sinker",
+  "classes": [
+   30
+  ],
+  "fit": "Class 30 (Taylor 9.6 centrifugal force; Problem 9.14 the surface is an equipotential of gravity plus centrifugal potential).",
+  "duration_min": 5,
+  "tier": "maybe",
+  "materials": [
+   "Clear tank or jar on a rotating platform (e.g. acceleration tank on a PASCO rotating platform base)",
+   "Cork or ping-pong ball tethered to the bottom; small sinker hung from the lid",
+   "Food coloring for contrast"
+  ],
+  "pira": "1D52.20",
+  "prediction": "The jar spins steadily. The water surface becomes a curve. The tethered cork (under water) and the hanging sinker lean: (A) both outward; (B) both inward; (C) cork inward, sinker outward; (D) cork outward, sinker inward.",
+  "observe": "The surface is a paraboloid; the tethered cork leans in toward the axis and the sinker swings outward.",
+  "explain": "In the rotating frame g_eff = g + Omega^2 rho (outward). The free surface is perpendicular to g_eff, z = Omega^2 rho^2 / 2g (Taylor Problem 9.14). Buoyancy points opposite g_eff, so the cork goes in; the denser sinker goes out. For R = 10 cm at 1 rev/s the rim-to-center height difference is about 2 cm.",
+  "pitfalls": [
+   "Overlaps the helium balloon (class 26) in logic; do one of the two unless the point is to repeat it with rotation.",
+   "The parabola itself is not a good vote (most students predict it); the cork/sinker question is what carries the POE.",
+   "Spill risk on the platform; lid the jar."
+  ],
+  "refs": [
+   {
+    "title": "U Groningen Physics Demonstrations 1D52.20: Water Parabola",
+    "url": "https://physicsdemos.web.rug.nl/1d52-20-water-parabola/",
+    "note": "Acceleration tank on a PASCO rotating platform base."
+   }
+  ],
+  "video": {
+   "youtube_id": "cJpPETh_1-s",
+   "title": "Rotating Water Tank: Purple Hexane and Parabolic Fish (Peter Bohacek, 2:27)"
+  },
+  "image": null,
+  "diy": "A jar on a turntable or record player, with a cork tied to a thumbtack in the bottom.",
+  "notes": "3-minute add-on only if the Coriolis platform is already out. Lower priority; include only if the Coriolis setup is already on a rotating platform so this is a 3-minute add-on.",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "air-cart-normal-modes",
+  "name": "Two air-track carts and three springs: normal modes (undriven and driven)",
+  "classes": [
+   31
+  ],
+  "fit": "Class 31 (Taylor 11.1-11.2, two masses and three springs, Figure 11.1 is exactly this system).",
+  "duration_min": 8,
+  "tier": "good",
+  "materials": [
+   "Air track with blower, two equal gliders, three matched springs, end stops",
+   "Optional: mechanical driver (PASCO-type) at one end to drive at the mode frequencies"
+  ],
+  "pira": "3A75.10; 3A75.08",
+  "prediction": "Equal masses and equal springs. Mode 1: displace both carts the same way and release. Mode 2: displace them equal and opposite. The period of mode 2 compared to mode 1 is: (A) the same; (B) 1/2 as long; (C) 1/sqrt(2) as long; (D) 1/sqrt(3) as long.",
+  "observe": "Each symmetric start oscillates as a pure, steady mode; the opposite-displacement mode is clearly faster (period ratio about 0.58). A one-cart start gives irregular-looking motion that is the sum of the two.",
+  "explain": "Taylor 11.2: omega_1 = sqrt(k/m) (middle spring never stretched), omega_2 = sqrt(3k/m) (middle spring stretched twice as much as the outer ones). The eigenvectors (1,1) and (1,-1) are the normal modes; arbitrary starts are superpositions.",
+  "pitfalls": [
+   "Spring sag and glider friction; level the track and check before class.",
+   "With strong coupling (identical springs) there are no slow beats; this demo is about mode shapes and frequency ratio, the pendula/Wilberforce are about beats.",
+   "Overlap with PHY 210 class 21 (Gary Felder's three-spring two-mass demo). Students who took 210 last term may know it; ask the class first."
+  ],
+  "refs": [
+   {
+    "title": "U Minnesota lecture demos 3A75.10 Coupled Harmonic Oscillators",
+    "url": "https://spademos.umn.edu/3A75.10",
+    "note": "Two PASCO carts, three light springs, various modes."
+   }
+  ],
+  "video": {
+   "youtube_id": "zlzns5PjmJ4",
+   "title": "Coupled Air Carts (C20) [3A75.10] (MIT Physics Instructional Resources Lab, 7:39; undriven and driven normal modes)"
+  },
+  "image": null,
+  "diy": "PASCO dynamics carts on a track with springs work if no air track is available (more friction).",
+  "notes": "Overlaps the PHY 210 class-21 demo; lower priority here. Lower priority than coupled-pendula/Wilberforce for 317 because 210 likely used it. A second short video: Brown Physics Demos 3A75.08 'Normal Modes Two Air Track Gliders (Undriven)', YouTube XXtG5iCP53U (1:10).",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "coupled-pendula-beats",
+  "name": "Two identical pendula coupled by a weak spring (energy transfer, beats, normal modes)",
+  "classes": [
+   31
+  ],
+  "fit": "Classes 31-32 (Taylor 11.1-11.3): normal modes as in-phase and out-of-phase motions, and a single-pendulum start as a superposition that beats.",
+  "duration_min": 7,
+  "tier": "must",
+  "materials": [
+   "Two identical pendula (about 0.5-1 m, heavy bobs) on a common rigid bar",
+   "Light coupling spring clipped between the strings at adjustable height (lower = stronger coupling)",
+   "Stopwatch; optional third string-height setting to show coupling strength vs beat period"
+  ],
+  "pira": "3A70 (coupled oscillators; exact suffix not verified)",
+  "prediction": "I start pendulum A swinging and hold B at rest, then let go. Over the next minute what happens? (A) B picks up some motion and the two settle to equal, steady amplitudes; (B) energy flows completely to B, so A stops, then flows back, over and over; (C) B barely moves because the spring is weak; (D) both die out quickly. Second vote: start them in phase vs out of phase. Which mode has the shorter period?",
+  "observe": "A's amplitude shrinks to zero while B's grows to full amplitude, then the energy returns to A, periodically. The out-of-phase mode has the slightly shorter period; the in-phase mode has the same period as a lone pendulum.",
+  "explain": "Normal modes: in phase, omega_1 = sqrt(g/L) (spring never stretched); out of phase, omega_2 = sqrt(g/L + 2k/m). Starting A alone is x_1 + x_2 in normal coordinates, so x_A ~ cos(Delta t/2) cos(omega_bar t) and x_B ~ sin(Delta t/2) sin(omega_bar t): complete exchange with period 2 pi / (omega_2 - omega_1) (Taylor 11.2-11.3). Many students vote (A) from equilibration intuition; the system has no dissipation channel between the modes, so it never 'thermalizes'.",
+  "pitfalls": [
+   "Pendula must be matched in length; unequal pendula give partial transfer (a good second demo, but not the first).",
+   "Coupling too strong makes the exchange fast and hard to follow; too weak makes it take minutes. Aim for a 20-40 s exchange time and check before class.",
+   "Gary Felder runs a coupled-oscillator demo in PHY 210 (class 21); some 317 students may have seen this. Make the 317 version quantitative (time the exchange, compare to 2 pi / (omega_2 - omega_1) from measured mode periods)."
+  ],
+  "refs": [
+   {
+    "title": "CU Boulder Physics Demonstrations: Coupled Pendula",
+    "url": "https://physicslabs.colorado.edu/demos/oscillations-and-waves/oscillations/coupled-oscillations/coupled-pendula/",
+    "note": "Catalog entry: beats, symmetric/antisymmetric modes, complete exchange."
+   },
+   {
+    "title": "UCSC Physics Demonstration Room: Coupled Pendulum",
+    "url": "https://ucscphysicsdemo.sites.ucsc.edu/?p=831",
+    "note": "Catalog entry."
+   },
+   {
+    "title": "UW-Madison Ingersoll Wonders of Physics Museum: Coupled Pendulums",
+    "url": "https://physics.wisc.edu/ingersollmuseum/exhibits/mechanics/coupledpendulums",
+    "note": "Explains why the out-of-phase mode is faster."
+   }
+  ],
+  "video": {
+   "youtube_id": "KIH6LU9GDRY",
+   "title": "Coupled Pendulums (GenerallyRelative, 10:34; analysis plus footage)"
+  },
+  "image": null,
+  "diy": "Two 1 kg masses on strings from a lab rod, coupled by a rubber band or light spring; or two pendula hung from a common slack string (string coupling). Essentially free.",
+  "notes": "Some students will have seen the 210 version (class 21, Oct 30): make this one quantitative (time the exchange against 2 pi/(w2 - w1)). If time allows only one of {coupled pendula, Wilberforce}, pick Wilberforce for surprise or coupled pendula for a quantitative check against Taylor 11.3.",
+  "status": "recommended",
+  "buy": []
+ },
+ {
+  "id": "wilberforce-pendulum",
+  "name": "Wilberforce pendulum (mass on a helical spring trading bobbing for twisting)",
+  "classes": [
+   32
+  ],
+  "fit": "Class 32 (Taylor 11.3 two weakly coupled oscillators): with two nearly equal frequencies and weak coupling, energy sloshes completely between the two degrees of freedom at the beat frequency.",
+  "duration_min": 6,
+  "tier": "must",
+  "materials": [
+   "Wilberforce pendulum with tunable bob (adjustable radial nuts or masses), e.g. 3B Scientific 1012844 [U61021] Wilberforce pendulum set",
+   "Rigid support stand or ceiling hook; strip of tape on the bob so the twist is visible from the back row",
+   "Optional: phone camera close-up to the projector"
+  ],
+  "pira": "3A70.10",
+  "prediction": "I pull the bob straight down and let go, so it is bobbing up and down with no twist. In about 15 s, what will it be doing? (A) still bobbing, a bit less; (B) twisting back and forth with almost no bobbing; (C) bobbing and twisting together, steadily; (D) spinning continuously one way.",
+  "observe": "The bobbing dies away and the bob is twisting with almost no vertical motion; then the bobbing returns, repeating with a period of tens of seconds.",
+  "explain": "The spring couples the vertical and torsional motions weakly. When the uncoupled frequencies are tuned equal, the normal modes are the two mixtures (bob+twist in phase, bob+twist out of phase) with slightly split frequencies omega_1, omega_2. A pure-bob start is a 50/50 superposition, so the amplitude in each degree of freedom beats with period 2 pi / |omega_1 - omega_2| (Taylor 11.3; the same algebra as two weakly coupled carts). Detuning the bob shows incomplete transfer, the analog of unequal pendula.",
+  "pitfalls": [
+   "Must be tuned: if the torsional and vertical frequencies differ, transfer is partial and the demo looks muddy. Tune the radial masses before class (10-20 min the first time; mark the setting).",
+   "Pull straight down; any initial twist or sideways swing spoils the clean pure-bob start.",
+   "The twist is hard to see from far away; use flags on the bob or a camera."
+  ],
+  "refs": [
+   {
+    "title": "CU Boulder Physics Demonstrations: Wilberforce Pendulum",
+    "url": "https://physicslabs.colorado.edu/demos/oscillations-and-waves/oscillations/coupled-oscillations/wilberforce-pendulum/",
+    "note": "Catalog entry; describes tuning with adjustable radial masses."
+   },
+   {
+    "title": "SFU demo index: Wilberforce pendulum",
+    "url": "https://www.sfu.ca/phys/demos/demoindex/waves/wo3a/wa7001.html",
+    "note": "Catalog entry."
+   },
+   {
+    "title": "Coupled oscillations of the Wilberforce pendulum unveiled by smartphones (arXiv 2212.06949)",
+    "url": "https://arxiv.org/abs/2212.06949",
+    "note": "Smartphone accelerometer/gyroscope measurement of the beats; a possible follow-up or project."
+   },
+   {
+    "title": "3B Scientific Set Wilberforce pendulum 1012844 [U61021]",
+    "url": "https://3bscientific.com/us/set-wilberforce-pendulum-combination-of-translational-and-rotational-oscillation-1012844-u61021-3b-scientific,p_564_18611.html",
+    "note": "Vendor page (tabletop set)."
+   }
+  ],
+  "video": {
+   "youtube_id": "BaGeI_mlunQ",
+   "title": "3A70.10 - Wilberforce Pendulum (UMDemoLab, 1:52)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Wilberforce_pendulum_oscillation_modes.svg",
+   "credit": "Petteri Aimonen, Wikimedia Commons",
+   "license": "Public domain"
+  },
+  "diy": "A Slinky Jr. or long steel spring with a cross-bar of two bolts and nuts can be tuned into a crude Wilberforce pendulum, but tuning is fiddly; buy or borrow if Smith lacks one.",
+  "notes": "Pairs well with coupled-pendula on the same or adjacent day: run coupled pendula on class 31/32 for the visible version, Wilberforce on 32 as the 'surprising' version (two different-looking motions trading energy).",
+  "status": "recommended",
+  "buy": [
+   "3B Scientific 1012844 Wilberforce pendulum set, if none exists"
+  ]
+ },
+ {
+  "id": "double-pendulum-twins",
+  "name": "Two identical double pendula released side by side (small angle vs large angle)",
+  "classes": [
+   33,
+   37
+  ],
+  "fit": "Class 33 (Taylor 11.4 double pendulum): at small amplitude it is a two-normal-mode linear system; at large amplitude the same device is chaotic, previewing class 37 (Taylor 12.5 sensitivity to initial conditions).",
+  "duration_min": 6,
+  "tier": "must",
+  "materials": [
+   "Two identical compound double pendula (bars on ball bearings) mounted side by side, or one double pendulum released twice and filmed",
+   "e.g. 3B Scientific Chaotic Pendulum 1017531 [U8557340] (wall-mounted double pendulum), two units",
+   "Phone camera in slow motion, or a release jig so both start from the same angle"
+  ],
+  "pira": "3A95.50",
+  "prediction": "Both double pendula are raised to the SAME angles (as close as we can, about a millimeter) and released together. Vote twice, once for a small release (about 10 degrees), once for a large release (upper arm horizontal). How long until they look clearly different? (A) they stay together for the whole minute; (B) about 20-30 s; (C) a few seconds; (D) immediately.",
+  "observe": "Small release: they stay in step, with a quasi-periodic motion made of the two normal modes. Large release: they track each other for a second or two, then diverge completely.",
+  "explain": "Near the bottom the Lagrangian linearizes (Taylor 11.4): two normal modes, no sensitivity beyond linear growth of the initial difference. At large amplitude the nonlinear terms couple the modes and nearby trajectories separate exponentially (Taylor 12.5, Lyapunov exponent), so a 1 mm difference becomes O(1) in a few seconds. Deterministic but unpredictable.",
+  "pitfalls": [
+   "Two 'identical' commercial pendula are never identical (bearing friction differs); that is fine and even part of the point, but say it.",
+   "Arms swing fast and far: keep the front row back; wall- or rod-mount rigidly.",
+   "If only one unit exists, release it twice from a jig and replay the two videos overlaid, or use one live plus the myPhysicsLab simulation for the second."
+  ],
+  "refs": [
+   {
+    "title": "UMD Lecture Demonstrations G1-60: Chaos - two bifilar pendula",
+    "url": "https://lecdem.physics.umd.edu/g/g1/843-g1-60.html",
+    "note": "Side-by-side pendula started identically that diverge; links the myPhysicsLab simulation."
+   },
+   {
+    "title": "CU Boulder Physics Demonstrations: Chaotic Double Pendulum",
+    "url": "https://physicslabs.colorado.edu/demos/oscillations-and-waves/oscillations/non-linear-systems/chaotic-double-pendulum/",
+    "note": "Low energy: coupled oscillations; high energy: chaos. Shows in-phase starting configuration."
+   },
+   {
+    "title": "Wesleyan Physics Demos 3A95.50 Double Pendulum",
+    "url": "https://physicsdemos.site.wesleyan.edu/home/ow/3a/3a95-50-double-pendulum",
+    "note": "Several home-built double pendula (from AJP designs) plus a commercial ring-and-bar chaotic pendulum."
+   },
+   {
+    "title": "U Iowa 3A95.50 Chaos Pendula - Chaos Toys",
+    "url": "https://instructional-resources.physics.uiowa.edu/3a9550-chaos-pendula-chaos-toys",
+    "note": "Catalog with TPT references for chaotic pendula."
+   },
+   {
+    "title": "3B Scientific Chaotic Pendulum E 1017531 [U8557340]",
+    "url": "https://3bscientific.com/gb/chaotic-pendulum-e-1017531-u8557340-3b-scientific,p_576_25075.html",
+    "note": "Vendor page (UK store; same item number on the US store)."
+   },
+   {
+    "title": "MATEMATECA (USP): Double pendulum and butterfly effect",
+    "url": "https://matemateca.ime.usp.br/acervo/pendulo_duplo_ingles.html",
+    "note": "Museum exhibit of two side-by-side double pendula."
+   },
+   {
+    "title": "myPhysicsLab Double Pendulum",
+    "url": "https://www.myphysicslab.com/pendulum/double-pendulum-en.html",
+    "note": "Browser simulation for the second copy or for slow motion."
+   }
+  ],
+  "video": {
+   "youtube_id": "CtfMaSvDAXs",
+   "title": "Tiny Chaotic Pendulum - 3A95.50 (Paul Nord, 3:00; 3D-printed compound double pendulum)"
+  },
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Double-Pendulum.svg",
+   "credit": "JabberWok (en.wikipedia), Wikimedia Commons",
+   "license": "CC BY-SA 3.0"
+  },
+  "diy": "3D-printed compound double pendulum on skateboard or R188 fidget-spinner bearings (the Paul Nord video above is exactly this); two copies cost tens of dollars.",
+  "notes": "Use it twice: the small-angle half on class 33 (normal modes, links back to the coupled pendula), the large-angle half on class 37 (sensitivity). If only one day is possible, class 33, because the contrast is the point.",
+  "status": "recommended",
+  "buy": [
+   "two matched compound double pendula (e.g. 3B Scientific 1017531 x2) or two 3D-printed bearing pendula"
+  ]
+ },
+ {
+  "id": "ddp-simulation-period-doubling",
+  "name": "Driven damped pendulum: live simulation of Taylor's period-doubling sequence (physical apparatus optional)",
+  "classes": [
+   36
+  ],
+  "fit": "Class 36 (Taylor 12.2-12.4): the period-doubling route to chaos as the drive strength gamma increases, and class 37 (12.5) exponential divergence at gamma = 1.105.",
+  "duration_min": 9,
+  "tier": "good",
+  "materials": [
+   "Projector + a short Python notebook on jupyterhub.smith.edu (scipy solve_ivp, Taylor's parameters), or the UVa applet",
+   "Optional physical version: PASCO Chaos/Driven Harmonic Accessory CI-6689A with rotary motion sensor PS-2120 and a mechanical driver"
+  ],
+  "pira": "3A95 (nonlinear systems; exact suffix not verified)",
+  "prediction": "At gamma = 1.06 the pendulum settles into motion with the driver's period. Raise gamma to 1.073, then 1.077. What is the period of the long-term motion each time? (A) still 1 drive period; (B) 2 drive periods; (C) 3 drive periods; (D) never repeats.",
+  "observe": "gamma = 1.073: period 2 (alternating high and low peaks). gamma = 1.077: period 3 (a periodic window, not the next doubling). gamma = 1.0826: period 8. gamma = 1.105: chaos, and two runs differing by 1e-4 rad diverge exponentially.",
+  "explain": "Taylor 12.4: period doublings at gamma about 1.0663 (1 to 2) and 1.0793 (2 to 4), then 4 to 8, accumulating geometrically (Feigenbaum). The period-3 at 1.077 is a trap that catches students who expect a clean cascade. Taylor 12.5: chaos means the separation grows like e^(lambda t).",
+  "pitfalls": [
+   "This is a simulation, not a physical demo; it earns its minutes only if students vote first. Hide the gamma value of the plot until after the vote.",
+   "Physical DDPs are hard: the PASCO apparatus is a disk with an off-center mass, magnetic damping and a spring/string drive, so its equation is NOT Taylor's DDP; its period doubling needs patient tuning and is not reliable live. Treat the physical version as 'maybe' and test it well before class.",
+   "Transients last tens of drive cycles at these parameters; discard them or the period count is wrong."
+  ],
+  "refs": [
+   {
+    "title": "UVa (M. Fowler) Driven Damped Pendulum I: Period Doubling and Chaos applet",
+    "url": "https://galileoandeinstein.phys.virginia.edu/more_stuff/Applets/DampedDrivenPendulum/dampdrivPend.html",
+    "note": "Browser applet of the DDP period-doubling sequence."
+   },
+   {
+    "title": "Bucknell PHYS 310 Jupyter notebook: driven, damped pendulum",
+    "url": "https://eg.bucknell.edu/~phys310/jupyter/chaotic_pendulum.html",
+    "note": "Ready-made Python notebook to adapt."
+   },
+   {
+    "title": "PASCO Chaos/Driven Harmonic Accessory CI-6689A (Wiltronics distributor page)",
+    "url": "https://www.wiltronics.com.au/product/8927/chaos-driven-harmonic-accessory/",
+    "note": "Product description; the PASCO US product page I tried returned 404."
+   }
+  ],
+  "video": null,
+  "image": null,
+  "diy": "The notebook is the DIY version; no apparatus needed.",
+  "notes": "A simulation (Taylor's gamma sequence, with the period-3 trap at 1.077). Ask only whether the PASCO chaos accessory exists; it does not follow Taylor's equation. No lab-manager action unless Smith owns the PASCO chaos accessory; ask whether it exists and works.",
+  "status": "option",
+  "buy": []
+ },
+ {
+  "id": "magnetic-pendulum-basins",
+  "name": "Magnetic pendulum over three magnets (fractal basins of attraction)",
+  "classes": [
+   37
+  ],
+  "fit": "Class 37 (Taylor 12.5 sensitivity to initial conditions): a damped system with three simple attractors whose basins are interleaved, so the final state is unpredictable in practice from nearby starts.",
+  "duration_min": 5,
+  "tier": "good",
+  "materials": [
+   "Pendulum with a magnet bob (string, about 30-50 cm) over three ceramic or neodymium magnets in a triangle on a board, or a commercial 'chaos pendulum' desk toy",
+   "Tape mark on the board for the release point; camera looking down"
+  ],
+  "pira": "3A95.50",
+  "prediction": "I release the bob three times from the same taped mark. Where does it come to rest each time? (A) same magnet every time; (B) same magnet twice, different once; (C) could be any magnet, no pattern; (D) it never settles over a magnet. Then: if I release from directly over magnet 1, near it, where does it end?",
+  "observe": "From a generic release point the bob wanders between magnets and stops over different magnets on different tries. From very close to one magnet it reliably ends on that magnet.",
+  "explain": "Dissipative system with three fixed-point attractors. Their basins of attraction are intertwined (fractal boundaries) away from the magnets, so a release-position error smaller than you can control decides the outcome. Contrast with the DDP: here the long-time state is simple (a fixed point), but which one is unpredictable; in the DDP the attractor itself is strange (Taylor 12.5-12.7).",
+  "pitfalls": [
+   "Release by hand varies by millimeters, which is the point, but also makes 'same start' unconvincing to skeptics; a pin-release or electromagnet release helps.",
+   "Magnets too strong grab the bob immediately; too weak and it just swings to the center. Adjust height before class.",
+   "Keep neodymium magnets away from phones/laptops and pinch points."
+  ],
+  "refs": [
+   {
+    "title": "MinuteLabs.io Chaotic Pendulum (interactive magnetic pendulum with basin map)",
+    "url": "https://labs.minutelabs.io/Chaotic-Pendulum/",
+    "note": "Browser sim that colors the basins; good for the 'explain' step."
+   },
+   {
+    "title": "U Iowa 3A95.50 Chaos Pendula - Chaos Toys",
+    "url": "https://instructional-resources.physics.uiowa.edu/3a9550-chaos-pendula-chaos-toys",
+    "note": "Lists chaos toys and TPT refs (e.g., 'A Chaotic Pendulum')."
+   }
+  ],
+  "video": {
+   "youtube_id": "HkmXU55Gw60",
+   "title": "Chaotic Magnetic Pendulum built from Lego and Toy Magnets (Daniel Hagele, 2:32)"
+  },
+  "image": null,
+  "diy": "String pendulum with a small neodymium bob over three fridge magnets on a board; under $20. The LEGO video is a build guide.",
+  "notes": "Cheap, five minutes, and the only physical thing on the sensitivity day besides a second run of the double pendulum. Cheap and quick; good to pair with the DDP simulation on class 36/37 so there is something physical on a chaos day.",
+  "status": "recommended",
+  "buy": [
+   "three magnets + a magnet bob (under $20) if no chaos-pendulum toy exists"
+  ]
+ }
+]
