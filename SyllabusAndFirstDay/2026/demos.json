@@ -979,9 +979,8 @@
   "duration_min": 4,
   "tier": "good",
   "materials": [
-   "Smith's Foucault pendulum, if operational (Academy Pendulum Sales lists a 1965 Smith installation; location and status unknown)",
-   "Fallback: pendulum on a tripod over a lazy-susan turntable (PIRA 1E20.20)",
-   "Tape or chalk mark for the swing plane"
+   "Smith's Foucault pendulum (1965 installation; running per the lab manager, 2026-10-06)",
+   "Tape or chalk mark for the swing plane; a phone photo at the start and end"
   ],
   "pira": "1E20.10; 1E20.20",
   "prediction": "We mark the swing plane at the start of class and look again 75 min later. How far will it have turned? (A) not at all; (B) about 13 degrees; (C) about 19 degrees; (D) about 90 degrees. Which way?",
@@ -1016,8 +1015,8 @@
    "license": "CC BY-SA 3.0"
   },
   "diy": "Turntable model: a ring stand on a lazy susan with a string pendulum; 10 minutes to build.",
-  "notes": "FIRST QUESTION FOR THE LAB MANAGER: does Smith's 1965 Foucault pendulum still exist and run, and where? If yes this is nearly free (mark the plane at the start of class, check at the end). First question for the lab manager: does Smith's Foucault pendulum still exist and run, and where? If yes, this is nearly free and worth doing; if no, skip the turntable model unless time is spare.",
-  "status": "option",
+  "notes": "Lab manager confirmed 2026-10-06: Smith's Foucault pendulum exists and runs. Mark the swing plane at the start of class 30, check it at the end (about 12-13 degrees clockwise in 75 min at Northampton's latitude); the turntable model is not needed. Still to settle: where it is and how close to the classroom.",
+  "status": "recommended",
   "buy": []
  },
  {
