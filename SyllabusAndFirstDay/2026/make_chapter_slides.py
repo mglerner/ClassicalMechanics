@@ -95,7 +95,8 @@ def day_lists(lists, days):
 def slide(ch, days):
     cp = CAL.CHAPTER_PROBLEMS[ch]
     due = {hw: d for hw, d, *_ in CAL.HWS}
-    span = f"{fmt(days[0])} to {fmt(days[-1])}" if len(days) > 1 else fmt(days[0])
+    span = (f"{fmt(days[0])} to {fmt(days[-1])}" if len(days) > 1
+            else fmt(days[0]) if days else "")          # no class day: chapter cut (as 210)
     h = [f"<!doctype html><meta charset=utf-8><title>Ch {ch} problems</title><style>{CSS}</style>",
          "<div class=slide>",
          f"<header><div><span class=num>Chapter {ch}</span><span class=name>{TITLES[ch]}</span></div>"
@@ -128,7 +129,8 @@ def main():
     links = []
     for ch in sorted(CAL.CHAPTER_PROBLEMS):
         (OUT / f"Ch{ch:02d}.html").write_text(slide(ch, days[ch]))
-        links.append(f"<li><a href=Ch{ch:02d}.html>Chapter {ch}: {TITLES[ch]}</a> ({fmt(days[ch][0])})</li>")
+        first = fmt(days[ch][0]) if days[ch] else "no class day"
+        links.append(f"<li><a href=Ch{ch:02d}.html>Chapter {ch}: {TITLES[ch]}</a> ({first})</li>")
     (OUT / "index.html").write_text(
         "<!doctype html><meta charset=utf-8><title>PHY 317 chapter slides</title>"
         "<body style='font-family:Helvetica,Arial,sans-serif;padding:24px'>"

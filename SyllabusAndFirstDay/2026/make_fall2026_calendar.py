@@ -11,8 +11,10 @@ before this date.
 Content follows Will Raven's Fall 2025 PHY 317 sequence (Taylor,
 Classical Mechanics) remapped onto the Smith Fall 2026 academic calendar;
 his 39 teaching slots (including the Mountain Day holder and catch-up
-days) map one-to-one onto Fall 2026's 39 MWF meetings. His homework sets
-are kept intact (HW Problem Lists sheet); only the due dates move.
+days) mapped one-to-one onto Fall 2026's 39 scheduled MWF meetings.
+Mountain Day (Wed Sep 23) took one and spent the holder (2026-09-24), so
+38 are held: 35 content + 3 exams. His homework sets are kept intact (HW
+Problem Lists sheet); only the due dates move.
 
 Usage: python make_fall2026_calendar.py OUTPUT.xlsx
 """
@@ -31,7 +33,8 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 # "No class - ": Mountain Day is a Smith holiday, not an absence, and
 # Michael wants it to read as one.
 # PHY 317 meets W/F 1:20-2:35 and Mon 1:40-2:55 (registrar, verified
-# 2026-08-17) -- same MWF days, so the 39-meeting mapping holds.
+# 2026-08-17) -- same MWF days, so Will's slot mapping holds (39 scheduled,
+# 38 held after Mountain Day).
 FIRST_DAY = date(2026, 9, 9)   # first MWF meeting (classes open Tue Sep 8)
 LAST_DAY = date(2026, 12, 14)  # last MWF meeting
 NO_CLASS = {
@@ -231,15 +234,18 @@ CONTENT = [
 # DECIDED 2026-09-19 (the class, with Michael): homework is due FRIDAYS
 # 10:00 PM from HW02 on -- each set the Friday after the block it draws on
 # (HW02 was the first, moved from Wed Sep 23 to Fri Sep 25; HW01 had been
-# extended to Fri Sep 18). Exams stay put, so three sets keep non-Friday
-# dates: HW04 Mon Oct 5 (Exam 1 Fri Oct 9), HW08 Wed Nov 4 (HW09 owns Fri
-# Nov 6 before Exam 2), HW11 Mon Nov 30 (Fri Nov 27 is Thanksgiving; the
-# alternative Wed Dec 2 was not taken). HW13 is due Mon Dec 14, the last
-# class day (Michael, 2026-09-24; it had been Fri Dec 18, in reading
-# period). Will's was Thu Dec 11, also his last week rather than reading
-# period, so this is closer to his. Nothing is now due on a non-class day. Rationale and options: private/MoodleBuild/
-# hw-due-shift-2026-09-17.html. Live Moodle still had HW03-HW13 on the old
-# dates at the 2026-09-19 backup; the report of that date lists the edits.
+# extended to Fri Sep 18). HISTORY (superseded 2026-09-24, when the exams
+# moved): "Exams stay put, so three sets keep non-Friday dates: HW04 Mon
+# Oct 5 (Exam 1 Fri Oct 9), HW08 Wed Nov 4 (HW09 owns Fri Nov 6 before
+# Exam 2), HW11 Mon Nov 30". CURRENT: only two sets are not on a Friday,
+# HW11 Mon Nov 30 (Fri Nov 27 is Thanksgiving; the alternative Wed Dec 2
+# was not taken) and HW13 Mon Dec 14, the last class day (Michael,
+# 2026-09-24; it had been Fri Dec 18, in reading period). Will's was Thu
+# Dec 11, also his last week rather than reading period, so this is closer
+# to his. Nothing is now due on a non-class day. Rationale and options:
+# private/MoodleBuild/hw-due-shift-2026-09-17.html. Live Moodle still had
+# HW03-HW13 on the old dates at the 2026-09-19 backup; the report of that
+# date lists the edits.
 HWS = [
     (1, date(2026, 9, 18), date(2026, 9, 11), {1},
      "Ch 1: Newton's laws, polar coordinates",
@@ -591,7 +597,9 @@ def build(outpath):
         if bd not in breaks_seen:
             rows.append((None, None, bd, why,
                          "", "", "", "", ""))
-    # HW due on a non-class day (HW13 in reading period) gets its own row.
+    # A due or grace date on a non-class day gets its own row. None today
+    # (HW13 was in reading period until 2026-09-24, hence the label; relabel
+    # it if a date ever lands on a Tue/Thu instead).
     for d, labels in due_on.items():
         rows.append((None, None, d, "Reading period", "", "", "",
                      "; ".join(labels), ""))
@@ -694,6 +702,11 @@ def build(outpath):
     # kind -- so every exam-type problem is worth exactly 60 points
     # (3 x 60 = 180 per exam), and the remainder is split as participation
     # 112 + homework 288. Course total must be exactly 1000.
+    # FLAG (2026-10-05, copied from 210's generator): 39 is the number of
+    # meetings SCHEDULED; 38 were held after Mountain Day. The syllabus
+    # promises 39 - 4 = 35 days x 3.2 points (build_317.py validate() has
+    # its own copy); whether that becomes 38 - 3 or stays as written is
+    # Michael's call. Left as written until he decides.
     cats = [
         ("Attendance/participation (PCCIs)", 39, 4, 3.2),
         ("Weekly Homework", 13, 1, 24),

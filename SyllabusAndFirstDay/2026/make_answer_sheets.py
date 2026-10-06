@@ -20,6 +20,11 @@ import sys
 import tempfile
 from pathlib import Path
 
+# Imported here, not per function: without Pillow the crops used to come back empty and every
+# crops.json was overwritten with no crops, silently (2026-10-05).
+import numpy as np
+from PIL import Image
+
 sys.path.insert(0, str(Path.home() / "coding/courses/shared"))
 import packnotes as P  # noqa: E402
 import make_review_checklists as CHK
@@ -81,7 +86,6 @@ def trim_margins(im, pad=14, edge=0.03):
     """Cut blank margin off all four sides of a crop (Michael, 2026-10-03: the key crop had wide
     white margins). Ink = a few dark pixels in a row or column, ignoring the outer edges where
     crop marks and scan borders live."""
-    import numpy as np
     a = np.asarray(im.convert("L"))
     h, w = a.shape
     inner = a[int(edge * h):h - int(edge * h), int(edge * w):w - int(edge * w)]
@@ -97,10 +101,6 @@ def trim_margins(im, pad=14, edge=0.03):
 
 def crop_statements(pack_dir, wanted, bands):
     """Cut each wanted problem's statement out of the textbook. -> {prob: [src]}."""
-    try:
-        from PIL import Image
-    except ImportError:
-        return {}
     todo = {q: bands[q] for q in wanted if q in bands}
     if not todo or not TEXTBOOK.exists() or not shutil.which("pdftoppm"):
         return {}
@@ -134,10 +134,6 @@ def crop_statements(pack_dir, wanted, bands):
 
 def is_blank(png):
     """True for an all-but-empty scan page (Ch7's in-class p4)."""
-    try:
-        from PIL import Image
-    except ImportError:
-        return False
     im = Image.open(png).convert("L")
     lo, hi = im.getextrema()
     return lo > 235          # nothing darker than near-white anywhere
@@ -150,12 +146,14 @@ def render_pages(pack_dir):
     out_dir = P.layout(pack_dir)["build"] / "answer-images"
     pages = []
     for pdf in P.pdfs(pack_dir, SOL_GLOB):
-        stem = re.sub(r"[^A-Za-z0-9]+", "-", pdf.stem).strip("-").lower()[:48]
+        # the full slug, and only this PDF's own page files: a 48-char cut can give two PDFs the
+        # same stem (it did in 210), and a prefix glob also matches longer stems
+        stem = re.sub(r"[^A-Za-z0-9]+", "-", pdf.stem).strip("-").lower()
         out_dir.mkdir(parents=True, exist_ok=True)
         subprocess.run(["pdftoppm", "-png", "-r", str(SOL_DPI), str(pdf),
                         str(out_dir / stem)], check=True, capture_output=True)
         for png in sorted(out_dir.glob(stem + "-*.png")):
-            n = re.search(r"-(\d+)\.png$", png.name)
+            n = re.fullmatch(rf"{re.escape(stem)}-(\d+)\.png", png.name)
             if not n:
                 continue
             if is_blank(png):
@@ -172,10 +170,6 @@ def crop_problems(pages, smap):
 
     -> ({problem: [(src, caption)]}, {id(page) that a crop claimed}).
     """
-    try:
-        from PIL import Image
-    except ImportError:
-        return {}, set()
     crops, claimed = {}, set()
     for pg in pages:
         banded = [(q, b) for q, b in

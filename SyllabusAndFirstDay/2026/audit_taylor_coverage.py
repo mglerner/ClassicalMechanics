@@ -2,7 +2,8 @@
 
 The Taylor PDF we have (Will's scan) has no text layer, so the problem-set
 pages were OCR'd once (private/TaylorOCR/ocr.sh: pdftoppm + tesseract,
-PDF page = book page + 15). This script reads those page texts, recovers
+PDF page = book page + 15, and + 17 from book p460 / PDF 477 on: the scan
+repeats book pp458-459). This script reads those page texts, recovers
 Taylor's "SECTION n.m" headers inside each chapter's problem set, maps
 every problem number to its section, maps every section to the first
 class day whose reading covers it (from make_fall2026_calendar.CONTENT),
@@ -20,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import make_fall2026_calendar as CAL  # noqa: E402
 
 OCR = Path.home() / "coding/courses/ClassicalMechanics/private/TaylorOCR"
-PAGES = range(16, 536)
+PAGES = range(16, 538)     # through PDF 537 = book p520, Ch 12's last problems page (12.31-12.34)
 
 # ------------------------------------------------------------ OCR -> sections
 def load_problem_sections():

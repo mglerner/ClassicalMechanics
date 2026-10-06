@@ -28,11 +28,13 @@ def brachistochrone():
     a = y1 / (1 - np.cos(th1))
     th = np.linspace(0, th1, 300)
     xc, yc = a * (th - np.sin(th)), -a * (1 - np.cos(th))
-    # travel times by numerical quadrature of ds / sqrt(2 g |y|)
-    def travel_time(x, y):
-        ds = np.hypot(np.diff(x), np.diff(y))
-        ymid = -(y[1:] + y[:-1]) / 2
-        return np.sum(ds / np.sqrt(2 * g * np.maximum(ymid, 1e-9)))
+    # Travel times from rest: closed forms for the line and the cycloid, and
+    # quad over the arc angle for the arc. (A midpoint sum over the drawn points
+    # undercounts the 1/sqrt(y) singularity at the start: it printed 0.992 s
+    # for the line, whose exact time is 1.010 s; fixed 2026-10-05.)
+    from scipy.integrate import quad
+    times = {"straight": np.hypot(x1, y1) * np.sqrt(2 / (g * y1)),
+             "cycloid": np.sqrt(a / g) * th1}
     xl = np.linspace(0, x1, 300)
     yl = -y1 * xl / x1
     # circular arc through the endpoints, bulging below the chord: the
@@ -49,11 +51,14 @@ def brachistochrone():
         a1 += 2 * np.pi
     ang = np.linspace(a0, a1, 300)
     xa, ya = cx + r * np.cos(ang), cy + r * np.sin(ang)
+    # ds = r dphi, speed sqrt(2 g (-y)); y = 0 only at the start, an integrable endpoint
+    times["arc"] = abs(quad(lambda p: r / np.sqrt(2 * g * max(-(cy + r * np.sin(p)), 1e-300)),
+                            a0, a1)[0])
     fig, ax = plt.subplots(figsize=(W, 1.5))
     for x, y, lab, ls in [(xl, yl, "straight", ":"), (xa, ya, "arc", "--"),
                           (xc, yc, "cycloid", "-")]:
         ax.plot(x, y, ls, color="k", lw=1.2,
-                label=f"{lab}: {travel_time(x, y):.3f} s")
+                label=f"{lab}: {times[lab]:.3f} s")
     ax.plot([0, x1], [0, -y1], "o", color="k", ms=3)
     ax.set_aspect("equal")
     ax.axis("off")

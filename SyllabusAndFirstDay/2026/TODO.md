@@ -278,7 +278,7 @@ ideas, not a second plan (reaffirmed by Michael 2026-09-02).
     right angles, momentum in the fields). Candidate steals for the Ch
     3-4 decks (weeks 3-4).
 20. AT FALL BREAK (Tue Oct 13): switch the Moodle schedule embed to
-    chunk 2 (`A17:I46`); open the mid-semester feedback. Carry into
+    chunk 2 (`A17:I45`); open the mid-semester feedback. Carry into
     the class-15 (Wed Oct 14) prep pack when built.
 21. Per-problem exam score records from Exam 1 on (three per exam), in a
     private spreadsheet -- the redemption final cannot be scored
