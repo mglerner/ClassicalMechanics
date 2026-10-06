@@ -180,6 +180,7 @@
   "id": "y-pendulum-lissajous",
   "name": "Y-suspended (Blackburn) pendulum / sand pendulum, 2:1 tuned",
   "classes": [
+   12,
    13
   ],
   "fit": "Anisotropic 2D oscillator: independent x and y frequencies, Lissajous orbits (Taylor 5.3).",
@@ -221,7 +222,7 @@
    "license": "CC BY-SA 4.0"
   },
   "diy": "Two strings tied to a bar, joined by a ring or a sliding bead at the Y junction, heavy bob below; LED in the bob for a long-exposure photo.",
-  "notes": "Ask for the junction to be adjustable (sliding ring) so the ratio can be set in class.",
+  "notes": "Michael 2026-10-06: tomorrow's class (12) reaches 2D oscillators, so this moves to Wed Oct 7 with Fri Oct 9 as the fallback. Zero-prep opener if the Y-pendulum is not ready: ONE ordinary pendulum is the isotropic 2D oscillator (Taylor 5.3): pull it diagonally and release from rest -- vote: straight line through the centre, ellipse, or a curve that bends toward the centre? (line); then release with a sideways push (ellipse, and it never precesses: 1:1 Lissajous figures close). The 2:1 Y-pendulum is the anisotropic contrast. Ask for the junction to be adjustable (sliding ring) so the ratio can be set in class.",
   "status": "recommended",
   "buy": []
  },
