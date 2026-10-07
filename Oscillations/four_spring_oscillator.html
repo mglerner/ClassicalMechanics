@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Four-spring oscillator</title>
+<style>
+  :root { --ink: #1f2937; --mute: #6b7280; --accent: #2563eb; --paper: #fdfdfb; --rule: #e5e7eb; }
+  body { margin: 0; padding: 14px 18px 28px; background: var(--paper); color: var(--ink);
+         font: 15px/1.45 -apple-system, "Helvetica Neue", Arial, sans-serif; }
+  h1 { font-size: 20px; margin: 0 0 2px; font-weight: 600; }
+  .sub { color: var(--mute); margin: 0 0 10px; font-size: 14px; }
+  #title { font-size: 17px; margin: 0 0 8px; min-height: 1.4em; }
+  #title b { font-weight: 600; }
+  .wrap { display: flex; gap: 22px; flex-wrap: wrap; align-items: flex-start; }
+  canvas { background: #fff; border: 1px solid var(--rule); border-radius: 8px; max-width: 100%; height: auto; }
+  .panel { flex: 1 1 300px; min-width: 280px; max-width: 420px; }
+  fieldset { border: 1px solid var(--rule); border-radius: 8px; padding: 8px 12px 4px; margin: 0 0 10px; }
+  legend { color: var(--mute); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; padding: 0 4px; }
+  .row { display: grid; grid-template-columns: 7.5em 1fr 4.5em; gap: 8px; align-items: center; margin: 3px 0; }
+  .row label { font-size: 14px; }
+  .row output { font-variant-numeric: tabular-nums; font-size: 14px; text-align: right; }
+  input[type=range] { width: 100%; }
+  .buttons { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 12px; }
+  button { font: inherit; font-size: 14px; padding: 6px 14px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; cursor: pointer; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .note { color: var(--mute); font-size: 13px; margin: 6px 0 0; }
+  code { font-size: 13px; background: #f3f4f6; padding: 0 4px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<h1>Four-spring oscillator</h1>
+<p class="sub">Taylor Fig. 5.7(b) built for real: a mass between four springs. Set the four spring constants and the start, then let it run. The path it traces is the point (x, y).</p>
+<p id="title"></p>
+<div class="wrap">
+  <canvas id="c" width="560" height="560"></canvas>
+  <div class="panel">
+    <div class="buttons">
+      <button id="play" class="primary" type="button">Play</button>
+      <button id="reset" type="button">Reset</button>
+      <button id="clear" type="button">Clear trace</button>
+    </div>
+    <fieldset><legend>Springs (N/m)</legend>
+      <div class="row"><label for="kL">k left</label><input id="kL" type="range" min="0.25" max="4" step="0.25" value="1"><output for="kL"></output></div>
+      <div class="row"><label for="kR">k right</label><input id="kR" type="range" min="0.25" max="4" step="0.25" value="1"><output for="kR"></output></div>
+      <div class="row"><label for="kD">k down</label><input id="kD" type="range" min="0.25" max="4" step="0.25" value="1"><output for="kD"></output></div>
+      <div class="row"><label for="kU">k up</label><input id="kU" type="range" min="0.25" max="4" step="0.25" value="1"><output for="kU"></output></div>
+      <div class="row"><label for="L0">natural length (m)</label><input id="L0" type="range" min="0.5" max="1" step="0.05" value="1"><output for="L0"></output></div>
+      <p class="note">Anchors sit 1 m from the centre. Natural length 1 m means no pretension; shorter means the springs are stretched at rest.</p>
+    </fieldset>
+    <fieldset><legend>Start (m, m/s); mass 1 kg</legend>
+      <div class="row"><label for="x0">x(0)</label><input id="x0" type="range" min="-0.6" max="0.6" step="0.02" value="0.4"><output for="x0"></output></div>
+      <div class="row"><label for="y0">y(0)</label><input id="y0" type="range" min="-0.6" max="0.6" step="0.02" value="0"><output for="y0"></output></div>
+      <div class="row"><label for="vx0">vx(0)</label><input id="vx0" type="range" min="-2" max="2" step="0.05" value="0"><output for="vx0"></output></div>
+      <div class="row"><label for="vy0">vy(0)</label><input id="vy0" type="range" min="-2" max="2" step="0.05" value="0.4"><output for="vy0"></output></div>
+      <p class="note">Changing anything resets the motion to the new start. The title shows the small-oscillation frequencies about the equilibrium and the phase difference delta = delta_y - delta_x set by the start; the dot moves under the full spring forces, so large swings can wander from the small-oscillation picture.</p>
+    </fieldset>
+  </div>
+</div>
+
+<script id="model">
+// ---- physics: four springs anchored at (-L,0), (L,0), (0,-L), (0,L); mass m at (x, y)
+const L = 1, m = 1;
+const anchors = [[-L, 0], [L, 0], [0, -L], [0, L]];      // left, right, down, up
+function force(p, x, y) {                                  // exact spring forces, no small-angle assumption
+  const ks = [p.kL, p.kR, p.kD, p.kU];
+  let fx = 0, fy = 0;
+  for (let i = 0; i < 4; i++) {
+    const dx = x - anchors[i][0], dy = y - anchors[i][1];
+    const len = Math.hypot(dx, dy) || 1e-12;
+    const f = -ks[i] * (len - p.L0) / len;                  // Hooke along the spring, toward the anchor when stretched
+    fx += f * dx; fy += f * dy;
+  }
+  return [fx, fy];
+}
+function equilibrium(p) {                                  // Newton's method from the centre
+  let x = 0, y = 0;
+  for (let it = 0; it < 40; it++) {
+    const [fx, fy] = force(p, x, y);
+    const J = jacobian(p, x, y);                           // J = dF/dr (negative stiffness)
+    const det = J[0][0] * J[1][1] - J[0][1] * J[1][0];
+    if (Math.abs(det) < 1e-12) break;
+    const dx = (-fx * J[1][1] + fy * J[0][1]) / det, dy = (-fy * J[0][0] + fx * J[1][0]) / det;
+    x += dx; y += dy;
+    if (Math.hypot(dx, dy) < 1e-12) break;
+  }
+  return [x, y];
+}
+function jacobian(p, x, y, h = 1e-6) {
+  const [fxp, fyp] = force(p, x + h, y), [fxm, fym] = force(p, x - h, y);
+  const [gxp, gyp] = force(p, x, y + h), [gxm, gym] = force(p, x, y - h);
+  return [[(fxp - fxm) / (2 * h), (gxp - gxm) / (2 * h)], [(fyp - fym) / (2 * h), (gyp - gym) / (2 * h)]];
+}
+function linearize(p) {                                    // stiffness matrix K = -J at equilibrium, its modes
+  const [xe, ye] = equilibrium(p);
+  const J = jacobian(p, xe, ye);
+  const K = [[-J[0][0], -J[0][1]], [-J[1][0], -J[1][1]]];
+  const tr = K[0][0] + K[1][1], det = K[0][0] * K[1][1] - K[0][1] * K[1][0];
+  const disc = Math.sqrt(Math.max(0, tr * tr / 4 - det));
+  const k1 = tr / 2 + disc, k2 = tr / 2 - disc;           // eigenvalues (k1 >= k2)
+  const theta = 0.5 * Math.atan2(2 * K[0][1], K[0][0] - K[1][1]);   // principal-axis angle
+  return { xe, ye, K, kx: K[0][0], ky: K[1][1], kxy: K[0][1], k1, k2, theta };
+}
+function rk4(p, s, dt) {                                   // s = [x, y, vx, vy]
+  const d = (st) => { const [fx, fy] = force(p, st[0], st[1]); return [st[2], st[3], fx / m, fy / m]; };
+  const add = (a, b, c) => a.map((v, i) => v + c * b[i]);
+  const k1 = d(s), k2 = d(add(s, k1, dt / 2)), k3 = d(add(s, k2, dt / 2)), k4 = d(add(s, k3, dt));
+  return s.map((v, i) => v + dt / 6 * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]));
+}
+</script>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const ids = ["kL", "kR", "kD", "kU", "L0", "x0", "y0", "vx0", "vy0"];
+const cv = $("c"), ctx = cv.getContext("2d");
+const S = cv.width, PX = S / 2.6;                          // pixels per metre; the anchors sit at +-1 m
+let p, state, trace = [], running = false, t = 0, last = null;
+
+function params() { const o = {}; ids.forEach(id => o[id] = parseFloat($(id).value)); return o; }
+function fmt(v, d = 2) { return (Math.abs(v) < 5e-3 ? 0 : v).toFixed(d); }
+function showValues() { ids.forEach(id => { document.querySelector(`output[for=${id}]`).textContent = fmt(parseFloat($(id).value)); }); }
+
+function describe() {
+  const lin = linearize(p);
+  const wx = Math.sqrt(Math.max(lin.kx, 0) / m), wy = Math.sqrt(Math.max(lin.ky, 0) / m);
+  let txt;
+  if (Math.abs(lin.kxy) < 1e-6) {
+    // x and y decouple: phases from the start, measured from the equilibrium
+    const ax = p.x0 - lin.xe, ay = p.y0 - lin.ye;
+    const dx = Math.atan2(p.vx0 / wx, ax), dy = Math.atan2(p.vy0 / wy, ay);
+    let dl = dy - dx; while (dl > Math.PI) dl -= 2 * Math.PI; while (dl <= -Math.PI) dl += 2 * Math.PI;
+    const Ax = Math.hypot(ax, p.vx0 / wx), Ay = Math.hypot(ay, p.vy0 / wy);
+    txt = `<b>&omega;<sub>x</sub> = ${fmt(wx)} rad/s, &omega;<sub>y</sub> = ${fmt(wy)} rad/s</b> (ratio ${fmt(wx / wy, 3)}); `
+        + `A<sub>x</sub> = ${fmt(Ax)} m, A<sub>y</sub> = ${fmt(Ay)} m; <b>&delta; = &delta;<sub>y</sub> &minus; &delta;<sub>x</sub> = ${fmt(dl)} rad</b> (${fmt(dl / Math.PI, 2)}&pi;)`;
+    if (Math.hypot(lin.xe, lin.ye) > 1e-4) txt += `; equilibrium at (${fmt(lin.xe)}, ${fmt(lin.ye)}) m`;
+  } else {
+    const w1 = Math.sqrt(Math.max(lin.k1, 0) / m), w2 = Math.sqrt(Math.max(lin.k2, 0) / m);
+    txt = `<b>normal modes &omega;<sub>1</sub> = ${fmt(w1)}, &omega;<sub>2</sub> = ${fmt(w2)} rad/s</b> along axes turned ${fmt(lin.theta * 180 / Math.PI, 1)}&deg; `
+        + `(x and y are coupled at linear order; equilibrium at (${fmt(lin.xe)}, ${fmt(lin.ye)}) m)`;
+  }
+  $("title").innerHTML = txt;
+}
+
+function reset() {
+  p = params(); showValues();
+  state = [p.x0, p.y0, p.vx0, p.vy0]; t = 0; trace = [[p.x0, p.y0]]; last = null;
+  describe(); draw();
+}
+
+function spring(x1, y1, x2, y2, k) {
+  const n = 14, dx = x2 - x1, dy = y2 - y1, len = Math.hypot(dx, dy), ux = dx / len, uy = dy / len, nx = -uy, ny = ux;
+  const amp = 7 + 3 * k, lead = 14;
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x1 + ux * lead, y1 + uy * lead);
+  for (let i = 1; i < n; i++) {
+    const s = lead + (len - 2 * lead) * i / n, side = (i % 2 ? 1 : -1);
+    ctx.lineTo(x1 + ux * s + nx * amp * side, y1 + uy * s + ny * amp * side);
+  }
+  ctx.lineTo(x2 - ux * lead, y2 - uy * lead); ctx.lineTo(x2, y2);
+  ctx.lineWidth = 1.2 + 0.6 * k; ctx.strokeStyle = "#475569"; ctx.stroke();
+}
+
+function draw() {
+  const X = (x) => S / 2 + x * PX, Y = (y) => S / 2 - y * PX;
+  ctx.clearRect(0, 0, S, S);
+  // axes and the metre marks
+  ctx.strokeStyle = "#e5e7eb"; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(X(-1.2), Y(0)); ctx.lineTo(X(1.2), Y(0)); ctx.moveTo(X(0), Y(-1.2)); ctx.lineTo(X(0), Y(1.2)); ctx.stroke();
+  // trace
+  if (trace.length > 1) {
+    ctx.beginPath(); ctx.moveTo(X(trace[0][0]), Y(trace[0][1]));
+    for (const [x, y] of trace) ctx.lineTo(X(x), Y(y));
+    ctx.strokeStyle = "#7c3aed"; ctx.lineWidth = 1.6; ctx.stroke();
+  }
+  // walls, springs, mass
+  const ks = [p.kL, p.kR, p.kD, p.kU];
+  anchors.forEach((a, i) => {
+    ctx.fillStyle = "#94a3b8";
+    if (i < 2) ctx.fillRect(X(a[0]) - 4, Y(a[1]) - 28, 8, 56); else ctx.fillRect(X(a[0]) - 28, Y(a[1]) - 4, 56, 8);
+    spring(X(a[0]), Y(a[1]), X(state[0]), Y(state[1]), ks[i]);
+  });
+  ctx.beginPath(); ctx.arc(X(state[0]), Y(state[1]), 11, 0, 2 * Math.PI); ctx.fillStyle = "#111827"; ctx.fill();
+  // readout
+  ctx.fillStyle = "#6b7280"; ctx.font = "13px -apple-system, Helvetica, Arial, sans-serif";
+  ctx.fillText(`t = ${t.toFixed(1)} s   x = ${fmt(state[0])} m   y = ${fmt(state[1])} m`, 12, S - 12);
+}
+
+function frame(now) {
+  if (!running) return;
+  if (last === null) last = now;
+  let elapsed = Math.min((now - last) / 1000, 0.05); last = now;   // real time, capped if the tab was hidden
+  const dt = 1 / 480;
+  while (elapsed > 0) { const h = Math.min(dt, elapsed); state = rk4(p, state, h); t += h; elapsed -= h; }
+  trace.push([state[0], state[1]]); if (trace.length > 6000) trace.shift();
+  draw(); requestAnimationFrame(frame);
+}
+
+$("play").addEventListener("click", () => {
+  running = !running; $("play").textContent = running ? "Pause" : "Play"; last = null;
+  if (running) requestAnimationFrame(frame);
+});
+$("reset").addEventListener("click", () => { running = false; $("play").textContent = "Play"; reset(); });
+$("clear").addEventListener("click", () => { trace = [[state[0], state[1]]]; draw(); });
+ids.forEach(id => $(id).addEventListener("input", () => { running = false; $("play").textContent = "Play"; reset(); }));
+reset();
+</script>
+</body>
+</html>
