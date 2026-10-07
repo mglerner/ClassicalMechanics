@@ -190,7 +190,7 @@
   "video": null,
   "image": null,
   "diy": "Four rubber bands, a washer stack on a 2 m string from a ceiling hook, four ring stands: ten minutes, and it works on any table.",
-  "notes": "Michael's pick for Wed Oct 7 (2026-10-06). Vote 1 (diagonal vs axis period) is the one that splits a strong room, because students know a sideways-pulled spring is 'soft'; the square-symmetry argument is a nice two-minute piece of board work right after the vote. If the air table is set up, leave it for Friday and swap one spring pair for the anisotropic case (Lissajous), which replaces or complements the Y-pendulum."
+  "notes": "Michael's pick for Wed Oct 7 (2026-10-06). Vote 1 (diagonal vs axis period) is the one that splits a strong room, because students know a sideways-pulled spring is 'soft'; the square-symmetry argument is a nice two-minute piece of board work right after the vote. If the air table is set up, leave it for Friday and swap one spring pair for the anisotropic case (Lissajous), which replaces or complements the Y-pendulum. 2026-10-07 (Michael): Ellie may have Michael's own version of the 2D SHO ready for class 12."
  },
  {
   "id": "damping-regimes",
@@ -1427,5 +1427,38 @@
   "buy": [
    "three magnets + a magnet bob (under $20) if no chaos-pendulum toy exists"
   ]
+ },
+ {
+  "id": "bottle-in-a-bucket",
+  "name": "Taylor Example 5.2: a float bobbing in water (bottle in a bucket; ping pong ball in a beaker to start)",
+  "classes": [
+   12
+  ],
+  "status": "planned",
+  "tier": "maybe",
+  "duration_min": 3,
+  "fit": "Taylor Example 5.2 (pp. 168-169): a floating body pushed down and released obeys x'' = -(g/d0) x, so omega = sqrt(g/d0) and tau = 2 pi sqrt(d0/g), independent of the mass, the density and the cross-section; only the equilibrium depth d0 matters. The pack's optional Supplement for class 12 (the hardest-step slide ranks Taylor's eight set-up steps).",
+  "prediction": "Q1: I push the float down a centimetre and let go, then two centimetres. The period is (A) the same, (B) longer for the bigger push, (C) shorter. Q2: I add weight so it floats deeper. The period (A) gets longer, (B) gets shorter, (C) does not change. Q3 (two floats of different width sunk to the same depth): same period or not?",
+  "observe": "Same period for either push (small amplitude). A deeper float bobs more slowly: tau grows like sqrt(d0). Two floats at the same depth d0 bob together whatever their width.",
+  "explain": "Buoyancy rho g A (d0 + x) against weight mg = rho g A d0 leaves a net restoring force -rho g A x, so omega^2 = rho g A / m = g / d0 by the equilibrium condition. The width A and the mass m cancel; d0 is all that is left. Taylor's number: d0 = 20 cm gives tau = 0.90 s.",
+  "materials": [
+   "To start (Michael, 2026-10-07): a ping pong ball in a beaker of water. It floats only about 0.7 cm deep, so it bobs at about 8 Hz (tau about 0.12 s) and water damping stops it within a few cycles: a buzz, not a visible oscillation.",
+   "Better: a float that sits 10-20 cm deep. A 15 mL test tube (r = 0.8 cm) weighted with sand or shot to about 20 g total sits 10 cm deep and bobs at 0.63 s; a small bottle part-filled with water to sit 20 cm deep in a bucket or tall jar gives Taylor's 0.90 s.",
+   "Tall clear container (a 1 L graduated cylinder or a bucket) so the float can go down 20 cm and still clear the bottom.",
+   "Optional second float of a different width weighted to the same depth, for Q3."
+  ],
+  "pira": "not looked up",
+  "pitfalls": [
+   "A light, wide float (the ping pong ball) is too fast and too damped to see; depth is the only lever: tau = 2 pi sqrt(d0/g).",
+   "Keep the float from touching the walls; a narrow float in a wide container, released straight down.",
+   "Seth's p. 6 drops the 2 pi (tau = sqrt(d0/g), 0.14 s instead of 0.90 s at 20 cm); the pack flags it. Do not project that page.",
+   "The sphere is not a cylinder: for the ping pong ball the restoring force uses the waterline area, so omega^2 = rho g A_waterline / m, which still comes out about 50 rad/s."
+  ],
+  "refs": [],
+  "video": null,
+  "image": null,
+  "diy": "Any test tube or pill bottle with sand in it, in a tall glass. Weigh it so it sits 10 cm deep: tau about 0.6 s.",
+  "notes": "Michael, 2026-10-07: the ping pong ball in a beaker 'seems OK to start; I can make it better if I get time.' The better version is the deeper float; nothing else changes the period.",
+  "buy": []
  }
 ]
