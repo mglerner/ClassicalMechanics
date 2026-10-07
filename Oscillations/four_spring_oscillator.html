@@ -26,6 +26,10 @@
   button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
   .note { color: var(--mute); font-size: 13px; margin: 6px 0 0; }
   code { font-size: 13px; background: #f3f4f6; padding: 0 4px; border-radius: 3px; }
+  .eqs { margin-top: 18px; border-top: 1px solid var(--rule); padding-top: 10px; }
+  .eqs h2 { font-size: 16px; margin: 0 0 6px; font-weight: 600; }
+  .eqgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 28px; }
+  .eqgrid p { margin: 6px 0; }
 </style>
 </head>
 <body>
@@ -57,6 +61,26 @@
     </fieldset>
   </div>
 </div>
+
+<section class="eqs">
+  <h2>The equations</h2>
+  <div class="eqgrid">
+    <div>
+      <p>Two springs on an axis act in parallel, so with \(k_x = k_{\rm left} + k_{\rm right}\) and \(k_y = k_{\rm down} + k_{\rm up}\) (small displacements, no pretension):</p>
+      <p>\[ F_x = -k_x x \;\rightarrow\; m\ddot x + k_x x = 0, \qquad \omega_x = \sqrt{k_x/m} \]
+         \[ F_y = -k_y y \;\rightarrow\; m\ddot y + k_y y = 0, \qquad \omega_y = \sqrt{k_y/m} \]</p>
+      <p>Solution: \( x(t) = A_x\cos(\omega_x t - \delta_x), \quad y(t) = A_y\cos(\omega_y t - \delta_y) \).</p>
+      <p>Shift the clock so \(\delta_x = 0\): \( x(t) = A_x\cos\omega_x t, \quad y(t) = A_y\cos(\omega_y t - \delta), \quad \delta \equiv \delta_y - \delta_x \).</p>
+    </div>
+    <div>
+      <p>From the start: \( A_x\cos\delta_x = x(0), \; A_x\omega_x\sin\delta_x = v_x(0) \), so \(\delta_x\) measures how much of the \(x\) motion starts as velocity; the same for \(y\). No initial velocity means \(\delta_x = \delta_y = 0\): a straight line.</p>
+      <p>Special case \(k_x = k_y = k\): \( \mathbf F = -k x\,\hat{\mathbf x} - k y\,\hat{\mathbf y} = -k\,\mathbf r \), a central force (isotropic), same \(\omega\) both ways, every orbit an ellipse that closes.</p>
+      <p>Unequal \(k_x \ne k_y\): Lissajous figures, closed only when \(\omega_x/\omega_y\) is rational. Unequal springs on one axis (say \(k/4\) and \(3k/4\)) change nothing at small amplitude: the pair still gives \(k_x = k\); with pretension the equilibrium just shifts toward the stiffer spring. The title above uses the exact linearization, pretension included, so it also covers that case.</p>
+    </div>
+  </div>
+</section>
+<script>window.MathJax = {tex: {inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
 <script id="model">
 // ---- physics: four springs anchored at (-L,0), (L,0), (0,-L), (0,L); mass m at (x, y)
