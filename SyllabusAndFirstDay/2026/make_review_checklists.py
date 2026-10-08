@@ -87,29 +87,18 @@ def chapter_of(reading):
 
 
 def class_rows():
-    """[(class_no, date, topic, reading, chapter, chapter_day)] for content
-    days; exam days carry chapter None."""
-    days = list(CAL.class_days())
-    # The calendar build()'s guards, repeated here because the consumers of class_rows() never run
-    # build(): an extra CONTENT row would silently drop off the end, a misdated exam would be
-    # treated as content (too FEW rows is loud: next() raises StopIteration).
-    assert len(CAL.CONTENT) + len(CAL.EXAMS) == len(days), (
-        f"{len(CAL.CONTENT)} content + {len(CAL.EXAMS)} exams for {len(days)} class meetings")
-    assert all(d in days for d in CAL.EXAMS), "exam not on a class day"
-    assert all(d in days for d in CAL.LAPTOP_DAYS), "LAPTOP_DAYS names a non-class day"
-    content = iter(CAL.CONTENT)
-    seen = {}
-    rows = []
-    for i, d in enumerate(days):
-        if d in CAL.EXAMS:            # EXAMS keyed by date since 2026-09-24
-            rows.append((i + 1, d, CAL.EXAMS[d][0], "", None, None))
+    """[(class_no, date, topic, reading, chapter, chapter_day)] from the calendar's rows() (flex days and
+    slips applied); exam days and flex days carry chapter None."""
+    seen, out = {}, []
+    for r in CAL.rows():
+        if r["kind"] == "assessment":
+            out.append((r["n"], r["date"], r["topic"], "", None, None))
             continue
-        topic, reading, _ = next(content)
-        ch = chapter_of(reading) if reading else None
+        ch = chapter_of(r["reading"]) if r["reading"] else None
         if ch is not None:
             seen[ch] = seen.get(ch, 0) + 1
-        rows.append((i + 1, d, topic, reading, ch, seen.get(ch) if ch else None))
-    return rows
+        out.append((r["n"], r["date"], r["topic"], r["reading"], ch, seen.get(ch) if ch else None))
+    return out
 
 
 def hw_events():

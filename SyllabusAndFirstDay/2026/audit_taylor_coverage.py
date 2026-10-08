@@ -6,7 +6,7 @@ PDF page = book page + 15, and + 17 from book p460 / PDF 477 on: the scan
 repeats book pp458-459). This script reads those page texts, recovers
 Taylor's "SECTION n.m" headers inside each chapter's problem set, maps
 every problem number to its section, maps every section to the first
-class day whose reading covers it (from make_fall2026_calendar.CONTENT),
+class day whose reading covers it (from make_fall2026_calendar.rows()),
 and checks each homework problem against its due date.
 
 Usage: python audit_taylor_coverage.py          (prints a table; exit 1 on
@@ -84,15 +84,12 @@ def sections_in(reading):
     return out, chapters
 
 def first_teach_dates():
-    days = list(CAL.class_days())
-    exam_days = set(CAL.EXAMS)        # EXAMS keyed by date since 2026-09-24
-    content = iter(CAL.CONTENT)
     first = {}
     whole_chapter = {}
-    for i, d in enumerate(days):
-        if d in exam_days:
+    for r in CAL.rows():              # flex days and slips applied (shared/calendar_rows.py)
+        if r["kind"] == "assessment" or not r["reading"]:
             continue
-        topic, reading, prereq = next(content)
+        d, reading = r["date"], r["reading"]
         secs, chapters = sections_in(reading)
         for s in secs:
             first.setdefault(s, d)

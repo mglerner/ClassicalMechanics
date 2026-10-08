@@ -177,7 +177,6 @@ CONTENT = [
     # Ch 5-7 exam is no stranger than Ch 5 ahead of the Ch 2-4 exam.
     ("Accelerating frames; tides", "9.1-9.2",
      "Math Methods: Ch. 8 (Vector Calculus)"),
-    ("Catch-up / review day (Exam 2 is Monday)", "", ""),
     ("Angular velocity; rotating frames", "9.3-9.5",
      "Math Methods: Ch. 8 (Vectors in Curvilinear Coordinates)"),
     # 9.6-9.7 -> 9.6-9.8 (audit 2026-09-03): HW11's 9.28, 9.29 are 9.8.
@@ -192,7 +191,6 @@ CONTENT = [
     # double pendulum finishes Ch 11 two days before HW12 is due, and the
     # catch-up day becomes the review day right before Exam 3.
     ("Double pendulum", "11.4", ""),
-    ("Catch-up / review day (Exam 3 is Monday)", "", ""),
     # 12.1-12.3 -> 12.1-12.5 (audit 2026-09-03): Will's chaos notebooks are
     # bifurcation and Lyapunov exponents = 12.4-12.5; HW13 draws on both.
     ("Chaos: the driven damped pendulum; period doubling", "12.1-12.4", ""),
@@ -200,7 +198,6 @@ CONTENT = [
     # ../../../FluctuationTheorems/01-classical-mechanics/).
     ("Chaos: sensitivity to initial conditions; Liouville aside",
      "12.4-12.5", ""),
-    ("Last day: review and wrap-up", "", ""),
 ]
 
 # The predecessor's day for each CONTENT row, in order: Will's F2025 meeting (his date; the ink
@@ -221,28 +218,60 @@ PREDECESSOR_CONTENT = [
     "2025-10-24", "2025-10-27", "2025-10-29",                              # Ch 7
     "2025-10-31", "2025-11-03", "2025-11-05",                              # Ch 8
     "2025-11-12",                                                          # Ch 9 day 1 (before our Exam 2)
-    "2025-11-07",                                                          # review (his catch-up day)
     "2025-11-14", "2025-11-17",                                            # Ch 9 days 2-3
     "2025-11-19", "2025-11-21", "2025-12-01",                              # Ch 11
-    "2025-11-24",                                                          # review (his catch-up day)
-    "2025-12-03", "2025-12-05", "2025-12-10",                              # Ch 12, last day
+    "2025-12-03", "2025-12-05",                                            # Ch 12
 ]
 PREDECESSOR_ASSESSMENT = {
     date(2026, 10, 16): "2025-10-06",   # his Exam 1
     date(2026, 11, 16): "2025-11-10",   # his Exam 2
     date(2026, 12, 7): "2025-12-08",    # his Exam 3
 }
+# Flex days (2026-10-08, Michael): days with no content of their own, the budget a slip spends and
+# the place extra time goes (Noether's theorem first, Taylor 7.8 beyond the simple version;
+# Jarzynski second). Will's catch-up days had no slides and no ink: genuinely open days, so they
+# are flex here too. Keyed by date like EXAMS. A flex day used for a topic is moved into CONTENT.
+FLEX = {
+    date(2026, 11, 13): "Catch-up / review day (Exam 2 is Monday)",
+    date(2026, 12, 4): "Catch-up / review day (Exam 3 is Monday)",
+    date(2026, 12, 14): "Last day: review and wrap-up",
+}
+PREDECESSOR_FLEX = {
+    date(2026, 11, 13): "2025-11-07",   # his catch-up day
+    date(2026, 12, 4): "2025-11-24",    # his catch-up day
+    date(2026, 12, 14): "2025-12-10",   # his last day
+}
+# Slips (2026-10-08): (date of the class, +1 or -1, note). +1 = that class ran a whole day long:
+# the content after it moves one meeting later, the next class becomes "<topic> (continued)",
+# and the next flex day is consumed. -1 = the content planned for the class after that date was
+# already covered: it is dropped, later content moves one meeting earlier, and a new flex day
+# appears before the next flex day. shared/slip.py appends here and moves the pack folders.
+SLIPS = [
+]
 assert len(PREDECESSOR_CONTENT) == len(CONTENT), "one predecessor day per CONTENT row"
 assert set(PREDECESSOR_ASSESSMENT) == set(EXAMS), "one predecessor day per exam"
+assert set(PREDECESSOR_FLEX) == set(FLEX), "one predecessor day per flex day"
+
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "shared"))
+from calendar_rows import make_rows, effective_pcci, flex_summary  # noqa: E402
+
+
+def rows():
+    """The term, one dict per meeting (shared/calendar_rows.py): n, date, kind, topic, reading, extra
+    (the prerequisites), predecessor, pcci. Flex days and slips applied. THE sequence every
+    consumer reads; CONTENT is positional input only."""
+    return make_rows(class_days(), CONTENT, {d: EXAMS[d][0] for d in EXAMS}, FLEX, SLIPS,
+                     PREDECESSOR_CONTENT, PREDECESSOR_ASSESSMENT, PREDECESSOR_FLEX, _PCCI)
+
+
+term_rows = rows          # alias for build(), whose local list is also called rows
 
 
 def predecessor_days():
     """{class number (meetings held): Will's day 'YYYY-MM-DD', or a list when the class straddles two of his
     days (the first is the main one)}."""
-    out, content = {}, iter(PREDECESSOR_CONTENT)
-    for i, d in enumerate(class_days()):
-        out[i + 1] = PREDECESSOR_ASSESSMENT[d] if d in EXAMS else next(content)
-    return out
+    return {r["n"]: r["predecessor"] for r in rows()}
 
 
 # -------------------------------------------------------------------- HW
@@ -368,7 +397,7 @@ HW_ON_EXAM_DAY = {5}
 # wherever he had one for that day; where his day had none, a one-line
 # reading prompt. One problem per day (Taylor's easiest-starred where he
 # listed two) so the <15-minute promise holds. Exam days get none.
-PCCI = {
+_PCCI = {   # the hand table; PCCI below is the effective one (a PCCI follows its topic after a slip)
     # No PCCI on day 1 (nobody has the syllabus before the first class).
     # Ch 1 (Will's Look-At, no day split: 1.4, 1.6, 1.10, 1.11, 1.31, 1.35)
     date(2026, 9, 11): "Read the syllabus and bring one question or comment; "
@@ -425,6 +454,7 @@ PCCI = {
                         "pendulum notebook on Moodle; bring your laptop",
     date(2026, 12, 14): "Bring one question for the final-exam review",
 }
+PCCI = effective_pcci(rows())
 
 
 # ------------------------------------------------- chapter problem lists
@@ -544,9 +574,7 @@ def ch_label(chapters):
 def build(outpath):
     days = list(class_days())
     n = len(days)
-    assert len(CONTENT) + len(EXAMS) == n, (
-        f"{len(CONTENT)} content + {len(EXAMS)} exams for {n} class meetings")
-    assert all(d in days for d in EXAMS), "exam not on a class day"
+    seq = term_rows()                  # the asserts on the row counts live in shared/calendar_rows.py
     exam_days = dict(EXAMS)
     assert all(d in days for d in PCCI), "PCCI assigned to a non-class day"
     assert not any(d in exam_days for d in PCCI), "PCCI on an exam day"
@@ -604,7 +632,6 @@ def build(outpath):
     week_no = 0
     last_week = None
     class_no = 0
-    content_i = 0
     breaks_seen = set()
     due_on = {}
     for hw, due, _through, chapters, _covers, _problems in HWS:
@@ -625,12 +652,10 @@ def build(outpath):
                 breaks_seen.add(bd)
                 rows.append((None, None, bd, why,
                              "", "", "", "", ""))
-        if d in EXAMS:
-            label, _ = EXAMS[d]
-            topic, reading, prereq, exam = label, "", "", label
-        else:
-            (topic, reading, prereq), exam = CONTENT[content_i], ""
-            content_i += 1
+        r = seq[class_no]
+        assert r["date"] == d
+        topic, reading, prereq = r["topic"], r["reading"], (r["extra"][0] if r["extra"] else "")
+        exam = topic if r["kind"] == "assessment" else ""
         hw = "; ".join(due_on.pop(d, []))
         class_no += 1
         rows.append((week_no, class_no, d, topic, reading, prereq,
