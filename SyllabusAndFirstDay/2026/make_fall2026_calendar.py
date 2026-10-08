@@ -203,6 +203,47 @@ CONTENT = [
     ("Last day: review and wrap-up", "", ""),
 ]
 
+# The predecessor's day for each CONTENT row, in order: Will's F2025 meeting (his date; the ink
+# timeline in private/F2026PrepPacks/_shared/will-ink-timeline.md is keyed by it, and his files are
+# WillF2025/GoogleDrive/PHY317/ChN/). ONE copy, in data: the pack page and plan_overview read it,
+# a from-scratch build finds the day's slides from it. Rows 1-11 are his first eleven meetings one
+# for one; after that the exam shift and the Ch 9 split re-pair days (see the comments on CONTENT).
+# 2025-10-22 was Travis Norsen's guest class (no ink). Exam and review days are in
+# PREDECESSOR_ASSESSMENT, keyed by OUR date like EXAMS, so a lost meeting cannot shift them.
+PREDECESSOR_CONTENT = [
+    "2025-09-05", "2025-09-08",                                            # Ch 1
+    "2025-09-10", "2025-09-12", "2025-09-15",                              # Ch 2
+    "2025-09-17", "2025-09-19", "2025-09-22",                              # Ch 3
+    "2025-09-24", "2025-09-26", "2025-09-29",                              # Ch 4
+    "2025-10-03", "2025-10-08", "2025-10-10",                              # Ch 5 days 1-3 (before our Exam 1)
+    "2025-10-15",                                                          # Ch 5 day 4
+    "2025-10-17", "2025-10-20", "2025-10-22",                              # Ch 6 (Oct 22: guest)
+    "2025-10-24", "2025-10-27", "2025-10-29",                              # Ch 7
+    "2025-10-31", "2025-11-03", "2025-11-05",                              # Ch 8
+    "2025-11-12",                                                          # Ch 9 day 1 (before our Exam 2)
+    "2025-11-07",                                                          # review (his catch-up day)
+    "2025-11-14", "2025-11-17",                                            # Ch 9 days 2-3
+    "2025-11-19", "2025-11-21", "2025-12-01",                              # Ch 11
+    "2025-11-24",                                                          # review (his catch-up day)
+    "2025-12-03", "2025-12-05", "2025-12-10",                              # Ch 12, last day
+]
+PREDECESSOR_ASSESSMENT = {
+    date(2026, 10, 16): "2025-10-06",   # his Exam 1
+    date(2026, 11, 16): "2025-11-10",   # his Exam 2
+    date(2026, 12, 7): "2025-12-08",    # his Exam 3
+}
+assert len(PREDECESSOR_CONTENT) == len(CONTENT), "one predecessor day per CONTENT row"
+assert set(PREDECESSOR_ASSESSMENT) == set(EXAMS), "one predecessor day per exam"
+
+
+def predecessor_days():
+    """{class number (meetings held): Will's day 'YYYY-MM-DD'}."""
+    out, content = {}, iter(PREDECESSOR_CONTENT)
+    for i, d in enumerate(class_days()):
+        out[i + 1] = PREDECESSOR_ASSESSMENT[d] if d in EXAMS else next(content)
+    return out
+
+
 # -------------------------------------------------------------------- HW
 # Will's 13 sets are kept intact; only the due dates move. His HW was due
 # Fridays covering the Wed-Fri-Mon block that ended four days earlier. Our

@@ -40,7 +40,7 @@ Mathematica notebooks).
   syllabus, kept as slide assets.
 - `MoodleBuildSpec.md` -- the Moodle course design (sections, assignments,
   gradebook, schedule embed, build protocol). Companion to PHY 210's.
-- `make_review_checklists.py` -- writes the per-day `01-review-checklist.md`
+- `make_review_checklists.py` -- writes the per-day `.build/review-checklist.md`
   into each prep pack and `REVIEW-SCHEDULE.md` (private), enumerating the
   PCCI and in-class problems to review BEFORE each class and the homework
   to review by THE DAY AFTER it goes live. Rerun after every generator
