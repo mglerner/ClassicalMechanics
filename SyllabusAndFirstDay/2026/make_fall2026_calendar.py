@@ -363,11 +363,11 @@ HWS = [
      "8.8, Ch 9: non-inertial frames, Coriolis",
      "8.27 [optional challenge], 8.33, 9.3, 9.9, 9.15 [Northampton "
      "colatitude 48 deg], 9.17, 9.28, 9.29 [optional challenge]"),
-    (12, date(2026, 12, 4), date(2026, 12, 2), {11},
+    (12, date(2026, 12, 4), date(2026, 11, 30), {11},     # Ch 11 ends Mon Nov 30 since the flex days moved (2026-10-08)
      "Ch 11: coupled oscillators, normal modes, double pendulum",
      "11.6, 11.9, 11.12, 11.14 [Lagrangian supplied as a check], 11.17 "
      "[optional]"),
-    (13, date(2026, 12, 14), date(2026, 12, 11), {12},
+    (13, date(2026, 12, 14), date(2026, 12, 4), {12},     # Ch 12 ends Fri Dec 4 (2026-10-08)
      "Ch 12: chaos",
      "12.1, 12.6, 12.7 [computational: use the class program or write your "
      "own], 12.8-12.10 [optional], 12.13 + custom parts (b), (c)"),
