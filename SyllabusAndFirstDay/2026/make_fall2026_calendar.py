@@ -52,7 +52,7 @@ NO_CLASS = dict(TERM.NO_CLASS)
 # Days students must bring a laptop. The schedule sheet (embedded in Moodle)
 # tags the topic "[BRING LAPTOP]" and the review checklist repeats it, so one
 # list drives both (a student asked not to carry a laptop every day, 2026-09-14).
-LAPTOP_DAYS = {date(2026, 9, 11), date(2026, 12, 11)}
+LAPTOP_DAYS = {date(2026, 9, 11), date(2026, 12, 4)}   # Dec 11 -> Dec 4 with the chaos notebook (2026-10-08)
 
 def class_days():
     """The meetings held, in order (a generator)."""
@@ -169,11 +169,11 @@ CONTENT = [
     ("Orbits", "8.5-8.6",
      "Math Methods: Ch. 1 (ODEs)\nCalculus I & II"),
     ("Changing orbits", "8.7-8.8", "Calculus I & II"),
-    # Our weekday grid gives one more slot before Exam 2 than Will's did,
-    # so Ch 9 splits: 9.1-9.2 runs Wed Nov 11, the rest after the exam.
-    # The alternative (a second catch-up day here) pushes Ch 11 onto Dec 4
-    # and costs the review day before Exam 3. Teaching Ch 9 ahead of a
-    # Ch 5-7 exam is no stranger than Ch 5 ahead of the Ch 2-4 exam.
+    # Our weekday grid gives more slots before Exam 2 than Will's did, so
+    # Ch 9 splits: 9.1-9.5 run Wed Nov 11 and Fri Nov 13, the rest after the
+    # exam (2026-10-08: the Nov 13 catch-up day was bumped to the end of
+    # term with the other flex days). Teaching Ch 9 ahead of a Ch 5-7 exam
+    # is no stranger than Ch 5 ahead of the Ch 2-4 exam.
     ("Accelerating frames; tides", "9.1-9.2",
      "Math Methods: Ch. 8 (Vector Calculus)"),
     ("Angular velocity; rotating frames", "9.3-9.5",
@@ -186,9 +186,10 @@ CONTENT = [
     ("Normal coordinates; weakly coupled oscillators; start the double "
      "pendulum", "11.2-11.4",
      "Math Methods: Ch. 6 (Eigenvectors/Eigenvalues)"),
-    # Swapped 2026-09-02 (Will had catch-up then double pendulum): the
-    # double pendulum finishes Ch 11 two days before HW12 is due, and the
-    # catch-up day becomes the review day right before Exam 3.
+    # Swapped 2026-09-02 (Will had catch-up then double pendulum); the
+    # catch-up day sat before Exam 3 until 2026-10-08, when the flex days
+    # moved to the end of term. Chaos (Ch 12, not on Exam 3) now precedes
+    # Exam 3 as it did for Will (his chaos days were Dec 3 and 5, exam Dec 8).
     ("Double pendulum", "11.4", ""),
     # 12.1-12.3 -> 12.1-12.5 (audit 2026-09-03): Will's chaos notebooks are
     # bifurcation and Lyapunov exponents = 12.4-12.5; HW13 draws on both.
@@ -228,16 +229,21 @@ PREDECESSOR_ASSESSMENT = {
 }
 # Flex days (2026-10-08, Michael): days with no content of their own, the budget a slip spends and
 # the place extra time goes (Noether's theorem first, Taylor 7.8 beyond the simple version;
-# Jarzynski second). Will's catch-up days had no slides and no ink: genuinely open days, so they
-# are flex here too. Keyed by date like EXAMS. A flex day used for a topic is moved into CONTENT.
+# Jarzynski second). Will's catch-up days (Fri Nov 7 and Mon Nov 24 2025, before each of his last
+# two exams) and his last day (Wed Dec 10) had no slides, no ink and no notebook: genuinely open
+# days. Michael (2026-10-08 evening): do not hold them where Will held them; bump the content
+# forward and put the open days at the END of the term, marked flex OR Noether OR Jarzynski
+# (lilac on the course map and the schedule). Keyed by date like EXAMS. A flex day used for a
+# topic is moved into CONTENT.
+FLEX_TOPIC = "Flex day: Noether's theorem (Taylor 7.8) OR Jarzynski OR catch-up"
 FLEX = {
-    date(2026, 11, 13): "Catch-up / review day (Exam 2 is Monday)",
-    date(2026, 12, 4): "Catch-up / review day (Exam 3 is Monday)",
-    date(2026, 12, 14): "Last day: review and wrap-up",
+    date(2026, 12, 9): FLEX_TOPIC,
+    date(2026, 12, 11): FLEX_TOPIC,
+    date(2026, 12, 14): "Last day: flex (Noether OR Jarzynski OR wrap-up)",
 }
-PREDECESSOR_FLEX = {
-    date(2026, 11, 13): "2025-11-07",   # his catch-up day
-    date(2026, 12, 4): "2025-11-24",    # his catch-up day
+PREDECESSOR_FLEX = {                    # his three open days, in order
+    date(2026, 12, 9): "2025-11-07",    # his catch-up day before Exam 2
+    date(2026, 12, 11): "2025-11-24",   # his catch-up day before Exam 3
     date(2026, 12, 14): "2025-12-10",   # his last day
 }
 # Slips (2026-10-08): (date of the class, +1 or -1, note). +1 = that class ran a whole day long:
@@ -430,23 +436,20 @@ _PCCI = {   # the hand table; PCCI below is the effective one (a PCCI follows it
     date(2026, 11, 9): "8.28",
     # Ch 9 -- 9.1 before Exam 2 (Mon Nov 16), the rest after
     date(2026, 11, 11): "9.1",
-    date(2026, 11, 13): "Bring one Ch 5-7 problem you want worked in review",
-    date(2026, 11, 18): "9.7",
-    date(2026, 11, 20): "9.12",
+    date(2026, 11, 13): "9.7",
+    date(2026, 11, 18): "9.12",
     # Ch 11
-    date(2026, 11, 23): "11.1",
-    date(2026, 11, 30): "Read 11.3: in a sentence or two, what happens to "
+    date(2026, 11, 20): "11.1",
+    date(2026, 11, 23): "Read 11.3: in a sentence or two, what happens to "
                         "the energy of two weakly coupled pendulums over time?",
-    date(2026, 12, 2): "Write down the Lagrangian of a simple pendulum "
-                       "(length L, angle phi); no need to solve it",
-    date(2026, 12, 4): "Bring one Ch 8, 9, or 11 problem you want worked "
-                       "in review",
-    # Ch 12
-    date(2026, 12, 9): "Read 12.1-12.2: in a sentence, what does it mean "
+    date(2026, 11, 30): "Write down the Lagrangian of a simple pendulum "
+                        "(length L, angle phi); no need to solve it",
+    # Ch 12 (before Exam 3, as Will had it; the three flex days follow the exam)
+    date(2026, 12, 2): "Read 12.1-12.2: in a sentence, what does it mean "
                        "for an equation of motion to be linear, and what do "
                        "we lose when it isn't?",
-    date(2026, 12, 11): "Log into jupyterhub.smith.edu and open the driven-"
-                        "pendulum notebook on Moodle; bring your laptop",
+    date(2026, 12, 4): "Log into jupyterhub.smith.edu and open the driven-"
+                       "pendulum notebook on Moodle; bring your laptop",
     date(2026, 12, 14): "Bring one question for the final-exam review",
 }
 PCCI = effective_pcci(rows())
@@ -645,7 +648,7 @@ def build(outpath):
                "Final (Ch 12 required + optional grade-replacement)"))
 
     # Schedule sheet: two chunks split at fall break (TERM.write_schedule).
-    wb = TERM.write_schedule(rows, headers, [7, 7, 10, 34, 12, 40, 18, 10, 16], LAPTOP_DAYS)
+    wb = TERM.write_schedule(rows, headers, [7, 7, 10, 34, 12, 40, 18, 10, 16], LAPTOP_DAYS, flex_days=set(FLEX))
 
     # ------------------------------------------------ HW problem lists
     note = ("All problems from Taylor, Classical Mechanics (2005). Due "
