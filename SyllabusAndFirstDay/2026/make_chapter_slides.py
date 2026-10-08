@@ -106,7 +106,7 @@ def slide(ch, days):
     for label, lst, d in day_lists(cp["lookat"], days):
         h.append(f"<div class=day>{label}</div>{items(lst, d)}")
     h.append("</div>")
-    h.append("<div><h2>In class</h2>")
+    h.append("<div><h2>In-class options</h2>")
     for label, lst, d in day_lists(cp["inclass"], days):
         h.append(f"<div class=day>{label}</div>{items(lst)}")
     h.append("</div>")

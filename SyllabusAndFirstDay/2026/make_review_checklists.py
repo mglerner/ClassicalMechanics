@@ -63,14 +63,14 @@ DAY_LOGISTICS = {
     # Exam hand-backs (Michael 2026-10-04): the redo is one PDF on Moodle, due at the start of class one
     # week after the hand-back rounded to the next class day; the 'Exam N redo' item comes from
     # build_add_317.py examN-redo (a restore-only merge). Edit its dates if the hand-back moves.
-    date(2026, 10, 19): ["Hand back the graded Exam 1 papers. Say: redos go on Moodle as one PDF, due Mon Oct 26 at the "
+    date(2026, 10, 19): ["Hand back the graded Exam 1 papers; redos go on Moodle as one PDF, due Mon Oct 26 at the "
                          "start of class. The 'Exam 1 redo' Moodle item must already exist (build_add_317.py exam1-redo)."],
     date(2026, 11, 16): ["Exam 2: printed copies + a spare; per-problem score sheet ready"],   # exam is Mon Nov 16
-    date(2026, 11, 18): ["Hand back the graded Exam 2 papers. Say: redos go on Moodle as one PDF, due Mon Nov 30 at the "
+    date(2026, 11, 18): ["Hand back the graded Exam 2 papers; redos go on Moodle as one PDF, due Mon Nov 30 at the "
                          "start of class (no class Nov 25/27). The 'Exam 2 redo' Moodle item must already exist "
                          "(build_add_317.py exam2-redo)."],
     date(2026, 12, 7): ["Exam 3: printed copies + a spare; per-problem score sheet ready"],
-    date(2026, 12, 9): ["Hand back the graded Exam 3 papers. Say: redos go on Moodle as one PDF, due Wed Dec 16 at 13:20 "
+    date(2026, 12, 9): ["Hand back the graded Exam 3 papers; redos go on Moodle as one PDF, due Wed Dec 16 at 13:20 "
                         "(one week; after the last class, Mon Dec 14 -- Michael to confirm). The 'Exam 3 redo' Moodle item "
                         "must already exist (build_add_317.py exam3-redo)."],
     date(2026, 12, 11): ["iPad with the folio keyboard (AirPlay as usual) for the driven-pendulum notebook; students bring laptops"],

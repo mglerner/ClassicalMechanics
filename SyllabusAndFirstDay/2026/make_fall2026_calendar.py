@@ -215,7 +215,7 @@ PREDECESSOR_CONTENT = [
     "2025-09-10", "2025-09-12", "2025-09-15",                              # Ch 2
     "2025-09-17", "2025-09-19", "2025-09-22",                              # Ch 3
     "2025-09-24", "2025-09-26", "2025-09-29",                              # Ch 4
-    "2025-10-03", "2025-10-08", "2025-10-10",                              # Ch 5 days 1-3 (before our Exam 1)
+    "2025-10-03", ["2025-10-08", "2025-10-10"], "2025-10-10",              # Ch 5 days 1-3 (before our Exam 1); class 13 straddles: W22-W23 pulled forward (2026-10-07)
     "2025-10-15",                                                          # Ch 5 day 4
     "2025-10-17", "2025-10-20", "2025-10-22",                              # Ch 6 (Oct 22: guest)
     "2025-10-24", "2025-10-27", "2025-10-29",                              # Ch 7
@@ -237,7 +237,8 @@ assert set(PREDECESSOR_ASSESSMENT) == set(EXAMS), "one predecessor day per exam"
 
 
 def predecessor_days():
-    """{class number (meetings held): Will's day 'YYYY-MM-DD'}."""
+    """{class number (meetings held): Will's day 'YYYY-MM-DD', or a list when the class straddles two of his
+    days (the first is the main one)}."""
     out, content = {}, iter(PREDECESSOR_CONTENT)
     for i, d in enumerate(class_days()):
         out[i + 1] = PREDECESSOR_ASSESSMENT[d] if d in EXAMS else next(content)
@@ -431,7 +432,7 @@ PCCI = {
 # backup (private/F2026PrepPacks/_shared/will-problem-tables.md and the
 # Ch 1-4 deck extractions): "Look at" = problems students study before
 # class (solutions posted; OUR PCCIs are drawn from these, one per day),
-# "In class" = worked together in class, "Homework" = the graded sets
+# "In class" = his optional in-class menu (practice time, mostly never worked: Will, 2026-09-22), "Homework" = the graded sets
 # (kept exactly as Will assigned them, plus 7.46 on HW09). Days are
 # class days within the chapter in our sequence. This feeds the
 # "Chapter Problems" sheet and ChapterProblemLists.md, the source for the
