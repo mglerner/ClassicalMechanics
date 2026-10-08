@@ -7,7 +7,8 @@ InkML with a wall-clock timestamp. Grouping the strokes by date gives each
 class day; ordering the slides by first stroke gives what he did and when;
 the gap between his last content stroke and the end of the period is the
 problem-solving tail he left the students. This is the "Will as delivered"
-record that pass 1 of the class-plan recipe copies (ClassPlanPlaybook.md).
+record cited under shared/PrepRules.md, "Evidence of reach" (formerly by the retired
+ClassPlanPlaybook recipe).
 
 Input:  private/WillF2025/GoogleDrive/PHY317/ChN/Chapter N.pptx  (N = 1..12)
 Output: private/F2026PrepPacks/_shared/will-ink-timeline.md
