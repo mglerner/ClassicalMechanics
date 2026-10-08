@@ -1,5 +1,7 @@
 # PHY 317 F2026 Moodle build spec
 
+> **Note 2026-10-08:** the Google Sheet schedule embed described below was the August design; since 2026-09-28 students see only the generated course map (`private/MoodleBuild/coursemap_*.py`), and the calendar xlsx is a reference copy that feeds nothing.
+
 Companion to PHY 210's `MathematicalPhysics/SyllabusAndFirstDay/2026/
 MoodleBuildSpec.md`; same decisions wherever the courses overlap, so the
 two Moodle pages read as one instructor's. Decisions encoded 2026-09-02.
