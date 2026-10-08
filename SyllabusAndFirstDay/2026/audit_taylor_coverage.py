@@ -18,9 +18,10 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-import make_fall2026_calendar as CAL  # noqa: E402
+import make_fall2026_calendar as CAL  # noqa: E402  (puts shared/ on sys.path)
+import courses as C  # noqa: E402
 
-OCR = Path.home() / "coding/courses/ClassicalMechanics/private/TaylorOCR"
+OCR = C.private("317") / "TaylorOCR"
 PAGES = range(16, 538)     # through PDF 537 = book p520, Ch 12's last problems page (12.31-12.34)
 
 # ------------------------------------------------------------ OCR -> sections

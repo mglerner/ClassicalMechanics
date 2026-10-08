@@ -50,12 +50,13 @@ import sys
 import zipfile
 from collections import defaultdict
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
-HOME = Path.home()
-DRIVE = HOME / "coding/courses/ClassicalMechanics/private/WillF2025/GoogleDrive/PHY317"
-OUT = HOME / "coding/courses/ClassicalMechanics/private/F2026PrepPacks/_shared/will-ink-timeline.md"
-TZ = ZoneInfo("America/New_York")
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "shared"))
+import courses as C  # noqa: E402
+
+DRIVE = C.private("317") / "WillF2025/GoogleDrive/PHY317"
+OUT = C.packs("317") / "_shared/will-ink-timeline.md"
+TZ = C.TZ
 MIN_TRACES = 10          # fewer strokes on a slide in a day = a mark, not content
 CLUSTER_GAP = 15 * 60    # seconds; a longer silence ends the content cluster
 MIN_DAY_TRACES = 20      # fewer strokes in a day = not a class (prep, a stray)

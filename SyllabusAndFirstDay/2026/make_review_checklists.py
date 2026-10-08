@@ -29,17 +29,18 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import make_fall2026_calendar as CAL  # noqa: E402
-sys.path.insert(0, str(Path.home() / "coding/courses/shared"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "shared"))
+import courses as C                       # noqa: E402
 import coverage_gate as GATE              # noqa: E402
 import packnotes as PN                    # noqa: E402
 
 # Coverage gate (2026-10-01): a week before each set goes live, the checklist asks for
 # /coverage-check; at go-live it prints the mechanical gate (verdict on file, links exist,
 # notebook linked when the set needs a computer). See shared/coverage_gate.py.
-DESCRIPTIONS = GATE.description_blocks(Path.home() / "coding/courses/ClassicalMechanics/private/MoodleBuild/hw-descriptions.html")
-SOLUTIONS = Path.home() / "coding/courses/ClassicalMechanics/private/Solutions"
+DESCRIPTIONS = GATE.description_blocks(C.moodlebuild("317") / "hw-descriptions.html")
+SOLUTIONS = C.private("317") / "Solutions"
 
-PACKS = Path.home() / "coding/courses/ClassicalMechanics/private/F2026PrepPacks"
+PACKS = C.packs("317")
 AVAILABLE_DAYS_BEFORE = 10.5          # build_317.py
 FIRST_CLASS = date(2026, 9, 9)
 

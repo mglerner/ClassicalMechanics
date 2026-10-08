@@ -25,7 +25,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-sys.path.insert(0, str(Path.home() / "coding/courses/shared"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "shared"))
+import courses as C  # noqa: E402
 import packnotes as P  # noqa: E402
 import make_review_checklists as CHK
 import make_fall2026_calendar as CAL
@@ -38,10 +39,9 @@ PAD = 0.004              # page-height fraction added above and below a crop
 # Taylor's own problem statements. One shared scan for the whole course, so
 # the band map is shared too rather than copied into 27 packs. Lines look
 # like `3.10 = 115@.700-.756` -- PDF page (book page + 15), then the band.
-TEXTBOOK = (Path.home() / "coding/courses/ClassicalMechanics/private/WillF2025"
+TEXTBOOK = (C.private("317") / "WillF2025"
             / "MoodleCourse/extracted/01_Course_Information/Classical_Taylor.pdf")
-PROBLEM_BANDS = (Path.home() / "coding/courses/ClassicalMechanics/private"
-                 / "F2026PrepPacks/_shared")   # taylor-bands-ch*.txt, one per chapter
+PROBLEM_BANDS = C.packs("317") / "_shared"   # taylor-bands-ch*.txt, one per chapter
 
 
 def solutions_map(notes):

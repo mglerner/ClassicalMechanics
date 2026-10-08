@@ -16,36 +16,38 @@ Mountain Day (Wed Sep 23) took one and spent the holder (2026-09-24), so
 38 are held: 35 content + 3 exams. His homework sets are kept intact (HW
 Problem Lists sheet); only the due dates move.
 
+The term dates, the shared no-class days, class_days(), the common guards,
+due_on() and the xlsx writers are in shared/fall2026_calendar.py (2026-10-08);
+this file holds 317's tables, the HW guards, the chapter-problem writer and
+its sheet layout.
+
 Usage: python make_fall2026_calendar.py OUTPUT.xlsx
 """
 import sys
-from datetime import date, timedelta
+from datetime import date
 from pathlib import Path
 
 import openpyxl
-from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.styles import Alignment, Font, PatternFill
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "shared"))
+import fall2026_calendar as TERM  # noqa: E402
+from calendar_rows import make_rows, effective_pcci, flex_summary  # noqa: E402
 
 # ---------------------------------------------------------------- semester
-# Smith Fall 2026: classes Tue Sep 8 - Tue Dec 15.
-# MWF meetings; skip Mon Oct 12 (autumn recess), Wed Nov 25 + Fri Nov 27
-# (Thanksgiving). Cromwell Day (Tue Nov 10) doesn't hit MWF.
+# Smith Fall 2026 term dates and no-class days: shared/fall2026_calendar.py.
 # NO_CLASS values are the calendar row's text, not a reason appended to
 # "No class - ": Mountain Day is a Smith holiday, not an absence, and
 # Michael wants it to read as one.
 # PHY 317 meets W/F 1:20-2:35 and Mon 1:40-2:55 (registrar, verified
 # 2026-08-17) -- same MWF days, so Will's slot mapping holds (39 scheduled,
 # 38 held after Mountain Day).
-FIRST_DAY = date(2026, 9, 9)   # first MWF meeting (classes open Tue Sep 8)
-LAST_DAY = date(2026, 12, 14)  # last MWF meeting
-NO_CLASS = {
-    # Mountain Day 2026 fell on Wed Sep 23 (announced that morning; it is
-    # never known in advance). Adding it here drops the meeting, which
-    # shifts every later slot back one and consumes the Oct 5 holder below.
-    date(2026, 9, 23): "Mountain Day!!",
-    date(2026, 10, 12): "No class - Autumn recess",
-    date(2026, 11, 25): "No class - Thanksgiving",
-    date(2026, 11, 27): "No class - Thanksgiving",
-}
+FIRST_DAY = TERM.FIRST_DAY     # first MWF meeting (classes open Tue Sep 8)
+LAST_DAY = TERM.LAST_DAY       # last MWF meeting
+# Mountain Day 2026 (Wed Sep 23, in the core's NO_CLASS) dropped a meeting,
+# which shifted every later slot back one and consumed the Oct 5 holder below.
+# A 317-only lost meeting is added here; a Smith-wide one goes in the core's.
+NO_CLASS = dict(TERM.NO_CLASS)
 
 # Days students must bring a laptop. The schedule sheet (embedded in Moodle)
 # tags the topic "[BRING LAPTOP]" and the review checklist repeats it, so one
@@ -53,11 +55,8 @@ NO_CLASS = {
 LAPTOP_DAYS = {date(2026, 9, 11), date(2026, 12, 11)}
 
 def class_days():
-    d = FIRST_DAY
-    while d <= LAST_DAY:
-        if d.weekday() in (0, 2, 4) and d not in NO_CLASS:  # M W F
-            yield d
-        d += timedelta(days=1)
+    """The meetings held, in order (a generator)."""
+    return TERM.class_days(NO_CLASS)
 
 # ------------------------------------------------------------------ content
 # (topic, reading, prerequisites) per teaching slot, in Will Raven's F2025
@@ -251,10 +250,6 @@ SLIPS = [
 assert len(PREDECESSOR_CONTENT) == len(CONTENT), "one predecessor day per CONTENT row"
 assert set(PREDECESSOR_ASSESSMENT) == set(EXAMS), "one predecessor day per exam"
 assert set(PREDECESSOR_FLEX) == set(FLEX), "one predecessor day per flex day"
-
-import sys as _sys
-_sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "shared"))
-from calendar_rows import make_rows, effective_pcci, flex_summary  # noqa: E402
 
 
 def rows():
@@ -576,8 +571,7 @@ def build(outpath):
     n = len(days)
     seq = term_rows()                  # the asserts on the row counts live in shared/calendar_rows.py
     exam_days = dict(EXAMS)
-    assert all(d in days for d in PCCI), "PCCI assigned to a non-class day"
-    assert not any(d in exam_days for d in PCCI), "PCCI on an exam day"
+    TERM.check_pcci(PCCI, days, exam_days, "PCCI on an exam day")
 
     # ---- HW guards (the lens-grid rule: mechanical, hard-fail)
     hw_due = {}
@@ -627,150 +621,54 @@ def build(outpath):
     assert all(hw_due[i] < hw_due[i + 1] for i in range(1, 13)), (
         "HW due dates out of order")
 
-    # rows: one per class meeting; insert break markers and off-day HW rows
-    rows = []      # (week, class_no, date, topic, reading, prereq, pcci, hw, exam)
-    week_no = 0
-    last_week = None
-    class_no = 0
-    breaks_seen = set()
-    due_on = {}
+    # HW Due labels by date (TERM.due_on, append semantics). A graced set is
+    # simply listed on both dates; the column is narrow and Moodle carries
+    # which one is the deadline (Due vs Cut-off).
+    hw_labels = []
     for hw, due, _through, chapters, _covers, _problems in HWS:
-        # A graced set is simply listed on both dates; the column is narrow
-        # and Moodle carries which one is the deadline (Due vs Cut-off).
         label = f"HW{hw:02d} ({ch_label(chapters)})"
         for d in [due] + ([HW_GRACE[hw]] if hw in HW_GRACE else []):
-            due_on.setdefault(d, []).append(label)
-    for d, label in EXTRA_DUE.items():
-        due_on.setdefault(d, []).append(label)
-    for d in days:
-        iso_week = d.isocalendar()[1]
-        if iso_week != last_week:
-            week_no += 1
-            last_week = iso_week
-        for bd, why in NO_CLASS.items():
-            if bd not in breaks_seen and bd < d:
-                breaks_seen.add(bd)
-                rows.append((None, None, bd, why,
-                             "", "", "", "", ""))
-        r = seq[class_no]
-        assert r["date"] == d
-        topic, reading, prereq = r["topic"], r["reading"], (r["extra"][0] if r["extra"] else "")
-        exam = topic if r["kind"] == "assessment" else ""
-        hw = "; ".join(due_on.pop(d, []))
-        class_no += 1
-        rows.append((week_no, class_no, d, topic, reading, prereq,
-                     PCCI.get(d, ""), hw, exam))
-    for bd, why in NO_CLASS.items():
-        if bd not in breaks_seen:
-            rows.append((None, None, bd, why,
-                         "", "", "", "", ""))
-    # A due or grace date on a non-class day gets its own row. None today
-    # (HW13 was in reading period until 2026-09-24, hence the label; relabel
-    # it if a date ever lands on a Tue/Thu instead).
-    for d, labels in due_on.items():
-        rows.append((None, None, d, "Reading period", "", "", "",
-                     "; ".join(labels), ""))
-    rows.sort(key=lambda r: r[2])
-    rows.append((None, None, date(2026, 12, 19),
-                 "Final exam period Dec 19-22 (self-scheduled)",
-                 "", "", "", "",
-                 "Final (Ch 12 required + optional grade-replacement)"))
-
-    wb = openpyxl.Workbook()
-    ws = wb.active
-    ws.title = "Schedule"
-
-    header_font = Font(bold=True)
-    header_fill = PatternFill("solid", fgColor="D9E1F2")
-    break_fill = PatternFill("solid", fgColor="FCE4D6")
-    exam_fill = PatternFill("solid", fgColor="FFF2CC")
-    thin = Side(style="thin", color="BBBBBB")
-    border = Border(left=thin, right=thin, top=thin, bottom=thin)
-    wrap = Alignment(wrap_text=True, vertical="top")
+            hw_labels.append((d, label))
+    due_on = TERM.due_on(hw_labels, EXTRA_DUE.items())
 
     headers = ["Week", "Class", "Date", "Topics", "Reading Due",
                "Prerequisites", "PCCI", "HW Due", "Exams"]
-    ncols = len(headers)
-    last_col = openpyxl.utils.get_column_letter(ncols)
-    # Single canonical block, written as TWO CHUNKS (header row repeated),
-    # split at fall break: the Moodle Page embeds chunk 1's range until
-    # fall break, then chunk 2's (one URL-parameter edit; see
-    # MoodleBuildSpec.md). The ranges are printed on every run.
-    chunk2_start = date(2026, 10, 14)  # first class after autumn recess
+    # One row per class meeting, with break markers and the final-exam row.
+    # A due or grace date on a non-class day gets its own row. None today
+    # (HW13 was in reading period until 2026-09-24, hence the label; relabel
+    # it if a date ever lands on a Tue/Thu instead).
+    rows = TERM.schedule_rows(
+        days, seq, NO_CLASS, PCCI, due_on, ncols=len(headers),
+        extra=lambda r: (r["extra"][0] if r["extra"] else "",),   # the prerequisites
+        off_day_topic="Reading period",
+        final=("Final exam period Dec 19-22 (self-scheduled)",
+               "Final (Ch 12 required + optional grade-replacement)"))
 
-    def web_header(r):
-        for j, h in enumerate(headers, start=1):
-            cell = ws.cell(row=r, column=j, value=h)
-            cell.font = header_font
-            cell.fill = header_fill
-            cell.border = border
-            cell.alignment = wrap
-
-    web_header(1)
-    r, split_row = 1, None
-    for (wk, cn, d, topic, reading, prereq, pcci, hw, exam) in rows:
-        if split_row is None and d >= chunk2_start:
-            r += 1
-            web_header(r)
-            split_row = r
-        r += 1
-        vals = [wk, cn, d.strftime("%a %b %-d"), topic + (" [BRING LAPTOP]" if d in LAPTOP_DAYS else ""), reading, prereq,
-                pcci, hw, exam]
-        for j, v in enumerate(vals, start=1):
-            cell = ws.cell(row=r, column=j, value=v)
-            cell.border = border
-            cell.alignment = wrap
-            if cn is None:
-                cell.fill = break_fill
-            elif exam:
-                cell.fill = exam_fill
-    for j, w in enumerate([7, 7, 10, 34, 12, 40, 18, 10, 16]):
-        col = openpyxl.utils.get_column_letter(1 + j)
-        ws.column_dimensions[col].width = w
-    # The "embed ranges" were for the August Google Sheet embed, replaced by the course map on
-    # 2026-09-28 (students never see a sheet); the xlsx is a reference copy only.
-    print(f"(legacy) schedule embed ranges: chunk 1 = A1:{last_col}{split_row - 1}, "
-          f"chunk 2 = A{split_row}:{last_col}{r}")
+    # Schedule sheet: two chunks split at fall break (TERM.write_schedule).
+    wb = TERM.write_schedule(rows, headers, [7, 7, 10, 34, 12, 40, 18, 10, 16], LAPTOP_DAYS)
 
     # ------------------------------------------------ HW problem lists
-    hws = wb.create_sheet("HW Problem Lists")
     note = ("All problems from Taylor, Classical Mechanics (2005). Due "
             "FRIDAYS at 10:00 PM on Moodle from HW02 on (decided with the "
             "class 2026-09-19) unless the Due column says otherwise -- the "
             "exceptions sit right before an exam or a break. Custom "
             "problems are written out in full on the Moodle assignment "
             "page.")
-    hws.append([note])
-    hws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=5)
-    hws.cell(row=1, column=1).alignment = wrap
-    hws.row_dimensions[1].height = 45
-    hws.append(["HW", "Due", "Covers", "Chapters", "Problems"])
-    for cell in hws[2]:
-        cell.font = header_font
-        cell.fill = header_fill
-        cell.border = border
-    for i, (hw, due, through, chapters, covers, problems) in enumerate(
-            HWS, start=3):
-        vals = [f"HW{hw:02d}", due.strftime("%a %b %-d"), covers,
-                ", ".join(str(c) for c in sorted(chapters)), problems]
-        for j, v in enumerate(vals, start=1):
-            cell = hws.cell(row=i, column=j, value=v)
-            cell.border = border
-            cell.alignment = wrap
-    for j, w in enumerate([8, 11, 40, 10, 60]):
-        hws.column_dimensions[openpyxl.utils.get_column_letter(j + 1)].width = w
+    TERM.write_list_sheet(
+        wb, "HW Problem Lists", note, 45,
+        ["HW", "Due", "Covers", "Chapters", "Problems"],
+        [[f"HW{hw:02d}", due.strftime("%a %b %-d"), covers,
+          ", ".join(str(c) for c in sorted(chapters)), problems]
+         for hw, due, through, chapters, covers, problems in HWS],
+        [8, 11, 40, 10, 60])
 
     # -------------------------------------------------- grade categories
-    gc = wb.create_sheet("Grade Categories")
-    gc.append(["Category", "Number", "Drop", "Points Each", "Total Points"])
-    for cell in gc[1]:
-        cell.font = header_font
-        cell.fill = header_fill
     # Revised 2026-09-04 (Michael): each exam is three problems, one per
     # chapter, and the final's required problem is one more of the same
     # kind -- so every exam-type problem is worth exactly 60 points
     # (3 x 60 = 180 per exam), and the remainder is split as participation
-    # 112 + homework 288. Course total must be exactly 1000.
+    # 112 + homework 288. Course total must be exactly 1000
+    # (TERM.write_grade_categories asserts it).
     # FLAG (2026-10-05, copied from 210's generator): 39 is the number of
     # meetings SCHEDULED; 38 were held after Mountain Day. The syllabus
     # promises 39 - 4 = 35 days x 3.2 points (build_317.py validate() has
@@ -782,13 +680,7 @@ def build(outpath):
         ("Exams", 3, 0, 180),
         ("Final exam (Ch 12 problem)", 1, 0, 60),
     ]
-    total = sum((num - drop) * pts for _, num, drop, pts in cats)
-    assert total == 1000, f"grade categories sum to {total}, not 1000"
-    for i, (name, num, drop, pts) in enumerate(cats, start=2):
-        gc.append([name, num, drop, pts, f"=(B{i}-C{i})*D{i}"])
-    gc.append(["Total", None, None, None, f"=SUM(E2:E{1 + len(cats)})"])
-    for j, w in enumerate([34, 9, 7, 12, 13]):
-        gc.column_dimensions[openpyxl.utils.get_column_letter(j + 1)].width = w
+    total = TERM.write_grade_categories(wb, cats, [34, 9, 7, 12, 13])
 
     write_chapter_problems(wb, Path(outpath).with_name("ChapterProblemLists.md"))
 
