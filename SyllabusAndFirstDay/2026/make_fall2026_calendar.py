@@ -139,7 +139,7 @@ CONTENT = [
     # That is the rule working as designed (TODO item 6), not a cut.
     ("Spring forces; simple harmonic oscillator; the 2D oscillator", "5.1-5.2",
      "Knight: Ch. 15 (Oscillations)\nMath Methods: Ch. 6 (Oscillations)"),
-    ("2D oscillators; damped SHO", "5.3-5.4",
+    ("Damped SHO", "5.3-5.4",
      "Math Methods: Ch. 1 (ODEs)"),
     ("Forced damped SHO; resonance", "5.5-5.6",
      "Math Methods: Ch. 3 (Complex Numbers), Ch. 1 (ODEs)"),
