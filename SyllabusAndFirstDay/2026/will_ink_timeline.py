@@ -66,7 +66,6 @@ WINDOW_SLOP = dt.timedelta(minutes=15)   # ink this far outside the period still
 PERIOD = dt.timedelta(minutes=75)
 START = {0: dt.time(15, 5)}          # Monday
 START_DEFAULT = dt.time(14, 45)      # Wed / Fri
-OUR_FIRST_CLASS = dt.date(2026, 9, 9)
 
 
 def slide_texts(z, slide_path):
