@@ -18,9 +18,7 @@ import shutil
 import sys
 from pathlib import Path
 
-# Imported here, not per function: without Pillow the crops used to come back empty and every
-# crops.json was overwritten with no crops, silently (2026-10-05).
-import numpy as np
+# Imported here, not per function (see shared/answer_sheets.py, 2026-10-05).
 from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "shared"))
