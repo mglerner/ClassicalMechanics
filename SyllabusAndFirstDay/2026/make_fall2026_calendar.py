@@ -137,7 +137,7 @@ CONTENT = [
     # class had been lost) was SPENT on 2026-09-24: Mountain Day took Wed
     # Sep 23, so every slot from Sep 25 on moved back one into this one.
     # That is the rule working as designed (TODO item 6), not a cut.
-    ("Spring forces; simple harmonic oscillator", "5.1-5.2",
+    ("Spring forces; simple harmonic oscillator; the 2D oscillator", "5.1-5.2",
      "Knight: Ch. 15 (Oscillations)\nMath Methods: Ch. 6 (Oscillations)"),
     ("2D oscillators; damped SHO", "5.3-5.4",
      "Math Methods: Ch. 1 (ODEs)"),
