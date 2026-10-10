@@ -40,6 +40,10 @@ Terms used in the output:
                   does not extend it
   tail            class end minus last content
 
+A slide-day whose ink times are ambiguous (shared/inkml.py uncertainty(): a part stored
+out of time order, or two slides alternating faster than a hand can switch) carries a `?`
+after its minutes, and the reasons are listed under "Uncertain ink times".
+
 Strokes more than WINDOW_SLOP outside the class period (prep ink that morning,
 a fix on Sunday) are set aside and listed under "out-of-class ink", so they
 never stretch a day's content block. Exam days and days he did not ink do not
@@ -54,7 +58,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "shared"))
 import courses as C  # noqa: E402
-from inkml import deck  # noqa: E402  (the shared parser: strokes, wrap fix, slide order)
+from inkml import deck, reason_text, uncertainty  # noqa: E402  (the shared parser: strokes, wrap fix, slide order, ambiguity)
 
 DRIVE = C.private("317") / "WillF2025/GoogleDrive/PHY317"
 OUT = C.packs("317") / "_shared/will-ink-timeline.md"
@@ -75,10 +79,13 @@ def class_window(day):
 
 def main():
     days = defaultdict(list)          # date -> [(t, ch, slide, title)]
+    unc = {}                          # (date, ch, slide) -> [reason]: times not trustworthy (inkml.uncertainty)
     for ch in range(1, 13):
         path = DRIVE / f"Ch{ch}" / f"Chapter {ch}.pptx"
         if not path.exists():
             continue
+        for (d, n), rs in uncertainty(path).items():
+            unc[(dt.date.fromisoformat(d), ch, n)] = rs
         for n, title, times in deck(path):
             for t in times:
                 days[t.date()].append((t, ch, n, title))
@@ -91,7 +98,9 @@ def main():
            "block; `tail` = what was left of the 75 minutes, which his roadmap slides handed to problem-solving "
            "time. A slide with fewer than %d strokes in a day is a mark (a circled problem number), listed but "
            "not counted as content. Minutes per slide are first stroke to last stroke on that slide that day; "
-           "slides overlap when he flipped back." % MIN_TRACES,
+           "slides overlap when he flipped back. A `?` after a slide's minutes means its ink times are not "
+           "trustworthy that day (stored out of time order, or alternating with another slide faster than a hand "
+           "can switch); the reasons are listed under \"Uncertain ink times\" below." % MIN_TRACES,
            "", "## Class days", "",
            "| # | Will's date | Class | First ink | Last content | Content min | Tail min | Slides in ink order (chapter.slide: minutes) |",
            "| - | ----------- | ----- | --------- | ------------ | ----------- | -------- | -------------------------------------------- |"]
@@ -99,6 +108,7 @@ def main():
     k = 0
     stray = []
     outside = []
+    flagged = []
     for day in sorted(days):
         start, end = class_window(day)
         allL = sorted(days[day])
@@ -129,8 +139,10 @@ def main():
         cmin = (cluster_end - start).total_seconds() / 60
         tail = (end - cluster_end).total_seconds() / 60
         order = sorted(per, key=lambda s: min(per[s]))
+        q = {s: "?" if (day, *s) in unc else "" for s in per}
+        flagged += [(day, s) for s in order if q[s]]
         seq = ", ".join(
-            f"{c}.{n}: {(max(per[(c, n)]) - min(per[(c, n)])).total_seconds() / 60:.0f}"
+            f"{c}.{n}: {(max(per[(c, n)]) - min(per[(c, n)])).total_seconds() / 60:.0f}{q[(c, n)]}"
             + ("" if (c, n) in content_slides else " (mark)")
             for c, n in order)
         out.append(f"| {k} | {day:%a %b %d %Y} | {start:%H:%M}-{end:%H:%M} | {first:%H:%M} | "
@@ -142,7 +154,7 @@ def main():
             ts = per[(c, n)]
             mark = "" if (c, n) in content_slides else " (mark)"
             detail.append(f"| {c}.{n}{mark} | {min(ts):%H:%M} | {max(ts):%H:%M} | {len(ts)} | "
-                          f"{(max(ts) - min(ts)).total_seconds() / 60:.0f} | {titles[(c, n)]} |")
+                          f"{(max(ts) - min(ts)).total_seconds() / 60:.0f}{q[(c, n)]} | {titles[(c, n)]} |")
         detail.append("")
     if stray:
         out += ["", "Days with fewer than %d strokes inside the class window (prep or strays, not classes): " % MIN_DAY_TRACES
@@ -160,6 +172,12 @@ def main():
         ts = sorted(t for _, t in tails)
         out += ["", f"Across {len(tails)} class days: content median {cs[len(cs) // 2]} min "
                 f"(range {cs[0]}-{cs[-1]}), tail median {ts[len(ts) // 2]} min (range {ts[0]}-{ts[-1]})."]
+    if flagged:
+        out += ["", "## Uncertain ink times", "",
+                "Marked `?` above. Found by shared/inkml.py `uncertainty()` (2026-10-10); the minutes are the "
+                "parser's best reading, not fact. Do not quote them in a plan without saying so.", ""]
+        out += [f"- {d:%a %b %d %Y}, {c}.{n}: " + "; ".join(reason_text(r, lambda m, c=c: f"{c}.{m}") for r in unc[(d, c, n)]) + "."
+                for d, (c, n) in flagged]
     OUT.write_text("\n".join(out + detail) + "\n")
     print(f"wrote {OUT} ({k} class days, {len(stray)} stray days)")
 
