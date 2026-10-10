@@ -17,6 +17,8 @@ Class periods, F2025 (his Ch 1 slide 1): Mon 3:05-4:20 PM, Wed/Fri 2:45-4:00
 PM, Eastern time. Timestamps in the InkML are UTC; converted with zoneinfo so
 the November classes (after the DST change) come out right.
 
+The InkML parsing, including the wrap fix described here, lives in
+shared/inkml.py since 2026-10-09 (shared with shared/canned_slides.py).
 PowerPoint stores each trace's timeOffset as a signed 32-bit count of tenths
 of a millisecond, so within one ink context the offsets climb to about
 +214,748 ms, wrap to about -214,748 ms, and climb again (found 2026-09-27 by
@@ -47,12 +49,12 @@ chapter and slide, as the packs already do.
 import datetime as dt
 import re
 import sys
-import zipfile
 from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "shared"))
 import courses as C  # noqa: E402
+from inkml import deck  # noqa: E402  (the shared parser: strokes, wrap fix, slide order)
 
 DRIVE = C.private("317") / "WillF2025/GoogleDrive/PHY317"
 OUT = C.packs("317") / "_shared/will-ink-timeline.md"
@@ -60,63 +62,10 @@ TZ = C.TZ
 MIN_TRACES = 10          # fewer strokes on a slide in a day = a mark, not content
 CLUSTER_GAP = 15 * 60    # seconds; a longer silence ends the content cluster
 MIN_DAY_TRACES = 20      # fewer strokes in a day = not a class (prep, a stray)
-WRAP_MS = 2 ** 32 / 1e4   # timeOffset wraps every 429,496.7 ms (signed 32-bit tenths of ms)
-GUARD_MS = WRAP_MS / 2    # strokes are stored slightly out of order (seen: -44 s); a stroke earlier than this is an unhandled wrap
 WINDOW_SLOP = dt.timedelta(minutes=15)   # ink this far outside the period still counts as class
 PERIOD = dt.timedelta(minutes=75)
 START = {0: dt.time(15, 5)}          # Monday
 START_DEFAULT = dt.time(14, 45)      # Wed / Fri
-
-
-def slide_texts(z, slide_path):
-    xml = z.read(slide_path).decode("utf8", "replace")
-    parts = re.findall(r"<a:t>([^<]*)</a:t>", xml)
-    text = " ".join(p.strip() for p in parts if p.strip())
-    text = re.sub(r"\s+", " ", text)
-    return text[:70]
-
-
-def deck(path):
-    """Yield (slide_no, title, [local timestamps]) for every slide of a deck."""
-    z = zipfile.ZipFile(path)
-    names = set(z.namelist())
-    pres = z.read("ppt/presentation.xml").decode()
-    rels = z.read("ppt/_rels/presentation.xml.rels").decode()
-    rid2t = {}
-    for m in re.finditer(r"<Relationship [^>]*>", rels):
-        s = m.group(0)
-        rid2t[re.search(r'Id="([^"]+)"', s).group(1)] = re.search(r'Target="([^"]+)"', s).group(1)
-    order = re.findall(r'<p:sldId [^>]*r:id="(rId\d+)"', pres)
-    for n, r in enumerate(order, 1):
-        t = "ppt/" + rid2t[r]
-        rp = t.replace("slides/", "slides/_rels/") + ".rels"
-        rr = z.read(rp).decode() if rp in names else ""
-        inks = ["ppt/" + x.replace("../", "") for x in re.findall(r'Target="(\.\./ink/[^"]+)"', rr)]
-        times = []
-        for ink in inks:
-            x = z.read(ink).decode("utf8", "replace")
-            ctx = {}
-            for m in re.finditer(r'<inkml:context xml:id="([^"]+)".*?timeString="([^"]+)"', x, re.S):
-                ts = dt.datetime.fromisoformat(m.group(2).replace("Z", "+00:00"))
-                if ts.tzinfo is None:
-                    ts = ts.replace(tzinfo=dt.timezone.utc)
-                ctx[m.group(1)] = ts
-            carry = {}
-            prev = {}
-            for m in re.finditer(r"<inkml:trace ([^>]*)>", x):
-                a = m.group(1)
-                c = re.search(r'contextRef="#([^"]+)"', a).group(1)
-                o = re.search(r'timeOffset="([^"]+)"', a)
-                o = float(o.group(1)) if o else 0.0
-                o += carry.get(c, 0.0)
-                if c in prev and o < prev[c] - WRAP_MS / 2:
-                    carry[c] = carry.get(c, 0.0) + WRAP_MS
-                    o += WRAP_MS
-                prev[c] = o
-                if o < -GUARD_MS:
-                    raise SystemExit(f"{path.name} {ink} context {c}: stroke at {o:.0f} ms precedes its context; unwrap failed")
-                times.append((ctx[c] + dt.timedelta(milliseconds=o)).astimezone(TZ))
-        yield n, slide_texts(z, t), times
 
 
 def class_window(day):
