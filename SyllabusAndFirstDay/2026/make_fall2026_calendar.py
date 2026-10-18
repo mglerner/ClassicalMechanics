@@ -252,6 +252,7 @@ PREDECESSOR_FLEX = {                    # his three open days, in order
 # already covered: it is dropped, later content moves one meeting earlier, and a new flex day
 # appears before the next flex day. shared/slip.py appends here and moves the pack folders.
 SLIPS = [
+    (date(2026, 10, 19), +1, 'Mon Oct 19 is the Exam 1 hand-back (review + class time on revisions after an exam that ran too long); class 16 covers a minimum of its plan, the rest continues Wed Oct 21'),
 ]
 assert len(PREDECESSOR_CONTENT) == len(CONTENT), "one predecessor day per CONTENT row"
 assert set(PREDECESSOR_ASSESSMENT) == set(EXAMS), "one predecessor day per exam"
