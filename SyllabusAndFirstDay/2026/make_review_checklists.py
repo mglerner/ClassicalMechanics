@@ -72,8 +72,9 @@ DAY_LOGISTICS = {
     date(2026, 12, 7): ["Exam 3: printed copies + a spare; per-problem score sheet ready"],
     date(2026, 12, 9): ["Hand back the graded Exam 3 papers; redos go on Moodle as one PDF, due Wed Dec 16 at 13:20 "
                         "(one week; after the last class, Mon Dec 14 -- Michael to confirm). The 'Exam 3 redo' Moodle item "
-                        "must already exist (build_add_317.py exam3-redo)."],
-    date(2026, 12, 11): ["iPad with the folio keyboard (AirPlay as usual) for the driven-pendulum notebook; students bring laptops"],
+                        "must already exist (build_add_317.py exam3-redo).",
+                        # moved from Dec 11 with the slip (Michael, 2026-10-17): the chaos-sensitivity class is now Dec 9
+                        "iPad with the folio keyboard (AirPlay as usual) for the driven-pendulum notebook; students bring laptops"],
 }
 
 
