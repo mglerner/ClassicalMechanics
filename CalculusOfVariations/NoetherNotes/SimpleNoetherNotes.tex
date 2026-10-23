@@ -5,6 +5,13 @@
 \input{macros}
 
 \usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+% Colors for the shortest-path example (from the 2023 board slide)
+\definecolor{etablue}{rgb}{0.0,0.25,0.8}
+\definecolor{deadred}{rgb}{0.8,0.0,0.0}
+\definecolor{lemmagreen}{rgb}{0.0,0.5,0.15}
 
 % Theorems and definitions
 \newtheorem{firstorderinvariant}{First-Order Invariant}
@@ -299,6 +306,159 @@ be positive, but that's the contradiction we were looking for: any
 time you choose an $A$ that isn't identically zero, I can make an
 $\eta$ that leads to a contradiction. Conclusion: given the stated
 conditions, $A(t) \equiv 0$.
+
+\subsection{Example: the shortest path between two points}
+\label{sec:shortest-path}
+
+Let's put the last two sections to work on a question where we
+already know the answer: what is the shortest path between two points
+$(x_1,y_1)$ and $(x_2,y_2)$ in the plane? Everyone ``knows'' it's a
+straight line, which makes it a nice test of the machinery. Our goal
+is to find the $y(x)$ that makes the length functional
+\eqref{eq:lengthJ}
+\begin{equation}
+  \label{eq:shortJ}
+  J = \int_{x_1}^{x_2}\sqrt{1+y'^2}\,dx
+\end{equation}
+as small as possible, with $y(x_1)=y_1$ and $y(x_2)=y_2$ pinned down.
+We could simply plug $F=\sqrt{1+y'^2}$ into \eqref{eq:simple-el}, but
+it's worth walking through the argument of \S\ref{sec:simple-el} once
+with a specific $F$ in hand, since every step is something you can
+draw. In the figures, the curves we get to choose are
+\textcolor{etablue}{blue}, the term that dies is
+\textcolor{deadred}{red}, and the Fundamental Lemma and what it hands
+us are \textcolor{lemmagreen}{green}.
+
+\begin{figure}[!htb]
+  \centering
+  \begin{tikzpicture}[baseline=(ax0.south west)]
+    \begin{axis}[name=ax0, width=0.36\textwidth, height=0.3\textwidth,
+      axis lines=left, xmin=0, xmax=6, ymin=0, ymax=1.8,
+      xtick={1,5}, xticklabels={$x_1$,$x_2$}, ytick=\empty,
+      xlabel={$x$}, ylabel={$\eta$}, clip=false,
+      title={(a) some arbitrary $\eta(x)$}]
+      \addplot[etablue, very thick, domain=1:5, samples=80]
+        {(x-1)*(5-x)*(0.3+0.1*sin(deg(2.5*x)))};
+      \fill[etablue] (axis cs:1,0) circle (2pt) (axis cs:5,0) circle (2pt);
+      \node[etablue, font=\small, align=center] at (axis cs:3,-0.75)
+        {$\eta(x_1)=\eta(x_2)=0$};
+    \end{axis}
+  \end{tikzpicture}\hfill
+  \begin{tikzpicture}[baseline=(ax1.south west)]
+    \begin{axis}[name=ax1, width=0.36\textwidth, height=0.3\textwidth,
+      axis lines=left, xmin=0, xmax=6, ymin=0, ymax=3,
+      xtick={1,5}, xticklabels={$x_1$,$x_2$}, ytick=\empty,
+      xlabel={$x$}, ylabel={$y$}, clip=false,
+      title={(b) $Y(x)$ for $\epsilon=1$}]
+      \addplot[black, thick, domain=1:5, samples=60]
+        {0.5+0.15*(x-1)+0.05*(x-1)^2};
+      \addplot[etablue, very thick, domain=1:5, samples=80]
+        {0.5+0.15*(x-1)+0.05*(x-1)^2 + (x-1)*(5-x)*(0.3+0.1*sin(deg(2.5*x)))};
+      \fill (axis cs:1,0.5) circle (2pt) (axis cs:5,1.9) circle (2pt);
+      \node[font=\small, below right] at (axis cs:2.6,1.0) {$y(x)$};
+      \node[etablue, font=\small, left] at (axis cs:2.0,2.2) {$Y(x)$};
+    \end{axis}
+  \end{tikzpicture}\hfill
+  \begin{tikzpicture}[baseline=(ax2.south west)]
+    \begin{axis}[name=ax2, width=0.36\textwidth, height=0.3\textwidth,
+      axis lines=left, xmin=0, xmax=6, ymin=0, ymax=1.3,
+      xtick={1,2.6,3.4,5}, xticklabels={$x_1$,$t_1$,$t_2$,$x_2$},
+      ytick=\empty, xlabel={$x$}, ylabel={$\eta$}, clip=false,
+      title={(c) the bump of \S\ref{sec:fundlemma}}]
+      \addplot[lemmagreen, very thick, domain=1:2.6] {0};
+      \addplot[lemmagreen, very thick, domain=2.6:3.4, samples=60]
+        {(x-2.6)^3*(3.4-x)^3/0.004096};
+      \addplot[lemmagreen, very thick, domain=3.4:5] {0};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{The pictures behind \S\ref{sec:shortest-path}. (a) Any
+    curve $\eta$ that vanishes at both ends. (b) The varied curve
+    $Y=y+\epsilon\eta$ for $\epsilon=1$; it starts and ends where $y$
+    does. (c) The bump $\eta=(x-t_1)^3(t_2-x)^3$ inside $(t_1,t_2)$,
+    zero outside, from the proof of the Fundamental Lemma.}
+  \label{fig:shortest-path}
+\end{figure}
+
+First, we pick some arbitrary curve \textcolor{etablue}{$\eta(x)$}
+that vanishes at both ends, \textcolor{etablue}{$\eta(x_1) =
+  \eta(x_2) = 0$} (Fig.~\ref{fig:shortest-path}a), and build the
+family of varied curves
+\begin{equation}
+  Y(x) = y(x) + \epsilon\eta(x).
+\end{equation}
+Because $\eta$ vanishes at the ends, every $Y$ starts and ends at the
+same two points as $y$ (Fig.~\ref{fig:shortest-path}b), so every $Y$
+is a fair competitor. The length of a varied curve is
+\begin{equation}
+  J(\epsilon) = \int_{x_1}^{x_2}\sqrt{1+Y'^2}\,dx,
+  \qquad Y'(x) = y'(x) + \epsilon\eta'(x),
+  \qquad\textrm{so}\qquad \pd{Y'}{\epsilon} = \eta'(x).
+\end{equation}
+If $y$ is our extremal, then $J(\epsilon)$ is stationary at $\epsilon=0$
+(for a shortest path, that's where it bottoms out), so $\dinline{J}{\epsilon}=0$ when $\epsilon=0$. The
+limits don't depend on $\epsilon$, so we can differentiate under the
+integral sign:
+\begin{equation}
+  \fd{J}{\epsilon}
+  = \int_{x_1}^{x_2}\frac{1}{2}\,\frac{1}{\sqrt{1+Y'^2}}\,2Y'\pd{Y'}{\epsilon}\,dx
+  = \int_{x_1}^{x_2}\frac{Y'\eta'}{\sqrt{1+Y'^2}}\,dx .
+\end{equation}
+Setting $\epsilon=0$ turns the $Y$'s into $y$'s:
+\begin{equation}
+  \label{eq:short-de}
+  \left(\fd{J}{\epsilon}\right)_{\epsilon=0}
+  = \int_{x_1}^{x_2}\frac{y'(x)\,\eta'(x)}{\sqrt{1+y'^2}}\,dx = 0 .
+\end{equation}
+This is the same spot we were in in \S\ref{sec:simple-el} just before
+integrating by parts: we know
+something about $\eta'$, but the Fundamental Lemma wants $\eta$. So we
+integrate by parts with
+\begin{equation*}
+  u = \frac{y'}{\sqrt{1+y'^2}}, \qquad dv = \eta'(x)\,dx,
+  \qquad\textrm{so}\qquad
+  du = \fd{}{x}\left(\frac{y'}{\sqrt{1+y'^2}}\right)dx, \qquad v = \eta(x),
+\end{equation*}
+which gives
+\begin{equation}
+  0 = \left(\fd{J}{\epsilon}\right)_{\epsilon=0}
+  = \underbrace{\textcolor{deadred}{\left[\frac{y'\,\eta(x)}{\sqrt{1+y'^2}}\right]_{x_1}^{x_2}}}_{\textcolor{deadred}{=\,0\textrm{ since }\eta(x_1)=\eta(x_2)=0}}
+  - \int_{x_1}^{x_2}\eta(x)\,\fd{}{x}\left(\frac{y'}{\sqrt{1+y'^2}}\right)dx .
+\end{equation}
+The boundary term dies for exactly the reason we insisted on
+$\eta(x_1)=\eta(x_2)=0$. What's left is
+\begin{equation}
+  \int_{x_1}^{x_2}\eta(x)\,\fd{}{x}\left(\frac{y'}{\sqrt{1+y'^2}}\right)dx = 0
+\end{equation}
+for \emph{every} $\eta$ that vanishes at the ends. That is precisely
+the hypothesis of the \textcolor{lemmagreen}{Fundamental Lemma}
+(\S\ref{sec:fundlemma}), with
+$A(x) = \dinline{}{x}\bigl(y'/\sqrt{1+y'^2}\bigr)$. To see it in
+pictures: if $A$ were positive somewhere, we would park the
+\textcolor{lemmagreen}{bump} of Fig.~\ref{fig:shortest-path}c right
+there, and the integral would come out positive instead of zero. So
+\begin{equation}
+  \textcolor{lemmagreen}{\fd{}{x}\left(\frac{y'}{\sqrt{1+y'^2}}\right) = 0
+  \quad\Rightarrow\quad \frac{y'}{\sqrt{1+y'^2}} = C}
+\end{equation}
+for some constant $C$. Squaring and solving, $y'^2 = C^2/(1-C^2)$
+(note $|C|<1$ automatically, since $|y'| < \sqrt{1+y'^2}$), and $y'$
+has the same sign as $C$, so
+\begin{equation}
+  \textcolor{lemmagreen}{y' = \frac{C}{\sqrt{1-C^2}} = \textrm{const}
+  \quad\Rightarrow\quad y = mx + b,}
+\end{equation}
+\textcolor{lemmagreen}{a straight line}, with $m$ and $b$ fixed by
+making it pass through our two points. Plugging $F=\sqrt{1+y'^2}$
+into \eqref{eq:simple-el} gets us here in one line, since
+$\pdinline{F}{y}=0$ and $\pdinline{F}{y'} = y'/\sqrt{1+y'^2}$, which
+is a nice check.
+
+Two honest caveats. First, $(\dinline{J}{\epsilon})_{\epsilon=0}=0$
+tells us the straight line is the only \emph{extremal}; that it is a
+minimum (rather than a maximum or something in between) we are happy
+to take from geometry here. Second, writing the path as $y(x)$ only
+lets us compare curves that never double back in $x$; that's no loss
+for the shortest path, but it's an assumption we made.
 
 And now we can prove a version of Noether's Theorem!
 
