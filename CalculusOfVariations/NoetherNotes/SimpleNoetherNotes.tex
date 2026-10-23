@@ -22,7 +22,7 @@
 \newcommand{\Xdmu}{\Xd^\mu}
 \newcommand{\xdmu}{\xd^\mu}
 \newcommand{\pmu}{p_\mu}
-\newcommand{\pdmu}{\dot{p}^\mu}
+\newcommand{\pdmu}{\dot{p}_\mu}
 % \pagestyle{empty}
 \numberwithin{equation}{section}
 
@@ -46,7 +46,7 @@ These notes closely follow Dwight Neuenschwander's absolutely lovely book.\cite{
 
 \section{Background Definitions}
 
-Functionals ($J$) are definite integrals that map functions (which we'll call Lagrangians, $L$) to real numbers. Our workhorse examples will be the length functional:
+Functionals ($J$) map functions to real numbers. Ours are definite integrals, and we'll call the integrand the Lagrangian, $L$. Our workhorse examples will be the length functional:
 
 \begin{equation}
   \label{eq:lengthJ}
@@ -58,12 +58,12 @@ and the action functional:
 
 \begin{equation}
   \label{eq:action}
-  J = \int_a^b (K-U) dx
+  J = \int_a^b (K-U) dt
 \end{equation}
 
-We always  call the argument of the functional ``the Lagrangian,''
+We always  call the integrand of the functional ``the Lagrangian,''
 denoted $L$. This is slightly nonstandard terminology, but we want to
-have a single word for the argument of the functional that includes
+have a single word for the integrand of the functional that includes
 length as well as the standard $K-U$. For the rest of this handout,
 unless otherwise specified, you may assume that general equations and
 theorems are referring to the following functional:
@@ -91,7 +91,7 @@ We will call a function $F(\epsilon)$ first-order invariant in $\epsilon$ if its
 \end{equation}
 
 The main reason we'll want this particular condition becomes clear
-when you look at  $(\dinline{F}{\epsilon})_{\epsilon=0}$, also written $(\dinline{F}{\epsilon})_{\epsilon=0}$, i.e. $\dinline{F}{\epsilon}$ evaluated at
+when you look at  $(\dinline{F}{\epsilon})_{\epsilon=0}$, also written $F'(0)$, i.e. $\dinline{F}{\epsilon}$ evaluated at
 $\epsilon=0$. First-order invariance is exactly the condition we need
 for this quantity to be zero.
 
@@ -183,10 +183,10 @@ for one specific $\eta$ with the given boundary conditions. That is, we are cons
   J = J(\epsilon) = \int_{x_1}^{x_2}F(x,Y,Y')dx = J(\epsilon,y,y',\eta)
 \end{equation}
 
-further, we know that we want to make $J$ a minimum when $\epsilon=0$ (that's another way of saying we want $y$ to be extremal). I.e., we want
+further, we know that we want to make $J$ an extremum (for example, a minimum) when $\epsilon=0$ (that's another way of saying we want $y$ to be extremal). I.e., we want
 
 \begin{equation*}
-  \fd{J}{\epsilon}=0 \qquad\textrm{when}\quad\epsilon=0 \\
+  \fd{J}{\epsilon}=0 \qquad\textrm{when}\quad\epsilon=0
 \end{equation*}
 or
 \begin{equation}
@@ -198,14 +198,14 @@ We write out $\fd{J}{\epsilon}$ via the chain rule:
 
 \begin{equation}
   \label{eq:djdechain}
-  \fd{J}{\epsilon} = \int_{x_1}^{x_2}\pd{F}{Y}\pd{Y}{\epsilon} + \pd{F}{Y'}\pd{Y'}{\epsilon} dx
- = \int_{x_1}^{x_2}\pd{F}{Y}\eta(x) + \pd{F}{Y'}\eta'(x) dx
+  \fd{J}{\epsilon} = \int_{x_1}^{x_2}\left(\pd{F}{Y}\pd{Y}{\epsilon} + \pd{F}{Y'}\pd{Y'}{\epsilon}\right) dx
+ = \int_{x_1}^{x_2}\left(\pd{F}{Y}\eta(x) + \pd{F}{Y'}\eta'(x)\right) dx
 \end{equation}
 
 Now, we want \ref{eq:djde0}, so we set $\epsilon=0$ to turn the $Y$'s into $y$'s and get
 
 \begin{equation}
-  \left( \fd{J}{\epsilon}\right)_{\epsilon=0} =  \int_{x_1}^{x_2}\pd{F}{y}\eta(x) + \pd{F}{y'}\eta'(x) dx = 0
+  \left( \fd{J}{\epsilon}\right)_{\epsilon=0} =  \int_{x_1}^{x_2}\left(\pd{F}{y}\eta(x) + \pd{F}{y'}\eta'(x)\right) dx = 0
 \end{equation}
 
 Integrating the second term by parts gave us
@@ -221,8 +221,8 @@ It is at this point that we start to think about $\eta$. If our path
 $y$ is an extremal, then \ref{eq:djde0} must be true for {\it any}
 twice-differentiable $\eta$ satisfying the boundary conditions, as any
 such family of curves gives $y$ for $\epsilon=0$. That being the case,
-we can apply the Fundamental Lemma to the integrated term. It tells us
-that the term in parenthesis must be zero, yielding
+we can apply the Fundamental Lemma (\S\ref{sec:fundlemma}) to the remaining integral. It tells us
+that the term in parentheses must be zero, yielding
 
 \begin{equation}
   \label{eq:simple-el}
@@ -235,15 +235,15 @@ The proof for the multidimensional case was exactly the same, except that we had
 Wait, what fundamental lemma?
 
 \subsection{The Fundamental Lemma of the Calculus of Variations}
+\label{sec:fundlemma}
 
 
-If, $A(t)$ and $\eta(t)$ are twice-differentiable functions on the
-interval $[a,b]$, where $\eta(a)=\eta(b)=0$, then if $\eta(t)$ is not
-identically zero in
+If $A(t)$ is continuous on the interval $[a,b]$, and
 \begin{equation*}
-  \int_a^b A(t)\eta(t)dt=0,
+  \int_a^b A(t)\eta(t)dt=0
 \end{equation*}
-it must be the case that $A(t) \equiv 0 \quad \forall t \in [a,b]$. To
+for {\it every} twice-differentiable $\eta(t)$ with $\eta(a)=\eta(b)=0$,
+then it must be the case that $A(t) \equiv 0 \quad \forall t \in [a,b]$. To
 be clear, the lemma doesn't say ``the only way the integral of the
 product of two functions can be zero is if one is identically zero.''
 Rather, it says ``if we are given that this thing is true for
@@ -251,7 +251,7 @@ Rather, it says ``if we are given that this thing is true for
 \equiv 0$.''
 
 We'll use a proof by contradiction, constructing a ``bad'' function that
-met the conditions and was positive in a neighborhood in which $\eta$
+met the conditions and was positive in a neighborhood in which $A$
 was positive. I got this from Neuenschwander, who mentions that he got
 it from Logan 1977. Here goes:
 
@@ -262,24 +262,24 @@ $b$.'' We'll pretend that the lemma isn't true, i.e. that $A(t)$ can
 be nonzero somewhere in that range. We'll find that, much to our
 surprise, it leads to a contradiction: no matter what we do, letting
 $A(t)$ be nonzero in $[a,b]$ means we {\it cannot} have the
-integral equal to zero. We'll conclude, then, that the only way to
+integral equal to zero for every $\eta$. We'll conclude, then, that the only way to
 satisfy our collection of conditions (i.e. have the integral equal to
 zero) is for $A(t)$ to be zero in $[a,b]$.
 
 Let's do it. First, let's assume that there is some point $c$ between
 $a$ and $b$ where $A(c) \neq 0$. Without loss of generality, let's
-assume $A(c) > 0$ (you can rewrite the proof yourself for $A(c) < 0$;
+assume $A(c) > 0$ (if $c$ is an endpoint, continuity hands us a point strictly inside $(a,b)$ where $A$ is still nonzero, so use that one instead; you can rewrite the proof yourself for $A(c) < 0$;
 it looks exactly the same but with a few signs switched).
 
 Now, since $A(t)$ is continuous, there must be some neighborhood
 around $c$ for which $A$ is positive. We'll call this interval
-$(t_1,t_2)$. All we want to do now is to construct an appropriate $\eta$
+$(t_1,t_2)$, chosen small enough to sit inside $[a,b]$. All we want to do now is to construct an appropriate $\eta$
 to get a contradiction. Geometrically, it's easy to see what we want:
 we have an $A(t)$ that has a little positive bump. If we could make an
 $\eta$ that was positive in the same region, but zero everywhere else,
 the integral of the product would have to be positive.
 
-Having said that, it's straightforward enough. We want an $eta$ to be
+Having said that, it's straightforward enough. We want $\eta$ to be
 zero at $t_1$ and $t_2$, so we'll want something like $(t - t_1)(t - t_2)$
 that zeros out at $t_1$ and $t_2$. 
 
@@ -294,7 +294,7 @@ make
          (t-t_1)^3(t_2-t)^3 & \mbox{if $t_1 < t < t_2$};\\
         0 & \mbox{otherwise}.\end{array} \right. \] 
 
-Well, that does does exactly what we wanted: the integral now has to
+Well, that does exactly what we wanted: the integral now has to
 be positive, but that's the contradiction we were looking for: any
 time you choose an $A$ that isn't identically zero, I can make an
 $\eta$ that leads to a contradiction. Conclusion: given the stated
@@ -325,29 +325,29 @@ Since $L$ is invariant,
 
 \begin{eqnarray}
   0 = \left( \fd{L}{\epsilon}\right)_{\epsilon=0} 
-  &=& \sum_i{\left( \pd{L}{\xmu}\pd{\xmu}{\epsilon} +  \pd{L}{\xdmu}\pd{\xdmu}{\epsilon} \right)_{\epsilon=0}} \\
-  &=&\sum_i{\left( \pd{L}{\xmu}\Xmu +  \pd{L}{\xdmu}\Xdmu \right)}.\notag
+  &=& \sum_\mu{\left( \pd{L}{\xmu}\pd{\xmu}{\epsilon} +  \pd{L}{\xdmu}\pd{\xdmu}{\epsilon} \right)_{\epsilon=0}} \\
+  &=&\sum_\mu{\left( \pd{L}{\xmu}\Xmu +  \pd{L}{\xdmu}\Xdmu \right)}.\notag
 \end{eqnarray}
 
 That takes care of invariance. Since we want $\xmu$ to be extremal, we
 can now use the Euler-Lagrange equation on the first term:
 
 \begin{equation}
-0 = \sum_i{\left( \fd{}{t}\left(\pd{L}{\xdmu}\right)\Xmu +  \pd{L}{\xdmu}\Xdmu \right)}.
+0 = \sum_\mu{\left( \fd{}{t}\left(\pd{L}{\xdmu}\right)\Xmu +  \pd{L}{\xdmu}\Xdmu \right)}.
 \end{equation}
 
-Using the chain rule and pulling the time derivative out of the sum,
+Using the product rule and pulling the time derivative out of the sum,
 we get
 
 \begin{equation}
-  0 = \fd{}{t}\left( \sum_i{\pd{L}{\xdmu}\Xmu} \right)
+  0 = \fd{}{t}\left( \sum_\mu{\pd{L}{\xdmu}\Xmu} \right)
 \end{equation}
 
-which is our big punchline. we define a ``Noether momentum'' (noting
+which is our big punchline. We define a ``Noether momentum'' (noting
 that it doesn't have to have the units of momentum) to be
 
 \begin{equation}
-  P(\xmu,\xdmu) = \sum_i{\pd{L}{\xdmu}\Xmu}
+  P(\xmu,\xdmu) = \sum_\mu{\pd{L}{\xdmu}\Xmu}
 \end{equation}
 
 and note that it's conserved, i.e. it doesn't change with time!
@@ -355,7 +355,7 @@ and note that it's conserved, i.e. it doesn't change with time!
 
 
 \subsection{The Euler-Lagrange Equations}
-Let $J$ be as in Eq. \ref{eq:fmain}. Then the ${\xmu(t)}$ that make J an
+Let $J$ be as in Eq. \ref{eq:fmain}. Then the $\{\xmu(t)\}$ that make $J$ an
 extremal are the solutions of the $N$ Euler-Lagrange equations
 
 \begin{equation*}
@@ -363,7 +363,7 @@ extremal are the solutions of the $N$ Euler-Lagrange equations
 \end{equation*}
 
 We gave two proofs of the Euler-Lagrange equations, but they
-all boiled down to an integration by parts and an application of the
+both boiled down to an integration by parts and an application of the
 fundamental lemma. One is included in section \ref{sec:simple-el}.
 
 {\bf In fact, this was enough for us to prove version 1 of Noether's theorem! The proof is reproduced in section \ref{sec:simplenoether}.}
@@ -390,7 +390,7 @@ equations. Following Neuenschwander, we'll call them ELE I and ELE II:
 We also got two conservation laws (conservation of linear momentum and conservation of energy) directly from ELE II and ELE I.
 
 \subsection{Why do we care if functionals are extremal?}
-We've mentioned the importance of tasks like finding geodesics, the brachistochrone problem, etc. The most central application to physics, however, is Hamilton's principle, which says that the path a particle takes from point $a$ to $b$ will be the one that minimizes the action as defined in \ref{eq:action}. Section \ref{sec:n2l-ham} shows how Hamilton's principle is a restatement of Newton's second law.
+We've mentioned the importance of tasks like finding geodesics, the brachistochrone problem, etc. The most central application to physics, however, is Hamilton's principle, which says that the path a particle takes from point $a$ to $b$ will be the one that minimizes (more precisely, makes stationary) the action as defined in \ref{eq:action}. Section \ref{sec:n2l-ham} shows how Hamilton's principle is a restatement of Newton's second law.
 
 \pagebreak
 \section{More Examples}
@@ -595,9 +595,9 @@ To go in the other direction, we'll follow Neuenschwander. Fair warning: while t
   \pd{(K-U)}{q^\mu} = \fd{}{t}\pd{(K-U)}{\dot{q}^\mu}.
 \end{equation}
 
-we will then cleverly recognize this as the Euler-Lagrange equation with Lagrangian $L=K-U$ and be content. Let's begin!
+We will then cleverly recognize this as the Euler-Lagrange equation with Lagrangian $L=K-U$ and be content. Let's begin!
 
-We can write each of our box coordinates as a function of our generalized coordinates:
+We can write each of our box coordinates as a function of our generalized coordinates (with no explicit time dependence, which is what lets \eqref{eq:dxmchain} below skip a $\pdinline{x^\mu}{t}$ term):
 
 \begin{equation}
   x^\mu = x^\mu(q^\nu),
@@ -610,7 +610,7 @@ where $\mu,\nu=1,2,...,N$ and we're careful to use different sets of indices. Us
   \dot{x}^\mu = \pd{x^\mu}{q^\nu}\dot{q}^\nu
 \end{equation}
 
-Our $\dot{q}$'s (as well as our $q$'s, $x$'s, and $\dot{x}$'s) are mutually independent, so we can write
+Our $\dot{q}$'s are mutually independent (and, as arguments of the Lagrangian, independent of the $q$'s), so we can write
 
 \begin{equation}
   \label{eq:kd}
@@ -624,7 +624,7 @@ where $\delta^\nu_\rho$ is the Kronecker delta function, i.e. 1 when $\nu=\rho$ 
   \pd{\dot{x}^\mu}{\dot{q}^\rho} = \pd{x^\mu}{q^\rho}
 \end{equation}
 
-We'll need that result briefly, and it's worth getting out of the way first. Now and we can look at N2L:
+We'll need that result briefly, and it's worth getting out of the way first. Now we can look at N2L:
 
 \begin{equation}
   \label{eq:n2lcart}
@@ -649,7 +649,7 @@ Now, take a step back for a moment. We're trying to get to \ref{eq:elprecursor},
   -\pd{U}{q^\nu} = \fd{}{t}\left[ m\dot{x}_\mu\pd{x^\mu}{q^\nu}\right] - m\dot{x}_\mu\fd{}{t}\pd{x^\mu}{q^\nu}
 \end{equation}
 
-The first term on the right hand side is exactly we went through the trouble of deriving \ref{eq:pdxdqd}, so we plug it in to get
+The first term on the right hand side is exactly why we went through the trouble of deriving \ref{eq:pdxdqd}, so we plug it in to get
 
 \begin{equation}
   -\pd{U}{q^\nu} = \fd{}{t}\left[ m\dot{x}_\mu\pd{\dot{x}^\mu}{\dot{q}^\nu}\right] - m\dot{x}_\mu\fd{}{t}\pd{x^\mu}{q^\nu}
@@ -661,7 +661,7 @@ For the second term, we're going to want to move the time derivative over to the
   -\pd{U}{q^\nu} = \fd{}{t}\left[ m\dot{x}_\mu\pd{\dot{x}^\mu}{\dot{q}^\nu}\right] - m\dot{x}_\mu\pddx{x^\mu}{q^\nu}{q^\sigma}\dot{q}^\sigma
 \end{equation}
 
-The first term is starting to look a bit like kinetic energy $m\dot{x}_\mu\dot{x}^\mu$. In fact, writing K that way, we see that we're just looking at $\pdinline{K}{\dot{q}^\nu}$ : $\pdinline{}{\dot{q}}(0.5m\dot{x}^2) = m\dot{x}\pdinline{\dot{x}}{\dot{q}}$. Using that and pulling $\pdinline{}{q^\nu}$ out front in the second term:
+The first term is starting to look a bit like kinetic energy $\frac{1}{2}m\dot{x}_\mu\dot{x}^\mu$. In fact, writing K that way, we see that we're just looking at $\pdinline{K}{\dot{q}^\nu}$ : $\pdinline{}{\dot{q}}(0.5m\dot{x}^2) = m\dot{x}\pdinline{\dot{x}}{\dot{q}}$. Using that and pulling $\pdinline{}{q^\nu}$ out front in the second term:
 
 \begin{equation}
   -\pd{U}{q^\nu} = \fd{}{t}\pd{K}{\dot{q}^\nu} - m\dot{x}_\mu\pd{}{q^\nu}\left[ \pd{x^\mu}{q^\sigma}\dot{q}^\sigma \right]
@@ -714,7 +714,7 @@ $L'$ at $\epsilon=0$ is just $L$.
 
 \begin{eqnarray}
   \label{eq:rtit}
-  t'=t+\epsilon\tau &\Rightarrow& \fd{t}{t'} = 1+\epsilon\dot{\tau} \\
+  t'=t+\epsilon\tau &\Rightarrow& \fd{t'}{t} = 1+\epsilon\dot{\tau} \\
   &\Rightarrow& \fd{}{\epsilon}\left(\fd{t'}{t}\right) = \dot{\tau} \notag
 \end{eqnarray}
 
@@ -746,14 +746,14 @@ So, \ref{eq:rtistart} turns, via \ref{eq:rtiterm1} and \ref{eq:rtiterm2}, into
 
 \begin{equation}
   \label{eq:rtialmostdone}
-  L\dot{\tau} + \pd{L}{t}\tau + \pd{L}{q^{\mu}}\zeta^\mu +  \pd{L}{\dot{q}^{\mu}} \left[ \fd{\dot{q}^{\mu{'}}}{\epsilon} \right]_{\epsilon=0}
+  L\dot{\tau} + \pd{L}{t}\tau + \pd{L}{q^{\mu}}\zeta^\mu +  \pd{L}{\dot{q}^{\mu}} \left[ \fd{\dot{q}^{\mu{'}}}{\epsilon} \right]_{\epsilon=0} = 0
 \end{equation}
 
 we're not quite done yet, as we still have the bracketed term to deal with. Well, let's write $\dot{q}^{\mu{'}}$ out explicitly:
 
 
 \begin{equation}
-  \dot{q}^{\mu{'}} = \fd{q^{\mu{'}}}{t'} = \frac{dq^\mu + \epsilon\zeta^\mu}{dt + \epsilon\tau} = \frac{\dot{q}^\mu + \epsilon\dot{\zeta}^\mu}{1+\epsilon\dot{\tau}}
+  \dot{q}^{\mu{'}} = \fd{q^{\mu{'}}}{t'} = \frac{dq^\mu + \epsilon\, d\zeta^\mu}{dt + \epsilon\, d\tau} = \frac{\dot{q}^\mu + \epsilon\dot{\zeta}^\mu}{1+\epsilon\dot{\tau}}
 \end{equation}
 
 Where the last equivalence comes from dividing everything by $dt$.
