@@ -7,6 +7,10 @@ private
 *.log
 *.out
 *.synctex.gz
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
 
 # Mac
 .DS_Store

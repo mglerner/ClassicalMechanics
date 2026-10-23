@@ -1,0 +1,811 @@
+% Forked 2026-10-23 from the Earlham PHY 360 (Mathematical Physics) handout
+% ~/Library/CloudStorage/Dropbox/__EARLHAM/Courses/360-Mathematical_Physics/ClassHandouts/SimpleNoetherNotes.tex
+% (rev. 2023-03-24) for Smith PHY 317 (Classical Mechanics). Changes since the fork: git log.
+\documentclass[12pt]{article}
+\input{macros}
+
+\usepackage[utf8]{inputenc}
+
+% Theorems and definitions
+\newtheorem{firstorderinvariant}{First-Order Invariant}
+% These are defined so that I can switch to q_i if I think it's clearer.
+\newcommand{\muidx}{\mu}
+\newcommand{\coord}{x}
+\newcommand{\Coord}{X}
+\newcommand{\xd}{\dot{\coord}}
+\newcommand{\xdd}{\ddot{\coord}}
+\newcommand{\Xd}{\dot{\Coord}}
+\newcommand{\xmu}{\coord^\mu}
+\newcommand{\xnu}{\coord^\nu}
+\newcommand{\xmup}{\coord^{\mu{'}}}
+\newcommand{\Xmu}{\Coord^\mu}
+\newcommand{\Xdmu}{\Xd^\mu}
+\newcommand{\xdmu}{\xd^\mu}
+\newcommand{\pmu}{p_\mu}
+\newcommand{\pdmu}{\dot{p}^\mu}
+% \pagestyle{empty}
+\numberwithin{equation}{section}
+
+\begin{document}
+\title{Highlights from the Noether's Theorem part of our class}
+\author{Michael G. Lerner}
+\date{\today}
+
+\maketitle
+
+
+These notes closely follow Dwight Neuenschwander's absolutely lovely book.\cite{neuenschwander2017emmy} They are rearranged, streamlined, and simplified to better fit a small number of lectures.
+
+
+
+\setlength{\unitlength}{1in}
+
+\begin{picture}(6,.1) 
+\put(0,0) {\line(1,0){6.25}}         
+\end{picture}
+
+\section{Background Definitions}
+
+Functionals ($J$) are definite integrals that map functions (which we'll call Lagrangians, $L$) to real numbers. Our workhorse examples will be the length functional:
+
+\begin{equation}
+  \label{eq:lengthJ}
+%  J = \left {\int_a^b} \sqrt{1+\left(\fd{y}{x}\right)^2} dx \right. % should work@!!@
+  J = \bigintss_a^b \sqrt{1+\left(\fd{y}{x}\right)^2} dx
+\end{equation}
+
+and the action functional:
+
+\begin{equation}
+  \label{eq:action}
+  J = \int_a^b (K-U) dx
+\end{equation}
+
+We always  call the argument of the functional ``the Lagrangian,''
+denoted $L$. This is slightly nonstandard terminology, but we want to
+have a single word for the argument of the functional that includes
+length as well as the standard $K-U$. For the rest of this handout,
+unless otherwise specified, you may assume that general equations and
+theorems are referring to the following functional:
+
+Let $J$ be a functional whose Lagrangian depends on one independent
+variable $t$, $N$ dependent variables $\xmu(t)$, and their $N$
+derivatives $\xdmu$, $\muidx=1,2,...,N$:
+
+\begin{equation}
+  \label{eq:fmain}
+  J = \int_a^b L(t,\xmu,\xdmu)dt
+\end{equation}
+
+We will often need to consider functions that are first-order invariant.
+
+\begin{firstorderinvariant}
+We will call a function $F(\epsilon)$ first-order invariant in $\epsilon$ if its power series expansion has $a_1=0$:
+
+\begin{equation}
+  \label{eq:firstorderinvariant}
+  \begin{matrix}
+    F(\epsilon) &=& a_0 &+& a_1\epsilon &+& a_2\epsilon^2 &+&...& \\ 
+                &=& a_0 & &             &+& a_2\epsilon^2 &+&...& \quad .
+ \end{matrix}
+\end{equation}
+
+The main reason we'll want this particular condition becomes clear
+when you look at  $(\dinline{F}{\epsilon})_{\epsilon=0}$, also written $(\dinline{F}{\epsilon})_{\epsilon=0}$, i.e. $\dinline{F}{\epsilon}$ evaluated at
+$\epsilon=0$. First-order invariance is exactly the condition we need
+for this quantity to be zero.
+
+\end{firstorderinvariant}
+
+\section{Examples}
+
+Before we move on to the heavy lifting of proofs, let's talk about
+where we're going. First, we're going to start with classical
+mechanics, where this useful thing called the Lagrangian is defined as
+$L\equiv K-U$, the difference between the kinetic and potential energy
+of a system. If we write that out for a one-dimensional, one-particle
+system (here, we'll use a pool ball on a horizontal pool table), we get
+
+\begin{eqnarray}
+  \textrm{Kinetic:} & K &= \frac{1}{2}m\xd^2 \\
+  \textrm{Potential:} & U &= mgh\\
+  \label{eq:poolL}
+  \textrm{Lagrangian:} & L &= \frac{1}{2}m\xd^2 - mgh
+\end{eqnarray}
+
+It turns out (\S\ref{sec:n2l-ham}) that the ``action,'' i.e. the
+definite integral of that thing, is pretty important. We'll be able to
+say two things about it pretty quickly. First, let's see what happens
+to it under a translation in space. We'll define that to be
+
+\begin{equation}
+  \coord \to \coord' = \coord + \epsilon
+\end{equation}
+
+which gives us a nice one-parameter family of translations (change
+$\epsilon$, get a new translation). We want to say that $J$ is
+invariant under that translation. This will be the first half of our
+``invariant + extremal = conserved quantity.'' 
+
+\begin{eqnarray}
+  J & =& \int_a^b L(t,\xmu,\xdmu)dt\\
+    & =&  \int_a^b \left(\frac{1}{2}m\xd^2 - mgh \right)dt
+\end{eqnarray}
+
+Under our coordinate transformation, we replace each instance of
+$\coord$ with $\coord + \epsilon$. Since $\coord$ doesn't actually
+appear at all in our functional, we can pretty clearly conclude that
+the functional is invariant under the transformation. We could just as
+easily write that last sentence as
+
+\begin{equation}
+  \label{eq:introalmost}
+  0 = \left(\pd{L}{\epsilon}\right)_{\epsilon=0} = \textrm{something.}
+\end{equation}
+
+The second key to Noether's theorem is ``extremal.'' We'll find out
+that, when functionals are extremal, we can use the Euler-Lagrange
+equations. Applying the Euler-Lagrange equations to the ``something''
+in \eqref{eq:introalmost} tells us that 
+
+\begin{equation}
+  0 = \fd{}{t}\left(\pd{L}{\xd}\right)
+\end{equation}
+
+\noindent i.e. that $\pd{L}{\xd}$ is conserved. Well that's
+convenient! If we look at \eqref{eq:poolL}, we see that taking that
+derivative gives us $m\xd$, or the momentum. Ta-da! We've shown that
+an invariant (our translation in space) plus the fact that $J$ had to
+be extremal gave us a conservation law!
+
+Similarly, we'll find that a translational symmetry in time ($t \to t'
+= t + \epsilon$) will give us conservation of energy!
+
+\section{When are functionals extremal, part 1}
+\subsection{Simple Euler-Lagrange}
+\label{sec:simple-el}
+
+We want to find the $y(x)$ which will make
+
+\begin{equation}
+  J = \int_{x_1}^{x_2}F(x,y,y')dx
+\end{equation}
+
+an extremal (also called stationary). Consider the set of varied curves
+
+\begin{equation}
+  Y(x) = y(x) + \epsilon\eta(x), \qquad \eta(x_1) = \eta(x_2) = 0
+\end{equation}
+
+for one specific $\eta$ with the given boundary conditions. That is, we are considering a continuous single-parameter family of curves for which $\epsilon=0$ gives us $y(x)$. Then we have $J$ as a function of $\epsilon$, and we can write this in several ways:
+
+\begin{equation}
+  J = J(\epsilon) = \int_{x_1}^{x_2}F(x,Y,Y')dx = J(\epsilon,y,y',\eta)
+\end{equation}
+
+further, we know that we want to make $J$ a minimum when $\epsilon=0$ (that's another way of saying we want $y$ to be extremal). I.e., we want
+
+\begin{equation*}
+  \fd{J}{\epsilon}=0 \qquad\textrm{when}\quad\epsilon=0 \\
+\end{equation*}
+or
+\begin{equation}
+  \label{eq:djde0}
+  \left( \fd{J}{\epsilon}\right)_{\epsilon=0} = 0
+\end{equation}
+
+We write out $\fd{J}{\epsilon}$ via the chain rule:
+
+\begin{equation}
+  \label{eq:djdechain}
+  \fd{J}{\epsilon} = \int_{x_1}^{x_2}\pd{F}{Y}\pd{Y}{\epsilon} + \pd{F}{Y'}\pd{Y'}{\epsilon} dx
+ = \int_{x_1}^{x_2}\pd{F}{Y}\eta(x) + \pd{F}{Y'}\eta'(x) dx
+\end{equation}
+
+Now, we want \ref{eq:djde0}, so we set $\epsilon=0$ to turn the $Y$'s into $y$'s and get
+
+\begin{equation}
+  \left( \fd{J}{\epsilon}\right)_{\epsilon=0} =  \int_{x_1}^{x_2}\pd{F}{y}\eta(x) + \pd{F}{y'}\eta'(x) dx = 0
+\end{equation}
+
+Integrating the second term by parts gave us
+
+\begin{equation}
+  \left( \fd{J}{\epsilon}\right)_{\epsilon=0} =  \int_{x_1}^{x_2} \left( \pd{F}{y} - \fd{}{x}\pd{F}{y'} \right)\eta(x)dx + 
+  \left[ \pd{F}{y'}\eta(x)\right]_{x_1}^{x_2}
+\end{equation}
+
+Our boundary conditions $\eta(x_1) = \eta(x_2) = 0$ make the bracketed term zero.
+
+It is at this point that we start to think about $\eta$. If our path
+$y$ is an extremal, then \ref{eq:djde0} must be true for {\it any}
+twice-differentiable $\eta$ satisfying the boundary conditions, as any
+such family of curves gives $y$ for $\epsilon=0$. That being the case,
+we can apply the Fundamental Lemma to the integrated term. It tells us
+that the term in parenthesis must be zero, yielding
+
+\begin{equation}
+  \label{eq:simple-el}
+  \fd{}{x}\pd{F}{y'} = \pd{F}{y}.
+\end{equation}
+
+The proof for the multidimensional case was exactly the same, except that we had to add indices to keep track of each dimension. When we used the summation convention, even the chain rule in \ref{eq:djdechain} looked identical.
+
+
+Wait, what fundamental lemma?
+
+\subsection{The Fundamental Lemma of the Calculus of Variations}
+
+
+If, $A(t)$ and $\eta(t)$ are twice-differentiable functions on the
+interval $[a,b]$, where $\eta(a)=\eta(b)=0$, then if $\eta(t)$ is not
+identically zero in
+\begin{equation*}
+  \int_a^b A(t)\eta(t)dt=0,
+\end{equation*}
+it must be the case that $A(t) \equiv 0 \quad \forall t \in [a,b]$. To
+be clear, the lemma doesn't say ``the only way the integral of the
+product of two functions can be zero is if one is identically zero.''
+Rather, it says ``if we are given that this thing is true for
+{\it all} $\eta$ satisfying these conditions, then it must be true that $A
+\equiv 0$.''
+
+We'll use a proof by contradiction, constructing a ``bad'' function that
+met the conditions and was positive in a neighborhood in which $\eta$
+was positive. I got this from Neuenschwander, who mentions that he got
+it from Logan 1977. Here goes:
+
+``Proof by contradiction'' may be a bit rusty for some of you. The
+strategy is as follows: the above claim is ``if some collection of
+conditions is true, then $A(t)$ must be zero everywhere between $a$ and
+$b$.'' We'll pretend that the lemma isn't true, i.e. that $A(t)$ can
+be nonzero somewhere in that range. We'll find that, much to our
+surprise, it leads to a contradiction: no matter what we do, letting
+$A(t)$ be nonzero in $[a,b]$ means we {\it cannot} have the
+integral equal to zero. We'll conclude, then, that the only way to
+satisfy our collection of conditions (i.e. have the integral equal to
+zero) is for $A(t)$ to be zero in $[a,b]$.
+
+Let's do it. First, let's assume that there is some point $c$ between
+$a$ and $b$ where $A(c) \neq 0$. Without loss of generality, let's
+assume $A(c) > 0$ (you can rewrite the proof yourself for $A(c) < 0$;
+it looks exactly the same but with a few signs switched).
+
+Now, since $A(t)$ is continuous, there must be some neighborhood
+around $c$ for which $A$ is positive. We'll call this interval
+$(t_1,t_2)$. All we want to do now is to construct an appropriate $\eta$
+to get a contradiction. Geometrically, it's easy to see what we want:
+we have an $A(t)$ that has a little positive bump. If we could make an
+$\eta$ that was positive in the same region, but zero everywhere else,
+the integral of the product would have to be positive.
+
+Having said that, it's straightforward enough. We want an $eta$ to be
+zero at $t_1$ and $t_2$, so we'll want something like $(t - t_1)(t - t_2)$
+that zeros out at $t_1$ and $t_2$. 
+
+Two little tweaks: first, if $t_1 < t < t_2$, the function we just
+picked has something positive times something negative, so it's
+overall negative. We wanted $\eta$ to be positive. So, try $(t -
+t_1)(t_2 - t)$. So far, so good. Now, we want $\eta(t)$ to have
+continuous second derivatives throughout the region $[a,b]$, so let's
+make
+
+\[ \eta(t) = \left\{ \begin{array}{ll}
+         (t-t_1)^3(t_2-t)^3 & \mbox{if $t_1 < t < t_2$};\\
+        0 & \mbox{otherwise}.\end{array} \right. \] 
+
+Well, that does does exactly what we wanted: the integral now has to
+be positive, but that's the contradiction we were looking for: any
+time you choose an $A$ that isn't identically zero, I can make an
+$\eta$ that leads to a contradiction. Conclusion: given the stated
+conditions, $A(t) \equiv 0$.
+
+And now we can prove a version of Noether's Theorem!
+
+\subsection{Invariance}
+
+\subsection{Simple Noether's Theorem}
+\label{sec:simplenoether}
+
+The heart of Noether's theorem is that an invariance combined with an
+extremal leads to a conserved quantity.
+
+Let our Lagrangian itself (for comparison, see definitions
+\ref{eq:inv1} through \ref{eq:inv4}) be first-order invariant in
+$\epsilon$ under the change of coordinates
+
+\begin{equation}
+  \xmu \to \xmu + \epsilon\Xmu(\coord) 
+\end{equation}
+
+where each $\Xmu$ may be a function of all the $\{\xmu\}$ (e.g. we
+could send $x \to x + \epsilon(2x+y)$).
+
+Since $L$ is invariant,
+
+\begin{eqnarray}
+  0 = \left( \fd{L}{\epsilon}\right)_{\epsilon=0} 
+  &=& \sum_i{\left( \pd{L}{\xmu}\pd{\xmu}{\epsilon} +  \pd{L}{\xdmu}\pd{\xdmu}{\epsilon} \right)_{\epsilon=0}} \\
+  &=&\sum_i{\left( \pd{L}{\xmu}\Xmu +  \pd{L}{\xdmu}\Xdmu \right)}.\notag
+\end{eqnarray}
+
+That takes care of invariance. Since we want $\xmu$ to be extremal, we
+can now use the Euler-Lagrange equation on the first term:
+
+\begin{equation}
+0 = \sum_i{\left( \fd{}{t}\left(\pd{L}{\xdmu}\right)\Xmu +  \pd{L}{\xdmu}\Xdmu \right)}.
+\end{equation}
+
+Using the chain rule and pulling the time derivative out of the sum,
+we get
+
+\begin{equation}
+  0 = \fd{}{t}\left( \sum_i{\pd{L}{\xdmu}\Xmu} \right)
+\end{equation}
+
+which is our big punchline. we define a ``Noether momentum'' (noting
+that it doesn't have to have the units of momentum) to be
+
+\begin{equation}
+  P(\xmu,\xdmu) = \sum_i{\pd{L}{\xdmu}\Xmu}
+\end{equation}
+
+and note that it's conserved, i.e. it doesn't change with time!
+
+
+
+\subsection{The Euler-Lagrange Equations}
+Let $J$ be as in Eq. \ref{eq:fmain}. Then the ${\xmu(t)}$ that make J an
+extremal are the solutions of the $N$ Euler-Lagrange equations
+
+\begin{equation*}
+  \pd{L}{\xmu} = \fd{}{t}\pd{L}{\xdmu}
+\end{equation*}
+
+We gave two proofs of the Euler-Lagrange equations, but they
+all boiled down to an integration by parts and an application of the
+fundamental lemma. One is included in section \ref{sec:simple-el}.
+
+{\bf In fact, this was enough for us to prove version 1 of Noether's theorem! The proof is reproduced in section \ref{sec:simplenoether}.}
+
+We then defined our conjugate momenta and our Hamiltonian as
+
+\begin{eqnarray*}
+  \pmu &\equiv& \pd{L}{\xdmu} \\
+  H &\equiv& H(t,\xmu,\pmu) \equiv \pmu\xdmu - L,
+\end{eqnarray*}
+
+[side note: we will almost always find that $H$ is the energy. Write $H$ out explicitly for a 1D particle. Does it reduce to the energy?]
+
+which led us to the two canonical ways of writing the Euler-Lagrange
+equations. Following Neuenschwander, we'll call them ELE I and ELE II:
+
+\begin{eqnarray}
+  \label{eq:ele1}
+  \textrm{ELE I:} & \pd{L}{t} &= -\dot{H} = -\fd{}{t} \left[  \xdmu\pd{L}{\xdmu} - L\right ] \\
+  \label{eq:ele2}
+  \textrm{ELE II:} & \pd{L}{\xmu} &= \pdmu = \fd{}{t}\pd{L}{\xdmu}.
+\end{eqnarray}
+
+We also got two conservation laws (conservation of linear momentum and conservation of energy) directly from ELE II and ELE I.
+
+\subsection{Why do we care if functionals are extremal?}
+We've mentioned the importance of tasks like finding geodesics, the brachistochrone problem, etc. The most central application to physics, however, is Hamilton's principle, which says that the path a particle takes from point $a$ to $b$ will be the one that minimizes the action as defined in \ref{eq:action}. Section \ref{sec:n2l-ham} shows how Hamilton's principle is a restatement of Newton's second law.
+
+\pagebreak
+\section{More Examples}
+So far, it seems like we have everything we could need from ELE I and
+ELE II. I'm about to tell you to dive into a fancier version of
+invariance, called the Rund-Trautman identity. Why should you spend
+the time? Here's a great example:
+
+Let's say we want to study a damped simple harmonic oscillator
+(SHO). In this case, we would expect that neither momentum nor energy
+would be conserved (that's the whole point of damping). Shockingly, a
+more advanced version of Noether's theorem will give us a conserved
+quantity! First, we'll need to write out our ``Lagrangian'' and the
+claim from class was that
+
+\begin{equation}
+  L = \left[\frac{1}{2}m\xd^2 - \frac{1}{2}k\coord^2\right]e^{bt/m}
+\end{equation}
+
+\noindent which seemed a little odd to us. What I'd forgotten in my
+excitement is that Neuenschwander is a little unique in his
+terminology, and sometimes it causes me to slip up. The Lagrangian in
+this world is not strictly ``$L=K-U$;'' rather, it's ``the integrand
+of the functional.'' Fair enough. 
+
+In classical mechanics, one typically takes the Lagrangian, plugs it
+into the Euler-Lagrange equations, and obtains the equation of motion
+for a particle.  If we have an undamped SHO, we could just write
+Newton's second law to get the equation of motion directly:
+
+\begin{equation}
+  F = -k\coord = m\xdd
+\end{equation}
+
+If we assume a linear restoring and damping force with damping
+constant $b$, Newton's second law turns into
+
+\begin{equation}
+  -k\coord - b\xd = m \xdd
+\end{equation}
+
+\noindent (the ``linear'' in ``linear damping force'' means that we
+depend linearly on the velocity, $\xd$). So, our question at hand is,
+what ``Lagrangian'' would give us that equation of motion?
+
+\section{Invariance}
+
+Under the transformation
+
+\begin{eqnarray}
+  t \to t' = & T(t,q^\mu,\epsilon) = & t + \epsilon\tau + ..., \qquad \tau(t,q^\mu)=\left(\fd{T}{\epsilon}\right)_0\\
+  q^\mu \to q^{\mu{'}} = & Q^\mu(t,q^\mu,\epsilon) = & q^\mu + \epsilon\zeta^\mu + ...,  \qquad \zeta^\mu(t,q^\nu)=\left(\fd{Q^\mu}{\epsilon}\right)_0\notag
+\end{eqnarray}
+
+Definition 1: 
+
+\begin{equation}
+  \label{eq:inv1}
+  J-J'=0
+\end{equation}
+
+Definition 2: 
+
+\begin{equation}
+  \label{eq:inv2}
+  J-J' \sim \epsilon^{s}, \qquad s>1
+\end{equation}
+
+Definition 3:
+
+\begin{equation}
+  \label{eq:inv3}
+  L'\fd{t'}{t} - L \sim \epsilon^s , \qquad s>1
+\end{equation}
+
+Definition 4: a functional is {\it divergence invariant} if, for some
+function $F(t)$,
+
+\begin{equation}
+  \label{eq:inv4}
+  L'\fd{t'}{t} - L  = \epsilon \fd{F}{t} + O(\epsilon^s) , \qquad s>1
+\end{equation}
+
+Explicit verification of these things is quite involved, and our life
+is made much easier by application of the Rund-Trautman identity:
+
+Iff $J$ is invariant under \ref{eq:inv3}, the following identity holds:
+
+\begin{equation}
+  \label{eq:rti1}
+  \textrm{RTI I:}\qquad\pd{L}{q^\mu}\zeta^\mu + p_\mu\dot{\zeta}^\mu + \pd{L}{t}\tau - H\dot{\tau} = 0
+\end{equation}
+
+We can use the product rule to get 
+
+\begin{equation}
+  \label{eq:rti2}
+  \textrm{RTI II:}\qquad-\left( \zeta^\mu - \dot{q}^\mu\tau \right)\left[ \pd{L}{q^\mu} - \fd{}{t}\pd{L}{\dot{q}^\mu}  \right]
+    = \fd{}{t}\left[ p_\mu\zeta^\mu - H\tau  \right]
+\end{equation}
+
+Iff $J$ is divergence invariant under \ref{eq:inv4}, the following identity holds:
+
+\begin{equation}
+  \label{eq:rti1inhom}
+  \textrm{RTI I:}\qquad\pd{L}{q^\mu}\zeta^\mu + p_\mu\dot{\zeta}^\mu + \pd{L}{t}\tau - H\dot{\tau} = \fd{F}{t}
+\end{equation}
+
+We can use the product rule to get 
+
+\begin{equation}
+  \label{eq:rti2inhom}
+  \textrm{RTI II:}\qquad-\left( \zeta^\mu - \dot{q}^\mu\tau \right)\left[ \pd{L}{q^\mu} - \fd{}{t}\pd{L}{\dot{q}^\mu}  \right]
+    = \fd{}{t}\left[ p_\mu\zeta^\mu - H\tau  - F\right]
+\end{equation}
+
+\section{Extremal + Invariance = Noether's Theorem}
+
+If the functional
+
+\begin{equation*}
+  J = \int_a^b L(t,\xmu,\xdmu)dt
+\end{equation*}
+
+is an extremal, and if under the infinitesimal transformation
+
+\begin{eqnarray*}
+  t \to t' = & T(t,\xmu,\epsilon) = & t + \epsilon\tau + ..., \qquad \tau(t,\xmu)=\left(\fd{T}{\epsilon}\right)_0\\
+  \xmu \to \xmup = & \Xmu(t,\xmu,\epsilon) = & \xmu + \epsilon\zeta^\mu + ...,  \qquad \zeta^\mu(t,\xnu)=\left(\fd{\Xmu}{\epsilon}\right)_0\notag
+\end{eqnarray*}
+
+it is divergence invariant according to the inhomogeneous definition
+
+\begin{equation*}
+  L'\fd{t'}{t} - L  = \epsilon \fd{F}{t} + O(\epsilon^s) , \qquad s>1
+\end{equation*}
+
+then the following conservation law holds:
+
+\begin{equation}
+  p_\mu\zeta^\mu - H\tau - F = \textrm{const}.
+\end{equation}
+
+where
+
+\begin{eqnarray*}
+  \pmu &\equiv& \pd{L}{\xdmu} \\
+  H &\equiv& H(t,\xmu,\pmu) \equiv \pmu\xdmu - L,
+\end{eqnarray*}
+
+
+Proof: we have already done all of the heavy lifting. This works with
+either form of the Rund-Trautman identity, but is most straightforward with \ref{eq:rti2inhom}:
+
+\begin{equation}
+  -\left( \zeta^\mu - \xdmu\tau \right)\left[ \pd{L}{\xmu} - \fd{}{t}\pd{L}{\xdmu}  \right]
+    = \fd{}{t}\left[ p_\mu\zeta^\mu - H\tau  - F\right]
+\end{equation}
+
+if we simply plug in the Euler-Lagrange equation \ref{eq:ele2}
+
+\begin{equation*}
+  \pd{L}{\xmu} = \pdmu = \fd{}{t}\pd{L}{\xdmu}.
+\end{equation*}
+
+on the left-hand side, we immediately find 
+
+\begin{equation*}
+   0 = \fd{}{t}\left[ p_\mu\zeta^\mu - H\tau  - F\right]
+\end{equation*}
+
+\newpage
+
+\section{Derivations}
+
+\newpage
+
+\subsection{Equivalence of N2L and Hamilton's principle for classical mechanics}
+\label{sec:n2l-ham}
+
+Why do we spend the time to work this out? One of the beauties of physics is that we have very few postulates, and so we must think very carefully before introducing another. Newton's second law (N2L) is one such postulate, and we'll be much more comfortable with Hamilton's principle if we can view it as a restatement of N2L. In fact, as far as I know, the whole idea of extremal functionals having physical meaning started from Hamilton's principle:
+
+\begin{equation}
+  \label{eq:ham}
+  \int_a^b(K-U)dt = \min
+\end{equation}
+
+It is quite straightforward to see that Hamilton's principle implies N2L: we simply apply ELE II to this:
+
+\begin{eqnarray*}
+  \int_a^b\frac{1}{2}m\dot{x}^2 -U(t,x)dt = \min \\
+  \Rightarrow \pd{L}{x} = \fd{}{t}\pd{L}{\dot{x}} \Rightarrow -\pd{U}{x} = m\ddot{x}
+\end{eqnarray*}
+
+which is the $F=ma$ that we were looking for.
+
+
+To go in the other direction, we'll follow Neuenschwander. Fair warning: while the steps are mostly straightforward, you'll need to pay attention to keeping the indices straight if you don't have much experience with the summation convention. We'll start in Cartesian coordinates ($x$'s), change to generic coordinates ($q$'s), and find that we have
+
+\begin{equation}
+  \label{eq:elprecursor}
+  \pd{(K-U)}{q^\mu} = \fd{}{t}\pd{(K-U)}{\dot{q}^\mu}.
+\end{equation}
+
+we will then cleverly recognize this as the Euler-Lagrange equation with Lagrangian $L=K-U$ and be content. Let's begin!
+
+We can write each of our box coordinates as a function of our generalized coordinates:
+
+\begin{equation}
+  x^\mu = x^\mu(q^\nu),
+\end{equation}
+
+where $\mu,\nu=1,2,...,N$ and we're careful to use different sets of indices. Using the summation convention where a repeated index implies a sum, we use the chain rule to write the time derivative of $x^\mu$ as
+
+\begin{equation}
+  \label{eq:dxmchain}
+  \dot{x}^\mu = \pd{x^\mu}{q^\nu}\dot{q}^\nu
+\end{equation}
+
+Our $\dot{q}$'s (as well as our $q$'s, $x$'s, and $\dot{x}$'s) are mutually independent, so we can write
+
+\begin{equation}
+  \label{eq:kd}
+  \pd{\dot{q}^\nu}{\dot{q}^\rho} = \delta^\nu_\rho
+\end{equation}
+
+where $\delta^\nu_\rho$ is the Kronecker delta function, i.e. 1 when $\nu=\rho$ and 0 otherwise. That means that, if we take the partial derivative of \ref{eq:dxmchain} with respect to $\dot{q}^\rho$, all of the terms in the sum will be zero except for the one preserved by the Kronecker delta in \ref{eq:kd}:
+
+\begin{equation}
+  \label{eq:pdxdqd}
+  \pd{\dot{x}^\mu}{\dot{q}^\rho} = \pd{x^\mu}{q^\rho}
+\end{equation}
+
+We'll need that result briefly, and it's worth getting out of the way first. Now and we can look at N2L:
+
+\begin{equation}
+  \label{eq:n2lcart}
+  -\pd{U}{x^\mu} = m\dd{x_\mu}{t} = m\ddot{x}_\mu
+\end{equation}
+
+If we multiply both sides by $(\pdinline{x^\mu}{q^\nu})$, we get 
+
+\begin{equation}
+  -\pd{U}{x^\mu}\pd{x^\mu}{q^\nu} = m\ddot{x}_\mu\pd{x^\mu}{q^\nu}
+\end{equation}
+
+Again, recall the summation convention (or think of this for only a single dimension), and you'll notice that the left-hand side is just $-\pdinline{U}{q^\nu}$, so N2L has become
+
+\begin{equation}
+  -\pd{U}{q^\nu} = m\ddot{x}_\mu\pd{x^\mu}{q^\nu}
+\end{equation}
+
+Now, take a step back for a moment. We're trying to get to \ref{eq:elprecursor}, so we want to rewrite the right hand side as $\dinline{}{t}$ of something. With that in mind, we use the product rule to rewrite our equation as 
+
+\begin{equation}
+  -\pd{U}{q^\nu} = \fd{}{t}\left[ m\dot{x}_\mu\pd{x^\mu}{q^\nu}\right] - m\dot{x}_\mu\fd{}{t}\pd{x^\mu}{q^\nu}
+\end{equation}
+
+The first term on the right hand side is exactly we went through the trouble of deriving \ref{eq:pdxdqd}, so we plug it in to get
+
+\begin{equation}
+  -\pd{U}{q^\nu} = \fd{}{t}\left[ m\dot{x}_\mu\pd{\dot{x}^\mu}{\dot{q}^\nu}\right] - m\dot{x}_\mu\fd{}{t}\pd{x^\mu}{q^\nu}
+\end{equation}
+
+For the second term, we're going to want to move the time derivative over to the $q$'s, so we use the chain rule:
+
+\begin{equation}
+  -\pd{U}{q^\nu} = \fd{}{t}\left[ m\dot{x}_\mu\pd{\dot{x}^\mu}{\dot{q}^\nu}\right] - m\dot{x}_\mu\pddx{x^\mu}{q^\nu}{q^\sigma}\dot{q}^\sigma
+\end{equation}
+
+The first term is starting to look a bit like kinetic energy $m\dot{x}_\mu\dot{x}^\mu$. In fact, writing K that way, we see that we're just looking at $\pdinline{K}{\dot{q}^\nu}$ : $\pdinline{}{\dot{q}}(0.5m\dot{x}^2) = m\dot{x}\pdinline{\dot{x}}{\dot{q}}$. Using that and pulling $\pdinline{}{q^\nu}$ out front in the second term:
+
+\begin{equation}
+  -\pd{U}{q^\nu} = \fd{}{t}\pd{K}{\dot{q}^\nu} - m\dot{x}_\mu\pd{}{q^\nu}\left[ \pd{x^\mu}{q^\sigma}\dot{q}^\sigma \right]
+\end{equation}
+
+after pulling out the partial, we notice that the bracketed term looks just like \ref{eq:dxmchain}, and we can write
+
+\begin{equation}
+  -\pd{U}{q^\nu} = \fd{}{t}\pd{K}{\dot{q}^\nu} - m\dot{x}_\mu\pd{}{q^\nu}\dot{x}^\mu = \fd{}{t}\pd{K}{\dot{q}^\nu} - \pd{K}{q^\nu}
+\end{equation}
+
+Now we can rearrange things. We move $\pdinline{K}{q^\nu}$ over to the left. We also recognize that, since the potential does not depend on the velocities, it can be added to anything under $\pdinline{}{\dot{q}^\nu}$. That gives us
+
+\begin{equation}
+  \pd{(K-U)}{q^\nu} = \fd{}{t}\pd{(K-U)}{\dot{q}^\nu}
+\end{equation}
+
+as promised, we've recovered \ref{eq:elprecursor}, and we can be content.
+\subsection{Rund-Trautman}
+\label{sec:rundtrautman}
+
+If $J$ is invariant under \ref{eq:inv3}, the following identity holds:
+
+\begin{equation}
+  \textrm{RTI I:}\qquad\pd{L}{q^\mu}\zeta^\mu + p_\mu\dot{\zeta}^\mu + \pd{L}{t}\tau - H\dot{\tau} = 0
+\end{equation}
+
+Proof:
+
+Invariance under \ref{eq:inv3} gives us
+
+\begin{equation}
+  L'\fd{t'}{t} - L \sim \epsilon^s
+\end{equation}
+
+We differentiate with respect to $\epsilon$ and then set $\epsilon=0$
+
+\begin{equation}
+  \fd{}{\epsilon} \left[L'\fd{t'}{t}\right] - \fd{L}{\epsilon} \sim s\epsilon^{(s-1)}
+\end{equation}
+
+The second term on the LHS is zero. We'll be setting $\epsilon=0$, so we'll go ahead and turn the RHS into ``$=0$'' now. Using the product rule on the one remaining term gives us
+
+\begin{equation}
+  \label{eq:rtistart}
+  \left[ L'\fd{}{\epsilon}\fd{t'}{t}  \right]_{\epsilon=0} + \left[ \fd{L'}{\epsilon}\fd{t'}{t}  \right]_{\epsilon=0} = 0
+\end{equation}
+
+$L'$ at $\epsilon=0$ is just $L$. 
+
+\begin{eqnarray}
+  \label{eq:rtit}
+  t'=t+\epsilon\tau &\Rightarrow& \fd{t}{t'} = 1+\epsilon\dot{\tau} \\
+  &\Rightarrow& \fd{}{\epsilon}\left(\fd{t'}{t}\right) = \dot{\tau} \notag
+\end{eqnarray}
+
+So the first term is just
+
+\begin{equation}
+  \label{eq:rtiterm1}
+  \left[ L'\fd{}{\epsilon}\fd{t'}{t}  \right]_{\epsilon=0} = L\dot{\tau}
+\end{equation}
+
+Next, we use the chain rule on the second term. From \ref{eq:rtit}, we know
+
+
+\begin{equation}
+\left[ \fd{t'}{t} \right]_{\epsilon=0} = 1
+\end{equation}
+
+so we need
+
+\begin{eqnarray}
+  \left[ \fd{L'}{\epsilon} \right]_{\epsilon=0} &=& \pd{L'}{t'}\fd{t'}{\epsilon} + \pd{L'}{q^{\mu{'}}}\fd{q^{\mu{'}}}{\epsilon} +  \pd{L'}{\dot{q}^{\mu{'}}}\fd{\dot{q}^{\mu{'}}}{\epsilon} \notag\\
+  \label{eq:rtiterm2}
+ &=&\pd{L'}{t'}\tau + \pd{L'}{q^{\mu{'}}}\zeta^\mu +  \pd{L}{\dot{q}^{\mu{'}}}\fd{\dot{q}^{\mu{'}}}{\epsilon}
+\end{eqnarray}
+
+Where the $L'$ has turned into an $L$ in the last term due to the fact that $\epsilon=0$, etc.
+
+So, \ref{eq:rtistart} turns, via \ref{eq:rtiterm1} and \ref{eq:rtiterm2}, into 
+
+\begin{equation}
+  \label{eq:rtialmostdone}
+  L\dot{\tau} + \pd{L}{t}\tau + \pd{L}{q^{\mu}}\zeta^\mu +  \pd{L}{\dot{q}^{\mu}} \left[ \fd{\dot{q}^{\mu{'}}}{\epsilon} \right]_{\epsilon=0}
+\end{equation}
+
+we're not quite done yet, as we still have the bracketed term to deal with. Well, let's write $\dot{q}^{\mu{'}}$ out explicitly:
+
+
+\begin{equation}
+  \dot{q}^{\mu{'}} = \fd{q^{\mu{'}}}{t'} = \frac{dq^\mu + \epsilon\zeta^\mu}{dt + \epsilon\tau} = \frac{\dot{q}^\mu + \epsilon\dot{\zeta}^\mu}{1+\epsilon\dot{\tau}}
+\end{equation}
+
+Where the last equivalence comes from dividing everything by $dt$.
+
+now we can write
+
+\begin{equation}
+  \label{eq:dqdotmude}
+\left[ \fd{\dot{q}^{\mu{'}}}{\epsilon} \right]_{\epsilon=0} =
+\left[ \fd{}{\epsilon} \left( \fd{q^{\mu{'}}}{t'} \right) \right]_{\epsilon=0} = 
+\left[ \fd{}{\epsilon} \left(  \frac{\dot{q}^\mu + \epsilon\dot{\zeta}^\mu}{1+\epsilon\dot{\tau}} \right) \right]_{\epsilon=0} =
+\dot{\zeta}^\mu - \dot{q}^\mu\dot{\tau}
+\end{equation}
+
+where the last equivalence comes from the quotient rule. \ref{eq:rtistart} has become, via \ref{eq:rtialmostdone} and \ref{eq:dqdotmude}, 
+
+\begin{equation}
+  L\dot{\tau} + \pd{L}{t}\tau + \pd{L}{q^{\mu}}\zeta^\mu +  \pd{L}{\dot{q}^{\mu}} \left( \dot{\zeta}^\mu - \dot{q}^\mu\dot{\tau} \right) = 0
+\end{equation}
+
+Recalling our definitions $\pmu \equiv \pdinline{L}{\dot{q}^\mu}$ and $H \equiv \pmu\dot{q}^\mu - L$, we can factor out the $\dot{\tau}$ to obtain our goal:
+
+\begin{equation}
+  \pd{L}{q^\mu}\zeta^\mu + p_\mu\dot{\zeta}^\mu + \pd{L}{t}\tau - H\dot{\tau} = 0
+\end{equation}
+
+This is actually an iff, as shown in Neuenschwander exercise 4.5. We can also use the product rule to find the alternative version of the Rund-Trautman Identity:
+
+\begin{equation}
+-\left( \zeta^\mu - \dot{q}^\mu\tau \right)\left[ \pd{L}{q^\mu} - \fd{}{t}\pd{L}{\dot{q}^\mu}  \right]
+    = \fd{}{t}\left[ p_\mu\zeta^\mu - H\tau  \right]
+\end{equation}
+
+Using slightly different notation, you can find the derivation in Lovelock and Rund's (yes, that Rund) Tensors, Differential Forms, and Variational Principles (Dover Books on Mathematics) (it's under \$10 on Amazon) page 205 (section 6.3).
+%
+%\newpage
+%
+%\section{Homework}
+%\subsection{Central Force}
+%We're quite familiar with central forces at this point, including
+%gravity with a spherically symmetric mass, electric potential with a
+%spherically symmetric charge distribution, chemical potential in a
+%spherically symmetric chemical concentration, etc. Consider a single
+%particle in a plane subject to a spherical potential (extra credit:
+%work this out for a single particle in 3D subject to a central force;
+%argue that the motion must occur in a plane and choose that plane
+%W.L.O.G. to be $\theta=\pi/2$ to recover your answer to this
+%problem).
+
+\medskip
+
+\bibliographystyle{unsrt}%Used BibTeX style is unsrt
+\bibliography{SimpleNoetherNotes}
+
+\end{document}
