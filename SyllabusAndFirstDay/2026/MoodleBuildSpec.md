@@ -42,6 +42,12 @@ As built 2026-09-03 (Michael made 0-2 by hand; the mbz creates 3-13):
    2. What's not working well, and how can the instructor make things
       better?
    3. What can you, as the student, do to make the class better?
+   MADE BY HAND 2026-10-26 in both courses, in Forums and feedback under Anonymous Feedback, named
+   "Mid-semester Feedback", closes Fri Oct 30 23:59. The tooling reads its close time from the backup
+   (moodle_audit.read_backup feedbacks, live_structure feedback_close): the Course information label
+   links it while it is open (feedback_line), the course map puts a due chip on its closing day and a
+   next-due entry (moodle_coursemap.feedback_chips / feedback_deadlines), and the audit expects it in
+   section 1. Never put it in Start here: the builders treat S0 as exactly map + info.
 1. **Homework** -- the 13 HW assignments. Section name carries NO dates
    (Michael, 2026-09-03: the assignments already carry them). NO section
    summary anywhere (merge restores reinstate stale summaries).
