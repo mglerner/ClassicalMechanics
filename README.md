@@ -52,7 +52,9 @@ worksheet: "make it a super straightforward plot function"). The fix, if a
 notebook ever needs smooth animation, is `%matplotlib widget` with one
 figure created once and its lines updated in place, but it is not plain; short named functions
 rather than lambdas; time in seconds on every axis (no normalized units
-such as t/T0); one or two sliders, not five; one idea per cell; no
+such as t/T0); one or two sliders, not five, for notebooks we build from
+scratch (a port of a predecessor's program keeps his controls: Will's cone
+has seven; Michael, 2026-11-02); one idea per cell; no
 try/except scaffolding. Every cell has an `id` (nbformat >= 4.5).
 Commit without outputs (nbstripout filter). Moodle never gets an
 uploaded copy: link the GitHub page of the notebook
