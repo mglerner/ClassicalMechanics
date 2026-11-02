@@ -56,6 +56,9 @@ such as t/T0); one or two sliders, not five, for notebooks we build from
 scratch (a port of a predecessor's program keeps his controls: Will's cone
 has seven; Michael, 2026-11-02); one idea per cell; no
 try/except scaffolding. Every cell has an `id` (nbformat >= 4.5).
+A port names its source once, in the title cell ("A port of Will Raven's
+Mathematica notebook to Python"), and nowhere else: not on the sliders,
+not in the interesting cases (Michael, 2026-11-02).
 Commit without outputs (nbstripout filter). Moodle never gets an
 uploaded copy: link the GitHub page of the notebook
 (`https://github.com/mglerner/ClassicalMechanics/blob/main/...`), which
