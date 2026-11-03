@@ -45,6 +45,9 @@ throughout, and the places where general relativity would add something are flag
 \section{The redshift: Noether in an expanding universe}
 \label{sec:redshift}
 
+\noindent\emph{This is the long version, result first. Section~\ref{sec:redshift-straight} does the
+same problem straight through, in the order every Chapter~7 problem goes.}
+
 \noindent\textbf{The setup.} Hubble's law says a galaxy at distance $r$ recedes from us at
 $v = (\dot a/a)\, r$, where $a(t)$ is the \emph{scale factor}: every cosmological distance
 grows as $r(t) = a(t)\, x$, with $x$ a label that does not change. Coordinates that expand
@@ -214,6 +217,220 @@ reason is the general result quoted under ``The Hamiltonian'' above,
 $d\Ham/dt = -\partial\Lag/\partial t$, and here
 $\partial\Lag/\partial t \neq 0$. The whole universe is the example.
 
+\section{The redshift, straight through}
+\label{sec:redshift-straight}
+
+Section~\ref{sec:redshift} is the long version, result first. This section does the same
+problem in the order of Section~7.5's recipe (p.~258), the order Section~\ref{sec:straight}
+uses for the Lagrange points: set the problem up, write the Lagrangian with nothing left out,
+state the constraints, write the Lagrangian with the constraints in, take Lagrange's equation,
+read off what it says.
+
+\medskip
+
+\noindent\textbf{Step 1: set up the problem.} Fill space with matter of uniform density
+$\rho(t)$, expanding so that every distance grows by the same factor $a(t)$ (the scale
+factor). Pick any point as the origin and a test particle of mass $m$ at position $\vr = (X, Y, Z)$, a distance $r = |\vr|$ from it. Newton's shell theorem (the matter outside the
+sphere of radius $r$ exerts no net force; the matter inside pulls as if all of it sat at the origin;
+that the outside cancels is the hand-wave flagged in Section~\ref{sec:redshift}, Step~1) and
+Newton's law of gravitation give the force on the particle, toward the origin,
+\begin{equation*}
+  F = -\frac{GmM(<r)}{r^2} = -\frac{Gm}{r^2}\cdot\frac{4\pi}{3}\rho r^3 = -\frac{4\pi G}{3}\,m\rho\, r,
+  \qquad M(<r) = \tfrac{4\pi}{3}\rho r^3 \text{ the mass inside radius } r .
+\end{equation*}
+So, from $F = -\partial U/\partial r$ with $U = 0$ at the origin, its potential energy is
+\begin{equation}
+  \label{eq:Phi}
+  U(r, t) = m\Phi(r,t), \qquad \Phi = \frac{2\pi G}{3}\,\rho(t)\, r^2
+  \qquad\Bigl(\text{check: } -\pd{U}{r} = -\frac{4\pi G}{3}\, m\rho\, r = -\frac{GmM(<r)}{r^2}\Bigr).
+\end{equation}
+The expansion itself obeys the same force law. A particle riding the expansion sits at
+$r = a(t)\,x$ with $x$ fixed, so $\ddot r = \ddot a\,x$, and Newton's second law
+for that particle, $m\ddot r = -\frac{4\pi G}{3}m\rho\, r$ divided by $m$ with $r = ax$, reads $\ddot a\, x = -\frac{4\pi G}{3}\rho\, a x$;
+cancelling $x$,
+\begin{equation}
+  \label{eq:friedmann2}
+  \ddot a = -\frac{4\pi G}{3}\,\rho\, a ,
+\end{equation}
+which is \eqref{eq:friedmann}, the Friedmann acceleration equation. It is the one fact about
+the background we will use.
+
+\medskip
+
+\noindent\textbf{Step 2: the Lagrangian, with nothing left out.} One particle with three
+Cartesian coordinates and no constraint yet, so as in Section~7.1, $\Lag = T - U$ with
+$r^2 = X^2 + Y^2 + Z^2$ in \eqref{eq:Phi}:
+\begin{equation}
+  \label{eq:L3dcosmo}
+  \Lag = \tfrac12 m\bigl(\dot X^2 + \dot Y^2 + \dot Z^2\bigr)
+  - \frac{2\pi G}{3}\, m\rho(t)\,\bigl(X^2 + Y^2 + Z^2\bigr) .
+\end{equation}
+Lagrange's equations are Newton's second law: for $X$, $\partial\Lag/\partial\dot X = m\dot X$ and
+$\partial\Lag/\partial X = -\frac{4\pi G}{3} m\rho\, X$, so
+$\frac{d}{dt}\partial\Lag/\partial\dot X = \partial\Lag/\partial X$ reads
+$m\ddot X = -\frac{4\pi G}{3} m\rho\, X$, and likewise for $Y$ and $Z$; together,
+$m\ddot{\vr} = -\frac{4\pi G}{3} m\rho\,\vr$. The time $t$ appears explicitly through $\rho(t)$,
+so Section~7.8's guarantee of a constant $\Ham$ does not apply (Step~6(b) shows $\Ham$ does
+change), and no coordinate is ignorable, since $U$ depends on all three. (The force is central,
+so the angular momentum about the origin is conserved; no Cartesian coordinate shows that, but
+Step~3 uses it.)
+
+\medskip
+
+\noindent\textbf{Step 3: the constraints.} Two things are being held fixed, the same two kinds
+as in Section~\ref{sec:straight}.
+
+\smallskip
+\noindent (i) \emph{The background is prescribed.} $\rho(t)$ and $a(t)$ are given functions,
+not coordinates to be varied: the test particle does not change the universe it moves in
+(as the primaries' orbit is prescribed in the Lagrange-point problem, and the hoop's rotation
+in Example~7.6). This is what put $t$ into $\Lag$.
+
+\smallskip
+\noindent (ii) \emph{Motion along one line.} The particle has three coordinates; we use one.
+This is not a constraint in Section~7.3's sense, since nothing holds the particle on the
+line. It is a choice of initial conditions that the equations of motion respect: the force
+$-\frac{4\pi G}{3}m\rho\,\vr$ is along $\vr$, so a particle whose velocity is along $\vr$
+keeps its velocity along $\vr$ (the force is central, so it exerts no torque about the origin; the particle's angular
+momentum $m\vr\times\dot{\vr}$ is therefore conserved, and for such a particle it starts at zero). We look only at those motions.
+
+\smallskip
+\noindent So once the background is prescribed, the particle has three degrees of freedom;
+restricting to the radial motions of (ii) (put the line along the $X$ axis, so $Y = Z = 0$)
+removes two coordinates and does nothing to $X$. One generalized coordinate remains.
+
+\medskip
+
+\noindent\textbf{Step 4: the Lagrangian with the constraints in, in good coordinates.} With
+$Y = Z = 0$ the Lagrangian \eqref{eq:L3dcosmo} loses its $\dot Y$ and $\dot Z$ terms and $U$
+loses $Y$ and $Z$; writing $r$ for $X$ (the signed distance from the origin along the line),
+\begin{equation}
+  \label{eq:Lfree}
+  \Lag = \tfrac12 m\dot r^2 - \frac{2\pi G}{3}\, m\rho(t)\, r^2 .
+\end{equation}
+The only question left is which coordinate to use for the line. The $t$ in \eqref{eq:Lfree} is
+there because the background expands, so use a coordinate that expands with it: the comoving
+coordinate $x = r/a(t)$, a time-dependent coordinate change of the kind Section~7.3 allows
+(Example~7.6 again). Then $r = a x$ and, by the product rule,
+\begin{equation}
+  \label{eq:rdot2}
+  \dot r = \dot a\, x + a\,\dot x ,
+\end{equation}
+the Hubble flow $\dot a\,x = (\dot a/a)\,r$ (Hubble's law: the whole velocity of a particle
+riding the expansion, $\dot x = 0$) plus the peculiar velocity $\vpec \equiv a\dot x$, the motion
+relative to the flow. Put $r = ax$
+and \eqref{eq:rdot2} into \eqref{eq:Lfree} and expand the square:
+\begin{equation}
+  \label{eq:Lexp2}
+  \Lag = \tfrac12 m(\dot a x + a\dot x)^2 - \frac{2\pi G}{3}\, m\rho\, a^2 x^2
+  = \tfrac12 m a^2\dot x^2 + m a\dot a\, x\dot x + \tfrac12 m\dot a^2 x^2
+  - \frac{2\pi G}{3}\, m\rho\, a^2 x^2 .
+\end{equation}
+The cross term is the one to tame. By the product rule,
+$\frac{d}{dt}\bigl(\tfrac12 m a\dot a\, x^2\bigr)
+= \tfrac12 m\,\frac{d}{dt}(a\dot a)\,x^2 + \tfrac12 m a\dot a\,\frac{d}{dt}x^2
+= \tfrac12 m(\dot a^2 + a\ddot a)\,x^2
++ m a\dot a\, x\dot x$ (using the product rule again, $\frac{d}{dt}(a\dot a) = \dot a^2 + a\ddot a$,
+and the chain rule, $\frac{d}{dt}x^2 = 2x\dot x$), so, solving for the cross term,
+\begin{equation}
+  \label{eq:cross2}
+  m a\dot a\, x\dot x = \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\, x^2\Bigr)
+  - \tfrac12 m\dot a^2 x^2 - \tfrac12 m a\ddot a\, x^2 .
+\end{equation}
+Put \eqref{eq:cross2} into \eqref{eq:Lexp2}:
+\begin{equation}
+  \Lag = \tfrac12 m a^2\dot x^2 + \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\, x^2\Bigr)
+  - \tfrac12 m\dot a^2 x^2 - \tfrac12 m a\ddot a\, x^2
+  + \tfrac12 m\dot a^2 x^2 - \frac{2\pi G}{3}\, m\rho\, a^2 x^2 .
+\end{equation}
+The two $\tfrac12 m\dot a^2 x^2$ terms cancel. By \eqref{eq:friedmann2},
+$\ddot a = -\frac{4\pi G}{3}\rho\, a$, so $-\tfrac12 m a\ddot a\, x^2
+= -\tfrac12 m a\bigl(-\frac{4\pi G}{3}\rho\, a\bigr)x^2 = +\frac{2\pi G}{3}
+m\rho\, a^2 x^2$, which cancels the potential term exactly. What is left is
+\begin{equation}
+  \label{eq:Lcomoving2}
+  \Lag = \tfrac12 m a^2\dot x^2 + \frac{dF}{dt}, \qquad F \equiv \tfrac12 m a\dot a\, x^2 .
+\end{equation}
+A total time derivative added to $\Lag$ changes nothing: it adds $\int_{t_1}^{t_2}(dF/dt)\,dt = F(t_2) - F(t_1)$ to the
+action, and since $F = \tfrac12 m a\dot a\,x^2$ depends only on $x$ and $t$, which Hamilton's
+principle (Section~7.1) holds fixed at the endpoints, that number is the same for every path
+with the same endpoints, so the stationary path is the same
+(Problem~7.48 asks you to check this at the level of Lagrange's equations;
+Section~\ref{sec:redshift}, Step~3, does that check). So
+\begin{equation}
+  \label{eq:Lcosmo2}
+  \boxed{\;\Lag = \tfrac12\, m\, a(t)^2\, \dot x^2\;}
+\end{equation}
+which is \eqref{eq:Lcosmo}. Two remarks before differentiating. The coordinate $x$ is not
+``natural'' in Section~7.3's sense: its relation to $r$ involves $t$, and $\Lag$ carries
+$t$ through $a(t)$. And $x$ itself no longer appears: all of $U$ cancelled, through \eqref{eq:friedmann2}, against the
+$a\ddot a$ term that the coordinate change produced.
+
+\medskip
+
+\noindent\textbf{Step 5: Lagrange's equation.} From \eqref{eq:Lcosmo2},
+$\partial\Lag/\partial\dot x = m a^2\dot x$ and $\partial\Lag/\partial x = 0$, so
+$\frac{d}{dt}\partial\Lag/\partial\dot x = \partial\Lag/\partial x$ reads
+\begin{equation}
+  \label{eq:eom2}
+  \frac{d}{dt}\bigl(m a^2\dot x\bigr) = 0 .
+\end{equation}
+Written out with the product rule, $m a^2\ddot x + 2 m a\dot a\,\dot x = 0$; dividing by
+$m a^2$, $\ddot x = -2(\dot a/a)\,\dot x$: in comoving coordinates, while the universe expands
+($\dot a > 0$), a free particle decelerates at a rate set by the expansion.
+
+\medskip
+
+\noindent\textbf{Step 6: read off results.} Two, each one line from \eqref{eq:Lcosmo2} or
+\eqref{eq:eom2}.
+
+\smallskip
+\noindent (a) \emph{What is conserved?} $x$ is ignorable (Section~7.6), so its generalized
+momentum $p \equiv \partial\Lag/\partial\dot x = m a^2\dot x$ is conserved; that is what
+\eqref{eq:eom2} says. In terms of the peculiar velocity, $p = m a\,(a\dot x) = m a\,\vpec$,
+and $p$ is constant, so
+\begin{equation}
+  \label{eq:hubbledrag2}
+  \vpec \propto \frac1a :
+\end{equation}
+when the universe doubles in size, every freely coasting peculiar velocity halves. The
+argument assumed $T = \tfrac12 m v^2$, so by itself it says nothing about light. General
+relativity gives the same result for any freely moving particle, massive or not (the ``Light''
+paragraph of Section~\ref{sec:redshift}): the momentum conjugate to $x$ is conserved, and the
+momentum a local observer measures is that conserved momentum divided by one factor of $a$
+(here $p/a = m\vpec$; the factor converts the comoving $x$ to a proper distance). For a photon
+the measured momentum is $h/\lambda$, so $h/\lambda \propto 1/a$, $\lambda \propto a$, and
+\begin{equation}
+  \label{eq:redshift2}
+  1 + z \equiv \frac{\lambda_{\rm obs}}{\lambda_{\rm emit}} = \frac{a_{\rm obs}}{a_{\rm emit}} ,
+\end{equation}
+the cosmological redshift.
+
+\smallskip
+\noindent (b) \emph{What is not conserved?} $\Lag$ depends on $t$ through $a(t)$, so
+Section~7.8's guarantee of a constant Hamiltonian does not apply, and the general result below
+shows that $\Ham$ does change. With $p = m a^2\dot x$,
+\begin{equation}
+  \Ham = p\dot x - \Lag = m a^2\dot x^2 - \tfrac12 m a^2\dot x^2 = \tfrac12 m a^2\dot x^2
+  = \tfrac12 m\vpec^2 ,
+\end{equation}
+the kinetic energy in the peculiar velocity, and Section~7.8's general result
+$d\Ham/dt = -\partial\Lag/\partial t$ gives, since $\partial\Lag/\partial t = \tfrac12 m\,(2a\dot a)\,\dot x^2 = m a\dot a\,\dot x^2$
+(chain rule; $\Lag$ depends on $t$ only through $a$),
+\begin{equation}
+  \frac{d\Ham}{dt} = -m a\dot a\,\dot x^2 = -2\,\frac{\dot a}{a}\cdot\tfrac12 m a^2\dot x^2
+  = -2\,\frac{\dot a}{a}\,\Ham ,
+  \qquad\text{so}\qquad \Ham \propto \frac1{a^2} ,
+\end{equation}
+since $d\ln\Ham/dt = -2\,d\ln a/dt$ integrates to $\ln\Ham = -2\ln a + \text{const}$. That is
+consistent with \eqref{eq:hubbledrag2}: $\Ham = \tfrac12 m\vpec^2$ and $\vpec \propto 1/a$. The energy is not conserved, and the formalism says
+exactly why: the expanding universe has no time-translation symmetry, so Noether's theorem
+has nothing to give. Where the energy ``goes'' is the subject of the last paragraph of
+Section~\ref{sec:redshift}.
+
+\smallskip
+\noindent That is the whole calculation.
+
 \section{The Lagrange points: Lagrange's equations in a rotating frame}
 \label{sec:lagrange}
 
@@ -258,7 +475,7 @@ problem),\footnote{The same approximation runs through quantum mechanics and che
   rotation switched off, the classical problem is Euler's problem of two fixed centres, which
   is exactly solvable, just as $\mathrm{H}_2^+$ separates in prolate spheroidal coordinates.
   What makes the rotating problem hard is the Coriolis force, the velocity-dependent term
-  in the equations of motion \eqref{eq:eom} (Step~3, Lagrange's equations, two pages on).} moves in
+  in the equations of motion \eqref{eq:eom} (Step~3 of this section, Lagrange's equations).} moves in
 their orbital plane. Write $\mu \equiv M_2/(M_1+M_2)$, so that $r_1 = \mu R$ and $r_2 = (1-\mu)R$; the CM is at the origin with $M_1$ at
 $(-\mu R, 0)$ and $M_2$ at $((1-\mu)R, 0)$ in coordinates $(x,y)$ that rotate with them:
 \begin{equation}
@@ -637,17 +854,20 @@ distance $R$ apart, go around their centre of mass (CM) in circles at angular sp
 third body of mass $m$ moves in their gravity. Put the origin at the CM and use inertial
 Cartesian coordinates $(X, Y, Z)$ with the primaries' orbit in the plane $Z = 0$. At time $t$
 the primaries are at
-\begin{gather}
+\begin{equation}
   \label{eq:primaries}
+  \begin{gathered}
   \vr_1(t) = r_1(-\cos\Om t,\, -\sin\Om t,\, 0), \qquad
   \vr_2(t) = r_2(\cos\Om t,\, \sin\Om t,\, 0), \\
   r_1 = \frac{M_2 R}{M_1 + M_2},\quad r_2 = \frac{M_1 R}{M_1 + M_2},
-\end{gather}
-on opposite sides of the CM: ``origin at the CM'' means $M_1\vr_1 + M_2\vr_2 = 0$, and with
-$r_1 + r_2 = R$ that gives the two radii (Section~\ref{sec:lagrange}'s setup does the two
-lines of algebra). Newton's second law for either primary, centripetal acceleration from the
-other's pull, fixes the rate: $M_1\Om^2 r_1 = GM_1M_2/R^2$, which with $r_1$ from
-\eqref{eq:primaries} is
+  \end{gathered}
+\end{equation}
+on opposite sides of the CM: ``origin at the CM'' means $M_1\vr_1 + M_2\vr_2 = 0$, i.e.\ $M_1 r_1 = M_2 r_2$ (the bodies are on opposite sides);
+putting $r_2 = R - r_1$ into it gives $(M_1 + M_2)\,r_1 = M_2 R$, and likewise for $r_2$. Newton's second law for $M_1$ fixes the rate: its acceleration is $\Om^2 r_1$ toward the CM
+(uniform circular motion) and the only force on it is $M_2$'s pull $GM_1M_2/R^2$, also toward
+the CM, so $M_1\Om^2 r_1 = GM_1M_2/R^2$; with $r_1$ from \eqref{eq:primaries} this is
+$M_1M_2\Om^2 R/(M_1+M_2) = GM_1M_2/R^2$, and cancelling $M_1M_2$ and multiplying by
+$(M_1+M_2)/R$,
 \begin{equation}
   \label{eq:kepler3}
   \Om^2 = \frac{G(M_1 + M_2)}{R^3},
@@ -670,9 +890,9 @@ second law with the two attractions: for $X$, $\partial\Lag/\partial\dot X = m\d
 $\partial\Lag/\partial X = -\partial U/\partial X$, so
 $\frac{d}{dt}\partial\Lag/\partial\dot X = \partial\Lag/\partial X$ reads
 $m\ddot X = -\partial U/\partial X$, and likewise for $Y$ and $Z$; together,
-$m\ddot{\vr} = -\grad U$. Nothing is conserved as it stands: $t$ appears explicitly through
+$m\ddot{\vr} = -\grad U$. Neither of Chapter~7's tests finds a conserved quantity as it stands: $t$ appears explicitly through
 $\vr_1(t)$ and $\vr_2(t)$, so Section~7.8's $\Ham$ is not constant, and no coordinate is
-ignorable, since $U$ depends on all three.
+ignorable (Section~7.6), since $U$ depends on all three.
 
 \medskip
 
@@ -692,14 +912,14 @@ into $U$.
 \noindent (ii) \emph{Motion in the orbital plane.} Set $Z = 0$. This is not a constraint in
 Section~7.3's sense, since no wire or surface enforces it. It is a choice of initial conditions
 that the equations of motion respect: $U$ is even in $Z$ (both distances contain $Z$ only as
-$Z^2$), so $\partial U/\partial Z = 0$ on $Z = 0$, and the $Z$ equation
+$Z^2$), so $\partial U/\partial Z = GmM_1 Z/|\vr - \vr_1|^3 + GmM_2 Z/|\vr - \vr_2|^3$, which is $0$ on $Z = 0$, and the $Z$ equation
 $m\ddot Z = -\partial U/\partial Z$ gives $\ddot Z = 0$ there. A body that starts in the plane
 with $\dot Z = 0$ stays in it, and we look only at those motions.
 
 \smallskip
-\noindent So, in Section~7.3's language, once the primaries are prescribed the system has three
-degrees of freedom; the constraint equation $f(X, Y, Z) = Z = 0$ is holonomic, costs one, and
-does nothing to $X$ and $Y$. Two generalized coordinates remain.
+\noindent So once the primaries are prescribed, $m$ has three degrees of freedom; restricting
+to the planar motions of (ii) removes $Z$ and does nothing to $X$ and $Y$. Two generalized
+coordinates remain.
 
 \medskip
 
@@ -711,10 +931,11 @@ $Z = 0$ the Lagrangian \eqref{eq:L3d} loses its $\dot Z$ term and $U$ loses $Z$:
 \end{equation}
 The only question Chapter~7 leaves open is which two generalized coordinates to use. $U$
 depends on $t$ only because the primaries move, so in coordinates that turn with them it will
-not. Section~7.5 allows a coordinate change that involves $t$, so take the rotating coordinates
+not. Section~7.3 allows generalized coordinates whose relation to the position involves $t$
+(Example~7.6 uses one), so take the rotating coordinates
 \eqref{eq:rotation}, $X = x\cos\Om t - y\sin\Om t$, $Y = x\sin\Om t + y\cos\Om t$. In them the
 primaries sit at $(x, y) = (-r_1, 0)$ and $(r_2, 0)$ for all time (put $(x,y) = (r_2, 0)$ into
-the rotation: $X = r_2\cos\Om t$, $Y = r_2\sin\Om t$, which is \eqref{eq:primaries}), so
+the rotation: $X = r_2\cos\Om t$, $Y = r_2\sin\Om t$, which is \eqref{eq:primaries}; $(-r_1, 0)$ likewise gives $\vr_1(t)$), so
 \begin{equation}
   \label{eq:U2d}
   U(x, y) = -\frac{GmM_1}{\sqrt{(x + r_1)^2 + y^2}} - \frac{GmM_2}{\sqrt{(x - r_2)^2 + y^2}},
@@ -725,15 +946,17 @@ $\dot X = (\dot x - \Om y)\cos\Om t - (\dot y + \Om x)\sin\Om t$ and
 $\dot Y = (\dot x - \Om y)\sin\Om t + (\dot y + \Om x)\cos\Om t$. Square and add: the cross
 terms $\mp 2(\dot x - \Om y)(\dot y + \Om x)\sin\Om t\cos\Om t$ cancel and
 $\cos^2\Om t + \sin^2\Om t = 1$, so $\dot X^2 + \dot Y^2 = (\dot x - \Om y)^2 + (\dot y + \Om x)^2$,
-and expanding the squares as in \eqref{eq:speed} and putting the result into \eqref{eq:L2d},
+and expanding the squares (as in \eqref{eq:speed}),
+$\dot X^2 + \dot Y^2 = \dot x^2 + \dot y^2 + 2\Om(x\dot y - y\dot x) + \Om^2(x^2 + y^2)$;
+putting $\tfrac12 m$ times this into \eqref{eq:L2d},
 \begin{equation}
   \label{eq:Lrot3}
   \boxed{\;\Lag = \tfrac12 m(\dot x^2 + \dot y^2) + m\Om\,(x\dot y - y\dot x)
   + \tfrac12 m\Om^2(x^2 + y^2) - U(x, y)\;}
 \end{equation}
-which is \eqref{eq:Lrot}. Two remarks before differentiating. There is no explicit $t$ in it
+which is \eqref{eq:Lrot}. Two remarks before differentiating. There is no explicit $t$ in $\Lag$
 any more; that was the point of the coordinate change. And the coordinates are not
-``natural'' in Section~7.8's sense: the relation between $(x, y)$ and $(X, Y)$ involves $t$, so
+``natural'' in Section~7.3's sense: the relation between $(x, y)$ and $(X, Y)$ involves $t$, so
 $T$ is not a pure quadratic in $\dot x, \dot y$ (there are the linear terms $m\Om(x\dot y -
 y\dot x)$ and the velocity-free term $\tfrac12 m\Om^2(x^2 + y^2)$), exactly as for the bead on
 the spinning hoop.
@@ -764,7 +987,7 @@ partner:
 \end{equation}
 which is \eqref{eq:eom}: gravity, then a centrifugal force $m\Om^2(x, y)$ pointing away from
 the axis, then a Coriolis force $2m\Om(\dot y, -\dot x)$ perpendicular to the velocity.
-Chapter~9 will derive both from Newton's law in a rotating frame; here they came out of
+Chapter~9 will derive both from Newton's second law in a rotating frame; here they came out of
 Lagrange's equations because the coordinates rotate.
 
 \medskip
@@ -783,20 +1006,59 @@ terms vanish with the velocities, the left sides vanish with the accelerations, 
 \end{equation}
 since $m\Om^2 x = -\partial_x\bigl(-\tfrac12 m\Om^2(x^2 + y^2)\bigr)$ and likewise for $y$.
 This has five solutions: three on the $x$ axis ($L_1$, $L_2$, $L_3$; the equation
-\eqref{eq:axis} and the table in Section~\ref{sec:lagrange}) and two off it. The two off it
-take three lines. At a point $\vr$ a distance $R$ from \emph{both} primaries (the third corner
+\eqref{eq:axis} and the table in Section~\ref{sec:lagrange}) and two off it, and no others (the polar-coordinates paragraph of Section~\ref{sec:lagrange});
+Figure~\ref{fig:fivepoints} shows all five. The two off it take three lines. With $\vr = (x, y)$ and $\vr_1 = (-r_1, 0)$, $\vr_2 = (r_2, 0)$ the rotating-frame positions, at a
+point $\vr$ a distance $R$ from \emph{both} primaries (the third corner
 of an equilateral triangle on $M_1M_2$), each primary pulls with magnitude $GM_i/R^2$ along the
 unit vector $(\vr_i - \vr)/R$, so, dividing \eqref{eq:equilibrium3} by $m$ and writing the
 gravity term as (magnitude)$\times$(unit vector),
 \begin{align}
   -\frac1m\grad U &= \frac{GM_1}{R^2}\,\frac{\vr_1 - \vr}{R} + \frac{GM_2}{R^2}\,\frac{\vr_2 - \vr}{R}
-  = \frac{G}{R^3}\Bigl[(M_1\vr_1 + M_2\vr_2) - (M_1 + M_2)\,\vr\Bigr] \nonumber\\
-  &= -\frac{G(M_1 + M_2)}{R^3}\,\vr = -\Om^2\vr ,
+  = \frac{GM_1(\vr_1 - \vr)}{R^3} + \frac{GM_2(\vr_2 - \vr)}{R^3} \nonumber\\
+  &= \frac{G}{R^3}\Bigl[(M_1\vr_1 + M_2\vr_2) - (M_1 + M_2)\,\vr\Bigr]
+  = -\frac{G(M_1 + M_2)}{R^3}\,\vr = -\Om^2\vr ,
 \end{align}
 using $M_1\vr_1 + M_2\vr_2 = 0$ (origin at the CM) and then \eqref{eq:kepler3}; the
 centrifugal term of \eqref{eq:equilibrium3} divided by $m$ is $+\Om^2\vr$, and the two cancel.
-Those are $L_4$ and $L_5$, $60^\circ$ ahead of and behind $M_2$ on its orbit, for any mass
-ratio. (Jupiter's Trojans.)
+Those are $L_4$ and $L_5$, $60^\circ$ ahead of and behind $M_2$ as seen from $M_1$, for any mass
+ratio (on $M_2$'s orbit only in the limit $\mu \to 0$). (Jupiter's Trojans.)
+
+\begin{figure}[htb]
+  \centering
+  \begin{tikzpicture}[scale=3.0]
+    \draw[->, gray] (-1.35,0) -- (1.55,0) node[below right] {$x$};
+    \draw[->, gray] (0,-1.1) -- (0,1.1) node[left] {$y$};
+    \draw[dashed, gray] (0,0) circle (0.9);
+    \draw[dashed] (-0.1,0) -- (0.4,0.866) -- (0.9,0) -- (0.4,-0.866) -- cycle;
+    \fill (-0.1,0) circle (0.055) node[below left=2pt] {$M_1$};
+    \fill (0.9,0) circle (0.03) node[below=3pt] {$M_2$};
+    \draw[thick] (-0.03,0) -- (0.03,0) (0,-0.03) -- (0,0.03);
+    \draw (0.16,0.11) node {\scriptsize CM} -- (0.03,0.02);
+    \foreach \x/\lab/\pos in {0.609/L_1/above, 1.2597/L_2/below, -1.0416/L_3/above}
+      \draw (\x,0) circle (0.025) node[\pos=2pt] {$\lab$};
+    % a satellite at L2 (JWST), leader line down to the point
+    \draw[gray] (1.2597,0.03) -- (1.2597,0.17);
+    \begin{scope}[shift={(1.2597,0.27)}, scale=0.045, rotate=15]
+      \draw[thick] (-4,0) -- (4,0);
+      \fill (-4,-0.7) rectangle (-1.4,0.7);
+      \fill (1.4,-0.7) rectangle (4,0.7);
+      \fill (-1.1,-1.1) rectangle (1.1,1.1);
+      \draw[thick] (0,1.1) -- (0,2.2);
+      \draw[thick] (-1.2,2.2) arc (180:360:1.2 and 0.5);
+    \end{scope}
+    \draw (0.4,0.866) circle (0.025) node[above=2pt] {$L_4$};
+    \draw (0.4,-0.866) circle (0.025) node[below=2pt] {$L_5$};
+  \end{tikzpicture}
+  \caption{The five Lagrange points in the rotating frame, drawn to scale for
+    $\mu = M_2/(M_1+M_2) = 0.1$ (the mass ratio of Figure~\ref{fig:ueff}; for the Sun and the
+    Earth, $L_1$ and $L_2$ sit one percent of $R$ from the Earth and would not separate on the
+    page). $L_1$, $L_2$, $L_3$ on the line of the primaries, found from \eqref{eq:axis};
+    $L_4$, $L_5$ at the third corners of the two equilateral triangles (dashed) on $M_1M_2$.
+    The dashed circle is $M_2$'s orbit about the CM. The satellite marks $L_2$: for the Sun and
+    the Earth that is where JWST sits, beyond the Earth on the far side from the Sun (SOHO sits
+    at $L_1$); the Trojan asteroids are at $L_4$ and $L_5$.}
+  \label{fig:fivepoints}
+\end{figure}
 
 \smallskip
 \noindent (b) \emph{What is conserved?} $\Lag$ in \eqref{eq:Lrot3} has no explicit $t$, so by
@@ -806,15 +1068,18 @@ $p_y = \partial\Lag/\partial\dot y = m(\dot y + \Om x)$,
 \begin{align}
   \Ham &= m(\dot x - \Om y)\dot x + m(\dot y + \Om x)\dot y - \Lag
   = m(\dot x^2 + \dot y^2) + m\Om(x\dot y - y\dot x) - \Lag \nonumber\\
+  &= m(\dot x^2 + \dot y^2) + m\Om(x\dot y - y\dot x) \nonumber\\
+  &\qquad - \Bigl[\tfrac12 m(\dot x^2 + \dot y^2) + m\Om(x\dot y - y\dot x)
+  + \tfrac12 m\Om^2(x^2 + y^2) - U\Bigr] \nonumber\\
   &= \tfrac12 m(\dot x^2 + \dot y^2) + \Ueff(x, y),
   \label{eq:jacobi3}
 \end{align}
-the second line by subtracting \eqref{eq:Lrot3} term by term: the $m\Om(x\dot y - y\dot x)$
+the last line by subtracting \eqref{eq:Lrot3} term by term: the $m\Om(x\dot y - y\dot x)$
 cancel, half of $m(\dot x^2 + \dot y^2)$ survives, and $-\tfrac12 m\Om^2(x^2+y^2) + U$ is
 $\Ueff$. This is the Jacobi integral. It is \emph{not} $T + U$ (Section~7.8 said it would not
 be, because the coordinate relation involves $t$), and it is more useful than $T + U$ would be:
 since $\tfrac12 m(\dot x^2 + \dot y^2) \ge 0$, a body with a given $\Ham$ can only be where
-$\Ueff(x, y) \le \Ham$. A moon with $\Ham$ below the value of $\Ueff$ at $L_1$ can never leave
+$\Ueff(x, y) \le \Ham$. A moon with $\Ham$ below the value of $\Ueff$ at $L_1$ that starts near its planet can never leave
 its planet's neighbourhood, however it moves inside it.
 
 \smallskip
