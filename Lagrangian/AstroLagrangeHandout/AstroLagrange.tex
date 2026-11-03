@@ -1,0 +1,458 @@
+% Written 2026-11-03 for Smith PHY 317 (Classical Mechanics), class 23 (Taylor 7.5, 7.8, 7.10),
+% for a room that is about half physics/astronomy double majors. Companion to the three-springs
+% handout in the 210 repo (MathematicalPhysics/CoupledDEs/ThreeSpringsHandout): same macros.tex,
+% same shape (a credit line, a rule, then the highlights, result first and the steps after).
+% The figure ueff_contours.pdf is drawn by make_figure.py in this folder.
+% Build: latexmk -pdf AstroLagrange.tex.  Student copy: \masterfalse after \input{macros}.
+\documentclass[12pt]{article}
+\input{macros}
+
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\numberwithin{equation}{section}
+
+\newcommand{\Om}{\Omega}
+\newcommand{\Lag}{\mathcal{L}}
+\newcommand{\Ueff}{U_{\rm eff}}
+\newcommand{\vpec}{v_{\rm pec}}
+
+\begin{document}
+\title{Highlights from two astronomy problems for Lagrange's equations: \\
+  the cosmological redshift and the Lagrange points}
+\author{Michael G. Lerner}
+\date{\today}
+
+\maketitle
+
+These notes use only what is in Taylor, \emph{Classical Mechanics}, Sections 7.5, 7.6 and 7.8:
+Lagrange's equations, a coordinate change that depends on time, ignorable coordinates, and
+``no $t$ in $\Lag$ gives a conserved Hamiltonian.'' The cosmology half follows the standard
+textbook route for a particle in an expanding universe (P.~J.~E. Peebles, \emph{The Large-Scale
+Structure of the Universe}, Princeton, 1980, Chapter~II); the second half is the restricted
+three-body problem as every celestial-mechanics book sets it up (e.g.\ Murray and Dermott,
+\emph{Solar System Dynamics}, Cambridge, 1999, Chapter~3). Both halves are Newtonian
+throughout, and the places where general relativity would add something are flagged.
+
+\setlength{\unitlength}{1in}
+
+\noindent\begin{picture}(7,.1)
+\put(0,0) {\line(1,0){7}}
+\end{picture}
+
+\section{The redshift: Noether in an expanding universe}
+\label{sec:redshift}
+
+\noindent\textbf{The setup.} Hubble's law says a galaxy at distance $r$ recedes from us at
+$v = (\dot a/a)\, r$, where $a(t)$ is the \emph{scale factor}: every cosmological distance
+grows as $r(t) = a(t)\, x$, with $x$ a label that does not change. Coordinates that expand
+with the universe like this are called \emph{comoving coordinates}: a galaxy that just rides
+the expansion (the ``Hubble flow'') sits at a fixed $x$ forever. Differentiating,
+\begin{equation}
+  \dot r = \dot a\, x + a\, \dot x ,
+\end{equation}
+the Hubble flow plus the \emph{peculiar velocity} $\vpec \equiv a\dot x$, the motion relative
+to the flow (a galaxy falling toward a cluster, say, or a photon crossing the universe).
+
+\medskip
+
+\noindent\textbf{The result, first.} For a particle moving freely through a homogeneous
+expanding universe, in comoving coordinates,
+\begin{equation}
+  \label{eq:Lcosmo}
+  \boxed{\;\Lag = \tfrac12\, m\, a(t)^2\, \dot x^2\;}
+  \qquad\text{(up to a total time derivative, which changes nothing).}
+\end{equation}
+Two things follow immediately from Taylor's Section~7.8:
+\begin{itemize}
+\item $x$ does not appear in $\Lag$, so it is ignorable: $p \equiv \partial\Lag/\partial\dot x
+  = m a^2 \dot x$ is conserved. In terms of the peculiar velocity, $m\, a\, \vpec$ is constant,
+  so
+  \begin{equation}
+    \label{eq:hubbledrag}
+    \vpec \propto \frac{1}{a} .
+  \end{equation}
+  Random motions die away as the universe grows (``Hubble drag''): when the universe doubles in
+  size, every freely coasting peculiar velocity halves.
+\item $t$ \emph{does} appear in $\Lag$, through $a(t)$, so there is no conserved Hamiltonian
+  and no conserved energy. The expanding universe does not have time-translation symmetry, and
+  Noether's theorem has nothing to give.
+\end{itemize}
+The rest of this section is where \eqref{eq:Lcosmo} comes from, and then what it says about
+light.
+
+\medskip
+
+\noindent\textbf{Step 1: Newton's law for the expansion.} Fill space with matter of uniform
+density $\rho(t)$. Pick any point as the origin. A particle at $r$ feels only the gravity of
+the sphere inside it (Newton's shell theorem; that the outside cancels is the one place
+Newtonian cosmology has to wave its hands, and general relativity makes the argument honest),
+so
+\begin{equation}
+  \ddot r = -\frac{G M(<r)}{r^2} = -\frac{G}{r^2}\cdot\frac{4\pi}{3}\rho r^3
+  = -\frac{4\pi G}{3}\,\rho\, r ,
+  \qquad\text{i.e.}\qquad
+  \Phi(r) = \frac{2\pi G}{3}\,\rho\, r^2 .
+\end{equation}
+A particle riding the Hubble flow has $r = a x$ with $x$ constant, so $\ddot r = \ddot a\, x$
+and
+\begin{equation}
+  \label{eq:friedmann}
+  \ddot a = -\frac{4\pi G}{3}\,\rho\, a .
+\end{equation}
+This is the Friedmann acceleration equation for a universe of pressureless matter. (General
+relativity's version has extra terms for pressure and for the cosmological constant; with those
+set to zero it is exactly this.)
+
+\medskip
+
+\noindent\textbf{Step 2: the Lagrangian in comoving coordinates.} Work in one dimension; three
+is the same with vectors. A particle that is \emph{not} riding the flow has $r = a x$ with
+$x(t)$ free, and
+\begin{align}
+  \Lag = \tfrac12 m\dot r^2 - m\Phi
+  &= \tfrac12 m\,(\dot a x + a\dot x)^2 - \frac{2\pi G}{3}\, m \rho\, a^2 x^2 \nonumber\\
+  &= \tfrac12 m a^2\dot x^2 \;+\; m a\dot a\, x\dot x \;+\; \tfrac12 m\dot a^2 x^2
+     \;-\; \frac{2\pi G}{3}\, m\rho\, a^2 x^2 .
+  \label{eq:Lexpanded}
+\end{align}
+The cross term is the one to tame. Since $\frac{d}{dt}\bigl(\tfrac12 m a\dot a\, x^2\bigr)
+= \tfrac12 m(\dot a^2 + a\ddot a)\,x^2 + m a\dot a\, x\dot x$,
+\begin{equation}
+  m a\dot a\, x\dot x = \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\, x^2\Bigr)
+  - \tfrac12 m\dot a^2 x^2 - \tfrac12 m a\ddot a\, x^2 .
+\end{equation}
+Put that into \eqref{eq:Lexpanded}. The $\tfrac12 m\dot a^2 x^2$ terms cancel, and by
+\eqref{eq:friedmann} $-\tfrac12 m a\ddot a\,x^2 = +\frac{2\pi G}{3} m\rho a^2 x^2$, which
+cancels the potential term exactly. What is left is
+\begin{equation}
+  \Lag = \tfrac12 m a^2\dot x^2 + \frac{dF}{dt}, \qquad F \equiv \tfrac12 m a\dot a\, x^2 .
+\end{equation}
+
+\medskip
+
+\noindent\textbf{Step 3: a total derivative in $\Lag$ changes nothing.} The action is
+$S = \int_{t_1}^{t_2}\Lag\,dt$, and $\int_{t_1}^{t_2} (dF/dt)\,dt = F(t_2) - F(t_1)$ is fixed
+by the endpoints: it is the same number for every path between them, so it cannot change which
+path makes $S$ stationary. (Check: put $\Lag = dF/dt = \partial_t F + \dot x\,\partial_x F$
+into Lagrange's equation by itself and everything cancels.) So we may drop it, and
+\eqref{eq:Lcosmo} is the Lagrangian. Had there been lumps in the universe, a galaxy cluster
+say, \eqref{eq:Lcosmo} would pick up $-m\phi(x,t)$ with $\phi$ the \emph{peculiar} potential
+of the lumps alone; that is Peebles's starting point for structure formation, and it is why the
+smooth background's potential vanished here: it is already accounted for by the expansion.
+
+\medskip
+
+\noindent\textbf{The Hamiltonian, and what is not conserved.} With $p = m a^2\dot x$,
+\begin{equation}
+  \Ham = p\dot x - \Lag = \tfrac12 m a^2\dot x^2 = \tfrac12 m\vpec^2 ,
+\end{equation}
+which is the kinetic energy in the peculiar velocity, and Taylor's general result
+$d\Ham/dt = -\partial\Lag/\partial t$ gives
+\begin{equation}
+  \frac{d\Ham}{dt} = -m a\dot a\,\dot x^2 = -2\,\frac{\dot a}{a}\,\Ham ,
+  \qquad\text{so}\qquad \Ham \propto \frac{1}{a^2},
+\end{equation}
+consistent with \eqref{eq:hubbledrag}. The energy is not conserved, and the formalism tells us
+exactly why: $\partial\Lag/\partial t \neq 0$.
+
+\medskip
+
+\noindent\textbf{Light.} The argument above assumed $\tfrac12 m v^2$, so by itself it says
+nothing about photons. General relativity makes the same statement for any freely moving
+particle, massive or not: the momentum measured by comoving observers falls as $1/a$. (The
+symmetry argument is the one you just saw. The spacetime of a homogeneous universe does not
+depend on the comoving position $x$, so the momentum conjugate to $x$ is conserved, and
+converting it to what a local observer measures costs one factor of $a$.) For a photon
+$p = h/\lambda$, so
+\begin{equation}
+  \lambda \propto a, \qquad 1 + z \equiv \frac{\lambda_{\rm obs}}{\lambda_{\rm emit}}
+  = \frac{a_{\rm obs}}{a_{\rm emit}} .
+\end{equation}
+A photon emitted when the universe was half its present size arrives with twice its
+wavelength: $z = 1$. That is the cosmological redshift, and it is the same conservation law
+as \eqref{eq:hubbledrag}.
+
+\medskip
+
+\noindent\textbf{Where does the photon's energy go?} Nowhere. $E = pc \propto 1/a$ simply
+decreases. The question presumes a conserved total energy, and Noether's theorem says where
+that would have to come from: time-translation symmetry. An expanding universe does not have
+it, so there is no global energy to balance the books with. (Locally, in any small
+freely-falling laboratory, energy is conserved as usual; it is the bookkeeping across
+cosmological distances that has no ledger.) Compare the slide from Monday: ``if $\Lag$ does not
+depend explicitly on time, then energy is conserved.'' This is the contrapositive, with the
+whole universe as the example.
+
+\section{The Lagrange points: Lagrange's equations in a rotating frame}
+\label{sec:lagrange}
+
+\noindent\textbf{The setup.} JWST sits about $1.5\times 10^6$~km from Earth, on the far
+side from the Sun, at the point called $L_2$; Jupiter's Trojan asteroids cluster $60^\circ$
+ahead of and behind the planet, at $L_4$ and $L_5$. Lagrange found these five points in 1772
+as special solutions of the three-body problem (the first Trojan, 588 Achilles, was not seen
+until 1906). In what sense is a point ``at rest'' when the Sun, the Earth and the point are all
+orbiting? In the frame that rotates with the two big bodies. Taylor does rotating frames with
+vectors in Chapter~9; here the same physics drops out of a Lagrangian in three lines, by the
+time-dependent coordinate change of Section~7.5.
+
+Two bodies $M_1$ and $M_2$ move on circular orbits about their center of mass (CM), a distance
+$R$ apart, at angular speed $\Om$. Newton for $M_1$, which is $r_1 = M_2 R/(M_1+M_2)$ from the
+CM, gives $M_1\Om^2 r_1 = GM_1M_2/R^2$, so
+\begin{equation}
+  \label{eq:kepler}
+  \Om^2 = \frac{G(M_1+M_2)}{R^3}
+\end{equation}
+(Kepler's third law; Chapter~8 does the general case). A third body of mass $m$, so small that
+it does not disturb the first two (this is the \emph{restricted} three-body problem), moves in
+their orbital plane. Write $\mu \equiv M_2/(M_1+M_2)$, so the CM is at the origin with $M_1$ at
+$(-\mu R, 0)$ and $M_2$ at $((1-\mu)R, 0)$ in coordinates $(x,y)$ that rotate with them:
+\begin{equation}
+  \label{eq:rotation}
+  X = x\cos\Om t - y\sin\Om t, \qquad Y = x\sin\Om t + y\cos\Om t ,
+\end{equation}
+where $(X,Y)$ are inertial.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.0]
+  \draw[->,gray] (-1.4,0) -- (2.0,0) node[right,black] {$X$};
+  \draw[->,gray] (0,-0.9) -- (0,1.8) node[above,black] {$Y$};
+  \begin{scope}[rotate=30]
+    \draw[->,thick] (-1.3,0) -- (1.9,0) node[right] {$x$};
+    \draw[->,thick] (0,-0.35) -- (0,1.7) node[above] {$y$};
+    \fill (-0.3,0) circle (0.08) node[below=4pt] {$M_1$};
+    \fill (1.2,0) circle (0.05) node[above=4pt] {$M_2$};
+    \draw[dashed] (-0.3,0) -- (0.45,1.3) -- (1.2,0);
+    \draw[fill=white] (0.45,1.3) circle (0.04) node[above=3pt] {$L_4$};
+    \draw[<->] (-0.3,-0.5) -- (1.2,-0.5) node[midway,below] {$R$};
+  \end{scope}
+  \draw[->] (0.7,0) arc (0:30:0.7) node[midway,right=3pt] {$\Om t$};
+  \draw[gray,thin] (0.3,-0.17) -- (0.03,-0.03);
+  \node at (0.38,-0.21) {CM};
+\end{tikzpicture}
+\end{center}
+
+\noindent\textbf{The result, first.}
+\begin{equation}
+  \label{eq:Lrot}
+  \boxed{\;\Lag = \tfrac12 m(\dot x^2 + \dot y^2) + m\Om\,(x\dot y - y\dot x)
+  + \tfrac12 m\Om^2 (x^2 + y^2) - U(x,y)\;}
+\end{equation}
+with $U$ the ordinary gravitational potential energy of $m$ in the field of the two fixed
+primaries. Three things follow:
+\begin{itemize}
+\item Lagrange's equations are Newton's second law plus two extra forces, the centrifugal
+  force $m\Om^2(x,y)$ and the Coriolis force $2m\Om(\dot y, -\dot x)$: Chapter~9's results,
+  for free.
+\item A body can sit still in the rotating frame exactly where the \emph{effective potential}
+  $\Ueff \equiv U - \tfrac12 m\Om^2(x^2+y^2)$ has zero gradient. There are five such points.
+  Two of them, $L_4$ and $L_5$, form equilateral triangles with $M_1$ and $M_2$, for any mass
+  ratio; the other three lie on the line through the primaries.
+\item $\Lag$ has no explicit $t$, so $\Ham$ is conserved. It is $\tfrac12 m v_{\rm rot}^2 +
+  \Ueff$, called the \emph{Jacobi integral}, and it is \emph{not} $T + U$.
+\end{itemize}
+
+\medskip
+
+\noindent\textbf{Step 1: the kinetic energy.} Differentiate \eqref{eq:rotation}:
+\begin{equation}
+  \dot X = (\dot x - \Om y)\cos\Om t - (\dot y + \Om x)\sin\Om t, \qquad
+  \dot Y = (\dot x - \Om y)\sin\Om t + (\dot y + \Om x)\cos\Om t ,
+\end{equation}
+so the sines and cosines drop out of the speed:
+\begin{equation}
+  \dot X^2 + \dot Y^2 = (\dot x - \Om y)^2 + (\dot y + \Om x)^2
+  = \dot x^2 + \dot y^2 + 2\Om\,(x\dot y - y\dot x) + \Om^2(x^2 + y^2).
+\end{equation}
+Half of $m$ times this is the kinetic energy in \eqref{eq:Lrot}. This is Taylor's bead on a
+spinning hoop with two coordinates instead of one: the inertial position depends on the
+generalized coordinates \emph{and} on $t$, and that is what breeds the extra terms.
+
+\medskip
+
+\noindent\textbf{Step 2: the potential energy.} In the rotating frame the primaries do not
+move, so
+\begin{equation}
+  U(x,y) = -\frac{G m M_1}{\sqrt{(x+\mu R)^2 + y^2}} - \frac{G m M_2}{\sqrt{(x-(1-\mu)R)^2 + y^2}}
+\end{equation}
+has no $t$ in it. That is the whole reason to rotate: in the inertial frame $U(X,Y,t)$ is
+time-dependent and nothing is conserved.
+
+\medskip
+
+\noindent\textbf{Step 3: Lagrange's equations.} From \eqref{eq:Lrot},
+$\partial\Lag/\partial\dot x = m(\dot x - \Om y)$ and
+$\partial\Lag/\partial x = m\Om\dot y + m\Om^2 x - \partial U/\partial x$, so
+$\frac{d}{dt}\partial\Lag/\partial\dot x = \partial\Lag/\partial x$ reads
+$m\ddot x - m\Om\dot y = m\Om\dot y + m\Om^2 x - \partial U/\partial x$, i.e.
+\begin{equation}
+  \label{eq:eom}
+  m\ddot x = -\pd{U}{x} + m\Om^2 x + 2m\Om\dot y, \qquad
+  m\ddot y = -\pd{U}{y} + m\Om^2 y - 2m\Om\dot x .
+\end{equation}
+Gravity, then the centrifugal force $m\Om^2(x,y)$, outward from the axis, then the Coriolis
+force $2m\Om(\dot y, -\dot x)$, perpendicular to the velocity. (Chapter~9 writes them as
+$-m\,\vomega\times(\vomega\times\vr)$ and $-2m\,\vomega\times\dot{\vr}$ with $\vomega = \Om\uv{z}$;
+check that those give the same components.) The Coriolis force depends on velocity, so it has
+no potential energy, but it does no work: it is always perpendicular to $\dot{\vr}$.
+
+\medskip
+
+\noindent\textbf{Step 4: equilibrium.} To sit still in the rotating frame, $\dot x = \dot y
+= 0$ and $\ddot x = \ddot y = 0$, so the Coriolis force is off and \eqref{eq:eom} says
+\begin{equation}
+  \label{eq:equilibrium}
+  \grad{\Ueff} = 0, \qquad \Ueff(x,y) \equiv U(x,y) - \tfrac12 m\Om^2(x^2+y^2).
+\end{equation}
+The centrifugal force came from a potential, so it joins $U$. Figure~\ref{fig:ueff} shows
+$\Ueff$ for $\mu = 0.1$ (an unrealistically heavy $M_2$, chosen so the five points separate
+on the page) with its five stationary points.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=3.6in]{ueff_contours}
+  \caption{Contours of the effective potential $\Ueff$ in the rotating frame for $\mu = 0.1$,
+    with the two primaries (filled) and the five Lagrange points (open). $L_1$, $L_2$, $L_3$
+    are saddle points; $L_4$ and $L_5$ are the two maxima. Drawn by \texttt{make\_figure.py}
+    in the handout's folder.}
+  \label{fig:ueff}
+\end{figure}
+
+\medskip
+
+\noindent\textbf{Board problem (a): $L_4$ and $L_5$.} Show that the two points forming
+equilateral triangles with $M_1$ and $M_2$ satisfy \eqref{eq:equilibrium}, whatever the mass
+ratio. Work with the forces per unit mass, and use \eqref{eq:kepler} and the fact that the CM
+is at the origin.
+
+\solution{Let $\vr$ be such a point and $\vr_1$, $\vr_2$ the primaries. By construction
+$|\vr - \vr_1| = |\vr - \vr_2| = R$, so gravity per unit mass is
+\begin{align}
+  -\frac{1}{m}\grad{U} &= \frac{GM_1(\vr_1 - \vr)}{R^3} + \frac{GM_2(\vr_2 - \vr)}{R^3}
+  = \frac{G}{R^3}\Bigl[(M_1\vr_1 + M_2\vr_2) - (M_1+M_2)\,\vr\Bigr] \nonumber\\
+  &= -\frac{G(M_1+M_2)}{R^3}\,\vr = -\Om^2\vr ,
+\end{align}
+because $M_1\vr_1 + M_2\vr_2 = (M_1+M_2)\,\mathbf{r}_{\rm cm} = 0$. The centrifugal force per unit
+mass is $+\Om^2\vr$. They cancel. In words: at the equilateral points the two bodies' gravity
+points exactly at the CM, with exactly the strength a circular orbit of angular speed $\Om$
+needs at that radius, so the test mass goes around the CM in step with the primaries. The
+dashed triangle in the diagram of the setup is this point.}
+
+\medskip
+
+\noindent\textbf{Board problem (b): $L_1$ and $L_2$ for a small $\mu$.} Use units with $R = 1$
+and $G(M_1+M_2) = 1$, so $\Om = 1$ by \eqref{eq:kepler}, $M_1 \to 1-\mu$ at $x = -\mu$ and
+$M_2 \to \mu$ at $x = 1-\mu$. On the axis $y = 0$ the condition \eqref{eq:equilibrium} is
+\begin{equation}
+  \label{eq:axis}
+  x = \frac{(1-\mu)(x+\mu)}{|x+\mu|^3} + \frac{\mu\,(x-1+\mu)}{|x-1+\mu|^3} .
+\end{equation}
+(Check the left side: $-\partial\Ueff/\partial x$ per unit mass, moved across.) Show that for
+$\mu \ll 1$ both $L_1$ and $L_2$ sit a distance
+\begin{equation}
+  \label{eq:hill}
+  d \approx R\,\Bigl(\frac{\mu}{3}\Bigr)^{1/3}
+\end{equation}
+from $M_2$, one on each side, and evaluate it for the Sun and the Earth ($\mu = 3.00\times
+10^{-6}$, $R = 1.496\times 10^8$~km). This $d$ is called the \emph{Hill radius}; inside it
+$M_2$'s gravity wins over the tidal pull of $M_1$, which is why the Moon is Earth's.
+
+\solution{Take $L_2$ first: $x = 1 - \mu + \delta$ with $\delta > 0$ (beyond $M_2$). Keep
+first order in $\delta$, drop $\mu$ wherever it is added to a number of order one, but keep
+$\mu/\delta^2$, which is the term that matters. The left side of \eqref{eq:axis} is $1 +
+\delta$; the first term on the right is $(1-\mu)/(1+\delta)^2 \approx 1 - 2\delta$; the second
+is $\mu\delta/\delta^3 = \mu/\delta^2$. So
+\begin{equation}
+  1 + \delta \approx 1 - 2\delta + \frac{\mu}{\delta^2}
+  \quad\Rightarrow\quad 3\delta = \frac{\mu}{\delta^2}
+  \quad\Rightarrow\quad \delta^3 = \frac{\mu}{3} .
+\end{equation}
+For $L_1$ put $x = 1 - \mu - \delta$: the left side is $1 - \delta$, the first term is
+$(1-\mu)/(1-\delta)^2 \approx 1 + 2\delta$, and the second is $\mu(-\delta)/\delta^3 =
+-\mu/\delta^2$, giving $-3\delta = -\mu/\delta^2$ and the same $\delta$. To this order $L_1$
+and $L_2$ are mirror images about $M_2$. For the Sun and the Earth, $(\mu/3)^{1/3} =
+(1.00\times 10^{-6})^{1/3} = 0.0100$, so $d = 0.0100\;\mathrm{AU} = 1.50\times 10^6$~km, about
+four times the Moon's distance. JWST orbits around $L_2$ (a ``halo orbit'' a few hundred
+thousand km across), so that it always has the Sun, the Earth and the Moon on the same side,
+behind its sunshield.}
+
+\medskip
+
+\noindent\textbf{The exact positions.} Equation \eqref{eq:axis} is a quintic once the absolute
+values are resolved, so the three collinear points are found numerically. Solving it with
+\texttt{scipy.optimize.brentq} on the three intervals (left of $M_1$, between, right of
+$M_2$):
+
+\begin{center}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+ & $\mu$ & $L_1$: inside $M_2$ & $L_2$: beyond $M_2$ & $d$ from \eqref{eq:hill} & $L_3$, $x/R$ \\
+\midrule
+Sun--Earth    & $3.00\times 10^{-6}$ & $1.49\times 10^6$ km & $1.50\times 10^6$ km & $1.50\times 10^6$ km & $-1.000001$ \\
+Sun--Jupiter  & $9.54\times 10^{-4}$ & $5.19\times 10^7$ km & $5.43\times 10^7$ km & $5.31\times 10^7$ km & $-1.0004$ \\
+Earth--Moon   & $1.22\times 10^{-2}$ & $5.80\times 10^4$ km & $6.45\times 10^4$ km & $6.13\times 10^4$ km & $-1.005$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The approximation \eqref{eq:hill} is good to a tenth of a percent for the Earth and
+to about five percent for the Moon, whose $\mu$ is not so small. $L_3$ sits on the far side of
+$M_1$, essentially on $M_2$'s orbit. The code is a few lines:
+\begin{verbatim}
+from scipy.optimize import brentq
+def f(x, mu):
+    return x - (1-mu)*(x+mu)/abs(x+mu)**3 - mu*(x-1+mu)/abs(x-1+mu)**3
+mu = 3.003e-6
+L3 = brentq(f, -2.0, -mu-1e-9, args=(mu,))
+L1 = brentq(f, -mu+1e-9, 1-mu-1e-9, args=(mu,))
+L2 = brentq(f, 1-mu+1e-9, 2.5, args=(mu,))
+\end{verbatim}
+
+\medskip
+
+\noindent\textbf{Noether again: the Jacobi integral.} $\Lag$ in \eqref{eq:Lrot} has no explicit
+$t$, so Section~7.8 says $\Ham = p_x\dot x + p_y\dot y - \Lag$ is conserved. With $p_x =
+m(\dot x - \Om y)$ and $p_y = m(\dot y + \Om x)$,
+\begin{equation}
+  \label{eq:jacobi}
+  \Ham = m(\dot x^2 + \dot y^2) + m\Om(x\dot y - y\dot x) - \Lag
+  = \tfrac12 m(\dot x^2 + \dot y^2) + \Ueff(x,y) .
+\end{equation}
+This is the Jacobi integral (celestial mechanics usually quotes $C_J = -2\Ham/m$). Three
+remarks, the first two of which are the point of Section~7.8:
+\begin{enumerate}
+\item It is conserved, and it looks like an energy: kinetic energy in the rotating frame plus
+  the effective potential.
+\item It is \emph{not} $T + U$. The true kinetic energy is $\tfrac12 m(\dot X^2 + \dot Y^2)$,
+  and from Step~1
+  \begin{equation}
+    T + U = \Ham + m\Om(x\dot y - y\dot x) + m\Om^2(x^2 + y^2),
+  \end{equation}
+  which is not constant. Taylor's condition for $\Ham = T + U$ was that the relation between
+  the generalized coordinates and the inertial position not involve $t$; \eqref{eq:rotation}
+  involves $t$, so the condition fails, exactly as for the spinning hoop. (And $T + U$ is not
+  conserved in the inertial frame either: there the primaries move and $U$ depends on time.
+  The symmetry lives in the rotating frame, and so does the conservation law.)
+\item Since $\tfrac12 m v_{\rm rot}^2 \geq 0$, a body with a given $\Ham$ can only be where
+  $\Ueff \leq \Ham$. The contours in Figure~\ref{fig:ueff} are therefore fences (Hill's
+  \emph{zero-velocity curves}): a satellite with $\Ham$ below $\Ueff(L_1)$ that starts near
+  $M_2$ can never leave $M_2$'s neighbourhood, however it moves. Raising $\Ham$ past
+  $\Ueff(L_1)$ opens a gate to $M_1$; past $\Ueff(L_2)$, a gate to the outside.
+\end{enumerate}
+
+\medskip
+
+\noindent\textbf{Stability, in one paragraph (not derived today).} $L_1$, $L_2$ and $L_3$ are
+saddle points of $\Ueff$ and are unstable: JWST fires its thrusters every few weeks to stay
+near $L_2$. $L_4$ and $L_5$ are \emph{maxima} of $\Ueff$, and yet they are stable whenever
+$27\mu(1-\mu) < 1$, i.e.\ $\mu < 0.0385$, which covers Sun--Jupiter (the Trojans) and
+Earth--Moon. A stable equilibrium at a potential maximum is impossible for a static potential:
+the small-oscillation analysis of Taylor's Example~7.7 would call it unstable. What rescues it
+is the Coriolis force, which does no work but keeps turning the velocity, so a body that starts
+to fall off the hill is swung around it instead. Showing that means linearizing
+\eqref{eq:eom} \emph{with} the velocity terms kept, a $4\times 4$ eigenvalue problem; it is a
+very good project, and the same $4\times4$ problem comes back in Chapter~9.
+
+\end{document}

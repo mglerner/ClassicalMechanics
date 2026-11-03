@@ -29,3 +29,5 @@ auto/
 
 # Dropbox sync conflict files (in case any sneak in)
 *conflicted copy*
+*.fdb_latexmk
+*.fls
