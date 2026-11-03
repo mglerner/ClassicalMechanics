@@ -348,13 +348,20 @@ no potential energy, but it does no work: it is always perpendicular to $\dot{\v
 \medskip
 
 \noindent\textbf{Step 4: equilibrium.} To sit still in the rotating frame, $\dot x = \dot y
-= 0$ and $\ddot x = \ddot y = 0$, so the Coriolis force is off and \eqref{eq:eom} says
+= 0$ and $\ddot x = \ddot y = 0$. Put those into \eqref{eq:eom}: the Coriolis terms
+$2m\Om\dot y$ and $-2m\Om\dot x$ vanish, the left sides $m\ddot x$ and $m\ddot y$ vanish, and
+what is left is
+\begin{equation}
+  0 = -\pd{U}{x} + m\Om^2 x, \qquad 0 = -\pd{U}{y} + m\Om^2 y .
+\end{equation}
+The centrifugal force came from a potential: $m\Om^2 x = -\pd{}{x}\bigl(-\tfrac12
+m\Om^2(x^2+y^2)\bigr)$ and likewise for $y$. So each line is minus the derivative of
+$U - \tfrac12 m\Om^2(x^2+y^2)$, and the two lines together say
 \begin{equation}
   \label{eq:equilibrium}
   \grad{\Ueff} = 0, \qquad \Ueff(x,y) \equiv U(x,y) - \tfrac12 m\Om^2(x^2+y^2).
 \end{equation}
-The centrifugal force came from a potential,
-$m\Om^2(x,y) = -\grad{\bigl(-\tfrac12 m\Om^2(x^2+y^2)\bigr)}$, so it joins $U$. Notice the order: the velocities
+Notice the order: the velocities
 were set to zero in the \emph{equations of motion}, after the variation, never in $\Lag$ itself.
 Here, as it happens, setting $\dot x = \dot y = 0$ in \eqref{eq:Lrot} first leaves
 $\Lag = -\Ueff$ and the same condition, but that is luck, and the equations of motion are gone
