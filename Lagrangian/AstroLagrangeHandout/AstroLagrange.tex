@@ -32,7 +32,8 @@ Lagrange's equations, a coordinate change that depends on time, ignorable coordi
 textbook route for a particle in an expanding universe (P.~J.~E. Peebles, \emph{The Large-Scale
 Structure of the Universe}, Princeton, 1980, Chapter~II); the second half is the restricted
 three-body problem as every celestial-mechanics book sets it up (e.g.\ Murray and Dermott,
-\emph{Solar System Dynamics}, Cambridge, 1999, Chapter~3). Both halves are Newtonian
+\emph{Solar System Dynamics}, Cambridge, 1999, Chapter~3; the Lagrangian route is the one in
+Goldstein, Poole and Safko, \emph{Classical Mechanics}, 3rd ed., Section~3.12). Both halves are Newtonian
 throughout, and the places where general relativity would add something are flagged.
 
 \setlength{\unitlength}{1in}
@@ -305,7 +306,12 @@ no potential energy, but it does no work: it is always perpendicular to $\dot{\v
   \label{eq:equilibrium}
   \grad{\Ueff} = 0, \qquad \Ueff(x,y) \equiv U(x,y) - \tfrac12 m\Om^2(x^2+y^2).
 \end{equation}
-The centrifugal force came from a potential, so it joins $U$. Figure~\ref{fig:ueff} shows
+The centrifugal force came from a potential, so it joins $U$. Notice the order: the velocities
+were set to zero in the \emph{equations of motion}, after the variation, never in $\Lag$ itself.
+Setting $\dot x = \dot y = 0$ in \eqref{eq:Lrot} first would throw away the Coriolis term and
+the sign of the centrifugal one, and give wrong equations. A constraint on the motion goes in
+after Lagrange's equations are derived, or into the coordinates before (Section~7.5), but not
+into the Lagrangian as a substitution. Figure~\ref{fig:ueff} shows
 $\Ueff$ for $\mu = 0.1$ (an unrealistically heavy $M_2$, chosen so the five points separate
 on the page) with its five stationary points.
 
@@ -338,6 +344,24 @@ mass is $+\Om^2\vr$. They cancel. In words: at the equilateral points the two bo
 points exactly at the CM, with exactly the strength a circular orbit of angular speed $\Om$
 needs at that radius, so the test mass goes around the CM in step with the primaries. The
 dashed triangle in the diagram of the setup is this point.}
+
+\medskip
+
+\noindent\textbf{Another route, for a group that finishes early: polar coordinates.} Put the
+test mass at $(r, \theta)$ from the CM, with $\theta$ measured from the CM-to-$M_2$ line, so the
+distances to the primaries are $r_1' = \sqrt{r^2 + 2 r r_1\cos\theta + r_1^2}$ and
+$r_2' = \sqrt{r^2 - 2 r r_2\cos\theta + r_2^2}$ with $r_1 = \mu R$, $r_2 = (1-\mu)R$. The
+centrifugal term depends on $r$ alone, so the $\theta$ half of \eqref{eq:equilibrium} is
+$\partial U/\partial\theta = 0$, and because $M_1 r_1 = M_2 r_2$ (the CM condition) it factors:
+\begin{equation}
+  \pd{U}{\theta} = G m\, r\, M_1 r_1 \sin\theta\,\Bigl(\frac{1}{r_2'^3} - \frac{1}{r_1'^3}\Bigr) = 0 .
+\end{equation}
+So every equilibrium has $\sin\theta = 0$ (on the axis: $L_1$, $L_2$, $L_3$) or $r_1' = r_2'$
+(on the perpendicular bisector of the primaries: $L_4$, $L_5$), and nothing else. On the
+bisector the $r$ half of \eqref{eq:equilibrium} is one equation in one unknown, and (a) shows
+its solution is the equilateral point, $r_1' = r_2' = R$. This factorization is the quickest
+way to see that there are exactly five points. (It is how Edlund, Am.\ J.\ Phys.\ \textbf{92},
+414 (2024), organizes the whole problem.)
 
 \medskip
 
@@ -434,7 +458,16 @@ remarks, the first two of which are the point of Section~7.8:
   the generalized coordinates and the inertial position not involve $t$; \eqref{eq:rotation}
   involves $t$, so the condition fails, exactly as for the spinning hoop. (And $T + U$ is not
   conserved in the inertial frame either: there the primaries move and $U$ depends on time.
-  The symmetry lives in the rotating frame, and so does the conservation law.)
+  The symmetry lives in the rotating frame, and so does the conservation
+  law.)\footnote{This is easy to get wrong in print. The paper cited above calls $\Ueff$
+    ``devoid of physical meaning'' because it seems to assume the body's angular velocity is
+    constant, and proposes that the test mass's angular momentum is conserved ``regionally''
+    near each Lagrange point. Neither is needed. The $\Om$ in $\Ueff$ is the \emph{frame's}
+    rotation rate, constant by construction; the body's own angular velocity varies, and
+    \eqref{eq:Lrot} carries that in the kinetic and Coriolis terms. $\Ham$ in \eqref{eq:jacobi}
+    is conserved exactly, everywhere, for the reason in Section~7.8: no $t$ in $\Lag$. The
+    puzzle comes from expecting a two-body potential $L^2/2mr^2$ with $L$ the test mass's
+    angular momentum, which is not conserved here and is not used.}
 \item Since $\tfrac12 m v_{\rm rot}^2 \geq 0$, a body with a given $\Ham$ can only be where
   $\Ueff \leq \Ham$. The contours in Figure~\ref{fig:ueff} are therefore fences (Hill's
   \emph{zero-velocity curves}): a satellite with $\Ham$ below $\Ueff(L_1)$ that starts near
@@ -451,7 +484,8 @@ $27\mu(1-\mu) < 1$, i.e.\ $\mu < 0.0385$, which covers Sun--Jupiter (the Trojans
 Earth--Moon. A stable equilibrium at a potential maximum is impossible for a static potential:
 the small-oscillation analysis of Taylor's Example~7.7 would call it unstable. What rescues it
 is the Coriolis force, which does no work but keeps turning the velocity, so a body that starts
-to fall off the hill is swung around it instead. Showing that means linearizing
+to fall off the hill is swung around it instead (Greenberg and Davis, ``Stability at potential maxima,'' Am.\ J.\
+Phys.\ \textbf{46}, 1068 (1978)). Showing that means linearizing
 \eqref{eq:eom} \emph{with} the velocity terms kept, a $4\times 4$ eigenvalue problem; it is a
 very good project, and the same $4\times4$ problem comes back in Chapter~9.
 
