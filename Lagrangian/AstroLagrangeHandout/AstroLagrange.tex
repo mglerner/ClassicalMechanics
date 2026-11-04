@@ -54,6 +54,10 @@ throughout, and the places where general relativity would add something are flag
 \end{picture}
 
 \tableofcontents
+% From here on every section starts on its own page, so pieces can be pulled out of the PDF by
+% page range (set after the contents, whose own heading would otherwise be pushed to a page of its own).
+\let\oldsection\section
+\renewcommand{\section}{\clearpage\oldsection}
 
 \section{The Lagrange points, straight through}
 \label{sec:straight}
