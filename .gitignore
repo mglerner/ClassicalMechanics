@@ -31,3 +31,4 @@ auto/
 *conflicted copy*
 *.fdb_latexmk
 *.fls
+*.toc
