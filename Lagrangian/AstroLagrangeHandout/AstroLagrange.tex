@@ -3,15 +3,23 @@
 % handout in the 210 repo (MathematicalPhysics/CoupledDEs/ThreeSpringsHandout): same macros.tex,
 % same shape (a credit line, a rule, then the highlights, result first and the steps after).
 % The figure ueff_contours.pdf is drawn by make_figure.py in this folder.
-% Build: latexmk -pdf AstroLagrange.tex.  Student copy: \masterfalse after \input{macros}.
+% Section 5 is the redshift written as a homework problem (statement, then the key behind \ifmaster).
+% Build (solutions in): latexmk -pdf AstroLagrange.tex
+% Student copy (solutions out):
+%   latexmk -pdf -jobname="AstroLagrange (student)" -usepretex='\def\studentcopy{1}' AstroLagrange.tex
 \documentclass[12pt]{article}
 \input{macros}
+\ifdefined\studentcopy\masterfalse\fi
 
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
 \usepackage{booktabs}
+\usepackage[most]{tcolorbox}
 \usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 \numberwithin{equation}{section}
+% The problem-statement box of Section 5, as in the course's solution sets.
+\newcommand{\taylor}[1]{\begin{tcolorbox}[enhanced,breakable,colback=gray!4,colframe=gray!45,boxrule=0.5pt,
+    left=3pt,right=3pt,top=3pt,bottom=3pt]#1\end{tcolorbox}}
 
 \newcommand{\Om}{\Omega}
 \newcommand{\Lag}{\mathcal{L}}
@@ -34,7 +42,9 @@ three-body problem as every celestial-mechanics book sets it up (e.g.\ Murray an
 Goldstein, Poole and Safko, \emph{Classical Mechanics}, 3rd ed., Section~3.12); the second half,
 the cosmology, follows the standard textbook route for a particle in an expanding universe
 (P.~J.~E. Peebles, \emph{The Large-Scale Structure of the Universe}, Princeton, 1980,
-Chapter~II). Each problem is done twice, straight through first and then at length. Both halves are Newtonian
+Chapter~II). Each problem is done twice, straight through first and then at length, and the
+redshift is also written up as a homework problem, statement and solutions
+(Section~\ref{sec:redshift-problem}). Both halves are Newtonian
 throughout, and the places where general relativity would add something are flagged.
 
 \setlength{\unitlength}{1in}
@@ -42,6 +52,8 @@ throughout, and the places where general relativity would add something are flag
 \noindent\begin{picture}(7,.1)
 \put(0,0) {\line(1,0){7}}
 \end{picture}
+
+\tableofcontents
 
 \section{The Lagrange points, straight through}
 \label{sec:straight}
@@ -1126,5 +1138,166 @@ $\Lag$ so no conserved energy, is not a logical consequence of it and needs its 
 reason is the general result quoted under ``The Hamiltonian'' above,
 $d\Ham/dt = -\partial\Lag/\partial t$, and here
 $\partial\Lag/\partial t \neq 0$. The whole universe is the example.
+
+\section{The redshift as a homework problem}
+\label{sec:redshift-problem}
+
+The problem of Sections~\ref{sec:redshift-straight} and~\ref{sec:redshift}, posed the way the
+course's optional challenge problems are posed: the setup is given, and parts (a)--(f) walk the
+same road, from $\Lag(r, \dot r, t)$ to the redshift. The solutions follow the statement
+\ifmaster (the student copy leaves them out)\else (this is the student copy; they are left out)\fi.
+
+\medskip
+
+\taylor{\textbf{Challenge problem (optional): a free particle in an expanding universe.}
+In Newtonian cosmology, space is filled with matter of uniform density $\rho(t)$, and every
+distance grows by one common factor: a particle that just rides the expansion sits at
+$r = a(t)\,x$ with $x$ fixed, where $a(t)$ is the \emph{scale factor} and $x$ is its
+\emph{comoving coordinate}. By Newton's shell theorem the matter inside radius $r$ pulls a
+particle there as if all of it sat at the origin (and the matter outside exerts no net force),
+so a particle of mass $m$ at distance $r$ from the origin has potential energy
+\[
+  U(r, t) = \frac{2\pi G}{3}\,m\rho(t)\,r^2
+  \qquad\Bigl[\text{check: } -\pd{U}{r} = -\frac{Gm}{r^2}\cdot\frac{4\pi}{3}\rho r^3 = -\frac{GmM(<r)}{r^2}\Bigr],
+\]
+and the scale factor obeys the Friedmann equation $\ddot a = -\frac{4\pi G}{3}\rho\,a$ (Newton's
+second law for a particle riding the expansion, with $r = ax$; you may take it as given).
+Now consider a particle of mass $m$ that moves along a line through the origin but does
+\emph{not} necessarily ride the expansion.
+\begin{enumerate}
+\item Write down the Lagrangian $\Lag(r, \dot r, t)$. Find the Lagrange equation for $r$ and
+  check that it is Newton's second law with the force above. Explain why neither of our two
+  conservation tests (an ignorable coordinate, Section~7.6; no explicit $t$ in $\Lag$,
+  Section~7.8) hands you a conserved quantity here.
+\item Change to the comoving coordinate $x = r/a(t)$ (a generalized coordinate whose relation
+  to $r$ involves $t$, as in Example~7.6). Show that
+  \[
+    \Lag = \tfrac12 m a^2\dot x^2 + \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\,x^2\Bigr).
+  \]
+  \emph{Hint:} expand the square in $\tfrac12 m\dot r^2$; write the cross term
+  $m a\dot a\,x\dot x$ as a total time derivative minus what is left over; use the Friedmann
+  equation on what is left over.
+\item Explain why the total time derivative can be dropped without changing the equation of
+  motion (Problem~7.48, or argue directly from Hamilton's principle). From here on take
+  $\Lag = \tfrac12 m a(t)^2\dot x^2$.
+\item Which coordinate is now ignorable? Find the conserved generalized momentum, and show that
+  the \emph{peculiar velocity} $\vpec \equiv a\dot x$, the particle's velocity relative to the
+  expansion, falls as $1/a$. (When the universe doubles in size, a galaxy's random motion halves.)
+\item Find the Hamiltonian $\Ham = p\dot x - \Lag$. Is it $T + U$? Is it conserved? Use
+  $d\Ham/dt = -\partial\Lag/\partial t$ (Section~7.8) to find how $\Ham$ depends on $a$.
+\item General relativity gives the same conservation law for light: the momentum a local
+  observer measures is the conserved momentum divided by $a$. With $p_{\rm local} = h/\lambda$,
+  deduce the cosmological redshift $1 + z \equiv \lambda_{\rm obs}/\lambda_{\rm emit} =
+  a_{\rm obs}/a_{\rm emit}$.
+\end{enumerate}}
+
+\ifmaster
+\medskip
+\noindent\textbf{Solutions.}
+
+\noindent\textbf{(a)} $\Lag = T - U$ with $T = \tfrac12 m\dot r^2$:
+\[
+  \boxed{\;\Lag(r, \dot r, t) = \tfrac12 m\dot r^2 - \frac{2\pi G}{3}\,m\rho(t)\,r^2\;}
+\]
+Euler-Lagrange time! $\partial\Lag/\partial\dot r = m\dot r$ and
+$\partial\Lag/\partial r = -\frac{4\pi G}{3} m\rho\, r$, so
+$\frac{d}{dt}\partial\Lag/\partial\dot r = \partial\Lag/\partial r$ reads
+\[
+  \boxed{\; m\ddot r = -\frac{4\pi G}{3}\,m\rho\, r \;}
+\]
+which is $m\ddot r = -GmM(<r)/r^2$ with $M(<r) = \frac{4\pi}{3}\rho r^3$: Newton's second law
+with the shell-theorem force. Neither test applies: $r$ appears in $\Lag$ (through $U$), so it
+is not ignorable, and $t$ appears explicitly (through $\rho(t)$), so Section~7.8's guarantee of
+a constant $\Ham$ is off. (A conserved quantity does exist, as (d) shows; these coordinates just
+do not reveal it.)
+
+\medskip
+\noindent\textbf{(b)} With $r = ax$, the product rule gives $\dot r = \dot a x + a\dot x$. Substituting
+into (a),
+\[
+  \Lag = \tfrac12 m(\dot a x + a\dot x)^2 - \frac{2\pi G}{3}\, m\rho\, a^2 x^2
+  = \tfrac12 m a^2\dot x^2 + m a\dot a\, x\dot x + \tfrac12 m\dot a^2 x^2 - \frac{2\pi G}{3}\, m\rho\, a^2 x^2 .
+\]
+The cross term: by the product rule (and the chain rule for $\frac{d}{dt}x^2 = 2x\dot x$),
+\[
+  \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\,x^2\Bigr)
+  = \tfrac12 m(\dot a^2 + a\ddot a)\,x^2 + m a\dot a\,x\dot x
+  \quad\Longrightarrow\quad
+  m a\dot a\,x\dot x = \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\,x^2\Bigr) - \tfrac12 m\dot a^2 x^2 - \tfrac12 m a\ddot a\,x^2 .
+\]
+Put that in:
+\[
+  \Lag = \tfrac12 m a^2\dot x^2 + \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\,x^2\Bigr)
+  - \tfrac12 m\dot a^2 x^2 - \tfrac12 m a\ddot a\,x^2 + \tfrac12 m\dot a^2 x^2 - \frac{2\pi G}{3}\, m\rho\, a^2 x^2 .
+\]
+The two $\tfrac12 m\dot a^2 x^2$ terms cancel. Friedmann, $\ddot a = -\frac{4\pi G}{3}\rho\,a$,
+turns the $a\ddot a$ term into
+$-\tfrac12 m a\bigl(-\frac{4\pi G}{3}\rho\,a\bigr)x^2 = +\frac{2\pi G}{3}\,m\rho\,a^2x^2$, which
+cancels the potential term exactly. What is left is
+\[
+  \boxed{\;\Lag = \tfrac12 m a^2\dot x^2 + \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\,x^2\Bigr)\;}
+\]
+(The whole of $U$ went into the $a\ddot a$ term: the expansion is \emph{caused} by that
+gravity, so in coordinates that expand with it, the gravity is already accounted for.)
+
+\medskip
+\noindent\textbf{(c)} Write $F = \tfrac12 m a\dot a\,x^2$, a function of $x$ and $t$ only. Adding $dF/dt$
+to $\Lag$ adds $\int_{t_1}^{t_2}(dF/dt)\,dt = F(t_2) - F(t_1)$ to the action, and Hamilton's
+principle holds $x(t_1)$ and $x(t_2)$ fixed, so that number is the same for every path being
+compared. The stationary path, and so the equation of motion, is unchanged. (Problem~7.48 checks
+the same thing at the level of Lagrange's equations: $\partial(dF/dt)/\partial x$ and
+$\frac{d}{dt}\partial(dF/dt)/\partial\dot x$ are both $\partial_x\partial_t F + \dot x\,\partial_x^2 F$,
+so they cancel.)
+
+\medskip
+\noindent\textbf{(d)} With $\Lag = \tfrac12 m a^2\dot x^2$, $x$ does not appear: $x$ is ignorable, and
+\[
+  \boxed{\; p \equiv \pd{\Lag}{\dot x} = m a^2\dot x \text{ is conserved} \;}
+\]
+since Lagrange's equation reads $\frac{d}{dt}(m a^2\dot x) = \partial\Lag/\partial x = 0$.
+In terms of the peculiar velocity, $p = m a\,(a\dot x) = m a\,\vpec$, and $p$ is constant, so
+\[
+  \boxed{\;\vpec \propto \frac1a\;}
+\]
+Double the universe, halve every peculiar velocity.
+
+\medskip
+\noindent\textbf{(e)} With $p = m a^2\dot x$,
+\[
+  \Ham = p\dot x - \Lag = m a^2\dot x^2 - \tfrac12 m a^2\dot x^2 = \tfrac12 m a^2\dot x^2
+  = \boxed{\;\tfrac12 m\vpec^2\;}
+\]
+the kinetic energy in the peculiar velocity. It is not $T + U$: $T = \tfrac12 m\dot r^2 =
+\tfrac12 m(\dot a x + a\dot x)^2$ contains the Hubble-flow part, and $U$ is not in $\Ham$ at all.
+That is allowed, because the relation $r = a(t)x$ between the generalized coordinate and the
+position involves $t$ (Section~7.8's condition for $\Ham = T + U$ fails). It is not conserved
+either: $\Lag$ depends on $t$ through $a$, so by the chain rule
+$\partial\Lag/\partial t = \tfrac12 m(2a\dot a)\dot x^2 = m a\dot a\,\dot x^2$, and
+\[
+  \frac{d\Ham}{dt} = -\pd{\Lag}{t} = -m a\dot a\,\dot x^2 = -2\,\frac{\dot a}{a}\cdot\tfrac12 m a^2\dot x^2
+  = -2\,\frac{\dot a}{a}\,\Ham
+  \quad\Longrightarrow\quad \boxed{\;\Ham \propto \frac1{a^2}\;}
+\]
+($d\ln\Ham/dt = -2\,d\ln a/dt$ integrates to $\ln\Ham = -2\ln a + \text{const}$.) That agrees
+with (d): $\Ham = \tfrac12 m\vpec^2$ and $\vpec \propto 1/a$.
+
+\medskip
+\noindent\textbf{(f)} The local momentum is $p/a$ with $p$ constant, so $p_{\rm local} \propto 1/a$. For
+a photon $p_{\rm local} = h/\lambda$, so $h/\lambda \propto 1/a$, i.e.\ $\lambda \propto a$, and
+\[
+  \boxed{\;1 + z = \frac{\lambda_{\rm obs}}{\lambda_{\rm emit}} = \frac{a_{\rm obs}}{a_{\rm emit}}\;}
+\]
+A photon emitted when the universe was half its present size arrives with twice its wavelength:
+$z = 1$.
+
+\medskip
+\noindent\textbf{Assess:} The two results are the same statement about the same symmetry. In comoving
+coordinates nothing depends on $x$, so the momentum conjugate to $x$ is conserved; measured
+locally that momentum falls as $1/a$, which is Hubble drag for a galaxy and the redshift for a
+photon. Energy is not conserved, and the formalism says exactly why: $t$ is in $\Lag$, the
+expanding universe has no time-translation symmetry, and $d\Ham/dt = -\partial\Lag/\partial t$
+gives the rate. The one hand-wave is the shell theorem on an infinite medium; general relativity
+makes that honest and gives (f) without borrowing.
+\fi
 
 \end{document}
