@@ -116,7 +116,7 @@ primaries. Three things follow:
   force $m\Om^2(x,y)$ and the Coriolis force $2m\Om(\dot y, -\dot x)$: Chapter~9's results,
   for free.
 \item A body can sit still in the rotating frame exactly where the \emph{effective potential}
-  $\Ueff \equiv U - \tfrac12 m\Om^2(x^2+y^2)$ has zero gradient. There are five such points (the polar-coordinates route in the \sideroads{} shows why exactly five).
+  $\Ueff \equiv U - \tfrac12 m\Om^2(x^2+y^2)$ has zero gradient. There are five such points (the boxed side road in the \sideroads{} shows why exactly five).
   Two of them, $L_4$ and $L_5$, form equilateral triangles with $M_1$ and $M_2$, for any mass
   ratio; the other three lie on the line through the primaries.
 \item $\Lag$ has no explicit $t$, so $\Ham$ is conserved. It is $\tfrac12 m v_{\rm rot}^2 +
@@ -479,8 +479,8 @@ $L_2$ and $L_3$, and they need nothing beyond \eqref{eq:equilibrium3} itself: pu
 $y$ equation holds by itself (every term in it carries a factor of $y$), while the $x$ equation
 becomes a single equation in $x$, \eqref{eq:axis} in the \sideroads{}, a quintic that is solved
 numerically (the table there) or, for a small $\mu$, by expansion (the board problem there). Two
-are off the axis, $L_4$ and $L_5$. There are no others; showing that is the one place the
-polar-coordinates route in the \sideroads{} is needed. Figure~\ref{fig:fivepoints} shows all
+are off the axis, $L_4$ and $L_5$. There are no others; showing that is the one place polar
+coordinates are needed (the boxed side road in the \sideroads{}). Figure~\ref{fig:fivepoints} shows all
 five. The two off the axis take three lines. With $\vr = (x, y)$ and $\vr_1 = (-r_1, 0)$, $\vr_2 = (r_2, 0)$ the rotating-frame positions, at a
 point $\vr$ a distance $R$ from \emph{both} primaries (the third corner
 of an equilateral triangle on $M_1M_2$), each primary pulls with magnitude $GM_i/R^2$ along the
@@ -592,42 +592,13 @@ remarks, the first two of which are the point of Section~7.8:
 \end{enumerate}
 
 \smallskip
-\noindent That is the whole calculation. The \sideroads{} below add the numbers, the
-polar-coordinate route and the question of stability, which needs the Coriolis term kept.
+\noindent That is the whole calculation. The \sideroads{} below add the Hill radius (a board
+problem), the numbers, the boxed polar-coordinate argument that there are exactly five points,
+and the question of stability, which needs the Coriolis term kept.
 
-\subsection*{Side roads: exactly five points, the Hill radius, the numbers, stability}
+\subsection*{Side roads: the Hill radius, the numbers, exactly five points, stability}
 \phantomsection\label{sec:sideroads}
-\addcontentsline{toc}{subsection}{Side roads: exactly five points, the Hill radius, the numbers, stability}
-
-\noindent\textbf{Another route: polar coordinates, and why there are exactly five points.} Put the
-test mass at $(r, \theta)$ from the CM, with $\theta$ measured from the CM-to-$M_2$ line, so the
-distances to the primaries are $r_1' = \sqrt{r^2 + 2 r r_1\cos\theta + r_1^2}$ and
-$r_2' = \sqrt{r^2 - 2 r r_2\cos\theta + r_2^2}$ (law of cosines; $M_1$ is at angle $\pi$, $M_2$ at
-angle $0$) with $r_1 = \mu R$, $r_2 = (1-\mu)R$. The
-centrifugal term depends on $r$ alone, so the $\theta$ half of \eqref{eq:equilibrium3} is
-$\partial U/\partial\theta = 0$. Differentiating $r_1'^2 = r^2 + 2 r r_1\cos\theta + r_1^2$ with
-respect to $\theta$ gives $2 r_1'\,\partial r_1'/\partial\theta = -2 r r_1\sin\theta$, so
-$\partial r_1'/\partial\theta = -r r_1\sin\theta/r_1'$, and in the same way
-$\partial r_2'/\partial\theta = +r r_2\sin\theta/r_2'$; since
-$U = -GmM_1/r_1' - GmM_2/r_2'$ gives, by the chain rule,
-$\partial U/\partial\theta = (GmM_1/r_1'^2)\,\partial r_1'/\partial\theta
-+ (GmM_2/r_2'^2)\,\partial r_2'/\partial\theta$, we get
-$\partial U/\partial\theta = -GmM_1 r r_1\sin\theta/r_1'^3 + GmM_2 r r_2\sin\theta/r_2'^3$, and
-because $M_1 r_1 = M_2 r_2$ (the CM condition of Step~1) it factors:
-\begin{equation}
-  \pd{U}{\theta} = G m\, r\, M_1 r_1 \sin\theta\,\Bigl(\frac{1}{r_2'^3} - \frac{1}{r_1'^3}\Bigr) = 0 .
-\end{equation}
-So every equilibrium has $\sin\theta = 0$ (on the axis: $L_1$, $L_2$, $L_3$, one in each of the three stretches the primaries cut
-the axis into, as ``The exact positions'' below shows) or $r_1' = r_2'$
-(on the perpendicular bisector of the primaries: $L_4$, $L_5$), and nothing else. On the
-bisector $r_1' = r_2' \equiv s$, and the algebra of Step~6(a) goes through with $R$ replaced by $s$:
-gravity per unit mass is $-G(M_1+M_2)\vr/s^3$, pointing at the CM, against the centrifugal
-$+\Om^2\vr = +G(M_1+M_2)\vr/R^3$. So the $r$ half of \eqref{eq:equilibrium3} holds only at
-$s = R$, the equilateral point. This factorization is the quickest
-way to see that there are exactly five points. (It is how Edlund, Am.\ J.\ Phys.\ \textbf{92},
-414 (2024), organizes the whole problem.)
-
-\medskip
+\addcontentsline{toc}{subsection}{Side roads: the Hill radius, the numbers, exactly five points, stability}
 
 \noindent\textbf{Board problem (b): $L_1$ and $L_2$ for a small $\mu$.} Use units with $R = 1$
 and $G(M_1+M_2) = 1$, so $\Om = 1$ by \eqref{eq:kepler3}, $M_1 \to 1-\mu$ at $x = -\mu$ and
@@ -709,6 +680,40 @@ L3 = brentq(f, -2.0, -mu-1e-9, args=(mu,))
 L1 = brentq(f, -mu+1e-9, 1-mu-1e-9, args=(mu,))
 L2 = brentq(f, 1-mu+1e-9, 2.5, args=(mu,))
 \end{verbatim}
+
+\medskip
+
+\begin{tcolorbox}[enhanced,breakable,colback=blue!3,colframe=blue!45!black,boxrule=0.6pt,
+    left=4pt,right=4pt,top=4pt,bottom=4pt,fonttitle=\bfseries,
+    title={Side road: polar coordinates, and why there are exactly five points}]
+Put the
+test mass at $(r, \theta)$ from the CM, with $\theta$ measured from the CM-to-$M_2$ line, so the
+distances to the primaries are $r_1' = \sqrt{r^2 + 2 r r_1\cos\theta + r_1^2}$ and
+$r_2' = \sqrt{r^2 - 2 r r_2\cos\theta + r_2^2}$ (law of cosines; $M_1$ is at angle $\pi$, $M_2$ at
+angle $0$) with $r_1 = \mu R$, $r_2 = (1-\mu)R$. The
+centrifugal term depends on $r$ alone, so the $\theta$ half of \eqref{eq:equilibrium3} is
+$\partial U/\partial\theta = 0$. Differentiating $r_1'^2 = r^2 + 2 r r_1\cos\theta + r_1^2$ with
+respect to $\theta$ gives $2 r_1'\,\partial r_1'/\partial\theta = -2 r r_1\sin\theta$, so
+$\partial r_1'/\partial\theta = -r r_1\sin\theta/r_1'$, and in the same way
+$\partial r_2'/\partial\theta = +r r_2\sin\theta/r_2'$; since
+$U = -GmM_1/r_1' - GmM_2/r_2'$ gives, by the chain rule,
+$\partial U/\partial\theta = (GmM_1/r_1'^2)\,\partial r_1'/\partial\theta
++ (GmM_2/r_2'^2)\,\partial r_2'/\partial\theta$, we get
+$\partial U/\partial\theta = -GmM_1 r r_1\sin\theta/r_1'^3 + GmM_2 r r_2\sin\theta/r_2'^3$, and
+because $M_1 r_1 = M_2 r_2$ (the CM condition of Step~1) it factors:
+\begin{equation}
+  \pd{U}{\theta} = G m\, r\, M_1 r_1 \sin\theta\,\Bigl(\frac{1}{r_2'^3} - \frac{1}{r_1'^3}\Bigr) = 0 .
+\end{equation}
+So every equilibrium has $\sin\theta = 0$ (on the axis: $L_1$, $L_2$, $L_3$, one in each of the three stretches the primaries cut
+the axis into, as ``The exact positions'' above shows) or $r_1' = r_2'$
+(on the perpendicular bisector of the primaries: $L_4$, $L_5$), and nothing else. On the
+bisector $r_1' = r_2' \equiv s$, and the algebra of Step~6(a) goes through with $R$ replaced by $s$:
+gravity per unit mass is $-G(M_1+M_2)\vr/s^3$, pointing at the CM, against the centrifugal
+$+\Om^2\vr = +G(M_1+M_2)\vr/R^3$. So the $r$ half of \eqref{eq:equilibrium3} holds only at
+$s = R$, the equilateral point. This factorization is the quickest
+way to see that there are exactly five points. (It is how Edlund, Am.\ J.\ Phys.\ \textbf{92},
+414 (2024), organizes the whole problem.)
+\end{tcolorbox}
 
 \medskip
 
