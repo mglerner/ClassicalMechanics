@@ -95,8 +95,8 @@ distance $R$ apart, go around their centre of mass (CM) in circles at angular sp
 third body of mass $m$ moves in their gravity. Put the origin at the CM and use inertial
 Cartesian coordinates $(X, Y, Z)$ with the primaries' orbit in the plane $Z = 0$. ``Origin at
 the CM'' means $M_1\vr_1 + M_2\vr_2 = 0$, i.e.\ $M_1 r_1 = M_2 r_2$ with $r_1 = |\vr_1|$ and
-$r_2 = |\vr_2|$, the two bodies on opposite sides of the CM. The sum of the two distances is the
-separation, $r_1 + r_2 = R$; putting $r_2 = R - r_1$ into $M_1 r_1 = M_2 r_2$ gives
+$r_2 = |\vr_2|$, the two bodies on opposite sides of the CM. The sum of the two distances is
+$r_1 + r_2 = R$; putting $r_2 = R - r_1$ into $M_1 r_1 = M_2 r_2$ gives
 $M_1 r_1 = M_2 R - M_2 r_1$, so $(M_1 + M_2)\,r_1 = M_2 R$ and
 \begin{equation}
   \label{eq:cmradii}
@@ -125,7 +125,7 @@ Kepler's third law for the pair (this is \eqref{eq:kepler}).
 
 \medskip
 
-\noindent\textbf{Step 2: the Lagrangian, with nothing left out.} The body $m$ has three
+\noindent\textbf{Step 2: the Lagrangian, without worrying about constraints yet.} The body $m$ has three
 Cartesian coordinates and, so far, no constraint, so as in Section~7.1 for a single particle,
 $\Lag = T - U$ with
 \begin{equation}
@@ -139,7 +139,13 @@ second law with the two attractions: for $X$, $\partial\Lag/\partial\dot X = m\d
 $\partial\Lag/\partial X = -\partial U/\partial X$, so
 $\frac{d}{dt}\partial\Lag/\partial\dot X = \partial\Lag/\partial X$ reads
 $m\ddot X = -\partial U/\partial X$, and likewise for $Y$ and $Z$; together,
-$m\ddot{\vr} = -\grad U$. Neither of Chapter~7's tests finds a conserved quantity as it stands: $t$ appears explicitly through
+$m\ddot{\vr} = -\grad U$. To see that $-\grad U$ is the two attractions, write
+$d_i = |\vr - \vr_i(t)|$ and differentiate $-1/d_1$: by the chain rule
+$\partial d_1/\partial X = (X - X_1)/d_1$ (differentiate the square root), so
+$\partial(1/d_1)/\partial X = -(X - X_1)/d_1^3$, and
+$-\partial U/\partial X = -GmM_1(X - X_1)/d_1^3 - GmM_2(X - X_2)/d_2^3$: the $X$ components of
+two pulls of magnitude $GmM_i/d_i^2$ along the unit vectors $(\vr_i - \vr)/d_i$ toward the
+primaries. The $Y$ and $Z$ components come the same way. Neither of Chapter~7's tests finds a conserved quantity as it stands: $t$ appears explicitly through
 $\vr_1(t)$ and $\vr_2(t)$, so Section~7.8's $\Ham$ is not constant, and no coordinate is
 ignorable (Section~7.6), since $U$ depends on all three.
 
@@ -190,12 +196,16 @@ the rotation: $X = r_2\cos\Om t$, $Y = r_2\sin\Om t$, which is \eqref{eq:primari
   U(x, y) = -\frac{GmM_1}{\sqrt{(x + r_1)^2 + y^2}} - \frac{GmM_2}{\sqrt{(x - r_2)^2 + y^2}},
 \end{equation}
 with no $t$. For the kinetic energy, differentiate the rotation with the product rule ($\Om$
-constant) and collect the $\cos\Om t$ and $\sin\Om t$ terms, which is \eqref{eq:XYdot}:
+is constant, so $\frac{d}{dt}\cos\Om t = -\Om\sin\Om t$ and $\frac{d}{dt}\sin\Om t = \Om\cos\Om t$):
+$\dot X = \dot x\cos\Om t - \Om x\sin\Om t - \dot y\sin\Om t - \Om y\cos\Om t$ and
+$\dot Y = \dot x\sin\Om t + \Om x\cos\Om t + \dot y\cos\Om t - \Om y\sin\Om t$. Collect the
+$\cos\Om t$ and $\sin\Om t$ terms, which is \eqref{eq:XYdot}:
 $\dot X = (\dot x - \Om y)\cos\Om t - (\dot y + \Om x)\sin\Om t$ and
 $\dot Y = (\dot x - \Om y)\sin\Om t + (\dot y + \Om x)\cos\Om t$. Square and add: the cross
 terms $\mp 2(\dot x - \Om y)(\dot y + \Om x)\sin\Om t\cos\Om t$ cancel and
-$\cos^2\Om t + \sin^2\Om t = 1$, so $\dot X^2 + \dot Y^2 = (\dot x - \Om y)^2 + (\dot y + \Om x)^2$,
-and expanding the squares (as in \eqref{eq:speed}),
+$\cos^2\Om t + \sin^2\Om t = 1$, so $\dot X^2 + \dot Y^2 = (\dot x - \Om y)^2 + (\dot y + \Om x)^2$.
+Expand the squares (as in \eqref{eq:speed}):
+$(\dot x - \Om y)^2 + (\dot y + \Om x)^2 = \dot x^2 - 2\Om y\dot x + \Om^2 y^2 + \dot y^2 + 2\Om x\dot y + \Om^2 x^2$, so
 $\dot X^2 + \dot Y^2 = \dot x^2 + \dot y^2 + 2\Om(x\dot y - y\dot x) + \Om^2(x^2 + y^2)$;
 putting $\tfrac12 m$ times this into \eqref{eq:L2d},
 \begin{equation}
@@ -376,7 +386,7 @@ Two bodies $M_1$ and $M_2$ move on circular orbits about their center of mass (C
 $R$ apart, at angular speed $\Om$. The CM sits on the line between them where $M_1 r_1 =
 M_2 r_2$ (the definition of the CM, $M_1\vr_1 + M_2\vr_2 = 0$ with the CM at the origin, the two
 bodies on opposite sides of it), and $r_1 + r_2 = R$; putting $r_2 = R - r_1$ into the first gives
-$(M_1+M_2)\,r_1 = M_2 R$, so $M_1$ is $r_1 = M_2 R/(M_1+M_2)$ from it and $M_2$ is
+$M_1 r_1 = M_2 R - M_2 r_1$, i.e.\ $(M_1+M_2)\,r_1 = M_2 R$, so $M_1$ is $r_1 = M_2 R/(M_1+M_2)$ from it and $M_2$ is
 $r_2 = M_1 R/(M_1+M_2)$ (Chapter~3; Friday's two-body reduction starts the same way). What sets
 $\Om$: $M_1$ travels a circle of radius $r_1$ about the CM at angular speed $\Om$, so its speed
 is $v = \Om r_1$ and its acceleration, toward the CM, is $v^2/r_1 = \Om^2 r_1$ (uniform
@@ -401,7 +411,8 @@ problem),\footnote{The same approximation runs through quantum mechanics and che
   is exactly solvable, just as $\mathrm{H}_2^+$ separates in prolate spheroidal coordinates.
   What makes the rotating problem hard is the Coriolis force, the velocity-dependent term
   in the equations of motion \eqref{eq:eom} (Step~3 of this section, Lagrange's equations).} moves in
-their orbital plane. Write $\mu \equiv M_2/(M_1+M_2)$, so that $r_1 = \mu R$ and $r_2 = (1-\mu)R$; the CM is at the origin with $M_1$ at
+their orbital plane. Write $\mu \equiv M_2/(M_1+M_2)$, so that $r_1 = \mu R$ and $r_2 = (1-\mu)R$ (since
+$M_1/(M_1+M_2) = 1 - M_2/(M_1+M_2) = 1 - \mu$); the CM is at the origin with $M_1$ at
 $(-\mu R, 0)$ and $M_2$ at $((1-\mu)R, 0)$ in coordinates $(x,y)$ that rotate with them:
 \begin{equation}
   \label{eq:rotation}
@@ -590,8 +601,10 @@ distances to the primaries are $r_1' = \sqrt{r^2 + 2 r r_1\cos\theta + r_1^2}$ a
 $r_2' = \sqrt{r^2 - 2 r r_2\cos\theta + r_2^2}$ (law of cosines; $M_1$ is at angle $\pi$, $M_2$ at
 angle $0$) with $r_1 = \mu R$, $r_2 = (1-\mu)R$. The
 centrifugal term depends on $r$ alone, so the $\theta$ half of \eqref{eq:equilibrium} is
-$\partial U/\partial\theta = 0$. Since $\partial r_1'/\partial\theta = -r r_1\sin\theta/r_1'$ and
-$\partial r_2'/\partial\theta = +r r_2\sin\theta/r_2'$, and since
+$\partial U/\partial\theta = 0$. Differentiating $r_1'^2 = r^2 + 2 r r_1\cos\theta + r_1^2$ with
+respect to $\theta$ gives $2 r_1'\,\partial r_1'/\partial\theta = -2 r r_1\sin\theta$, so
+$\partial r_1'/\partial\theta = -r r_1\sin\theta/r_1'$, and in the same way
+$\partial r_2'/\partial\theta = +r r_2\sin\theta/r_2'$; since
 $U = -GmM_1/r_1' - GmM_2/r_2'$ gives, by the chain rule,
 $\partial U/\partial\theta = (GmM_1/r_1'^2)\,\partial r_1'/\partial\theta
 + (GmM_2/r_2'^2)\,\partial r_2'/\partial\theta$, we get
@@ -723,7 +736,9 @@ remarks, the first two of which are the point of Section~7.8:
     &\qquad - \Bigl[\tfrac12 m(\dot x^2 + \dot y^2) + U - \tfrac12 m\Om^2(x^2+y^2)\Bigr]
     = m\Om(x\dot y - y\dot x) + m\Om^2(x^2 + y^2),
   \end{align}
-  which is not constant: in polar coordinates it is $\Om\, m r^2(\dot\theta + \Om)$, $\Om$ times
+  which is not constant: in polar coordinates ($x = r\cos\theta$, $y = r\sin\theta$, so
+  $x\dot y - y\dot x = r^2\dot\theta$ and $x^2 + y^2 = r^2$) it is
+  $m\Om r^2\dot\theta + m\Om^2 r^2 = \Om\, m r^2(\dot\theta + \Om)$, $\Om$ times
   $m$'s angular momentum about the CM in the inertial frame (whose angular velocity is
   $\dot\theta + \Om$), and the primaries' pull is not aimed at the CM, so it exerts a torque. Taylor's condition for $\Ham = T + U$ (Section~7.8, pp.~269--272) was that the relation between
   the generalized coordinates and the inertial position not involve $t$; \eqref{eq:rotation}
@@ -783,7 +798,9 @@ Newton's law of gravitation give the force on the particle, toward the origin,
   F = -\frac{GmM(<r)}{r^2} = -\frac{Gm}{r^2}\cdot\frac{4\pi}{3}\rho r^3 = -\frac{4\pi G}{3}\,m\rho\, r,
   \qquad M(<r) = \tfrac{4\pi}{3}\rho r^3 \text{ the mass inside radius } r .
 \end{equation*}
-So, from $F = -\partial U/\partial r$ with $U = 0$ at the origin, its potential energy is
+So, from $F = -\partial U/\partial r$ with $U = 0$ at the origin,
+$U(r) = -\int_0^r F\,dr' = \frac{4\pi G}{3}\,m\rho\int_0^r r'\,dr' = \frac{4\pi G}{3}\,m\rho\,\frac{r^2}{2}$:
+its potential energy is
 \begin{equation}
   \label{eq:Phi}
   U(r, t) = m\Phi(r,t), \qquad \Phi = \frac{2\pi G}{3}\,\rho(t)\, r^2
@@ -811,7 +828,7 @@ $r^2 = X^2 + Y^2 + Z^2$ in \eqref{eq:Phi}:
   - \frac{2\pi G}{3}\, m\rho(t)\,\bigl(X^2 + Y^2 + Z^2\bigr) .
 \end{equation}
 Lagrange's equations are Newton's second law: for $X$, $\partial\Lag/\partial\dot X = m\dot X$ and
-$\partial\Lag/\partial X = -\frac{4\pi G}{3} m\rho\, X$, so
+$\partial\Lag/\partial X = -\frac{2\pi G}{3} m\rho\cdot 2X = -\frac{4\pi G}{3} m\rho\, X$, so
 $\frac{d}{dt}\partial\Lag/\partial\dot X = \partial\Lag/\partial X$ reads
 $m\ddot X = -\frac{4\pi G}{3} m\rho\, X$, and likewise for $Y$ and $Z$; together,
 $m\ddot{\vr} = -\frac{4\pi G}{3} m\rho\,\vr$. The time $t$ appears explicitly through $\rho(t)$,
@@ -1040,7 +1057,8 @@ so Newton's second law for the particle, $m\ddot r = -G m M(<r)/r^2$, divided by
   \Phi(r) = \frac{2\pi G}{3}\,\rho\, r^2 .
 \end{equation}
 Here $M(<r)$ is the mass inside radius $r$, and $\Phi$ is the gravitational potential energy per
-unit mass, chosen so that $\ddot r = -d\Phi/dr$. A particle riding the Hubble flow has $r = a x$
+unit mass, chosen so that $\ddot r = -d\Phi/dr$: with $\Phi(0) = 0$,
+$\Phi(r) = -\int_0^r \ddot r\,dr' = \frac{4\pi G}{3}\rho\int_0^r r'\,dr' = \frac{4\pi G}{3}\rho\,\frac{r^2}{2}$. A particle riding the Hubble flow has $r = a x$
 with $x$ constant, so $\ddot r = \ddot a\, x$, and the force law above with $r = a x$ reads
 $\ddot a\, x = -\frac{4\pi G}{3}\rho\,a x$; cancelling $x$,
 \begin{equation}
