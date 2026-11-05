@@ -172,13 +172,30 @@ ignorable (Section~7.6), since $U$ depends on all three.
 
 \medskip
 
-\noindent\textbf{Step 3: the constraints.} Two things are being held fixed. It pays to say
-which kind of ``held fixed'' each one is.
+\noindent\textbf{Step 3: the constraints.} We're holding two things fixed here.
+Let's look at what ``held fixed'' means in each case.
 
 \smallskip
-\noindent (i) \emph{The primaries' motion is prescribed.} $\vr_1(t)$ and $\vr_2(t)$ are given
-functions of $t$, not coordinates to be varied: $m$ is taken too small to disturb them (the
-restricted three-body problem; the footnote in Section~\ref{sec:lagrange}). This is the same
+\noindent (i) \emph{The motion of the primaries prescribed (fixed)} by
+construction.  $\vr_1(t)$ and $\vr_2(t)$ are given
+functions of $t$, not coordinates to be varied. Why we are allowed to do that: the full problem
+is three bodies, each pulling on the other two, with nine coordinates and nine coupled
+equations of motion. That is the three-body problem, and apart from special solutions (the
+Lagrange points are among them) it has no solution in closed form; something has to be held
+fixed before it can be solved at all. The thing to hold fixed is the primaries: $m$'s pull on
+each of them is smaller than their pull on each other by a factor of order $m/M$, so to that
+accuracy they move on the two-body circles of Step~1 whether $m$ is there or not. Dropping
+$m$'s pull on them is the \emph{restricted} three-body problem.\footnote{The same
+  approximation runs through quantum mechanics and chemistry. The hydrogen molecular ion
+  $\mathrm{H}_2^+$ with clamped nuclei is the quantum version: one light particle in the field
+  of two heavy centres whose positions are prescribed, not solved for. There the justification
+  is that the nuclei are slow (the Born--Oppenheimer separation of time scales); here it is
+  that the third body's pull on the primaries is of order $m/M$ and is dropped. Same
+  approximation, two reasons to believe it. One more parallel: with the rotation switched off,
+  the classical problem is Euler's problem of two fixed centres, which is exactly solvable,
+  just as $\mathrm{H}_2^+$ separates in prolate spheroidal coordinates. What makes the rotating
+  problem hard is the Coriolis force, the velocity-dependent term in the equations of motion
+  \eqref{eq:eom3} (Step~5).} This is the same
 move as Example~7.6, the bead on a spinning hoop, where the hoop's angle $\omega t$ is
 prescribed and only the bead's $\theta$ is a coordinate. It is a constraint on the system, not
 on $m$: it removes the six coordinates of the primaries from the problem and is what put $t$
@@ -422,16 +439,7 @@ multiplying by $(M_1+M_2)/R$,
 \end{equation}
 (Kepler's third law; Chapter~8 does the general case). A third body of mass $m$, so small that
 it does not disturb the first two (this is the \emph{restricted} three-body
-problem),\footnote{The same approximation runs through quantum mechanics and chemistry. The
-  hydrogen molecular ion $\mathrm{H}_2^+$ with clamped nuclei is the quantum version: one light
-  particle in the field of two heavy centres whose positions are prescribed, not solved for.
-  There the justification is that the nuclei are slow (the Born--Oppenheimer separation of
-  time scales); here it is that the third body's pull on the primaries is of order $m/M$ and
-  is dropped. Same approximation, two reasons to believe it. One more parallel: with the
-  rotation switched off, the classical problem is Euler's problem of two fixed centres, which
-  is exactly solvable, just as $\mathrm{H}_2^+$ separates in prolate spheroidal coordinates.
-  What makes the rotating problem hard is the Coriolis force, the velocity-dependent term
-  in the equations of motion \eqref{eq:eom} (Step~3 of this section, Lagrange's equations).} moves in
+problem; Section~\ref{sec:straight}, Step~3, says why that is allowed) moves in
 their orbital plane. Write $\mu \equiv M_2/(M_1+M_2)$, so that $r_1 = \mu R$ and $r_2 = (1-\mu)R$ (since
 $M_1/(M_1+M_2) = 1 - M_2/(M_1+M_2) = 1 - \mu$); the CM is at the origin with $M_1$ at
 $(-\mu R, 0)$ and $M_2$ at $((1-\mu)R, 0)$ in coordinates $(x,y)$ that rotate with them:
