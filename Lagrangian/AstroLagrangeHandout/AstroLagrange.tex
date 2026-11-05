@@ -327,14 +327,14 @@ primaries sit at $(x, y) = (-r_1, 0)$ and $(r_2, 0)$ for all time\footnote{The \
 these co-moving coordinates was to fix the motion of the primaries), or you can
 see it explicitly by plugging $(x,y) = (r_2, 0)$ into
 the rotation: $X = r_2\cos\Om t$, $Y = r_2\sin\Om t$, which is
-\eqref{eq:primaries}, and $(-r_1, 0)$ likewise gives $\vr_1(t)$. So the $U$ in
-equation \eqref{eq:L2d} becomes
+\eqref{eq:primaries}, and $(-r_1, 0)$ likewise gives $\vr_1(t)$. So the $U$ of
+equation \eqref{eq:L3d}, the $U(X, Y, t)$ of \eqref{eq:L2d}, becomes
 \begin{equation}
   \label{eq:U2d}
   U(x, y) = -\frac{GmM_1}{\sqrt{(x + r_1)^2 + y^2}} - \frac{GmM_2}{\sqrt{(x - r_2)^2 + y^2}},
 \end{equation}
-with no $t$. For the kinetic energy, differentiate the rotation with the product rule ($\Om$
-is constant, so $\frac{d}{dt}\cos\Om t = -\Om\sin\Om t$ and $\frac{d}{dt}\sin\Om t = \Om\cos\Om t$):
+with no $t$. For the kinetic energy, we need $\dot X$ and $\dot Y$: differentiate \eqref{eq:rotation} with the
+product rule ($\Om$ is constant, so $\frac{d}{dt}\cos\Om t = -\Om\sin\Om t$ and $\frac{d}{dt}\sin\Om t = \Om\cos\Om t$):
 $\dot X = \dot x\cos\Om t - \Om x\sin\Om t - \dot y\sin\Om t - \Om y\cos\Om t$ and
 $\dot Y = \dot x\sin\Om t + \Om x\cos\Om t + \dot y\cos\Om t - \Om y\sin\Om t$. Collect the
 $\cos\Om t$ and $\sin\Om t$ terms:
