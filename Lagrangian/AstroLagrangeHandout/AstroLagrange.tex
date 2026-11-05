@@ -142,14 +142,32 @@ $m\ddot X = -\partial U/\partial X$, and likewise for $Y$ and $Z$; together,
 $m\ddot{\vr} = -\grad U$.
 
 To see that $-\grad U$ is the two attractions, write $d_i = |\vr - \vr_i(t)|$ for the two
-distances, so that $U = -GmM_1/d_1 - GmM_2/d_2$ and $\partial U/\partial X$ needs
-$\partial(1/d_1)/\partial X$ and $\partial(1/d_2)/\partial X$. Differentiating the square root
-$d_1 = \sqrt{(X - X_1)^2 + (Y - Y_1)^2 + Z^2}$ gives $\partial d_1/\partial X = (X - X_1)/d_1$,
-so by the chain rule $\partial(1/d_1)/\partial X = -(1/d_1^2)\,\partial d_1/\partial X = -(X - X_1)/d_1^3$,
-and the same for $d_2$. So
-$-\partial U/\partial X = -GmM_1(X - X_1)/d_1^3 - GmM_2(X - X_2)/d_2^3$: the $X$ components of
+distances, so that $U = -GmM_1/d_1 - GmM_2/d_2$. Then
+\begin{align*}
+  -\grad U &= -\Bigl(\pd{U}{X}, \pd{U}{Y}, \pd{U}{Z}\Bigr) \\
+  &= GmM_1\Bigl(\pd{}{X}\frac1{d_1}, \pd{}{Y}\frac1{d_1}, \pd{}{Z}\frac1{d_1}\Bigr)
+  + GmM_2\Bigl(\pd{}{X}\frac1{d_2}, \pd{}{Y}\frac1{d_2}, \pd{}{Z}\frac1{d_2}\Bigr) \\
+  &= GmM_1\,\grad\frac1{d_1} + GmM_2\,\grad\frac1{d_2},
+\end{align*}
+so what we need are the derivatives of $1/d_1$ and $1/d_2$. Take the $X$ derivative of
+$1/d_1$. Differentiating the square root $d_1 = \sqrt{(X - X_1)^2 + (Y - Y_1)^2 + Z^2}$ gives
+$\partial d_1/\partial X = (X - X_1)/d_1$, so by the chain rule
+\begin{equation*}
+  \pd{}{X}\frac1{d_1} = -\frac1{d_1^2}\,\pd{d_1}{X} = -\frac{X - X_1}{d_1^3} ;
+\end{equation*}
+the $Y$ and $Z$ derivatives come the same way, with $Y - Y_1$ and $Z$ in place of $X - X_1$,
+and the three together are
+\begin{equation*}
+  \grad\frac1{d_1} = -\frac{(X - X_1,\ Y - Y_1,\ Z)}{d_1^3} = -\frac{\vr - \vr_1}{d_1^3}
+  = \frac{\vr_1 - \vr}{d_1^3},
+\end{equation*}
+and likewise $\grad(1/d_2) = (\vr_2 - \vr)/d_2^3$. So
+\begin{equation*}
+  -\grad U = GmM_1\,\frac{\vr_1 - \vr}{d_1^3} + GmM_2\,\frac{\vr_2 - \vr}{d_2^3}
+  = \frac{GmM_1}{d_1^2}\,\frac{\vr_1 - \vr}{d_1} + \frac{GmM_2}{d_2^2}\,\frac{\vr_2 - \vr}{d_2} :
+\end{equation*}
 two pulls of magnitude $GmM_i/d_i^2$ along the unit vectors $(\vr_i - \vr)/d_i$ toward the
-primaries. The $Y$ and $Z$ components come the same way. Neither of Chapter~7's tests finds a conserved quantity as it stands: $t$ appears explicitly through
+primaries, Newton's law of gravitation for each. Neither of Chapter~7's tests finds a conserved quantity as it stands: $t$ appears explicitly through
 $\vr_1(t)$ and $\vr_2(t)$, so Section~7.8's $\Ham$ is not constant, and no coordinate is
 ignorable (Section~7.6), since $U$ depends on all three.
 
@@ -837,7 +855,7 @@ $\frac{d}{dt}\partial\Lag/\partial\dot X = \partial\Lag/\partial X$ reads
 $m\ddot X = -\frac{4\pi G}{3} m\rho\, X$, and likewise for $Y$ and $Z$; together,
 $m\ddot{\vr} = -\frac{4\pi G}{3} m\rho\,\vr$. The time $t$ appears explicitly through $\rho(t)$,
 so Section~7.8's guarantee of a constant $\Ham$ does not apply (Step~6(b) shows $\Ham$ does
-change), and no coordinate is ignorable, since $U$ depends on all three. (The force is central,
+change), and no coordinate is yet ignorable, since $U$ depends on all three. (The force is central,
 so the angular momentum about the origin is conserved; no Cartesian coordinate shows that, but
 Step~3 uses it.)
 
