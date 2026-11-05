@@ -356,17 +356,20 @@ Expand the squares:
   \text{so}\qquad \dot X^2 + \dot Y^2 &= \dot x^2 + \dot y^2 + 2\Om(x\dot y - y\dot x) + \Om^2(x^2 + y^2) .
 \end{align*}
 Putting $\tfrac12 m$ times this into \eqref{eq:L2d} turns
-\begin{equation*}
-  \Lag = \tfrac12 m\bigl(\dot X^2 + \dot Y^2\bigr)
+\begin{align*}
+  \Lag &= \tfrac12 m\bigl(\dot X^2 + \dot Y^2\bigr) - U(X, Y, t) \\
+  &= \tfrac12 m\bigl(\dot X^2 + \dot Y^2\bigr)
   + \frac{GmM_1}{\sqrt{(X - X_1(t))^2 + (Y - Y_1(t))^2}}
   + \frac{GmM_2}{\sqrt{(X - X_2(t))^2 + (Y - Y_2(t))^2}}
-\end{equation*}
+\end{align*}
 into
-\begin{equation}
-  \label{eq:Lrot3}
-  \boxed{\;\Lag = \tfrac12 m(\dot x^2 + \dot y^2) + m\Om\,(x\dot y - y\dot x)
-  + \tfrac12 m\Om^2(x^2 + y^2) - U(x, y)\;}
-\end{equation}
+\begin{align}
+  &\boxed{\;\Lag = \tfrac12 m(\dot x^2 + \dot y^2) + m\Om\,(x\dot y - y\dot x)
+  + \tfrac12 m\Om^2(x^2 + y^2) - U(x, y)\;} \label{eq:Lrot3} \\
+  &\phantom{\;}\Lag = \tfrac12 m(\dot x^2 + \dot y^2) + m\Om\,(x\dot y - y\dot x)
+  + \tfrac12 m\Om^2(x^2 + y^2)
+  + \frac{GmM_1}{\sqrt{(x + r_1)^2 + y^2}} + \frac{GmM_2}{\sqrt{(x - r_2)^2 + y^2}} , \nonumber
+\end{align}
 which is \eqref{eq:Lrot}. Two remarks before differentiating. There is no explicit $t$ in $\Lag$
 any more; that was the point of the coordinate change. And the coordinates are not
 ``natural'' in Section~7.3's sense: the relation between $(x, y)$ and $(X, Y)$ involves $t$, so
