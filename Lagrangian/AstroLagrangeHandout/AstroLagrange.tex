@@ -116,7 +116,7 @@ primaries. Three things follow:
   force $m\Om^2(x,y)$ and the Coriolis force $2m\Om(\dot y, -\dot x)$: Chapter~9's results,
   for free.
 \item A body can sit still in the rotating frame exactly where the \emph{effective potential}
-  $\Ueff \equiv U - \tfrac12 m\Om^2(x^2+y^2)$ has zero gradient. There are five such points (the boxed side road in the \sideroads{} shows why exactly five).
+  $\Ueff \equiv U - \tfrac12 m\Om^2(x^2+y^2)$ has zero gradient. There are five such points (``Polar coordinates'' in the \sideroads{} shows why exactly five).
   Two of them, $L_4$ and $L_5$, form equilateral triangles with $M_1$ and $M_2$, for any mass
   ratio; the other three lie on the line through the primaries.
 \item $\Lag$ has no explicit $t$, so $\Ham$ is conserved. It is $\tfrac12 m v_{\rm rot}^2 +
@@ -480,7 +480,7 @@ $y$ equation holds by itself (every term in it carries a factor of $y$), while t
 becomes a single equation in $x$, \eqref{eq:axis} in the \sideroads{}, a quintic that is solved
 numerically (the table there) or, for a small $\mu$, by expansion (the board problem there). Two
 are off the axis, $L_4$ and $L_5$. There are no others; showing that is the one place polar
-coordinates are needed (the boxed side road in the \sideroads{}). Figure~\ref{fig:fivepoints} shows all
+coordinates are needed (``Polar coordinates'' in the \sideroads{}). Figure~\ref{fig:fivepoints} shows all
 five. The two off the axis take three lines. With $\vr = (x, y)$ and $\vr_1 = (-r_1, 0)$, $\vr_2 = (r_2, 0)$ the rotating-frame positions, at a
 point $\vr$ a distance $R$ from \emph{both} primaries (the third corner
 of an equilateral triangle on $M_1M_2$), each primary pulls with magnitude $GM_i/R^2$ along the
@@ -593,7 +593,7 @@ remarks, the first two of which are the point of Section~7.8:
 
 \smallskip
 \noindent That is the whole calculation. The \sideroads{} below add the Hill radius (a board
-problem), the numbers, the boxed polar-coordinate argument that there are exactly five points,
+problem), the numbers, the polar-coordinate argument that there are exactly five points,
 and the question of stability, which needs the Coriolis term kept.
 
 \subsection*{Side roads: the Hill radius, the numbers, exactly five points, stability}
@@ -683,10 +683,7 @@ L2 = brentq(f, 1-mu+1e-9, 2.5, args=(mu,))
 
 \medskip
 
-\begin{tcolorbox}[enhanced,breakable,colback=blue!8,colframe=blue!45!black,boxrule=0.8pt,
-    left=4pt,right=4pt,top=4pt,bottom=4pt,fonttitle=\bfseries,
-    title={Side road: polar coordinates, and why there are exactly five points}]
-Put the
+\noindent\textbf{Polar coordinates, and why there are exactly five points.} Put the
 test mass at $(r, \theta)$ from the CM, with $\theta$ measured from the CM-to-$M_2$ line, so the
 distances to the primaries are $r_1' = \sqrt{r^2 + 2 r r_1\cos\theta + r_1^2}$ and
 $r_2' = \sqrt{r^2 - 2 r r_2\cos\theta + r_2^2}$ (law of cosines; $M_1$ is at angle $\pi$, $M_2$ at
@@ -713,7 +710,6 @@ $+\Om^2\vr = +G(M_1+M_2)\vr/R^3$. So the $r$ half of \eqref{eq:equilibrium3} hol
 $s = R$, the equilateral point. This factorization is the quickest
 way to see that there are exactly five points. (It is how Edlund, Am.\ J.\ Phys.\ \textbf{92},
 414 (2024), organizes the whole problem.)
-\end{tcolorbox}
 
 \medskip
 
