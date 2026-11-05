@@ -215,13 +215,14 @@ functions of $t$, not coordinates to be varied. That sounds like cheating
 \emph{and it is!} The problem is that we have to cheat. The full problem, as
 stated to this point, is the three-body problem. Nine coordinates, nine coupled
 equations of motion. Newton, Euler, Lagrange, Poincar\'e and many others spent, between
-them, two centuries working on the three-body problem. Eventually Bruns (1887) and
-Poincar\'e (1890) showed that it has no conserved quantities beyond the ten everyone already
+them, two centuries working on the three-body problem. Eventually Bruns (1887)~\cite{bruns} and
+Poincar\'e (1890)~\cite{poincare} showed that it has no conserved quantities beyond the ten everyone already
 knew (energy, momentum, angular momentum and the centre of mass), which is what a closed-form
 solution would need; Poincar\'e's memoir is also where chaos was first seen. That's cool,
-maybe we could get away with a series solution. Sundman (1912) found one, and proved that it
-converges. Unfortunately, it converges terribly slowly: Belorizky estimated in 1930 that
+maybe we could get away with a series solution. Sundman (1912)~\cite{sundman} found one, and proved that it
+converges. Unfortunately, it converges terribly slowly: Belorizky estimated in 1930~\cite{belorizky} that
 reaching the accuracy of astronomical observations would take about $10^{8\,000\,000}$ terms!
+(Diacu~\cite{diacu} tells the whole story in five readable pages.)
 So, apart from very special cases, the three-body problem has no usable solution in closed
 form, and we cheat by holding something fixed.
 
@@ -1105,6 +1106,21 @@ makes that honest and gives (f) without borrowing.
   velocities).
 \bibitem{jacobi-wiki} ``Jacobi integral,'' \emph{Wikipedia},
   \url{https://en.wikipedia.org/wiki/Jacobi_integral} (accessed November 3, 2026).
+\bibitem{bruns} H. Bruns, ``\"Uber die Integrale des Vielk\"orper-Problems,'' Acta Math.\
+  \textbf{11}, 25--96 (1887). No algebraic integrals of the three-body problem beyond the
+  classical ten.
+\bibitem{poincare} H. Poincar\'e, ``Sur le probl\`eme des trois corps et les \'equations de la
+  dynamique,'' Acta Math.\ \textbf{13}, 1--270 (1890). The King Oscar prize memoir: no further
+  analytic integrals either, and the first sight of chaos (homoclinic tangles).
+\bibitem{sundman} K. F. Sundman, ``M\'emoire sur le probl\`eme des trois corps,'' Acta Math.\
+  \textbf{36}, 105--179 (1912). A series solution, convergent for all time, for nonzero total
+  angular momentum.
+\bibitem{belorizky} D. Belorizky, ``Application pratique des m\'ethodes de M. Sundman \`a un
+  cas particulier du probl\`eme des trois corps,'' Bull.\ Astron.\ (2) \textbf{6}, 417--434
+  (1930). The estimate of $10^{8\,000\,000}$ terms.
+\bibitem{diacu} F. Diacu, ``The solution of the $n$-body problem,'' Math.\ Intelligencer
+  \textbf{18}(3), 66--70 (1996). A short history of Bruns, Poincar\'e, Sundman and Belorizky,
+  and of Wang's 1991 series for $n$ bodies.
 \end{thebibliography}
 
 \end{document}
