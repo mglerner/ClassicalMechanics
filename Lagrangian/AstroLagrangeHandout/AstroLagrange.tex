@@ -119,14 +119,14 @@ $M_1M_2\Om^2 R/(M_1+M_2) = GM_1M_2/R^2$, and cancelling $M_1M_2$ and multiplying
 $(M_1+M_2)/R$,
 \begin{equation}
   \label{eq:kepler3}
-  \Om^2 = \frac{G(M_1 + M_2)}{R^3},
+  \Om^2 = \frac{G(M_1 + M_2)}{R^3}.
 \end{equation}
-Kepler's third law for the pair (this is \eqref{eq:kepler}).
+This is Kepler's third law for the pair (also \eqref{eq:kepler}).
 
 \medskip
 
 \noindent\textbf{Step 2: the Lagrangian, without worrying about constraints yet.} The body $m$ has three
-Cartesian coordinates and, so far, no constraint, so as in Section~7.1 for a single particle,
+Cartesian coordinates and (so far) no constraint. So,
 $\Lag = T - U$ with
 \begin{equation}
   \label{eq:L3d}
@@ -139,10 +139,14 @@ second law with the two attractions: for $X$, $\partial\Lag/\partial\dot X = m\d
 $\partial\Lag/\partial X = -\partial U/\partial X$, so
 $\frac{d}{dt}\partial\Lag/\partial\dot X = \partial\Lag/\partial X$ reads
 $m\ddot X = -\partial U/\partial X$, and likewise for $Y$ and $Z$; together,
-$m\ddot{\vr} = -\grad U$. To see that $-\grad U$ is the two attractions, write
-$d_i = |\vr - \vr_i(t)|$ and differentiate $-1/d_1$: by the chain rule
-$\partial d_1/\partial X = (X - X_1)/d_1$ (differentiate the square root), so
-$\partial(1/d_1)/\partial X = -(X - X_1)/d_1^3$, and
+$m\ddot{\vr} = -\grad U$.
+
+To see that $-\grad U$ is the two attractions, write $d_i = |\vr - \vr_i(t)|$ for the two
+distances, so that $U = -GmM_1/d_1 - GmM_2/d_2$ and $\partial U/\partial X$ needs
+$\partial(1/d_1)/\partial X$ and $\partial(1/d_2)/\partial X$. Differentiating the square root
+$d_1 = \sqrt{(X - X_1)^2 + (Y - Y_1)^2 + Z^2}$ gives $\partial d_1/\partial X = (X - X_1)/d_1$,
+so by the chain rule $\partial(1/d_1)/\partial X = -(1/d_1^2)\,\partial d_1/\partial X = -(X - X_1)/d_1^3$,
+and the same for $d_2$. So
 $-\partial U/\partial X = -GmM_1(X - X_1)/d_1^3 - GmM_2(X - X_2)/d_2^3$: the $X$ components of
 two pulls of magnitude $GmM_i/d_i^2$ along the unit vectors $(\vr_i - \vr)/d_i$ toward the
 primaries. The $Y$ and $Z$ components come the same way. Neither of Chapter~7's tests finds a conserved quantity as it stands: $t$ appears explicitly through
