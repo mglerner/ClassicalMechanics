@@ -335,17 +335,27 @@ equation \eqref{eq:L3d}, the $U(X, Y, t)$ of \eqref{eq:L2d}, becomes
 \end{equation}
 with no $t$. For the kinetic energy, we need $\dot X$ and $\dot Y$: differentiate \eqref{eq:rotation} with the
 product rule ($\Om$ is constant, so $\frac{d}{dt}\cos\Om t = -\Om\sin\Om t$ and $\frac{d}{dt}\sin\Om t = \Om\cos\Om t$):
-$\dot X = \dot x\cos\Om t - \Om x\sin\Om t - \dot y\sin\Om t - \Om y\cos\Om t$ and
-$\dot Y = \dot x\sin\Om t + \Om x\cos\Om t + \dot y\cos\Om t - \Om y\sin\Om t$. Collect the
-$\cos\Om t$ and $\sin\Om t$ terms:
-$\dot X = (\dot x - \Om y)\cos\Om t - (\dot y + \Om x)\sin\Om t$ and
-$\dot Y = (\dot x - \Om y)\sin\Om t + (\dot y + \Om x)\cos\Om t$. Square and add: the cross
-terms $\mp 2(\dot x - \Om y)(\dot y + \Om x)\sin\Om t\cos\Om t$ cancel and
-$\cos^2\Om t + \sin^2\Om t = 1$, so $\dot X^2 + \dot Y^2 = (\dot x - \Om y)^2 + (\dot y + \Om x)^2$.
+\begin{align*}
+  \dot X &= \dot x\cos\Om t - \Om x\sin\Om t - \dot y\sin\Om t - \Om y\cos\Om t , \\
+  \dot Y &= \dot x\sin\Om t + \Om x\cos\Om t + \dot y\cos\Om t - \Om y\sin\Om t .
+\end{align*}
+Collect the $\cos\Om t$ and $\sin\Om t$ terms:
+\begin{align*}
+  \dot X &= (\dot x - \Om y)\cos\Om t - (\dot y + \Om x)\sin\Om t , \\
+  \dot Y &= (\dot x - \Om y)\sin\Om t + (\dot y + \Om x)\cos\Om t .
+\end{align*}
+Square and add: the cross terms $\mp 2(\dot x - \Om y)(\dot y + \Om x)\sin\Om t\cos\Om t$ cancel
+and $\cos^2\Om t + \sin^2\Om t = 1$, so
+\begin{equation*}
+  \dot X^2 + \dot Y^2 = (\dot x - \Om y)^2 + (\dot y + \Om x)^2 .
+\end{equation*}
 Expand the squares:
-$(\dot x - \Om y)^2 + (\dot y + \Om x)^2 = \dot x^2 - 2\Om y\dot x + \Om^2 y^2 + \dot y^2 + 2\Om x\dot y + \Om^2 x^2$, so
-$\dot X^2 + \dot Y^2 = \dot x^2 + \dot y^2 + 2\Om(x\dot y - y\dot x) + \Om^2(x^2 + y^2)$;
-putting $\tfrac12 m$ times this into \eqref{eq:L2d},
+\begin{align*}
+  (\dot x - \Om y)^2 + (\dot y + \Om x)^2
+  &= \dot x^2 - 2\Om y\dot x + \Om^2 y^2 + \dot y^2 + 2\Om x\dot y + \Om^2 x^2 , \\
+  \text{so}\qquad \dot X^2 + \dot Y^2 &= \dot x^2 + \dot y^2 + 2\Om(x\dot y - y\dot x) + \Om^2(x^2 + y^2) .
+\end{align*}
+Putting $\tfrac12 m$ times this into \eqref{eq:L2d},
 \begin{equation}
   \label{eq:Lrot3}
   \boxed{\;\Lag = \tfrac12 m(\dot x^2 + \dot y^2) + m\Om\,(x\dot y - y\dot x)
