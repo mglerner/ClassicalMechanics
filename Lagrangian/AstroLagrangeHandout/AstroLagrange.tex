@@ -138,6 +138,9 @@ $M_1 r_1 = M_2 R - M_2 r_1$, so $(M_1 + M_2)\,r_1 = M_2 R$ and
   \label{eq:cmradii}
   r_1 = \frac{M_2 R}{M_1 + M_2}, \qquad\text{and likewise}\qquad r_2 = \frac{M_1 R}{M_1 + M_2}.
 \end{equation}
+It will be handy to have a name for the mass ratio: with $\mu \equiv M_2/(M_1 + M_2)$, these
+are $r_1 = \mu R$ and $r_2 = (1 - \mu)R$, since $M_1/(M_1 + M_2) = 1 - \mu$. For the Sun and
+the Earth $\mu = 3.00\times 10^{-6}$; for the Earth and the Moon, $0.0122$.
 Each primary goes around the CM on a circle of its own radius, $r_1$ or $r_2$, at the common
 angular speed $\Om$, so its polar angle is $\Om t$ plus a constant; choose $t = 0$ when $M_2$ is
 on the positive $X$ axis, so $M_2$'s angle is $\Om t$, and $M_1$, always on the opposite side of
@@ -330,10 +333,8 @@ position and $t$. We will not need it: we'll build $\Lag$ by putting \eqref{eq:r
 \end{figure}
 
 \noindent In these new coordinates the
-primaries sit at $(x, y) = (-r_1, 0)$ and $(r_2, 0)$ for all time\footnote{The \sideroadsp{}
-  write these with the mass ratio $\mu \equiv M_2/(M_1+M_2)$: $r_1 = \mu R$ and
-  $r_2 = M_1 R/(M_1+M_2) = (1-\mu)R$, so the primaries sit at $(-\mu R, 0)$ and
-  $((1-\mu)R, 0)$.} You can see this intuitively (the whole reason we choose
+primaries sit at $(x, y) = (-r_1, 0)$ and $(r_2, 0)$ for all time\footnote{In terms of the mass ratio $\mu$ of Step~1, which the \sideroadsp{}
+  use, that is $(-\mu R, 0)$ and $((1-\mu)R, 0)$.} You can see this intuitively (the whole reason we choose
 these co-moving coordinates was to fix the motion of the primaries), or you can
 see it explicitly by plugging $(x,y) = (r_2, 0)$ into
 the rotation: $X = r_2\cos\Om t$, $Y = r_2\sin\Om t$, which is
@@ -433,11 +434,12 @@ frame;\footnote{Chapter~9 writes them as $-m\,\vomega\times(\vomega\times\vr)$ a
 
 \medskip
 
-\noindent\textbf{Step 6: read off results.} Two, each one line of reasoning from
-\eqref{eq:Lrot3} or \eqref{eq:eom3}.
+\noindent\textbf{Step 6: read off results.} Finally! We get two results, each
+basically one line of reasoning from \eqref{eq:Lrot3} or \eqref{eq:eom3}.
 
 \smallskip
-\noindent (a) \emph{Where can $m$ sit still?} ``Sit still in the rotating frame'' means
+\noindent (a) \emph{Where can $m$ sit still?} \textbf{(I.e. where do we want to
+  put the JWST!)} ``Sit still in the rotating frame'' means
 $\dot x = \dot y = 0$ and $\ddot x = \ddot y = 0$. Put those into \eqref{eq:eom3}: the Coriolis
 terms vanish with the velocities, the left sides vanish with the accelerations, and
 \begin{equation}
@@ -445,19 +447,22 @@ terms vanish with the velocities, the left sides vanish with the accelerations, 
   0 = -\pd{U}{x} + m\Om^2 x, \qquad 0 = -\pd{U}{y} + m\Om^2 y,
   \qquad\text{i.e.}\qquad \grad\Ueff = 0,\quad \Ueff \equiv U - \tfrac12 m\Om^2(x^2 + y^2),
 \end{equation}
-since $m\Om^2 x = -\partial_x\bigl(-\tfrac12 m\Om^2(x^2 + y^2)\bigr)$ and likewise for $y$.
-Notice the order: the velocities
-were set to zero in the \emph{equations of motion}, after the variation, never in $\Lag$ itself.
-Here, as it happens, setting $\dot x = \dot y = 0$ in \eqref{eq:Lrot} first leaves
-$\Lag = -\Ueff$ and the same condition, but that is luck, and the equations of motion are gone
-(no $\ddot x$, no Coriolis term, so no way to ask whether the point is stable). In other
-problems the shortcut gives wrong equations outright: substitute the conserved angular momentum
-into a central-force Lagrangian before varying and the centrifugal term comes out with the wrong
-sign. A statement about the motion goes in after Lagrange's equations are derived; only a
-constraint on the \emph{configuration} (a bead on a wire, Section~7.5) goes into the
-coordinates before. Figure~\ref{fig:ueff} shows
-$\Ueff$ for $\mu = 0.1$ (an unrealistically heavy $M_2$, chosen so the five points separate
-on the page) with its five stationary points.
+since $m\Om^2 x = -\partial_x\bigl(-\tfrac12 m\Om^2(x^2 + y^2)\bigr)$ and likewise for
+$y$. Notice the order of operations here: we set the velocities to zero in the
+\emph{equations of motion}, after the variation, never in $\Lag$ itself. Here,
+as it happens, setting $\dot x = \dot y = 0$ in \eqref{eq:Lrot} first leaves
+$\Lag = -\Ueff$ and the same condition, but that is luck, and the equations of
+motion are gone (no $\ddot x$, no Coriolis term, so no way to ask whether the
+point is stable). In other problems, taking the ``shortcut'' of setting them to
+zero in $\Lag$ gives wrong equations outright: e.g. if you substitute the conserved angular
+momentum into a central-force Lagrangian before varying, the centrifugal
+term comes out off by a minus sign. Another way of seeing this is that we can
+make a statement about the motion only after
+Lagrange's equations are derived; only a constraint on the \emph{configuration}
+(a bead on a wire, Section~7.5) goes into the coordinates before.
+Figure~\ref{fig:ueff} shows $\Ueff$ for the mass ratio $\mu = 0.1$ (an unrealistically heavy
+$M_2$, chosen so the five points separate on the page) with its five stationary
+points.
 
 \begin{figure}[htb]
   \centering
