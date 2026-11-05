@@ -300,7 +300,8 @@ which is the form Section~7.3 has in mind, the generalized coordinates as functi
 position and $t$. We will not need it: we'll build $\Lag$ by putting \eqref{eq:rotation} into
 \eqref{eq:L2d} directly, which will give us an equation in terms of $x$, $y$ and $t$.
 
-\begin{center}
+\begin{figure}[htb]
+\centering
 \begin{tikzpicture}[scale=2.0]
   \draw[->,gray] (-1.4,0) -- (2.0,0) node[right,black] {$X$};
   \draw[->,gray] (0,-0.9) -- (0,1.8) node[above,black] {$Y$};
@@ -317,7 +318,11 @@ position and $t$. We will not need it: we'll build $\Lag$ by putting \eqref{eq:r
   \draw[gray,thin] (0.3,-0.17) -- (0.03,-0.03);
   \node at (0.38,-0.21) {CM};
 \end{tikzpicture}
-\end{center}
+\caption{The inertial axes $(X, Y)$ and the rotating axes $(x, y)$, turned through $\Om t$
+  about the $Z$ axis, which runs through the CM and out of the page. The primaries sit on the
+  $x$ axis; $L_4$ is the point of the dashed equilateral triangle.}
+\label{fig:axes}
+\end{figure}
 
 \noindent In these new coordinates the
 primaries sit at $(x, y) = (-r_1, 0)$ and $(r_2, 0)$ for all time\footnote{The \sideroadsp{}
@@ -404,7 +409,9 @@ Move the $-m\Om\dot y$ and the $+m\Om\dot x$ from the left to the right:
   m\ddot y = -\pd{U}{y} + m\Om^2 y - 2m\Om\dot x ,
 \end{equation}
 Newton's second law with three forces: gravity, then a centrifugal force $m\Om^2(x, y) = m\Om^2\,\vr$, one force
-pointing straight away from the rotation axis with magnitude $m\Om^2\sqrt{x^2 + y^2}$ (the
+pointing straight away from the CM, where the rotation axis (the $Z$ axis, out of the page in
+Figure~\ref{fig:axes}) pierces the plane, with magnitude $m\Om^2\sqrt{x^2 + y^2}$, $m\Om^2$
+times the distance from the CM (the
 $x$ equation sees its $x$ component $m\Om^2 x$, the $y$ equation its $y$ component
 $m\Om^2 y$), then a Coriolis force $2m\Om(\dot y, -\dot x)$ perpendicular to the velocity.
 Chapter~9 will derive both from Newton's second law in a rotating frame; here they came out of
