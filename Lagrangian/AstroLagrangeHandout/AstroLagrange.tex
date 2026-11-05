@@ -474,9 +474,14 @@ points.
   \label{fig:ueff}
 \end{figure}
 
-\noindent The equation $\grad\Ueff = 0$ has five solutions: three on the $x$ axis ($L_1$, $L_2$, $L_3$; the equation
-\eqref{eq:axis} and the table in the \sideroads{}) two off it, no others (the polar-coordinates route in the \sideroads{});
-Figure~\ref{fig:fivepoints} shows all five. The two off it take three lines. With $\vr = (x, y)$ and $\vr_1 = (-r_1, 0)$, $\vr_2 = (r_2, 0)$ the rotating-frame positions, at a
+\noindent The equation $\grad\Ueff = 0$ has five solutions. Three are on the $x$ axis, $L_1$,
+$L_2$ and $L_3$, and they need nothing beyond \eqref{eq:equilibrium3} itself: put $y = 0$, and the
+$y$ equation holds by itself (every term in it carries a factor of $y$), while the $x$ equation
+becomes a single equation in $x$, \eqref{eq:axis} in the \sideroads{}, a quintic that is solved
+numerically (the table there) or, for a small $\mu$, by expansion (the board problem there). Two
+are off the axis, $L_4$ and $L_5$. There are no others; showing that is the one place the
+polar-coordinates route in the \sideroads{} is needed. Figure~\ref{fig:fivepoints} shows all
+five. The two off the axis take three lines. With $\vr = (x, y)$ and $\vr_1 = (-r_1, 0)$, $\vr_2 = (r_2, 0)$ the rotating-frame positions, at a
 point $\vr$ a distance $R$ from \emph{both} primaries (the third corner
 of an equilateral triangle on $M_1M_2$), each primary pulls with magnitude $GM_i/R^2$ along the
 unit vector $(\vr_i - \vr)/R$, so, dividing \eqref{eq:equilibrium3} by $m$ and writing the
