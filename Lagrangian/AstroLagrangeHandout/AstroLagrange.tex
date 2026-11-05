@@ -247,12 +247,20 @@ a constraint on the system, not on $m$: it removes the six coordinates of the
 primaries from the problem and is what put $t$ into $U$.
 
 \smallskip
-\noindent (ii) \emph{Motion in the orbital plane.} Set $Z = 0$. This is not a constraint in
-Section~7.3's sense, since no wire or surface enforces it. It is a choice of initial conditions
-that the equations of motion respect: $U$ is even in $Z$ (both distances contain $Z$ only as
-$Z^2$), so $\partial U/\partial Z = GmM_1 Z/|\vr - \vr_1|^3 + GmM_2 Z/|\vr - \vr_2|^3$, which is $0$ on $Z = 0$, and the $Z$ equation
-$m\ddot Z = -\partial U/\partial Z$ gives $\ddot Z = 0$ there. A body that starts in the plane
-with $\dot Z = 0$ stays in it, and we look only at those motions.
+\noindent (ii) \emph{We set $Z = 0$.} This is not a constraint in Section~7.3's
+sense, since no wire or surface enforces it. Rather, it is two choices. The first is a
+choice of coordinates: the motion of our primaries is confined to a plane, and we're just
+choosing that to be the $XY$ plane. The second is a choice of initial conditions for $m$,
+which the equations of motion respect. We can spell this out a bit more explicitly if you're
+skeptical: $U$ is even in $Z$ (both distances contain $Z$ only as $Z^2$), so
+$\partial U/\partial Z = GmM_1 Z/|\vr - \vr_1|^3 + GmM_2 Z/|\vr - \vr_2|^3$, which is
+$0$ on $Z = 0$, and the $Z$ equation $m\ddot Z = -\partial U/\partial Z$ gives
+$\ddot Z = 0$ there. So, a body that starts in the plane with $\dot Z = 0$ stays in
+it, and we look only at those motions. What about our little mass $m$ wanting to leave the
+plane? Our goal is to find the places where it sits still with respect to the primaries, and
+those are all in the plane: $\partial U/\partial Z$ above is $Z$ times a positive factor, so
+it vanishes only at $Z = 0$, and a body held off the plane is pulled back toward it. Nothing is
+lost by staying in the plane.
 
 \smallskip
 \noindent So once the primaries are prescribed, $m$ has three degrees of freedom; restricting
