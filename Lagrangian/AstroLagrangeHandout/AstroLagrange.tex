@@ -93,20 +93,28 @@ the change of coordinates; the other does not.
 (typically called ``the primaries''), a
 distance $R$ apart, go around their centre of mass (CM) in circles at angular speed $\Om$; a
 third body of mass $m$ moves in their gravity. Put the origin at the CM and use inertial
-Cartesian coordinates $(X, Y, Z)$ with the primaries' orbit in the plane $Z = 0$. At time $t$
-the primaries are at
+Cartesian coordinates $(X, Y, Z)$ with the primaries' orbit in the plane $Z = 0$. ``Origin at
+the CM'' means $M_1\vr_1 + M_2\vr_2 = 0$, i.e.\ $M_1 r_1 = M_2 r_2$ with $r_1 = |\vr_1|$ and
+$r_2 = |\vr_2|$, the two bodies on opposite sides of the CM. The sum of the two distances is the
+separation, $r_1 + r_2 = R$; putting $r_2 = R - r_1$ into $M_1 r_1 = M_2 r_2$ gives
+$M_1 r_1 = M_2 R - M_2 r_1$, so $(M_1 + M_2)\,r_1 = M_2 R$ and
+\begin{equation}
+  \label{eq:cmradii}
+  r_1 = \frac{M_2 R}{M_1 + M_2}, \qquad\text{and likewise}\qquad r_2 = \frac{M_1 R}{M_1 + M_2}.
+\end{equation}
+Each primary goes around the CM on a circle of its own radius, $r_1$ or $r_2$, at the common
+angular speed $\Om$, so its polar angle is $\Om t$ plus a constant; choose $t = 0$ when $M_2$ is
+on the positive $X$ axis, so $M_2$'s angle is $\Om t$, and $M_1$, always on the opposite side of
+the CM, is at $\Om t + \pi$, which flips the sign of both components. In Cartesian components the
+primaries are at
 \begin{equation}
   \label{eq:primaries}
-  \begin{gathered}
   \vr_1(t) = r_1(-\cos\Om t,\, -\sin\Om t,\, 0), \qquad
-  \vr_2(t) = r_2(\cos\Om t,\, \sin\Om t,\, 0), \\
-  r_1 = \frac{M_2 R}{M_1 + M_2},\quad r_2 = \frac{M_1 R}{M_1 + M_2},
-  \end{gathered}
+  \vr_2(t) = r_2(\cos\Om t,\, \sin\Om t,\, 0).
 \end{equation}
-on opposite sides of the CM: ``origin at the CM'' means $M_1\vr_1 + M_2\vr_2 = 0$, i.e.\ $M_1 r_1 = M_2 r_2$ (the bodies are on opposite sides);
-putting $r_2 = R - r_1$ into it gives $(M_1 + M_2)\,r_1 = M_2 R$, and likewise for $r_2$. Newton's second law for $M_1$ fixes the rate: its acceleration is $\Om^2 r_1$ toward the CM
+Newton's second law for $M_1$ fixes the rate: its acceleration is $\Om^2 r_1$ toward the CM
 (uniform circular motion) and the only force on it is $M_2$'s pull $GM_1M_2/R^2$, also toward
-the CM, so $M_1\Om^2 r_1 = GM_1M_2/R^2$; with $r_1$ from \eqref{eq:primaries} this is
+the CM, so $M_1\Om^2 r_1 = GM_1M_2/R^2$; with $r_1$ from \eqref{eq:cmradii} this is
 $M_1M_2\Om^2 R/(M_1+M_2) = GM_1M_2/R^2$, and cancelling $M_1M_2$ and multiplying by
 $(M_1+M_2)/R$,
 \begin{equation}
