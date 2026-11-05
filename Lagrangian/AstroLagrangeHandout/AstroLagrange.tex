@@ -211,28 +211,39 @@ Let's look at what ``held fixed'' means in each case.
 \smallskip
 \noindent (i) \emph{The motion of the primaries prescribed (fixed)} by
 construction.  $\vr_1(t)$ and $\vr_2(t)$ are given
-functions of $t$, not coordinates to be varied. Why we are allowed to do that: the full problem
-is three bodies, each pulling on the other two, with nine coordinates and nine coupled
-equations of motion. That is the three-body problem, and apart from special solutions (the
-Lagrange points are among them) it has no solution in closed form; something has to be held
-fixed before it can be solved at all. The thing to hold fixed is the primaries: $m$'s pull on
-each of them is smaller than their pull on each other by a factor of order $m/M$, so to that
-accuracy they move on the two-body circles of Step~1 whether $m$ is there or not. Dropping
-$m$'s pull on them is the \emph{restricted} three-body problem.\footnote{The same
-  approximation runs through quantum mechanics and chemistry. The hydrogen molecular ion
-  $\mathrm{H}_2^+$ with clamped nuclei is the quantum version: one light particle in the field
-  of two heavy centres whose positions are prescribed, not solved for. There the justification
-  is that the nuclei are slow (the Born--Oppenheimer separation of time scales); here it is
-  that the third body's pull on the primaries is of order $m/M$ and is dropped. Same
-  approximation, two reasons to believe it. One more parallel: with the rotation switched off,
-  the classical problem is Euler's problem of two fixed centres, which is exactly solvable,
-  just as $\mathrm{H}_2^+$ separates in prolate spheroidal coordinates. What makes the rotating
-  problem hard is the Coriolis force, the velocity-dependent term in the equations of motion
-  \eqref{eq:eom3} (Step~5).} This is the same
-move as Example~7.6, the bead on a spinning hoop, where the hoop's angle $\omega t$ is
-prescribed and only the bead's $\theta$ is a coordinate. It is a constraint on the system, not
-on $m$: it removes the six coordinates of the primaries from the problem and is what put $t$
-into $U$.
+functions of $t$, not coordinates to be varied. That sounds like cheating
+\emph{and it is!} The problem is that we have to cheat. The full problem, as
+stated to this point, is the three-body problem. Nine coordinates, nine coupled
+equations of motion. Newton, Euler, Lagrange, Poincar\'e and many others spent, between
+them, two centuries working on the three-body problem. Eventually Bruns (1887) and
+Poincar\'e (1890) showed that it has no conserved quantities beyond the ten everyone already
+knew (energy, momentum, angular momentum and the centre of mass), which is what a closed-form
+solution would need; Poincar\'e's memoir is also where chaos was first seen. That's cool,
+maybe we could get away with a series solution. Sundman (1912) found one, and proved that it
+converges. Unfortunately, it converges terribly slowly: Belorizky estimated in 1930 that
+reaching the accuracy of astronomical observations would take about $10^{8\,000\,000}$ terms!
+So, apart from very special cases, the three-body problem has no usable solution in closed
+form, and we cheat by holding something fixed.
+
+Well, $m$ is, in our case, tiny compared to $M_1$ and $M_2$, so it's barely
+going to affect their motion at all. And hence, we decide to hold the motion of
+the primaries fixed, while only varying the motion of $m$. This is called the
+\emph{restricted} three-body problem.\footnote{The same approximation runs
+  through quantum mechanics and chemistry. The hydrogen molecular ion
+  $\mathrm{H}_2^+$ with clamped nuclei is the quantum version: one light
+  particle in the field of two heavy centres whose positions are prescribed, not
+  solved for. There the justification is that the nuclei are slow (the
+  Born--Oppenheimer separation of time scales); here it is that the third body's
+  pull on the primaries is of order $m/M$ and is dropped. Same approximation,
+  two reasons to believe it. One more parallel: with the rotation switched off,
+  the classical problem is Euler's problem of two fixed centres, which is
+  exactly solvable, just as $\mathrm{H}_2^+$ separates in prolate spheroidal
+  coordinates. What makes the rotating problem hard is the Coriolis force, the
+  velocity-dependent term in the equations of motion \eqref{eq:eom3} (Step~5).}
+We note that it's the same sort of restriction used in Example~7.6 (the bead on a spinning hoop) where the
+hoop's angle $\omega t$ is prescribed and only the bead's $\theta$ is a coordinate. It is
+a constraint on the system, not on $m$: it removes the six coordinates of the
+primaries from the problem and is what put $t$ into $U$.
 
 \smallskip
 \noindent (ii) \emph{Motion in the orbital plane.} Set $Z = 0$. This is not a constraint in
