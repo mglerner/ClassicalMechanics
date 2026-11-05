@@ -273,19 +273,29 @@ coordinates remain.
 $Z = 0$ the Lagrangian \eqref{eq:L3d} loses its $\dot Z$ term and $U$ loses $Z$:
 \begin{equation}
   \label{eq:L2d}
-  \Lag = \tfrac12 m\bigl(\dot X^2 + \dot Y^2\bigr) - U(X, Y, t).
+  \Lag = \tfrac12 m\bigl(\dot X^2 + \dot Y^2\bigr) - U(X, Y, t)
 \end{equation}
-The only question Chapter~7 leaves open is which two generalized coordinates to use. $U$
-depends on $t$ only because the primaries move, so in coordinates that turn with them it will
-not. Section~7.3 allows generalized coordinates whose relation to the position involves $t$
-(Example~7.6 uses one), so take the rotating coordinates
+and it's time to decide which two generalized coordinates to use. $U$ only
+depends on $t$ because the primaries move, so if we pick coordinates that move
+with the primaries, $U$ will lose this $t$ dependence. This may seem a bit
+unnatural, but Section~7.3 allows generalized coordinates whose relation to the
+position involves $t$ (Example~7.6 uses one), and we opt for the rotating
+coordinates $x$ and $y$ given by 
 \begin{equation}
   \label{eq:rotation}
   X = x\cos\Om t - y\sin\Om t, \qquad Y = x\sin\Om t + y\cos\Om t ,
 \end{equation}
 where $(X,Y)$ are inertial: the $(x,y)$ axes are the $(X,Y)$ axes turned counterclockwise through
 the angle $\Om t$ (the standard rotation matrix), so a point at fixed $(x,y)$ goes around the
-origin at angular speed $\Om$, in step with the primaries.
+origin at angular speed $\Om$, in step with the primaries. The other way round is the rotation
+through $-\Om t$,
+\begin{equation}
+  \label{eq:rotation-inverse}
+  x = X\cos\Om t + Y\sin\Om t, \qquad y = -X\sin\Om t + Y\cos\Om t ,
+\end{equation}
+which is the form Section~7.3 has in mind, the generalized coordinates as functions of the
+position and $t$. We will not need it: $\Lag$ is built by putting \eqref{eq:rotation} into
+\eqref{eq:L2d}, which wants $X$ and $Y$ in terms of $x$, $y$ and $t$, not the reverse.
 
 \begin{center}
 \begin{tikzpicture}[scale=2.0]
