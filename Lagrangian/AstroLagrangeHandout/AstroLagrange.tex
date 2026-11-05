@@ -370,38 +370,40 @@ into
   + \tfrac12 m\Om^2(x^2 + y^2)
   + \frac{GmM_1}{\sqrt{(x + r_1)^2 + y^2}} + \frac{GmM_2}{\sqrt{(x - r_2)^2 + y^2}} , \nonumber
 \end{align}
-which is \eqref{eq:Lrot}. Two remarks before differentiating. There is no explicit $t$ in $\Lag$
-any more; that was the point of the coordinate change. And the coordinates are not
+which is \eqref{eq:Lrot}. Two remarks before differentiating: First, although it
+has an extra term or two in the $T$ part, \eqref{eq:Lrot3} is a big win as there
+is no explicit $t$ in $\Lag$!
+Whew. That was the point of the coordinate change. Second, the coordinates are not
 ``natural'' in Section~7.3's sense: the relation between $(x, y)$ and $(X, Y)$ involves $t$, so
-$T$ is not a pure quadratic in $\dot x, \dot y$ (there are the linear terms $m\Om(x\dot y -
-y\dot x)$ and the velocity-free term $\tfrac12 m\Om^2(x^2 + y^2)$), exactly as for the bead on
+$T$ is not a pure quadratic in $\dot x, \dot y$ (i.e. there are two new terms, a linear $m\Om(x\dot y -
+y\dot x)$ and a velocity-free term $\tfrac12 m\Om^2(x^2 + y^2)$), exactly as for the bead on
 the spinning hoop.
 
 \medskip
 
-\noindent\textbf{Step 5: Lagrange's equations.} From \eqref{eq:Lrot3},
+\noindent\textbf{Step 5: Lagrange's equations.} Not as bad as you might expect
+after all of that. From \eqref{eq:Lrot3},
 \begin{align*}
   \pd{\Lag}{\dot x} &= m(\dot x - \Om y), &
   \pd{\Lag}{x} &= m\Om\dot y + m\Om^2 x - \pd{U}{x}, \\
   \pd{\Lag}{\dot y} &= m(\dot y + \Om x), &
   \pd{\Lag}{y} &= -m\Om\dot x + m\Om^2 y - \pd{U}{y}.
 \end{align*}
-With $\Om$ constant, $\frac{d}{dt}\,m(\dot x - \Om y) = m\ddot x - m\Om\dot y$ and
+Remembering that $\Om$ is constant, we have $\frac{d}{dt}\,m(\dot x - \Om y) = m\ddot x - m\Om\dot y$ and
 $\frac{d}{dt}\,m(\dot y + \Om x) = m\ddot y + m\Om\dot x$, so
-$\frac{d}{dt}\partial\Lag/\partial\dot q = \partial\Lag/\partial q$ for $q = x$ and $q = y$
-reads
+$\frac{d}{dt}\partial\Lag/\partial\dot q_i = \partial\Lag/\partial q_i$ for $q_i = x$ and $y$
+read
 \begin{align*}
   m\ddot x - m\Om\dot y &= m\Om\dot y + m\Om^2 x - \pd{U}{x}, \\
   m\ddot y + m\Om\dot x &= -m\Om\dot x + m\Om^2 y - \pd{U}{y}.
 \end{align*}
-Move the $-m\Om\dot y$ and the $+m\Om\dot x$ from the left to the right, where each doubles its
-partner:
+Move the $-m\Om\dot y$ and the $+m\Om\dot x$ from the left to the right:
 \begin{equation}
   \label{eq:eom3}
   m\ddot x = -\pd{U}{x} + m\Om^2 x + 2m\Om\dot y, \qquad
   m\ddot y = -\pd{U}{y} + m\Om^2 y - 2m\Om\dot x ,
 \end{equation}
-which is \eqref{eq:eom3}: gravity, then a centrifugal force $m\Om^2(x, y)$ pointing away from
+Newton's second law with three forces: gravity, then a centrifugal force $m\Om^2(x, y)$ pointing away from
 the axis, then a Coriolis force $2m\Om(\dot y, -\dot x)$ perpendicular to the velocity.
 Chapter~9 will derive both from Newton's second law in a rotating frame; here they came out of
 Lagrange's equations because the coordinates rotate. (Chapter~9 writes them as
