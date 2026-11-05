@@ -25,6 +25,9 @@
 \newcommand{\Lag}{\mathcal{L}}
 \newcommand{\Ueff}{U_{\rm eff}}
 \newcommand{\vpec}{v_{\rm pec}}
+% 'the side roads' in the text links to the subsection (hyperref) and gives its page.
+\newcommand{\sideroads}{\hyperref[sec:sideroads]{side roads}}
+\newcommand{\sideroadsp}{\hyperref[sec:sideroads]{side roads} (p.~\pageref{sec:sideroads})}
 
 \begin{document}
 \title{Highlights from two astronomy problems for Lagrange's equations: \\
@@ -42,7 +45,7 @@ Dermott~\cite{murray}, Chapter~3; the Lagrangian route is the one in Goldstein, 
 Safko~\cite{goldstein}, Section~3.12); the second half, the cosmology, follows the standard
 textbook route for a particle in an expanding universe (Peebles~\cite{peebles}, Chapter~II).
 The references are collected at the end. Each problem is done straight through, in the order
-of Section~7.5's recipe, with the side roads (the numbers, a board problem, stability) collected
+of Section~7.5's recipe, with the \sideroads{} (the numbers, a board problem, stability) collected
 at the end of its section; the redshift is also written up as a homework problem, statement and solutions
 (Section~\ref{sec:redshift-problem}). Both halves are Newtonian
 throughout, and the places where general relativity would add something are flagged.
@@ -67,7 +70,7 @@ every Chapter~7 problem is done, in the order of Section~7.5's recipe (p.~258) a
 Examples~7.4--7.7: set the problem up, write the Lagrangian with nothing left out, state the
 constraints, write the Lagrangian with the constraints in, take Lagrange's equations, read off
 what they say. Every step is here; the numbers, a board problem and the question of stability
-are collected at the end of the section, under ``Side roads.''
+are collected at the end of the section, under ``\sideroadsp.''
 
 \medskip
 
@@ -113,7 +116,7 @@ primaries. Three things follow:
   force $m\Om^2(x,y)$ and the Coriolis force $2m\Om(\dot y, -\dot x)$: Chapter~9's results,
   for free.
 \item A body can sit still in the rotating frame exactly where the \emph{effective potential}
-  $\Ueff \equiv U - \tfrac12 m\Om^2(x^2+y^2)$ has zero gradient. There are five such points (the polar-coordinates route in the side roads shows why exactly five).
+  $\Ueff \equiv U - \tfrac12 m\Om^2(x^2+y^2)$ has zero gradient. There are five such points (the polar-coordinates route in the \sideroads{} shows why exactly five).
   Two of them, $L_4$ and $L_5$, form equilateral triangles with $M_1$ and $M_2$, for any mass
   ratio; the other three lie on the line through the primaries.
 \item $\Lag$ has no explicit $t$, so $\Ham$ is conserved. It is $\tfrac12 m v_{\rm rot}^2 +
@@ -294,8 +297,8 @@ through $-\Om t$,
   x = X\cos\Om t + Y\sin\Om t, \qquad y = -X\sin\Om t + Y\cos\Om t ,
 \end{equation}
 which is the form Section~7.3 has in mind, the generalized coordinates as functions of the
-position and $t$. We will not need it: $\Lag$ is built by putting \eqref{eq:rotation} into
-\eqref{eq:L2d}, which wants $X$ and $Y$ in terms of $x$, $y$ and $t$, not the reverse.
+position and $t$. We will not need it: we'll build $\Lag$ by putting \eqref{eq:rotation} into
+\eqref{eq:L2d} directly, which will give us an equation in terms of $x$, $y$ and $t$.
 
 \begin{center}
 \begin{tikzpicture}[scale=2.0]
@@ -316,8 +319,8 @@ position and $t$. We will not need it: $\Lag$ is built by putting \eqref{eq:rota
 \end{tikzpicture}
 \end{center}
 
-\noindent In them the
-primaries sit at $(x, y) = (-r_1, 0)$ and $(r_2, 0)$ for all time\footnote{The side roads
+\noindent In these new coordinates the
+primaries sit at $(x, y) = (-r_1, 0)$ and $(r_2, 0)$ for all time\footnote{The \sideroadsp{}
   write these with the mass ratio $\mu \equiv M_2/(M_1+M_2)$: $r_1 = \mu R$ and
   $r_2 = M_1 R/(M_1+M_2) = (1-\mu)R$, so the primaries sit at $(-\mu R, 0)$ and
   $((1-\mu)R, 0)$.} (put $(x,y) = (r_2, 0)$ into
@@ -422,7 +425,7 @@ on the page) with its five stationary points.
 \end{figure}
 
 \noindent The equation $\grad\Ueff = 0$ has five solutions: three on the $x$ axis ($L_1$, $L_2$, $L_3$; the equation
-\eqref{eq:axis} and the table in the side roads) and two off it, and no others (the polar-coordinates route in the side roads);
+\eqref{eq:axis} and the table in the \sideroads{}) and two off it, and no others (the polar-coordinates route in the \sideroads{});
 Figure~\ref{fig:fivepoints} shows all five. The two off it take three lines. With $\vr = (x, y)$ and $\vr_1 = (-r_1, 0)$, $\vr_2 = (r_2, 0)$ the rotating-frame positions, at a
 point $\vr$ a distance $R$ from \emph{both} primaries (the third corner
 of an equilateral triangle on $M_1M_2$), each primary pulls with magnitude $GM_i/R^2$ along the
@@ -517,7 +520,7 @@ remarks, the first two of which are the point of Section~7.8:
   involves $t$, so the condition fails, exactly as for the spinning hoop. (And $T + U$ is not
   conserved in the inertial frame either: there the primaries move and $U$ depends on time.
   The symmetry lives in the rotating frame, and so does the conservation
-  law.)\footnote{This is easy to get wrong in print. Edlund's paper (cited in the side roads below) calls $\Ueff$
+  law.)\footnote{This is easy to get wrong in print. Edlund's paper (cited in the \sideroads{} below) calls $\Ueff$
     ``devoid of physical meaning'' because it seems to assume the body's angular velocity is
     constant, and proposes that the test mass's angular momentum is conserved ``regionally''
     near each Lagrange point. Neither is needed. The $\Om$ in $\Ueff$ is the \emph{frame's}
@@ -534,10 +537,11 @@ remarks, the first two of which are the point of Section~7.8:
 \end{enumerate}
 
 \smallskip
-\noindent That is the whole calculation. The side roads below add the numbers, the
+\noindent That is the whole calculation. The \sideroads{} below add the numbers, the
 polar-coordinate route and the question of stability, which needs the Coriolis term kept.
 
 \subsection*{Side roads: exactly five points, the Hill radius, the numbers, stability}
+\phantomsection\label{sec:sideroads}
 \addcontentsline{toc}{subsection}{Side roads: exactly five points, the Hill radius, the numbers, stability}
 
 \noindent\textbf{Another route: polar coordinates, and why there are exactly five points.} Put the
