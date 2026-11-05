@@ -413,19 +413,23 @@ Move the $-m\Om\dot y$ and the $+m\Om\dot x$ from the left to the right:
   m\ddot x = -\pd{U}{x} + m\Om^2 x + 2m\Om\dot y, \qquad
   m\ddot y = -\pd{U}{y} + m\Om^2 y - 2m\Om\dot x ,
 \end{equation}
-Newton's second law with three forces: gravity, then a centrifugal force $m\Om^2(x, y) = m\Om^2\,\vr$, one force
+Newton's second law with three forces. The first is gravity, $-\grad U$, the two pulls of
+Step~2 written in the rotating coordinates.
+
+The second is a centrifugal force $m\Om^2(x, y) = m\Om^2\,\vr$, one force
 pointing straight away from the CM, where the rotation axis (the $Z$ axis, out of the page in
 Figure~\ref{fig:axes}) pierces the plane, with magnitude $m\Om^2\sqrt{x^2 + y^2}$, $m\Om^2$
 times the distance from the CM. At $L_1$ and $L_2$ in Figure~\ref{fig:axes}, which lie on the
-$x$ axis, it points along $+x$; at $L_4$ it points along the line from the CM through $L_4$
-(the
-$x$ equation sees its $x$ component $m\Om^2 x$, the $y$ equation its $y$ component
-$m\Om^2 y$), then a Coriolis force $2m\Om(\dot y, -\dot x)$ perpendicular to the velocity.
-Chapter~9 will derive both from Newton's second law in a rotating frame; here they came out of
-Lagrange's equations because the coordinates rotate. (Chapter~9 writes them as
-$-m\,\vomega\times(\vomega\times\vr)$ and $-2m\,\vomega\times\dot{\vr}$ with $\vomega = \Om\uv{z}$;
-check that those give the same components.) The Coriolis force depends on velocity, so it has
-no potential energy, but it does no work: it is always perpendicular to $\dot{\vr}$.
+$x$ axis, it points along $+x$; at $L_4$ it points along the line from the CM through $L_4$.
+The $x$ equation sees its $x$ component $m\Om^2 x$, the $y$ equation its $y$ component
+$m\Om^2 y$. Chapter~9 writes it as $-m\,\vomega\times(\vomega\times\vr)$ with
+$\vomega = \Om\uv{z}$; check that this gives the same components.
+
+The third is a Coriolis force $2m\Om(\dot y, -\dot x)$, perpendicular to the velocity
+(Chapter~9 writes it as $-2m\,\vomega\times\dot{\vr}$; check that too). It depends on velocity,
+so it has no potential energy, but it does no work, since it is always perpendicular to
+$\dot{\vr}$. Chapter~9 will derive both extra forces from Newton's second law in a rotating
+frame; here they came out of Lagrange's equations because the coordinates rotate.
 
 \medskip
 
