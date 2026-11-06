@@ -476,10 +476,16 @@ points.
 
 \noindent The equation $\grad\Ueff = 0$ has five solutions. Three are on the $x$ axis, $L_1$,
 $L_2$ and $L_3$, and they need nothing beyond \eqref{eq:equilibrium3}: put $y = 0$, and the
-$y$ equation holds by itself (every term in it carries a factor of $y$), while the $x$ equation
-becomes a single equation in $x$, \eqref{eq:axis} in the \sideroads{}, a quintic that is solved
-numerically (the table there) or, for a small $\mu$, by expansion (the board problem there). Two
-are off the axis, $L_4$ and $L_5$. There are no others; showing that is the one place polar
+$y$ equation holds by itself (every term in it carries a factor of $y$), while the $x$ equation,
+with $d_1 = |x + r_1|$ and $d_2 = |x - r_2|$ on the axis, becomes
+\begin{equation}
+  \label{eq:axisfull}
+  m\Om^2 x = \frac{GmM_1\,(x + r_1)}{|x + r_1|^3} + \frac{GmM_2\,(x - r_2)}{|x - r_2|^3},
+\end{equation}
+the centrifugal term on the left and the two pulls on the right, each toward its own primary.
+That is one equation in the one unknown $x$, and it has three roots: in the units of the
+\sideroads{} it is \eqref{eq:axis}, a quintic, solved there numerically (the table) and, for a
+small $\mu$, by expansion (the board problem). Two are off the axis, $L_4$ and $L_5$. There are no others; showing that is the one place polar
 coordinates are needed (``Polar coordinates'' in the \sideroads{}). Figure~\ref{fig:fivepoints} shows all
 five. The two off the axis take three lines. With $\vr = (x, y)$ and $\vr_1 = (-r_1, 0)$, $\vr_2 = (r_2, 0)$ the rotating-frame positions, at a
 point $\vr$ a distance $R$ from \emph{both} primaries (the third corner
@@ -602,15 +608,13 @@ and the question of stability, which needs the Coriolis term kept.
 
 \noindent\textbf{Board problem (b): $L_1$ and $L_2$ for a small $\mu$.} Use units with $R = 1$
 and $G(M_1+M_2) = 1$, so $\Om = 1$ by \eqref{eq:kepler3}, $M_1 \to 1-\mu$ at $x = -\mu$ and
-$M_2 \to \mu$ at $x = 1-\mu$. On the axis $y = 0$ the $y$ half of \eqref{eq:equilibrium3} holds automatically
-($\partial U/\partial y$ and $m\Om^2 y$ both carry a factor of $y$), and the $x$ half is
+$M_2 \to \mu$ at $x = 1-\mu$. In these units the axis equation \eqref{eq:axisfull}, per unit
+mass, is
 \begin{equation}
   \label{eq:axis}
   x = \frac{(1-\mu)(x+\mu)}{|x+\mu|^3} + \frac{\mu\,(x-1+\mu)}{|x-1+\mu|^3} .
 \end{equation}
-(This is $-\partial\Ueff/\partial x = 0$ per unit mass at $y = 0$, with the centrifugal term
-$\Om^2 x = x$ on the left and the two gravitational pulls, $-GM_i(x - x_i)/|x - x_i|^3$ toward
-$M_i$ at $x_i$, moved to the right.) Show that for
+Show that for
 $\mu \ll 1$ both $L_1$ and $L_2$ sit a distance
 \begin{equation}
   \label{eq:hill}
