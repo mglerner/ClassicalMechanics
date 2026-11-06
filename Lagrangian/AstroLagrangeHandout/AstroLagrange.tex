@@ -715,13 +715,11 @@ small $\delta > 0$; then $x + \mu = 1 + \delta$ and $x - 1 + \mu = \delta$. The 
   &\approx (1-\mu)(1 - 2\delta)
   && \text{(binomial expansion, $(1+\delta)^{-2} \approx 1 - 2\delta$)} \\
   &\approx 1 - \mu - 2\delta
-  && \text{(drop $2\mu\delta$, small next to $2\delta$)} \\
+  && \text{(drop $2\mu\delta$, small compared to $2\delta$)} \\
   \frac{\mu\,(x-1+\mu)}{|x-1+\mu|^3} &= \frac{\mu\,\delta}{\delta^3} = \frac{\mu}{\delta^2}
   && \text{(right, second term: $M_2$'s pull, exact)}
 \end{align*}
-In $M_1$'s pull, $1 - \mu$ is its value at $M_2$'s own position, and $-2\delta$ is the tidal
-part, the pull weakening as we move outward. Now set the left side equal to the sum of the two
-pulls and solve:
+Now, put it together:
 \begin{align*}
   1 - \mu + \delta &= 1 - \mu - 2\delta + \frac{\mu}{\delta^2}
   && \text{(by \eqref{eq:axis})} \\
@@ -733,7 +731,7 @@ pulls and solve:
   && \text{(multiply by $\delta^2/3$)}
 \end{align*}
 The orders are consistent: $\delta = (\mu/3)^{1/3}$ is much larger than $\mu$, so the dropped
-$\mu\delta$ and $\delta^2$ are small next to $\delta$, while $\mu/\delta^2$ is the same size as
+$\mu\delta$ and $\delta^2$ are small compared to $\delta$, while $\mu/\delta^2$ is the same size as
 $\delta$. That is the only place $\mu$ survives, and it is why $\delta^3$ and $\mu$ go together.
 
 For $L_1$, just inside $M_2$, write $x = 1 - \mu - \delta$ with $\delta > 0$, so
