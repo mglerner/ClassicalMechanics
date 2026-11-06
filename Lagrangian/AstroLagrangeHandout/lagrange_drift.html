@@ -86,6 +86,7 @@ p { margin: 0; max-width: 68ch; }
 }
 .readout b { font-weight: 500; color: var(--muted); }
 .status { color: var(--body); }
+.status-ok { color: var(--muted); }
 .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px 28px; }
 .notes p { font-size: 0.95rem; }
 .notes ul { margin: 0; padding-left: 1.1em; font-size: 0.95rem; }
@@ -147,6 +148,9 @@ code { font-family: var(--mono); font-size: 0.9em; }
         <label><input type="checkbox" id="follow"> window moves with the point</label>
         <label><input type="checkbox" id="arrows" checked> forces</label>
         <label><input type="checkbox" id="trails" checked> trails</label>
+      </div>
+      <div class="row">
+        <label><input type="checkbox" id="orbit"> start on the periodic orbit around the point (L1, L2, L3)</label>
       </div>
       <div class="row">
         <button type="button" id="play">Pause</button>
@@ -211,7 +215,8 @@ code { font-family: var(--mono); font-size: 0.9em; }
         <li>Drag &mu; past 0.0385 (or pick the handout's 0.1). The hill is now too steep for Coriolis to save you.</li>
         <li>Pick L1 or L2. They are saddles, unstable for every &mu;: the body is gone within a fraction of an orbit,
           toward M2 or away from it depending on which way you displaced it. L3 is a saddle too, and goes the same
-          way within an orbit.</li>
+          way within an orbit. Each of the three has a closed periodic orbit around it (tick "start on the
+          periodic orbit"), and each of those is unstable as well.</li>
         <li>Change the direction. At L4, 150&deg; is along the ridge: the body is on the same circular orbit, just
           a little ahead, and barely moves. 60&deg; is across the ridge: now it is on an orbit of a different radius,
           so a different period, and it drifts a long way along the ring before gravity turns it around. For the
@@ -219,13 +224,16 @@ code { font-family: var(--mono); font-size: 0.9em; }
         <li>Sun + Jupiter, L4: this is where the Trojan asteroids live, on exactly those long loops (tadpole orbits).
           One trip around takes about twelve Jupiter orbits, 150 years; raise the speed.</li>
         <li>JWST lives at the Sun&ndash;Earth L2, &mu; = 3.0 &times; 10<sup>-6</sup>, where L2 is 0.0100 R beyond the
-          Earth, 1.5 million km. The "JWST at L2" button sets that up: the window moves with L2 at 100&times; and
-          the body starts 0.003 R (450,000 km) beyond it along the Sun&ndash;Earth line, about the size of the halo
-          orbit the telescope flies. Here one orbit of the primaries is one year, and L2 is a saddle: the unstable
-          direction grows e-fold every 0.40 time units, 23 days, and the body is ten times farther from L2 within
-          80 days. That is why JWST fires its thrusters about every three weeks. Its halo orbit is a periodic orbit
-          around the saddle, not a parked position, and it needs that nudging to stay on it. Displace sideways
-          (90&deg;) instead and it loops around L2 for most of a year before the unstable direction takes over.</li>
+          Earth, 1.5 million km. The "JWST at L2" button sets that up: Sun + Earth, the window moving with L2 at
+          100&times;, and the body placed on the periodic orbit around L2 with an amplitude of 0.002 R
+          (300,000 km) along the Sun&ndash;Earth line, the planar cousin of the halo orbit the telescope flies. The
+          page finds that orbit by shooting: it adjusts the starting speed until the path closes. One orbit of the
+          primaries is one year; one loop around L2 takes about half a year. Watch it hold for four loops and
+          then leave. L2 is a saddle, the unstable direction grows e-fold every 0.40 time units, 23 days, and the
+          integrator's roundoff error is enough to set it off. Nothing in the real Solar System is as quiet as
+          roundoff, which is why JWST fires its thrusters about every three weeks: the halo orbit is a periodic
+          orbit around a saddle, not a parking spot. Untick "start on the periodic orbit" to release the body at
+          rest instead; it is ten times farther from L2 within 80 days.</li>
         <li>Push the displacement up. Stability is a statement about small displacements: once the loop reaches
           the primaries' neighbourhood the body leaves, stable point or not. For the Earth and the Moon, 0.05 R
           at 0&deg; is already too far.</li>
@@ -240,9 +248,9 @@ code { font-family: var(--mono); font-size: 0.9em; }
   const DT = 0.001;
   const STABLE_MU = (1 - Math.sqrt(23 / 27)) / 2;   // 0.03852, L4/L5 linearly stable below this
 
-  const S = { mu: 0.01215, L: 'L4', disp: 0.05, ang: 0, speed: 2, zoom: 6,
-              follow: false, arrows: true, trails: true, running: true };
-  const B = { x: 0, y: 0, vx: 0, vy: 0, t: 0, stepCount: 0, stopped: '' };
+  const S = { mu: 0.01215, L: 'L4', disp: 0.01, ang: 0, speed: 2, zoom: 4,
+              follow: false, arrows: true, trails: true, orbit: false, running: true };
+  const B = { x: 0, y: 0, vx: 0, vy: 0, t: 0, stepCount: 0, stopped: '', orbit: '' };
   const trailR = [], trailI = [];
   let Lpt = { x: 0, y: 0 };
 
@@ -293,12 +301,68 @@ code { font-family: var(--mono); font-size: 0.9em; }
   }
   let allL = lagrangePoints(S.mu);
 
+  // ---- periodic (Lyapunov) orbits around L1, L2, L3, found by shooting ----------------
+  // Start on the axis at x = L + A with velocity (0, vy0); the orbit is symmetric about the axis,
+  // so it is periodic exactly when it crosses the axis again with vx = 0. Newton on vy0 does that;
+  // continuation in A from a tiny amplitude (where the linear theory gives vy0) keeps Newton honest.
+  function halfPeriod(x0, vy0, mu, Lx, A) {
+    const dt = 2e-4; let s = [x0, 0, 0, vy0], t = 0;
+    while (t < 12) {
+      const n = rk4(s, mu, dt);
+      if (t > 0.05 && n[1] * s[1] < 0) {
+        let lo = 0, hi = dt;
+        for (let i = 0; i < 50; i++) { const m = 0.5 * (lo + hi); if (rk4(s, mu, m)[1] * s[1] < 0) hi = m; else lo = m; }
+        return { s: rk4(s, mu, 0.5 * (lo + hi)), T2: t + 0.5 * (lo + hi) };
+      }
+      s = n; t += dt;
+      if (Math.hypot(s[0] - Lx, s[1]) > 12 * A) return null;
+    }
+    return null;
+  }
+  function newtonVy(mu, Lx, A, vy0) {
+    const x0 = Lx + A;
+    for (let it = 0; it < 25; it++) {
+      const r = halfPeriod(x0, vy0, mu, Lx, A); if (!r) return null;
+      if (Math.abs(r.s[2]) < 1e-11) return { vy0, period: 2 * r.T2 };
+      const d = 1e-7, r2 = halfPeriod(x0, vy0 + d, mu, Lx, A); if (!r2) return null;
+      vy0 -= r.s[2] / ((r2.s[2] - r.s[2]) / d);
+    }
+    return null;
+  }
+  function periodicOrbit(mu, Lx, Ax) {
+    const c = (1 - mu) / Math.abs(Lx + mu) ** 3 + mu / Math.abs(Lx - 1 + mu) ** 3;
+    const Uxx = 1 + 2 * c, Uyy = 1 - c, Bq = 4 - Uxx - Uyy, Cq = Uxx * Uyy;
+    const w = Math.sqrt((Bq + Math.sqrt(Bq * Bq - 4 * Cq)) / 2), k = (w * w + Uxx) / (2 * w);   // centre mode
+    let A = Math.min(Ax, 1e-4), vy = -k * A * w; const hist = [];
+    for (;;) {
+      const r = newtonVy(mu, Lx, A, vy); if (!r) return null;
+      hist.push([A, r.vy0]);
+      if (A >= Ax) return r;
+      const An = Math.min(Ax, A * 1.25);
+      if (hist.length >= 2) { const [a1, v1] = hist[hist.length - 2], [a2, v2] = hist[hist.length - 1]; vy = v2 + (v2 - v1) / (a2 - a1) * (An - a2); }
+      else vy = r.vy0 / A * An;
+      A = An;
+    }
+  }
+
   function restart() {
     allL = lagrangePoints(S.mu);
     Lpt = allL[S.L];
-    const a = S.ang * Math.PI / 180;
-    B.x = Lpt.x + S.disp * Math.cos(a); B.y = Lpt.y + S.disp * Math.sin(a);
-    B.vx = 0; B.vy = 0; B.t = 0; B.stepCount = 0; B.stopped = '';
+    const collinear = S.L === 'L1' || S.L === 'L2' || S.L === 'L3';
+    B.orbit = ''; let placed = false;
+    if (S.orbit && collinear) {
+      const r = periodicOrbit(S.mu, Lpt.x, S.disp);
+      if (r) {
+        B.x = Lpt.x + S.disp; B.y = 0; B.vx = 0; B.vy = r.vy0; placed = true;
+        B.orbit = 'on the periodic orbit around ' + S.L + ': period ' + (r.period / (2 * Math.PI)).toFixed(2) + ' orbits of the primaries';
+      } else B.orbit = 'no periodic orbit found at this amplitude; released at rest';
+    } else if (S.orbit) B.orbit = 'the periodic-orbit start is for L1, L2, L3; released at rest';
+    if (!placed) {
+      const a = S.ang * Math.PI / 180;
+      B.x = Lpt.x + S.disp * Math.cos(a); B.y = Lpt.y + S.disp * Math.sin(a);
+      B.vx = 0; B.vy = 0;
+    }
+    B.t = 0; B.stepCount = 0; B.stopped = '';
     trailR.length = 0; trailI.length = 0;
     pushTrail();
     mapCache.key = '';
@@ -523,7 +587,8 @@ code { font-family: var(--mono); font-size: 0.9em; }
     $('rt').textContent = (B.t / (2 * Math.PI)).toFixed(2);
     $('rd').textContent = Math.hypot(B.x - Lpt.x, B.y - Lpt.y).toFixed(4);
     $('rj').textContent = (0.5 * (B.vx * B.vx + B.vy * B.vy) + Ueff(B.x, B.y, S.mu)).toFixed(6);
-    $('rs').textContent = B.stopped ? 'stopped: ' + B.stopped : '';
+    $('rs').textContent = B.stopped ? 'stopped: ' + B.stopped : B.orbit;
+    $('rs').className = B.stopped ? 'status' : 'status-ok';
   }
   function showValues() {
     $('muv').textContent = S.mu < 1e-3 ? S.mu.toExponential(2) : S.mu.toPrecision(3);
@@ -539,19 +604,25 @@ code { font-family: var(--mono); font-size: 0.9em; }
     $('play').textContent = S.running ? 'Pause' : 'Play';
   }
   $('lpt').addEventListener('change', (e) => { S.L = e.target.value; restart(); showValues(); });
-  $('mu').addEventListener('input', (e) => { S.mu = Math.pow(10, +e.target.value); restart(); showValues(); });
-  for (const b of document.querySelectorAll('.presets button')) {
+  // the periodic-orbit search takes a moment, so in that mode the sliders restart on release, not on every tick
+  const slide = (id, set) => {
+    $(id).addEventListener('input', (e) => { set(+e.target.value); if (!S.orbit) restart(); showValues(); });
+    $(id).addEventListener('change', (e) => { set(+e.target.value); restart(); showValues(); });
+  };
+  slide('mu', (v) => { S.mu = Math.pow(10, v); });
+  for (const b of document.querySelectorAll('.presets button[data-mu]')) {
     b.addEventListener('click', () => { S.mu = +b.dataset.mu; $('mu').value = Math.log10(S.mu); restart(); showValues(); });
   }
-  $('disp').addEventListener('input', (e) => { S.disp = +e.target.value; restart(); showValues(); });
-  $('ang').addEventListener('input', (e) => { S.ang = +e.target.value; restart(); showValues(); });
+  slide('disp', (v) => { S.disp = v; });
+  slide('ang', (v) => { S.ang = v; });
+  $('orbit').addEventListener('change', (e) => { S.orbit = e.target.checked; restart(); showValues(); });
   $('speed').addEventListener('input', (e) => { S.speed = +e.target.value; showValues(); });
   $('zoom').addEventListener('input', (e) => { S.zoom = Math.pow(10, +e.target.value); showValues(); });
   $('jwst').addEventListener('click', () => {
     // Sun + Earth, L2, a displacement the size of JWST's orbit about L2, the window zoomed 100x and slowed down
-    S.mu = 0.000003003; S.L = 'L2'; S.disp = 0.003; S.ang = 0; S.follow = true; S.zoom = 100; S.speed = 0.2;
+    S.mu = 0.000003003; S.L = 'L2'; S.disp = 0.002; S.ang = 0; S.follow = true; S.zoom = 100; S.speed = 0.5; S.orbit = true;
     $('mu').value = Math.log10(S.mu); $('lpt').value = S.L; $('disp').value = S.disp; $('ang').value = S.ang;
-    $('follow').checked = true; $('zoom').value = Math.log10(S.zoom); $('speed').value = S.speed;
+    $('follow').checked = true; $('zoom').value = Math.log10(S.zoom); $('speed').value = S.speed; $('orbit').checked = true;
     restart(); S.running = true; showValues();
   });
   $('follow').addEventListener('change', (e) => { S.follow = e.target.checked; });
@@ -564,7 +635,7 @@ code { font-family: var(--mono); font-size: 0.9em; }
   // the viewer may hand the page back its last control values, so read them all
   S.mu = Math.pow(10, +$('mu').value); S.L = $('lpt').value;
   S.disp = +$('disp').value; S.ang = +$('ang').value; S.speed = +$('speed').value; S.zoom = Math.pow(10, +$('zoom').value);
-  S.follow = $('follow').checked; S.arrows = $('arrows').checked; S.trails = $('trails').checked;
+  S.follow = $('follow').checked; S.arrows = $('arrows').checked; S.trails = $('trails').checked; S.orbit = $('orbit').checked;
   restart(); showValues();
 
   let last = null;
