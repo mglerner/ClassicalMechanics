@@ -7,6 +7,7 @@
 % Build (solutions in): latexmk -pdf AstroLagrange.tex
 % Student copy (solutions out):
 %   latexmk -pdf -jobname="AstroLagrange (student)" -usepretex='\def\studentcopy{1}' AstroLagrange.tex
+\PassOptionsToPackage{table}{xcolor}
 \documentclass[12pt]{article}
 \input{macros}
 \ifdefined\studentcopy\masterfalse\fi
@@ -1567,7 +1568,7 @@ makes that honest and gives (f) without borrowing.
   Gascheau, Thomson and Tait) because they're hard to track down. The texts that were read are in the handout's \texttt{references/} folder.
 
   \smallskip
-  {\footnotesize\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{4.6cm}@{}}
+  {\footnotesize\rowcolors{2}{gray!12}{white}\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{4.6cm}@{}}
   \toprule
   Reference & Wikipedia article that cites it & Notes \\
   \midrule
@@ -1577,14 +1578,14 @@ makes that honest and gives (f) without borrowing.
   Sundman~\cite{sundman} & $n$-body problem~\cite{nbody-wiki} & \\
   Poincar\'e~\cite{poincare} & Chaos theory~\cite{chaos-wiki} & \\
   Bruns~\cite{bruns} & Heinrich Bruns~\cite{bruns-wiki} & Wikipedia lists the 1887 Leipzig version, not the Acta Mathematica reprint we cite \\
-  Gascheau~\cite{gascheau}, Sicardy~\cite{sicardy} & Point de Lagrange (French)~\cite{lagrange-fr-wiki} & \\
+  Gascheau~\cite{gascheau}, Sicardy~\cite{sicardy} & Point de Lagrange~\cite{lagrange-fr-wiki} & French Wikipedia article translated to English by Claude \\
   Murray and Dermott~\cite{murray} & Jacobi integral~\cite{jacobi-wiki} & \\
-  Goldstein~\cite{goldstein}, Peebles~\cite{peebles} & & table of contents \\
+  Goldstein~\cite{goldstein}, Peebles~\cite{peebles} & & We just checked the table of contents \\
   Deprit~\cite{deprit} & & Sicardy quoted it and we trusted Sicardy \\
-  Greenberg and Davis~\cite{greenberg} & & abstract \\
-  Edlund~\cite{edlund} & & full text \\
-  Thomson and Tait~\cite{thomsontait} & & text from archive.org (the 1912 reprint) \\
-  Kirillov and Verhulst~\cite{kirillov} & & full text, from arXiv \\
+  Greenberg and Davis~\cite{greenberg} & & Just read the abstract \\
+  Edlund~\cite{edlund} & & Text in the GitHub repo \\
+  Thomson and Tait~\cite{thomsontait} & & Text in the GitHub repo (from archive.org, the 1912 reprint) \\
+  Kirillov and Verhulst~\cite{kirillov} & & Text in the GitHub repo (from arXiv) \\
   \bottomrule
   \end{tabular}}
   \smallskip
