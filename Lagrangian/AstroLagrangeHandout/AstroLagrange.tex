@@ -702,7 +702,7 @@ $\mu \ll 1$ both $L_1$ and $L_2$ sit a distance
 from $M_2$, one on each side, and evaluate it for the Sun and the Earth ($\mu = 3.00\times
 10^{-6}$, $R = 1.496\times 10^8$~km). This $d$ is called the \emph{Hill radius}; inside it
 $M_2$'s gravity wins over $M_1$'s tidal pull plus the centrifugal force (the $-2\delta$ and the
-$+\delta$ in the solution below), which is why the Moon is Earth's.
+$+\delta$ in the solution below). The Moon, at $3.84\times 10^5$~km, sits well inside the Earth's Hill radius of $1.5\times 10^6$~km, which is why it is the Earth's moon and not the Sun's.
 
 \solution{Take $L_2$ first: $x = 1 - \mu + \delta$ with $\delta > 0$ (beyond $M_2$), so
 $x + \mu = 1 + \delta$ and $x - 1 + \mu = \delta$. Keep
@@ -1027,26 +1027,32 @@ observed to do.
 \medskip
 
 \tocentry[subsubsection]{What the Coriolis force is doing}
-\noindent\textbf{What the Coriolis force is doing.} Energy is not what holds the body near
-$L_4$. The Jacobi constant \eqref{eq:jacobi3} gives $\tfrac12 v^2 = E - \Ueff$, and near a
-maximum every neighboring point has a \emph{lower} $\Ueff$, so every neighboring point is
-allowed, at a higher speed; conservation of energy forbids nothing. What happens instead is
-that the body starts down the hill, the Coriolis force $2(\dot y, -\dot x)$ turns the growing
-velocity sideways, and the body is swung around $L_4$ rather than away from it, like a charged
-particle in a magnetic field (the Coriolis term has exactly the form of $q\,\mathbf v \times
-\mathbf B$ with $\mathbf B$ along $z$). The slow mode is that circulation. It is a wide one: a
-body released from rest a distance $\epsilon$ from the Earth--Moon $L_4$ wanders, according to
-\eqref{eq:linear}, out to between $16\epsilon$ and $28\epsilon$ depending on the direction of
-the initial displacement, and for Sun--Jupiter to between $40\epsilon$ and $70\epsilon$.
-``Stable'' here means ``stays in a neighborhood of $L_4$, forever,'' not ``returns to
-$L_4$,'' and the neighborhood is large; the real Trojans and Greeks librate on tadpole-shaped paths that
-span tens of degrees of Jupiter's orbit. This kind of stability, by a velocity-dependent force
-that does no work, is called \emph{gyroscopic}, and Greenberg and Davis, ``Stability at
-potential maxima,'' Am.\ J.\ Phys.\ \textbf{46}, 1068 (1978), is a short, readable account. It
-is also fragile in one specific way: add any friction, however small, and a body at a
-potential maximum eventually does fall off (a theorem of Thomson and Tait, 1879). The same
-velocity-coupled linear equations \eqref{eq:linear}, with the Earth's rotation supplying the
-$2\dot\eta$ and $2\dot\xi$, describe Chapter~9's Foucault pendulum.
+\noindent\textbf{What the Coriolis force is doing.} In most problems that we
+encounter, a body stays in a region because that region is an energy minimum.
+That's not what's going on at $L_4$ or $L_5$. It can't be, because both are
+\textit{maxima} not minima! What on earth?! Let's dig in. The Jacobi constant
+\eqref{eq:jacobi3} gives $\tfrac12 v^2 = E - \Ueff$, and near a maximum every
+neighboring point has a \emph{lower} $\Ueff$, so every neighboring point is
+allowed, at a higher speed; conservation of energy forbids nothing. What happens
+instead is that the body starts down the hill, the Coriolis force
+$2(\dot y, -\dot x)$ turns the growing velocity sideways, and the body is swung
+around $L_4$ rather than away from it, like a charged particle in a magnetic
+field (the Coriolis term has exactly the form of $q\,\mathbf v \times \mathbf B$ with
+$\mathbf B$ along $z$). The slow mode is that circulation. It is a wide one: a
+body released from rest a distance $\epsilon$ from the Earth--Moon $L_4$ wanders,
+according to \eqref{eq:linear}, out to between $16\epsilon$ and $28\epsilon$ depending on the
+direction of the initial displacement, and for Sun--Jupiter to between
+$40\epsilon$ and $70\epsilon$. ``Stable'' here means ``stays in a neighborhood of
+$L_4$, forever,'' not ``returns to $L_4$,'' and the neighborhood is large; the
+real Trojans and Greeks librate on tadpole-shaped paths that span tens of
+degrees of Jupiter's orbit. This kind of stability, by a velocity-dependent
+force that does no work, is called \emph{gyroscopic}, and Greenberg and Davis,
+``Stability at potential maxima,'' Am.\ J.\ Phys.\ \textbf{46}, 1068 (1978), is
+a short, readable account. It is also fragile in one specific way: add any
+friction, however small, and a body at a potential maximum eventually does fall
+off (a theorem of Thomson and Tait, 1879). The same velocity-coupled linear
+equations \eqref{eq:linear}, with the Earth's rotation supplying the $2\dot\eta$
+and $2\dot\xi$, describe Chapter~9's Foucault pendulum.
 
 
 \addtocontents{toc}{\protect\columnbreak}   % contents: Section 1 fills the left column
