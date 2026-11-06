@@ -139,7 +139,7 @@ primaries, and three things follow:
 \item $\Lag$ has no explicit $t$, so $\Ham$ is conserved. It is $\tfrac12 m v_{\rm rot}^2 +
   \Ueff$ (with $v_{\rm rot}^2 = \dot x^2 + \dot y^2$, the speed squared in the
     rotating frame), called the \emph{Jacobi integral}, and it is \emph{not} $T
-    + U$. It is the only known conserved quantity for the restricted three-body problem (Bruns~\cite{bruns}, Poincar\'e~\cite{poincare}).
+    + U$. It is the only known conserved quantity for the restricted three-body problem.
 \end{itemize}
 
 \medskip
@@ -147,7 +147,7 @@ primaries, and three things follow:
 \tocentry[subsection]{Step 1: set up the problem}
 \noindent\textbf{Step 1: set up the problem.} Two bodies $M_1$ and $M_2$
 (typically called ``the primaries''), a
-distance $R$ apart, go around their centre of mass (CM) in circles at angular speed $\Om$; a
+distance $R$ apart, go around their center of mass (CM) in circles at angular speed $\Om$; a
 third body of mass $m$ moves in their gravity. Put the origin at the CM and use inertial
 Cartesian coordinates $(X, Y, Z)$ with the primaries' orbit in the plane $Z = 0$. ``Origin at
 the CM'' means $M_1\vr_1 + M_2\vr_2 = 0$, i.e.\ $M_1 r_1 = M_2 r_2$ with $r_1 = |\vr_1|$ and
@@ -246,7 +246,7 @@ stated to this point, is the three-body problem. Nine coordinates, nine coupled
 equations of motion. Newton, Euler, Lagrange, Poincar\'e and many others spent, between
 them, two centuries working on the three-body problem. Eventually Bruns (1887)~\cite{bruns} and
 Poincar\'e (1890)~\cite{poincare} showed that it has no conserved quantities beyond the ten everyone already
-knew (energy, momentum, angular momentum and the centre of mass), which is what a closed-form
+knew (energy, momentum, angular momentum and the center of mass), which is what a closed-form
 solution would need; Poincar\'e's memoir is also where chaos was first seen. That's cool,
 maybe we could get away with a series solution. Sundman (1912)~\cite{sundman} found one, and proved that it
 converges. Unfortunately, it converges terribly slowly: Belorizky estimated in 1930~\cite{belorizky} that
@@ -261,12 +261,12 @@ the primaries fixed, while only varying the motion of $m$. This is called the
 \emph{restricted} three-body problem.\footnote{The same approximation runs
   through quantum mechanics and chemistry. The hydrogen molecular ion
   $\mathrm{H}_2^+$ with clamped nuclei is the quantum version: one light
-  particle in the field of two heavy centres whose positions are prescribed, not
+  particle in the field of two heavy centers whose positions are prescribed, not
   solved for. There the justification is that the nuclei are slow (the
   Born--Oppenheimer separation of time scales); here it is that the third body's
   pull on the primaries is of order $m/M$ and is dropped. Same approximation,
   two reasons to believe it. One more parallel: with the rotation switched off,
-  the classical problem is Euler's problem of two fixed centres, which is
+  the classical problem is Euler's problem of two fixed centers, which is
   exactly solvable, just as $\mathrm{H}_2^+$ separates in prolate spheroidal
   coordinates. What makes the rotating problem hard is the Coriolis force, the
   velocity-dependent term in the equations of motion \eqref{eq:eom3} (Step~5).}
@@ -644,7 +644,7 @@ remarks, the first two of which are the point of Section~7.8:
 \item Since $\tfrac12 m v_{\rm rot}^2 \geq 0$, a body with a given $\Ham$ can only be where
   $\Ueff \leq \Ham$. The contours in Figure~\ref{fig:ueff} are therefore fences (Hill's
   \emph{zero-velocity curves}): a satellite with $\Ham$ below $\Ueff(L_1)$ that starts near
-  $M_2$ can never leave $M_2$'s neighbourhood, however it moves. Raising $\Ham$ past
+  $M_2$ can never leave $M_2$'s neighborhood, however it moves. Raising $\Ham$ past
   $\Ueff(L_1)$ opens a gate to $M_1$; past $\Ueff(L_2)$, a gate to the outside.
 \end{enumerate}
 
@@ -1002,7 +1002,7 @@ observed to do.
 \tocentry[subsubsection]{What the Coriolis force is doing}
 \noindent\textbf{What the Coriolis force is doing.} Energy is not what holds the body near
 $L_4$. The Jacobi constant \eqref{eq:jacobi3} gives $\tfrac12 v^2 = E - \Ueff$, and near a
-maximum every neighbouring point has a \emph{lower} $\Ueff$, so every neighbouring point is
+maximum every neighboring point has a \emph{lower} $\Ueff$, so every neighboring point is
 allowed, at a higher speed; conservation of energy forbids nothing. What happens instead is
 that the body starts down the hill, the Coriolis force $2(\dot y, -\dot x)$ turns the growing
 velocity sideways, and the body is swung around $L_4$ rather than away from it, like a charged
@@ -1011,8 +1011,8 @@ particle in a magnetic field (the Coriolis term has exactly the form of $q\,\mat
 body released from rest a distance $\epsilon$ from the Earth--Moon $L_4$ wanders, according to
 \eqref{eq:linear}, out to between $16\epsilon$ and $28\epsilon$ depending on the direction of
 the initial displacement, and for Sun--Jupiter to between $40\epsilon$ and $70\epsilon$.
-``Stable'' here means ``stays in a neighbourhood of $L_4$, forever,'' not ``returns to
-$L_4$,'' and the neighbourhood is large; the real Trojans librate on tadpole-shaped paths that
+``Stable'' here means ``stays in a neighborhood of $L_4$, forever,'' not ``returns to
+$L_4$,'' and the neighborhood is large; the real Trojans librate on tadpole-shaped paths that
 span tens of degrees of Jupiter's orbit. This kind of stability, by a velocity-dependent force
 that does no work, is called \emph{gyroscopic}, and Greenberg and Davis, ``Stability at
 potential maxima,'' Am.\ J.\ Phys.\ \textbf{46}, 1068 (1978), is a short, readable account. It
@@ -1233,7 +1233,7 @@ which is exactly $\partial\Lag/\partial x = \partial_x\partial_t F + \dot x\,\pa
 \end{equation}
 which is \eqref{eq:Lcosmo}. Two remarks before differentiating. The coordinate $x$ is not
 ``natural'' in Section~7.3's sense: its relation to $r$ involves $t$, and $\Lag$ carries
-$t$ through $a(t)$. And $x$ itself no longer appears: all of $U$ cancelled, through \eqref{eq:friedmann2}, against the
+$t$ through $a(t)$. And $x$ itself no longer appears: all of $U$ canceled, through \eqref{eq:friedmann2}, against the
 $a\ddot a$ term that the coordinate change produced. Had there been lumps in the universe, a
 galaxy cluster say, \eqref{eq:Lcosmo2} would pick up $-m\phi(x,t)$ with $\phi$ the
 \emph{peculiar} potential of the lumps alone; that is Peebles's~\cite{peebles} starting point
