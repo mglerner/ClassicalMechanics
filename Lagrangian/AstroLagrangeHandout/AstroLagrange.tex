@@ -319,10 +319,11 @@ coordinates $x$ and $y$ given by
   \label{eq:rotation}
   X = x\cos\Om t - y\sin\Om t, \qquad Y = x\sin\Om t + y\cos\Om t ,
 \end{equation}
-where $(X,Y)$ are inertial: the $(x,y)$ axes are the $(X,Y)$ axes turned counterclockwise through
-the angle $\Om t$ (the standard rotation matrix), so a point at fixed $(x,y)$ goes around the
-origin at angular speed $\Om$, in step with the primaries. The other way round is the rotation
-through $-\Om t$,
+where $(X,Y)$ are inertial: the $(x,y)$ axes are the $(X,Y)$ axes turned
+counterclockwise through the angle $\Om t$ (you can write this down as a trig
+problem, or just use the standard rotation matrix), so a point at fixed $(x,y)$
+goes around the origin at angular speed $\Om$, in step with the primaries. The
+other way round is the rotation through $-\Om t$,
 \begin{equation}
   \label{eq:rotation-inverse}
   x = X\cos\Om t + Y\sin\Om t, \qquad y = -X\sin\Om t + Y\cos\Om t ,
@@ -373,7 +374,7 @@ equation \eqref{eq:L3d}, the $U(X, Y, t)$ of \eqref{eq:L2d}, becomes
   U(x, y) = -\frac{GmM_1}{\sqrt{(x + r_1)^2 + y^2}} - \frac{GmM_2}{\sqrt{(x - r_2)^2 + y^2}},
 \end{equation}
 with no $t$. For the kinetic energy, we need $\dot X$ and $\dot Y$: differentiate \eqref{eq:rotation} with the
-product rule ($\Om$ is constant, so $\frac{d}{dt}\cos\Om t = -\Om\sin\Om t$ and $\frac{d}{dt}\sin\Om t = \Om\cos\Om t$):
+product rule (remembering that $\Om$ is constant):
 \begin{align*}
   \dot X &= \dot x\cos\Om t - \Om x\sin\Om t - \dot y\sin\Om t - \Om y\cos\Om t , \\
   \dot Y &= \dot x\sin\Om t + \Om x\cos\Om t + \dot y\cos\Om t - \Om y\sin\Om t .
