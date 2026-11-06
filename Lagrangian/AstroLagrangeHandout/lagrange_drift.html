@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Drifting off a Lagrange point</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a short header, one row of controls, two square panels side by side (the same
+   integration seen from the rotating and the inertial frame), a readout, three short notes. */
+:root {
+  --bg: #f3f5f8;
+  --fg: #1c2330;
+  --muted: #5d6878;
+  --panel: #ffffff;
+  --line: #d3dae3;
+  --fpot: #d4731c;      /* gravity + centrifugal, i.e. -grad U_eff */
+  --fcor: #0f7f88;      /* Coriolis */
+  --vel: #6f7885;       /* velocity */
+  --body: #b7123a;      /* the test body */
+  --lpt: #2b5fd0;       /* the Lagrange point marker */
+  --map-lo: #b4c3d6;    /* low U_eff */
+  --map-hi: #fff1cf;    /* high U_eff: the hilltop at L4 */
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --body-font: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111820; --fg: #e4e9f0; --muted: #98a4b4; --panel: #19212b; --line: #2b3643;
+    --fpot: #f29a45; --fcor: #45c3cf; --vel: #a0a9b6; --body: #ff5f7e; --lpt: #7ea6ff;
+    --map-lo: #141d29; --map-hi: #705a30;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111820; --fg: #e4e9f0; --muted: #98a4b4; --panel: #19212b; --line: #2b3643;
+  --fpot: #f29a45; --fcor: #45c3cf; --vel: #a0a9b6; --body: #ff5f7e; --lpt: #7ea6ff;
+  --map-lo: #141d29; --map-hi: #705a30;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: var(--body-font); font-size: 15px; line-height: 1.5;
+  padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+h1 { font-family: var(--display); font-weight: 500; font-size: 2rem; line-height: 1.15; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 1.2rem; margin: 0 0 4px; }
+p { margin: 0; max-width: 68ch; }
+.lead { color: var(--muted); max-width: 72ch; }
+.controls {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px 18px;
+  padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+}
+.ctl { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ctl label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.ctl .val { font-family: var(--mono); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.ctl input[type=range] { width: 100%; accent-color: var(--lpt); }
+.ctl select, .ctl button {
+  font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 4px 8px;
+}
+.ctl button { cursor: pointer; }
+.ctl button:hover { border-color: var(--lpt); }
+.ctl button:focus-visible, .ctl select:focus-visible, .ctl input:focus-visible { outline: 2px solid var(--lpt); outline-offset: 2px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row label { text-transform: none; letter-spacing: 0; font-size: 0.9rem; color: var(--fg); display: inline-flex; gap: 5px; align-items: center; }
+.presets { display: flex; gap: 6px; flex-wrap: wrap; }
+.presets button { font-size: 0.8rem; padding: 2px 7px; }
+.note { font-size: 0.8rem; color: var(--muted); }
+.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 820px) { .panels { grid-template-columns: 1fr; } }
+.panel { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.panel h2 { margin: 0; }
+.panel canvas { width: 100%; max-width: 100%; display: block; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.82rem; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 18px; height: 3px; margin-right: 6px; vertical-align: middle; border-radius: 2px; background: var(--c); }
+.readout {
+  font-family: var(--mono); font-size: 0.88rem; font-variant-numeric: tabular-nums;
+  display: flex; gap: 22px; flex-wrap: wrap; padding: 10px 16px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+}
+.readout b { font-weight: 500; color: var(--muted); }
+.status { color: var(--body); }
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px 28px; }
+.notes p { font-size: 0.95rem; }
+.notes ul { margin: 0; padding-left: 1.1em; font-size: 0.95rem; }
+.notes li { margin-bottom: 4px; }
+.notes .sw { color: var(--c); font-weight: 600; }
+code { font-family: var(--mono); font-size: 0.9em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Drifting off a Lagrange point</h1>
+    <p class="lead">Start a test body a little way from one of the five points, at rest in the rotating frame, and watch
+      what happens, in the frame that rotates with the primaries and in the inertial frame, side by side.
+      Same orbit, same clock. Units as in the handout's side roads: R = 1 and G(M<sub>1</sub> + M<sub>2</sub>) = 1,
+      so one orbit of the primaries takes 2&pi; time units.</p>
+  </header>
+
+  <div class="controls">
+    <div class="ctl">
+      <label for="lpt">Lagrange point</label>
+      <select id="lpt">
+        <option value="L4" selected>L4 (off axis, a maximum of U_eff)</option>
+        <option value="L5">L5 (its mirror image)</option>
+        <option value="L1">L1 (between the primaries, a saddle)</option>
+        <option value="L2">L2 (beyond M2, a saddle)</option>
+        <option value="L3">L3 (behind M1, a saddle)</option>
+      </select>
+    </div>
+    <div class="ctl">
+      <label for="mu">mass ratio <span style="text-transform: none">&mu;</span> = M<sub>2</sub>/(M<sub>1</sub>+M<sub>2</sub>) <span class="val" id="muv"></span></label>
+      <input type="range" id="mu" min="-3" max="-0.7" step="0.005" value="-1.9154">
+      <div class="presets">
+        <button type="button" data-mu="0.000954">Sun + Jupiter</button>
+        <button type="button" data-mu="0.01215">Earth + Moon</button>
+        <button type="button" data-mu="0.1">handout, 0.1</button>
+      </div>
+      <div class="note" id="stab"></div>
+    </div>
+    <div class="ctl">
+      <label for="disp">displacement from the point <span class="val" id="dispv"></span></label>
+      <input type="range" id="disp" min="0.002" max="0.1" step="0.002" value="0.01">
+      <label for="ang">direction of the displacement <span class="val" id="angv"></span></label>
+      <input type="range" id="ang" min="0" max="360" step="5" value="0">
+      <div class="note">0&deg; is the +x direction. At L4, 60&deg; points straight away from the CM, across the ridge
+        of U<sub>eff</sub>; 150&deg; runs along the ridge, i.e. along the orbit.</div>
+    </div>
+    <div class="ctl">
+      <label for="speed">speed, time units per second <span class="val" id="speedv"></span></label>
+      <input type="range" id="speed" min="0.25" max="10" step="0.25" value="2">
+      <label for="zoom">zoom of the moving window <span class="val" id="zoomv"></span></label>
+      <input type="range" id="zoom" min="1.5" max="20" step="0.5" value="4">
+    </div>
+    <div class="ctl">
+      <label>view</label>
+      <div class="row">
+        <label><input type="checkbox" id="follow"> window moves with the point</label>
+        <label><input type="checkbox" id="arrows" checked> forces</label>
+        <label><input type="checkbox" id="trails" checked> trails</label>
+      </div>
+      <div class="row">
+        <button type="button" id="play">Pause</button>
+        <button type="button" id="reset">Restart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panels">
+    <div class="panel">
+      <h2>Rotating frame: the primaries stand still</h2>
+      <canvas id="rot" width="480" height="480" aria-label="the test body in the rotating frame, over a map of the effective potential"></canvas>
+      <div class="legend">
+        <span style="--c: var(--fpot)">gravity + centrifugal, &minus;&nabla;U<sub>eff</sub></span>
+        <span style="--c: var(--fcor)">Coriolis, &minus;2m&Omega;&times;v</span>
+        <span style="--c: var(--vel)">velocity</span>
+        <span style="--c: var(--map-hi); border: 1px solid var(--line)">lighter = higher U<sub>eff</sub></span>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Inertial frame: the primaries orbit the CM</h2>
+      <canvas id="ine" width="480" height="480" aria-label="the same motion in the inertial frame"></canvas>
+      <div class="legend">
+        <span style="--c: var(--fpot)">gravity, the only force</span>
+        <span style="--c: var(--vel)">velocity</span>
+        <span style="--c: var(--lpt)">where the Lagrange point is now</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="readout">
+    <span><b>t</b> <span id="rt"></span> <b>orbits</b></span>
+    <span><b>distance from the point</b> <span id="rd"></span></span>
+    <span><b>Jacobi E = v&sup2;/2 + U<sub>eff</sub></b> <span id="rj"></span></span>
+    <span class="status" id="rs"></span>
+  </div>
+
+  <div class="notes">
+    <div>
+      <h2>Why a hilltop can hold you</h2>
+      <p>In the rotating frame the body feels three forces. Gravity and the centrifugal force together are
+        <span class="sw" style="--c: var(--fpot)">&minus;&nabla;U<sub>eff</sub></span>, and L4 is a <em>maximum</em>
+        of U<sub>eff</sub>, a hilltop: that arrow always points downhill, away from L4. But the moment the body
+        moves, the <span class="sw" style="--c: var(--fcor)">Coriolis force</span> appears, at right angles to the
+        velocity, and bends the path sideways. It never changes the speed (it does no work, so the Jacobi constant
+        stays put), it only turns. If the hill is gentle enough, &mu; &lt; 0.0385, and the displacement is small,
+        the turning wins and the body circles L4 instead of rolling off. A charged particle in a magnetic field is held the same way: a force that
+        does no work can still keep you from leaving.</p>
+    </div>
+    <div>
+      <h2>What the inertial frame sees</h2>
+      <p>Only gravity. The body is on an ordinary orbit around the center of mass, with nearly the same radius and
+        nearly the same period as the Lagrange point itself, so it stays near it; the loops in the rotating picture
+        are the small difference between those two orbits. Tick "window moves with the point" and the inertial view
+        follows the point around its circle: the same loops reappear there, now made by gravity alone. Coriolis and
+        centrifugal are the bookkeeping that turns "a nearby orbit" into "forces" once you insist the primaries stand
+        still.</p>
+    </div>
+    <div>
+      <h2>Things to try</h2>
+      <ul>
+        <li>Drag &mu; past 0.0385 (or pick the handout's 0.1). The hill is now too steep for Coriolis to save you.</li>
+        <li>Pick L1 or L2. They are saddles, unstable for every &mu;: the body is gone within a fraction of an orbit,
+          toward M2 or away from it depending on which way you displaced it. L3 is a saddle too, and goes the same
+          way within an orbit.</li>
+        <li>Change the direction. At L4, 150&deg; is along the ridge: the body is on the same circular orbit, just
+          a little ahead, and barely moves. 60&deg; is across the ridge: now it is on an orbit of a different radius,
+          so a different period, and it drifts a long way along the ring before gravity turns it around. For the
+          Earth and the Moon that loop is about 45 times the displacement; untick the moving window to see it.</li>
+        <li>Sun + Jupiter, L4: this is where the Trojan asteroids live, on exactly those long loops (tadpole orbits).
+          One trip around takes about twelve Jupiter orbits, 150 years; raise the speed.</li>
+        <li>Push the displacement up. Stability is a statement about small displacements: once the loop reaches
+          the primaries' neighbourhood the body leaves, stable point or not. For the Earth and the Moon, 0.05 R
+          at 0&deg; is already too far.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  const DT = 0.001;
+  const STABLE_MU = (1 - Math.sqrt(23 / 27)) / 2;   // 0.03852, L4/L5 linearly stable below this
+
+  const S = { mu: 0.01215, L: 'L4', disp: 0.05, ang: 0, speed: 2, zoom: 6,
+              follow: false, arrows: true, trails: true, running: true };
+  const B = { x: 0, y: 0, vx: 0, vy: 0, t: 0, stepCount: 0, stopped: '' };
+  const trailR = [], trailI = [];
+  let Lpt = { x: 0, y: 0 };
+
+  // ---- physics -------------------------------------------------------------------
+  function forces(x, y, vx, vy, mu) {
+    const dx1 = x + mu, dx2 = x - 1 + mu;
+    const r1 = Math.hypot(dx1, y), r2 = Math.hypot(dx2, y);
+    const g1 = (1 - mu) / (r1 * r1 * r1), g2 = mu / (r2 * r2 * r2);
+    return { gx: -g1 * dx1 - g2 * dx2, gy: -(g1 + g2) * y,   // gravity
+             cx: x, cy: y,                                   // centrifugal (Omega = 1)
+             kx: 2 * vy, ky: -2 * vx,                        // Coriolis
+             r1, r2 };
+  }
+  function accel(s, mu) {
+    const f = forces(s[0], s[1], s[2], s[3], mu);
+    return [s[2], s[3], f.gx + f.cx + f.kx, f.gy + f.cy + f.ky];
+  }
+  function rk4(s, mu, h) {
+    const k1 = accel(s, mu);
+    const k2 = accel(s.map((v, i) => v + 0.5 * h * k1[i]), mu);
+    const k3 = accel(s.map((v, i) => v + 0.5 * h * k2[i]), mu);
+    const k4 = accel(s.map((v, i) => v + h * k3[i]), mu);
+    return s.map((v, i) => v + h / 6 * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]));
+  }
+  function Ueff(x, y, mu) {
+    const r1 = Math.hypot(x + mu, y), r2 = Math.hypot(x - 1 + mu, y);
+    return -(1 - mu) / r1 - mu / r2 - (x * x + y * y) / 2;
+  }
+  function axisForce(x, mu) {   // -dU_eff/dx on y = 0
+    const a = x + mu, b = x - 1 + mu;
+    return x - (1 - mu) * a / Math.abs(a * a * a) - mu * b / Math.abs(b * b * b);
+  }
+  function bisect(lo, hi, mu) {
+    let flo = axisForce(lo, mu);
+    for (let i = 0; i < 80; i++) {
+      const mid = 0.5 * (lo + hi), fm = axisForce(mid, mu);
+      if ((fm < 0) === (flo < 0)) { lo = mid; flo = fm; } else hi = mid;
+    }
+    return 0.5 * (lo + hi);
+  }
+  function lagrangePoints(mu) {
+    const e = 1e-7;
+    return { L1: { x: bisect(-mu + e, 1 - mu - e, mu), y: 0 },
+             L2: { x: bisect(1 - mu + e, 2.5, mu), y: 0 },
+             L3: { x: bisect(-2.5, -mu - e, mu), y: 0 },
+             L4: { x: 0.5 - mu, y: Math.sqrt(3) / 2 },
+             L5: { x: 0.5 - mu, y: -Math.sqrt(3) / 2 } };
+  }
+  let allL = lagrangePoints(S.mu);
+
+  function restart() {
+    allL = lagrangePoints(S.mu);
+    Lpt = allL[S.L];
+    const a = S.ang * Math.PI / 180;
+    B.x = Lpt.x + S.disp * Math.cos(a); B.y = Lpt.y + S.disp * Math.sin(a);
+    B.vx = 0; B.vy = 0; B.t = 0; B.stepCount = 0; B.stopped = '';
+    trailR.length = 0; trailI.length = 0;
+    pushTrail();
+    mapCache.key = '';
+  }
+  function pushTrail() {
+    const c = Math.cos(B.t), s = Math.sin(B.t);
+    trailR.push([B.x, B.y]);
+    trailI.push([B.x * c - B.y * s, B.x * s + B.y * c]);
+    if (trailR.length > 30000) { trailR.splice(0, 5000); trailI.splice(0, 5000); }
+  }
+  function step() {
+    const s = rk4([B.x, B.y, B.vx, B.vy], S.mu, DT);
+    B.x = s[0]; B.y = s[1]; B.vx = s[2]; B.vy = s[3]; B.t += DT; B.stepCount++;
+    if (B.stepCount % 10 === 0) pushTrail();
+    const f = forces(B.x, B.y, B.vx, B.vy, S.mu);
+    if (f.r1 < 0.01) B.stopped = 'fell into M1';
+    else if (f.r2 < 0.01) B.stopped = 'fell into M2';
+    else if (Math.hypot(B.x, B.y) > 4) B.stopped = 'left the system';
+  }
+
+  // ---- drawing -------------------------------------------------------------------
+  const rot = document.getElementById('rot'), ine = document.getElementById('ine');
+  const css = () => getComputedStyle(document.documentElement);
+  const tok = (name) => css().getPropertyValue(name).trim();
+  function hexToRgb(h) {
+    h = h.replace('#', '');
+    if (h.length === 3) h = h.split('').map(ch => ch + ch).join('');
+    const n = parseInt(h, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+  function fitCanvas(cv) {
+    const size = cv.clientWidth || 480, dpr = window.devicePixelRatio || 1;
+    const px = Math.round(size * dpr);
+    if (cv.width !== px) { cv.width = px; cv.height = px; }
+    cv.style.height = size + 'px';
+    return { size, dpr };
+  }
+  function rotView() {
+    return S.follow ? { cx: Lpt.x, cy: Lpt.y, hw: 1.6 / S.zoom } : { cx: 0, cy: 0, hw: 1.6 };
+  }
+  function ineView() {
+    const c = Math.cos(B.t), s = Math.sin(B.t);
+    return S.follow ? { cx: Lpt.x * c - Lpt.y * s, cy: Lpt.x * s + Lpt.y * c, hw: 1.6 / S.zoom }
+                    : { cx: 0, cy: 0, hw: 1.6 };
+  }
+  function mapper(v, size) {
+    const k = size / 2 / v.hw;
+    return (x, y) => [size / 2 + (x - v.cx) * k, size / 2 - (y - v.cy) * k];
+  }
+
+  // U_eff shading + contours for the rotating panel, recomputed only when mu or the view changes
+  const mapCache = { key: '', img: null, segs: [] };
+  const off = document.createElement('canvas');
+  function buildMap(v) {
+    const lo = hexToRgb(tok('--map-lo')), hi = hexToRgb(tok('--map-hi'));
+    const key = [S.mu, v.cx, v.cy, v.hw, lo.join(), hi.join()].join('|');
+    if (key === mapCache.key) return;
+    const N = 220;
+    off.width = N; off.height = N;
+    const octx = off.getContext('2d');
+    const img = octx.createImageData(N, N);
+    const grid = new Float64Array(N * N);
+    let gmax = -Infinity;
+    for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+      const x = v.cx + (i + 0.5 - N / 2) / (N / 2) * v.hw;
+      const y = v.cy - (j + 0.5 - N / 2) / (N / 2) * v.hw;
+      const u = Ueff(x, y, S.mu);
+      grid[j * N + i] = u;
+      if (u > gmax) gmax = u;
+    }
+    let gmin = Infinity;
+    for (let k = 0; k < N * N; k++) if (grid[k] < gmin) gmin = grid[k];
+    const umax = gmax, umin = Math.max(gmin, gmax - 0.6);
+    for (let k = 0; k < N * N; k++) {
+      let t = (grid[k] - umin) / (umax - umin); t = Math.max(0, Math.min(1, t)); t = Math.pow(t, 1.6);
+      img.data[4 * k] = lo[0] + t * (hi[0] - lo[0]);
+      img.data[4 * k + 1] = lo[1] + t * (hi[1] - lo[1]);
+      img.data[4 * k + 2] = lo[2] + t * (hi[2] - lo[2]);
+      img.data[4 * k + 3] = 255;
+    }
+    octx.putImageData(img, 0, 0);
+    // contours by marching squares, in world coordinates
+    const segs = [];
+    const xs = (i) => v.cx + (i + 0.5 - N / 2) / (N / 2) * v.hw;
+    const ys = (j) => v.cy - (j + 0.5 - N / 2) / (N / 2) * v.hw;
+    const table = [[], [[2, 3]], [[1, 2]], [[1, 3]], [[0, 1]], [[0, 3], [1, 2]], [[0, 2]], [[0, 3]],
+                   [[0, 3]], [[0, 2]], [[0, 1], [2, 3]], [[0, 1]], [[1, 3]], [[1, 2]], [[2, 3]], []];
+    const nlev = 16;
+    for (let n = 1; n < nlev; n++) {
+      const lv = umin + (umax - umin) * Math.pow(n / nlev, 1 / 1.6);
+      for (let j = 0; j < N - 2; j += 2) for (let i = 0; i < N - 2; i += 2) {
+        const a = grid[j * N + i], b = grid[j * N + i + 2], c = grid[(j + 2) * N + i + 2], d = grid[(j + 2) * N + i];
+        if (!isFinite(a + b + c + d)) continue;
+        const idx = (a > lv ? 8 : 0) | (b > lv ? 4 : 0) | (c > lv ? 2 : 0) | (d > lv ? 1 : 0);
+        const x0 = xs(i), x1 = xs(i + 2), y0 = ys(j), y1 = ys(j + 2);
+        const lerp = (p, q, vp, vq) => p + (lv - vp) / (vq - vp) * (q - p);
+        const pt = (e) => e === 0 ? [lerp(x0, x1, a, b), y0] : e === 1 ? [x1, lerp(y0, y1, b, c)]
+                        : e === 2 ? [lerp(x0, x1, d, c), y1] : [x0, lerp(y0, y1, a, d)];
+        for (const [e1, e2] of table[idx]) segs.push([pt(e1), pt(e2)]);
+      }
+    }
+    mapCache.key = key; mapCache.img = off; mapCache.segs = segs;
+  }
+
+  function arrow(ctx, P, from, vec, color, scale, maxPx) {
+    let [x0, y0] = P(from[0], from[1]);
+    let [x1, y1] = P(from[0] + vec[0] * scale, from[1] + vec[1] * scale);
+    let dx = x1 - x0, dy = y1 - y0, len = Math.hypot(dx, dy);
+    if (len < 2) return;
+    if (len > maxPx) { dx *= maxPx / len; dy *= maxPx / len; len = maxPx; x1 = x0 + dx; y1 = y0 + dy; }
+    const h = Math.min(9, len * 0.4), ux = dx / len, uy = dy / len;
+    ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1 - ux * h * 0.6, y1 - uy * h * 0.6); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x1, y1);
+    ctx.lineTo(x1 - ux * h - uy * h * 0.5, y1 - uy * h + ux * h * 0.5);
+    ctx.lineTo(x1 - ux * h + uy * h * 0.5, y1 - uy * h - ux * h * 0.5);
+    ctx.closePath(); ctx.fill();
+  }
+  function dot(ctx, p, r, fill, stroke) {
+    ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, 2 * Math.PI);
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 1.5; ctx.stroke(); }
+  }
+  function polyline(ctx, pts, P, color, width, dash) {
+    if (pts.length < 2) return;
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.setLineDash(dash || []);
+    ctx.beginPath();
+    for (let i = 0; i < pts.length; i++) { const q = P(pts[i][0], pts[i][1]); if (i) ctx.lineTo(q[0], q[1]); else ctx.moveTo(q[0], q[1]); }
+    ctx.stroke(); ctx.setLineDash([]);
+  }
+  function circle(ctx, P, cx, cy, r, color, dash) {
+    const c = P(cx, cy), e = P(cx + r, cy);
+    ctx.strokeStyle = color; ctx.lineWidth = 1; ctx.setLineDash(dash || []);
+    ctx.beginPath(); ctx.arc(c[0], c[1], e[0] - c[0], 0, 2 * Math.PI); ctx.stroke(); ctx.setLineDash([]);
+  }
+  function label(ctx, p, text, color, dy) {
+    ctx.fillStyle = color; ctx.font = '12px ' + tok('--mono'); ctx.textAlign = 'center';
+    ctx.fillText(text, p[0], p[1] + (dy || 16));
+  }
+
+  function drawRot() {
+    const { size, dpr } = fitCanvas(rot);
+    const ctx = rot.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const v = rotView(), P = mapper(v, size);
+    buildMap(v);
+    ctx.imageSmoothingEnabled = true;
+    ctx.drawImage(mapCache.img, 0, 0, size, size);
+    ctx.strokeStyle = tok('--line'); ctx.lineWidth = 0.7; ctx.globalAlpha = 0.9;
+    ctx.beginPath();
+    for (const [a, b] of mapCache.segs) { const p = P(a[0], a[1]), q = P(b[0], b[1]); ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); }
+    ctx.stroke(); ctx.globalAlpha = 1;
+    const fg = tok('--fg'), mu = S.mu;
+    // primaries
+    const m1 = P(-mu, 0), m2 = P(1 - mu, 0);
+    dot(ctx, m1, 6, fg); label(ctx, m1, 'M1', fg, 19);
+    dot(ctx, m2, 4, fg); label(ctx, m2, 'M2', fg, 17);
+    // all five points, the chosen one filled
+    for (const k of Object.keys(allL)) {
+      const p = P(allL[k].x, allL[k].y);
+      if (k === S.L) { dot(ctx, p, 5, tok('--lpt')); } else { dot(ctx, p, 3.5, null, tok('--lpt')); }
+      if (!S.follow) label(ctx, p, k, tok('--lpt'), -9);
+    }
+    if (S.follow) label(ctx, P(Lpt.x, Lpt.y), S.L, tok('--lpt'), -9);
+    // trail, body, arrows
+    if (S.trails) polyline(ctx, trailR, P, tok('--body'), 1.2);
+    polyline(ctx, [[Lpt.x, Lpt.y], [B.x, B.y]], P, tok('--lpt'), 1, [3, 3]);
+    const bp = P(B.x, B.y);
+    dot(ctx, bp, 5, tok('--body'), tok('--panel'));
+    if (S.arrows) {
+      const f = forces(B.x, B.y, B.vx, B.vy, mu);
+      const fs = 0.7, maxPx = size * 0.4;
+      arrow(ctx, P, [B.x, B.y], [B.vx, B.vy], tok('--vel'), fs, maxPx);
+      arrow(ctx, P, [B.x, B.y], [f.gx + f.cx, f.gy + f.cy], tok('--fpot'), fs, maxPx);
+      arrow(ctx, P, [B.x, B.y], [f.kx, f.ky], tok('--fcor'), fs, maxPx);
+    }
+  }
+  function drawIne() {
+    const { size, dpr } = fitCanvas(ine);
+    const ctx = ine.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = tok('--panel'); ctx.fillRect(0, 0, size, size);
+    const v = ineView(), P = mapper(v, size);
+    const fg = tok('--fg'), line = tok('--line'), mu = S.mu;
+    const c = Math.cos(B.t), s = Math.sin(B.t);
+    const R = (x, y) => [x * c - y * s, x * s + y * c];
+    // orbits of the primaries and of the point, then the CM
+    circle(ctx, P, 0, 0, mu, line, [4, 4]);
+    circle(ctx, P, 0, 0, 1 - mu, line, [4, 4]);
+    circle(ctx, P, 0, 0, Math.hypot(Lpt.x, Lpt.y), tok('--lpt'), [2, 5]);
+    const cm = P(0, 0);
+    ctx.strokeStyle = line; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(cm[0] - 5, cm[1]); ctx.lineTo(cm[0] + 5, cm[1]); ctx.moveTo(cm[0], cm[1] - 5); ctx.lineTo(cm[0], cm[1] + 5); ctx.stroke();
+    ctx.fillStyle = tok('--muted'); ctx.font = '12px ' + tok('--mono'); ctx.textAlign = 'right';
+    ctx.fillText('CM', cm[0] - 8, cm[1] - 6);
+    const m1w = R(-mu, 0), m2w = R(1 - mu, 0);
+    const m1 = P(m1w[0], m1w[1]), m2 = P(m2w[0], m2w[1]);
+    dot(ctx, m1, 6, fg); label(ctx, m1, 'M1', fg, 19);
+    dot(ctx, m2, 4, fg); label(ctx, m2, 'M2', fg, 17);
+    const Lw = R(Lpt.x, Lpt.y), Lp = P(Lw[0], Lw[1]);
+    dot(ctx, Lp, 5, null, tok('--lpt')); label(ctx, Lp, S.L, tok('--lpt'), -9);
+    const Bw = R(B.x, B.y);
+    if (S.trails) polyline(ctx, trailI, P, tok('--body'), 1.2);
+    polyline(ctx, [Lw, Bw], P, tok('--lpt'), 1, [3, 3]);
+    const bp = P(Bw[0], Bw[1]);
+    dot(ctx, bp, 5, tok('--body'), tok('--panel'));
+    if (S.arrows) {
+      const f = forces(B.x, B.y, B.vx, B.vy, mu);
+      // inertial velocity: rotate (v + Omega z-hat x r)
+      const Vw = R(B.vx - B.y, B.vy + B.x), Gw = R(f.gx, f.gy);
+      const fs = S.follow ? 0.7 / S.zoom : 0.35, maxPx = size * 0.4;
+      arrow(ctx, P, Bw, Vw, tok('--vel'), fs, maxPx);
+      arrow(ctx, P, Bw, Gw, tok('--fpot'), fs, maxPx);
+    }
+  }
+
+  // ---- readout and controls ------------------------------------------------------
+  const $ = (id) => document.getElementById(id);
+  function readout() {
+    $('rt').textContent = (B.t / (2 * Math.PI)).toFixed(2);
+    $('rd').textContent = Math.hypot(B.x - Lpt.x, B.y - Lpt.y).toFixed(4);
+    $('rj').textContent = (0.5 * (B.vx * B.vx + B.vy * B.vy) + Ueff(B.x, B.y, S.mu)).toFixed(6);
+    $('rs').textContent = B.stopped ? 'stopped: ' + B.stopped : '';
+  }
+  function showValues() {
+    $('muv').textContent = S.mu.toPrecision(3);
+    $('dispv').textContent = S.disp.toFixed(3) + ' R';
+    $('angv').textContent = S.ang + '°';
+    $('speedv').textContent = S.speed.toFixed(2);
+    $('zoomv').textContent = S.zoom + '×';
+    const offAxis = S.L === 'L4' || S.L === 'L5';
+    $('stab').textContent = offAxis
+      ? (S.mu < STABLE_MU ? 'L4 and L5 are linearly stable for μ < 0.0385: this one holds.'
+                          : 'L4 and L5 are stable only for μ < 0.0385: this one does not hold.')
+      : S.L + ' is a saddle of U_eff, unstable for every μ.';
+    $('play').textContent = S.running ? 'Pause' : 'Play';
+  }
+  $('lpt').addEventListener('change', (e) => { S.L = e.target.value; restart(); showValues(); });
+  $('mu').addEventListener('input', (e) => { S.mu = Math.pow(10, +e.target.value); restart(); showValues(); });
+  for (const b of document.querySelectorAll('.presets button')) {
+    b.addEventListener('click', () => { S.mu = +b.dataset.mu; $('mu').value = Math.log10(S.mu); restart(); showValues(); });
+  }
+  $('disp').addEventListener('input', (e) => { S.disp = +e.target.value; restart(); showValues(); });
+  $('ang').addEventListener('input', (e) => { S.ang = +e.target.value; restart(); showValues(); });
+  $('speed').addEventListener('input', (e) => { S.speed = +e.target.value; showValues(); });
+  $('zoom').addEventListener('input', (e) => { S.zoom = +e.target.value; showValues(); });
+  $('follow').addEventListener('change', (e) => { S.follow = e.target.checked; });
+  $('arrows').addEventListener('change', (e) => { S.arrows = e.target.checked; });
+  $('trails').addEventListener('change', (e) => { S.trails = e.target.checked; });
+  $('play').addEventListener('click', () => { S.running = !S.running; showValues(); });
+  $('reset').addEventListener('click', () => { restart(); S.running = true; showValues(); });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) S.running = false;
+  // the viewer may hand the page back its last control values, so read them all
+  S.mu = Math.pow(10, +$('mu').value); S.L = $('lpt').value;
+  S.disp = +$('disp').value; S.ang = +$('ang').value; S.speed = +$('speed').value; S.zoom = +$('zoom').value;
+  S.follow = $('follow').checked; S.arrows = $('arrows').checked; S.trails = $('trails').checked;
+  restart(); showValues();
+
+  let last = null;
+  function frame(ts) {
+    if (last === null) last = ts;
+    const real = Math.min((ts - last) / 1000, 0.1); last = ts;
+    if (S.running && !B.stopped) {
+      const n = Math.min(Math.round(S.speed * real / DT), 1200);
+      for (let i = 0; i < n && !B.stopped; i++) step();
+    }
+    drawRot(); drawIne(); readout();
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
