@@ -132,12 +132,13 @@ third body of mass $m$ moves in their gravity. Put the origin at the CM and use 
 Cartesian coordinates $(X, Y, Z)$ with the primaries' orbit in the plane $Z = 0$. ``Origin at
 the CM'' means $M_1\vr_1 + M_2\vr_2 = 0$, i.e.\ $M_1 r_1 = M_2 r_2$ with $r_1 = |\vr_1|$ and
 $r_2 = |\vr_2|$, the two bodies on opposite sides of the CM. The sum of the two distances is
-$r_1 + r_2 = R$; putting $r_2 = R - r_1$ into $M_1 r_1 = M_2 r_2$ gives
-$M_1 r_1 = M_2 R - M_2 r_1$, so $(M_1 + M_2)\,r_1 = M_2 R$ and
-\begin{equation}
+$r_1 + r_2 = R$. Put $r_2 = R - r_1$ into $M_1 r_1 = M_2 r_2$:
+\begin{align}
+  M_1 r_1 &= M_2 (R - r_1) \nonumber\\
+  (M_1 + M_2)\, r_1 &= M_2 R && \text{(the $M_2 r_1$ moved to the left)} \nonumber\\
+  r_1 &= \frac{M_2 R}{M_1 + M_2}, && \text{and likewise}\quad r_2 = \frac{M_1 R}{M_1 + M_2}.
   \label{eq:cmradii}
-  r_1 = \frac{M_2 R}{M_1 + M_2}, \qquad\text{and likewise}\qquad r_2 = \frac{M_1 R}{M_1 + M_2}.
-\end{equation}
+\end{align}
 It will be handy to have a name for the mass ratio: with $\mu \equiv M_2/(M_1 + M_2)$, these
 are $r_1 = \mu R$ and $r_2 = (1 - \mu)R$, since $M_1/(M_1 + M_2) = 1 - \mu$. For the Sun and
 the Earth $\mu = 3.00\times 10^{-6}$; for the Earth and the Moon, $0.0122$.
@@ -153,13 +154,13 @@ primaries are at
 \end{equation}
 Newton's second law for $M_1$ fixes the rate: its acceleration is $\Om^2 r_1$ toward the CM
 (uniform circular motion) and the only force on it is $M_2$'s pull $GM_1M_2/R^2$, also toward
-the CM, so $M_1\Om^2 r_1 = GM_1M_2/R^2$; with $r_1$ from \eqref{eq:cmradii} this is
-$M_1M_2\Om^2 R/(M_1+M_2) = GM_1M_2/R^2$, and cancelling $M_1M_2$ and multiplying by
-$(M_1+M_2)/R$,
-\begin{equation}
+the CM, so
+\begin{align}
+  M_1\Om^2 r_1 &= \frac{GM_1M_2}{R^2} && \text{(mass $\times$ acceleration $=$ force)} \nonumber\\
+  M_1\Om^2\,\frac{M_2 R}{M_1 + M_2} &= \frac{GM_1M_2}{R^2} && \text{($r_1$ from \eqref{eq:cmradii})} \nonumber\\
+  \Om^2 &= \frac{G(M_1 + M_2)}{R^3}. && \text{(cancel $M_1M_2$, multiply by $(M_1+M_2)/R$)}
   \label{eq:kepler3}
-  \Om^2 = \frac{G(M_1 + M_2)}{R^3}.
-\end{equation}
+\end{align}
 This is Kepler's third law for the pair.
 
 \medskip
@@ -259,9 +260,12 @@ choice of coordinates: the motion of our primaries is confined to a plane, and w
 choosing that to be the $XY$ plane. The second is a choice of initial conditions for $m$,
 which the equations of motion respect. We can spell this out a bit more explicitly if you're
 skeptical: $U$ is even in $Z$ (both distances contain $Z$ only as $Z^2$), so
-$\partial U/\partial Z = GmM_1 Z/|\vr - \vr_1|^3 + GmM_2 Z/|\vr - \vr_2|^3$, which is
-$0$ on $Z = 0$, and the $Z$ equation $m\ddot Z = -\partial U/\partial Z$ gives
-$\ddot Z = 0$ there. So, a body that starts in the plane with $\dot Z = 0$ stays in
+\begin{equation*}
+  \pd{U}{Z} = \frac{GmM_1\, Z}{|\vr - \vr_1|^3} + \frac{GmM_2\, Z}{|\vr - \vr_2|^3},
+  \qquad\text{so on $Z = 0$:}\qquad \pd{U}{Z} = 0 \quad\text{and}\quad
+  m\ddot Z = -\pd{U}{Z} = 0 .
+\end{equation*}
+So, a body that starts in the plane with $\dot Z = 0$ stays in
 it, and we look only at those motions. What about our little mass $m$ wanting to leave the
 plane? Our goal is to find the places where it sits still with respect to the primaries, and
 those are all in the plane: $\partial U/\partial Z$ above is $Z$ times a positive factor, so
@@ -400,9 +404,12 @@ after all of that. From \eqref{eq:Lrot3},
   \pd{\Lag}{\dot y} &= m(\dot y + \Om x), &
   \pd{\Lag}{y} &= -m\Om\dot x + m\Om^2 y - \pd{U}{y}.
 \end{align*}
-Remembering that $\Om$ is constant, we have $\frac{d}{dt}\,m(\dot x - \Om y) = m\ddot x - m\Om\dot y$ and
-$\frac{d}{dt}\,m(\dot y + \Om x) = m\ddot y + m\Om\dot x$, so
-$\frac{d}{dt}\partial\Lag/\partial\dot q_i = \partial\Lag/\partial q_i$ for $q_i = x$ and $y$
+Remembering that $\Om$ is constant,
+\begin{equation*}
+  \frac{d}{dt}\,\pd{\Lag}{\dot x} = \frac{d}{dt}\,m(\dot x - \Om y) = m\ddot x - m\Om\dot y, \qquad
+  \frac{d}{dt}\,\pd{\Lag}{\dot y} = \frac{d}{dt}\,m(\dot y + \Om x) = m\ddot y + m\Om\dot x,
+\end{equation*}
+so $\frac{d}{dt}\partial\Lag/\partial\dot q_i = \partial\Lag/\partial q_i$ for $q_i = x$ and $y$
 read
 \begin{align*}
   m\ddot x - m\Om\dot y &= m\Om\dot y + m\Om^2 x - \pd{U}{x}, \\
@@ -595,15 +602,18 @@ remarks, the first two of which are the point of Section~7.8:
   involves $t$, so the condition fails, exactly as for the spinning hoop. (And $T + U$ is not
   conserved in the inertial frame either: there the primaries move and $U$ depends on time.
   The symmetry lives in the rotating frame, and so does the conservation
-  law.)\footnote{This is easy to get wrong in print. Edlund's paper (cited in the \sideroads{} below) calls $\Ueff$
-    ``devoid of physical meaning'' because it seems to assume the body's angular velocity is
-    constant, and proposes that the test mass's angular momentum is conserved ``regionally''
-    near each Lagrange point. Neither is needed. The $\Om$ in $\Ueff$ is the \emph{frame's}
-    rotation rate, constant by construction; the body's own angular velocity varies, and
-    \eqref{eq:Lrot} carries that in the kinetic and Coriolis terms. $\Ham$ in \eqref{eq:jacobi3}
-    is conserved exactly, everywhere, for the reason in Section~7.8: no $t$ in $\Lag$. The
-    puzzle comes from expecting a two-body potential $L^2/2mr^2$ with $L$ the test mass's
-    angular momentum, which is not conserved here and is not used.}
+  law.)\footnote{We note that this is subtle, and often interpreted incorrectly, even in
+    published articles.}
+  % The footnote used to spell out the published example (Michael, 2026-11-05: no need to call
+  % him out directly). Kept here for reference: Edlund's paper (cited in the side roads) calls
+  % U_eff "devoid of physical meaning" because it seems to assume the body's angular velocity
+  % is constant, and proposes that the test mass's angular momentum is conserved "regionally"
+  % near each Lagrange point. Neither is needed. The Omega in U_eff is the frame's rotation
+  % rate, constant by construction; the body's own angular velocity varies, and (1.6) carries
+  % that in the kinetic and Coriolis terms. H in (1.15) is conserved exactly, everywhere, for
+  % the reason in Section 7.8: no t in L. The puzzle comes from expecting a two-body potential
+  % L^2/2mr^2 with L the test mass's angular momentum, which is not conserved here and is not
+  % used.
 \item Since $\tfrac12 m v_{\rm rot}^2 \geq 0$, a body with a given $\Ham$ can only be where
   $\Ueff \leq \Ham$. The contours in Figure~\ref{fig:ueff} are therefore fences (Hill's
   \emph{zero-velocity curves}): a satellite with $\Ham$ below $\Ueff(L_1)$ that starts near
@@ -639,22 +649,33 @@ from $M_2$, one on each side, and evaluate it for the Sun and the Earth ($\mu = 
 $M_2$'s gravity wins over $M_1$'s tidal pull plus the centrifugal force (the $-2\delta$ and the
 $+\delta$ in the solution below), which is why the Moon is Earth's.
 
-\solution{Take $L_2$ first: $x = 1 - \mu + \delta$ with $\delta > 0$ (beyond $M_2$). Keep
+\solution{Take $L_2$ first: $x = 1 - \mu + \delta$ with $\delta > 0$ (beyond $M_2$), so
+$x + \mu = 1 + \delta$ and $x - 1 + \mu = \delta$. Keep
 first order in $\delta$, drop $\mu$ wherever it is added to a number of order one, but keep
 $\mu/\delta^2$, which is the term that matters. (This is consistent because the answer has
-$\delta \sim \mu^{1/3}$: then $\mu \ll \delta$, while $\mu/\delta^2 \sim \delta$.) The left side of \eqref{eq:axis} is $1 +
-\delta$; the first term on the right is $(1-\mu)/(1+\delta)^2 \approx 1 - 2\delta$ (here $x + \mu = 1 + \delta$; binomial expansion $(1+\delta)^{-2} \approx 1 - 2\delta$, and
-the factor $1 - \mu$ becomes $1$); the second is $\mu\delta/\delta^3 = \mu/\delta^2$ (here
-$x - 1 + \mu = \delta$). So
+$\delta \sim \mu^{1/3}$: then $\mu \ll \delta$, while $\mu/\delta^2 \sim \delta$.) Term by
+term in \eqref{eq:axis}:
+\begin{align*}
+  x &= 1 - \mu + \delta \approx 1 + \delta && \text{(the left side)} \\
+  \frac{(1-\mu)(x+\mu)}{|x+\mu|^3} &= \frac{1-\mu}{(1+\delta)^2} \approx 1 - 2\delta
+  && \text{(binomial expansion $(1+\delta)^{-2} \approx 1 - 2\delta$; $1 - \mu \to 1$)} \\
+  \frac{\mu\,(x-1+\mu)}{|x-1+\mu|^3} &= \frac{\mu\,\delta}{\delta^3} = \frac{\mu}{\delta^2} .
+\end{align*}
+So
 \begin{equation}
   1 + \delta \approx 1 - 2\delta + \frac{\mu}{\delta^2}
   \quad\Rightarrow\quad 3\delta = \frac{\mu}{\delta^2}
   \quad\Rightarrow\quad \delta^3 = \frac{\mu}{3} .
 \end{equation}
-For $L_1$ put $x = 1 - \mu - \delta$: the left side is $1 - \delta$, the first term is
-$(1-\mu)/(1-\delta)^2 \approx 1 + 2\delta$, and the second is $\mu(-\delta)/\delta^3 =
--\mu/\delta^2$, so $1 - \delta \approx 1 + 2\delta - \mu/\delta^2$, giving
-$-3\delta = -\mu/\delta^2$ and the same $\delta$. To this order $L_1$
+For $L_1$ put $x = 1 - \mu - \delta$, so $x + \mu = 1 - \delta$ and $x - 1 + \mu = -\delta$:
+\begin{align*}
+  x \approx 1 - \delta, \qquad
+  \frac{1-\mu}{(1-\delta)^2} &\approx 1 + 2\delta, \qquad
+  \frac{\mu\,(-\delta)}{\delta^3} = -\frac{\mu}{\delta^2}, \\
+  1 - \delta \approx 1 + 2\delta - \frac{\mu}{\delta^2}
+  &\quad\Rightarrow\quad -3\delta = -\frac{\mu}{\delta^2},
+\end{align*}
+the same $\delta$. To this order $L_1$
 and $L_2$ are mirror images about $M_2$, and with $R$ restored, $d = \delta R = R(\mu/3)^{1/3}$,
 which is \eqref{eq:hill}. For the Sun and the Earth, $(\mu/3)^{1/3} =
 (1.00\times 10^{-6})^{1/3} = 0.0100$, so $d = 0.0100\;\mathrm{AU} = 1.50\times 10^6$~km, about
@@ -707,18 +728,20 @@ distances to the primaries are $r_1' = \sqrt{r^2 + 2 r r_1\cos\theta + r_1^2}$ a
 $r_2' = \sqrt{r^2 - 2 r r_2\cos\theta + r_2^2}$ (law of cosines; $M_1$ is at angle $\pi$, $M_2$ at
 angle $0$) with $r_1 = \mu R$, $r_2 = (1-\mu)R$. The
 centrifugal term depends on $r$ alone, so the $\theta$ half of \eqref{eq:equilibrium3} is
-$\partial U/\partial\theta = 0$. Differentiating $r_1'^2 = r^2 + 2 r r_1\cos\theta + r_1^2$ with
-respect to $\theta$ gives $2 r_1'\,\partial r_1'/\partial\theta = -2 r r_1\sin\theta$, so
-$\partial r_1'/\partial\theta = -r r_1\sin\theta/r_1'$, and in the same way
-$\partial r_2'/\partial\theta = +r r_2\sin\theta/r_2'$; since
-$U = -GmM_1/r_1' - GmM_2/r_2'$ gives, by the chain rule,
-$\partial U/\partial\theta = (GmM_1/r_1'^2)\,\partial r_1'/\partial\theta
-+ (GmM_2/r_2'^2)\,\partial r_2'/\partial\theta$, we get
-$\partial U/\partial\theta = -GmM_1 r r_1\sin\theta/r_1'^3 + GmM_2 r r_2\sin\theta/r_2'^3$, and
-because $M_1 r_1 = M_2 r_2$ (the CM condition of Step~1) it factors:
-\begin{equation}
-  \pd{U}{\theta} = G m\, r\, M_1 r_1 \sin\theta\,\Bigl(\frac{1}{r_2'^3} - \frac{1}{r_1'^3}\Bigr) = 0 .
-\end{equation}
+$\partial U/\partial\theta = 0$. Differentiate $r_1'^2 = r^2 + 2 r r_1\cos\theta + r_1^2$ with
+respect to $\theta$, and $r_2'^2$ likewise:
+\begin{align*}
+  2 r_1'\,\pd{r_1'}{\theta} &= -2 r r_1\sin\theta, & \pd{r_1'}{\theta} &= -\frac{r r_1\sin\theta}{r_1'}, \\
+  2 r_2'\,\pd{r_2'}{\theta} &= +2 r r_2\sin\theta, & \pd{r_2'}{\theta} &= +\frac{r r_2\sin\theta}{r_2'}.
+\end{align*}
+Then, with $U = -GmM_1/r_1' - GmM_2/r_2'$,
+\begin{align}
+  \pd{U}{\theta} &= \frac{GmM_1}{r_1'^2}\,\pd{r_1'}{\theta} + \frac{GmM_2}{r_2'^2}\,\pd{r_2'}{\theta}
+  && \text{(chain rule)} \nonumber\\
+  &= -\frac{GmM_1\, r r_1\sin\theta}{r_1'^3} + \frac{GmM_2\, r r_2\sin\theta}{r_2'^3} \nonumber\\
+  &= G m\, r\, M_1 r_1 \sin\theta\,\Bigl(\frac{1}{r_2'^3} - \frac{1}{r_1'^3}\Bigr) = 0 .
+  && \text{($M_1 r_1 = M_2 r_2$, the CM condition of Step~1)}
+\end{align}
 So every equilibrium has $\sin\theta = 0$ (on the axis: $L_1$, $L_2$, $L_3$, one in each of the three stretches the primaries cut
 the axis into, as ``The exact positions'' above shows) or $r_1' = r_2'$
 (on the perpendicular bisector of the primaries: $L_4$, $L_5$), and nothing else. On the
@@ -811,7 +834,9 @@ Newton's law of gravitation give the force on the particle, toward the origin,
   \qquad M(<r) = \tfrac{4\pi}{3}\rho r^3 \text{ the mass inside radius } r .
 \end{equation*}
 So, from $F = -\partial U/\partial r$ with $U = 0$ at the origin,
-$U(r) = -\int_0^r F\,dr' = \frac{4\pi G}{3}\,m\rho\int_0^r r'\,dr' = \frac{4\pi G}{3}\,m\rho\,\frac{r^2}{2}$:
+\begin{equation*}
+  U(r) = -\int_0^r F\,dr' = \frac{4\pi G}{3}\,m\rho\int_0^r r'\,dr' = \frac{4\pi G}{3}\,m\rho\,\frac{r^2}{2} :
+\end{equation*}
 its potential energy is
 \begin{equation}
   \label{eq:Phi}
@@ -819,13 +844,14 @@ its potential energy is
   \qquad\Bigl(\text{check: } -\pd{U}{r} = -\frac{4\pi G}{3}\, m\rho\, r = -\frac{GmM(<r)}{r^2}\Bigr).
 \end{equation}
 The expansion itself obeys the same force law. A particle riding the expansion sits at
-$r = a(t)\,x$ with $x$ fixed, so $\ddot r = \ddot a\,x$, and Newton's second law
-for that particle, $m\ddot r = -\frac{4\pi G}{3}m\rho\, r$ divided by $m$ with $r = ax$, reads $\ddot a\, x = -\frac{4\pi G}{3}\rho\, a x$;
-cancelling $x$,
-\begin{equation}
+$r = a(t)\,x$ with $x$ fixed, so $\ddot r = \ddot a\,x$, and Newton's second law for that
+particle reads
+\begin{align}
+  m\ddot r &= -\frac{4\pi G}{3}\, m\rho\, r \nonumber\\
+  \ddot a\, x &= -\frac{4\pi G}{3}\,\rho\, a x && \text{($\ddot r = \ddot a\,x$ and $r = ax$, divided by $m$)} \nonumber\\
+  \ddot a &= -\frac{4\pi G}{3}\,\rho\, a , && \text{(cancel $x$)}
   \label{eq:friedmann2}
-  \ddot a = -\frac{4\pi G}{3}\,\rho\, a ,
-\end{equation}
+\end{align}
 the Friedmann acceleration equation for a universe of pressureless matter (general
 relativity's version has extra terms for pressure and for the cosmological constant; with those
 set to zero it is exactly this). It is the one fact about the background we will use.
@@ -902,11 +928,13 @@ and \eqref{eq:rdot2} into \eqref{eq:Lfree} and expand the square:
   - \frac{2\pi G}{3}\, m\rho\, a^2 x^2 .
 \end{equation}
 The cross term is the one to tame. By the product rule,
-$\frac{d}{dt}\bigl(\tfrac12 m a\dot a\, x^2\bigr)
-= \tfrac12 m\,\frac{d}{dt}(a\dot a)\,x^2 + \tfrac12 m a\dot a\,\frac{d}{dt}x^2
-= \tfrac12 m(\dot a^2 + a\ddot a)\,x^2
-+ m a\dot a\, x\dot x$ (using the product rule again, $\frac{d}{dt}(a\dot a) = \dot a^2 + a\ddot a$,
-and the chain rule, $\frac{d}{dt}x^2 = 2x\dot x$), so, solving for the cross term,
+\begin{align*}
+  \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\, x^2\Bigr)
+  &= \tfrac12 m\,\frac{d}{dt}(a\dot a)\,x^2 + \tfrac12 m a\dot a\,\frac{d}{dt}x^2 \\
+  &= \tfrac12 m(\dot a^2 + a\ddot a)\,x^2 + m a\dot a\, x\dot x ,
+  && \text{(product rule again; chain rule, $\tfrac{d}{dt}x^2 = 2x\dot x$)}
+\end{align*}
+so, solving for the cross term,
 \begin{equation}
   \label{eq:cross2}
   m a\dot a\, x\dot x = \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\, x^2\Bigr)
@@ -919,9 +947,12 @@ Put \eqref{eq:cross2} into \eqref{eq:Lexp2}:
   + \tfrac12 m\dot a^2 x^2 - \frac{2\pi G}{3}\, m\rho\, a^2 x^2 .
 \end{equation}
 The two $\tfrac12 m\dot a^2 x^2$ terms cancel. By \eqref{eq:friedmann2},
-$\ddot a = -\frac{4\pi G}{3}\rho\, a$, so $-\tfrac12 m a\ddot a\, x^2
-= -\tfrac12 m a\bigl(-\frac{4\pi G}{3}\rho\, a\bigr)x^2 = +\frac{2\pi G}{3}
-m\rho\, a^2 x^2$, which cancels the potential term exactly. What is left is
+$\ddot a = -\frac{4\pi G}{3}\rho\, a$, so
+\begin{equation*}
+  -\tfrac12 m a\ddot a\, x^2
+  = -\tfrac12 m a\Bigl(-\frac{4\pi G}{3}\rho\, a\Bigr)x^2 = +\frac{2\pi G}{3}\, m\rho\, a^2 x^2 ,
+\end{equation*}
+which cancels the potential term exactly. What is left is
 \begin{equation}
   \label{eq:Lcomoving2}
   \Lag = \tfrac12 m a^2\dot x^2 + \frac{dF}{dt}, \qquad F \equiv \tfrac12 m a\dot a\, x^2 .
@@ -958,8 +989,12 @@ $\frac{d}{dt}\partial\Lag/\partial\dot x = \partial\Lag/\partial x$ reads
   \label{eq:eom2}
   \frac{d}{dt}\bigl(m a^2\dot x\bigr) = 0 .
 \end{equation}
-Written out with the product rule, $m a^2\ddot x + 2 m a\dot a\,\dot x = 0$; dividing by
-$m a^2$, $\ddot x = -2(\dot a/a)\,\dot x$: in comoving coordinates, while the universe expands
+Written out,
+\begin{equation*}
+  m a^2\ddot x + 2 m a\dot a\,\dot x = 0 \quad\text{(product rule)}
+  \qquad\Rightarrow\qquad \ddot x = -2\,\frac{\dot a}{a}\,\dot x \quad\text{(divided by $m a^2$)} :
+\end{equation*}
+in comoving coordinates, while the universe expands
 ($\dot a > 0$), a free particle decelerates at a rate set by the expansion.
 
 \medskip
@@ -997,15 +1032,20 @@ shows that $\Ham$ does change. With $p = m a^2\dot x$,
   \Ham = p\dot x - \Lag = m a^2\dot x^2 - \tfrac12 m a^2\dot x^2 = \tfrac12 m a^2\dot x^2
   = \tfrac12 m\vpec^2 ,
 \end{equation}
-the kinetic energy in the peculiar velocity, and Section~7.8's general result
-$d\Ham/dt = -\partial\Lag/\partial t$ gives, since $\partial\Lag/\partial t = \tfrac12 m\,(2a\dot a)\,\dot x^2 = m a\dot a\,\dot x^2$
-(chain rule; $\Lag$ depends on $t$ only through $a$),
-\begin{equation}
-  \frac{d\Ham}{dt} = -m a\dot a\,\dot x^2 = -2\,\frac{\dot a}{a}\cdot\tfrac12 m a^2\dot x^2
-  = -2\,\frac{\dot a}{a}\,\Ham ,
-  \qquad\text{so}\qquad \Ham \propto \frac1{a^2} ,
-\end{equation}
-since $d\ln\Ham/dt = -2\,d\ln a/dt$ integrates to $\ln\Ham = -2\ln a + \text{const}$. That is
+the kinetic energy in the peculiar velocity. $\Lag$ depends on $t$ only through $a$, so by the
+chain rule
+\begin{equation*}
+  \pd{\Lag}{t} = \tfrac12 m\,(2a\dot a)\,\dot x^2 = m a\dot a\,\dot x^2 ,
+\end{equation*}
+and Section~7.8's general result $d\Ham/dt = -\partial\Lag/\partial t$ gives
+\begin{align}
+  \frac{d\Ham}{dt} &= -m a\dot a\,\dot x^2 = -2\,\frac{\dot a}{a}\cdot\tfrac12 m a^2\dot x^2
+  = -2\,\frac{\dot a}{a}\,\Ham \nonumber\\
+  \frac{d\ln\Ham}{dt} &= -2\,\frac{d\ln a}{dt}
+  \quad\Rightarrow\quad \ln\Ham = -2\ln a + \text{const}
+  \quad\Rightarrow\quad \Ham \propto \frac1{a^2} .
+\end{align}
+That is
 consistent with \eqref{eq:hubbledrag2}: $\Ham = \tfrac12 m\vpec^2$ and $\vpec \propto 1/a$. The energy is not conserved, and the formalism says
 exactly why: the expanding universe has no time-translation symmetry, so Noether's theorem
 has nothing to give. 
