@@ -26,8 +26,8 @@
 \newcommand{\Ueff}{U_{\rm eff}}
 \newcommand{\vpec}{v_{\rm pec}}
 % 'the side roads' in the text links to the subsection (hyperref) and gives its page.
-\newcommand{\sideroads}{\hyperref[sec:sideroads]{side roads}}
-\newcommand{\sideroadsp}{\hyperref[sec:sideroads]{side roads} (p.~\pageref{sec:sideroads})}
+\newcommand{\sideroads}{\hyperref[sec:sideroads]{Nailing down details}}
+\newcommand{\sideroadsp}{\hyperref[sec:sideroads]{Nailing down details} (p.~\pageref{sec:sideroads})}
 
 \begin{document}
 \title{Highlights from two astronomy problems for Lagrange's equations: \\
@@ -45,7 +45,7 @@ Dermott~\cite{murray}, Chapter~3; the Lagrangian route is the one in Goldstein, 
 Safko~\cite{goldstein}, Section~3.12); the second half, the cosmology, follows the standard
 textbook route for a particle in an expanding universe (Peebles~\cite{peebles}, Chapter~II).
 The references are collected at the end. Each problem is done straight through, in the order
-of Section~7.5's recipe, with the \sideroads{} (the numbers, a board problem, stability) collected
+of Section~7.5's recipe, with \sideroads{} (the numbers, a board problem, stability) collected
 at the end of its section; the redshift is also written up as a homework problem, statement and solutions
 (Section~\ref{sec:redshift-problem}). Both halves are Newtonian
 throughout, and the places where general relativity would add something are flagged.
@@ -116,7 +116,7 @@ primaries. Three things follow:
   force $m\Om^2(x,y)$ and the Coriolis force $2m\Om(\dot y, -\dot x)$: Chapter~9's results,
   for free.
 \item A body can sit still in the rotating frame exactly where the \emph{effective potential}
-  $\Ueff \equiv U - \tfrac12 m\Om^2(x^2+y^2)$ has zero gradient. There are five such points (``Polar coordinates'' in the \sideroads{} shows why exactly five).
+  $\Ueff \equiv U - \tfrac12 m\Om^2(x^2+y^2)$ has zero gradient. There are five such points (``Polar coordinates'' in \sideroads{} shows why exactly five).
   Two of them, $L_4$ and $L_5$, form equilateral triangles with $M_1$ and $M_2$, for any mass
   ratio; the other three lie on the line through the primaries.
 \item $\Lag$ has no explicit $t$, so $\Ham$ is conserved. It is $\tfrac12 m v_{\rm rot}^2 +
@@ -330,15 +330,15 @@ position and $t$. We will not need it: we'll build $\Lag$ by putting \eqref{eq:r
 \caption{The inertial axes $(X, Y)$ and the rotating axes $(x, y)$, turned through $\Om t$
   about the $Z$ axis, which runs through the CM and out of the page. The primaries sit on the
   $x$ axis. $L_1$, $L_2$ and $L_4$ are three of the five Lagrange points, the places where $m$
-  can sit still in the rotating frame; Step~6(a) and the \sideroads{} find them. $L_4$ is the
+  can sit still in the rotating frame; Step~6(a) and \sideroads{} find them. $L_4$ is the
   point of the dashed equilateral triangle; $L_1$ and $L_2$ are drawn where they fall for this
   mass ratio ($\mu = 0.2$).}
 \label{fig:axes}
 \end{figure}
 
 \noindent In these new coordinates the
-primaries sit at $(x, y) = (-r_1, 0)$ and $(r_2, 0)$ for all time\footnote{In terms of the mass ratio $\mu$ of Step~1, which the \sideroadsp{}
-  use, that is $(-\mu R, 0)$ and $((1-\mu)R, 0)$.} You can see this intuitively (the whole reason we choose
+primaries sit at $(x, y) = (-r_1, 0)$ and $(r_2, 0)$ for all time\footnote{In terms of the mass ratio $\mu$ of Step~1, which \sideroadsp{}
+  uses, that is $(-\mu R, 0)$ and $((1-\mu)R, 0)$.} You can see this intuitively (the whole reason we choose
 these co-moving coordinates was to fix the motion of the primaries), or you can
 see it explicitly by plugging $(x,y) = (r_2, 0)$ into
 the rotation: $X = r_2\cos\Om t$, $Y = r_2\sin\Om t$, which is
@@ -491,10 +491,10 @@ with $d_1 = |x + r_1|$ and $d_2 = |x - r_2|$ on the axis, becomes
 \end{equation}
 the centrifugal term on the left and two copies of Newton's law of gravitation on
 the right, each toward its own primary. That is one equation in the one unknown
-$x$, with three roots. In the \sideroads{} we solve it numerically and look at
+$x$, with three roots. In \sideroads{} we solve it numerically and look at
 the limiting case of a small $\mu$ by expanding about $M_2$ (see \eqref{eq:axis},
 solved in units where $R = 1$). We find that there are exactly five solutions
-(this is the one place we need polar coordinates; ``Polar coordinates'' in the
+(this is the one place we need polar coordinates; ``Polar coordinates'' in
 \sideroads{}). The remaining two, $L_4$ and $L_5$, are off axis.
 Figure~\ref{fig:fivepoints} shows all five.
 
@@ -558,7 +558,7 @@ radius, so the test mass goes around the CM in step with the primaries!
     the Earth that is where JWST sits, beyond the Earth on the far side from the Sun (SOHO sits
     at $L_1$); the Trojan asteroids are at $L_4$ and $L_5$. $L_1$, $L_2$, $L_3$ are saddles of
     $\Ueff$ and unstable for every mass ratio, which is why JWST needs station-keeping; $L_4$,
-    $L_5$ are maxima of $\Ueff$, yet stable for $\mu < 0.0385$ (``Stability'' in the
+    $L_5$ are maxima of $\Ueff$, yet stable for $\mu < 0.0385$ (``Stability'' in
     \sideroads{}), which is why the Trojans stay put.}
   \label{fig:fivepoints}
 \end{figure}
@@ -622,15 +622,15 @@ remarks, the first two of which are the point of Section~7.8:
 \end{enumerate}
 
 \smallskip
-\noindent That is the whole calculation. The \sideroads{} below add the Hill radius (a board
+\noindent That is the whole calculation. \sideroads{} below adds the Hill radius (a board
 problem), the numbers, the polar-coordinate argument that there are exactly five points,
 and the question of stability, which needs the Coriolis term kept.
 
-\subsection*{Side roads: the Hill radius, the numbers, exactly five points, stability}
+\subsection*{Nailing down details: the Hill radius, the numbers, exactly five points, stability}
 \phantomsection\label{sec:sideroads}
-\addcontentsline{toc}{subsection}{Side roads: the Hill radius, the numbers, exactly five points, stability}
+\addcontentsline{toc}{subsection}{Nailing down details: the Hill radius, the numbers, exactly five points, stability}
 
-\noindent\textbf{Board problem (b): $L_1$ and $L_2$ for a small $\mu$.} Use units with $R = 1$
+\noindent\textbf{Board problem: $L_1$ and $L_2$ for a small $\mu$.} Use units with $R = 1$
 and $G(M_1+M_2) = 1$, so $\Om = 1$ by \eqref{eq:kepler3}, $M_1 \to 1-\mu$ at $x = -\mu$ and
 $M_2 \to \mu$ at $x = 1-\mu$. In these units the axis equation \eqref{eq:axisfull}, per unit
 mass, is
