@@ -827,8 +827,7 @@ bisector $r_1' = r_2' \equiv s$, and the algebra of Step~6(a) goes through with 
 gravity per unit mass is $-G(M_1+M_2)\vr/s^3$, pointing at the CM, against the centrifugal
 $+\Om^2\vr = +G(M_1+M_2)\vr/R^3$. So the $r$ half of \eqref{eq:equilibrium3} holds only at
 $s = R$, the equilateral point. This factorization is the quickest
-way to see that there are exactly five points.\footnote{It is how Edlund, Am.\ J.\ Phys.\ \textbf{92},
-414 (2024), organizes the whole problem.}
+way to see that there are exactly five points.\footnote{It is how Edlund~\cite{edlund} organizes the whole problem.}
 
 \medskip
 
@@ -872,7 +871,7 @@ body that has started to move.
 \begin{tcolorbox}[enhanced,breakable,colback=gray!8,colframe=gray!45,boxrule=0.5pt,
     left=5pt,right=5pt,top=5pt,bottom=5pt]
 \noindent\emph{Beyond here, it gets a bit technical. We've put in the full details, but readers may
-well want to skip past this box if their eyes glaze over.}
+well want to skip past this box if their eyes begin to glaze over.}
 
 \medskip
 
@@ -1033,10 +1032,10 @@ The sum of the roots is $-1$ and their product is positive, so the first two con
 Below that mass ratio both $\Lambda$'s are real and negative, every mode oscillates, and
 $L_4$ and $L_5$ are (linearly) stable; above it the $\Lambda$'s are complex, every $\lambda$
 has a nonzero real part, and they are not (Pluto--Charon, with $\mu = 0.11$, has no stable
-Trojan points). This is Gascheau's result of 1843.\footnote{Linear stability is the whole
+Trojan points). This is Gascheau's result of 1843~\cite{gascheau}.\footnote{Linear stability is the whole
   story here except at two resonant mass ratios inside the interval, $\mu = 0.0135$ and
   $0.0243$, where the two frequencies are in a $3{:}1$ or $2{:}1$ ratio and the nonlinear terms
-  take over (Deprit and Deprit-Bartholom\'e, Astron.\ J.\ \textbf{72}, 173 (1967)); Murray and
+  take over (Deprit and Deprit-Bartholom\'e~\cite{deprit}); Murray and
   Dermott~\cite{murray}, Chapter~3, cover the linear analysis and the history.} The two
 frequencies are $\omega_\pm = \sqrt{-\Lambda_\pm}$:
 \begin{center}
@@ -1079,11 +1078,10 @@ $40\epsilon$ and $70\epsilon$. ``Stable'' here means ``stays in a neighborhood o
 $L_4$, forever,'' not ``returns to $L_4$,'' and the neighborhood is large; the
 real Trojans and Greeks librate on tadpole-shaped paths that span tens of
 degrees of Jupiter's orbit. This kind of stability, by a velocity-dependent
-force that does no work, is called \emph{gyroscopic}, and Greenberg and Davis,
-``Stability at potential maxima,'' Am.\ J.\ Phys.\ \textbf{46}, 1068 (1978), is
-a short, readable account. It is also fragile in one specific way: add any
+force that does no work, is called \emph{gyroscopic}, and Greenberg and
+Davis~\cite{greenberg} is a short, readable account. It is also fragile in one specific way: add any
 friction, however small, and a body at a potential maximum eventually does fall
-off (a theorem of Thomson and Tait, 1879). The same velocity-coupled linear
+off (a theorem of Thomson and Tait, 1879~\cite{thomsontait}). The same velocity-coupled linear
 equations \eqref{eq:linear}, with the Earth's rotation supplying the $2\dot\eta$
 and $2\dot\xi$, describe Chapter~9's Foucault pendulum.
 
@@ -1560,8 +1558,15 @@ gives the rate. The one hand-wave is the shell theorem on an infinite medium; ge
 makes that honest and gives (f) without borrowing.
 \fi
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 \addcontentsline{toc}{section}{References}
+\item[] \emph{A note on the references.} The pointers to Bruns, Poincar\'e, Sundman and
+  Belorizky, and the $10^{8\,000\,000}$ figure, come through Diacu~\cite{diacu} and
+  Barrow-Green~\cite{barrowgreen}; the pointer to Gascheau comes through Sicardy~\cite{sicardy}
+  and the one to Thomson and Tait through Kirillov and Verhulst~\cite{kirillov}. The journal,
+  volume, page and year of every entry below has been checked against the publisher's own
+  listing, but the originals of Bruns, Poincar\'e, Sundman, Belorizky, Gascheau, and Thomson and
+  Tait have not been read for this handout.
 \bibitem{taylor} J.~R. Taylor, \emph{Classical Mechanics} (University Science Books, Sausalito,
   2005). The course text; sections and equation numbers in these notes are its.
 \bibitem{murray} C.~D. Murray and S.~F. Dermott, \emph{Solar System Dynamics} (Cambridge
@@ -1571,9 +1576,9 @@ makes that honest and gives (f) without borrowing.
   (Addison-Wesley, San Francisco, 2002), Section~3.12, the three-body problem by Lagrange's
   equations.
 \bibitem{peebles} P.~J.~E. Peebles, \emph{The Large-Scale Structure of the Universe}
-  (Princeton University Press, Princeton, 1980), Chapter~II, the Newtonian treatment of a
-  particle in an expanding universe (the comoving Lagrangian and the decay of peculiar
-  velocities).
+  (Princeton University Press, Princeton, 1980), Part~II, Sections~6, 7 and~14: the Newtonian
+  approximation, particle dynamics in expanding coordinates, and the peculiar velocity field
+  (the comoving equations of motion and the decay of peculiar velocities).
 \bibitem{jacobi-wiki} ``Jacobi integral,'' \emph{Wikipedia},
   \url{https://en.wikipedia.org/wiki/Jacobi_integral} (accessed November 3, 2026).
 \bibitem{bruns} H. Bruns, ``\"Uber die Integrale des Vielk\"orper-Problems,'' Acta Math.\
@@ -1583,14 +1588,39 @@ makes that honest and gives (f) without borrowing.
   dynamique,'' Acta Math.\ \textbf{13}, 1--270 (1890). The King Oscar prize memoir: no further
   analytic integrals either, and the first sight of chaos (homoclinic tangles).
 \bibitem{sundman} K. F. Sundman, ``M\'emoire sur le probl\`eme des trois corps,'' Acta Math.\
-  \textbf{36}, 105--179 (1912). A series solution, convergent for all time, for nonzero total
-  angular momentum.
+  \textbf{36}, 105--179 (1912; the publisher's listing dates the volume 1913). A series
+  solution, convergent for all time, for nonzero total angular momentum.
 \bibitem{belorizky} D. Belorizky, ``Application pratique des m\'ethodes de M. Sundman \`a un
   cas particulier du probl\`eme des trois corps,'' Bull.\ Astron.\ (2) \textbf{6}, 417--434
   (1930). The estimate of $10^{8\,000\,000}$ terms.
 \bibitem{diacu} F. Diacu, ``The solution of the $n$-body problem,'' Math.\ Intelligencer
   \textbf{18}(3), 66--70 (1996). A short history of Bruns, Poincar\'e, Sundman and Belorizky,
   and of Wang's 1991 series for $n$ bodies.
+\bibitem{barrowgreen} J. Barrow-Green, ``The dramatic episode of Sundman,'' Historia Math.\
+  \textbf{37}, 164--203 (2010). The full history of Sundman's solution and its reception.
+\bibitem{gascheau} G. Gascheau, ``Examen d'une classe d'\'equations diff\'erentielles et
+  application \`a un cas particulier du probl\`eme des trois corps,'' C.\ R.\ Acad.\ Sci.\ Paris
+  \textbf{16}, 393 (1843). The stability condition $27\mu(1-\mu) < 1$ for the equilateral
+  points.
+\bibitem{sicardy} B. Sicardy, ``Stability of the triangular Lagrange points beyond Gascheau's
+  value,'' Celest.\ Mech.\ Dyn.\ Astron.\ \textbf{107}, 145--155 (2010). Argues for Gascheau's
+  precedence over Routh (1875) and gives the two resonant mass ratios.
+\bibitem{deprit} A. Deprit and A. Deprit-Bartholom\'e, ``Stability of the triangular
+  Lagrangian points,'' Astron.\ J.\ \textbf{72}, 173--179 (1967). The two resonant mass
+  ratios $\mu = 0.01352$ and $0.02429$ inside Gascheau's interval.
+\bibitem{greenberg} R. Greenberg and D. R. Davis, ``Stability at potential maxima: the $L_4$
+  and $L_5$ points of the restricted three-body problem,'' Am.\ J.\ Phys.\ \textbf{46},
+  1068--1070 (1978). Three pages on gyroscopic stability at $L_4$ and $L_5$.
+\bibitem{edlund} E. M. Edlund, ``Lagrange points and regionally conserved quantities,'' Am.\ J.\
+  Phys.\ \textbf{92}, 414--423 (2024). All five points from the polar-coordinate
+  factorization.
+\bibitem{thomsontait} W. Thomson and P. G. Tait, \emph{Treatise on Natural Philosophy}, Part~I,
+  new ed.\ (Cambridge University Press, Cambridge, 1879), pp.~387--391: a statically unstable
+  system stabilized by gyroscopic forces is destabilized again by any small dissipation.
+\bibitem{kirillov} O. N. Kirillov and F. Verhulst, ``Paradoxes of dissipation-induced
+  destabilization or who opened Whitney's umbrella?,'' Z.\ Angew.\ Math.\ Mech.\ \textbf{90},
+  462--488 (2010). The modern account of the Thomson--Tait theorem; the page pointer above is
+  theirs.
 \end{thebibliography}
 
 \end{document}
