@@ -334,7 +334,7 @@ position and $t$. We will not need it: we'll build $\Lag$ by putting \eqref{eq:r
 
 \begin{figure}[htb]
 \centering
-\begin{tikzpicture}[scale=2.0]
+\begin{tikzpicture}[scale=1.7]
   \draw[->,gray] (-1.4,0) -- (2.0,0) node[right,black] {$X$};
   \draw[->,gray] (0,-0.9) -- (0,1.8) node[above,black] {$Y$};
   \begin{scope}[rotate=30]
@@ -352,12 +352,36 @@ position and $t$. We will not need it: we'll build $\Lag$ by putting \eqref{eq:r
   \draw[gray,thin] (0.3,-0.17) -- (0.03,-0.03);
   \node at (0.38,-0.21) {CM};
 \end{tikzpicture}
-\caption{The inertial axes $(X, Y)$ and the rotating axes $(x, y)$, turned through $\Om t$
+\hfill
+\begin{tikzpicture}[x=2cm,y=2cm]
+  \begin{scope}[rotate=30, transform shape]
+    \draw[->,thick] (-1.0,0) -- (2.5,0) node[right] {$x$};
+    \draw[->,thick] (0,-0.1) -- (0,1.5) node[above] {$y$};
+    \fill (-0.3,0) circle (0.08) node[above left=1pt] {$M_1$};
+    \fill (1.2,0) circle (0.05) node[below right=1pt] {$M_2$};
+    \node[above right=1pt] at (0,0) {CM};
+    \draw[<->] (-0.3,-0.22) -- (0,-0.22) node[midway,below] {$r_1$};
+    \draw[<->] (0,-0.22) -- (1.2,-0.22) node[midway,below] {$r_2$};
+    % a general point
+    \fill (0.5,1.0) circle (0.04) node[above=2pt] {$m$ at $(x, y)$};
+    \draw[dashed] (-0.3,0) -- (0.5,1.0) node[pos=0.5,right=1pt] {$d_1$};
+    \draw[dashed] (1.2,0) -- (0.5,1.0) node[pos=0.5,above right=-1pt] {$d_2$};
+    % a point on the axis
+    \draw[fill=white] (1.9,0) circle (0.04) node[above=2pt] {$m$ at $(x, 0)$};
+    \draw[<->] (1.2,-0.6) -- (1.9,-0.6) node[midway,below] {$d_2 = x - r_2$};
+    \draw[<->] (-0.3,-0.98) -- (1.9,-0.98) node[midway,below] {$d_1 = x + r_1$};
+  \end{scope}
+\end{tikzpicture}
+\caption{Left: the inertial axes $(X, Y)$ and the rotating axes $(x, y)$, turned through $\Om t$
   about the $Z$ axis, which runs through the CM and out of the page. The primaries sit on the
   $x$ axis. $L_1$, $L_2$ and $L_4$ are three of the five Lagrange points, the places where $m$
   can sit still in the rotating frame; Step~6(a) and \sideroads{} find them. $L_4$ is the
   point of the dashed equilateral triangle; $L_1$ and $L_2$ are drawn where they fall for this
-  mass ratio ($\mu = 0.2$).}
+  mass ratio ($\mu = 0.2$). Right: the same picture in the rotating frame alone, where the
+  primaries are fixed at $(-r_1, 0)$ and $(r_2, 0)$ and \eqref{eq:U2d} is just
+  $U = -GmM_1/d_1 - GmM_2/d_2$. For $m$ at $(x, y)$ the two distances are
+  $d_1 = \sqrt{(x + r_1)^2 + y^2}$ and $d_2 = \sqrt{(x - r_2)^2 + y^2}$; for $m$ on the axis
+  beyond $M_2$ the square roots collapse to $x + r_1$ and $x - r_2$.}
 \label{fig:axes}
 \end{figure}
 
