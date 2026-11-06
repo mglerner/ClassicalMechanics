@@ -889,7 +889,7 @@ $\partial\Ueff/\partial y \approx B\xi + C\eta$, and \eqref{eq:eomunits} becomes
   \label{eq:linear}
   \ddot\xi - 2\dot\eta = -A\xi - B\eta, \qquad \ddot\eta + 2\dot\xi = -B\xi - C\eta .
 \end{equation}
-These are linear with constant coefficients, so try $\xi = a e^{\lambda t}$,
+These are linear with constant coefficients, so we try $\xi = a e^{\lambda t}$,
 $\eta = b e^{\lambda t}$:
 \begin{align}
   (\lambda^2 + A)\,a + (B - 2\lambda)\,b &= 0 && \text{(the $\xi$ equation, divided by $e^{\lambda t}$)} \nonumber\\
@@ -905,7 +905,8 @@ A solution with $a$, $b$ not both zero needs the determinant to vanish:
 \end{align}
 This is a quadratic in $\Lambda \equiv \lambda^2$. The roots come in pairs $\pm\lambda$, so if
 any $\lambda$ has a positive real part some mode grows like $e^{({\rm Re}\,\lambda) t}$ and the
-point is unstable. Nothing grows only if every $\lambda$ is purely imaginary, $\lambda =
+point is unstable. (The pairing also means a decaying root always has a growing partner: without
+friction there is no damping.) Nothing grows only if every $\lambda$ is purely imaginary, $\lambda =
 \pm i\omega$, which means both roots $\Lambda$ of
 \begin{equation}
   \label{eq:charL}
