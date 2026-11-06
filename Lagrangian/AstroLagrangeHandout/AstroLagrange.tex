@@ -12,6 +12,7 @@
 \ifdefined\studentcopy\masterfalse\fi
 
 \usepackage[utf8]{inputenc}
+\usepackage{multicol}
 \usepackage{tikz}
 \usepackage{booktabs}
 \usepackage[most]{tcolorbox}
@@ -27,6 +28,9 @@
 \newcommand{\vpec}{v_{\rm pec}}
 % 'the side roads' in the text links to the subsection (hyperref) and gives its page.
 \newcommand{\sideroads}{\hyperref[sec:sideroads]{Nailing down details}}
+% A table-of-contents entry (and hyperref anchor) for a run-in bold heading: the heading itself
+% stays a paragraph, so the body gains no vertical space (Michael, 2026-11-05).
+\newcommand{\tocentry}[2][subsection]{\phantomsection\addcontentsline{toc}{#1}{#2}}
 \newcommand{\sideroadsp}{\hyperref[sec:sideroads]{Nailing down details} (p.~\pageref{sec:sideroads})}
 
 \begin{document}
@@ -56,7 +60,13 @@ throughout, and the places where general relativity would add something are flag
 \put(0,0) {\line(1,0){7}}
 \end{picture}
 
+\setcounter{tocdepth}{3}
+% The contents list every run-in heading (\tocentry), so it is set small and in two columns to stay
+% on the first page.
+\begin{multicols}{2}
+\small\setlength{\parskip}{0pt}
 \tableofcontents
+\end{multicols}
 % From here on every section starts on its own page, so pieces can be pulled out of the PDF by
 % page range (set after the contents, whose own heading would otherwise be pushed to a page of its own).
 \let\oldsection\section
@@ -74,6 +84,7 @@ are collected at the end of the section, under ``\sideroadsp.''
 
 \medskip
 
+\tocentry[subsection]{The problem}
 \noindent\textbf{The problem.} JWST sits about $1.5\times 10^6$~km from Earth, on the far
 side from the Sun, at the point called $L_2$; Jupiter's Trojan asteroids cluster $60^\circ$
 ahead of and behind the planet, at $L_4$ and $L_5$. Lagrange found these five points in 1772
@@ -85,6 +96,7 @@ time-dependent coordinate change of Section~7.5.
 
 \medskip
 
+\tocentry[subsection]{The idea in one paragraph}
 \noindent\textbf{The idea in one paragraph.} The inertial coordinates $(X, Y)$ are the
 ordinary, time-independent ones; the trouble is that in them the Lagrangian carries $t$
 explicitly, because the primaries move and so $U(X, Y, t)$ changes in time, and neither of
@@ -103,6 +115,7 @@ the change of coordinates; the other does not.
 
 \medskip
 
+\tocentry[subsection]{The result, first}
 \noindent\textbf{The result, first.}
 \begin{equation}
   \label{eq:Lrot}
@@ -125,6 +138,7 @@ primaries. Three things follow:
 
 \medskip
 
+\tocentry[subsection]{Step 1: set up the problem}
 \noindent\textbf{Step 1: set up the problem.} Two bodies $M_1$ and $M_2$
 (typically called ``the primaries''), a
 distance $R$ apart, go around their centre of mass (CM) in circles at angular speed $\Om$; a
@@ -165,6 +179,7 @@ This is Kepler's third law for the pair.
 
 \medskip
 
+\tocentry[subsection]{Step 2: the Lagrangian, without worrying about constraints yet}
 \noindent\textbf{Step 2: the Lagrangian, without worrying about constraints yet.} The body $m$ has three
 Cartesian coordinates and (so far) no constraint. So,
 $\Lag = T - U$ with
@@ -212,6 +227,7 @@ ignorable (Section~7.6), since $U$ depends on all three.
 
 \medskip
 
+\tocentry[subsection]{Step 3: the constraints}
 \noindent\textbf{Step 3: the constraints.} We're holding two things fixed here.
 Let's look at what ``held fixed'' means in each case.
 
@@ -279,6 +295,7 @@ coordinates remain.
 
 \medskip
 
+\tocentry[subsection]{Step 4: the Lagrangian with the constraints in, in good coordinates}
 \noindent\textbf{Step 4: the Lagrangian with the constraints in, in good coordinates.} With
 $Z = 0$ the Lagrangian \eqref{eq:L3d} loses its $\dot Z$ term and $U$ loses $Z$:
 \begin{equation}
@@ -396,6 +413,7 @@ the spinning hoop.
 
 \medskip
 
+\tocentry[subsection]{Step 5: Lagrange's equations}
 \noindent\textbf{Step 5: Lagrange's equations.} Not as bad as you might expect
 after all of that. From \eqref{eq:Lrot3},
 \begin{align*}
@@ -441,10 +459,12 @@ frame;\footnote{Chapter~9 writes them as $-m\,\vomega\times(\vomega\times\vr)$ a
 
 \medskip
 
+\tocentry[subsection]{Step 6: read off results}
 \noindent\textbf{Step 6: read off results.} Finally! We get two results, each
 basically one line of reasoning from \eqref{eq:Lrot3} or \eqref{eq:eom3}.
 
 \smallskip
+\tocentry[subsubsection]{(a) Where can \texorpdfstring{$m$}{m} sit still?}
 \noindent (a) \emph{Where can $m$ sit still?} \textbf{(I.e. where do we want to
   put the JWST!)} ``Sit still in the rotating frame'' means
 $\dot x = \dot y = 0$ and $\ddot x = \ddot y = 0$. Put those into \eqref{eq:eom3}: the Coriolis
@@ -564,6 +584,7 @@ radius, so the test mass goes around the CM in step with the primaries!
 \end{figure}
 
 \smallskip
+\tocentry[subsubsection]{(b) What is conserved?}
 \noindent (b) \emph{What is conserved?} $\Lag$ in \eqref{eq:Lrot3} has no explicit $t$, so by
 Section~7.8 the Hamiltonian $\Ham = \sum_i p_i\dot q_i - \Lag$ is conserved. With
 $p_x = \partial\Lag/\partial\dot x = m(\dot x - \Om y)$ and
@@ -630,6 +651,7 @@ and the question of stability, which needs the Coriolis term kept.
 \phantomsection\label{sec:sideroads}
 \addcontentsline{toc}{subsection}{Nailing down details: the Hill radius, the numbers, exactly five points, stability}
 
+\tocentry[subsubsection]{Board problem: \texorpdfstring{$L_1$ and $L_2$ for a small $\mu$}{L1 and L2 for a small mu}}
 \noindent\textbf{Board problem: $L_1$ and $L_2$ for a small $\mu$.} Use units with $R = 1$
 and $G(M_1+M_2) = 1$, so $\Om = 1$ by \eqref{eq:kepler3}, $M_1 \to 1-\mu$ at $x = -\mu$ and
 $M_2 \to \mu$ at $x = 1-\mu$. In these units the axis equation \eqref{eq:axisfull}, per unit
@@ -685,6 +707,7 @@ behind its sunshield.}
 
 \medskip
 
+\tocentry[subsubsection]{The exact positions}
 \noindent\textbf{The exact positions.} Equation \eqref{eq:axis} is a quintic once the absolute
 values are resolved, so the three collinear points are found numerically. There is exactly one in each of the
 intervals below: for $f$ in the code (left side of \eqref{eq:axis} minus right side),
@@ -722,6 +745,7 @@ L2 = brentq(f, 1-mu+1e-9, 2.5, args=(mu,))
 
 \medskip
 
+\tocentry[subsubsection]{Polar coordinates, and why there are exactly five points}
 \noindent\textbf{Polar coordinates, and why there are exactly five points.} Put the
 test mass at $(r, \theta)$ from the CM, with $\theta$ measured from the CM-to-$M_2$ line, so the
 distances to the primaries are $r_1' = \sqrt{r^2 + 2 r r_1\cos\theta + r_1^2}$ and
@@ -754,6 +778,7 @@ way to see that there are exactly five points. (It is how Edlund, Am.\ J.\ Phys.
 
 \medskip
 
+\tocentry[subsubsection]{Stability, in one paragraph}
 \noindent\textbf{Stability, in one paragraph (not derived today).} $L_1$, $L_2$ and $L_3$ are
 saddle points of $\Ueff$ and are unstable: JWST fires its thrusters every few weeks to stay
 near $L_2$. $L_4$ and $L_5$ are \emph{maxima} of $\Ueff$, and yet they are stable whenever
@@ -769,6 +794,7 @@ very good project, and the same velocity-coupled linear equations appear in Chap
 Foucault pendulum.
 
 
+\addtocontents{toc}{\protect\columnbreak}   % contents: Section 1 fills the left column
 \section{The cosmological redshift}
 \label{sec:redshift-straight}
 
@@ -779,6 +805,7 @@ read off what it says.
 
 \medskip
 
+\tocentry[subsection]{Hubble's law and comoving coordinates}
 \noindent\textbf{Hubble's law and comoving coordinates.} Hubble's law says a galaxy at distance $r$ recedes from us at
 $v = (\dot a/a)\, r$, where $a(t)$ is the \emph{scale factor}: every cosmological distance
 grows as $r(t) = a(t)\, x$, with $x$ a label that does not change. Coordinates that expand
@@ -791,6 +818,7 @@ falling toward a cluster, say, or a photon crossing the universe).
 
 \medskip
 
+\tocentry[subsection]{The result, first}
 \noindent\textbf{The result, first.} For a particle moving freely through a homogeneous
 expanding universe, in comoving coordinates,
 \begin{equation}
@@ -822,6 +850,7 @@ Steps 1--4 are where \eqref{eq:Lcosmo} comes from; Step~6 is what it says about 
 
 \medskip
 
+\tocentry[subsection]{Step 1: set up the problem}
 \noindent\textbf{Step 1: set up the problem.} Fill space with matter of uniform density
 $\rho(t)$, expanding so that every distance grows by the same factor $a(t)$ (the scale
 factor). Pick any point as the origin and a test particle of mass $m$ at position $\vr = (X, Y, Z)$, a distance $r = |\vr|$ from it. Newton's shell theorem (the matter outside the
@@ -858,6 +887,7 @@ set to zero it is exactly this). It is the one fact about the background we will
 
 \medskip
 
+\tocentry[subsection]{Step 2: the Lagrangian, with nothing left out}
 \noindent\textbf{Step 2: the Lagrangian, with nothing left out.} One particle with three
 Cartesian coordinates and no constraint yet, so as in Section~7.1, $\Lag = T - U$ with
 $r^2 = X^2 + Y^2 + Z^2$ in \eqref{eq:Phi}:
@@ -878,6 +908,7 @@ Step~3 uses it.)
 
 \medskip
 
+\tocentry[subsection]{Step 3: the constraints}
 \noindent\textbf{Step 3: the constraints.} Two things are being held fixed, the same two kinds
 as in Section~\ref{sec:straight}.
 
@@ -902,6 +933,7 @@ removes two coordinates and does nothing to $X$. One generalized coordinate rema
 
 \medskip
 
+\tocentry[subsection]{Step 4: the Lagrangian with the constraints in, in good coordinates}
 \noindent\textbf{Step 4: the Lagrangian with the constraints in, in good coordinates.} With
 $Y = Z = 0$ the Lagrangian \eqref{eq:L3dcosmo} loses its $\dot Y$ and $\dot Z$ terms and $U$
 loses $Y$ and $Z$; writing $r$ for $X$ (the signed distance from the origin along the line),
@@ -982,6 +1014,7 @@ already accounts for it.
 
 \medskip
 
+\tocentry[subsection]{Step 5: Lagrange's equation}
 \noindent\textbf{Step 5: Lagrange's equation.} From \eqref{eq:Lcosmo2},
 $\partial\Lag/\partial\dot x = m a^2\dot x$ and $\partial\Lag/\partial x = 0$, so
 $\frac{d}{dt}\partial\Lag/\partial\dot x = \partial\Lag/\partial x$ reads
@@ -999,10 +1032,12 @@ in comoving coordinates, while the universe expands
 
 \medskip
 
+\tocentry[subsection]{Step 6: read off results}
 \noindent\textbf{Step 6: read off results.} Two, each one line from \eqref{eq:Lcosmo2} or
 \eqref{eq:eom2}.
 
 \smallskip
+\tocentry[subsubsection]{(a) What is conserved?}
 \noindent (a) \emph{What is conserved?} $x$ is ignorable (Section~7.6), so its generalized
 momentum $p \equiv \partial\Lag/\partial\dot x = m a^2\dot x$ is conserved; that is what
 \eqref{eq:eom2} says. In terms of the peculiar velocity, $p = m a\,(a\dot x) = m a\,\vpec$,
@@ -1025,6 +1060,7 @@ the cosmological redshift. A photon emitted when the universe was half its prese
 arrives with twice its wavelength: $z = 1$.
 
 \smallskip
+\tocentry[subsubsection]{(b) What is not conserved?}
 \noindent (b) \emph{What is not conserved?} $\Lag$ depends on $t$ through $a(t)$, so
 Section~7.8's guarantee of a constant Hamiltonian does not apply, and the general result below
 shows that $\Ham$ does change. With $p = m a^2\dot x$,
@@ -1054,6 +1090,7 @@ has nothing to give.
 
 \medskip
 
+\tocentry[subsection]{Where does the photon's energy go?}
 \noindent\textbf{Where does the photon's energy go?} Nowhere. $E = pc \propto 1/a$ simply
 decreases. The question presumes a conserved total energy, and Noether's theorem says where
 that would have to come from: time-translation symmetry. An expanding universe does not have
@@ -1076,6 +1113,7 @@ same road, from $\Lag(r, \dot r, t)$ to the redshift. The solutions follow the s
 
 \medskip
 
+\tocentry[subsection]{Challenge problem (optional): a free particle in an expanding universe}
 \taylor{\textbf{Challenge problem (optional): a free particle in an expanding universe.}
 In Newtonian cosmology, space is filled with matter of uniform density $\rho(t)$, and every
 distance grows by one common factor: a particle that just rides the expansion sits at
@@ -1120,6 +1158,7 @@ Now consider a particle of mass $m$ that moves along a line through the origin b
 
 \ifmaster
 \medskip
+\tocentry[subsection]{Solutions}
 \noindent\textbf{Solutions.}
 
 \noindent\textbf{(a)} $\Lag = T - U$ with $T = \tfrac12 m\dot r^2$:
