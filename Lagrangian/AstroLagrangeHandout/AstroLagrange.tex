@@ -7,6 +7,10 @@
 % Build (solutions in): latexmk -pdf AstroLagrange.tex
 % Student copy (solutions out):
 %   latexmk -pdf -jobname="AstroLagrange (student)" -usepretex='\def\studentcopy{1}' AstroLagrange.tex
+% Section 1 and the references only (Sections 2 and 3 are not yet edited; this is the copy linked
+% from Moodle), with and without the solutions:
+%   latexmk -pdf -jobname="AstroLagrange (section 1)" -usepretex='\def\sectiononeonly{1}' AstroLagrange.tex
+%   latexmk -pdf -jobname="AstroLagrange (section 1, student)" -usepretex='\def\studentcopy{1}\def\sectiononeonly{1}' AstroLagrange.tex
 \PassOptionsToPackage{table}{xcolor}
 \documentclass[12pt]{article}
 \input{macros}
@@ -35,8 +39,13 @@
 \newcommand{\sideroadsp}{\hyperref[sec:sideroads]{Nailing down details} (p.~\pageref{sec:sideroads})}
 
 \begin{document}
+\ifdefined\sectiononeonly
+\title{Highlights from an astronomy problem \\
+  for Lagrange's equations: the Lagrange points}
+\else
 \title{Highlights from two astronomy problems for Lagrange's equations: \\
   the Lagrange points and the cosmological redshift}
+\fi
 \author{Michael G. Lerner}
 \date{\today}
 
@@ -45,13 +54,23 @@
 These notes are appropriate for folks who have read 
 Taylor, \emph{Classical Mechanics}~\cite{taylor}, Sections 7.1, 7.3, 7.5, 7.6
 and 7.8, and are intended to add a bit more astronomy to the curriculum. We
+\ifdefined\sectiononeonly
+cover the restricted three-body problem as it relates to Lagrange points
+(similar to  Murray and Dermott~\cite{murray}, Chapter~3; Goldstein, Poole and
+Safko~\cite{goldstein}, Section~3.12). This is the first section of a longer
+handout whose second half examines cosmic red shift and Hubble drag for a
+particle in an expanding universe, following Peebles~\cite{peebles}, Chapter~II;
+the full version is on GitHub.\footnote{\url{https://github.com/mglerner/ClassicalMechanics/tree/main/Lagrangian/AstroLagrangeHandout}}
+\else
 first cover the restricted three-body problem as it relates to Lagrange points
 (similar to  Murray and Dermott~\cite{murray}, Chapter~3; Goldstein, Poole and
 Safko~\cite{goldstein}, Section~3.12);
 the second half, in which we examine cosmic red shift and Hubble drag for a
 particle in an expanding universe follows Peebles~\cite{peebles}, Chapter~II.
 The redshift is also written up as a homework problem, statement and solutions
-(Section~\ref{sec:redshift-problem}). We restrict ourselves to Newtonian physics
+(Section~\ref{sec:redshift-problem}).
+\fi
+We restrict ourselves to Newtonian physics
 throughout, though we do make reference to general relativity when it might add
 more depth.
 
@@ -86,9 +105,10 @@ what they say.
 \tocentry[subsection]{The problem}
 \noindent\textbf{The problem.} JWST sits about $1.5\times 10^6$~km from Earth, on the far
 side from the Sun, at the point called $L_2$; Jupiter's Trojan asteroids cluster $60^\circ$
-ahead of and behind the planet, at $L_4$ and $L_5$. Lagrange found these five points in 1772
-as special solutions of the three-body problem (the first Trojan, 588 Achilles, was not seen
-until 1906). In what sense is a point ``at rest'' when the Sun, the Earth and the point are all
+ahead of and behind the planet, at $L_4$ and $L_5$ (the Greek camp ahead at $L_4$, the Trojan
+camp behind at $L_5$; ``Trojans'' is also the collective name for both). Lagrange found these
+five points in 1772 as special solutions of the three-body problem (the first of them, 588
+Achilles, in the Greek camp, was not seen until 1906). In what sense is a point ``at rest'' when the Sun, the Earth and the point are all
 orbiting? In the frame that rotates with the two big bodies. Taylor does rotating frames with
 vectors in Chapter~9; here the same physics drops out of a Lagrangian in three lines, by the
 time-dependent coordinate change of Section~7.5.
@@ -112,7 +132,7 @@ important enough that it gets its own name, the Jacobi integral.\footnote{Named
   after C.~G.~J. Jacobi; see more in \cite{jacobi-wiki}.} The price
 of time-dependent coordinates is that they are not ``natural'' (Section~7.3), so $T$ picks up
 terms linear in the velocities and a velocity-free term ... and, again, the conserved $\Ham$ is not
-$T + U$ (Section~7.8). The redshift problem of Section~\ref{sec:redshift-straight}
+$T + U$ (Section~7.8). The \ifdefined\sectiononeonly cosmological redshift problem (the full handout's second half)\else redshift problem of Section~\ref{sec:redshift-straight}\fi{}
 is the mirror image: the comoving coordinate $x = r/a(t)$ is
 also a time-dependent change, and it makes $x$ ignorable, but $t$ survives in $\Lag$ through
 $a(t)$, so there the Hamiltonian is not conserved. 
@@ -1087,6 +1107,7 @@ equations \eqref{eq:linear}, with the Earth's rotation supplying the $2\dot\eta$
 and $2\dot\xi$, describe Chapter~9's Foucault pendulum.
 
 
+\ifdefined\sectiononeonly\else   % Sections 2 and 3 are left out of the section-1 copy (see the header)
 \addtocontents{toc}{\protect\columnbreak}   % contents: Section 1 fills the left column
 \section{The cosmological redshift}
 \label{sec:redshift-straight}
@@ -1558,6 +1579,7 @@ expanding universe has no time-translation symmetry, and $d\Ham/dt = -\partial\L
 gives the rate. The one hand-wave is the shell theorem on an infinite medium; general relativity
 makes that honest and gives (f) without borrowing.
 \fi
+\fi   % end of \ifdefined\sectiononeonly\else
 
 \begin{thebibliography}{99}
 \addcontentsline{toc}{section}{References}
@@ -1565,7 +1587,7 @@ makes that honest and gives (f) without borrowing.
   Wikipedia, and I am a bad scholar who has not necessarily followed up to
   verify each and every one.
   For example, I have not read any of (Bruns, Poincar\'e, Sundman, Belorizky,
-  Gascheau, Thomson and Tait) because they're hard to track down. The texts that were read are in the handout's \texttt{references/} folder.
+  Gascheau, Thomson and Tait) because they're hard to track down. Available texts are in the handout's \texttt{references/} folder.
 
   \smallskip
   {\footnotesize\rowcolors{2}{gray!12}{white}\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{4.6cm}@{}}
