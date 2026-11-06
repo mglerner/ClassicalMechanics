@@ -52,7 +52,7 @@ NO_CLASS = dict(TERM.NO_CLASS)
 # Days students must bring a laptop. The schedule sheet (embedded in Moodle)
 # tags the topic "[BRING LAPTOP]" and the review checklist repeats it, so one
 # list drives both (a student asked not to carry a laptop every day, 2026-09-14).
-LAPTOP_DAYS = {date(2026, 9, 11), date(2026, 12, 4)}   # Dec 11 -> Dec 4 with the chaos notebook (2026-10-08)
+LAPTOP_DAYS = {date(2026, 9, 11), date(2026, 12, 11)}  # the chaos-notebook day: Dec 11 -> Dec 4 (2026-10-08 flex move), Dec 9 (2026-10-17 slip), Dec 11 again (2026-11-06 slip)
 
 def class_days():
     """The meetings held, in order (a generator)."""
@@ -253,6 +253,7 @@ PREDECESSOR_FLEX = {                    # his three open days, in order
 # appears before the next flex day. shared/slip.py appends here and moves the pack folders.
 SLIPS = [
     (date(2026, 10, 19), +1, 'Mon Oct 19 is the Exam 1 hand-back (review + class time on revisions after an exam that ran too long); class 16 covers a minimum of its plan, the rest continues Wed Oct 21'),
+    (date(2026, 11, 6), +1, "class 24 (Fri Nov 6) ran as the Lagrange-points handout day; Will's Ch 8 Day 1 did not run (teaching log 2026-11-06)"),
 ]
 assert len(PREDECESSOR_CONTENT) == len(CONTENT), "one predecessor day per CONTENT row"
 assert set(PREDECESSOR_ASSESSMENT) == set(EXAMS), "one predecessor day per exam"
@@ -264,7 +265,8 @@ def rows():
     (the prerequisites), predecessor, pcci. Flex days and slips applied. THE sequence every
     consumer reads; CONTENT is positional input only."""
     return make_rows(class_days(), CONTENT, {d: EXAMS[d][0] for d in EXAMS}, FLEX, SLIPS,
-                     PREDECESSOR_CONTENT, PREDECESSOR_ASSESSMENT, PREDECESSOR_FLEX, _PCCI)
+                     PREDECESSOR_CONTENT, PREDECESSOR_ASSESSMENT, PREDECESSOR_FLEX, _PCCI,
+                     CONTINUED_PCCI)
 
 
 term_rows = rows          # alias for build(), whose local list is also called rows
@@ -352,23 +354,28 @@ HWS = [
      "6.23 [hints], 6.24 [advanced, optional], 6.27, 7.3, 7.10 [hint], 7.14"),
     # Due Fri Nov 13, before Exam 2 on Mon Nov 16 (both moved 2026-09-24;
     # the exam rule is now "due before the exam"). 8.2 is taught Wed Nov 4.
-    (9, date(2026, 11, 13), date(2026, 11, 4), {7, 8},
+    (9, date(2026, 11, 13), date(2026, 11, 9), {7, 8},    # 8.2's T split is class 25, Mon Nov 9, after the 2026-11-06 slip
      "7.5, 7.8, 7.10, 8.1-8.2: Lagrangian examples; Noether; multipliers; "
      "two-body setup",
      "7.27, 7.31, 7.34, 7.38 [optional challenge], 7.46 [Noether: rotational "
      "invariance gives conservation of L_z], 8.2"),
-    (10, date(2026, 11, 20), date(2026, 11, 9), {8},
+    (10, date(2026, 11, 20), date(2026, 11, 11), {8},    # 8.15, 8.18, 8.23 are class 26, Wed Nov 11, after the 2026-11-06 slip
      "8.3-8.8: central-force motion, orbits, changing orbits",
      "8.9, 8.13, 8.14 [optional challenge], 8.15, 8.18, 8.23"),
     (11, date(2026, 11, 30), date(2026, 11, 20), {8, 9},
      "8.8, Ch 9: non-inertial frames, Coriolis",
      "8.27 [optional challenge], 8.33, 9.3, 9.9, 9.15 [Northampton "
      "colatitude 48 deg], 9.17, 9.28, 9.29 [optional challenge]"),
-    (12, date(2026, 12, 4), date(2026, 11, 30), {11},     # Ch 11 ends Mon Nov 30 since the flex days moved (2026-10-08)
+    # DECISION OWED (2026-11-06 slip): Ch 11 now runs Nov 30, Dec 2 and Dec 4, so the double pendulum
+    # (11.14's small-angle U, 11.17) is taught Fri Dec 4, the day HW12 is due at 10 PM. covers_through
+    # is held at Wed Dec 2 (class 33, normal coordinates) so the due > covers_through guard builds;
+    # with Dec 4 it fires. Michael's call: move the due date (Mon Dec 7 is Exam 3), move 11.14/11.17
+    # to HW13, or accept the same-day gap.
+    (12, date(2026, 12, 4), date(2026, 12, 2), {11},
      "Ch 11: coupled oscillators, normal modes, double pendulum",
      "11.6, 11.9, 11.12, 11.14 [Lagrangian supplied as a check], 11.17 "
      "[optional]"),
-    (13, date(2026, 12, 14), date(2026, 12, 4), {12},     # Ch 12 ends Fri Dec 4 (2026-10-08)
+    (13, date(2026, 12, 14), date(2026, 12, 11), {12},    # Ch 12 is Dec 9 and 11 after the 2026-11-06 slip; the set goes live Fri Dec 4, before either
      "Ch 12: chaos",
      "12.1, 12.6, 12.7 [computational: use the class program or write your "
      "own], 12.8-12.10 [optional], 12.13 + custom parts (b), (c)"),
@@ -431,10 +438,15 @@ _PCCI = {   # the hand table; PCCI below is the effective one (a PCCI follows it
     date(2026, 10, 30): "Read 7.2-7.3: in a sentence, what makes a "
                         "constraint holonomic? Give one example of each kind",
     date(2026, 11, 2): "7.17",
-    # Ch 8
+    # Ch 8. Keys are the rows' ORIGINAL dates (before any slip); after the 2026-11-06 slip the
+    # orbits row (8.5-8.6) sits on Wed Nov 11 and changing orbits (8.7-8.8) on Fri Nov 13.
+    # 8.19 was already assigned for Mon Nov 9 when class 24 ran a day long, and a student had done
+    # it, so it stays there (Michael, 2026-11-06): it is the continued day's PCCI (CONTINUED_PCCI),
+    # and the orbits row takes 8.28 at its posted date, Wed Nov 11 (it is 8.6 material, that day's
+    # reading). The changing-orbits day (Fri Nov 13) then has none; Will's look-at for it was 8.32,
+    # Michael's call whether to assign it.
     date(2026, 11, 4): "8.6",
-    date(2026, 11, 6): "8.19",
-    date(2026, 11, 9): "8.28",
+    date(2026, 11, 6): "8.28",
     # Ch 9 -- 9.1 before Exam 2 (Mon Nov 16), the rest after
     date(2026, 11, 11): "9.1",
     date(2026, 11, 13): "9.7",
@@ -445,13 +457,18 @@ _PCCI = {   # the hand table; PCCI below is the effective one (a PCCI follows it
                         "the energy of two weakly coupled pendulums over time?",
     date(2026, 11, 30): "Write down the Lagrangian of a simple pendulum "
                         "(length L, angle phi); no need to solve it",
-    # Ch 12 (before Exam 3, as Will had it; the three flex days follow the exam)
+    # Ch 12 (keys are the original dates: Dec 2 and 4, before Exam 3 as Will had it; after the two slips the
+    # two chaos days are Dec 9 and 11, after Exam 3, and Dec 14 is the one flex day left)
     date(2026, 12, 2): "Read 12.1-12.2: in a sentence, what does it mean "
                        "for an equation of motion to be linear, and what do "
                        "we lose when it isn't?",
     date(2026, 12, 4): "Log into jupyterhub.smith.edu and open the driven-"
                        "pendulum notebook on Moodle; bring your laptop",
     date(2026, 12, 14): "Bring one question for the final-exam review",
+}
+# The PCCI of a slip-made "(continued)" day, keyed by its actual date (calendar_rows.continued_pcci).
+CONTINUED_PCCI = {
+    date(2026, 11, 9): "8.19",   # see the Ch 8 note in _PCCI
 }
 PCCI = effective_pcci(rows())
 
