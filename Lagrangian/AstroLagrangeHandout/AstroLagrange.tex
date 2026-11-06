@@ -841,15 +841,14 @@ unit mass in the units of the board problem ($R = 1$, $G(M_1+M_2) = 1$, $\Om = 1
   \Ueff = -\frac{1-\mu}{d_1} - \frac{\mu}{d_2} - \frac{x^2+y^2}{2},
   \qquad d_1 = \sqrt{(x+\mu)^2 + y^2}, \quad d_2 = \sqrt{(x-1+\mu)^2 + y^2} .
 \end{equation}
-We will need the second derivatives of one gravitational term, $-M/d$ with
+To see this, we will need the second derivatives of one gravitational term, $-M/d$ with
 $d = \sqrt{(x-a)^2 + y^2}$ the distance to a mass $M$ at $(a, 0)$:
 \begin{align}
   \pd{}{x}\Bigl(-\frac{M}{d}\Bigr) &= \frac{M}{d^2}\,\pd{d}{x} = \frac{M(x-a)}{d^3}
   && \text{($\partial d/\partial x = (x-a)/d$)} \nonumber\\
   \pd{^2}{x^2}\Bigl(-\frac{M}{d}\Bigr) &= \frac{M}{d^3} - \frac{3M(x-a)^2}{d^5}
-  && \text{(product rule on $(x-a)\,d^{-3}$)} \nonumber\\
-  \pd{^2}{y^2}\Bigl(-\frac{M}{d}\Bigr) &= \frac{M}{d^3} - \frac{3M y^2}{d^5}
-  && \text{(the same with $y$ in place of $x - a$)} \nonumber\\
+  && \text{(product rule)} \nonumber\\
+  \pd{^2}{y^2}\Bigl(-\frac{M}{d}\Bigr) &= \frac{M}{d^3} - \frac{3M y^2}{d^5} \nonumber\\
   \pd{^2}{x\,\partial y}\Bigl(-\frac{M}{d}\Bigr) &= -\frac{3M(x-a)\,y}{d^5} .
   \label{eq:dsecond}
 \end{align}
@@ -862,7 +861,9 @@ centrifugal term contributes $-1$ to each. So, everywhere in the plane,
 at least one of the two curvatures is negative at every point, so $\Ueff$ curves downward in
 some direction everywhere, and no point is a minimum. For a static potential that would be the
 end of the story: the small-oscillation analysis of Taylor's Example~7.7 calls an equilibrium
-stable only at a minimum, and would declare all five points unstable. The question is what the
+stable only at a minimum, and would declare all five points unstable. However,
+the fact that we addressed the problem via a rotating coordinate frame is a hint
+that we need to dig a bit more. The key is to ask what the
 Coriolis force, which we dropped in Step~6(a) by setting the velocities to zero, does to a
 body that has started to move.
 
