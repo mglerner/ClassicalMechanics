@@ -491,21 +491,22 @@ solved in units where $R = 1$). We find that there are exactly five solutions
 \sideroads{}). The remaining two, $L_4$ and $L_5$, are off axis.
 Figure~\ref{fig:fivepoints} shows all five.
 
-The two off the axis are not so tricky to derive.
-With $\vr = (x, y)$ the position of the test mass and $\vr_1 = (-r_1, 0)$, $\vr_2 = (r_2, 0)$
-those of the primaries, all in the rotating frame, we look at a point $\vr$ a distance $R$ from
-\emph{both} primaries (the third corner of an equilateral triangle on $M_1M_2$). Here, each
-primary pulls with magnitude $GM_i/R^2$ along the unit vector $(\vr_i - \vr)/R$.
-So, dividing \eqref{eq:equilibrium3} by $m$ and writing the gravity term as
-(magnitude)$\times$(unit vector),
+The two off the axis are not so tricky to derive. Take the point $\vr$ a distance $R$ from
+\emph{both} primaries, the third corner of an equilateral triangle on $M_1M_2$, with
+$\vr_1 = (-r_1, 0)$ and $\vr_2 = (r_2, 0)$ in the rotating frame. Then $d_1 = d_2 = R$, and the
+gravity term of \eqref{eq:equilibrium3}, divided by $m$, is
 \begin{align}
-  -\frac1m\grad U &= \frac{GM_1}{R^2}\,\frac{\vr_1 - \vr}{R} + \frac{GM_2}{R^2}\,\frac{\vr_2 - \vr}{R}
-  = \frac{GM_1(\vr_1 - \vr)}{R^3} + \frac{GM_2(\vr_2 - \vr)}{R^3} \nonumber\\
+  -\frac1m\grad U &= \frac{GM_1(\vr_1 - \vr)}{d_1^3} + \frac{GM_2(\vr_2 - \vr)}{d_2^3}
+  && \text{(the two pulls, Step 2)} \nonumber\\
   &= \frac{G}{R^3}\Bigl[(M_1\vr_1 + M_2\vr_2) - (M_1 + M_2)\,\vr\Bigr]
-  = -\frac{G(M_1 + M_2)}{R^3}\,\vr = -\Om^2\vr ,
+  && (d_1 = d_2 = R) \nonumber\\
+  &= -\frac{G(M_1 + M_2)}{R^3}\,\vr
+  && (M_1\vr_1 + M_2\vr_2 = 0\text{: origin at the CM}) \nonumber\\
+  &= -\Om^2\vr .
+  && \text{(by \eqref{eq:kepler3})}
 \end{align}
-using $M_1\vr_1 + M_2\vr_2 = 0$ (origin at the CM) and then \eqref{eq:kepler3}; the
-centrifugal term of \eqref{eq:equilibrium3} divided by $m$ is $+\Om^2\vr$, and the two cancel.
+The centrifugal term of \eqref{eq:equilibrium3} divided by $m$ is $+\Om^2\vr$, so the two cancel
+and $\grad\Ueff = 0$ there.
 Those are $L_4$ and $L_5$, $60^\circ$ ahead of and behind $M_2$ as seen from $M_1$, for any mass
 ratio (on $M_2$'s orbit only in the limit $\mu \to 0$). (Jupiter's Trojans.) In words: at the equilateral points the two bodies' gravity
 points exactly at the CM, with exactly the strength a circular orbit of angular speed $\Om$
