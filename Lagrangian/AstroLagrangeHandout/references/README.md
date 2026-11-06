@@ -24,6 +24,7 @@ Checked 2026-11-06. "Listing" means the publisher's or Crossref's bibliographic 
 | Thomson and Tait 1879, Treatise, Part I | -- | Sec. 345 (pp. 387-393) read in the archive.org OCR of the 1912 reprint; the no-stability-with-dissipation sentence is Sec. 345 vi, p. 391 | `texts/Thomson-Tait-1879-section-345-extract.txt`, full OCR `texts/Thomson-Tait-1879-Treatise-Part-I-1912-reprint-archive.org-OCR.txt` |
 | Kirillov and Verhulst 2010, ZAMM 90 | -- | full text (arXiv 0906.1650 version) | `texts/Kirillov-Verhulst-2010-ZAMM-90-462-arXiv-0906.1650.pdf`, `.txt` |
 | Wikipedia articles | -- | wikitext as of 2026-11-06 | `wikipedia/*.wikitext` |
+| Point de Lagrange (French Wikipedia) | -- | translated by Claude 2026-11-06 (lead, History, Definition, Stability, characteristic times, orbit structure, Relevance, bibliography; the position-calculation, space-mission, Solar System and science-fiction sections omitted); the article links Gascheau's and Liouville's originals on Gallica, which blocked the download | `wikipedia/fr-Point_de_Lagrange-translation.md` |
 
 Sources of the copies: Sicardy from <https://www.lesia.obspm.fr/perso/bruno-sicardy/biblio/biblio/Sicardy_Gascheau_CelMec10.pdf>;
 Edlund from <https://facultyweb.cortland.edu/eric.edlund/portfolio/research/publications/Edlund-AJP2024.pdf>;
