@@ -778,20 +778,242 @@ way to see that there are exactly five points. (It is how Edlund, Am.\ J.\ Phys.
 
 \medskip
 
-\tocentry[subsubsection]{Stability, in one paragraph}
-\noindent\textbf{Stability, in one paragraph (not derived today).} $L_1$, $L_2$ and $L_3$ are
-saddle points of $\Ueff$ and are unstable: JWST fires its thrusters every few weeks to stay
-near $L_2$. $L_4$ and $L_5$ are \emph{maxima} of $\Ueff$, and yet they are stable whenever
-$27\mu(1-\mu) < 1$ (a quoted result, Gascheau's of 1843; Murray and Dermott~\cite{murray},
-Chapter~3, derive it), i.e.\ $\mu < 0.0385$, which covers Sun--Jupiter (the Trojans) and
-Earth--Moon. A stable equilibrium at a potential maximum is impossible for a static potential:
-the small-oscillation analysis of Taylor's Example~7.7 would call it unstable. What rescues it
-is the Coriolis force, which does no work but keeps turning the velocity, so a body that starts
-to fall off the hill is swung around it instead (Greenberg and Davis, ``Stability at potential maxima,'' Am.\ J.\
-Phys.\ \textbf{46}, 1068 (1978)). Showing that means linearizing
-\eqref{eq:eom3} \emph{with} the velocity terms kept, a $4\times 4$ eigenvalue problem; it is a
-very good project, and the same velocity-coupled linear equations appear in Chapter~9's
-Foucault pendulum.
+\tocentry[subsubsection]{Stability: the question}
+\noindent\textbf{Stability: the question.} Figure~\ref{fig:ueff} shows $L_1$, $L_2$, $L_3$ as
+saddles of $\Ueff$ and $L_4$, $L_5$ as maxima. In fact $\Ueff$ has no minimum anywhere. Work per
+unit mass in the units of the board problem ($R = 1$, $G(M_1+M_2) = 1$, $\Om = 1$), so that
+\begin{equation}
+  \label{eq:ueffunits}
+  \Ueff = -\frac{1-\mu}{d_1} - \frac{\mu}{d_2} - \frac{x^2+y^2}{2},
+  \qquad d_1 = \sqrt{(x+\mu)^2 + y^2}, \quad d_2 = \sqrt{(x-1+\mu)^2 + y^2} .
+\end{equation}
+We will need the second derivatives of one gravitational term, $-M/d$ with
+$d = \sqrt{(x-a)^2 + y^2}$ the distance to a mass $M$ at $(a, 0)$:
+\begin{align}
+  \pd{}{x}\Bigl(-\frac{M}{d}\Bigr) &= \frac{M}{d^2}\,\pd{d}{x} = \frac{M(x-a)}{d^3}
+  && \text{($\partial d/\partial x = (x-a)/d$)} \nonumber\\
+  \pd{^2}{x^2}\Bigl(-\frac{M}{d}\Bigr) &= \frac{M}{d^3} - \frac{3M(x-a)^2}{d^5}
+  && \text{(product rule on $(x-a)\,d^{-3}$)} \nonumber\\
+  \pd{^2}{y^2}\Bigl(-\frac{M}{d}\Bigr) &= \frac{M}{d^3} - \frac{3M y^2}{d^5}
+  && \text{(the same with $y$ in place of $x - a$)} \nonumber\\
+  \pd{^2}{x\,\partial y}\Bigl(-\frac{M}{d}\Bigr) &= -\frac{3M(x-a)\,y}{d^5} .
+  \label{eq:dsecond}
+\end{align}
+Add the first two: $2M/d^3 - 3M\bigl[(x-a)^2 + y^2\bigr]/d^5 = 2M/d^3 - 3M/d^3 = -M/d^3$. The
+centrifugal term contributes $-1$ to each. So, everywhere in the plane,
+\begin{equation}
+  \label{eq:laplacian}
+  \pd{^2\Ueff}{x^2} + \pd{^2\Ueff}{y^2} = -\frac{1-\mu}{d_1^3} - \frac{\mu}{d_2^3} - 2 < 0 :
+\end{equation}
+at least one of the two curvatures is negative at every point, so $\Ueff$ curves downward in
+some direction everywhere, and no point is a minimum. For a static potential that would be the
+end of the story: the small-oscillation analysis of Taylor's Example~7.7 calls an equilibrium
+stable only at a minimum, and would declare all five points unstable. The question is what the
+Coriolis force, which we dropped in Step~6(a) by setting the velocities to zero, does to a
+body that has started to move.
+
+\medskip
+
+\tocentry[subsubsection]{Linearizing with the Coriolis term kept}
+\noindent\textbf{Linearizing with the Coriolis term kept.} Per unit mass and in these units,
+with gravity and the centrifugal force combined into $\Ueff$ as in \eqref{eq:equilibrium3},
+the equations of motion \eqref{eq:eom3} are
+\begin{equation}
+  \label{eq:eomunits}
+  \ddot x = -\pd{\Ueff}{x} + 2\dot y, \qquad \ddot y = -\pd{\Ueff}{y} - 2\dot x .
+\end{equation}
+Put the body near an equilibrium, $x = L_x + \xi$, $y = L_y + \eta$ with $\xi$, $\eta$ small,
+and expand the force to first order. At the equilibrium the first derivatives vanish, so with
+\begin{equation*}
+  A \equiv \pd{^2\Ueff}{x^2}, \qquad B \equiv \pd{^2\Ueff}{x\,\partial y}, \qquad
+  C \equiv \pd{^2\Ueff}{y^2} \qquad\text{(all evaluated at the equilibrium)}
+\end{equation*}
+we have $\partial\Ueff/\partial x \approx A\xi + B\eta$ and
+$\partial\Ueff/\partial y \approx B\xi + C\eta$, and \eqref{eq:eomunits} becomes
+\begin{equation}
+  \label{eq:linear}
+  \ddot\xi - 2\dot\eta = -A\xi - B\eta, \qquad \ddot\eta + 2\dot\xi = -B\xi - C\eta .
+\end{equation}
+These are linear with constant coefficients, so try $\xi = a e^{\lambda t}$,
+$\eta = b e^{\lambda t}$:
+\begin{align}
+  (\lambda^2 + A)\,a + (B - 2\lambda)\,b &= 0 && \text{(the $\xi$ equation, divided by $e^{\lambda t}$)} \nonumber\\
+  (B + 2\lambda)\,a + (\lambda^2 + C)\,b &= 0 . && \text{(the $\eta$ equation)}
+  \label{eq:modes}
+\end{align}
+A solution with $a$, $b$ not both zero needs the determinant to vanish:
+\begin{align}
+  0 &= (\lambda^2 + A)(\lambda^2 + C) - (B - 2\lambda)(B + 2\lambda) \nonumber\\
+    &= \lambda^4 + (A + C)\lambda^2 + AC - B^2 + 4\lambda^2 \nonumber\\
+    &= \lambda^4 + (4 + A + C)\,\lambda^2 + (AC - B^2) .
+  \label{eq:char}
+\end{align}
+This is a quadratic in $\Lambda \equiv \lambda^2$. The roots come in pairs $\pm\lambda$, so if
+any $\lambda$ has a positive real part some mode grows like $e^{({\rm Re}\,\lambda) t}$ and the
+point is unstable. Nothing grows only if every $\lambda$ is purely imaginary, $\lambda =
+\pm i\omega$, which means both roots $\Lambda$ of
+\begin{equation}
+  \label{eq:charL}
+  \Lambda^2 + (4 + A + C)\,\Lambda + (AC - B^2) = 0
+\end{equation}
+are real and negative. For a quadratic that is three conditions on the coefficients:
+\begin{align}
+  AC - B^2 &> 0 && \text{(the product of the roots is positive)} \nonumber\\
+  4 + A + C &> 0 && \text{(their sum is negative)} \nonumber\\
+  (4 + A + C)^2 &> 4(AC - B^2) . && \text{(the roots are real)}
+  \label{eq:conditions}
+\end{align}
+Now compare with the static problem. Dropping the Coriolis terms $2\dot\eta$ and $2\dot\xi$
+from \eqref{eq:linear} deletes the $4\lambda^2$ in \eqref{eq:char}, and the conditions become
+$AC - B^2 > 0$ and $A + C > 0$: both curvatures positive, a minimum, Taylor's result (the third
+condition then holds automatically). The \emph{entire} effect of the Coriolis force on the
+linear problem is the $4$ in the $\lambda^2$ coefficient. That $4$ cannot help a saddle: at a
+saddle $AC - B^2 < 0$, so one root $\Lambda$ is positive, one $\lambda$ is real and positive,
+and the body leaves. It can help a maximum: there $AC - B^2 > 0$ and $A + C < 0$, but $4 + A +
+C$ can still be positive, and if the third condition also holds every mode oscillates.
+
+\medskip
+
+\tocentry[subsubsection]{\texorpdfstring{$L_1$, $L_2$, $L_3$}{L1, L2, L3}: saddles, unstable for every \texorpdfstring{$\mu$}{mu}}
+\noindent\textbf{$L_1$, $L_2$, $L_3$: saddles, unstable for every $\mu$.} On the axis $y = 0$,
+so $d = |x - a|$ in \eqref{eq:dsecond}, and the second derivatives of each gravitational term
+simplify to $-2M/d^3$, $M/d^3$ and $0$. Writing
+\begin{equation}
+  \label{eq:kappa}
+  \kappa \equiv \frac{1-\mu}{d_1^3} + \frac{\mu}{d_2^3}
+  \qquad\text{(evaluated at the point, $d_1 = |x + \mu|$, $d_2 = |x - 1 + \mu|$)}
+\end{equation}
+for the sum of the two $M/d^3$'s, and adding the centrifugal $-1$'s,
+\begin{equation}
+  \label{eq:collinear}
+  A = -2\kappa - 1, \qquad B = 0, \qquad C = \kappa - 1 .
+\end{equation}
+$A$ is negative. $C$ is positive because $\kappa > 1$ at all three points, which follows from
+the axis equation \eqref{eq:axis} itself:
+\begin{align}
+  \kappa x - x &= \frac{(1-\mu)\bigl[x - (x+\mu)\bigr]}{d_1^3} + \frac{\mu\bigl[x - (x-1+\mu)\bigr]}{d_2^3}
+  && \text{($\kappa x$ from \eqref{eq:kappa}, $x$ from \eqref{eq:axis})} \nonumber\\
+  (\kappa - 1)\,x &= \mu(1-\mu)\Bigl(\frac{1}{d_2^3} - \frac{1}{d_1^3}\Bigr) .
+  \label{eq:kappagt1}
+\end{align}
+At $L_1$ and $L_2$, $x > 0$ and the point is nearer $M_2$ than $M_1$ ($d_2 < d_1$), so the
+right side is positive and $\kappa > 1$. At $L_3$, $x < 0$ and $d_1 < d_2$, so both sides are
+negative and again $\kappa > 1$. Hence $A < 0 < C$: each collinear point is a saddle of
+$\Ueff$, as the figure shows, and
+\begin{equation*}
+  AC - B^2 = -(2\kappa + 1)(\kappa - 1) < 0
+\end{equation*}
+fails the first condition in \eqref{eq:conditions} for every $\mu$. Explicitly, with $4 + A + C
+= 2 - \kappa$, \eqref{eq:charL} is $\Lambda^2 + (2 - \kappa)\Lambda - (2\kappa+1)(\kappa-1) = 0$,
+\begin{equation}
+  \label{eq:collinearroots}
+  \Lambda_\pm = \frac{(\kappa - 2) \pm \sqrt{(\kappa-2)^2 + 4(2\kappa+1)(\kappa-1)}}{2}
+  = \frac{(\kappa - 2) \pm \sqrt{9\kappa^2 - 8\kappa}}{2} ,
+\end{equation}
+one positive and one negative: one pair of modes $e^{\pm\lambda t}$ with real $\lambda =
+\sqrt{\Lambda_+}$, one pair of oscillations with $\omega = \sqrt{-\Lambda_-}$. Any displacement
+with a component along the growing mode leaves on the timescale $1/\lambda$.
+
+The numbers for the Sun--Earth $L_2$: $d_1 = 1.0100$, $d_2 = 0.01004$ (the table above), so
+$\kappa = 0.9705 + 2.970 = 3.94$, $\Lambda_+ = 6.17$,
+$\lambda = 2.48$ and $\omega = 2.06$. The unit of time is $1/\Om$, the orbital period over
+$2\pi$: $365.25/2\pi = 58.1$~days. So a displacement from $L_2$ grows by a factor $e$ every
+$58.1/2.48 = 23$~days, and the oscillatory pair has period $2\pi/2.06 \times 58.1 = 178$~days.
+That is JWST: it rides the oscillatory mode on a halo orbit of period about six months, and
+every three weeks or so fires its thrusters to cancel what has leaked into the growing mode.
+(For small $\mu$ the result is universal: at $L_1$ and $L_2$, $d_2 = \delta$ with $\delta^3 =
+\mu/3$ from \eqref{eq:hill}, so $\kappa \approx 1 + \mu/\delta^3 = 4$, and $\lambda \approx 2.5$
+whatever the masses. For the Earth--Moon $L_2$, $\kappa = 3.19$ and the $e$-folding time is
+two days.)
+
+\medskip
+
+\tocentry[subsubsection]{\texorpdfstring{$L_4$, $L_5$}{L4, L5}: maxima, stable for \texorpdfstring{$\mu < 0.0385$}{mu < 0.0385}}
+\noindent\textbf{$L_4$, $L_5$: maxima, stable for $\mu < 0.0385$.} At $L_4 = (\tfrac12 - \mu,
+\tfrac{\sqrt3}{2})$ both distances are $1$, with $x - a_1 = x + \mu = \tfrac12$, $x - a_2 = x - 1
++ \mu = -\tfrac12$ and $y^2 = \tfrac34$. Put those into \eqref{eq:dsecond} with $d = 1$, add
+the two masses (they total $1$) and the centrifugal $-1$'s:
+\begin{align}
+  A &= (1-\mu)\bigl(1 - 3\cdot\tfrac14\bigr) + \mu\bigl(1 - 3\cdot\tfrac14\bigr) - 1
+     = \tfrac14 - 1 = -\tfrac34 \nonumber\\
+  C &= (1-\mu)\bigl(1 - 3\cdot\tfrac34\bigr) + \mu\bigl(1 - 3\cdot\tfrac34\bigr) - 1
+     = -\tfrac54 - 1 = -\tfrac94 \nonumber\\
+  B &= -3(1-\mu)\bigl(\tfrac12\bigr)\bigl(\tfrac{\sqrt3}{2}\bigr)
+       - 3\mu\bigl(-\tfrac12\bigr)\bigl(\tfrac{\sqrt3}{2}\bigr)
+     = -\frac{3\sqrt3}{4}\,(1 - 2\mu) .
+  \label{eq:L4hess}
+\end{align}
+($L_5$ has $y \to -y$, which flips the sign of $B$ and changes nothing below, since only $B^2$
+enters.) Then
+\begin{align}
+  AC - B^2 &= \frac{27}{16} - \frac{27}{16}(1 - 2\mu)^2 && \nonumber\\
+           &= \frac{27}{16}\bigl(4\mu - 4\mu^2\bigr) = \frac{27}{4}\,\mu(1-\mu) > 0 ,
+  && \text{($1 - (1-2\mu)^2 = 4\mu - 4\mu^2$)}
+  \label{eq:L4det}
+\end{align}
+and $A + C = -3 < 0$ (which is \eqref{eq:laplacian} with $d_1 = d_2 = 1$): both curvatures
+negative, a maximum of $\Ueff$, as the figure shows. Without the Coriolis term \eqref{eq:charL}
+would be $\Lambda^2 - 3\Lambda + \tfrac{27}{4}\mu(1-\mu) = 0$, whose roots are both positive
+(sum $3$, product positive): two real growing modes, Taylor's verdict. With it, $4 + A + C = 1$,
+\begin{equation}
+  \label{eq:gascheau}
+  \Lambda^2 + \Lambda + \frac{27}{4}\,\mu(1-\mu) = 0, \qquad
+  \Lambda_\pm = \frac{-1 \pm \sqrt{1 - 27\mu(1-\mu)}}{2} .
+\end{equation}
+The sum of the roots is $-1$ and their product is positive, so the first two conditions in
+\eqref{eq:conditions} hold for every $\mu$; the third is that the square root be real:
+\begin{equation}
+  \label{eq:gascheaucond}
+  27\mu(1-\mu) < 1 \qquad\Longleftrightarrow\qquad \mu < \frac{1 - \sqrt{23/27}}{2} = 0.0385 .
+\end{equation}
+Below that mass ratio both $\Lambda$'s are real and negative, every mode oscillates, and
+$L_4$ and $L_5$ are (linearly) stable; above it the $\Lambda$'s are complex, every $\lambda$
+has a nonzero real part, and they are not (Pluto--Charon, with $\mu = 0.11$, has no stable
+Trojan points). This is Gascheau's result of 1843.\footnote{Linear stability is the whole
+  story here except at two resonant mass ratios inside the interval, $\mu = 0.0135$ and
+  $0.0243$, where the two frequencies are in a $3{:}1$ or $2{:}1$ ratio and the nonlinear terms
+  take over (Deprit and Deprit-Bartholom\'e, Astron.\ J.\ \textbf{72}, 173 (1967)); Murray and
+  Dermott~\cite{murray}, Chapter~3, cover the linear analysis and the history.} The two
+frequencies are $\omega_\pm = \sqrt{-\Lambda_\pm}$:
+\begin{center}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+ & $\mu$ & $27\mu(1-\mu)$ & long period, $2\pi/\omega_+$ & short period, $2\pi/\omega_-$ \\
+\midrule
+Earth--Moon  & $1.22\times 10^{-2}$ & $0.324$  & $21.1$ time units $= 92$ days & $6.6$ time units $= 29$ days \\
+Sun--Jupiter & $9.54\times 10^{-4}$ & $0.0257$ & $78$ time units $= 147$ yr & $6.3$ time units $= 11.9$ yr \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent The short period is always close to the orbital period ($2\pi$ time units): that mode
+is nearly the epicycle a free body makes when seen from the rotating frame. The long one is the
+\emph{libration} around $L_4$, and the $147$-year figure is what the Trojan asteroids are
+observed to do.
+
+\medskip
+
+\tocentry[subsubsection]{What the Coriolis force is doing}
+\noindent\textbf{What the Coriolis force is doing.} Energy is not what holds the body near
+$L_4$. The Jacobi constant \eqref{eq:jacobi3} gives $\tfrac12 v^2 = E - \Ueff$, and near a
+maximum every neighbouring point has a \emph{lower} $\Ueff$, so every neighbouring point is
+allowed, at a higher speed; conservation of energy forbids nothing. What happens instead is
+that the body starts down the hill, the Coriolis force $2(\dot y, -\dot x)$ turns the growing
+velocity sideways, and the body is swung around $L_4$ rather than away from it, like a charged
+particle in a magnetic field (the Coriolis term has exactly the form of $q\,\mathbf v \times
+\mathbf B$ with $\mathbf B$ along $z$). The slow mode is that circulation. It is a wide one: a
+body released from rest a distance $\epsilon$ from the Earth--Moon $L_4$ wanders, according to
+\eqref{eq:linear}, out to between $16\epsilon$ and $28\epsilon$ depending on the direction of
+the initial displacement, and for Sun--Jupiter to between $40\epsilon$ and $70\epsilon$.
+``Stable'' here means ``stays in a neighbourhood of $L_4$, forever,'' not ``returns to
+$L_4$,'' and the neighbourhood is large; the real Trojans librate on tadpole-shaped paths that
+span tens of degrees of Jupiter's orbit. This kind of stability, by a velocity-dependent force
+that does no work, is called \emph{gyroscopic}, and Greenberg and Davis, ``Stability at
+potential maxima,'' Am.\ J.\ Phys.\ \textbf{46}, 1068 (1978), is a short, readable account. It
+is also fragile in one specific way: add any friction, however small, and a body at a
+potential maximum eventually does fall off (a theorem of Thomson and Tait, 1879). The same
+velocity-coupled linear equations \eqref{eq:linear}, with the Earth's rotation supplying the
+$2\dot\eta$ and $2\dot\xi$, describe Chapter~9's Foucault pendulum.
 
 
 \addtocontents{toc}{\protect\columnbreak}   % contents: Section 1 fills the left column
