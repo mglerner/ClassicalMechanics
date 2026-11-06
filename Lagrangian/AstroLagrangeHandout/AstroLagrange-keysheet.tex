@@ -1,0 +1,102 @@
+% One-page key-equation sheet for the Lagrange points class (317 class 24, Fri Nov 6 2026).
+% Printed for the students and imported into the GoodNotes chapter deck as the page Michael inks on.
+% Equation numbers come from AstroLagrange.aux through xr-hyper, so build the handout first:
+%   latexmk -pdf -silent AstroLagrange.tex && latexmk -pdf -silent AstroLagrange-keysheet.tex
+\documentclass[10pt]{article}
+\input{macros}
+\usepackage{xr-hyper}
+\usepackage{booktabs}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\externaldocument{AstroLagrange}
+\newcommand{\Om}{\Omega}
+\newcommand{\Lag}{\mathcal{L}}
+\newcommand{\Ueff}{U_{\rm eff}}
+\pagestyle{empty}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{1pt}
+\setlength{\belowdisplayshortskip}{1pt}
+
+\begin{document}
+\begin{center}
+  {\large\bfseries The Lagrange points: the key equations}\\[1pt]
+  {\small Equation numbers are the astronomy handout's (Section~1). Everything else is yours to fill in.}
+\end{center}
+
+\textbf{Set-up (Steps 1--3).} Two primaries $M_1$, $M_2$ a fixed distance $R$ apart, circling
+their CM at angular speed $\Om$; a test mass $m \ll M_1, M_2$ moving in their plane ($Z = 0$).
+With $\mu \equiv M_2/(M_1 + M_2)$:
+\begin{equation*}
+  r_1 = \mu R, \qquad r_2 = (1 - \mu)R \quad\text{(distances of $M_1$, $M_2$ from the CM)}, \qquad
+  \Om^2 = \frac{G(M_1 + M_2)}{R^3} \quad\text{\eqref{eq:kepler3}} .
+\end{equation*}
+
+\textbf{Step 4: coordinates that rotate with the primaries.} $(X, Y)$ inertial, $(x, y)$ turned
+through $\Om t$; the primaries then sit at $(-r_1, 0)$ and $(r_2, 0)$ for all time, so $U$ loses
+its $t$:
+\begin{gather*}
+  X = x\cos\Om t - y\sin\Om t, \qquad Y = x\sin\Om t + y\cos\Om t \quad\text{\eqref{eq:rotation}}, \\
+  U(x, y) = -\frac{GmM_1}{\sqrt{(x + r_1)^2 + y^2}} - \frac{GmM_2}{\sqrt{(x - r_2)^2 + y^2}} \quad\text{\eqref{eq:U2d}}, \\
+  \dot X^2 + \dot Y^2 = \dot x^2 + \dot y^2 + 2\Om(x\dot y - y\dot x) + \Om^2(x^2 + y^2), \\
+  \boxed{\;\Lag = \tfrac12 m(\dot x^2 + \dot y^2) + m\Om\,(x\dot y - y\dot x)
+  + \tfrac12 m\Om^2(x^2 + y^2) - U(x, y)\;} \quad\text{\eqref{eq:Lrot3}: no $t$ in it.}
+\end{gather*}
+
+\textbf{Step 5: Lagrange's equations.} $\dfrac{d}{dt}\dfrac{\partial\Lag}{\partial\dot x} = \dfrac{\partial\Lag}{\partial x}$ and the same for $y$ give
+\begin{equation*}
+  m\ddot x = -\pd{U}{x} + m\Om^2 x + 2m\Om\dot y, \qquad
+  m\ddot y = -\pd{U}{y} + m\Om^2 y - 2m\Om\dot x \quad\text{\eqref{eq:eom3}},
+\end{equation*}
+Newton's second law with three forces: gravity $-\grad{U}$; centrifugal $m\Om^2(x, y)$, straight
+away from the CM; Coriolis $2m\Om(\dot y, -\dot x)$, perpendicular to the velocity, no work done.
+
+\textbf{Step 6(a): where can $m$ sit still?} $\dot x = \dot y = \ddot x = \ddot y = 0$ in
+\eqref{eq:eom3}: the Coriolis terms vanish with the velocities, and
+\begin{equation*}
+  \grad{\Ueff} = 0, \qquad \Ueff \equiv U - \tfrac12 m\Om^2(x^2 + y^2) \quad\text{\eqref{eq:equilibrium3}} .
+\end{equation*}
+Exactly five solutions. On the axis ($y = 0$), in units $R = 1$, $G(M_1 + M_2) = 1$, per unit mass:
+\begin{equation*}
+  x = \frac{(1-\mu)(x+\mu)}{|x+\mu|^3} + \frac{\mu\,(x-1+\mu)}{|x-1+\mu|^3} \quad\text{\eqref{eq:axis}}:
+  \quad L_1, L_2, L_3, \text{ one in each stretch of the axis};
+\end{equation*}
+for small $\mu$, $L_1$ and $L_2$ sit $d \approx R\,(\mu/3)^{1/3}$ from $M_2$ \eqref{eq:hill}, the
+Hill radius. Off the axis, $L_4$ and $L_5$ at the two equilateral points ($d_1 = d_2 = R$).
+
+\textbf{Step 6(b): what is conserved?} No $t$ in $\Lag$, so
+\begin{equation*}
+  \Ham = \tfrac12 m(\dot x^2 + \dot y^2) + \Ueff \quad\text{\eqref{eq:jacobi3}, the Jacobi integral; not $T + U$.}
+\end{equation*}
+
+\textbf{Stability.} None of the five is a minimum of $\Ueff$ ($L_1$--$L_3$ saddles, $L_4$, $L_5$
+maxima). Linearize \eqref{eq:eom3} about a point with the Coriolis term kept ($x = L_x + \xi$,
+$y = L_y + \eta$; $A, B, C$ the second derivatives of $\Ueff$ there; same units as above):
+\begin{gather*}
+  \ddot\xi - 2\dot\eta = -A\xi - B\eta, \qquad \ddot\eta + 2\dot\xi = -B\xi - C\eta \quad\text{\eqref{eq:linear}}; \\
+  \xi, \eta \propto e^{\lambda t}: \qquad
+  \lambda^4 + (4 + A + C)\lambda^2 + (AC - B^2) = 0 \quad\text{\eqref{eq:char}} .
+\end{gather*}
+The $4$ is the whole Coriolis effect. A saddle ($AC - B^2 < 0$) always has a real $\lambda > 0$:
+$L_1$--$L_3$ unstable for every $\mu$ (Sun--Earth $L_2$: $e$-folding time 23 days; JWST fires
+thrusters every three weeks). At $L_4$, $A = -\tfrac34$, $C = -\tfrac94$, $AC - B^2 = \tfrac{27}{4}\mu(1-\mu)$:
+\begin{equation*}
+  \lambda^4 + \lambda^2 + \tfrac{27}{4}\mu(1-\mu) = 0 \quad\Rightarrow\quad
+  \text{stable iff } 27\mu(1-\mu) < 1, \;\; \mu < 0.0385 \quad\text{\eqref{eq:gascheaucond}},
+\end{equation*}
+which covers Sun--Jupiter (the Trojans; libration period 147 yr) and Earth--Moon.
+
+\begin{center}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+ & $\mu$ & $L_1$ from $M_2$ & $L_2$ from $M_2$ & $R(\mu/3)^{1/3}$ \\
+\midrule
+Sun--Earth   & $3.00\times 10^{-6}$ & $1.49\times 10^6$ km & $1.50\times 10^6$ km & $1.50\times 10^6$ km \\
+Sun--Jupiter & $9.54\times 10^{-4}$ & $5.19\times 10^7$ km & $5.43\times 10^7$ km & $5.31\times 10^7$ km \\
+Earth--Moon  & $1.22\times 10^{-2}$ & $5.80\times 10^4$ km & $6.45\times 10^4$ km & $6.13\times 10^4$ km \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{document}
