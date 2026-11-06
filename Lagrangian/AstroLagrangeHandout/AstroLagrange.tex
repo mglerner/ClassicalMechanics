@@ -41,18 +41,18 @@
 
 \maketitle
 
-These notes use only what is in Taylor, \emph{Classical Mechanics}~\cite{taylor}, Sections 7.1, 7.3, 7.5, 7.6 and 7.8:
-Hamilton's principle, Lagrange's equations, constraints and degrees of freedom, a coordinate change that depends on time, ignorable coordinates, and
-``no $t$ in $\Lag$ gives a conserved Hamiltonian.'' The first half is the restricted
-three-body problem as every celestial-mechanics book sets it up (e.g.\ Murray and
-Dermott~\cite{murray}, Chapter~3; the Lagrangian route is the one in Goldstein, Poole and
-Safko~\cite{goldstein}, Section~3.12); the second half, the cosmology, follows the standard
-textbook route for a particle in an expanding universe (Peebles~\cite{peebles}, Chapter~II).
-The references are collected at the end. Each problem is done straight through, in the order
-of Section~7.5's recipe, with \sideroads{} (the numbers, a board problem, stability) collected
-at the end of its section; the redshift is also written up as a homework problem, statement and solutions
-(Section~\ref{sec:redshift-problem}). Both halves are Newtonian
-throughout, and the places where general relativity would add something are flagged.
+These notes are appropriate for folks who have read 
+Taylor, \emph{Classical Mechanics}~\cite{taylor}, Sections 7.1, 7.3, 7.5, 7.6
+and 7.8, and are intended to add a bit more astronomy to the curriculum. We
+first cover the restricted three-body problem as it relates to Lagrange points
+(similar to  Murray and Dermott~\cite{murray}, Chapter~3; Goldstein, Poole and
+Safko~\cite{goldstein}, Section~3.12);
+the second half, in which we examine cosmic red shift and Hubble drag for a
+particle in an expanding universe follows Peebles~\cite{peebles}, Chapter~II.
+The redshift is also written up as a homework problem, statement and solutions
+(Section~\ref{sec:redshift-problem}). We restrict ourselves to Newtonian physics
+throughout, though we do make reference to general relativity when it might add
+more depth.
 
 \setlength{\unitlength}{1in}
 
@@ -643,11 +643,11 @@ remarks, the first two of which are the point of Section~7.8:
 \end{enumerate}
 
 \smallskip
-\noindent That is the whole calculation. \sideroads{} below adds the Hill radius (a board
-problem), the numbers, the polar-coordinate argument that there are exactly five points,
-and the question of stability, which needs the Coriolis term kept.
+\noindent And we are done! In \sideroads{}, we add the Hill radius, an argument
+that there are exactly five Lagrange points, a calculation of where exactly
+those points are, and we address the stability of the points.
 
-\subsection*{Nailing down details: the Hill radius, the numbers, exactly five points, stability}
+\subsection*{Nailing down details}
 \phantomsection\label{sec:sideroads}
 \addcontentsline{toc}{subsection}{Nailing down details}
 
@@ -745,8 +745,8 @@ L2 = brentq(f, 1-mu+1e-9, 2.5, args=(mu,))
 
 \medskip
 
-\tocentry[subsubsection]{Polar coordinates: exactly five points}
-\noindent\textbf{Polar coordinates, and why there are exactly five points.} Put the
+\tocentry[subsubsection]{Exactly five points (polar coordinates)}
+\noindent\textbf{Why are there exactly five points?} Put the
 test mass at $(r, \theta)$ from the CM, with $\theta$ measured from the CM-to-$M_2$ line, so the
 distances to the primaries are $r_1' = \sqrt{r^2 + 2 r r_1\cos\theta + r_1^2}$ and
 $r_2' = \sqrt{r^2 - 2 r r_2\cos\theta + r_2^2}$ (law of cosines; $M_1$ is at angle $\pi$, $M_2$ at
@@ -778,8 +778,8 @@ way to see that there are exactly five points. (It is how Edlund, Am.\ J.\ Phys.
 
 \medskip
 
-\tocentry[subsubsection]{Stability: the question}
-\noindent\textbf{Stability: the question.} Figure~\ref{fig:ueff} shows $L_1$, $L_2$, $L_3$ as
+\tocentry[subsubsection]{Stability}
+\noindent\textbf{Stability.} Figure~\ref{fig:ueff} shows $L_1$, $L_2$, $L_3$ as
 saddles of $\Ueff$ and $L_4$, $L_5$ as maxima. In fact $\Ueff$ has no minimum anywhere. Work per
 unit mass in the units of the board problem ($R = 1$, $G(M_1+M_2) = 1$, $\Om = 1$), so that
 \begin{equation}
