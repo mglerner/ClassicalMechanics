@@ -704,39 +704,65 @@ from $M_2$, one on each side, and evaluate it for the Sun and the Earth ($\mu = 
 $M_2$'s gravity wins over $M_1$'s tidal pull plus the centrifugal force (the $-2\delta$ and the
 $+\delta$ in the solution below). The Moon, at $3.84\times 10^5$~km, sits well inside the Earth's Hill radius of $1.5\times 10^6$~km, which is why it is the Earth's moon and not the Sun's.
 
-\solution{Take $L_2$ first: $x = 1 - \mu + \delta$ with $\delta > 0$ (beyond $M_2$), so
-$x + \mu = 1 + \delta$ and $x - 1 + \mu = \delta$. Keep
-first order in $\delta$, drop $\mu$ wherever it is added to a number of order one, but keep
-$\mu/\delta^2$, which is the term that matters. (This is consistent because the answer has
-$\delta \sim \mu^{1/3}$: then $\mu \ll \delta$, while $\mu/\delta^2 \sim \delta$.) Term by
-term in \eqref{eq:axis}:
+\solution{Take $L_2$ first. It lies just beyond $M_2$, so write $x = 1 - \mu + \delta$ with a
+small $\delta > 0$; then $x + \mu = 1 + \delta$ and $x - 1 + \mu = \delta$. The three terms of
+\eqref{eq:axis}, one at a time, each expanded to first order in $\delta$:
 \begin{align*}
-  x &= 1 - \mu + \delta \approx 1 + \delta && \text{(the left side)} \\
-  \frac{(1-\mu)(x+\mu)}{|x+\mu|^3} &= \frac{1-\mu}{(1+\delta)^2} \approx 1 - 2\delta
-  && \text{(binomial expansion $(1+\delta)^{-2} \approx 1 - 2\delta$; $1 - \mu \to 1$)} \\
-  \frac{\mu\,(x-1+\mu)}{|x-1+\mu|^3} &= \frac{\mu\,\delta}{\delta^3} = \frac{\mu}{\delta^2} .
+  x &= 1 - \mu + \delta
+  && \text{(left side: centrifugal term per unit mass, $\Om = 1$)} \\
+  \frac{(1-\mu)(x+\mu)}{|x+\mu|^3} &= \frac{1-\mu}{(1+\delta)^2}
+  && \text{(right, first term: $M_1$'s pull)} \\
+  &\approx (1-\mu)(1 - 2\delta)
+  && \text{(binomial expansion, $(1+\delta)^{-2} \approx 1 - 2\delta$)} \\
+  &\approx 1 - \mu - 2\delta
+  && \text{(drop $2\mu\delta$, small next to $2\delta$)} \\
+  \frac{\mu\,(x-1+\mu)}{|x-1+\mu|^3} &= \frac{\mu\,\delta}{\delta^3} = \frac{\mu}{\delta^2}
+  && \text{(right, second term: $M_2$'s pull, exact)}
 \end{align*}
-So
-\begin{equation}
-  1 + \delta \approx 1 - 2\delta + \frac{\mu}{\delta^2}
-  \quad\Rightarrow\quad 3\delta = \frac{\mu}{\delta^2}
-  \quad\Rightarrow\quad \delta^3 = \frac{\mu}{3} .
-\end{equation}
-For $L_1$ put $x = 1 - \mu - \delta$, so $x + \mu = 1 - \delta$ and $x - 1 + \mu = -\delta$:
+In $M_1$'s pull, $1 - \mu$ is its value at $M_2$'s own position, and $-2\delta$ is the tidal
+part, the pull weakening as we move outward. Now set the left side equal to the sum of the two
+pulls and solve:
 \begin{align*}
-  x \approx 1 - \delta, \qquad
-  \frac{1-\mu}{(1-\delta)^2} &\approx 1 + 2\delta, \qquad
-  \frac{\mu\,(-\delta)}{\delta^3} = -\frac{\mu}{\delta^2}, \\
-  1 - \delta \approx 1 + 2\delta - \frac{\mu}{\delta^2}
-  &\quad\Rightarrow\quad -3\delta = -\frac{\mu}{\delta^2},
+  1 - \mu + \delta &= 1 - \mu - 2\delta + \frac{\mu}{\delta^2}
+  && \text{(by \eqref{eq:axis})} \\
+  \delta &= -2\delta + \frac{\mu}{\delta^2}
+  && \text{(the $1 - \mu$ terms cancel: $M_2$'s orbit already balances them)} \\
+  3\delta &= \frac{\mu}{\delta^2}
+  && \text{(collect the $\delta$ terms)} \\
+  \delta^3 &= \frac{\mu}{3} .
+  && \text{(multiply by $\delta^2/3$)}
 \end{align*}
-the same $\delta$. To this order $L_1$
-and $L_2$ are mirror images about $M_2$, and with $R$ restored, $d = \delta R = R(\mu/3)^{1/3}$,
-which is \eqref{eq:hill}. For the Sun and the Earth, $(\mu/3)^{1/3} =
-(1.00\times 10^{-6})^{1/3} = 0.0100$, so $d = 0.0100\;\mathrm{AU} = 1.50\times 10^6$~km, about
-four times the Moon's distance. JWST orbits around $L_2$ (a ``halo orbit'' a few hundred
-thousand km across), so that it always has the Sun, the Earth and the Moon on the same side,
-behind its sunshield.}
+The orders are consistent: $\delta = (\mu/3)^{1/3}$ is much larger than $\mu$, so the dropped
+$\mu\delta$ and $\delta^2$ are small next to $\delta$, while $\mu/\delta^2$ is the same size as
+$\delta$. That is the only place $\mu$ survives, and it is why $\delta^3$ and $\mu$ go together.
+
+For $L_1$, just inside $M_2$, write $x = 1 - \mu - \delta$ with $\delta > 0$, so
+$x + \mu = 1 - \delta$ and $x - 1 + \mu = -\delta$. The same three terms become
+\begin{align*}
+  x &= 1 - \mu - \delta
+  && \text{(centrifugal)} \\
+  \frac{1-\mu}{(1-\delta)^2} &\approx 1 - \mu + 2\delta
+  && \text{($M_1$'s pull; $(1-\delta)^{-2} \approx 1 + 2\delta$)} \\
+  \frac{\mu\,(-\delta)}{\delta^3} &= -\frac{\mu}{\delta^2}
+  && \text{($M_2$'s pull, now toward $+x$)}
+\end{align*}
+and assembling them,
+\begin{align*}
+  -\delta &= 2\delta - \frac{\mu}{\delta^2}
+  && \text{(by \eqref{eq:axis}, the $1 - \mu$ terms cancel)} \\
+  \delta^3 &= \frac{\mu}{3} .
+  && \text{(collect, multiply by $-\delta^2/3$)}
+\end{align*}
+Every term changed sign, so to this order $L_1$ and $L_2$ are mirror images about $M_2$, at the
+same distance $\delta$.
+
+Restoring $R$, $d = \delta R = R(\mu/3)^{1/3}$, which is \eqref{eq:hill}. For the Sun and the
+Earth, $(\mu/3)^{1/3} = (1.00\times 10^{-6})^{1/3} = 0.0100$, so
+$d = 0.0100 \times 1.496\times 10^8~\mathrm{km} = 1.50\times 10^6$~km, about four times the
+Moon's distance.
+
+JWST orbits around $L_2$, on a ``halo orbit'' a few hundred thousand km across, so the Sun,
+the Earth and the Moon are always on the same side of it, behind its sunshield.}
 
 \medskip
 
