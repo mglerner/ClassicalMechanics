@@ -1,0 +1,564 @@
+{{voir homonymes|point|Lagrange|}}
+{{Redirect2|Point de libration|Point d'Euler|homonymie=Libration|Euler (homonymie)}}
+[[Fichier:InnerSolarSystem-fr.png|vignette|redresse=1.8|Alors que les [[Résonance orbitale|résonances orbitales]] sont généralement déstabilisatrices, le cas des points stables de Lagrange, dit en ''résonance 1:1'', est une des exceptions. Pour le système Soleil-Jupiter, ceux-ci sont occupés par les [[Troyen (astronomie)|astéroïdes troyens]] (sur le schéma : ''Grecs'' et ''Troyens''). Les astéroïdes [[Groupe de Hilda|Hilda]] sont en résonance 3:2.]]
+Un '''point de Lagrange''' (noté {{pla|1}} à {{pla|5}}), ou, plus rarement, '''point de [[libration]]''', est une position de l'espace où les [[gravitation|champs de gravité]] de deux corps en mouvement [[orbite|orbital]] l'un autour de l'autre, et de masses substantielles, fournissent exactement la [[force centripète]] requise pour que ce point de l'espace accompagne simultanément le mouvement orbital des deux corps. Dans le cas où les deux corps sont en orbite circulaire, ces points représentent les endroits où un troisième corps, de masse négligeable, resterait immobile par rapport aux deux autres, au sens où il accompagnerait à la même [[vitesse angulaire]] leur rotation autour de leur centre de gravité commun sans que sa position par rapport à eux n'évolue.
+
+Au nombre de cinq, ces points se scindent en deux points stables dénommés {{pla|4}} et {{pla|5}}, et en trois points instables notés {{pla|1}}, {{pla|2}} et {{pla|3}}. Ils sont nommés en l'honneur du mathématicien [[France|français]] [[Joseph-Louis Lagrange]]<ref>[http://www.ltas-vis.ulg.ac.be/cmsms/uploads/File/Lagrange_essai_3corps.pdf Essai sur le Problème des Trois Corps{{pdf}}], ltas-vis.ulg.ac.be.</ref>. Ils interviennent dans l'étude de certaines configurations d'objets du [[Système solaire]] (principalement pour les points stables) et dans le placement de divers [[satellite artificiel|satellites artificiels]] (principalement pour les points instables). Ce sont les points remarquables de la « géométrie de [[Édouard Roche|Roche]]<ref>[http://astro.u-strasbg.fr/goutelas/g2000/roche.pdf Géométrie de Roche, Jean-Marie Hameury, Observatoire de Strasbourg] {{pdf}}, astro.u-strasbg.fr.</ref> » (points-col et extrema), laquelle permet notamment de classer les différents types d'[[Étoile binaire|étoiles binaires]].
+
+Les trois points {{pla|1}}, {{pla|2}} et {{pla|3}} sont parfois appelés les '''points d'Euler''', en l'honneur de [[Leonhard Euler]], l'appellation de '''points de Lagrange''' étant alors réservée aux deux points {{pla|4}} et {{pla|5}}<ref>{{Ouvrage |langue=fr |prénom1=Bernard |nom1=Bonnard |prénom2=Ludovic |nom2=Faubourg |prénom3=Emmanuel |nom3=Trélat |titre=Mécanique céleste et contrôle des véhicules spatiaux |lieu=Berlin |éditeur=Springer |collection=Mathématiques et applications |année=2005 |pages totales={{XIV}}-276 |isbn=978-3-540-28373-7 |bnf=40153166m |lire en ligne=https://books.google.com/books?id=3OfnwMSNsjgC&printsec=frontcover |consulté le=25 juillet 2014}}, {{p.|73}} ([https://books.google.fr/books?id=PSBEAAAAQBAJ&pg=PA73#v=onepage&q&f=false lire en ligne], sur [[Google Livres]]).</ref>.
+
+Les points {{pla|4}} et {{pla|5}}, en raison de leur stabilité, peuvent naturellement attirer ou retenir longtemps des objets et sont donc peu utilisables à cause du risque de collision, alors qu'au contraire, les points {{pla|1}}, {{pla|2}} et {{pla|3}}, étant instables, ne peuvent pas maintenir naturellement des objets, mais peuvent être utilisés par des missions spatiales moyennant des corrections d’orbite peu coûteuses en termes de carburant.
+
+== Historique ==
+En [[mécanique céleste]], le [[problème à N corps|problème à trois corps]] a passionné de nombreux mathématiciens. [[Isaac Newton|Newton]], après avoir énoncé en 1687 sa [[loi universelle de la gravitation]], qui affirme que « les corps massifs s'attirent entre eux par une force proportionnelle au produit de leurs masses et inversement proportionnelle au carré de la distance de leurs centres de gravité », chercha à décrire le comportement de trois corps sans y parvenir. Le mathématicien [[Joseph-Louis Lagrange]] étudia en 1772 le cas d'un petit corps, de masse négligeable (ce qu'on appelle aujourd'hui ''corps d'épreuve'' ou [[particule test]]), soumis à l'attraction de deux plus gros : le Soleil et, par exemple, une [[planète]]. Il découvrit qu'il existait des positions d'équilibre pour le petit corps, des endroits où toutes les forces se compensent (en tenant compte de l'effet centrifuge du référentiel d'observation utilisé).
+
+Les cinq points sont mis en évidence dans le cadre d'une simplification du problème à trois corps. Le problème simplifié est dit ''restreint'', ''circulaire'' et ''plan''{{sfn|Stephenson|2021|loc={{chap.|2}}, {{sec.|2.2}}|p=10-11, {{n.|18}}}}. Il est restreint car un des trois corps, le [[Particule test|corps d'épreuve]], est de [[masse]] négligeable par rapport aux deux autres, les [[Objet primaire (astronomie)|corps primaires]]{{sfn|Stephenson|2021|loc={{chap.|2}}, {{sec.|2.2}}|p=10}}{{,}}{{sfn|Roques|2021|loc={{sec.|4.4}}, {{§|4.4.2}}|p=215}}. Il est circulaire car les deux corps primaires sont en [[orbite circulaire]] autour de leur centre de masse commun{{sfn|Stephenson|2021|loc={{chap.|2}}, {{sec.|2.2}}|p=10}}{{,}}{{sfn|Roques|2021|loc={{sec.|4.4}}, {{§|4.4.2}}|p=215-216}}. Enfin il est plan car le corps d'épreuve se meut dans le [[Orbite|plan de l'orbite]] précitée{{sfn|Stephenson|2021|loc={{chap.|2}}, {{sec.|2.2}}|p=10}}{{,}}{{sfn|Roques|2021|loc={{sec.|4.4}}, {{§|4.4.2}}|p=216}}. C'est dans ce cadre que [[Leonhard Euler]] découvre les trois premiers points (L{{ind|1}}, L{{ind|2}} et L{{ind|3}}) en {{date|1765|en astronomie}}{{sfn|Robutel|Souchay|2010|loc={{sec.|3}}|p=198}}{{,}}{{sfn|Sicardy|2010|loc={{sec.|1}}|p=145}}{{,}}{{note|groupe=N|Il est parfois affirmé que Leonhard Euler aurait découvert les trois premiers points en ou vers {{date|1750}}{{sfn|Dilão|2023|loc={{IIde|partie}}, {{chap.|8}}, {{sec.|8.5}}|p=254}}{{,}}{{sfn|Taillet|Villain|Febvre|2018|loc={{s.v.}} point de Lagrange|p=577, {{col.|1}}}}{{,}}{{sfn|Taillet|Villain|Febvre|2018|loc=chronologie, {{s.v.}} {{date|1750}}|p=830, {{col.|2}}}}. Ses trois communications, de {{date|1762}}, {{date|1763}} et {{date|1765}}, sont publiées respectivement en {{date|1766}}, {{date|1767}} et {{date|1770}}{{sfn|Euler|1766}}{{,}}{{sfn|Euler|1767}}{{,}}{{sfn|Euler|1770}}.}}. [[Joseph-Louis Lagrange]] découvre les deux autres (L{{ind|4}} et L{{ind|5}}) en {{date|1772|en astronomie}}{{sfn|Robutel|Souchay|2010|loc={{sec.|3}}|p=198}}{{,}}{{sfn|Taillet|Villain|Febvre|2018|loc={{s.v.}} point de Lagrange|p=577, {{col.|1}}}}{{,}}{{sfn|Taillet|Villain|Febvre|2018|loc=chronologie, {{s.v.}} {{date|1772}}|p=830, {{col.|2}}}}{{,}}{{note|groupe=N|Il est parfois affirmé que Joseph-Louis Lagrange aurait découvert les deux autres points en ou vers {{date|1760}}{{sfn|Dilão|2023|loc={{IIde|partie}}, {{chap.|8}}, {{sec.|8.5}}|p=254}}. Son mémoire de {{date|1772}} est publié en {{date|1777}}{{sfn|Lagrange|1777}}.}}. [[Joseph Liouville]] établit l'[[Théorie de la stabilité|instabilité]] linéaire des trois premiers (L{{ind|1}}, L{{ind|2}} et L{{ind|3}}) en {{date|1842|en astronomie}}{{sfn|Robutel|Souchay|2010|loc={{sec.|3}}|p=198}}{{,}}{{sfn|Nauenberg|2010|loc={{sec.|6.3}}|p=130, {{n.|27}}}}{{,}}{{sfn|Liouville|1842}}. [[Gabriel Gascheau]] établit la condition de stabilité linéaire des points L{{ind|4}} et L{{ind|5}} en {{date|1843|en astronomie}}{{sfn|Robutel|Souchay|2010|loc={{sec.|3}}|p=198}}{{,}}{{sfn|Nauenberg|2010|loc={{sec.|6.3}}|p=130, {{n.|27}}}}{{,}}{{sfn|Sicardy|2010|loc={{sec.|1}}|p=146}}{{,}}{{sfn|Gascheau|1843}}. [[Edward Routh|Edward J. Routh]] la redécouvre en {{date|1875|en astronomie}}{{sfn|Nauenberg|2010|loc={{sec.|6.3}}|p=130, {{n.|27}}}}{{,}}{{sfn|Sicardy|2010|loc={{sec.|1}}|p=146}}{{,}}{{sfn|Routh|1875}} et sa valeur numérique est nommée en son honneur{{sfn|Nauenberg|2010|loc={{sec.|6.3}}|p=130, {{n.|27}}}}{{,}}{{sfn|Capderou|2014|loc={{chap.|6}}, {{sec.|6.12}}, {{§|6.12.4}}|p=238, {{n.|44}}}}. J. M. Anthony Danby en {{date|1964|en astronomie}}{{sfn|Dandy|1964}} et Arthur Bennett en {{date|1965|en astronomie}}{{sfn|Bennett|1965}} étudient les points L{{ind|4}} et L{{ind|5}} dans le cas elliptique{{sfn|Nauenberg|2010|loc={{sec.|6.3}}|p=130, {{n.|27}}}}{{,}}{{sfn|Sicardy|2010|loc={{sec.|1}}|p=146}}.
+
+Dans le [[Système solaire]], la condition de stabilité linéaire des points L{{ind|4}} et L{{ind|5}} s'est avérée satisfaite pour toutes les planètes{{sfn|Capderou|2014|loc={{chap.|6}}, {{sec.|6.12}}, {{§|6.12.4}}|p=238, {{n.|44}}}}, sauf pour le [[Système plutonien|système Pluton-Charon]]{{sfn|Capderou|2014|loc={{chap.|6}}, {{sec.|6.12}}, {{§|6.12.4}}|p=238, {{n.|44}}}}{{,}}{{sfn|Roques|2021|loc={{sec.|4.4}}, {{§|4.4.2}}|p=218}}. C'est l'une des raisons qui ont conduit l'[[Union astronomique internationale]] (UAI) à adopter en {{date|2006|en astronomie}}, pour le Système solaire, une [[Définition des planètes de l'Union astronomique internationale|définition des planètes]] et une autre des [[Planète naine|planètes naines]], catégorie dont relève désormais [[Pluton (planète naine)|Pluton]]. En effet, la condition de stabilité des points L{{ind|4}} et L{{ind|5}} est reliée à la notion de {{citation|[[nettoyage du voisinage d'une orbite]]}}, qui figure dans la définition précitée des planètes{{sfn|Lecavelier|Lissauer|2022|loc={{sec.|2}}, {{§|2.5}}|p=7}}. D'autre part, pour l'UAI, la condition de stabilité linéaire des points L{{ind|4}} et L{{ind|5}} est, depuis {{date|2018}}, l'un des éléments de la {{citation|définition de travail}} d'une planète (au sens large, [[exoplanète]]s comprises){{sfn|Lecavelier|Lissauer|2022|loc=résumé|p=1}}{{,}}{{sfn|Lecavelier|Lissauer|2022|loc={{sec.|2}}, {{§|2.5}}|p=7}}{{,}}{{sfn|Lecavelier|Lissauer|2022|loc={{sec.|3}}, {{§|3.1}}|p=8}}.
+
+== Définition ==
+[[Fichier:Positions points Lagrange sur axe.png|vignette|redresse=1.4|Trois des points de Lagrange sont situés sur l'axe reliant les deux corps. Dans le cas d'une grande dissymétrie de masse entre ceux-ci, deux points sont situés proches et de part et d'autre du corps peu massif, alors que le troisième est quasiment situé à l'opposé du corps peu massif par rapport au corps massif.]]
+[[Fichier:Positions points Lagrange plan ecliptique.png|vignette|redresse=1.4|Les deux derniers points de Lagrange forment avec les deux corps des triangles équilatéraux.]]
+Un objet de faible masse, situé en ces points, ne bouge plus relativement aux deux autres corps, et tourne de concert avec eux (par exemple une [[planète]] et le [[Soleil]]). Si l'on donne en exemple les points de Lagrange du système [[Soleil]]-[[Terre]], ces cinq points sont notés et définis comme suit (échelle non respectée) :
+* {{pla|1}} : sur la ligne définie par les deux masses, entre celles-ci, la position exacte dépendant du rapport de masse entre les deux corps ; dans le cas où l'un des deux corps a une masse beaucoup plus faible que l'autre, le point {{pla|1}} est situé nettement plus près du corps peu massif que du corps massif ;
+* {{pla|2}} : sur la ligne définie par les deux masses, au-delà de la plus petite. Dans le cas où l'un des deux corps a une masse beaucoup plus faible, la distance de {{pla|2}} à ce corps est comparable à celle entre {{pla|1}} et ce corps ;
+* {{pla|3}} : sur la ligne définie par les deux masses, au-delà de la plus grande. Dans le cas où l'un des deux corps est notablement moins massif que l'autre, la distance entre {{pla|3}} et le corps massif est comparable avec celle entre les deux corps ;
+* {{pla|4}} et {{pla|5}} : sur les sommets des deux triangles équilatéraux, dont la base est formée par les centres de gravité des deux masses en question. {{pla|4}} étant celui des deux points qui se trouve sur l'orbite de la plus petite des masses autour de la grande, et placé le plus en avant dans le sens du déplacement de cette petite masse, et {{pla|5}} étant lui en retard, symétriquement<ref>{{Lien web |langue=en |titre=What are Lagrange points? |url=http://www.esa.int/Enabling_Support/Operations/What_are_Lagrange_points |site=esa.int |consulté le=07-04-2023}}.</ref>. Ces points sont parfois appelés ''points de Lagrange triangulaires,'' ou ''points troyens'' et grecs, du fait que ce sont les lieux où ont été initialement repérés les [[Troyen (astronomie)|astéroïdes troyens]] du système Soleil-[[Jupiter (planète)|Jupiter]]. Contrairement aux trois premiers points, ces deux derniers ne dépendent pas des masses relatives des deux autres corps.
+
+== Calcul de la position des points de Lagrange ==
+Le calcul de la position des points de Lagrange se fait en considérant l'équilibre d'un corps de masse négligeable entre le potentiel gravitationnel créé par deux corps en orbite et la [[force centrifuge]]. La position des points {{pla|4}} et {{pla|5}} peut être obtenue analytiquement. Celle des trois autres points {{pla|1}} à {{pla|3}} s'obtient en résolvant numériquement, ou éventuellement à l'aide d'un [[développement limité]], une équation algébrique. La position de ces trois points est donnée dans le tableau ci-dessous, dans le cas où la masse d'un des deux corps (en l'occurrence le {{nobr|numéro 2}}) est négligeable devant l'autre, situé à une distance ''R'' du précédent. Les positions sont données le long de l'axe reliant les deux corps, dont l'origine est identifiée au [[centre de gravité]] du système, et dont l'orientation va du {{nobr|corps 1}} au {{nobr|corps 2}}. Les quantités ''r''{{ind|2}} = ''(1-q)R'' et ''q'' dénotent respectivement la position du {{nobr|corps 2}} sur l'axe et le rapport de la masse du corps le plus léger à la masse totale des deux corps. Enfin, on utilise la quantité ''ε'' définie par {{nobr|''ε'' {{=}} (''q''/3){{exp|1/3}}}}.
+
+{| class="wikitable" 
+|-
+! Point !! Position par rapport au centre de gravité du système
+|-
+| {{pla|1}} || <math>r_2 + R \left(- \varepsilon + \frac{1}{3} \varepsilon^2 + \frac{1}{9} \varepsilon^3 + \mathcal{O}(\varepsilon^4)\right)</math>
+|-
+| {{pla|2}} || <math>r_2 + R \left(\varepsilon + \frac{1}{3} \varepsilon^2 - \frac{1}{9} \varepsilon^3 + \mathcal{O}(\varepsilon^4)\right)</math>
+|-
+| {{pla|3}} || <math>- R + R\left(- \frac{5}{12} q + \frac{1127}{20736} q^3 + \mathcal{O}(q^4)\right)</math>
+|}
+Dans la littérature, on trouve parfois des expressions quelque peu différentes, du fait que l'origine de l'axe est prise ailleurs que sur le centre de gravité, et que l'on utilise comme terme à la base du développement limité le rapport entre les deux masses plutôt que le rapport de la plus petite à la masse totale, c'est-à-dire que l'on utilise parfois la quantité ''q{{'}}'' définie par
+<math>q' = \frac{m_2}{M_1} = \frac{q}{1 - q}.</math>
+
+{{boîte déroulante|titre=Détail du calcul — Introduction|contenu=
+'''Préliminaires'''
+
+On note ''M''{{ind|1}} et ''m''{{ind|2}} la masse des deux corps, la masse du premier étant supposée supérieure ou égale à celle du second. Les deux corps sont supposés être en [[orbite]] circulaire, leur séparation étant ''R''. Les deux corps orbitent autour de leur [[centre de gravité]] commun. On note ''r''{{ind|1}} et ''r''{{ind|2}} les distances algébriques des deux corps par rapport au centre de gravité commun selon un axe orienté du {{nobr|corps 1}} au {{nobr|corps 2}} (c'est-à-dire que ''r''{{ind|1}} va être négatif et ''r''{{ind|2}} positif). Le centre de gravité est défini par l'équation
+:<math>M_1 r_1 + m_2 r_2 = 0,</math>
+avec par définition de la distance ''R'',
+:<math>r_2 - r_1 = R.</math>
+Ces deux équations ont pour solution
+:<math>r_1 = - \frac{m_2}{M} R,</math>
+:<math>r_2 = \frac{M_1}{M} R,</math>
+où on a noté ''M''&nbsp;=&nbsp;''M''{{ind|1}}&nbsp;+&nbsp;''m''{{ind|2}} la masse totale du système.
+
+Les deux corps orbitent l'un autour de l'autre à une [[vitesse angulaire]] ''ω'', dont la valeur est donnée par la [[troisième loi de Kepler]] :
+:<math>\omega^2 = \frac{G M}{R^3},</math>
+''G'' étant la [[constante de gravitation]].
+
+Si l'on se place dans le référentiel tournant avec les deux corps, c'est-à-dire à la vitesse angulaire ''ω'', un corps immobile sera soumis, outre aux forces gravitationnelles des deux corps, à la [[force centrifuge]]. Si on note '''''r''''' le rayon vecteur de ce corps, la force centrifuge par unité de masse '''''f'''''{{ind|c}} à laquelle il sera soumis s'écrit
+:<math>{\boldsymbol f}_{\rm c} = {\boldsymbol r} \; \omega^2.</math>
+
+'''Équation fondamentale'''
+
+La définition d'un point de Lagrange est que la somme des forces gravitationnelles et inertielles s'annule en ces points. En notant '''''r''''' le rayon vecteur du ou des points en question, on a ainsi
+:<math>- \frac{G M_1 ({\boldsymbol r} - {\boldsymbol r}_1)}{||{\boldsymbol r} - {\boldsymbol r}_1||^3} - \frac{G m_2 ({\boldsymbol r} - {\boldsymbol r}_2)}{||{\boldsymbol r} - {\boldsymbol r}_2||^3} + {\boldsymbol r} \; \omega^2 = 0,</math>
+les doubles barres indiquant que l'on prend la [[norme (mathématiques)|norme]] des vecteurs considérés. On remplace ensuite la vitesse angulaire ''ω'' par sa valeur issue de la troisième loi de Kepler, ce qui donne
+:<math>- \frac{G M_1 ({\boldsymbol r} - {\boldsymbol r}_1)}{||{\boldsymbol r} - {\boldsymbol r}_1||^3} - \frac{G m_2 ({\boldsymbol r} - {\boldsymbol r}_2)}{||{\boldsymbol r} - {\boldsymbol r}_2||^3} +  \frac{G M {\boldsymbol r}}{R^3} = 0,</math>
+que l'on simplifie immédiatement par la constante de gravitation
+:<math>- M_1 \frac{{\boldsymbol r} - {\boldsymbol r}_1}{||{\boldsymbol r} - {\boldsymbol r}_1||^3} - m_2 \frac{{\boldsymbol r} - {\boldsymbol r}_2}{||{\boldsymbol r} - {\boldsymbol r}_2||^3} + M  \frac{{\boldsymbol r}}{R^3} = 0.</math>
+C'est la résolution de cette équation qui donne les différents points de Lagrange.
+
+'''Les deux cas à considérer'''
+
+La projection de cette équation perpendiculairement au plan de l'orbite, dont la normale est donnée par un vecteur noté <math>\hat{\boldsymbol z}</math> donne immédiatement
+:<math>{\boldsymbol r} \cdot \hat{\boldsymbol z} = 0,</math>
+ce qui implique que l'ensemble des points de Lagrange est situé dans le plan de l'orbite. La résolution de l'équation se fait donc dans le plan orbital. Deux cas sont à considérer : 
+* celui où l'on cherche un point le long de l'axe formé par les deux corps,
+* celui où l'on cherche un point en dehors de cet axe.
+Le second cas s'avère être le plus simple à étudier.
+}}
+{{boîte déroulante|titre=Détail du calcul — Les points {{pla|4}} et {{pla|5}}|contenu=
+'''Cas des points {{pla|4}} et {{pla|5}}'''
+
+Les points {{pla|4}} et {{pla|5}} sont un cas particulier du problème des trois corps. C'est Lagrange qui a démontré que trois corps de masses <math>M_A, M_B, M_C</math> placés au sommets d'un triangle équilatéral <math>\mathrm{ABC}</math> orbitaient à vitesse angulaire <math>\omega</math> constante autour de leur centre de masse <math>\mathrm{O}</math>.
+
+Étudions l'accélération centripète au point <math>\mathrm{C}</math>. C'est la somme des deux accélérations gravitationnelles dues aux masses <math>M_A</math> et <math>M_B</math> :
+:<math> \overrightarrow{F_C} = G M_A\frac{\overrightarrow{\mathrm{CA}}}{D^3} + G M_B\frac{\overrightarrow{\mathrm{CB}}}{D^3}</math>
+avec <math>D</math> la distance entre les trois masses.
+
+En décomposant <math>\overrightarrow{\mathrm{CA}} = \overrightarrow{\mathrm{CO}} + \overrightarrow{\mathrm{OA}}</math> et en calculant <math>\overrightarrow{\mathrm{CO}}</math> à partir de l'équation du
+centre de masse
+:<math>M_A \overrightarrow{\mathrm{OA}} + M_B \overrightarrow{\mathrm{OB}} + M_C \overrightarrow{\mathrm{OC}} = 0,</math>
+on obtient
+:<math>\overrightarrow{F_C} = G \left(M_A + M_B + M_C\right)\frac{\overrightarrow{\mathrm{CO}}}{D^3}.</math>
+C'est précisément cette accélération, égale à
+<math>\overrightarrow{\mathrm{CO}} \, \omega^2,</math>
+qui permet de maintenir le corps <math>\mathrm{C}</math> sur sa trajectoire circulaire autour de <math>\mathrm{O}</math>.
+
+Le même raisonnement peut être fait en échangeant <math>\mathrm{C}</math> et <math>\mathrm{A}</math> ou <math>\mathrm{C}</math> et <math>\mathrm{B}</math>, avec la même vitesse angulaire <math>\omega</math>.
+
+Dans le cas particulier où la troisième masse est négligeable devant la masse <math>M_S</math> de l'astre principal et la masse <math>M_J</math> de l'astre secondaire, l'orbite de l'astre secondaire se trouve à la distance
+<math>D_J = \frac{M_S}{M_S + M_J} D</math> du centre de masse, et le point de Lagrange peut être en avance sur l'astre secondaire ({{pla|4}}) ou en retard ({{pla|5}}).
+
+En utilisant le [[théorème de Pythagore]], la distance <math>D_L</math> de ces points de Lagrange au centre de masse s'écrit
+:<math>D_L= \sqrt{\frac{3}{4}D^2 + \left(D_J - \frac{D}{2}\right)^2}= \sqrt{D^2 + D_J^2 - D D_J}</math> 
+ce qui donne
+:<math>D_L= D_J \sqrt{1 + \frac{M_J}{M_S} + \left(\frac{M_J}{M_S}\right)^2},</math>
+ou, au premier ordre,
+:<math>D_L= D_J \left(1 + \frac{M_J}{2 M_S}\right)</math>
+
+L'orbite des points de Lagrange {{pla|4}} et {{pla|5}} se trouve donc au delà de l'orbite du corps secondaire.}}
+{{boîte déroulante|titre=Détail du calcul — Les points {{pla|1}} à {{pla|3}}|contenu=
+'''Cas des points {{pla|1}} à {{pla|3}}'''
+
+Dans le cas où l'on considère des points de Lagrange situés sur l'axe reliant les deux corps, trois sous-cas sont à considérer :
+# Le cas où le ou les points sont entre les {{nobr|corps 1 et 2}} ;
+# Le cas où le ou les points sont à l'opposé du {{nobr|corps 2}} par rapport au {{nobr|corps 1}} ;
+# Le cas où le ou les points sont à l'opposé du {{nobr|corps 1}} par rapport au {{nobr|corps 2}}.
+Dans ces trois cas, l'équation fondamentale se réécrit de la façon suivante :
+* Cas 1 : la projection des deux forces sur l'axe a des signes opposés (la projection de la force exercée par le {{nobr|corps 1}} est négative, celle de la force exercée par le {{nobr|corps 2}} est positive), ce qui donne
+*: <math>- \frac{M_1}{(r - r_1)^2} + \frac{m_2}{(r - r_2)^2} + M  \frac{r}{R^3} = 0,</math>
+:avec
+::<math>r_1 < r < r_2.</math>
+* Cas 2 : la projection des deux forces sur l'axe est négative, ce qui donne
+*: <math>- \frac{M_1}{(r - r_1)^2} - \frac{m_2}{(r - r_2)^2} + M  \frac{r}{R^3} = 0,</math>
+:avec
+::<math>r_1 < r_2 < r.</math>
+* Cas 3 : la projection des deux forces sur l'axe est positive, ce qui donne
+*: <math>\frac{M_1}{(r - r_1)^2} + \frac{m_2}{(r - r_2)^2} + M  \frac{r}{R^3} = 0,</math>
+:avec
+::<math>r < r_1 < r_2.</math>
+Chacune de ces trois équations peut se ramener à une [[équation polynomiale]] du cinquième degré, pour laquelle il n'existe pas de solution analytique exacte, sauf cas particulier (comme celui des deux masses identiques, par exemple).
+
+L'unicité des solutions dans chacun des trois cas se déduit du fait que l'équation à résoudre sur l'équilibre des forces dérive d'un [[Potentiel d'un champ vectoriel|potentiel]] ''U'', donné par
+:<math>U = -\frac{M_1}{||{\boldsymbol r} - {\boldsymbol r}_1||} - \frac{m_2}{||{\boldsymbol r} - {\boldsymbol r}_2||} - \frac{1}{2} \frac{M r^2}{R^3}.</math>
+Ce potentiel représente des pôles en ''r''{{ind|1}} et ''r''{{ind|2}}, et correspond en dehors de ces valeurs à la somme de trois termes [[Fonction concave|concaves]] et est donc localement concave. Il ne possède donc qu'un seul extrême local dans chacun des domaines où il est défini, c'est-à-dire dans chacun des trois cas cités plus haut.
+}}
+{{boîte déroulante|titre=Solutions pour {{pla|1}} à {{pla|3}} dans le cas où le rapport entre les masses est faible|contenu=
+'''Forme réduite et solution dans le cas où le rapport entre les masses est faible'''
+
+Quand le rapport entre ''m''{{ind|2}} et ''M''{{ind|1}} (ou entre ''m''{{ind|2}} et M) est faible, on peut trouver une solution approchée pour la position de chacun des points en effectuant un développement limité à partir d'une solution approchée facile à trouver. Pour simplifier les notations, on effectue un changement d'échelle afin d'exprimer toutes les longueurs en unité de la séparation ''R'' et les masse en unité de la masse totale ''M''. On pose ainsi
+:<math>u = r / R,</math>
+et
+:<math>u_{1,2} = r_{1,2} / R,</math>
+et on définit le petit paramètre ''q'' par
+:<math>q \equiv m_2 / M,</math>
+à partir de quoi on peut exprimer
+:<math>M_1 / M = 1 - q,</math>
+:<math>u_1 = - q,</math>
+:<math>u_2 = 1 - q.</math>
+Dans ce cas là, les trois équations écrites ci-dessus prennent la forme plus simple
+* Cas 1 : 
+*: <math>- \frac{1 - q}{(u + q)^2} + \frac{q}{(u - 1 + q)^2} + u = 0,</math>
+:avec
+::<math>-q < u < 1 - q.</math>
+* Cas 2 : la projection des deux forces sur l'axe est négative, ce qui donne
+*: <math>- \frac{1 - q}{(u + q)^2} - \frac{q}{(u - 1 + q)^2} + u = 0,</math>
+:avec
+::<math>1 - q < u.</math>
+* Cas 3 : la projection des deux forces sur l'axe est positive, ce qui donne
+*: <math>\frac{1 - q}{(u + q)^2} + \frac{q}{(u - 1 + q)^2} + u = 0,</math>
+:avec
+::<math>u < - q.</math>
+
+'''Le point {{pla|1}}'''
+
+Quand la masse du {{nobr|corps 2}} est négligeable, l'attraction de celui-ci est négligeable sauf si la particule d'épreuve est très proche. Or, quand l'attraction du {{nobr|corps 2}} est négligeable, l'équilibre entre l'attraction du {{nobr|corps 1}} et la force centrifuge est tel que la distance du point d'équilibre est de l'ordre de ''R''. Quand le point d'équilibre est situé à l'opposé du {{nobr|corps 2}}, on est dans le cas du {{pla|3|txt=}}, qui est donc, en gros, situé à l'opposé du {{nobr|corps 2}} par rapport au {{nobr|corps 1}}. Dans le cas contraire, on va donc supposer que le point d'équilibre est plutôt proche du {{nobr|corps 2}} (et donc à nouveau situé à la distance ''R'' du {{nobr|corps 1}}), mais néanmoins suffisamment éloigné pour que l'attraction du {{nobr|corps 2}} exercée sur la particule d'épreuve reste petite par rapport à celle du {{nobr|corps 1}}. On pose donc à partir de la forme réduite
+:<math>u = u_2 + \varepsilon' = 1 - q + \varepsilon',</math>
+où ici ''ε{{'}}'' est une quantité petite et négative (on suppose ici que le point est entre les deux corps). L'équation réduite se transforme alors en
+:<math>- \frac{1 - q}{(1 + \varepsilon')^2} + \frac{q}{\varepsilon'^2} + 1 - q + \varepsilon' = 0.</math>
+On effectue un développement limité au premier ordre de l'attraction produite par le {{nobr|corps 1}} :
+:<math>- (1 - q) (1 - 2 \varepsilon') + \frac{q}{\varepsilon'^2} + 1 - q + \varepsilon' = 0.</math>
+Les termes en 1&nbsp;-&nbsp;''q'' se simplifient, et il reste
+:<math>(3 - 2 q) \varepsilon' + \frac{q}{\varepsilon'^2} = 0.</math>
+Toujours en ne gardant que les termes d'ordre le plus bas en ''q'', il vient
+:<math>\varepsilon' = - \left(\frac{q}{3}\right)^\frac{1}{3}.</math>
+On peut par la suite continuer le calcul, en développant l'écart du point au {{nobr|corps 2}} en puissances de ''ε{{'}}''. On pose ainsi
+:<math>u = 1 - q + \varepsilon' + x \varepsilon'^2 + \mathcal{O} (\varepsilon'^3).</math>
+L'équation fondamentale réduite donne alors
+:<math>- \frac{1 - q}{(1 + \varepsilon' + x \varepsilon'^2)^2} + \frac{q}{(\varepsilon' + x \varepsilon'^2)^2} + 1 - q + \varepsilon' + x \varepsilon'^2 = 0.</math>
+On peut factoriser le second terme avec ''q''&nbsp;/&nbsp;''ε{{'}}''{{exp|2}}, que l'on peut remplacer par sa valeur, soit -3&nbsp;''ε{{'}}''. On obtient alors
+:<math>- (1 - q)(1 + \varepsilon' + x \varepsilon'^2)^{-2} - 3 \varepsilon' (1 + x \varepsilon')^{-2} + 1 - q + \varepsilon' + x \varepsilon'^2 = 0.</math>
+On effectue ensuite un développement limité des deux premiers termes, au second ordre pour le premier et au premier ordre pour le suivant, ce qui donne
+:<math>- (1 - q)(1 - 2 \varepsilon' - 2 x \varepsilon'^2 + 3 \varepsilon'^2) - 3 \varepsilon' (1 - 2 x \varepsilon') + 1 - q + \varepsilon' + x \varepsilon'^2 = 0,</math>,
+d'où on déduit que ''x'' vaut un tiers, ce qui donne
+:<math>u = 1 - q + \varepsilon' + \frac{1}{3} \varepsilon'^2 + \mathcal{O}(\varepsilon^3).</math>
+Le développement peut ensuite être continué suivant la même procédure. À l'ordre suivant, on a ainsi
+:<math>u = 1 - q + \varepsilon' + \frac{1}{3} \varepsilon'^2 - \frac{1}{9} \varepsilon'^3 + \mathcal{O}(\varepsilon'^4).</math>
+
+'''Le point {{pla|2}}'''
+
+Le cas du point {{pla|2}} se résout exactement comme dans la section précédente, si ce n'est que le signe du second terme de l'équation fondamentale est négatif. On pose donc
+:<math>u = 1 - q + \varepsilon,</math>
+''ε'' étant cette fois-ci supposé petit et positif, et on a ainsi
+:<math>- \frac{1 - q}{(1 + \varepsilon)^2} - \frac{q}{\varepsilon^2} + 1 - q + \varepsilon = 0.</math>
+La résolution à l'ordre le plus bas donne
+:<math>- (1 - q)(1 - 2 \varepsilon) - \frac{q}{\varepsilon^2} + 1 - q + \varepsilon = 0,</math>
+qui après annulation des termes donne
+:<math>3 \varepsilon = \frac{q}{\varepsilon^2},</math>
+soit
+:<math>\varepsilon = \left(\frac{q}{3}\right)^\frac{1}{3} = -\varepsilon'.</math>
+Cela correspond au signe près au même résultat que précédemment. La suite du développement de la solution se fait de même que précédemment. On part de
+:<math>u = 1 - q + \varepsilon + x \varepsilon^2,</math>
+et on injecte ce résultat dans l'équation fondamentale
+:<math>- \frac{1 - q}{(1 + \varepsilon + x \varepsilon^2)^2} - \frac{q}{(\varepsilon + x \varepsilon^2)^2} + 1 - q + \varepsilon + x \varepsilon^2 = 0.</math>
+Comme précédemment, on transforme cette expression selon
+:<math>- (1 - q)(1 - 2 \varepsilon - 2 x \varepsilon^2 + 3 \varepsilon^2) - 3 \varepsilon (1 - 2 x \varepsilon) + 1 - q + \varepsilon + x \varepsilon^2 = 0,</math>
+ce que l'on résout en 
+:<math>x = \frac{1}{3},</math>
+soit
+:<math>u = 1 - q + \varepsilon + \frac{1}{3} \varepsilon^2 + \mathcal{O} (\varepsilon^3).</math>
+Cette expression est identique à celle du premier point de Lagrange en remplaçant ''ε{{'}}'' par ''ε'', mais ces deux points sont dissymétriques : comme le signe de ''ε'', ''ε{{'}}'' change entre le point {{pla|1}} et le point {{pla|2}}, la correction du second ordre, toujours positive, rapproche le point {{pla|1}} du {{nobr|corps 2}} alors qu'elle éloigne le point {{pla|2}} : les deux points ne sont plus à égale distance du {{nobr|corps 2}}. Pour la Terre, le rapport de masse est de {{fraction|1|{{nombre|300000}}}}, et ''ε'' est de l'ordre 0,01, ce qui place les deux points par rapport à la Terre à une distance d'environ un centième de la distance Terre-Soleil, soit dans les {{nombre|1500000|[[kilomètre]]s}}. Le terme de second ordre est de l'ordre d'un trente-millième de la distance Terre-Soleil, soit dans les {{nombre|5000|km}}. Le point {{pla|1}} est donc environ {{nombre|10000|km}} plus près de la Terre que ne l'est {{pla|2}}.
+
+Enfin, on peut poursuivre le développement à l'ordre supérieur, ce qui donne, tous calculs faits
+:<math>u = 1 - q + \varepsilon + \frac{1}{3} \varepsilon^2 - \frac{1}{9} \varepsilon^3 + \mathcal{O} (\varepsilon^4).</math>
+
+'''Le point {{pla|3}}'''
+
+Dans le cas 3, qui va correspondre au point {{pla|3}}, l'équation fondamentale s'écrit
+:<math>\frac{1 - q}{(u + q)^2} + \frac{q}{(u - 1 + q)^2} + u = 0.</math>
+Comme le point est supposé au-delà du {{nobr|corps 1}} par rapport au {{nobr|corps 2}}, il est plus proche du corps le plus massif, dont l'attraction va être prépondérante par rapport à l'autre corps. Dans la situation où l'on se place, le point recherché a donc sa position approximée par
+:<math>\frac{1 - q}{(u + q)^2} + u = 0.</math>
+La solution approchée de cette équation est, bien sûr
+:<math>u \simeq - 1.</math>
+Pour trouver les écarts à cette valeur, on écrit dans l'équation fondamentale
+:<math>u = -1 + v,</math>
+et on résout l'équation en prenant en compte les premiers termes en ''q''. On obtient ainsi
+:<math>\frac{1 - q}{(-1 + v + q)^2} + \frac{q}{(-1 - 1 + v + q)^2} - 1 + v = 0.</math>
+Les quantités <math>v</math> et ''q'' étant petites devant ''R'', le premier terme s'écrit
+:<math>\frac{1 - q}{(-1 + v + q)^2} = (1 - q) (1 - v - q)^{-2} \simeq (1 - q) + 2 (v + q).</math>
+Le second terme étant négligeable par rapport au précédent (il est proportionnel à ''q''), il peut s'approximer en
+:<math>\frac{q}{(-1 - 1 + v + q)^2} \simeq \frac{q}{4}.</math>
+En combinant l'ensemble de ces termes, on obtient
+:<math>1 - q + 2 (v + q) + \frac{q}{4} - 1 + v = 0,</math>
+ce qui donne
+:<math> \frac{5}{4} q + 3 v = 0,</math>
+c'est-à-dire
+:<math> v = - \frac{5}{12} \frac{m_2}{M} + \mathcal{O}\left(\frac{m_2^2}{M^2}\right).</math>
+On peut sans difficulté continuer ce calcul en posant désormais
+:<math>u = -1 - \frac{5}{12} q + w,</math>
+<math>w</math> étant cette fois proportionnel à ''q''{{exp|2}}. L'équation fondamentale devient alors
+:<math>\frac{1 - q}{\left(-1 - \frac{5}{12} q + w + q\right)^2} + \frac{q}{\left(-1 - 1 - \frac{5}{12} q + w + q\right)^2} - 1 - \frac{5}{12} q + w = 0,</math>
+c'est-à-dire
+:<math>\frac{1 - q}{\left(1 - \frac{7}{12} q - w\right)^2} + \frac{q}{\left(2 - \frac{7}{12} q - w\right)^2} - 1 - \frac{5}{12} q + w = 0.</math>
+En développant cette expression au second ordre en ''q'', on trouve 
+:<math>w = 0 + \mathcal{O}(q^3)</math>,
+c'est-à-dire que <math>w</math> est au plus en ''q''{{exp|3}}. En refaisant le calcul dans ce cadre là, on trouve finalement
+:<math>w = \frac{1127}{20736} q^3 + \mathcal{O}(q^4).</math>
+Il est rarement utile de pousser le calcul jusque-là : dans une configuration Soleil-Planète, le dernier terme correctif est au mieux de l'ordre 10{{exp|-9}}, puisque le plus grand rapport de masse Planète-Soleil, dans le cas de [[Jupiter (planète)|Jupiter]] est de l'ordre d'un millième. Le terme ''q''{{exp|3}} est donc, pour Jupiter, de l'ordre d'un milliardième, ce qui, au vu de la taille de son orbite, correspond à une correction d'une cinquantaine de mètres, étant donné que la fraction en facteur de ''q''{{exp|3}} est de l'ordre d'un vingtième. Pour le système Terre-Soleil (distance de l'ordre de {{nobr|150 millions}} de kilomètres, rapport de masse de l'ordre de {{fraction|1|{{nombre|300000}}}}), la dernière correction est une fraction de micromètre.
+}}
+
+== Stabilité ==
+[[Fichier:Lagrange points2.svg|vignette|redresse=1.2]]
+[[Fichier:RochePotential.jpg|vignette|redresse=1.2|Les points {{pla|4}} et {{pla|5}}, bien que situés à des ''maxima'' du potentiel, sont paradoxalement stables. {{pla|1}}, {{pla|2}} et {{pla|3}} qui sont des ''points-col'' sont instables.]]
+[[Fichier:Lagrangian points equipotential.gif|thumb|Visualisation de la relation entre les points de Lagrange (rouge) d'une planète (bleue), en orbite autour d'une étoile (jaune) dans le sens inverse des aiguilles d'une montre, et le [[potentiel effectif]] dans le plan contenant l'orbite (modèle de feuille de caoutchouc grise avec des contours violets d'égal potentiel)<ref>{{Article |titre=The Roche Problem: Some Analytics|prénom=Zakir F.|nom=Seidov|date=March 1, 2004|journal=The Astrophysical Journal|volume=603|numéro=1|pages=283–284|doi=10.1086/381315|arxiv=astro-ph/0311272|bibcode=2004ApJ...603..283S|s2cid=16724058}}.</ref>. ]]
+
+Le calcul ci-dessus n'indique en rien si les points de Lagrange sont stables. La stabilité ou non de ces points est du reste peu intuitive. Dans le référentiel tournant avec les deux corps, une particule d'épreuve peut être vue comme soumise à un potentiel incluant la contribution gravitationnelle et celle de la force centrifuge. Ce potentiel, noté Ω, s'écrit ainsi
+:<math>\Omega = - \frac{G M_1}{|\boldsymbol{r} - \boldsymbol{r}_1|} - \frac{G m_2}{|\boldsymbol{r} - \boldsymbol{r}_2|} - \frac{1}{2} |\boldsymbol{r}|^2 \omega^2.</math>
+Tous les termes de ce potentiel sont négatifs et décroissent à mesure que l'on s'éloigne des masses (pour les deux premiers termes) ou du centre de gravité du système (pour le troisième). On peut ainsi montrer que les points de Lagrange {{pla|4}} et {{pla|5}} sont des maxima locaux du potentiel Ω (voir ci-dessous) et que les trois autres points sont des [[Point col|points selles]]. D'ordinaire, une position d'équilibre (déterminée par l'annulation des dérivées du potentiel) est stable uniquement si on se situe dans des minima locaux du potentiel. Cependant, étant donné que l'on est dans un référentiel tournant, le référentiel est [[Référentiel non inertiel|non inertiel]]. Un objet se déplaçant dans ce référentiel, par exemple au voisinage d'une position d'équilibre, va être soumis à la [[force de Coriolis]], et son mouvement ne dépend pas uniquement de la forme du potentiel. Pour étudier la stabilité des points de Lagrange, il faut donc tenir compte de la force de Coriolis.
+
+Pour calculer la stabilité des points de Lagrange, il faut ainsi étudier l'équation du mouvement d'un objet situé au voisinage d'un de ces points. En notant '''''δR''''' le vecteur de coordonnées ''δX'' et ''δY'' donnant l'écart d'un tel objet à un des points de Lagrange (que l'on suppose confiné au plan orbital), l'équation du mouvement s'écrit
+:<math>\ddot{\boldsymbol{\delta R}} = -2  \boldsymbol{\omega} \wedge \dot {\boldsymbol {\delta R}} +  \boldsymbol {\delta f},</math>
+où '''''δf''''' représente la force par unité de masse exercée sur l'objet. Cette force est petite du fait qu'au point de Lagrange la force (constituée d'une composante gravitationnelle et de la force centrifuge) est nulle et que l'on se place à proximité d'un tel point. Cette force peut se calculer en termes d'un développement limité. Par exemple, pour la composante ''X'', on a
+:<math>\delta f_X = f_X (0) + \frac{\partial f_X}{\partial X} \delta X + \frac{\partial f_X}{\partial Y} \delta Y.</math>
+Le premier terme correspond à la force s'exerçant au point de Lagrange, force qui est nulle par construction. Par ailleurs, la force dérivant d'un potentiel, on peut exprimer les dérivées de la force en termes de dérivées secondes du potentiel : 
+:<math>\delta f_X = - \frac{\partial^2 \Omega}{\partial X^2} \delta X - \frac{\partial^2 \Omega}{\partial X \partial Y} \delta Y.</math>
+On peut ainsi exprimer l'équation du mouvement en termes des composantes selon
+:<math>\ddot{\delta X} = 2 \omega \dot{\delta Y} - \frac{\partial^2 \Omega}{\partial X^2} \delta X - \frac{\partial^2 \Omega}{\partial X \partial Y} \delta Y,</math>
+:<math>\ddot{\delta Y} = - 2 \omega \dot{\delta X}- \frac{\partial^2 \Omega}{\partial X \partial Y} \delta X - \frac{\partial^2 \Omega}{\partial Y^2} \delta Y.</math>
+Ce groupe d'équations peut être mis sous la forme d'un système de quatre [[Équation différentielle|équations différentielles]] du premier ordre :
+:<math>\frac{\partial}{\partial t}\left(\begin{array}{c} \delta X \\ \delta Y \\ \dot{\delta X} \\ \dot{\delta Y} \end{array} \right) = \left(\begin{array}{cccc} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ -\Omega_{,xx} & - \Omega_{,xy} & 0 & 2 \omega \\ - \Omega_{,xy} & -\Omega_{,yy} & -2 \omega & 0 \end{array}\right) \left(\begin{array}{c} \delta X \\ \delta Y \\ \dot{\delta X} \\ \dot{\delta Y} \end{array} \right),</math>
+où les dérivées partielles du potentiel Ω ont été notées en indice précédé d'une virgule (par exemple, Ω{{ind|,''xx''}} correspond à <math>\partial^2 \Omega / \partial x^2</math>).
+
+La stabilité du point de Lagrange considéré est obtenue en recherchant les solutions de cette équation. Pour cela, il suffit de trouver des solutions de type [[fonction exponentielle|exponentielle]], en <math>e^{\Gamma t}.</math> On va ainsi procéder à la diagonalisation de la matrice ci-dessus, que l'on notera ''A''. Les [[valeur propre|valeurs propres]] trouvées vont correspondre aux quantités Γ ci-dessus, les écarts à la position d'équilibre étant alors une certaine combinaison d'au plus quatre exponentielles. La stabilité du système est assurée par le fait que les exponentielles ne croissent pas au cours du temps, c'est-à-dire que les quantités Γ sont soit négatives, soit complexes à [[partie réelle|parties réelles]] négatives. En fait, il n'est pas nécessaire de diagonaliser complètement la matrice, il suffit d'en trouver les valeurs propres, c'est-à-dire les solutions de l'équation 
+:<math>\det(A - \lambda I) = 0.</math>
+Ce déterminant s'écrit
+:<math>\left|\begin{array}{cccc} - \lambda & 0  & 1 & 0 \\ 0 & -\lambda & 0 & 1 \\ -\Omega_{,xx} & - \Omega_{,xy}, & - \lambda & 2 \omega \\ - \Omega_{,xy} & - \Omega_{yy} & -2 \omega & -\lambda \end{array} \right|,</math>
+et il vaut
+:<math>\lambda^4 + (\Omega_{,xx} + \Omega_{,yy} + 4 \omega^2) \lambda^2 + \Omega_{,xx} \Omega_{,yy} - \Omega_{,xy}^2.</math>
+Cette équation peut se ramener à une équation polynomiale du second ordre en ''λ''{{exp|2}}. Les solutions de l'équation de départ sont donc deux couples de nombres opposés deux à deux. Pour que deux nombres opposés soient négatifs ou nuls ou alors de partie réelle négative ou nulle, il faut obligatoirement qu'ils soient des nombres imaginaires purs, donc que les solutions de l'équation en ''λ''{{exp|2}} soient réelles et négatives. Pour que ces solutions soient réelles, il faut donc que le [[discriminant]] soit positif, soit ici
+:<math>(\Omega_{,xx} + \Omega_{,yy} + 4 \omega^2)^2 - 4 (\Omega_{,xx} \Omega_{,yy} - \Omega_{,xy}^2) > 0.</math>
+Une fois ceci obtenu, il faut que les deux solutions réelles soient négatives, ce qui implique que simultanément leur somme soit négative et leur produit positif, ce qui implique
+:<math>\Omega_{,xx} + \Omega_{,yy} + 4 \omega^2 > 0,</math>
+:<math>\Omega_{,xx} \Omega_{,yy} - \Omega_{,xy}^2 > 0.</math>
+La stabilité d'un point de Lagrange est soumise à la réalisation de ces trois contraintes. Parmi ces contraintes, la dernière a une interprétation simple : le signe de la quantité <math>\Omega_{,xx} \Omega_{,yy} - \Omega_{,xy}^2</math> détermine si la position considérée est un extrémum local ou un point selle. En l'occurrence, la positivité de cette quantité implique qu'elle doive être un extrémum local, condition nécessaire mais non suffisante à la stabilité du point de Lagrange. Quand cette quantité est négative, on a un point selle et le point de Lagrange est instable. Par contre, de façon plus surprenante, un point de Lagrange peut être stable s'il correspond à un maximum local du potentiel, c'est-à-dire que {{nobr|Ω{{ind|,''xx''}} + Ω{{ind|,''yy''}}}} peut être négatif, pourvu que cette quantité ne dépasse pas la valeur critique de {{nobr|-4 ''ω''{{exp|2}}}}. En pratique, c'est ce qui se produit dans certains cas pour les points de Lagrange {{pla|4}} et {{pla|5}}. L'interprétation physique de cette situation est que la stabilité est alors assurée par la force de Coriolis. Un objet légèrement décalé d'un tel point va s'en éloigner dans un premier temps en façon radiale, avant de voir sa trajectoire incurvée par la force de Coriolis. Si le potentiel est partout décroissant autour du point, alors il est possible que la force de Coriolis force l'objet à tourner autour du point de Lagrange, à l'instar des [[nuage]]s dans une [[dépression (météorologie)|dépression]] qui ne se dirigent pas vers le cœur de la dépression, mais sont contraints à une trajectoire circulaire autour de celui-ci.
+
+{{boîte déroulante|titre=Suite du calcul|contenu=
+'''Préliminaire'''
+
+Pour étudier la stabilité des points de Lagrange, on va être amené à calculer les dérivées successives du potentiel. Ce potentiel fait intervenir la distance <nowiki>|</nowiki>'''''r'''''&nbsp;-&nbsp;'''''r'''''{{ind|1}}<nowiki>|</nowiki>. Il faut donc connaître les dérivées des différentes puissances d'une telle quantité. En [[coordonnées cartésiennes]], cette quantité s'écrit
+:<math>|{\boldsymbol{r}} - {\boldsymbol{r}}_1| = \sqrt{(x-x_1)^2 + (y - y_1)^2 + (z - z_1)^2}.</math>
+Sa dérivée par rapport à l'une des coordonnées ''x'', ''y'', ''z'', collectivement notées ''x{{ind|i}}'' s'écrit donc
+:<math>\partial_i |{\boldsymbol{r}} - {\boldsymbol{r}}_1| = \frac{1}{2} \frac{2 (x_i - x_{1\;i})}{\sqrt{(x-x_1)^2 + (y - y_1)^2 + (z - z_1)^2}} = \frac{x_i - x_{1\;i}}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|}.</math>
+La dérivée d'une puissance ''p'' quelconque de cette grandeur est donc
+:<math>\partial_i (|{\boldsymbol{r}} - {\boldsymbol{r}}_1|^p) = p (x_i - x_{1\;i}) |{\boldsymbol{r}} - {\boldsymbol{r}}_1|^{p - 2}.</math>
+En adaptant ce résultat aux dérivées secondes des quantités intervenant dans le potentiel, on a
+:<math>\partial_{ij} \left(\frac{1}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|}\right) = - \frac{\delta_{ij}}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|^3} + 3 \frac{(x_i - x_{1\;i}) (x_j - x_{1\;j})}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|^5},</math>
+ce qui, pour le potentiel complet, donne
+:<math>\partial_{ij} \Omega = \delta_{ij}\frac{G M_1}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|^3} - 3 \frac{(x_i - x_{1\;i}) (x_j - x_{1\;j}) G M_1}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|^5}
+ + \delta_{ij}\frac{G m_2}{|{\boldsymbol{r}} - {\boldsymbol{r}}_2|^3} - 3 \frac{(x_i - x_{2\;i}) (x_j - x_{2\;j}) G m_2}{|{\boldsymbol{r}} - {\boldsymbol{r}}_2|^5} - \omega^2 \delta_{ij},</math>
+où ''δ{{ind|ij}}'' représente le [[symbole de Kronecker]]. C'est la valeur de ces dérivées partielles qu'il faut calculer pour déterminer la stabilité des différents points de Lagrange. C'est pour les points de Lagrange {{pla|4}} et {{pla|5}} que ce calcul est le plus simple.
+
+'''Cas des points de Lagrange {{pla|4}} et {{pla|5}}'''
+
+Ces points se caractérisent par le fait que leur distance aux deux corps est identique et égale à ''R'' :
+:<math>|{\boldsymbol{r}} - {\boldsymbol{r}}_1| = |{\boldsymbol{r}} - {\boldsymbol{r}}_2| = R.</math>
+Par ailleurs, on peut utiliser la troisième loi de Kepler pour passer des quantités du type ''G&nbsp;M''&nbsp;/&nbsp;''R''{{exp|3}} à ''ω'', et on connaît les coordonnées exactes des points de Lagrange. En évaluant les dérivées du potentiel aux points de Lagrange {{pla|4}} ou {{pla|5}}, on a 
+:<math>x_i - x_{1\;i} = \left(\frac{1}{2} R, \pm \frac{\sqrt{3}}{2} R \right),</math>
+et
+:<math>x_i - x_{2\;i} = \left(- \frac{1}{2} R, \pm \frac{\sqrt{3}}{2} R \right),</math>
+
+le signe + s'appliquant pour {{pla|5}} et le signe - pour {{pla|4}}. Finalement, la matrice recherchée a pour composantes
+:<math>\partial_{ij} \Omega = \omega^2 \left(\begin{array}{cc} -\frac{3}{4} & \mp \frac{3\sqrt{3}}{4}(1-2q) \\ \mp \frac{3\sqrt{3}}{4}(1-2q) & -\frac{9}{4}\end{array} \right).</math>
+Le déterminant de cette matrice vaut
+:<math>\det(\partial_{ij} \Omega) = \Omega_{,xx} \Omega_{,xy} - \Omega_{,xy}^2 = \frac{27}{16} \left(1 - (1 - 2 q)^2 \right) \omega^2 = \frac{27}{4} \omega^2 q (1 - q),</math>
+qui est toujours positif puisque ''q'' est confiné entre 0 et 1. Cette première condition de stabilité est établie. La seconde condition de stabilité s'écrit
+:<math>\Omega_{,xx} + \Omega_{,yy} + 4 \omega^2 = \omega^2\left(-\frac{3}{4} - \frac{9}{4} + 4 \right) = + \omega^2,</math>
+quantité là encore positive. Enfin, le discriminant donne
+:<math>\left(\Omega_{,xx} + \Omega_{,yy} + 4 \omega^2\right)^2 - 4 \left(\Omega_{,xx} \Omega_{,xy} - \Omega_{,xy}^2\right) = \omega^2 \left(1 - 27 q (1 - q) \right) = \omega^2(27 q^2 - 27 q + 1).</math>
+La stabilité des deux points est, finalement, déterminée par la positivité de la quantité <math>27 q^2 - 27 q + 1.</math> Les zéros ''q{{ind|a}}'', ''q{{ind|b}}'' de ce polynôme sont donnés par la formule usuelle, qui ici indique
+:<math>q_{a,b} = \frac{1}{2} \pm \frac{1}{2} \sqrt{\frac{23}{27}}.</math>
+Ce polynôme a ainsi des valeurs négatives sur la plage <math>q \in \left]\frac{1}{2} - \frac{1}{2} \sqrt{\frac{23}{27}}, \frac{1}{2} + \frac{1}{2} \sqrt{\frac{23}{27}} \right[ \simeq ]0,\!03852, 0,\!96148[ .</math>
+Ainsi, la stabilité de ces deux points de Lagrange n'est assurée que si la plus petite masse n'excède pas 3,852 % de la masse totale, ou, de façon équivalente, que le rapport des deux masses n'excède pas 4,006 %<ref>Si l'on définit ''q'' comme le rapport de la plus petite masse à la totale, seules les valeurs de ''q'' inférieures à 0,5 ont un sens, puisque les valeurs plus grandes correspondent au rapport de la plus grande masse à la masse totale.</ref>.
+
+Cette condition est vérifiée pour toutes les configurations de type Soleil-Planète (où ''q'' n'excède pas environ un millième pour Jupiter), ou pour le système Terre-Lune (où ''q'' est de l'ordre de 1/80, soit 1,25 %).
+
+'''Cas des points de Lagrange {{pla|1}} à {{pla|3}}'''
+
+Les trois points de Lagrange {{pla|1}} à {{pla|3}} sont situés sur l'axe reliant les deux corps. Dans la formule qui donne les dérivées secondes, les quantités ''y{{ind|i}}''&nbsp;-&nbsp;''y''{{ind|1 ''i''}} sont nulles, alors que leurs analogues en ''x'' s'identifient aux distances entre un des corps et le point de Lagrange considéré. En conséquence, la matrice des dérivées secondes s'écrit
+:<math>\partial_{ij} \Omega = \left(\begin{array}{cc} - 2\frac{G M_1}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|^3} - 2\frac{G m_2}{|{\boldsymbol{r}} - {\boldsymbol{r}}_2|^3}  - \omega^2 & 0 \\ 0 & \frac{G M_1}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|^3} + \frac{G m_2}{|{\boldsymbol{r}} - {\boldsymbol{r}}_2|^3}  - \omega^2 \end{array} \right).</math>
+Le terme Ω{{ind|,''xx''}} est manifestement négatif. Le signe du déterminant de la matrice est déterminé par celui de Ω{{ind|,''yy''}} : si ce dernier est positif, alors le point de Lagrange est un point selle et il est instable. On peut réécrire ce terme en utilisant la troisième loi de Kepler :
+:<math>\Omega_{,yy} = \omega^2 \left((1 - q)\frac{R^3}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|^3} + q \frac{R^3}{|{\boldsymbol{r}} - {\boldsymbol{r}}_2|^3}  - 1 \right).</math>
+
+'''Cas de {{pla|1}}'''
+
+Le {{pla|1|txt=}} est situé entre les deux corps. Sa distance à ceux-ci, <nowiki>|</nowiki>'''''r'''''&nbsp;-&nbsp;'''''r'''''{{ind|1}}<nowiki>|</nowiki> et <nowiki>|</nowiki>'''''r'''''&nbsp;-&nbsp;'''''r'''''{{ind|2}}<nowiki>|</nowiki> est donc, à chaque fois, strictement inférieure à ''R''. On a ainsi
+:<math>\left.\Omega_{,yy}\right|_{L_1} = \omega^2 \left((1 - q)\frac{R^3}{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|^3} + q \frac{R^3}{|{\boldsymbol{r}} - {\boldsymbol{r}}_2|^3}  - 1 \right) > \omega^2 \left( (1 - q) + q - 1 \right) = 0.</math>
+Cette quantité est donc strictement positive, ce qui assure que le déterminant est négatif, c'est-à-dire que {{pla|1}} est un point selle, ce qui en fait un point instable.
+
+'''Cas de {{pla|2}} et {{pla|3}}'''
+
+On pose, pour simplifier les notations,
+:<math>u_1 = \frac{|{\boldsymbol{r}} - {\boldsymbol{r}}_1|}{R},</math>
+:<math>u_2 = \frac{|{\boldsymbol{r}} - {\boldsymbol{r}}_2|}{R}.</math>
+On s'intéresse donc au signe de la quantité
+:<math>\frac{\Omega_{,yy}}{\omega^2} = (1 - q) \frac{1}{u_1^3} + q \frac{1}{u_2^3} - 1,</math>
+soit
+:<math>\frac{\Omega_{,yy}}{\omega^2} = (1 - q) \left(\frac{1}{u_1^3} - 1\right) + q \left(\frac{1}{u_2^3} - 1\right),</math>
+sachant que ''u''{{ind|1}} et ''u''{{ind|2}} sont reliés entre eux par le fait que leur différence est égale à 1 et qu'ils définissent un point de Lagrange, soit la relation
+:<math>- (1 - q) \frac{1}{u_1^2} - q \frac{1}{u_2^2} + \frac{|{\boldsymbol{r}}|}{R} = 0.</math>
+La distance du point de Lagrange au centre de gravité du système peut s'écrire, pour le point {{pla|2}},
+:<math>\frac{|{\boldsymbol{r}}|}{R} = u_2 + (1 - q) = u_1 - q,</math>
+relations que l'on peut combiner en
+:<math>\frac{|{\boldsymbol{r}}|}{R} = q u_2 + (1 - q) u_1.</math>
+La position du point {{pla|2}} est donc donnée par
+:<math>- (1 - q) \left(\frac{1}{u_1^2} - u_1\right) - q \left(\frac{1}{u_2^2} - u_2 \right) = 0.</math>
+On pose alors
+:<math>A = (1 - q) \left(\frac{1}{u_1^2} - u_1\right),</math>
+:<math>B = q \left(\frac{1}{u_2^2} - u_2 \right).</math>
+On a donc, d'une part
+:<math>A + B = 0,</math>
+et, d'autre part
+:<math>\frac{\Omega_{,yy}}{\omega^2} = \frac{A}{u_1} + \frac{B}{u_2}.</math>
+Autrement dit,
+:<math>\frac{\Omega_{,yy}}{\omega^2} = \frac{A}{u_1} + \frac{B}{u_1} + B \left(\frac{1}{u_2} - \frac{1}{u_1} \right).</math>
+Le premier terme du membre de droite est nul en vertu de la relation ''A''&nbsp;+&nbsp;''B''&nbsp;=&nbsp;0. Il reste donc
+:<math>\frac{\Omega_{,yy}}{\omega^2} = B \left(\frac{1}{u_2} - \frac{1}{u_1} \right).</math>
+Or, pour le point {{pla|2}}, on est situé plus près du {{nobr|corps 2}} que du {{nobr|corps 1}}. Par conséquent, ''u''{{ind|2}} est plus petit que ''u''{{ind|1}}, et, par conséquent, <math>\left(\frac{1}{u_2} - \frac{1}{u_1} \right)</math> est positif. Le signe de la dérivée seconde correspond donc à celui de ''B'', qui lui-même est déterminé par la valeur de ''u''{{ind|2}} : si cette quantité est supérieure à 1, alors ''B'' est négatif, alors que, dans le cas contraire, ''B'' est positif, ce qui implique que le point est instable. Le {{pla|2|txt=}} est situé au-delà du {{nobr|corps 2}}. La force totale (gravitationnelle plus centrifuge) s'exerçant dans cette région est d'abord tournée vers le {{nobr|corps 2}} quand on est proche de celui-ci, puis s'annule en {{pla|2}} et est après dirigée à l'opposé de {{pla|2}}. Au point tel que ''u''{{ind|2}} vaut 1, la composante de cette force, selon l'axe reliant les deux corps, est donnée (à une constante multiplicative positive près) par
+:<math>\delta f \propto - (1 - q) \left(\frac{1}{u_1^2} - u_1\right) - q \left(\frac{1}{u_2^2} - u_2 \right),</math>
+avec, ici, 
+:<math>u_2 = 1,</math>
+:<math>u_1 = 2,</math>
+soit
+:<math>\left.\delta f \right|_{u_2 = 1} \propto \frac{7}{4} (1 - q).</math>
+Cette quantité étant strictement positive, le point ''u''{{ind|2}}&nbsp;=&nbsp;1 de l'axe est situé au-delà du point {{pla|2}}. En conséquence, au point {{pla|2}}, ''u''{{ind|2}} est inférieur à 1, donc ''B'' est positif, donc le point est bien un point selle, ce qui assure de son instabilité. Une démonstration strictement analogue peut être faite pour le point {{pla|3}}, ce qui achève la démonstration de leur instabilité du fait de leur caractère de point selle.
+}}
+
+=== Temps caractéristiques en {{pla|1}} et {{pla|2}} pour les systèmes à grande hétérogénéité de masse ===
+Une des applications les plus importantes de l'instabilité des points de Lagrange, {{pla|1}} et {{pla|2}}, réside dans le fait que des [[satellite artificiel|satellites artificiels]] peuvent être envoyés en ces points du système Terre-Soleil (voir ci-dessous). Pour de tels satellites, des corrections de trajectoires régulières doivent être appliquées afin de conserver le satellite au voisinage du point. Ce temps caractéristique peut être évalué dans le cas où le rapport de masse des deux corps du système est élevé. Dans ce cas, le temps caractéristique ''γ''{{exp|-1}} d'instabilité est donné par
+:<math>\frac{1}{\gamma} = \frac{T}{2 \pi \sqrt{1 + 2\sqrt{7}}},</math>
+où ''T'' est la [[Période de révolution|période orbitale]] du système. Dans le cas du système Terre-Soleil, où ''T'' est légèrement supérieur à {{nobr|365 jours}}, le temps caractéristique d'instabilité est alors de {{nobr|23 jours}} et {{nobr|4 heures}}.
+
+Par ailleurs, la composante stable de la trajectoire se fait à la pulsation
+:<math>\omega_{\rm Traj} = \omega \sqrt{2 \sqrt{7} - 1},</math>
+soit, de façon équivalente, avec la période
+:<math>T_{\rm Traj} = \frac{T}{\sqrt{2 \sqrt{7} - 1}},</math>
+ce qui, dans le même cas de figure que ci-dessus, donne une période de {{nobr|176 jours}}.
+
+{{Boîte déroulante|titre=Démonstration|contenu=
+L'équation donnant les valeurs propres du système est toujours
+:<math>\lambda^4 + (\Omega_{,xx} + \Omega_{,yy} + 4 \omega^2) \lambda^2 + \Omega_{,xx} \Omega_{,yy} - \Omega_{,xy}^2 = 0,</math>
+avec, pour les points {{pla|1}} et {{pla|2}}, 
+:<math>\Omega_{,xy} = 0,</math>
+:<math>\Omega_{,xx} = - 2 \Omega_{,yy} - 3 \omega^2,</math>
+:<math>\Omega_{,yy} = \omega^2 \left(\frac{q}{u_2^3} + \frac{1 - q}{u_1^3} - 1\right).</math>
+en se restreignant aux termes d'ordre le plus bas en ''q'', ''u''{{ind|1}} vaut 1, et ''u''{{ind|2}} est déterminé par la relation donnée par le premier tableau de cette page. On a ainsi
+:<math>\Omega_{,yy} = \omega^2 \left(3 + 1 - 1\right) = 3 \omega^2,</math>
+:<math>\Omega_{,xx} = - 9 \omega^2.</math>
+L'équation polynomiale devient alors
+:<math>\lambda^4 - 2 \omega^2 \lambda^2 - 27 \omega^4 = 0,</math>
+dont les solutions sont
+:<math>\lambda_\pm^2 = \left(1 \pm 2 \sqrt{7}\right) \omega^2.</math>
+La solution positive à cette équation indique que les écarts au point d'équilibre croissent exponentiellement au cours du temps selon la relation
+:<math>\delta X \propto e^{\lambda_+ t},</math>
+avec
+:<math>\lambda_+ = \omega \sqrt{1 + 2 \sqrt{7}} = \frac{2 \pi}{T} \sqrt{1 + 2 \sqrt{7}}.</math>
+Le temps caractéristique associé est donc
+:<math>\frac{1}{\gamma} = \frac{1}{\lambda_+} = \frac{T }{2 \pi \sqrt{1 + 2 \sqrt{7}}} \simeq 0,\!0635\;T,</math>
+soit, comme annoncé, un temps caractéristique de l'ordre de {{nobr|23 jours}} pour les points de Lagrange de la Terre.
+
+De la même façon, il existe des trajectoires périodiques dont la pulsation est donnée par les racines complexes de l'équation, soit
+:<math>\omega_{\rm Traj} = \omega \sqrt{2 \sqrt{7} - 1},</math>
+c'est-à-dire une période de 
+:<math>T_{\rm Traj} = \frac{T}{\sqrt{2 \sqrt{7} - 1}} \simeq 0,\!4827\;T,</math>
+ce qui correspond à un temps de presque six mois pour les points de Lagrange de la Terre.
+}}
+
+=== Structure des orbites en présence d'instabilité ===
+Une fois les valeurs propres d'un point instable connues, une trajectoire au voisinage d'un point de Lagrange va être une [[combinaison linéaire]] des [[vecteur propre|vecteurs propres]] associés aux valeurs propres. En notant ''λ{{ind|i}}'' l'une de ces valeurs propres, le vecteur propre associé a pour composantes
+:<math>V_i = \left(\begin{array}{c} 1 \\ \mu_i \\ \lambda_i \\ \lambda_i \mu_i \end{array}\right),</math>
+avec
+:<math>\mu_i = - \frac{1}{2 \omega} \left(\frac{\Omega_{,xx}}{\lambda} + \lambda \right),</math>
+et une trajectoire est de la forme
+:<math>\left(\begin{array}{c} \delta X \\ \delta Y \\ \dot{\delta X} \\ \dot{\delta Y} \end{array}\right) = \sum_i \alpha_i V_i,</math>
+où les quantités ''<math>\alpha_i</math>'' sont des nombres quelconques déterminés par la valeur des ''δX'', ''δY'' et de leur dérivée à un instant donné. Dans le cas des trois points de Lagrange instables, le déterminant de la matrice des dérivées secondes est négatif, ce qui implique que le discriminant de l'équation du second degré en ''λ''{{exp|2}} possède des racines réelles de signes opposés, et que, au terme, les valeurs propres recherchées sont deux nombres imaginaires purs opposés et deux [[Nombre réel|nombres réels]] opposés. Une trajectoire générique comprend donc, dans le plan orbital, une composante périodique (liée aux racines imaginaires pures), une composante amortie (liée à la racine réelle positive), et une composante instable. Pour une position ''δX'', ''δY'' donnée, il est toujours possible de choisir une vitesse telle que les deux vecteurs propres aux racines réelles ne contribuent pas à la solution correspondante. La trajectoire obtenue est alors périodique, la période étant donnée par la racine complexe. Une telle solution n'est cependant pas stable. Un écart de trajectoire infime va en réalité rajouter à la trajectoire une composante instable, qui va peu à peu éloigner et faire diverger la trajectoire de sa composante périodique. On dit que la trajectoire obtenue n'est pas dynamiquement stable. Ceci est une généralisation du fait qu'un objet situé exactement sur un point de Lagrange instable est dans une situation instable : un petit écart à cette position d'équilibre, inéluctablement généré par les perturbations causées par les autres corps du système, finira par éloigner l'objet de sa position initiale. La même chose se produit pour des trajectoires situées autour du point d'équilibre instable.
+
+== Pertinence du concept ==
+Le calcul ci-dessus fait référence à une configuration où les deux corps du système sont en orbite circulaire. Néanmoins, le concept de point de Lagrange vaut pour tout type d'orbite, y compris elliptique. On peut donc définir ces points dans tout système à deux corps liés gravitationnellement. En revanche, les trajectoires, stables ou instables, autour des différents points de Lagrange dépendent explicitement de la circularité ou non de l'orbite des deux corps du système.
+
+== Utilisation dans les missions spatiales ==
+{{Section à sourcer|date=décembre 2021}}
+L'étude mathématique des points de Lagrange, ainsi que de leurs propriétés mathématiques, telles que les {{Lien|trad=Invariant manifold|fr=Variétés invariantes}} associées, a été exploitée pour concevoir des missions de [[Sonde spatiale|sondes spatiales]] dans le [[système solaire]]. Pour des missions comme [[Rosetta (sonde spatiale)|''Rosetta'']], [[Programme Voyager|''{{lang|en|Voyager}}'']] ou [[Galileo (sonde spatiale)|''Galileo'']], la vitesse relative de la sonde par rapport aux corps considérés est suffisamment élevée pour que l’approximation, considérant que les [[Mouvement képlérien|orbites képlériennes]] ne sont que peu perturbées par les autres corps au sein de la [[Sphère d'influence (astrodynamique)|sphère d’influence]], soit valide. Cependant, dès qu’on considère des vitesses et des poussées faibles, une approximation plus fine est nécessaire.
+
+Le théorème de Liapounov-Poincaré assure de l’existence d’une famille d’{{Quoi|orbites périodiques|date=décembre 2021}} autour de ces points d’équilibre. Les orbites périodiques planaires sont alors appelées « [[Exposant de Liapounov|orbites de Liapounov]] », alors que dans le cas tridimensionnel, elles sont appelées en fonction de leurs propriétés topologiques, soit « [[Orbite de halo|orbites de halo]] », soit « [[Orbite de Lissajous|orbites de Lissajous]] ». Ce type d’orbites périodiques autour des points de Lagrange a déjà été utilisé dans la construction de missions réelles telles que la mission [[SoHO]].
+
+De ces orbites périodiques autour des points de Lagrange sont issues des variétés invariantes ([[tubes de Conley-McGee]]) qui sont des [[séparatrice]]s de la dynamique et qui en ce sens peuvent être considérées comme des ''courants gravitationnels''. De plus en plus, ces courants sont utilisés pour la conception de missions, notamment le [[réseau de transport interplanétaire]] (ITN)<ref>{{Ouvrage |langue=en |prénom1=Maxime |nom1=Chupin |titre=Interplanetary transfers with low consumption using the properties of the restricted three body problem |passage=6 |nature ouvrage=thèse de doctorat en mathématiques appliquées |date=2016-10-19 |pages totales=172 |présentation en ligne=https://hal.archives-ouvertes.fr/tel-01389197 |lire en ligne=https://hal.archives-ouvertes.fr/tel-01389197v2/document |format électronique=pdf |consulté le=2021-12-27}}.</ref>.
+
+[[Fichier:Orbite-télescope-spatial-JWST-fr.png|vignette|Orbite du télescope spatial JWST autour du {{Pla|2|txt=}} : la distance Terre-Soleil n'est pas à l'échelle (150 millions de kilomètres, alors que {{Pla|2}} est distant de la Terre de 1,5 million de kilomètres)<ref name=nasa />.]] 
+Les Points de Lagrange sont utilisés pour répondre à des besoins spécifiques de certaines missions spatiales.
+
+=== Point de Lagrange L<sub>1</sub> ===
+Le {{pla|1|txt=}} du [[Système physique|système]] ''Terre-Soleil'', situé entre la Terre et le Soleil (bien que beaucoup plus proche de notre planète), permet d'observer le Soleil sans interférence ni ombrage de la Terre et de la Lune. Il est possible d'y mesurer l'activité solaire (éruptions, cycles, vent solaire) sans que celle-ci ne soit affectée par la [[Champ magnétique terrestre|magnétosphère terrestre]]. C'est la position idéale pour des missions de météorologie spatiale comme celles remplies par [[Solar and Heliospheric Observatory|''SoHO'']] et [[Advanced Composition Explorer|''ACE'']].
+
+C'est également le point {{pla|1}} qui est choisi pour positionner le futur télescope [[NEO Surveyor]] pour pouvoir observer une grande portion de l'espace dans lequel circulent les [[Astéroïde géocroiseur|géocroiseurs]].
+
+=== Point de Lagrange L<sub>2</sub> ===
+Le {{pla|2|txt=}} du système ''Terre-Soleil'' permet de bénéficier d'une grande stabilité thermique tout en étant situé suffisamment près de la Terre (1,5 million de kilomètres) pour que les données collectées puissent y être transférées avec un débit élevé. Il est utilisé en particulier par les grands observatoires astronomiques spatiaux lancés dans les décennies 2010 et 2020 : [[Planck (satellite)|''Planck'']]<ref name=nasa />, [[James-Webb (télescope spatial)|''James Webb'']]<ref name=nasa>{{en}} James Webb Space Telescope par Goddard Space Flight Center, ''Webb Orbit'' {{lire en ligne|lien=https://webb.nasa.gov/content/about/orbit.html}} (consulté le 10 décembre 2023).</ref>, [[Herschel (télescope spatial)|''Herschel'']]<ref name=nasa />, [[Wilkinson Microwave Anisotropy Probe|''WMAP'']]<ref name=nasa />, [[Gaia (satellite)|Gaia]], [[Euclid (télescope spatial)|''Euclid'']].
+
+En ce qui concerne le télescope James-Webb, le point L2 est idéal pour observer les [[Objet céleste|objets célestes]] en [[infra-rouge]], car privés de lumière et de chaleur du Soleil, de la Terre et de la Lune, ses instruments d'observation sont toujours laissés à {{unité|-233 °C}}, ce qui est nécessaire pour sa fonction<ref name=nasa />.
+
+Le {{pla|2|txt=}} du système ''Terre-Lune'' a été utilisé pour la première fois en 2018, comme un intermédiaire Terre-Lune, par le satellite chinois ''[[Queqiao]]''. Ce satellite de télécommunication peut ainsi retransmettre vers la Terre les données collectées par la sonde spatiale ''[[Chang'e 4]]'' posée sur la [[face cachée de la Lune]].
+[[Fichier:Orbite-du-JWST-selon-3-axes-fr.png|vignette|centre|redresse=1.5|Tracé en bleu, un exemple d'orbite autour du {{pla|2|txt=}} (précédé du transit entre la Terre et celui-ci) dans le cas du [[télescope spatial]] [[James-Webb (télescope spatial)|''James Webb'']].]]
+
+{{clr}}
+== Dans le Système solaire ==
+{{Article connexe| Liste d'objets du Système solaire situés à un point de Lagrange}}
+
+=== Troyens ===
+{{Article détaillé|Troyen (astronomie)}}
+
+Les points {{pla|4}} et {{pla|5}} sont généralement stables, aussi on y trouve de nombreux corps naturels, dits [[Troyen (astronomie)|troyens]] :
+* dans le [[Système physique|système]] Soleil-[[Jupiter (planète)|Jupiter]], on recense (en 2011) environ {{nombre|5000|astéroïdes}} aux points {{pla|4}} et {{pla|5}} ;
+* dans le système Soleil-[[Neptune (planète)|Neptune]], huit ;
+* dans le système Soleil-[[Mars (planète)|Mars]], quatre ;
+* dans le système [[Saturne (planète)|Saturne]]-[[Téthys (lune)|Téthys]], les points {{pla|4}} et {{pla|5}} sont occupés par [[Télesto (lune)|Télesto]] et [[Calypso (lune)|Calypso]], respectivement ;
+* dans le système Saturne-[[Dioné (lune)|Dioné]], Hélène et Pollux occupent ces points.
+
+Il semblerait que le système Soleil-Saturne ne soit pas en mesure d'accumuler des troyens du fait des perturbations [[Jupiter (planète)|joviennes]].
+
+Dans le système Soleil-[[Terre]], on connait depuis le {{date|1|octobre|2010}} un troyen au point {{pla|4}}, l'astéroïde {{PM1|706765|2010 TK|7}}, qui mesure {{nobr|300 mètres}} de diamètre<ref>{{Article |langue=en |auteur1=Martin Connors |auteur2=Paul Wiegert |auteur3=Christian Veillet |titre=Earth's trojan asteroid |périodique=[[Nature (revue)|Nature]] |volume=475 |numéro=7357 |jour=28 |mois=juillet |année=2011 |pages=481-483 |doi=10.1038/nature10233 |bibcode=2011Natur.475..481C |lire en ligne=http://www.astro.uwo.ca/~wiegert/2010TK7/2010TK7.pdf |format=pdf |consulté le=3 décembre 2014}}.</ref>{{,}}<ref>{{Lien web |langue=en |prénom1=Whitney |nom1=Clavin |prénom2=Trent J. |nom2=Perrotto |titre={{lang|en|NASA's WISE mission finds first trojan asteroid sharing Earth's orbit}} |url=https://archive.wikiwix.com/cache/index2.php?url=http%3A%2F%2Fwww.nasa.gov%2Fmission_pages%2FWISE%2Fnews%2Fwise20110727.html |site=nasa.gov via [[Wikiwix]] |éditeur=Brian Dunbar |date=mis en ligne le 27 juillet 2011 |consulté le=3 décembre 2014 |archive-date=28 juillet 2011}}.</ref>{{,}}<ref>{{Article|langue=fr |prénom=Philippe |nom=Ribeau-Gésippe |titre=Un nouveau satellite pour la Terre |sous-titre=Le premier satellite troyen de la Terre a été découvert |périodique=[[Pour la Science]] |numéro=407 |mois=septembre |année=2011 |page=6 |lire en ligne=http://www.pourlascience.fr/ewb_pages/a/actu-la-terre-a-un-nouveau-satellite-27707.php |consulté le=3 décembre 2014}}.</ref>. Un deuxième troyen, {{PM1|614689|2020 XL|5}}, a été découvert en {{date|décembre 2020}}, d'un diamètre de l'ordre du kilomètre<ref>{{Article |langue=en |prénom1=T. |nom1=Santana-Ros |prénom2=M. |nom2=Micheli |prénom3=L. |nom3=Faggioli |prénom4=R. |nom4=Cennamo |titre=Orbital stability analysis and photometric characterization of the second Earth Trojan asteroid 2020 XL5 |périodique=Nature Communications |volume=13 |numéro=1 |date=2022-02-01 |issn=2041-1723 |doi=10.1038/s41467-022-27988-4 |lire en ligne=https://www.nature.com/articles/s41467-022-27988-4 |consulté le=2022-02-05 |pages=447}}.</ref>. Certains astronomes soulignent que cet objet pourrait représenter un risque comparable aux géocroiseurs<ref>{{en}} [https://www.newscientist.com/article/mg20126962.000-do-gravity-holes-harbour-planetary-assassins.html ''{{lang|en|Do gravity holes harbour planetary assassins?}}''], ''[[New Scientist]]''.</ref>. Ces auteurs proposent également que l'[[Hypothèse de l'impact géant|impacteur géant]] supposément à l'[[Formation de la Lune|origine de la Lune]] ([[Théia (impacteur)|Théia]]) aurait stationné un temps sur le point {{pla|4}} ou {{pla|5}} et accumulé de la masse avant d'en être éjecté sous l'action des autres planètes.
+
+Dans le [[système Terre-Lune]], des nuages de poussière, appelés [[nuages de Kordylewski]], ont été observés aux points troyens.
+
+=== Applications ===
+Les points {{pla|1}} et {{pla|2}} sont des équilibres instables, ce qui les rend utilisables dans le cadre de missions spatiales : on n'y trouve pas ou peu de corps naturels, et un équilibre dynamique peut y être maintenu pour une consommation de carburant raisonnable (le champ gravitationnel étant faible dans leur voisinage).
+
+==== Système Soleil-Terre ====
+Les principaux avantages de ces positions, en comparaison des orbites terrestres, sont leur éloignement de la Terre et leur exposition au Soleil constante dans le temps. Le point {{pla|1}} se prête particulièrement à l'observation du Soleil et du [[vent solaire]]. Ce point a été occupé pour la première fois en 1978 par le satellite ''[[ISEE-3]]'', puis par le satellite ''{{lang|en|[[LISA Pathfinder]]}}''<ref>{{Lien web |langue=en |titre=LISA Pathfinder's journey through space - annotated |url=http://sci.esa.int/lisa-pathfinder/56410-lisa-pathfinders-journey-through-space-annotated/ |site=sci.esa.int |éditeur=[[Agence spatiale européenne]] |consulté le=2016-02-29}}.</ref> en 2016 (fin de mission en 2017). Le point est actuellement occupé par les satellites [[Observatoire solaire et héliosphérique|''SoHO'']] (fin de mission prévue fin 2025), [[Deep Space Climate Observatory|''DSCOVR'']] (mission de la [[National Oceanic and Atmospheric Administration|NOAA]] en cours depuis 2015) et ''{{lang|en|[[Advanced Composition Explorer]]}}'' (fin de mission prévue fin 2024).
+
+Le point {{pla|2}} est à l'inverse particulièrement intéressant pour les missions d'observation du cosmos, qui embarquent des instruments de grande sensibilité devant être détournés de la Terre et de la Lune, et fonctionnant à très basse température. Son orbite a été utilisée par les satellites [[Herschel (télescope spatial)|''Herschel'']] (fin de mission en 2013), [[Planck (télescope spatial)|''Planck'']] (fin de mission en 2013), [[Wilkinson Microwave Anisotropy Probe|''WMAP'']] (fin de mission en 2010). Il est actuellement occupé par les télescopes spatiaux [[Gaia (satellite)|''Gaia'']] (mission en cours jusqu'à fin 2025<ref>{{Lien web |langue=en |titre=Gaia - Fact Sheet |url=https://sci.esa.int/web/gaia/-/47354-fact-sheet |site=ESA Science & Technology |consulté le=2022-01-28}}.</ref>), [[James Webb (télescope spatial)|''James Webb'']] (depuis {{date|janvier 2022}}<ref>https://blogs.nasa.gov/webb/2022/01/21/webbs-journey-to-l2-is-nearly-complete/ consulté le 26 jan. 2022.</ref>) et [[Euclid (télescope spatial)|''Euclid'']] ({{date|juillet 2023}}) que doit rejoindre ''[[Nancy-Grace-Roman (télescope spatial)|''Nancy-Grace-Roman'']]'' (vers 2025).
+
+==== Système Terre-Lune ====
+
+Dans le cadre de la mission chinoise ''[[Chang'e 4]]'', sonde spatiale lunaire ayant atterri en 2019 sur la [[face cachée de la lune]], un satellite relais ''[[Queqiao]]'' a été placé au point {{pla|2}} afin d'assurer les communications entre la Terre et la sonde.
+
+Il a été un temps envisagé de placer un télescope spatial au point {{pla|4}} ou {{pla|5}} du [[système Terre-Lune]], mais cette option a été abandonnée après que des [[nuages de Kordylewski|nuages de poussière]] y ont été observés.
+
+=== En science-fiction ===
+En science-fiction, de par leur stabilité, les points {{pla|4}} et {{pla|5}} du système Terre-Lune abritent souvent de gigantesques colonies spatiales, comme dans le roman [[Vendredi (roman)|''Vendredi'']], de [[Robert A. Heinlein]], où ceux-ci sont mentionnés dès l'introduction sous le nom de ''Ell-4'' et ''Ell-5''.
+
+Les auteurs de [[science-fiction]] et de [[bande dessinée]] aiment également placer une [[Anti-Terre]] au point {{pla|3}}. Cette idée est cependant irréaliste : les points de Lagrange n'ont de sens que pour un objet de masse négligeable par rapport aux deux éléments du système, ce qui n'est pas le cas d'une planète jumelle.
+
+Parmi les auteurs ayant utilisé ces points dans leurs récits, [[John Varley]] envisage dans plusieurs de ses romans et nouvelles l'installation de colonies aux points de Lagrange de l'ensemble Terre-Lune, tirant parti du fait qu'un objet de faible masse n'aurait besoin d'aucune énergie pour maintenir sa position relative aux deux astres. C'est le cas notamment dans sa série dite de la ''[[John Varley#Trilogie de Gaïa|Trilogie de Gaïa]]'' où certains personnages principaux des deux derniers tomes viennent d'une de ces colonies, « le Covent ».
+
+On les trouve aussi, de manière souvent secondaire, dans les récits (romans et nouvelles) qui se situent dans le contexte de la série [[John Varley#Série Les Huit Mondes|''Les Huit Mondes'']]. Dans le roman ''Gens de la Lune'' notamment, le point {{pla|5}} est le lieu d'assemblage du vaisseau spatial ''Robert Anson Heinlein'' censé se lancer dans un voyage intersidéral, avant que le projet soit abandonné et la carcasse du vaisseau remisée dans une décharge sur la Lune.
+
+Dans les diverses œuvres des univers de ''[[Gundam]]'', les colonies spatiales sont souvent situées aux points de Lagrange<ref>{{Article|langue=Anglais |titre=Lagrange Points |périodique={{lang|en|The Gundam Wiki}} |date=12/09/2016 |lire en ligne=http://gundam.wikia.com/wiki/Lagrange_Points |consulté le=2016-12-14 }}.</ref>, ce qui en fait des positions stratégiques importantes dans ces conflits orbitaux.
+
+Dans ''[[Rupture dans le réel]]'', de [[Peter F. Hamilton]], un vaisseau spatial traqué par plusieurs vaisseaux ennemis leur échappe via un point de Lagrange pour pouvoir faire un saut (de type [[Hyperespace (transport)|hyperspatial]] même si le terme n'est pas utilisé) car c'est le seul endroit proche où la gravité est quasi nulle. Son capitaine Joshua Calvert est par la suite surnommé Lagrange Calvert à la suite de cet exploit.
+
+Dans le film ''[[2010 : L'Année du premier contact]]'' de [[Peter Hyams]] (1984) (qui fait suite à ''[[2001, l'Odyssée de l'espace]]''), le monolithe gigantesque dont la nature reste mystérieuse est présenté comme positionné sur un point de Lagrange entre Jupiter et l'une de ses lunes, [[Io (lune)|Io]].
+
+Dans le jeu vidéo ''[[Star Citizen]]'', des stations relais qui permettent de se ravitailler et de faire du commerce sont situées aux points de Lagrange de chaque planète<ref>{{Lien web |langue=fr |titre=Star Citizen : Les stations spatiales du patch 3.6 |url=https://archive.wikiwix.com/cache/index2.php?url=https%3A%2F%2Fwww.millenium.org%2Fnews%2F338007.html |site=millenium.org via [[Wikiwix]] |consulté le=2023-04-07}}.</ref>.
+
+Dans l'une des fins de ''[[Cyberpunk 2077]]'', on apprend que la luxueuse station spatiale touristique Crystal Palace se trouve au point de Lagrange {{pla|1}} entre la Terre et la Lune.
+
+== Notes et références ==
+
+=== Notes ===
+{{Références|groupe=N}}
+
+=== Références ===
+{{Références}}
+
+* {{Ouvrage|prénom1=Grégory |nom1=Archambeau |titre=Étude de la dynamique autour des points de Lagrange |lieu=Orsay |éditeur=[[Université Paris-Sud|Université {{nobr|Paris {{XI}}}}]]|année=2008 |pages totales={{X}}-114}}, [http://tel.archives-ouvertes.fr/docs/00/42/24/22/PDF/These_Archambeau.pdf lire en ligne] {{pdf}}, sur tel.archives-ouvertes.fr.
+* {{Ouvrage |prénom1=Maxime |nom1=Chupin |titre=Interplanetary transfers with lowconsumption using the properties of therestricted three body problem |lieu=Paris |éditeur=[[Université Pierre-et-Marie-Curie]]|année=2016 |pages totales={{XXVIII}}-171 |url=https://hal.archives-ouvertes.fr/tel-01389197/file/these_archivage_3270833o.pdf |format=pdf}}
+* {{en}} Richard Fitzpatrick, ''{{lang|en|Analytical Classical Dynamics}}'', cours donné à l'[[Université du Texas à Austin]] [http://farside.ph.utexas.edu/teaching/336k/336k.html Voir en ligne (versions {{pdf}} et html)].
+
+== Voir aussi ==
+
+=== Bibliographie ===
+{{Légende plume}}
+* {{Ouvrage | langue=en | langue originale=fr | prénom=Michel | nom=Capderou | traduction=Stephen N. Lyle | préface=[[Charles Elachi]] | titre=Handbook of satellite orbits | sous-titre=from Kepler to GPS | titre original=Satellites : de Kepler au GPS | lieu=Cham | éditeur=[[Springer Science+Business Media|Springer]], hors {{coll.}} | date=2014 | réimpression={{date|9/2016}} | pages totales={{XXIV}}-922 | format livre={{dunité|15,5|23,5|cm}} | isbn10=3-319-03415-4 | isbn1=978-3-319-03415-7 | isbn2=978-3-319-34421-8 | ean=9783319034157 | oclc=861323340 | bnf=446752008 | doi=10.1007/978-3-319-03416-4 | bibcode=2014hso..book.....C | s2cid=118186017 | sudoc=187624097 | lire en ligne=https://archive.org/details/handbook-of-satellite-orbits-from-kepler-to-gps | accès url=libre | format électronique=pdf | consulté le=5/8/2025 | libellé=Capderou 2014 | plume=oui}}
+* {{Ouvrage | langue=en | prénom=Rui | nom=Dilão | titre=Dynamical system and chaos | sous-titre=an introduction with applications | lieu=Cham | éditeur=[[Springer Science+Business Media|Springer]] | collection=UNITEXT for physics | date=4/2023 | réimpression={{date|4/2024}} | pages totales={{IX}}-326 | format livre={{dunité|15,6|23,4|cm}} | isbn10=3-031-25153-9 | isbn1=978-3-031-25153-5 | isbn2=978-3-031-25156-6 | ean=9783031251535 | oclc=1389597455 | doi=10.1007/978-3-031-25154-2 | bibcode=2023dsci.book.....H | s2cid=257986926 | sudoc=270099689 | lire en ligne={{Google Livres|id=ygm4EAAAQBAJ}} | consulté le=5/8/2025 | libellé=Dilão 2023 | plume=oui}}
+* {{Article | langue=en | prénom1=Alain | nom1=Lecavelier | postnom1=des Étangs | lien auteur1=Alain Lecavelier des Étangs | prénom2=Jack J. | nom2=Lissauer | lien auteur2=Jack J. Lissauer | titre=The IAU working definition of an exoplanet | périodique=[[New Astronomy Reviews]] | volume=94 | date=6/2022 | numéro article=101641 | oclc=9421815809 | doi=10.1016/j.newar.2022.101641 | bibcode=2022NewAR..9401641L | arxiv=2203.09520 | hal=hal-03631543 | s2cid=247065421 | résumé=https://www.sciencedirect.com/science/article/abs/pii/S138764732200001X | lire en ligne=https://hal.sorbonne-universite.fr/hal-03631543v1/file/LL_Exoplanet_Definition_V15.pdf | format=pdf | accès url=libre | libellé=Lecavelier et Lissauer 2022}}.
+* {{Chapitre | langue=en | langue originale=fr | prénom=Michael | nom=Nauenberg | titre=Periodic orbits of the three-body problem | sous-titre=early history, contributions of Hill and Poincaré, and some recent developments | auteurs ouvrage=Éric Charpentier, [[Étienne Ghys]] et Annick Lesne ({{dir.}} et {{introd.}}) | traducteur=Joshua P. Bowman | titre ouvrage=The scientific legacy of Poincaré | titre original=L'héritage scientifique de Poincaré | lieu=Providence et Londres | éditeur=[[American Mathematical Society|AMS]] et [[London Mathematical Society|LMS]] | collection=History of mathematics | numéro dans collection=36 | date=2/2010 | pages totales={{XIII}}-391 | format livre={{dunité|18,4|26,7|cm}} | isbn10=0-8218-4718-X | isbn=978-0-8218-4718-3 | ean=9780821847183 | oclc=624430836 | doi=10.1090/hmath/036 | math reviews=2605614 | s2cid=117010721 | sudoc=142649813 | présentation en ligne=https://bookstore.ams.org/view?ProductCode=HMATH/36 | lire en ligne={{Google Livres|id=9F7bY_ltzxIC}} | consulté le=5/8/2025 | partie={{chap.|6}} | passage=113-142 | libellé=Nauenberg 2010 | plume=oui}}
+* {{Chapitre | langue=en | prénom1=Philippe | nom1=Robutel | prénom2=Jean | nom2=Souchay | titre=An introduction to the dynamics of trojan asteroids | auteurs ouvrage=Jean Souchay et Rudolf Dvorak ({{dir.}} et {{préf.}}) | titre ouvrage=Dynamics of small solar system bodies and exoplanets | lieu=Berlin et Heidelberg | éditeur=[[Springer Science+Business Media|Springer]] | collection=Lecture notes in physics | numéro dans collection=790 | date=3/2010 | réimpression={{date|5/2012}} | pages totales={{IX}}-517 | format livre={{dunité|16|24|cm}} | isbn10=3-642-04457-3 | isbn1=978-3-642-04457-1 | isbn2=978-3-642-26283-8 | ean=9783642044571 | oclc=665137746 | bnf=44698759f | doi=10.1007/978-3-642-04458-8 | bibcode=2010LNP...790.....S | s2cid=118089049 | sudoc=143103733 |lire en ligne=https://ndl.ethernet.edu.et/bitstream/123456789/32030/1/J.%20Souchay.pdf | format électronique=pdf | accès=libre | consulté le=5/8/2025 | partie={{chap.|4}} | passage=195-227 | libellé=Robutel et Souchay 2010 | plume=oui}}
+* {{Chapitre | langue=fr | prénom=Françoise | nom=Roques | titre=Formation et histoire dynamique du Système solaire | auteurs ouvrage=[[Thérèse Encrenaz]] et [[James Lequeux]] ({{dir.}}) | titre ouvrage=Le Système solaire | tome={{II}} | titre tome=Petits corps, cosmochimie, dynamique, exobiologie | lieu=Londres | éditeur=ISTE | collection=Encyclopédie / sciences | série=Univers / Système solaire | date=4/2021 | pages totales={{IX}}-354 | format livre={{dunité|15,2|22,9|cm}} | isbn10=1-78948-034-5 | isbn=978-1-78948-034-4 | ean=9781789480344 | oclc=1259282719 | bnf=46776570z | doi=10.51926/ISTE.9034.ch4 | s2cid=243306488 | sudoc=255943547 | présentation en ligne=https://www.istegroup.com/fr/produit/le-systeme-solaire-2/ | lire en ligne={{Google Livres|id=5z4oEAAAQBAJ}} | consulté le=5/8/2025 | partie={{chap.|4}} | passage=207-257 | libellé=Roques 2021 | plume=oui}}
+* {{Article | langue=en | prénom=Bruno | nom=Sicardy | lien auteur=Bruno Sicardy | titre=Stability of the triangular Lagrange points beyond Gascheau's value | périodique=[[Celestial Mechanics and Dynamical Astronomy]] | volume=107 | numéro=1-2 ({{citation étrangère|langue=en|Cosmic visions in celestial mechanics}}) | date=6/2010 | pages=145-155 | oclc=642424323 | doi=10.1007/s10569-010-9259-5 | bibcode=2010CeMDA.107..145S | hal=hal-00552502 | lire en ligne=https://lesia.obspm.fr/perso/bruno-sicardy/biblio/biblio/Sicardy_Gascheau_CelMec10.pdf | format=pdf | accès url=libre | libellé=Sicardy 2010 | plume=oui}}
+* {{Ouvrage | langue=en | prénom=Craig A. | nom=Stephenson | titre=Periodic orbits | sous-titre=[[Forest Ray Moulton|F. R. Moulton]]'s quest for a new lunar theory | lieu=Providence | éditeur=[[American Mathematical Society|AMS]] | collection=History of mathematics | numéro dans collection=45 | date=6/2021 | numéro d'édition=1 | pages totales={{XII}}-255 | format livre={{dunité|17,2|24,8|cm}} | isbn10=1-4704-5671-0 | isbn=978-1-4704-5671-9 | ean=9781470456719 | oclc=1269286673 | doi=10.1090/hmath/045 | bibcode=2021peor.book.....S | s2cid=238043738 | sudoc=257044159 | présentation en ligne=https://bookstore.ams.org/hmath-45/ | lire en ligne={{Google Livres|id=m30wEAAAQBA}} | consulté le=6/8/2025 | libellé=Stephenson 2021}}.
+* {{Ouvrage | langue=fr | prénom1=Richard | nom1=Taillet | prénom2=Loïc | nom2=Villain | prénom3=Pascal | nom3=Febvre | titre=Dictionnaire de physique | lieu=Louvain-la-Neuve | éditeur=[[Groupe De Boeck|De Boeck Supérieur]], hors {{coll.}} | date=1/2018 | numéro d'édition=4 | année première édition={{date|5/2008}} | pages totales={{X}}-956 | format livre={{dunité|17|24|cm}} | isbn10=2-8073-0744-2 | isbn=978-2-8073-0744-5 | ean=9782807307445 | oclc=1022951339 | bnf=b456469019 | sudoc=224228161 | présentation en ligne=https://www.deboecksuperieur.com/livre/9782807348226-dictionnaire-de-physique | lire en ligne={{Google Livres|id=pjlFDwAAQBAJ}} | consulté le=5/8/2025 | libellé=Taillet, Villain et Febvre 2018 | plume=oui}}
+
+==== Publications historiques ====
+* {{Article | langue=en | prénom=Arthur | nom=Bennett | titre=Characteristic exponents of the five equilibrium solutions in the elliptically restricted problem | périodique=[[Icarus (journal)|Icarus]] | volume=4 | numéro=2 | date=5/1965 | pages=177-187 | oclc=4923820905 | doi=10.1016/0019-1035(65)90060-6 | bibcode=1965Icar....4..177B | s2cid=120938660 | libellé=Bennett 1965}}. {{commentaire biblio SRL|Article communiqué par [[Zdeněk Kopal]].}}
+* {{Article | langue=en | prénom=J. M. Anthony | nom=Danby | titre=Stability of the triangular points in the elliptic restricted problem of three bodies | périodique=[[The Astronomical Journal]] | volume=69 | numéro=2 | date=3/1964 | pages=165-172 | oclc=4649296551 | doi=10.1086/109254 | bibcode=1964AJ.....69..165D | s2cid=121433173 | lire en ligne=https://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?1964AJ.....69..165D&defaultprint=YES&filetype=.pdf | format=pdf | accès url=libre | libellé=Dandy 1964}}.
+* {{Article | langue=la | prénom=Leonhard | nom=Euler | lien auteur=Leonhard Euler | titre=Considerationes de motu corporum coelestium | périodique=Novi Commentarii Academiae Scientiarum Petropolitanae | volume=10 | date=1766 | pages=544-558 | présentation en ligne=https://scholarlycommons.pacific.edu/euler-works/304/ | lire en ligne=https://scholarlycommons.pacific.edu/cgi/viewcontent.cgi?article=1303&context=euler-works | accès url=libre | format=pdf | libellé=Euler 1766}}. {{commentaire biblio SRL|Article écrit en {{date|1762}}.}}
+* {{Article | langue=la | prénom=Leonhard | nom=Euler | lien auteur=Leonhard Euler | titre=De motu rectilineo trium corporum se mutuo attrahentium | périodique=Novi Commentarii Academiae Scientiarum Petropolitanae | volume=11 | date=1767 | pages=144-151 | présentation en ligne=https://scholarlycommons.pacific.edu/euler-works/327/ | lire en ligne=https://scholarlycommons.pacific.edu/cgi/viewcontent.cgi?article=1326&context=euler-works | accès url=libre | format=pdf | libellé=Euler 1767}}. {{commentaire biblio SRL|Article écrit en {{date|1763}}.}}
+* {{Article | langue=fr | prénom=Leonhard | nom=Euler | lien auteur=Leonhard Euler | titre=Considérations sur le problème des trois corps | périodique=Mémoires de l'Académie des sciences de Berlin | volume=19 | date=1770 | pages=194-220 | présentation en ligne=https://scholarlycommons.pacific.edu/euler-works/400/ | lire en ligne=https://scholarlycommons.pacific.edu/cgi/viewcontent.cgi?article=1399&context=euler-works | accès url=libre | format=pdf | libellé=Euler 1770}}. {{commentaire biblio SRL|Article écrit en {{date|1765}} et lu le {{date|4/12/1765-|compact=oui}} de la même année.}}
+* {{Article | langue=fr | prénom=Gabriel | nom=Gascheau | lien auteur=Gabriel Gascheau | titre=Examen d'une classe d'équations différentielles et applications à un cas particulier du problème des trois corps | périodique=[[Comptes rendus hebdomadaires des séances de l'Académie des sciences]] de Paris | tome={{XVI}} | numéro=7 | mois={{1er|semestre}} | année=1843 | pages=393-394 | lire en ligne=https://gallica.bnf.fr/ark:/12148/bpt6k29751/f393 | accès url=libre | format=pdf | libellé=Gascheau 1843}}.
+* {{Article | langue=fr | prénom=Joseph-Louis | nom=Lagrange | lien auteur=Joseph-Louis Lagrange | titre=Essai d'une nouvelle méthode pour résoudre le problème des trois corps | périodique=Recueil des pièces qui ont remporte des prix de l'Académie royale des sciences | tome={{IX}} | date=1777 | pages={{VIIIe|partie}} ({{citation|Année {{date|1772}}}}), {{p.|1-126}} | oclc=927047901 | lire en ligne={{Google Livres|id=HSvPAAAAMAAJ|page=RA7-PR1}} | libellé=Lagrange 1777}}.
+* {{Article | langue=fr | prénom=Joseph | nom=Liouville | lien auteur=Joseph Liouville | titre=Sur cas particulier du problème des trois corps | périodique=[[Comptes rendus hebdomadaires des séances de l'Académie des sciences]] de Paris | tome={{XIV}} | numéro=14 | mois={{1er|semestre}} | année=1842 | pages=503-506 | lire en ligne=https://gallica.bnf.fr/ark:/12148/bpt6k2973d/f507 | accès url=libre | format=pdf | libellé=Liouville 1842}}.
+* {{Article | langue=en | prénom=Edward J. | nom=Routh | lien auteur=Edward Routh | titre=On Laplace's three particles, with a supplement on the stability of steady motion | périodique=Proceedings of the London Mathematical Society | volume=6 | date=2/1875 | pages=86-97 | oclc=6907707609 | doi=10.1112/plms/s1-6.1.86 | bibcode=1875PLMS....6...86R | s2cid=121185623 | libellé=Routh 1875}}.
+
+=== Articles connexes ===
+{{Autres projets
+ | wiktionary = point de Lagrange | wiktionary titre = point de Lagrange
+ | commons = Category:Lagrange points
+}}
+* [[Liste d'objets du Système solaire situés à un point de Lagrange]]
+* [[Théia (impacteur)|Théia]]
+
+=== Liens externes ===
+* {{Autorité | LCCN=sh85073966 | SUDOC=149363796}}
+* {{Bases}}
+* {{Dictionnaires}}
+
+{{Palette|Orbites|}}
+
+{{Portail|astronomie|astronautique|}}
+
+[[Catégorie:Mécanique céleste]]
+[[Catégorie:Joseph-Louis Lagrange]]
+[[Catégorie:Troyen|*]]

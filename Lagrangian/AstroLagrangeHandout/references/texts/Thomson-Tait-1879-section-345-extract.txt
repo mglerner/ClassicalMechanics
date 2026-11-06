@@ -1,0 +1,135 @@
+345.  But  although,  when  the  equilibrium  is  stable,  no 
+possible  infinitely  small  displacement  and  velocity  given  to 
+the  system  can  cause  it,  when  left  to  itself,  to  go  on  moving 
+farther  and  farther  away  till  either  a  finite  displacement  is 
+reached,  or  a  finite  velocity  acquired ;  it  is  very  remarkable 
+that  stability  should  be  possible,  considering  that  even  in  the 
+case  of  stability  an  endless  increase  of  velocity  may,  as  is  easily 
+seen  from  §  272,  be  obtained  merely  by  constraining  the  system 
+to  a  particular  closed  course,  or  circuit  of  configurations,  no- 
+where deviating  by  more  than  an  infinitely  small  amount  from 
+the  configuration  of  equilibrium,  and  leaving  it  at  rest  anywhere 
+in  a  certain  part  of  this  circuit.  This  result,  and  the  distinct 
+peculiarities  of  the  cases  of  stability  and  instability,  will  be 
+sufficiently  illustrated  by  the  simplest  possible  example,  that  of 
+a  material  particle  moving  in  a  plane. 
+Let  the  mass  be  unity,  and  the  components  of  force  parallel 
+to  two  rectangular  axes  be  ax  +  by,  and  a'x  +  b'y,  when  the 
+position  of  the  particle  is  (x,  y).  The  equations  of  motion 
+will  be 
+x  —  ax  +  by,    y  -  a'x  +  b'y (1). 
+Let  |-  (a'  +  b)  =  c,  and  ^  (a'  -  b)  =  e  : 
+the  components  of  the  force  become 
+ax  +  cy—  ey,  and  ex  +  b'y  +  ex, 
+dV  .      dV 
+or  — - —  ey,  and - — h  ex, 
+dx       J'  dy         ' 
+where  V=  -  \  (ax3  +  b'y2  +  2cxy). 
+The  terms  -  ey  and  +  ex  are  clearly  the  components  of  a  force 
+e  (x2  +  y2)'2,  perpendicular  to  the  radius-vector   of  the   particle. 
+Hence  if  we  turn  the  axes  of  co-ordinates  through  any  angle,  the 
+vol.  i.  25 
+386 
+PRELIMINARY. 
+[345. 
+Artificial 
+or  ideal  ac- 
+cumulative 
+^stem. 
+345.]  DYNAMICAL   LAWS  AND   PRINCIPLES.  387 
+From  this  we  see  that  the  value  of  0,  to  make  the  particle  Artificial  oi 
+A  ideal  ac- 
+iust  reach  the  position  of  unstable  equilibrium,  is  cumulative. 
+•»  *  -1  system. 
+G  =  -  |(/3 -  a)  cos  (tp -  2S) - e  (tt -  23), 
+'(£-«  )2 
+"'"•(*-8hl"ljrrO 
+and  by  equating  to  zero  the  expi*ession  (5)  for  62,  with  this  value 
+of  C  substituted,  we  have  a  transcendental  equation  in  6,  of 
+which  the  least  negative  root,  6t,  gives  the  limit  of  vibrations  on 
+the  side  reckoned  backwards  from  a  position  of  stable  equilibrium. 
+If  the  particle  be  placed  at  rest  on  the  circle  at  any  distance  less 
+7T 
+than  -  -  23  before  a  position  of  stable  equilibrium,  or  less  than 
+A 
+§  —  6  behind  it,  it  will  vibrate.  But  if  placed  anywhere  beyond 
+those  limits  and  left  either  at  rest  or  moving  with  any  velocity 
+in  either  direction,  it  will  end  by  flying  round  and  round 
+forwards  with  a  periodically  increasing  and  diminishing  velocity, 
+but  increasing  every  half  turn  by  equal  additions  to  its  squares. 
+If  on  the  other  hand  e  &gt;  \  (/?  —  a),  the  positions  both  of  stable 
+and  unstable  equilibrium  are  imaginary ;  the  tangential  force 
+predominating  in  every  position.  If  the  particle  be  left  at 
+rest  in  any  part  of  the  circle  it  will  fly  round  with  continually 
+increasing  velocity,  but  periodically  increasing  and  diminishing 
+accelei'ation. 
+3451.  Leaving  now  the  ideal  case  of  positional  forces  violat- 
+ing the  law  of  conservatism,  interestingly  curious  as  it  is,  and 
+instructive  in  respect  to  the  contrast  it  presents  with  the 
+positional  forces  of  nature  which  are  essentially  conservative,  let 
+345iv.  If  V  have  negative  values  for  some  or  all  real  values 
+of  the  co-ordinates,  m  must  clearly  be  positive  for  some  roots,  but 
+there  must  still,  and  always,  be  roots  for  which  m  is  negative. 
+To  prove  this  last  clause  let  us  instead  of  (5)  take  sums  of  par- 
+ticular solutions  corresponding  to  different  roots 
+A  =  m  ±  n  J—  1,  A'  =  rri  ±  n'  J-  1,  etc., 
+m  and  n  denoting  real  numerics.     Thus  we  have 
+if/i  =  r^mt  cos  (nt  -  ex)  +  t,^ln't  cos  (n't  -  e\)  +  etc.) 
+fa  =  r2€m*  cos  (nt  -  e2)  +  r'^™'*  cos  (n't  -  e\)  +  etcV     (9). 
+etc.  ) 
+Suppose  now  m,  m,  etc.  to  be  all  positive  :  then  for  t  =  —  oo  ,  we 
+should  have  1/^  =  0,  ^=0,  \hx-0,  ^=0,  etc.,  and  therefore  V=0,  T=0. 
+Hence,  for  finite  values  of  t,  T  would  in  virtue  of  (4)  be  less 
+than  —  V  (which  in  this  case  is  essentially  positive):  but  we 
+may  place  the  system  in  any  configuration  and  project  it  with 
+any  velocity  we  please,  and  therefore  the  amount  of  kinetic 
+energy  we  may  give  it  is  unlimited.  Hence,  if  (9)  be  the  com- 
+plete solution,  it  must  include  some  negative  value  or  values  of 
+m,  and  therefore  of  all  the  roots  A,  A',  etc.  there  must  be  some  of 
+which  the  real  part  is  negative.  This  conclusion  is  also  obvious 
+on  purely  algebraic  grounds,  because  the  coefficient  of  A2'-1  in 
+the  determinant  is  obviously  11  +  22  +  33  +  ...,  which  is  essentially 
+positive  when  Q  is  positive  for  all  real  values  of  the  co-ordinates. 
+345 v.  It  is  an  important  subject  for  investigation,  interesting 
+both  in  mere  Algebra  and  in  Dynamics,  to  find  how  many  roots 
+there  are  with  m  positive,  or  how  many  with  m  negative  in  any 
+particular  case  or  class  of  cases;  also  to  find  under  what  con- 
+345\]  DYNAMICAL   LAWS   AND  PRINCIPLES.  391 
+ditions  n  disappears   [or   the    motion   non-oscillatory  (compare  jvon-oscil- 
+§  341)].      We  hope  to  return  to  it  in  our  second  volume,  and  sidenceto" 
+should  be  very  glad  to  find  it  taken  up  and  worked  out  fully  by  nbVuiu?or" 
+mathematicians  in  the  mean  time.     At  present  it  is  obvious  that  from  un-Vay 
+if  Vbe  negative  for  all  real  values  of  d/,,  d/,,  etc.,  the  motion  must  *tab|?- 
+°  TV  T"  Oscillatory 
+be  non-oscillatory  for  every  mode  (or  every  value  of  A  must  be  subsidence 
+real)  if  0  be  but  largre  enough  :  but  as  we  shall  see  immediately  equili- 
+y  .  -Hi  brium,  or 
+with  Q  not  too  large,  n  may  appear  m  some  or  in  all  the  roots,  falling  away 
+even  though  V  be  negative  for  all  real  co-ordinates,  when  there  stable. 
+are  forces  of  the  gyroscopic  class  [§  319,  Examp.  (G)  above  and  fwayft-om 
+§  345x  below).      When  the  motional  forces  are  wholly  of  the  S&amp;JSi. 
+viscous  class  it  is  easily  seen  that  n  can  only  appear  if    V  is  eMe'utSiifv 
+positive  for  some  or  all  real  values  of  the  co-ordinates  :  n  must  "0rn'°fs^lla" 
+disappear  if  V  is  negative  for  all  real  values  of  the  co-ordinates  tionai  forces 
+(again  compare  §  341).  viscous. 
+345".  A  chief  part  of  the  substance  of  §§  345ii...345v 
+above  may  be  expressed  shortly  without  symbols  thus  : — When 
+there  is  any  dissipativity  the  equilibrium  in  the  zero  position  is 
+stable  or  unstable  according  as  the  same  system  with  no  motional  stability  of 
+forces,  but  with  the  same  positional  forces,  is  stable  or  unstable,  system.  v 
+The  gyroscopic  forces  which  we  now  proceed  to  consider  may 
+convert  instability  into  stability,  as  in  the  gyrostat  §  345*  below, 
+when  there  is  no  dissipativity : — but  when  there  is  any  dissi- 
+pativity gyroscopic  forces  may  convert  rapid  falling  away  from  an 
+unstable  configuration  into  falling  by  (as  it  were)  exceedingly 
+gradual  spirals,  but  they  cannot  convert  instability  into  stability 
+if  there  be  any  dissipativity. 
+The  theorem  of  Dissipativity  [§  345',  (2)  and  (3)]  suggests  the 
+following  notation, — 
+£(12 +  21)  =[12]  or  [21],  J (13 +  31)  =  [13]  or  [31],  etc. 
+and  £  (12  -21)  =  12]  or  -21],  J  (13  -31)  =13]  or-  31],  etc.  J  '     ' 
+so  that  the  symbols  [12],  [21],  [13],  etc.,  and  12],  21],  13],  etc. 
+denote  quantities  which  respectively  fulfil  the  following  mutual 
+relations, 
+[12]  =  [2 1],  [13]  =  [31],  [23]  =  [32],    etc. 
+i2]=-2i],  i3]  =  -3i],  23]= -32],  etc. J  " 

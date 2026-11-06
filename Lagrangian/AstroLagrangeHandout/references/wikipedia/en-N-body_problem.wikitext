@@ -1,0 +1,374 @@
+{{Short description|Problem in physics and celestial mechanics}}
+{{About|the problem in classical mechanics|the problem in quantum mechanics|Many-body problem|engineering problems and simulations involving many components|Multibody system|and|Multibody simulation}}
+{{DISPLAYTITLE:{{mvar|n}}-body problem}}
+{{cleanup|reason=Notes should be rewritten in a more consistent and formal style, and specifically linked to the corresponding references using [[Template:Sfn]].|date=March 2017}}
+{{Astrodynamics}}
+In [[physics]], the '''{{mvar|n}}-body problem''' is the problem of predicting the individual motions of a group of [[astronomical object|celestial object]]s interacting with each other [[gravitation]]ally. Solving this problem has been motivated by the desire to understand the motions of the [[Sun]], [[Moon]], [[planet]]s, and visible [[star]]s.
+
+The classical physical problem can be stated as follows:
+{{blockquote|Each particle in a system of a finite number of particles is subjected to a Newtonian gravitational attraction from all the other particles, and to no other forces. If the initial state of the system is given, how will the particles move?<ref>Rosenberg 1977</ref>}}
+
+The [[two-body problem]] has been solved and is discussed below. For [[three-body problem|three]] or more bodies the problem can only be solved completely in particular cases. In general, the problem is chaotic and can only be solved numerically.
+
+The {{mvar|n}}-body problem in [[general relativity]] is considerably more difficult to solve.
+
+== History ==
+
+Knowing three orbital positions of a planet's orbit – positions obtained by Sir [[Isaac Newton]] from astronomer [[John Flamsteed]]<ref>{{cite book|first1=David H.|first2=Stephen P.&nbsp;H.|last1=Clark|last2=Clark|title=The Suppressed Scientific Discoveries of Stephen Gray and John Flamsteed, Newton's Tyranny|url=https://archive.org/details/newtonstyrannysu00clar|url-access=registration|publisher=W.&nbsp;H. Freeman and Co.|date=2001}}. A popularization of the historical events and bickering between those parties, but more importantly about the results they produced.</ref> – Newton was able to produce an equation by straightforward analytical geometry, to predict a planet's motion; i.e., to give its orbital properties: position, orbital diameter, period and orbital velocity.<ref>See {{cite book|contribution=Discovery of gravitation, A.D. 1666|author-link=Sir David Brewster|first=David|last=Brewster|title=The Great Events by Famous Historians|editor-first=Rossiter|editor-last=Johnson|volume=XII|pages=51–65|publisher=The National Alumni|date=1905}}</ref> Having done so, he and others soon discovered over the course of a few years, those equations of motion did not predict some orbits correctly or even very well.<ref>Rudolf Kurth has an extensive discussion in his book (see References) on planetary perturbations. An aside: these mathematically undefined planetary perturbations (wobbles) still exist undefined even today and planetary orbits have to be constantly updated, usually yearly. See Astronomical Ephemeris and the American Ephemeris and Nautical Almanac, prepared jointly by the Nautical Almanac Offices of the United Kingdom and the United States of America.</ref> Newton realized that this was because gravitational interactive forces amongst all the planets were affecting all their orbits.
+
+The aforementioned revelation strikes directly at the core of what the n-body issue physically is: as Newton understood, it is not enough to just provide the beginning location and velocity, or even three orbital positions, in order to establish a planet's actual orbit; one must also be aware of the gravitational interaction forces. Thus came the awareness and rise of the {{mvar|n}}-body "problem" in the early 17th century. These gravitational attractive forces do conform to Newton's laws of motion and to his law of universal gravitation, but the many multiple ({{mvar|n}}-body) interactions have historically made any exact solution intractable. Ironically, this conformity led to the wrong approach.
+
+After Newton's time the {{mvar|n}}-body problem historically was not stated correctly because it did not include a reference to those gravitational interactive forces. Newton does not say it directly but implies in his ''[[Philosophiæ Naturalis Principia Mathematica|Principia]]'' the {{mvar|n}}-body problem is unsolvable because of those gravitational interactive forces.<ref>See ''Principia'', Book Three, ''System of the World'', "General Scholium", page 372, last paragraph. Newton was well aware that his mathematical model did not reflect physical reality. This edition referenced is from the ''Great Books of the Western World'', Volume 34, which was translated by Andrew Motte and revised by [[Florian Cajori]].{{full citation needed|date=March 2017}} This same paragraph is on page 1160 in [[Stephen Hawking]], ''On the Shoulders of Giants'', 2002 edition;{{full citation needed|date=March 2017}} is a copy from Daniel Adee's 1848 addition. Cohen also has translated new editions: ''Introduction to Newton's Principia'', 1970; and ''Isaac Newton's Principia, with Variant Readings'', 1972. Cajori also wrote ''History of Science'', which is online.{{full citation needed|date=March 2017}}</ref> Newton said<ref name=Cohen /> in his ''Principia'', paragraph 21:
+
+{{blockquote|And hence it is that the attractive force is found in both bodies. The Sun attracts Jupiter and the other planets, Jupiter attracts its satellites and similarly the satellites act on one another. And although the actions of each of a pair of planets on the other can be distinguished from each other and can be considered as two actions by which each attracts the other, yet inasmuch as they are between the same, two bodies they are not two but a simple operation between two termini. Two bodies can be drawn to each other by the contraction of rope between them. The cause of the action is twofold, namely the disposition of each of the two bodies; the action is likewise twofold, insofar as it is upon two bodies; but insofar as it is between two bodies it is single and one ...}}
+
+Newton concluded via his [[Newton's third law|third law of motion]] that "according to this Law all bodies must attract each other." This last statement, which implies the existence of gravitational interactive forces, is key.
+
+As shown below, the problem also conforms to [[Jean Le Rond D'Alembert]]'s non-Newtonian first and second Principles and to the nonlinear {{mvar|n}}-body problem algorithm, the latter allowing for a closed form solution for calculating those interactive forces.
+
+The problem of finding the general solution of the {{mvar|n}}-body problem was considered very important and challenging. Indeed, in the late 19th century King [[Oscar II of Sweden]], advised by [[Gösta Mittag-Leffler]], established a prize for anyone who could find the solution to the problem. The announcement was quite specific:
+
+{{blockquote|Given a system of arbitrarily many mass points that attract each according to Newton's law, under the assumption that no two points ever collide, try to find a representation of the coordinates of each point as a series in a variable that is some known function of time and for all of whose values the series ''converges uniformly''.}}
+
+In case the problem could not be solved, any other important contribution to classical mechanics would then be considered to be prizeworthy. The prize was awarded to [[Henri Poincaré|Poincaré]], even though he did not solve the original problem. (The first version of his contribution even contained a serious error.<ref>For details of the serious error in Poincare's first submission see the article by Diacu.</ref>) The version finally printed contained many important ideas which led to the development of [[chaos theory]]. The problem as stated originally was finally solved by [[Karl F. Sundman|Karl Fritiof Sundman]] for {{math|1=''n'' = 3}} and generalized to {{math|''n'' > 3}} by L.&nbsp;K. Babadzanjanz<ref>{{citation
+ | last = Babadzanjanz | first = L.&nbsp;K.
+ | doi = 10.1007/BF01236607
+ | issue = 1
+ | journal = Celestial Mechanics
+ | mr = 538663
+ | pages = 43–57
+ | title = Existence of the continuations in the ''N''-body problem
+ | volume = 20
+ | date = 1979| bibcode = 1979CeMec..20...43B
+ | s2cid = 120358878
+ }}.</ref><ref>{{citation
+ | last = Babadzanjanz | first = L.&nbsp;K.
+ | doi = 10.1007/BF00691812
+ | issue = 3
+ | journal = Celestial Mechanics and Dynamical Astronomy
+ | mr = 1225892
+ | pages = 427–449
+ | title = On the global solution of the ''N''-body problem
+ | volume = 56
+ | date = 1993| bibcode = 1993CeMDA..56..427B
+ | s2cid = 120617936
+ }}.</ref> and [[Qiudong Wang]].<ref>{{citation
+ | last = Wang | first = Qiu Dong | author-link = Qiudong Wang
+ | bibcode = 1991CeMDA..50...73W
+ | doi = 10.1007/BF00048987
+ | issue = 1
+ | journal = Celestial Mechanics and Dynamical Astronomy
+ | mr = 1117788
+ | pages = 73–88
+ | title = The global solution of the ''n''-body problem
+ | volume = 50
+ | date = 1991| s2cid = 118132097 }}.</ref>
+
+== General formulation ==
+
+The {{mvar|n}}-body problem considers {{mvar|n}} point masses {{math|''m<sub>i</sub>'', ''i'' {{=}} 1, 2, ..., ''n''}} in an [[Inertial frame of reference|inertial reference frame]] in three dimensional space <math>\mathbb{R}^3</math> moving under the influence of mutual gravitational attraction. Each mass {{math|''m<sub>i</sub>''}} has a position vector {{math|'''q'''<sub>''i''</sub>}}. [[Newton's second law]] says that mass times acceleration {{math|''m<sub>i</sub>'' {{sfrac|''d''<sup>2</sup>'''q'''<sub>''i''</sub>|''dt''<sup>2</sup>}}}} is equal to the sum of the forces on the mass. [[Newton's law of gravity]] says that the gravitational force felt on mass {{math|''m<sub>i</sub>''}} by a single mass {{math|''m<sub>j</sub>''}} is given by<ref>Meyer 2009, pp. 27–28</ref>
+<math display=block>\mathbf{F}_{ij} = \frac{G m_i m_j}{\left\| \mathbf{q}_j - \mathbf{q}_i\right\|^2} \cdot \frac{\left(\mathbf{q}_j - \mathbf{q}_i\right)}{\left\| \mathbf{q}_j - \mathbf{q}_i\right\|} = \frac{G m_i m_j \left(\mathbf{q}_j - \mathbf{q}_i\right)}{\left\| \mathbf{q}_j - \mathbf{q}_i\right\|^3}, </math>
+where {{mvar|G}} is the [[gravitational constant]] and {{math|{{norm|'''q'''<sub>''j''</sub> − '''q'''<sub>''i''</sub>}}}} is the magnitude of the distance between {{math|'''q'''<sub>''i''</sub>}} and {{math|'''q'''<sub>''j''</sub>}} ([[Metric (mathematics)#Metrics on vector spaces|metric induced by]] the [[Norm (mathematics)#Taxicab norm or Manhattan norm|{{math|''l''<sub>2</sub>}} norm]]).
+
+Summing over all masses yields the {{mvar|n}}-body [[equations of motion]]:{{Equation box 1|cellpadding|border|indent=:|equation=<math> m_i \frac{d^2\mathbf{q}_i}{dt^2}
+ = \sum_{j=1 \atop j \ne i}^n \frac{G m_i m_j \left(\mathbf{q}_j - \mathbf{q}_i\right)}{\left\| \mathbf{q}_j - \mathbf{q}_i\right\|^3}
+ = -\frac{\partial U}{\partial \mathbf{q}_i} </math>|border colour=#0073CF|background colour=#F5FFFA}}where {{mvar|U}} is the ''self-potential'' energy
+<math display="block">U = -\sum_{1 \le i < j \le n} \frac{G m_i m_j}{\left\| \mathbf{q}_j - \mathbf{q}_i\right\|}.</math>
+
+Defining the momentum to be {{math|'''p'''<sub>''i''</sub> {{=}} ''m<sub>i</sub>'' {{sfrac|''d'''''q'''<sub>''i''</sub>|''dt''}}}}, [[Hamiltonian mechanics|Hamilton's equations of motion]] for the {{mvar|n}}-body problem become<ref>Meyer 2009, p. 28</ref>
+<math display=block>\frac{d\mathbf{q}_i}{dt} = \frac{\partial H}{\partial \mathbf{p}_i} \qquad \frac{d\mathbf{p}_i}{dt} = -\frac{\partial H}{\partial \mathbf{q}_i}, </math>
+where the [[Hamiltonian function]] is
+<math display=block>H = T + U</math>
+and {{mvar|T}} is the [[kinetic energy]]
+<math display=block>T = \sum_{i=1}^n \frac{\left\| \mathbf{p}_i \right\|^2}{2m_i}.</math>
+
+Hamilton's equations show that the {{mvar|n}}-body problem is a system of {{math|6''n''}} first-order [[differential equation]]s, with {{math|6''n''}} [[initial condition]]s as {{math|3''n''}} initial position coordinates and {{math|3''n''}} initial momentum values.
+
+Symmetries in the {{mvar|n}}-body problem yield global [[Integral of motion|integrals of motion]] that simplify the problem.<ref>Meyer 2009, pp. 28–29</ref> [[Translational symmetry]] of the problem results in the [[center of mass]]
+<math display=block>\mathbf{C} = \frac{\displaystyle\sum_{i=1}^n m_i \mathbf{q}_i}{\displaystyle\sum_{i=1}^n m_i} </math>
+moving with constant velocity, so that {{math|'''C''' {{=}} '''L'''<sub>0</sub>''t'' + '''C'''<sub>0</sub>}}, where {{math|'''L'''<sub>0</sub>}} is the linear velocity and {{math|'''C'''<sub>0</sub>}} is the initial position. The constants of motion {{math|'''L'''<sub>0</sub>}} and {{math|'''C'''<sub>0</sub>}} represent six integrals of the motion. [[Rotational symmetry]] results in the total [[angular momentum]] being constant
+<math display=block>\mathbf{A} = \sum_{i=1}^n \mathbf{q}_i \times \mathbf{p}_i,</math>
+where × is the [[cross product]]. The three components of the total angular momentum {{math|'''A'''}} yield three more constants of the motion. The last general constant of the motion is given by the [[conservation of energy]] {{mvar|H}}. Hence, every {{mvar|n}}-body problem has ten integrals of motion.
+
+Because {{mvar|T}} and {{mvar|U}} are [[homogeneous function]]s of degree 2 and −1, respectively, the equations of motion have a [[scaling invariance]]: if {{math|'''q'''<sub>''i''</sub>(''t'')}} is a solution, then so is {{math|''λ''<sup>−2/3</sup>'''q'''<sub>''i''</sub>(''λt'')}} for any {{math|''λ'' > 0}}.<ref name="Chenciner 2007">Chenciner 2007</ref>
+
+The [[moment of inertia]] of an {{mvar|n}}-body system is given by
+<math display=block> I = \sum_{i=1}^n m_i \mathbf{q}_i \cdot \mathbf{q}_i = \sum_{i=1}^n m_i \left\|\mathbf{q}_i\right\|^2 </math>
+and the ''virial'' is given by {{math|''Q'' {{=}} {{sfrac|1|2}} {{sfrac|''dI''|''dt''}}}}. Then the ''Lagrange–Jacobi formula'' states that<ref>Meyer 2009, p. 34</ref>
+<math display=block>\frac{d^2I}{dt^2} = 2T - U.</math>
+
+For systems in ''dynamic equilibrium'', the longterm time average of {{math|⟨{{sfrac|''d''<sup>2</sup>''I''|''dt''<sup>2</sup>}}⟩}} is zero. Then on average the total kinetic energy is half the total potential energy, {{math|⟨''T''⟩ {{=}} {{sfrac|1|2}}⟨''U''⟩}}, which is an example of the [[virial theorem]] for gravitational systems.<ref>{{cite web|title=AST1100 Lecture Notes: 5 The virial theorem|url=http://www.uio.no/studier/emner/matnat/astro/AST1100/h09/undervisningsmateriale/lecture5.pdf|publisher=University of Oslo|access-date=25 March 2014}}</ref> If {{mvar|M}} is the total mass and {{mvar|R}} a characteristic size of the system (for example, the radius containing half the mass of the system), then the critical time for a system to settle down to a dynamic equilibrium is<ref name="Trenti 2008">Trenti 2008</ref>
+<math display="block">t_\mathrm{cr} = \left(\frac{GM}{R^3}\right)^{-1/2}.</math>
+
+== Special cases ==
+
+=== Two-body problem ===<!-- This section is linked from [[Conic section]] -->
+
+{{Main|Two-body problem}}
+Any discussion of planetary interactive forces has always started historically with the two-body problem.
+
+The two-body problem ({{math|''n'' {{=}} 2}}) was first solved by [[Isaac Newton]] in 1687 using geometric methods, but a complete solution was given in 1710 by [[Johann Bernoulli]] (1667–1748) by classical theory by assuming the main point-mass was fixed;<ref>{{Cite book |last=Barrow-Green |first=June |url=https://books.google.com/books?id=j7i_MrqWzaIC&pg=PA14 |title=Poincaré and the Three Body Problem |date=1997 |publisher=American Mathematical Society; London Mathematical Society |isbn=978-0-8218-0367-7 |series=History of Mathematics |location= |page=14}}</ref> this is outlined here.<ref name="Bate, Mueller, and White">See Bate, Mueller, and White, Chapter 1: "Two-Body Orbital Mechanics", pp. 1–49. These authors were from the Department of Astronautics and Computer Science, United States Air Force Academy. Their textbook is not filled with advanced mathematics.</ref> Consider then the motion of two bodies, say the Sun and the Earth, with the Sun fixed, then:
+<math display=block>\begin{align}
+m_1 \mathbf{a}_1 &= \frac{Gm_1m_2}{r_{12}^3}(\mathbf{r}_2-\mathbf{r}_1) &&\quad\text{Sun–Earth} \\
+m_2 \mathbf{a}_2 &= \frac{Gm_1m_2}{r_{21}^3}(\mathbf{r}_1-\mathbf{r}_2) &&\quad\text{Earth–Sun}
+\end{align}</math>
+
+The equation describing the motion of mass {{math|''m''<sub>2</sub>}} relative to mass {{math|''m''<sub>1</sub>}} is readily obtained from the differences between these two equations and after canceling common terms gives: 
+<math display=block> \mathbf{\alpha} + \frac{\eta}{r^3} \mathbf{r} = \mathbf{0} </math>
+Where
+
+*{{math|'''r''' {{=}} '''r'''<sub>2</sub> − '''r'''<sub>1</sub>}} is the vector position of {{math|''m''<sub>2</sub>}} relative to {{math|''m''<sub>1</sub>}};
+*{{mvar|α}} is the ''Eulerian'' acceleration {{math|{{sfrac|''d''<sup>2</sup>'''r'''|''dt''<sup>2</sup>}}}};
+*{{math|''η'' {{=}} ''G''(''m''<sub>1</sub> + ''m''<sub>2</sub>)}}.
+
+The equation {{math|''α'' + {{sfrac|''η''|''r''<sup>3</sup>}}'''r''' {{=}} 0}} is the fundamental differential equation for the two-body problem Bernoulli solved in 1734. Notice for this approach forces have to be determined first, then the equation of motion resolved. This differential equation has elliptic, or parabolic or hyperbolic solutions.<ref>For the classical approach, if the common [[center of mass]] (i.e., the barycenter) of the two bodies is considered to be at rest, then each body travels along a [[conic section]] which has a [[focus (geometry)|focus]] at the barycenter of the system. In the case of a hyperbola it has the branch at the side of that focus. The two conics will be in the same plane. The type of conic ([[circle]], [[ellipse]], [[parabola]] or [[hyperbola]]) is determined by finding the sum of the combined kinetic energy of two bodies and the [[potential energy#Gravitational potential energy|potential energy]] when the bodies are far apart. (This potential energy is always a negative value; energy of rotation of the bodies about their axes is not counted here)
+*If the sum of the energies is negative, then they both trace out ellipses.
+*If the sum of both energies is zero, then they both trace out parabolas. As the distance between the bodies tends to infinity, their relative speed tends to zero.
+*If the sum of both energies is positive, then they both trace out hyperbolas. As the distance between the bodies tends to infinity, their relative speed tends to some positive number.</ref><ref>For this approach see Lindsay's ''Physical Mechanics'', Chapter 3: "Curvilinear Motion in a Plane", and specifically paragraphs 3–9, "Planetary Motion"; pp. 83–96. Lindsay presentation goes a long way in explaining these latter comments for the fixed two-body problem; i.e., when the Sun is assumed fixed.</ref><ref>Note: The fact a parabolic orbit has zero energy arises from the assumption the gravitational potential energy goes to zero as the bodies get infinitely far apart. One could assign any value to the potential energy in the state of infinite separation. That state is assumed to have zero potential energy by convention.</ref>
+
+It is incorrect to think of {{math|''m''<sub>1</sub>}} (the Sun) as fixed in space when applying Newton's law of universal gravitation, and to do so leads to erroneous results. The fixed point for two isolated gravitationally interacting bodies is their mutual [[Barycentric coordinates (astronomy)|barycenter]], and this [[two-body problem]] can be solved exactly, such as using [[Jacobi coordinates]] relative to the barycenter.
+
+Dr. Clarence Cleminshaw calculated the approximate position of the Solar System's barycenter, a result achieved mainly by combining only the masses of Jupiter and the Sun. ''Science Program'' stated in reference to his work:
+
+{{blockquote|The Sun contains 98 per cent of the mass in the solar system, with the superior planets beyond Mars accounting for most of the rest. On the average, the center of the mass of the Sun–Jupiter system, when the two most massive objects are considered alone, lies 462,000 miles from the Sun's center, or some 30,000 miles above the solar surface! Other large planets also influence the center of mass of the solar system, however. In 1951, for example, the systems' center of mass was not far from the Sun's center because Jupiter was on the opposite side from Saturn, Uranus and Neptune. In the late 1950s, when all four of these planets were on the same side of the Sun, the system's center of mass was more than 330,000 miles from the solar surface, Dr. C.&nbsp;H. Cleminshaw of Griffith Observatory in Los Angeles has calculated.<ref>Science Program's
+''The Nature of the Universe'' states Clarence Cleminshaw (1902–1985) served as assistant director of ''Griffith Observatory'' from 1938 to 1958 and as director from 1958 to 1969. Some publications by Cleminshaw: 
+*Cleminshaw, C.&nbsp;H.: "Celestial Speeds", 4 1953, equation, Kepler, orbit, comet, Saturn, Mars, velocity.{{full citation needed|date=March 2017}}
+*Cleminshaw, C.&nbsp;H.: "The Coming Conjunction of Jupiter and Saturn", 7 1960, Saturn, Jupiter, observe, conjunction.{{full citation needed|date=March 2017}}
+*Cleminshaw, C.&nbsp;H.: "The Scale of The Solar System", 7 1959, Solar system, scale, Jupiter, sun, size, light.{{full citation needed|date=March 2017}}</ref>}}
+
+[[File:Kipler's Error.jpg|thumb|right|Real motion versus Kepler's apparent motion]]
+The Sun wobbles as it rotates around the [[Galactic Center]], dragging the Solar System and Earth along with it. What mathematician [[Kepler]] did in arriving at his three famous equations was curve-fit the apparent motions of the planets using [[Tycho Brahe]]'s data, and not curve-fitting their true circular motions about the Sun (see figure). Both [[Robert Hooke]] and Newton were well aware that Newton's ''Law of Universal Gravitation'' did not hold for the forces associated with elliptical orbits.<ref name=Cohen>See I. Bernard Cohen's ''Scientific American'' article.</ref> In fact, Newton's Universal Law does not account for the orbit of Mercury, the asteroid belt's gravitational behavior, or [[Rings of Saturn|Saturn's rings]].<ref>{{cite book|editor-last=Brush|editor-first=Stephen G.|title=Maxwell on Saturn's Rings|publisher=MIT Press|date=1983|bibcode=1983mosr.book.....B }}</ref> Newton stated (in section 11 of the ''Principia'') that the main reason, however, for failing to predict the forces for elliptical orbits was that his math model was for a body confined to a situation that hardly existed in the real world, namely, the motions of bodies attracted toward an unmoving center. Some present physics and astronomy textbooks do not emphasize the negative significance of Newton's assumption and end up teaching that his mathematical model is in effect reality. It is to be understood that the classical two-body problem solution above is a mathematical [[Idealization (philosophy of science)|idealization]]. See also [[Kepler's laws of planetary motion#Kepler's first law|Kepler's first law of planetary motion]].
+
+=== Three-body problem ===<!-- This section is linked from [[Double planet]] -->
+
+{{Main|Three-body problem}}
+
+This section relates a historically important {{mvar|n}}-body problem solution after simplifying assumptions were made.
+
+In the past{{when|date=May 2026}} not much was known about the {{mvar|n}}-body problem for {{math|''n'' ≥ 3}}.<ref>See Leimanis and Minorsky's historical comments.</ref> The case {{math|''n'' {{=}} 3}} has been the most studied. Many earlier attempts to understand the three-body problem were quantitative, aiming at finding explicit solutions for special situations.
+*In 1687, [[Isaac Newton]] published in the ''Principia'' the first steps in the study of the problem of the movements of three bodies subject to their mutual gravitational attractions, but his efforts resulted in verbal descriptions and geometrical sketches; see especially Book 1, Proposition 66 and its corollaries (Newton, 1687 and 1999 (transl.), see also Tisserand, 1894).
+*In 1767, [[Leonhard Euler|Euler]] found [[collinear]] motions, in which three bodies of any masses move proportionately along a fixed straight line. The [[Euler's three-body problem]] is the special case in which two of the bodies are fixed in space (this should not be confused with the [[circular restricted three-body problem]], in which the two massive bodies describe a circular orbit and are only fixed in a synodic reference frame).
+*In 1772, [[Joseph Louis Lagrange|Lagrange]] discovered two classes of periodic solution, each for three bodies of any masses. In one class, the bodies lie on a rotating straight line. In the other class, the bodies lie at the vertices of a rotating equilateral triangle. In either case, the paths of the bodies will be conic sections. Those solutions led to the study of ''central configurations'', for which {{math|''q̈'' {{=}} ''kq''}} for some constant {{math|''k'' > 0}}.
+*A major study of the Earth–Moon–Sun system was undertaken by [[Charles-Eugène Delaunay]], who published two volumes on the topic, each of 900 pages in length, in 1860 and 1867. Among many other accomplishments, the work already hints at chaos, and clearly demonstrates the problem of so-called "small denominators" in [[perturbation theory]].
+*In 1917, [[Forest Ray Moulton]] published his now classic, ''An Introduction to Celestial Mechanics'' (see references) with its plot of the ''restricted three-body problem'' solution (see figure below).<ref>See Moulton's ''Restricted Three-body Problem'' for its analytical and graphical solution.</ref> An aside, see Meirovitch's book, pages 413–414 for his restricted three-body problem solution.<ref>See Meirovitch's book: Chapters 11: "Problems in Celestial Mechanics"; 12; "Problem in Spacecraft Dynamics"; and Appendix A: "Dyadics".</ref>
+
+[[Image:N-body problem (3).gif|thumb|Motion of three particles under gravity, demonstrating chaotic behaviour]]
+
+Moulton's solution may be easier to visualize (and definitely easier to solve) if one considers the more massive body (such as the [[Sun]]) to be stationary in space, and the less massive body (such as [[Jupiter]]) to orbit around it, with the equilibrium points ([[Lagrangian point]]s) maintaining the 60° spacing ahead of, and behind, the less massive body almost in its orbit (although in reality neither of the bodies are truly stationary, as they both orbit the center of mass of the whole system—about the barycenter). For sufficiently small mass ratio of the primaries, these triangular equilibrium points are stable, such that (nearly) massless particles will orbit about these points as they orbit around the larger primary (Sun). The five equilibrium points of the circular problem are known as the Lagrangian points. See figure below:
+
+[[File:Restricted 3-Body 1.jpg|thumb|right|Restricted three-body problem]]
+
+In the ''restricted three-body problem'' math model figure above (after Moulton), the Lagrangian points L<sub>4</sub> and L<sub>5</sub> are where the [[Trojan (astronomy)|Trojan]] planetoids resided (see [[Lagrangian point]]); {{math|''m''<sub>1</sub>}} is the Sun and {{math|''m''<sub>2</sub>}} is Jupiter. L<sub>2</sub> is a point within the asteroid belt. It has to be realized for this model, this whole Sun-Jupiter diagram is rotating about its barycenter. The restricted three-body problem solution predicted the Trojan planetoids before they were first seen. The {{mvar|h}}-circles and closed loops echo the electromagnetic fluxes issued from the Sun and Jupiter. It is conjectured, contrary to Richard H. Batin's conjecture (see References), the two {{math|''h''<sub>1</sub>}} are gravity sinks, in and where gravitational forces are zero, and the reason the Trojan planetoids are trapped there. The total amount of mass of the planetoids is unknown.
+
+The restricted three-body problem assumes the [[mass]] of one of the bodies is negligible.{{Citation needed|date=September 2013}} For a discussion of the case where the negligible body is a satellite of the body of lesser mass, see [[Hill sphere]]; for binary systems, see [[Roche lobe]]. Specific solutions to the three-body problem result in chaotic motion with no obvious sign of a repetitious path.{{Citation needed|date=September 2013}}
+
+The restricted problem (both circular and elliptical) was worked on extensively by many famous mathematicians and physicists, most notably by [[Henri Poincaré|Poincaré]] at the end of the 19th century. Poincaré's work on the restricted three-body problem was the foundation of [[deterministic]] chaos theory.{{Citation needed|date=September 2013}} In the restricted problem, there exist five [[equilibrium points]]. Three are collinear with the masses (in the rotating frame) and are unstable. The remaining two are located on the third vertex of both equilateral triangles of which the two bodies are the first and second vertices.
+
+=== Four-body problem ===
+
+Inspired by the circular restricted three-body problem, the four-body problem can be greatly simplified by considering a smaller body to have a small mass compared to the other three massive bodies, which in turn are approximated to describe circular orbits. This is known as the bicircular restricted four-body problem (also known as bicircular model) and it can be traced back to 1960 in a NASA report written by Su-Shu Huang.<ref>{{cite journal |last1=Huang |first1=Su-Shu |title=Very Restricted Four-Body Problem |journal=NASA TND-501 |date=1960 |volume=65 |page=347 |doi=10.1086/108151 |bibcode=1960AJ.....65S.347H |hdl=2060/19890068606 |url=https://books.google.com/books?id=smhIAQAAIAAJ&q=huang+very+restricted&pg=PA354|hdl-access=free }}</ref> This formulation has been highly relevant in the [[astrodynamics]], mainly to model spacecraft trajectories in the Earth-Moon system with the addition of the gravitational attraction of the Sun. The former formulation of the bicircular restricted four-body problem can be problematic when modelling other systems than the Earth-Moon-Sun, so the formulation was generalized by Negri and Prado<ref>{{cite journal |last1=Negri |first1=Rodolfo B. |last2=Prado |first2=Antonio F.&nbsp;B.&nbsp;A. |title=Generalizing the Bicircular Restricted Four-Body Problem |journal=Journal of Guidance, Control, and Dynamics |year=2020 |volume=43 |issue=6 |pages=1173–1179 |doi=10.2514/1.G004848 |bibcode=2020JGCD...43.1173N |s2cid=213600592 }}</ref> to expand the application range and improve the accuracy without loss of simplicity.
+
+=== Planetary problem ===
+
+The ''planetary problem'' is the {{mvar|n}}-body problem in the case that one of the masses is much larger than all the others. A prototypical example of a planetary problem is the Sun–[[Jupiter]]–[[Saturn]] system, where the mass of the Sun is about 1000 times larger than the masses of Jupiter or Saturn.<ref name="Chenciner 2007"/> An approximate solution to the problem is to decompose it into {{math|''n'' − 1}} pairs of star–planet [[Kepler problem]]s, treating interactions among the planets as perturbations. [[Perturbation theory|Perturbative approximation]] works well as long as there are no [[orbital resonance]]s in the system, that is none of the ratios of unperturbed Kepler frequencies is a rational number. Resonances appear as small denominators in the expansion.
+
+The existence of resonances and small denominators led to the important question of stability in the planetary problem: do planets, in nearly circular orbits around a star, remain in stable or bounded orbits over time?<ref name="Chenciner 2007"/><ref name="Chierchia 2010">Chierchia 2010</ref> In 1963, [[Vladimir Arnold]] proved using [[KAM theory]] a kind of stability of the planetary problem: there exists a set of positive measure of [[Quasiperiodic motion|quasiperiodic]] orbits in the case of the planetary problem restricted to the plane.<ref name="Chierchia 2010"/> In the KAM theory, chaotic planetary orbits would be bounded by quasiperiodic KAM tori. Arnold's result was extended to a more general theorem by Féjoz and Herman in 2004.<ref>Féjoz 2004</ref>
+
+=== Central configurations ===
+{{main|Central configuration}}
+
+A [[central configuration]] {{math|'''q'''<sub>1</sub>(0), …, '''q'''<sub>''N''</sub>(0)}} is an initial configuration such that if the particles were all released with zero velocity, they would all collapse toward the center of mass {{math|'''C'''}}.<ref name="Chierchia 2010"/> Such a motion is called ''homothetic''. Central configurations may also give rise to ''homographic motions'' in which all masses moves along Keplerian trajectories (elliptical, circular, parabolic, or hyperbolic), with all trajectories having the same eccentricity {{mvar|e}}. For elliptical trajectories, {{math|''e'' {{=}} 1}} corresponds to homothetic motion and {{math|''e'' {{=}} 0}} gives a ''relative equilibrium motion'' in which the configuration remains an isometry of the initial configuration, as if the configuration was a rigid body.<ref>See Chierchia 2010 for animations illustrating homographic motions.</ref> Central configurations have played an important role in understanding the [[topology]] of [[invariant manifold]]s created by fixing the first integrals of a system.
+
+=== {{mvar|n}}-body choreography ===
+{{main|n-body choreography}}
+
+Solutions in which all masses move on the ''same'' curve without collisions are called choreographies.<ref>Celletti 2008</ref> A choreography for {{math|''n'' {{=}} 3}} was discovered by Lagrange in 1772 in which three bodies are situated at the vertices of an [[equilateral triangle]] in the rotating frame. A [[lemniscate|figure eight]] choreography for {{math|''n'' {{=}} 3}} was found numerically by C. Moore in 1993<ref>{{cite journal |last1=Moore |first1=Cristopher |title=Braids in classical dynamics |journal=Physical Review Letters |date=1993-06-14 |volume=70 |issue=24 |pages=3675–3679 |doi=10.1103/PhysRevLett.70.3675|pmid=10053934 |bibcode=1993PhRvL..70.3675M }}</ref> and generalized and proven by A. Chenciner and R. Montgomery in 2000.<ref>{{cite journal |last1=Chenciner |first1=Alain |last2=Montgomery |first2=Richard |title=A Remarkable Periodic Solution of the Three-Body Problem in the Case of Equal Masses |journal=The Annals of Mathematics |date=November 2000 |volume=152 |issue=3 |page=881 |doi=10.2307/2661357|jstor=2661357 |arxiv=math/0011268 |bibcode=2000math.....11268C |s2cid=10024592 }}</ref> Since then, many other choreographies have been found for {{math|''n'' ≥ 3}}.
+
+== Analytic approaches ==
+
+For every solution of the problem, not only applying an [[isometry]] or a time shift but also a [[T-symmetry|reversal of time]] (unlike in the case of friction) gives a solution as well.{{Citation needed|date=September 2013}}
+
+In the physical literature about the {{mvar|n}}-body problem ({{math|''n'' ≥ 3}}), sometimes reference is made to "the impossibility of solving the {{mvar|n}}-body problem" (via employing the above approach).{{Citation needed|date=September 2013}} However, care must be taken when discussing the 'impossibility' of a solution, as this refers only to the method of first integrals (compare the theorems by [[Niels Henrik Abel|Abel]] and [[Évariste Galois|Galois]] about the impossibility of solving [[Quintic equation|algebraic equations of degree five]] or higher by means of formulas only involving roots).
+
+=== Power series solution ===
+
+One way of solving the classical {{mvar|n}}-body problem is "the {{mvar|n}}-body problem by [[Taylor series]]".
+
+We start by defining the system of [[differential equations]]:{{Citation needed|date=September 2013}}
+<math display=block>\frac{d^2\mathbf{x}_i(t)}{dt^2}=G \sum_{k=1 \atop k\neq i}^n \frac{m_k \left(\mathbf{x}_k(t)-\mathbf{x}_i(t)\right)}{\left|\mathbf{x}_k(t)-\mathbf{x}_i(t)\right|^{3}},</math>
+
+As {{math|'''x'''<sub>''i''</sub>(''t''<sub>0</sub>)}} and {{math|{{sfrac|''d'''''x'''<sub>''i''</sub>(''t''<sub>0</sub>)|''dt''}}}} are given as initial conditions, every {{math|{{sfrac|''d''<sup>2</sup>'''x'''<sub>''i''</sub>(''t'')|''dt''<sup>2</sup>}}}} is known. Differentiating {{math|{{sfrac|''d''<sup>2</sup>'''x'''<sub>''i''</sub>(''t'')|''dt''<sup>2</sup>}}}} results in {{math|{{sfrac|''d''<sup>3</sup>'''x'''<sub>''i''</sub>(''t'')|''dt''<sup>3</sup>}}}} which at {{math|''t''<sub>0</sub>}} which is also known, and the Taylor series is constructed iteratively.{{clarify|date=March 2014}}
+
+=== A generalized Sundman global solution ===
+
+In order to generalize Sundman's result for the case {{math|''n'' > 3}} (or {{math|''n'' {{=}} 3}} and {{math|''c'' {{=}} 0}}{{clarify | reason = what is ''c''?|date=July 2012}}) one has to face two obstacles:
+
+#As has been shown by Siegel, collisions which involve more than two bodies cannot be regularized analytically, hence Sundman's regularization cannot be generalized.{{citation needed|date=March 2017}}
+#The structure of singularities is more complicated in this case: other types of singularities may occur (see [[#Singularities of the n-body problem|below]]).
+
+Lastly, Sundman's result was generalized to the case of {{math|''n'' > 3}} bodies by [[Qiudong Wang]] in the 1990s.<ref>{{Cite journal|last=Qiu-Dong|first=Wang|date=1990-03-01|title=The global solution of the N-body problem|journal=Celestial Mechanics and Dynamical Astronomy|language=en|volume=50|issue=1|pages=73–88|doi=10.1007/BF00048987|issn=0923-2958|bibcode=1990CeMDA..50...73W|s2cid=118132097}}</ref> Since the structure of singularities is more complicated, Wang had to leave out completely the questions of singularities. The central point of his approach is to transform, in an appropriate manner, the equations to a new system, such that the interval of existence for the solutions of this new system is {{math|[0,∞)}}.
+
+=== Singularities of the {{mvar|n}}-body problem ===
+
+There can be two types of singularities of the {{mvar|n}}-body problem:
+*collisions of two or more bodies, but for which {{math|'''q'''(''t'')}} (the bodies' positions) remains finite. (In this mathematical sense, a "collision" means that two pointlike bodies have identical positions in space.)
+*singularities in which a collision does not occur, but {{math|'''q'''(''t'')}} does not remain finite. In this scenario, bodies diverge to infinity in a finite time, while at the same time tending towards zero separation (an imaginary collision occurs "at infinity").
+
+The latter ones are called Painlevé's conjecture (no-collisions singularities). Their existence has been conjectured for {{math|''n'' > 3}} by [[Paul Painlevé|Painlevé]] (see [[Painlevé conjecture]]). Examples of this behavior for {{math|''n'' {{=}} 5}} have been constructed by Xia<ref>{{cite journal|first=Zhihong|last=Xia|title=The Existence of Noncollision Singularities in Newtonian Systems|journal=Ann. Math. |series=Second Series|volume=135|issue=3|date=May 1992|pages=411–468|doi=10.2307/2946572|jstor=2946572}}</ref> and a heuristic model for {{math|''n'' {{=}} 4}} by Gerver.<ref>{{cite journal|first=Joseph L.|last=Gerver|title=Noncollision Singularities: Do Four Bodies Suffice?|journal=Exp. Math.|volume=12|issue=2|date=2003|pages=187–198|doi=10.1080/10586458.2003.10504491|s2cid=23816314|url=http://projecteuclid.org/euclid.em/1067634730 }}</ref> [[Donald G. Saari]] has shown that for 4 or fewer bodies, the set of initial data giving rise to singularities has [[Lebesgue measure|measure]] zero.<ref>{{cite journal | last1 = Saari | first1 = Donald G. | year = 1977 | title = A global existence theorem for the four-body problem of Newtonian mechanics | journal = J. Differential Equations | volume = 26 | issue = 1| pages = 80–111 | doi=10.1016/0022-0396(77)90100-0|bibcode = 1977JDE....26...80S | doi-access = free }}</ref>
+
+== Simulation ==
+
+{{main|n-body simulation}}
+
+While there are analytic solutions available for the classical (i.e. nonrelativistic) two-body problem and for selected configurations with {{math|''n'' > 2}}, in general {{mvar|n}}-body problems must be solved or simulated using numerical methods.<ref name="Trenti 2008"/>
+
+=== Few bodies ===
+
+For a small number of bodies, an {{mvar|n}}-body problem can be solved using ''direct methods'', also called ''particle–particle methods''. These methods numerically integrate the differential equations of motion. Numerical integration for this problem can be a challenge for several reasons. First, the [[gravitational potential]] is singular; it goes to infinity as the distance between two particles goes to zero. The gravitational potential may be "softened" to remove the singularity at small distances:<ref name="Trenti 2008"/>
+<math display="block">U_\varepsilon = \sum_{1 \le i < j \le n} \frac{G m_i m_j}{ \sqrt{\left\| \mathbf{q}_j - \mathbf{q}_i\right\|^2 + \varepsilon^2} }</math>
+Second, in general for {{math|''n'' > 2}}, the {{mvar|n}}-body problem is [[Chaos theory|chaotic]],<ref>Alligood 1996</ref> which means that even small errors in integration may grow exponentially in time. Third, a simulation may be over large stretches of model time (e.g. millions of years) and numerical errors accumulate as integration time increases.
+
+There are a number of techniques to reduce errors in numerical integration.<ref name="Trenti 2008"/> Local coordinate systems are used to deal with widely differing scales in some problems, for example an Earth–Moon coordinate system in the context of a solar system simulation. Variational methods and perturbation theory can yield approximate analytic trajectories upon which the numerical integration can be a correction. The use of a [[symplectic integrator]] ensures that the simulation obeys Hamilton's equations to a high degree of accuracy and in particular that energy is conserved.
+
+=== Many bodies ===
+
+Direct methods using numerical integration require on the order of {{math|{{sfrac|1|2}}''n''<sup>2</sup>}} computations to evaluate the potential energy over all pairs of particles, and thus have a [[time complexity]] of {{math|''O''(''n''<sup>2</sup>)}}. For simulations with many particles, the {{math|''O''(''n''<sup>2</sup>)}} factor makes large-scale calculations especially time-consuming.<ref name="Trenti 2008"/>
+
+A number of approximate methods have been developed that reduce the time complexity relative to direct methods:<ref name="Trenti 2008"/>
+* '''Tree code methods''', such as a [[Barnes–Hut simulation]], are spatially-hierarchical methods used when distant particle contributions do not need to be computed to high accuracy. The potential of a distant group of particles is computed using a [[multipole expansion]] or other approximation of the potential. This allows for a reduction in complexity to {{math|''O''(''n'' log ''n'')}}.
+* '''[[Fast multipole method]]s''' take advantage of the fact that the multipole-expanded forces from distant particles are similar for particles close to each other, and uses local expansions of far-field forces to reduce computational effort. It is claimed that this further approximation reduces the complexity to {{math|''O''(''n'')}}.<ref name="Trenti 2008"/>
+* '''[[N-body simulation#Particle mesh method|Particle mesh methods]]''' divide up simulation space into a three dimensional grid onto which the mass density of the particles is interpolated. Then calculating the potential becomes a matter of solving a [[Poisson equation]] on the grid, which can be computed in {{math|''O''(''n'' log ''n'')}} time using [[fast Fourier transform]] or {{math|''O''(''n'')}} time using [[multigrid]] techniques. This can provide fast solutions at the cost of higher error for short-range forces. [[Adaptive mesh refinement]] can be used to increase accuracy in regions with large numbers of particles.
+*'''[[P3M|P<sup>3</sup>M]]''' and '''PM-tree methods''' are hybrid methods that use the particle mesh approximation for distant particles, but use more accurate methods for close particles (within a few grid intervals). P<sup>3</sup>M stands for ''particle–particle, particle–mesh'' and uses direct methods with softened potentials at close range. PM-tree methods instead use tree codes at close range. As with particle mesh methods, adaptive meshes can increase computational efficiency.
+*'''[[Mean field]] methods''' approximate the system of particles with a time-dependent [[Boltzmann equation]] representing the mass density that is coupled to a self-consistent Poisson equation representing the potential. It is a type of [[smoothed-particle hydrodynamics]] approximation suitable for large systems.
+
+=== Strong gravitation ===
+
+In astrophysical systems with strong gravitational fields, such as those near the [[event horizon]] of a [[black hole]], {{mvar|n}}-body simulations must take into account [[general relativity]]; such simulations are the domain of [[numerical relativity]]. Numerically simulating the [[Einstein field equations]] is extremely challenging<ref name="Trenti 2008"/> and a [[parameterized post-Newtonian formalism]] (PPN), such as the [[Einstein–Infeld–Hoffmann equations]], is used if possible. The [[two-body problem in general relativity]] is analytically solvable only for the Kepler problem, in which one mass is assumed to be much larger than the other.<ref>Blanchet 2001</ref>
+
+== Other {{mvar|n}}-body problems ==
+
+Most work done on the {{mvar|n}}-body problem has been on the gravitational problem. But there exist other systems for which {{mvar|n}}-body mathematics and simulation techniques have proven useful.
+
+In large scale [[electrostatics]] problems, such as the simulation of [[protein]]s and cellular assemblies in [[structural biology]], the [[Coulomb potential]] has the same form as the gravitational potential, except that charges may be positive or negative, leading to repulsive as well as attractive forces.<ref>Krumscheid 2010</ref> ''Fast Coulomb solvers'' are the electrostatic counterpart to fast multipole method simulators. These are often used with [[periodic boundary conditions]] on the region simulated and [[Ewald summation]] techniques are used to speed up computations.<ref>Board 1999</ref>
+
+In [[statistics]] and [[machine learning]], some models have [[loss function]]s of a form similar to that of the gravitational potential: a sum of kernel functions over all pairs of objects, where the kernel function depends on the distance between the objects in parameter space.<ref>Ram 2010</ref> Example problems that fit into this form include [[Nearest neighbor search#All nearest neighbors|all-nearest-neighbors]] in [[manifold learning]], [[kernel density estimation]], and [[kernel machine]]s. Alternative optimizations to reduce the {{math|''O''(''n''<sup>2</sup>)}} time complexity to {{math|''O''(''n'')}} have been developed, such as ''dual tree'' algorithms, that have applicability to the gravitational {{mvar|n}}-body problem as well.
+
+A technique in [[Computational fluid dynamics]] called Vortex Methods sees the [[vorticity]] in a fluid domain discretized onto particles which are then advected with the velocity at their centers. Because the fluid velocity and vorticity are related via a [[Poisson's equation]], the velocity can be solved in the same manner as gravitation and electrostatics: as an {{mvar|n}}-body summation over all vorticity-containing particles. The summation uses the [[Biot-Savart law]], with vorticity taking the place of electrical current.<ref>
+{{cite book
+ |last1=Cottet
+ |first1=Georges-Henri
+ |last2=Koumoutsakos
+ |first2=Petros D.
+ |date=2000
+ |title=Vortex Methods: Theory and Practice
+ |location=Cambridge, UK
+ |publisher=Cambridge Univ. Press
+ |isbn=0-521-62186-0
+}}</ref> In the context of particle-laden turbulent multiphase flows, determining an overall disturbance field generated by all particles is an {{mvar|n}}-body problem. If the particles translating within the flow are much smaller than the flow's Kolmogorov scale, their linear Stokes disturbance fields can be superposed, yielding a system of 3{{mvar|n}} equations for 3 components of disturbance velocities at the location of {{mvar|n}} particles.<ref>{{Cite journal |last1=Ayala |first1=Orlando |last2=Grabowski |first2=Wojciech W. |last3=Wang |first3=Lian-Ping |date=2007-07-01 |title=A hybrid approach for simulating turbulent collisions of hydrodynamically-interacting particles |url=https://www.sciencedirect.com/science/article/pii/S0021999106005778 |journal=Journal of Computational Physics |language=en |volume=225 |issue=1 |pages=51–73 |doi=10.1016/j.jcp.2006.11.016 |bibcode=2007JCoPh.225...51A |issn=0021-9991|url-access=subscription }}</ref><ref>{{Cite journal |last1=Torres |first1=C.&nbsp;E. |last2=Parishani |first2=H. |last3=Ayala |first3=O. |last4=Rossi |first4=L.&nbsp;F. |last5=Wang |first5=L.-P. |date=2013-07-15 |title=Analysis and parallel implementation of a forced N-body problem |url=https://www.sciencedirect.com/science/article/pii/S0021999113001848 |journal=Journal of Computational Physics |language=en |volume=245 |pages=235–258 |doi=10.1016/j.jcp.2013.03.008 |bibcode=2013JCoPh.245..235T |issn=0021-9991|url-access=subscription }}</ref>
+
+== See also ==
+*[[Celestial mechanics]]
+*[[Gravitational two-body problem]]
+*[[Jacobi integral]]
+*[[Lunar theory]]
+*[[Natural units]]
+*[[Numerical model of the Solar System]]
+*[[Stability of the Solar System]]
+*[[Few-body systems]]
+*[[N-body simulation]], a method for numerically obtaining trajectories of bodies in an N-body system.
+
+== Notes ==
+{{reflist|30em}}
+
+== References ==
+{{refbegin|30em|indent=yes}}
+*{{cite book|last=Aarseth|first=Sverre J.|title=Gravitational {{mvar|n}}-body Simulations, Tools and Algorithms|publisher=[[Cambridge University Press]]|year=2003|isbn=978-0-521-43272-6|location=Cambridge}}
+*{{cite book|last1=Alligood|first1=K.&nbsp;T.|last2=Sauer|first2=T.&nbsp;D.|last3=Yorke|first3=J.&nbsp;A.|title=Chaos: An Introduction to Dynamical Systems|publisher=Springer|year=1996|isbn=978-0-387-94677-1|location=New York|pages=46–48}}
+*{{cite book|last1=Bate|first1=Roger R.|last2=Mueller|first2=Donald D.|last3=White|first3=Jerry|title=Fundamentals of Astrodynamics|url=https://archive.org/details/fundamentalsofas00bate|url-access=registration|publisher=[[Dover Publications]]|year=1971|isbn=978-0-486-60061-1|location=New York}}
+*{{cite journal|last1=Blanchet|first1=Luc|title=On the two-body problem in general relativity|journal=Comptes Rendus de l'Académie des Sciences, Série IV|volume=2|number=9|date=2001|pages=1343–1352|doi=10.1016/s1296-2147(01)01267-7|arxiv=gr-qc/0108086|bibcode=2001CRASP...2.1343B|s2cid=119101016}}
+*{{cite book|last1=Board|first1=John A. Jr. |last2=Humphres|first2=Christopher W.|last3=Lambert|first3=Christophe G.|last4=Rankin|first4=William T.|last5=Toukmaji|first5=Abdulnour Y.|series=Lecture Notes in Computational Science and Engineering |volume=4 |contribution=Ewald and Multipole Methods for Periodic {{mvar|n}}-Body Problems|title=Computational Molecular Dynamics: Challenges, Methods, Ideas|editor1-last=Deuflhard|editor1-first=Peter|editor2-last=Hermans|editor2-first=Jan|editor3-last=Leimkuhler|editor3-first=Benedict|editor4-last=Mark|editor4-first=Alan E.|editor5-last=Reich|editor5-first=Sebastian|editor6-last=Skeel|editor6-first=Robert D.|publisher=Springer|location=Berlin & Heidelberg|pages=459–471|doi=10.1007/978-3-642-58360-5_27|year=1999|isbn=978-3-540-63242-9}}
+*{{cite book|last1=Bronowski|first1=Jacob|last2=Mazlish|first2=Bruce|title=The Western Intellectual Tradition, from Leonardo to Hegel|url=https://archive.org/details/westernintellect00jaco|orig-date=1960|url-access=registration|publisher=Dorset Press|year=1986|isbn=978-0-88029-069-2|location=New York}}
+*{{cite journal|last1=Celletti|first1=Alessandra|date=2008|title=Computational celestial mechanics|journal=Scholarpedia|volume=3|issue=9|page=4079|doi=10.4249/scholarpedia.4079|bibcode=2008SchpJ...3.4079C|doi-access=free}}
+*{{cite journal|last1=Chenciner|first1=Alain|date=2007|title=Three body problem|journal=Scholarpedia|volume=2|issue=10|page=2111|doi=10.4249/scholarpedia.2111|bibcode=2007SchpJ...2.2111C|doi-access=free}}
+*{{cite journal|last1=Chierchia|first1=Luigi|last2=Mather|first2=John N.|date=2010|title=Kolmogorov–Arnold–Moser Theory|journal=Scholarpedia|volume=5|issue=9|page=2123|doi=10.4249/scholarpedia.2123|bibcode=2010SchpJ...5.2123C|doi-access=free}}
+*{{cite journal|last1=Cohen|first1=I. Bernard|title=Newton's Discovery of Gravity|journal=Scientific American|pages=167–179|volume=244|issue=3|date=March 1980|doi=10.1038/scientificamerican0381-166|bibcode=1981SciAm.244c.166C}}
+*{{cite book|last1=Cohen|first1=I. Bernard|title=The Birth of a New Physics, Revised and Updated|publisher=[[W.&nbsp;W. Norton & Co.]]|year=1985|isbn=978-0-393-30045-1|location=New York}}
+*{{cite journal|last1=Diacu|first1=F.|url=http://www.math.uvic.ca/faculty/diacu/diacuNbody.pdf|title=The solution of the {{mvar|n}}-body problem|journal=The Mathematical Intelligencer|date=1996|volume=18|issue=3|pages=66–70|doi=10.1007/bf03024313|s2cid=119728316|archive-date=2016-03-04|access-date=2011-11-03|archive-url=https://web.archive.org/web/20160304092935/http://www.math.uvic.ca/faculty/diacu/diacuNbody.pdf}}
+*{{cite journal|last1=Féjoz|first1=J.|date=2004|title=Démonstration du 'théorème d'Arnold' sur la stabilité du système planétaire (d'après Herman)|journal=Ergodic Theory Dynam. Systems|volume=24|issue=5|pages=1521–1582|doi=10.1017/S0143385704000410|s2cid=123461135}}
+*{{cite book|last1=Heggie|first1=Douglas|last2=Hut|first2=Piet|title=The Gravitational Million-Body Problem, A Multidisciplinary Approach to Star Cluster Dynamics|publisher=[[Cambridge University Press]]|year=2003|isbn=978-0-521-77303-4|location=Cambridge}}
+*{{cite book|last1=Heggie|first1=Douglas C.|contribution=Chaos in the {{mvar|n}}-body Problem of Stellar Dynamics|title=Predictability, Stability and Chaos in {{mvar|n}}-Body Dynamical Systems|year=1991|isbn=978-0-306-44034-2|editor-last=Roy|editor-first=A.&nbsp;E.|location=New York|publisher=Plenum Press}}
+*{{cite book|last1=Hufbauer|first1=Karl|title=Exploring the Sun: Solar Science since Galileo|publisher=[[Johns Hopkins University Press]], sponsored by the NASA History Office|year=1991|isbn=978-0-8018-4098-2|location=Baltimore}}
+*{{cite report|last1=Krumscheid|first1=Sebastian|date=2010|citeseerx=10.1.1.163.3549|title=Benchmark of fast Coulomb Solvers for open and periodic boundary conditions|publisher=Jülich Supercomputing Centre|series=Technical Report FZJ-JSC-IB-2010-01}}
+*{{cite book|last1=Kurth|first1=Rudolf|title=Introduction to the Mechanics of the Solar System|publisher=[[Pergamon Press]]|year=1959|isbn=978-0-08-009141-9|location=London}}
+*{{cite book|last1=Leimanis|first1=E.|last2=Minorsky|first2=N.|title=Dynamics and Nonlinear Mechanics|location=New York|chapter=Part I: "Some Recent Advances in the Dynamics of Rigid Bodies and Celestial Mechanics" (Leimanis); Part II: "The Theory of Oscillations" (Minorsky)|asin=B0006AVKQW|oclc=1219303|publisher=[[John Wiley & Sons]]|year=1958}}
+*{{cite book|last1=Lindsay|first1=Robert Bruce|title=Physical Mechanics|url=https://archive.org/details/physicalmechanic0000lind|url-access=registration|edition=3rd|location=Princeton|asin=B0000CLA7B|oclc=802752879|publisher=D. Van Nostrand Co.|year=1961}}
+*{{cite book|last1=Meirovitch|first1=Leonard|title=Methods of Analytical Dynamics|publisher=McGraw-Hill Book Co.|year=1970|isbn=978-0-07-041455-6|location=New York}}
+*{{cite book|last1=Meyer|first1=Kenneth Ray|last2=Hall|first2=Glen R.|title=Introduction to Hamiltonian Dynamical Systems and the {{mvar|n}}-body Problem|publisher=[[Springer Science & Business Media]]|year=2009|isbn=978-0-387-09724-4|location=New York}}
+*{{cite journal|last1=Mittag-Leffler|first1=G.|title=The {{mvar|n}}-body problem (Prize Announcement)|journal=Acta Mathematica|date=1885–1886|volume=7|pages=I–VI|doi=10.1007/BF02402191|doi-access=free}}
+*{{cite book|last1=Moulton|first1=Forest Ray|title=An Introduction to Celestial Mechanics|publisher=[[Dover Publications]]|year=1970|isbn=978-0-486-62563-8|location=New York}}
+*{{cite book|oclc=915353069|author-link=Isaac Newton|last=Newton|first=Isaac|title=Philosophiae Naturalis Principia Mathematica|url=https://archive.org/details/philosophiaenatu00inew|location=Londini [London]|language=Latin|publisher=Jussu Societatis Regiæ ac Typis Josephi Streater. Prostat apud plures Bibliopolas.|year=1687}} Also English translation of 3rd (1726) edition by I. Bernard Cohen and Anne Whitman (Berkeley, CA, 1999). {{Isbn|978-0-520-08817-7}}.
+*{{cite journal|last1=Ram|first1=Parikshit|date=2009|first2=Dongryeol|last2=Lee|first3=William B.|last3=March|first4=Alexander G.|last4=Gray|url=http://www.fast-lab.org/papers/ram2010ltaps.pdf|title=Linear-time Algorithms for Pairwise Statistical Problems|journal=NIPS|pages=1527–1535|access-date=2014-03-28|archive-url=https://web.archive.org/web/20170421013700/http://www.fast-lab.org/papers/ram2010ltaps.pdf|archive-date=2017-04-21}}
+*{{cite book|last1=Rosenberg|first1=Reinhardt M.|title=Analytical Dynamics, of Discrete Systems|location=New York|chapter=Chapter 19: About Celestial Problems|pages=364–371|publisher=Plenum Press|year=1977|isbn=978-0-306-31014-0}}
+*{{cite book|author=Gallant|first=Roy A.|title=The Nature of the Universe|publisher=[[Doubleday (publisher)|Doubleday]]|year=1968|location=Garden City, NY|oclc=689289|others=In partnership with [[Society for Science|Science Service]]}}
+*{{cite journal|last=Sundman|first=K.&nbsp;F.|title=Mémoire sur le problème de trois corps|journal=Acta Mathematica|volume=36|date=1912|pages=105–179|doi=10.1007/bf02422379|url=https://zenodo.org/record/2440705|doi-access=free}}
+*{{cite journal|last1=Tisserand|first1=François Félix|url=https://iris.univ-lille.fr/bitstream/handle/1908/4228/Q11840-3.pdf?sequence=4|title=Traité de Mécanique Céleste|journal=Lilliad - Université de Lille - Sciences et Technologies|volume=III|location=Paris|publisher=Gauthier-Villars et Fils|year=1894|page=27|hdl=1908/4228|oclc=951409281}}
+*{{cite journal|last1=Trenti|first1=Michele|last2=Hut|first2=Piet|date=2008|title={{mvar|n}}-body simulations|journal=Scholarpedia|volume=3|issue=5|page=3930|doi=10.4249/scholarpedia.3930|bibcode=2008SchpJ...3.3930T|doi-access=free}}
+*{{Cite book|last1=Truesdell|first1=Clifford|title=Essays in the History of Mechanics|publisher=[[Springer Science+Business Media|Springer-Verlag]]|year=1968|isbn=978-3-642-86649-4|location=Berlin; Heidelberg}}
+*{{cite book|last1=Van Winter|first1=Clasine|contribution=The {{mvar|n}}-body problem on a Hilbert space of analytic functions|oclc=848738761|title=Analytic Methods in Mathematical Physics|editor1-first=Robert P.|year=1970|editor1-last=Gilbert|editor-link=Roger G. Newton|editor2-first=Roger G.|editor2-last=Newton|location=New York|pages=569–578|publisher=Gordon and Breach}}
+*{{cite journal |author-link=Qiudong Wang |last=Wang |first=Qiudong |bibcode=1991CeMDA..50...73W |title=The global solution of the {{mvar|n}}-body problem |journal=[[Celestial Mechanics and Dynamical Astronomy]] |issn=0923-2958 |volume=50 |issue=1 |year=1991 |pages=73–88 |doi=10.1007/BF00048987 | mr=1117788 |s2cid=118132097 }}
+*{{cite journal |first=Zhihong |last=Xia |title=The Existence of Noncollision Singularities in Newtonian Systems |journal=[[Annals of Mathematics]] |volume=135 |issue=3 |pages=411–468 |date=1992 |jstor=2946572 |doi=10.2307/2946572}}
+{{refend}}
+
+==Further reading==
+{{refbegin|30em}}
+*{{cite book |last1=Battin |first1=Richard H. |title=An Introduction to The Mathematics and Methods of Astrodynamics |publisher=AIAA |date=1987}} Employs energy methods rather than a Newtonian approach.
+*{{cite book |last1=Boccaletti |first1=D. |last2=Pucacco |first2=G. |title=Theory of Orbits |publisher=Springer-Verlag |date=1998}}
+*{{cite book |last1=Brouwer |first1=Dirk |last2=Clemence |first2=Gerald M. |title=Methods of Celestial Mechanics |url=https://archive.org/details/methodsofcelesti00brou |url-access=registration |publisher=Academic Press |date=1961 |bibcode=1961mcm..book.....B}}
+*{{cite book |last1=Crandall |first1=Richard E. |title=Topics in Advanced Scientific Computation |chapter=Chapter 5: "Nonlinear & Complex Systems"; paragraph 5.1: "{{mvar |n}}-body problems & chaos" |pages=215–221 |publisher=Springer-Verlag |date=1996}}
+*{{cite book |last1=Crandall |first1=Richard E. |title=Projects in Scientific Computation |chapter=Chapter 2: "Exploratory Computation"; Project 2.4.1: "Classical Physics" |pages=93–97 |edition=corrected 3rd |publisher=Springer-Verlag |date=1996}}
+*{{cite journal |last1=Eisele |first1=John A. |last2=Mason |first2=Robert M. |title=Applied Matrix and Tensor Analysis |journal=Physics Today |volume=25 |issue=12 |page=55 |date=1970 |bibcode=1972PhT....25l..55E |doi=10.1063/1.3071146}}
+*{{cite journal |doi=10.6028/jres.072B.022 |title=The second orthogonality conditions in the theory of proper and inproper rotations. I. Derivation of the conditions and of their main consequences |date=1968 |last1=Gelman |first1=Harry |journal=Journal of Research of the National Bureau of Standards, Section B |volume=72B |issue=3 |page=229 |doi-access=free}}
+*{{cite journal |doi=10.6028/jres.073B.012 |title=The second orthogonality conditions in the theory of proper and improper rotations. II. The intrinsic vector |date=1969 |last1=Gelman |first1=Harry |journal=Journal of Research of the National Bureau of Standards, Section B |volume=73B |issue=2 |page=125}}
+*{{cite journal |doi=10.6028/jres.073B.013 |title=The second orthogonality conditions in the theory of proper and improper rotations. III. The conjugacy theorem |date=1969 |last1=Gelman |first1=Harry |journal=Journal of Research of the National Bureau of Standards, Section B |volume=73B |issue=2 |page=139|doi-access=free }}
+*{{cite journal |doi=10.6028/jres.073B.021 |title=The second orthogonality conditions in the theory of proper and improper rotations. IV. Solution of the trace and secular equations |date=1969 |last1=Gelman |first1=Harry |journal=Journal of Research of the National Bureau of Standards, Section B |volume=73B |issue=3 |page=215 |doi-access=free}}
+*{{cite journal |doi=10.6028/jres.075B.002 |title=A note on the time dependence of the effective axis and angle of a rotation |date=1971 |last1=Gelman |first1=Harry |journal=Journal of Research of the National Bureau of Standards, Section B |volume=75B |issue=3 and 4 |page=165 |doi-access=free}}
+*{{cite book |last1=Hagihara |first1=Y. |title=Celestial Mechanics |volume=I, II pt 1, II pt 2 |publisher=MIT Press |date=1970}}
+*{{cite book |last1=Korenev |first1=G. V. |title=The Mechanics of Guided Bodies |publisher=CRC Press |date=1967}}
+*{{cite book |last1=Meriam |first1=J. L. |title=Engineering Mechanics |volume=1–2 |publisher=John Wiley & Sons |date=1978}}
+*{{cite book |last1=Murray |first1=Carl D. |last2=Dermott |first2=Stanley F. |title=Solar System Dynamics |publisher=Cambridge University Press |date=2000}}
+*{{cite book |last1=Quadling |first1=Henley |title=Gravitational {{mvar |n}}-Body Simulation: 16 bit DOS version |date=June 1994}} nbody*.zip is available at https://web.archive.org/web/19990221123102/http://ftp.cica.indiana.edu/: see external links.
+*{{cite journal |last1=Saari |first1=D. |year=1990 |title=A visit to the Newtonian {{mvar |n}}-body problem via Elementary Complex Variables |journal=American Mathematical Monthly |volume=89 |issue=2 |pages=105–119 |doi=10.2307/2323910 |jstor=2323910}}
+*{{cite journal |last1=Saari |first1=D. G. |last2=Hulkower |first2=N. D. |title=On the Manifolds of Total Collapse Orbits and of Completely Parabolic Orbits for the {{mvar |n}}-Body Problem |journal=Journal of Differential Equations |date=1981 |volume=41 |issue=1 |pages=27–43 |doi=10.1016/0022-0396(81)90051-6 |bibcode=1981JDE....41...27S |doi-access=free}}
+*{{Cite book |last1=Szebehely |first1=Victor |title=Theory of Orbits |publisher=Academic Press |date=1967}}
+{{refend}}
+
+== External links ==
+{{Div col|colwidth=30em}}
+*[http://www.scholarpedia.org/article/Three_Body_Problem Three-Body Problem] at [[Scholarpedia]]
+*[https://web.archive.org/web/20021017171212/http://www.geom.umn.edu/~megraw/CR3BP_html/cr3bp.html More detailed information on the three-body problem]
+*[http://www.ifmo.ru/butikov/ManyBody.pdf Regular Keplerian motions in classical many-body systems]
+*[http://alecjacobson.com/programs/three-body-chaos/ Applet demonstrating chaos in restricted three-body problem] {{Webarchive|url=https://web.archive.org/web/20091017075952/http://alecjacobson.com/programs/three-body-chaos/ |date=2009-10-17 }}
+*[http://www.ifmo.ru/butikov/Projects/Collection.html Applets demonstrating many different three-body motions]
+*[http://www.datasync.com/~rsf1/manybod1.htm On the integration of the {{mvar|n}}-body equations] {{Webarchive|url=https://web.archive.org/web/20161030011822/http://www.datasync.com/~rsf1/manybod1.htm |date=2016-10-30 }}
+*[http://www.princeton.edu/~rvdb/JAVA/astro/galaxy/SolarSystem.html Java applet simulating Solar System]
+*[http://www.princeton.edu/~rvdb/JAVA/astro/galaxy/ThreeBody2.html Java applet simulating a stable solution to the equi-mass 3-body problem]
+*[https://web.archive.org/web/20090108060338/http://www.telefonica.net/web2/canrosin/index.htm A java applet to simulate the 3D movement of set of particles under gravitational interaction]
+*[https://web.archive.org/web/20090630215515/http://orinetz.com/planet/viewsysblog.php?specific=QUQTS2CSDQ44FDURR3XD6NUD6 Javascript Simulation of the Solar System]
+*[https://web.archive.org/web/20051109070350/http://www.merlyn.demon.co.uk/gravity4.htm The Lagrange Points] – with links to the original papers of Euler and Lagrange, and to translations, with discussion
+* [http://ftp.math.utah.edu/pub/tex/bib/toc/sciam1980.html#242%281%29:January:1980]
+* [https://github.com/drons/nbody Parallel GPU N-body simulation program with fast stackless particles tree traversal]
+{{div col end}}
+
+{{subject bar|portal1=Mathematics|portal2=Physics|portal3=Astronomy}}
+{{orbits}}
+{{Numerical integrators}}
+
+{{Authority control}}
+
+{{DEFAULTSORT:N-Body Problem}}
+[[Category:Concepts in astrophysics]]
+[[Category:Classical mechanics]]
+[[Category:Computational problems]]
+[[Category:Computational physics]]
+[[Category:Gravity]]
+[[Category:Orbits]]

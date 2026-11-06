@@ -1,0 +1,525 @@
+Celest Mech Dyn Astr
+DOI 10.1007/s10569-010-9259-5
+ORIGINAL ARTICLE
+
+Stability of the triangular Lagrange points beyond
+Gascheau’s value
+B. Sicardy
+
+Received: 2 November 2009 / Revised: 24 January 2010 / Accepted: 8 February 2010
+© Springer Science+Business Media B.V. 2010
+
+Abstract We examine the stability of the triangular Lagrange
+√ points L 4 and L 5 for secondary masses larger than the Gascheau’s value µG = (1 − 23/27/2) = 0.0385208 . . .
+(also known as the Routh value) in the restricted, planar circular three-body problem. Above
+that limit the triangular Lagrange points are linearly unstable. Here we show that between
+µG and µ ≈ 0.039, the L 4 and L 5 points are globally stable in the sense that a particle
+released at those points at zero velocity (in the corotating frame) remains in the vicinity
+of those points for an indefinite time. We also show that there exists a family of stable
+periodic orbits surrounding L 4 or L 5 for µ ≥ µG . We show that µG is actually the first
+value of a series µ0 (= µG ), µ1 , . . . , µi , . . . corresponding to successive period doublings
+of the orbits, which exhibit 1, 2, . . . , 2i , . . . cycles around L 4 or L 5 . Those orbits follow a
+Feigenbaum cascade leading to disappearance into chaos at a value µ∞ = 0.0463004 . . .
+which generalizes Gascheau’s work.
+Keywords Three-body problem · Lagrange points · Global stability ·
+Routh’s critical mass ratio · Feigenbaum cascade
+
+1 Introduction
+Euler and Lagrange were both awarded the Prix de l’Académie Royale des Sciences de Paris
+in 1772 for their work on the three-body problem. Euler was the discoverer of the collinear
+equilibrium points, now known as L 1 , L 2 and L 3 (Euler 1763, 1764, 1765), while Lagrange
+had a more general approach, revealing also the triangular (equilateral) equilibrium points
+L 4 and L 5 (Lagrange 1873).
+
+B. Sicardy (B)
+Observatoire de Paris and Institut Universitaire de France, LESIA - 5, Place Jules Janssen,
+92195 Meudon Cédex, France
+e-mail: bruno.sicardy@obspm.fr
+
+123
+
+B. Sicardy
+
+Gascheau1 was the first to study the stability of the L 4 and L 5 points (Gascheau 1843),
+showing that the motion of three non-zero masses m 1 , m 2 and m 3 in a rotating equilateral
+configuration becomes linearly unstable if
+(m 1 + m 2 + m 3 )2
+≤ 27.
+m1 · m2 + m1 · m3 + m2 · m3
+
+(1)
+
+This result was published more than thirty years earlier than Routh (1875), see also Routh
+(1905). Routh actually extended the result to a general attraction law ∝ 1/r κ . He showed
+that the triangular points are linearly unstable for all masses if κ is larger than 3, and linearly
+stable for all masses if κ is smaller than −1. For κ between −1 and 3, the triangular points
+are linearly unstable for:
+
+
+1+κ 2
+(m 1 + m 2 + m 3 )2
+≤3
+,
+m1 · m2 + m1 · m3 + m2 · m3
+3−κ
+which is identical to Gascheau’s expression for the gravitational case, κ = 2. Note that further studies on the stabiltiy of the equilateral configuration as a function of κ can be found
+in Santoprete (2006).
+√
+The value of µG = m 2 /(m 1 + m 2 ) = (1 − 23/27)/2 = 0.03852 . . . at which linear
+unstability is reached in the restricted case (m 3 = 0, see see Eq. 4) is often referred to as the
+Routh value, but should actually be called Gascheau’s value in view of the precedence of his
+result.
+The linear stability of the triangular Lagrange points was subsequently studied by Danby
+(1964) and Bennett (1965) in the elliptic restricted case. These authors show, among others,
+that the maximum possible value of µ allowing a linearly stable motion near L 4 or L 5 is
+µ = 0.04698 . . ., reached for an orbital eccentricity of e = 0.3143 . . . of the primary and secondary. Above µ = 0.04643 . . . the triangular points are always linearly unstable, whatever
+the orbital eccentricities may be.
+Further studies have gone beyond the first order analysis to investigate whether all values
+of µ between 0 and µG = 0.03852 . . . provide linear stability√
+for L 4 or L 5 . It was shown in
+Deprit and Deprit-Bartholomé
+(1967)
+that
+for
+µ
+=
+(15
+−
+233)/90 = 0.01352 . . . and
+3:1
+√
+µ2:1 = (45 − 1833)/90 = 0.02429 . . ., the triangular points are linearly unstable. These
+values actually correspond to the 3:1 and 2:1 resonances between the two eigenfrequencies
+of motion near L 4 or L 5 , see the review by Marchal (1990). In the same review, it is also
+mentioned that µ3:1 and µ2:1 are actually the only values between 0 and µG yielding linearly
+unstable motion around the triangular points.
+Note that the stability of motions around L 4 has been extensively considered for the special
+case of the Trojan asteroids, for which Jupiter’s mass is fixed at about 0.001 of the solar mass.
+In that case, one may for instance want to estimate the stability of Trojans asteroids initially
+placed farther and farther away from the L 4 , see e.g. Sándor et al. (2000) and Efthymiopoulos
+(2005). This problem will not be tackled here.
+Rather, we study here the behavior of a massless particle near the triangular equilibrium
+points L 4 and L 5 for a secondary masse just above Gascheau’s value in the simplest possible
+case, namely the restricted, circular and planar problem.
+Notations are standard, 1 − µ being the mass of the more massive body (the primary), µ
+being the mass of the less massive body (the secondary), with µ ≤ 0.5. The case 0.5 ≤ µ ≤ 1
+1 Gabriel Gascheau was born in 1798, he was a professor at Toulouse University, France. His thesis on “Mouv-
+
+ements relatifs d’un système de corps. Sur deux cas particuliers d’un problème des trois corps” was published
+in Paris in 1843.
+
+123
+
+Stability of Lagrange points
+
+can be studied by a trivial exchange of the primary and secondary. The secondary moves on
+a circular orbit of radius rs = 1 and position vector rs relative to the primary, with mean
+motion n s = 1 and period Ts = 2π. Finally, a test particle moves with position vector and
+distance r and r , respectively, relative to the primary. Here we call “corotating frame” the
+frame centered at the primary and rotating at the secondary mean motion n s = 1. The particle
+motion will be studied in this frame, so that “motionless” will mean that the particle has zero
+velocity in the corotating frame.
+The linear stability of points L 4 and L 5 is treated in many textbooks, see e.g. Murray and
+Dermott (1999). The proper frequencies λ in the vicinity of the triangular points are solutions
+of:
+27
+µ · (1 − µ) = 0.
+(2)
+4
+√
+For µ → 0, solutions
+√ are purely imaginary, λ1 ≈ 27/4µ · j and λ2 ≈ j, and their opposite
+values, with j = −1. The frequency λ1 correspond to stable slow oscillations of the particle
+around L 4 or L 5 , along the so called “tadpole” orbits, while λ2 correspond to the fast stable
+epicyclic motion with period 2π. As µ increases, |λ1 | increases and |λ2 | decreases, until
+√
+27µ · (1 − µ) = 1, at which point the two frequencies merge together at |λ1 | = |λ2 | = 1/ 2.
+When
+λ4 + λ2 +
+
+1 ≤ 27µ · (1 − µ),
+
+(3)
+
+the solutions of Eq. 2 have non-zero real parts, so that the triangular points become linearly
+unstable. Note that Eq. 3 is identical to Eq. 1 once we take m 3 = 0, µ = m 2 /(m 1 + m 2 ) and
+m 1 + m 2 = 1.
+Gascheau’s value is the smaller solution of 27µ · (1 − µ) = 1:
+√
+1 − 23/27
+= 0.0385208965 . . .
+(4)
+µG =
+2
+The other solution, 1 − µG , is obtained by permutating the primary and the secondary.
+Our main scope in this paper is to present an as simple as possible account of a particle’s
+behavior near L 4 and L 5 for values of µ just above µG . We actually want to answer the two
+following questions:
+– Let us consider a particle initially motionless at L 4 or L 5 . What is the global stability of
+the particle near those points for µ ≥ µG ? Namely, can the particle remain in a bounded
+region encircling L 4 or L 5 for some values of µ ≥ µG , even if L 4 and L 5 are linearly
+unstable?
+– Are there stable periodic orbits encircling the triangular points for µ ≥ µG ?
+These questions may have some pertinence when studying the stability of a spacecraft
+motion near one of the triangular Lagrange points of a binary system with µ ≥ µG . It may
+also be relevant to systems where particles are trapped near the L 4 or L 5 points of a system where the secondary undergoes a progressive mass increase, which eventually leads to
+µ ≥ µG .
+To tackle those problems, we perform numerical simulations using Poincaré surfaces of
+section, which help clarifying the structure of the web of orbits in the vicinity of L 4 or L 5 ,
+as µ goes beyond Gascheau’s value. From the symmetry of the L 4 and L 5 points, we will
+only consider motions near L 4 , unless otherwise stated. All our conclusions will however be
+applicable to the L 5 point, even if only L 4 is quoted in the text for sake of brevity.
+
+123
+
+B. Sicardy
+
+Fig. 1 Poincaré surface of section for orbits with µ = 0.039 and C J = 2.961, see text for details. The two
+thin lines labelled “ZVC” are the zero-velocity curves, between which no motion is possible. The thick red
+curve is the orbit going through L 4 , at (r, ṙ ) = (1, 0), with zero velocity. It corresponds to the orbit labelled
+(a) in Fig. 5. The two points labelled “PO” are the fixed points corresponding to the periodic orbit encircling
+L 4 for µ = 0.039, and shown in Fig. 6 (upper left orbit). The dotted curves are the locus of the fixed points
+when µ is increased slowly beyond Gascheau’s value, see also Fig. 7 (colour version is available in the online
+version)
+
+2 Numerical integrations
+The restricted circular three-body problem has an energy-like integral of motion, the Jacobi
+constant:
+CJ = r2 +
+
+
+
+2 (1 − µ)
+1
+− 2µ r · rs −
+− v2
+r
+|r − rs |
+
+where v is the particle velocity measured in a frame fixed at the primary center and corotating with the secondary. Here, we will first restrict ourselves to the case where the particle is
+initially motionless at L 4 (v = 0). Those orbits are thus uniquely parametrized by the Jacobi
+constant, C J = 3 − µ.
+Since the particle planar motion has two degrees of freedom and one integral of motion, we
+can readily construct Poincaré surfaces of section of its motion. As we study orbits encircling
+the triangular Lagrange points, we will plot the two conjugate quantities r and ṙ = dr/dt
+everytime the particle crosses the line joining the primary and the L 4 point. Note that if
+ = L − L s denotes the difference between the true longitudes of the particle and the secondary, then the surface of section corresponds to  = π/3. A given orbit will in general
+intersect the surface  = π/3 twice, once with ˙
+ ≥ 0, and once with ˙
+ ≤ 0. We will not
+restrict the plotting of (r, ṙ ) to one of those two cases, so that the surfaces of section will have
+a roughly symmetrical aspect (see e.g. Fig. 1), with both sides of the diagram containing the
+same information.
+Orbits are calculated using a 4th order Runge-Kutta integrator with time step h = 0.01.
+Intersections with the surface of section are calculated through a classical Newton’s method.
+Conservation of energy is ensured at typical levels of |C J /C J | ≈ 2 × 10−7 over typical
+times of t ≈ 105 , at which stage ≈ 104 intersections with the surface of section are calculated.
+
+123
+
+Stability of Lagrange points
+
+Fig. 2 Left panel An enlargement of the central region of Fig. 1 (µ = 0.039). Right panel Same as left panel,
+but with µ = 0.0394 (colour version is available in the online version)
+
+Fig. 3 Left panel Same as Fig. 2, but with µ = 0.0395. Right panel Same as Fig. 2, but with µ = 0.0398
+
+A particle resting at L 4 will have r = 1 and ṙ = 0, so that this particular solution will
+be represented by a fixed point at the intersection of the vertical r = 1 and horizontal ṙ = 0
+lines, as shown in Figs. 1, 2 and 3.
+3 Global stability of orbits emanating from L4 or L5
+Figure 1 shows a surface of section obtained slightly above Gascheau’s value, namely with
+µ = 0.039, with a close up view of L 4 vicinity shown in Fig. 2, left panel. The value of the
+Jacobi constant, C J = 3 − µ = 2.961, ensures that a particle passing at L 4 is motionless at
+that point, as explained before. The orbit followed by such a particle is shown in red in the
+surfaces of section of Figs. 1 and 2. The corresponding orbit in the corotating frame is shown
+in Fig. 5 [orbit (a)], where it appears to densely fill a limited region around L 4 in physical
+space.
+The surface of section for µ = 0.039 actually indicates that all the orbits surrounding
+the red one (including the latter) are regular. Thus, globally stable orbits exist around L 4 for
+µ ≥ µG , even if L 4 is linearly unstable.
+One may wonder whether this situation perdures as µ increases. For µ = 0.0394, one can
+see that the orbit emanating from L 4 becomes chaotic (Fig. 2, right panel) and can diffuse
+in phase space. However, because it is surrounded by regular orbits, it cannot escape from
+L 4 vicinity. For µ = 0.0395 (Fig. 3, left panel), we can observe that the chaotic zone near
+
+123
+
+B. Sicardy
+
+Fig. 4 Escape time of a particle starting motionless at L 4 (or L 5 ), as a function of the secondary mass µ,
+illustrating the global stability of the triangular Lagrangian points. Below µ = 0.0397, the particle remains in
+the L 4 vicinity over the whole integration time, i.e. until t = 108 (i.e. 108 /2π = 1.6 × 107 orbital periods of
+the secondary). Above µ = 0.04, the particle escapes the L 4 or L 5 vicinity in less than t ≈ 1000. Gascheau’s
+value µG is shown as the vertical dot-dashed line
+
+L 4 (r = 1, ṙ = 0) is more and more prevalent, even though regular orbits still prevent escape
+from L 4 vicinity.
+An abrupt transition occurs just below µ = 0.04: chaos now prevails, the regular orbits
+fade away (Fig. 3, right panel), and chaotic diffusion allows the particle to escape L 4 vicinity.
+Figure 4 shows the survival time tescape of a particle initially launched motionless at L 4 , i.e.
+the time after which the particle escapes from the L 4 vicinity. In all the cases we have examined, this ends up by a close encounter with the secondary, and an escape on a hyperbolic
+orbit, see an example in the lower part of Fig. 5, with µ = 0.0405.
+Because the particle has to chaotically diffuse away from L 4 before escaping, this time
+of escape is exponentially sensitive to round-off errors and errors associated with the finite
+order of our integrator, so that it can only be evaluated in a statistical way. Figure 4 actually
+shows fluctuations of tescape as µ increases, as expected in a chaos-dominated process.
+The interesting point is that for µ ≤ 0.0397, the particle remains in L 4 vicinity for times
+larger than the duration of our integration, t = 108 , while this time drastically drops to less
+than 103 (corresponding to 103 /2π ∼ a few hundreds of orbital periods of the primaries)
+between µ = 0.0397 and µ ≈ 0.04.
+In that sense, the value µ ≈ 0.04 may be viewed as a more meaningful stability threshold
+than µG , from a physical standpoint. For instance, a spacecraft initially posted still at one of
+the triangular Lagrange points of a system where µG ≤ µ ≤≈ 0.0397 will remain around
+the vicinity of the corresponding triangular point for an infinite, or very long, time, even
+though the triangular point is linearly unstable.
+Previous works actually focussed on the global stability of a particle in the neighborhood
+of L 4 , for µ just above µG . For instance Bardin (2002) shows that a particle sufficienlty close
+to L 4 can stay forever in a finite domain around the triangular point for values of µ larger but
+sufficienlty close to µG . Other works investigated the global stability of L 4 in the frame of the
+elliptic restricted three-body problem, see Nauenberg (2002) or Érdi et al. (2009). The latter
+authors have calculated the escape time of a test particle initially motionless at L 4 , in the
+µ − e plane, where e is the orbital eccentricity of the primary and secondary. By examining
+
+123
+
+Stability of Lagrange points
+
+Fig. 5 Two examples of a a globally stable orbit of a particle starting motionless at L 4 for µ = 0.039
+(corresponding to the orbit plotted in red in Fig. 1), and b an unstable orbit starting at L 5 for µ = 0.0405.
+After a chaotic diffusion inside a region surrounding L 5 , the particle escapes that region at t ≈ 5960, has a
+close approach with the secondary, and acquires a hyperbolic orbit. The particle motion is plotted in a frame
+centered on the primary [larger dot at (xrot , yrot ) = (0, 0)] and corotating with the secondary [smaller dot at
+(xrot , yrot ) = (1, 0)]. The dotted circle centered on the primary has a radius equal to unity
+
+the Fig. 2 of Érdi et al. (2009), one can see that the global stability of L 4 is actually ensured
+beyond µ = 0.03852 . . . when e = 0. A sharp transition actually occurs around µ ≈ 0.040,
+in agreement with our Fig. 4.
+We note finally that particular stable orbits may exist around L 4 or L 5 for µ ≥ 0.04 (see
+e.g. Henrard 2002), or even that orbits may connect the two triangular points for values of
+µ as large as 0.5 (Henrard and Navarro 2004). So, our present result deals with the global
+stability of orbits starting at L 4 or L 5 for values of µ just above µG , and has a statistical
+meaning only. In particular, it does not exclude the existence of stable orbits for large values
+of µ.
+4 Periodic orbits around L4 or L5
+The story of the Lagrange triangular points does not end at µ ≈ 0.04, however. Figure 1
+shows the presence of two fixed points, labelled “PO”, which actually correspond to a unique
+stable periodic orbit encircling L 4 . This orbit is shown in the upper left corner of Fig. 6. It
+˙ ≥ 0 (left dot in Fig. 1), and once with
+intersects the surface of section twice, once for 
+˙
+ ≤ 0 (right dot in Fig. 1), as explained earlier.
+Let us consider a situation where µ is a parameter slowly varying with time t. Then the
+particle orbit will remain arbitrarily close to a periodic orbit by virtue of the adiabatic invariance of action. This allows us to determine the locus of the fixed points in the (r, ṙ ) phase
+space, corresponding to various µ’s. This locus is shown as the dotted curves in Figs. 1, 2
+and 3, and as the solid curves in Fig. 7.
+
+123
+
+B. Sicardy
+
+Fig. 6 Examples of four stable periodic orbits beyond Gascheau’s value. The crosses indicate the location of
+the L 4 point. Each orbit has been displaced with respect to each other for better viewing. The horizontal bar provides the scale. Upper left the periodic orbit corresponding to the fixed points “PO” of Fig. 1, with µ = 0.039.
+Upper right periodic orbit with µ = 0.0461953059. This orbit has undergone a period doubling and has now
+two cycles before completing a period. Lower left periodic orbit corresponding to µ = 0.0462600179, with
+four cycles. Lower right periodic orbit corresponding to µ = 0.0462979898, with eight cycles (not all visible
+at that scale)
+
+Fig. 7 Left panel locus of the fixed points corresponding to the periodic orbits obtained by slowly varying
+µ from Gascheau’s value µG [at L 4 , i.e. (r, ṙ ) = (1, 0)] to the limiting value µ∞ = 0.0463004 . . . (corresponding to the extremities of the arborescence) discussed in the text. Right panel Enlargement of the small
+box (see arrow) drawn in the left panel
+
+Care must be taken to have a sufficiently slow variation of µ, by choosing a small enough
+˙
+parameter  = µ(t)/µ(t).
+This ensures that the instantaneous orbit for a given µ(t) stays
+close enough to the periodic orbit that would be obtained for that particular value of µ.
+Typical values of  are 10−6 near Gascheau’s value, and 2 × 10−10 near the limiting value
+µ = 0.0463004 . . . that will be discussed later.
+Figure 6 shows sample examples of periodic orbits obtained as µ increases. Just above
+Gascheau’s value, the size of the periodic orbit encircling L 4 rapidly increases while keeping
+one “braid” (i.e. consisting in a 1-cycle periodic orbit around L 4 ), then it suffers a period
+doubling at µ = 0.045452 . . . and exhibits two braids (i.e. a 2-cycle periodic orbit). A series
+of period doubling occurs subsequently, with the number of cycles also doubling at each
+etap, while the size of the orbit keeps on increasing.
+Those bifurcations are better seen in the (r, ṙ ) phase space (Fig. 7). One can note the two
+branches originating from the L 4 point, and corresponding to 1-cycle periodic orbits. Several
+ramifications can be observed as µ increases. An exploration of the phase space around those
+
+123
+
+Stability of Lagrange points
+
+Fig. 8 Left panel Values of r obtained in Fig. 7 as a function of µ. The vertical lines mark the values of µi
+where successive bifurcations occur (see also Table 1). Right panel Enlargement of the box drawn in the left
+panel
+Table 1 Values of the mass ratio
+µ at bifurcations
+
+Note that
+
+µ0 = µG = (1 − 23/27)/2),
+and that the Feigenbaum constant
+for area-preserving 2-D maps is
+δ = 8.7210978 . . . (Tabor 1989)
+
+µi − µi−1
+µi+1 − µi
+
+i
+
+µi
+
+δi =
+
+0
+
+0.038520…
+
+–
+
+1
+
+0.045452…
+
+9.24…
+
+2
+
+0.046202…
+
+8.61…
+
+3
+
+0.0462891…
+
+8.66..
+
+4
+
+0.04629915…
+
+8.85…
+
+5
+
+0.046300285…
+
+–
+
+fixed points shows that the latters are imprisoned in smaller and smaller regular islands, and
+surrounded by a more and more prevalent chaotic “sea”.
+This is the classical behavior of a periodic dynamical system en route to a chaotic behavior, as can be seen in Fig. 8. In that diagram, the values of r obtained in Fig. 7 is now
+plotted against µ. One recognizes a Feigenbaum cascade, first observed in one-dimensional
+iterative maps (Feigenbaum 1979). During this cascade, the fixed points of the map suffer
+period doublings at particular values µ0 , µ1 , . . . , µi , . . . of µ, each value corresponding to
+the appearance of a new 2i -cycle orbit.
+It has been shown that the µi ’s approach geometrically a limiting value µ∞ as i → ∞.
+Actually, there exists a constant δ = limi→∞ (µi − µi−1 )/(µi+1 − µi ), called the Feigenbaum constant, which is common to a wide class of one-dimensional maps (Tabor 1989), with
+a value of δ = 4.66920160 . . . For area-preserving two-dimensional maps, as it is the case
+for the Poincaré surface of section examined here, it has been shown that δ = 8.7210978 . . .
+(Tabor 1989). Table 1 shows that the ratio (µi − µi−1 )/(µi+1 − µi ) does get close to that
+constant as n increases.
+
+5 Conclusions
+We have examined the dynamics of a particle near the triangular Lagrange’s points L 4 and
+L 5 , in the frame of the restricted planar and circular three-body
+√ problem, and for values of the
+secondary mass µ just beyond Gascheau’s value µG = (1− 23/27)/2) = 0.0385208965 . . .,
+for which L 4 and L 5 are linearly unstable.
+
+123
+
+B. Sicardy
+
+We have specifically examined two aspects of the problem. One aspect concerns the global
+stability of the triangular points, namely the fate of a particle initially placed motionless (in
+the corotating frame) at L 4 or L 5 for µ ≥ µG . The other aspect concerns the existence
+of periodic stable orbits encircling L 4 or L 5 , parametrized by µ, and emanating from the
+point-like solution at the triangular points for µ = µG .
+Global stability of the triangular Lagrange points. Figures 2 and 3 indicate that for µ ≥
+µG , the orbit starting at L 4 or L 5 first remains regular in a finite interval beyond µG , e.g. for
+µ = 0.039. In that case, the particle follows a regular orbit that densely fills a finite region
+near L 4 or L 5 [orbit (a) in Fig. 5], although those points are linearly unstable. For larger
+values of µ (e.g. 0.0394), an orbit starting at the triangular points is chaotic, but remains
+nevertheless trapped inside regular orbits in phase space. This ensures that L 4 and L 5 are
+effectively globally stable in the sense that a particle released motionless at L 4 or L 5 will
+remain indefinitely trapped around those points.
+Between µ = 0.0397 and µ = 0.04, the regular “imprisoning orbits” disappear, and
+chaotic diffusion allows the particle to escape from L 4 or L 5 vicinity [orbit (b) in Fig. 5].
+Thus, the value µ ≈ 0.04 should be regarded as the threshold beyond which the triangular
+Lagrange points L 4 and L 5 are no longer globally stable.
+Stable periodic orbits around the triangular Lagrange points. There exists a family of stable periodic orbits encircling L 4 or L 5 , parametrized by µ beyond Gascheau’s value. Those
+orbits start as a point at L 4 or L 5 for µ = µG , and then increase in size as µ increases (see
+upper left panel of Fig. 6).
+This family undergoes a bifurcation at µ1 = 0.045452 . . . with the appearance of two
+cycles in the orbit, yielding a period doubling (upper right panel of Fig. 6). A series of bifurcations is subsequently observed at values µi , each yielding new 2i -cycle orbits (Table 1).
+Those bifurcations are readily observed in the phase space (r, ṙ ), see Fig. 7, and in a
+plot of r versus µ (Fig. 8). We recognize a classical Feigenbaum cascade, with a series of
+period doublings, eventually yielding to chaos. The series µi closely follows a geometrical
+progression, with an associated Feigenbaum constant δ = limn→∞ (µi − µi−1 )/(µi+1 −
+µi ) consistent with the value expected from area-preserving two-dimensional maps, δ =
+8.7210978 . . ..
+A closer examination of the branchings in Fig. 8, and an extrapolation of the series using
+the Feigenbaum constant both provide a limiting value of µ∞ = 0.0463004 . . . for the
+mass ratio at which the periodic orbits surrounding L 4 or L 5 dissolve themselves into a
+chaotic region of the phase space. So, it appears that Gascheau’s value µG is the first of a
+series µ0 (= µG ), µ1 , . . . , µi , . . . corresponding to successive period doublings, and leading to the disappearance of this family of periodic orbits for µ∞ = 0.0463004 . . .. The
+latter quantity may be thus considered as a limiting value which generalizes the finding of
+Gascheau.
+As a final remark, we note that in Feigenbaum’s diagrams, there may exist small intervals
+of µ beyond µ∞ where regular behavior shortly appears, although chaos prevails in those
+regions. So, we do not exclude the existence of stable periodic orbits around L 4 and L 5
+beyond µ∞ = 0.0463004 . . .. Exploring this possibility remains, however, out of the scope
+of this paper.
+Acknowledgments I would like to thank Jacques Henrard, who substantially contributed to this paper with
+detailed discussions and by sending me several reprints on the dynamics of the Lagrange points. I also thank
+Michel Hénon for providing reprints on that topic. I furthermore benefited from discussions and insights from
+Alain Albouy and Giancarlo Benettin. We acknowledge the reviewers for constructive comments.
+
+123
+
+Stability of Lagrange points
+
+References
+Bardin, B.: On motions near the Lagrange equilibrium point L 4 in the case of Routh’s critical mass ratio. Celest.
+Mech. Dyn. Astron. 82, 163 (2002)
+Bennett, A.: Characteristic exponents of the five equilibrium solutions in the elliptical restricted problem.
+Icarus 4, 177 (1965)
+Danby, J.M.A.: Stability of the triangular points in the elliptic restricted problem of three bodies. Astron.
+J. 69, 165 (1964)
+Deprit, A., Deprit-Bartholomé, A.: Stability of the triangular Lagrangian points. Astron. J. 72, 173 (1967)
+Efthymiopoulos, C.: Formal integrals and Nekhoroshev stability in a mapping model for the Trojan asteroids. Celest. Mech. Dyn. Astron. 92, 29 (2005)
+Érdi, B., Forgács-Dajka, E., Nagy, I., Rajnai, R.: A parametric study of stability and resonances around L 4 in
+the elliptic restricted three-body problem. Celest. Mech. Dyn. Astron. 104, 145 (2009)
+Euler, L.: Considérations sur le problème des trois corps. Mém. de Lacad. d. Sc. de Berlin 19, 194 (1763)
+Euler, L.: Considerationes de motu corporum coelestium. Novi Commentarii Academiae Scientiarum Petropolitanae 10, 544 (1764)
+Euler, L.: De motu rectilineo trium corporum se mutuo attrahentium. Novi Commentarii Academiae Scientiarum Petropolitanae 11, 144 (1765)
+Feigenbaum, M.J.: The universal metric properties of nonlinear transformations. J. Stat. Phys. 21, 669 (1979)
+Gascheau, G.: Examen d’une classe d’équations différentielles et applications à un cas particulier du problème
+des trois corps. C. R. Acad. Sci. 16, 393 (1843)
+Henrard, J.: The web of periodic orbits at L 4 . Celest. Mech. Dyn. Astron. 83, 291 (2002)
+Henrard, J., Navarro, J.F.: Families of periodic orbits emanating from homoclinic in the restricted problem of
+three bodies. Celest. Mech. Dyn. Astron. 89, 285 (2004)
+Lagrange, J.L.: Essai sur le problème des trois corps, 229. In: Serret, J.-L. (ed.) Œuvres de Lagrange, Tome
+sixième, Gauthier-Villard, Paris (1873)
+Marchal, C.: The three-body problem, pp. 46–51. Elsevier, Amsterdam (1990)
+Murray, C.D., Dermott, S.F.: Solar System Dynamics, 93. Cambridge University Press, Cambridge (1999)
+Nauenberg, M.: Stability and eccentricity for two planets in a 1:1 resonance, and their possible occurrence in
+extrasolar planetary systems. Astron. J. 124, 2332 (2002)
+Routh, E.J.: On Laplace’s three particles, with a supplement on the stability of steady motion. Proc. London
+Math. Soc. 6, 86 (1875) (repr. in Stability of Motion, Fuller, A.T. (ed.) [London: Taylor & Francis],
+Chap. 3 [1975])
+Routh, E.J.: Dynamics of a System of Rigid Bodies, part. II, p. 76, 6th edn. Macmillan, London (1905) (reprint
+Dover Publication, New York, 1955)
+Santoprete, M.: Linear stability of the Lagrangian triangle solutions for quasihomogeneous potentials. Celest.
+Mech. Dyn. Astron. 94, 17 (2006)
+Sándor, Z., Érdi, B., Efthymiopoulos, C.: The phase space structure around L4 in the restricted three-body
+problem. Celest. Mech. Dyn. Astron. 78, 113 (2000)
+Tabor, M.: Chaos and Integrability in Nonlinear Dynamics: An Introduction,. pp. 220–225. Wiley,
+New York (1989)
+
+123
+
+

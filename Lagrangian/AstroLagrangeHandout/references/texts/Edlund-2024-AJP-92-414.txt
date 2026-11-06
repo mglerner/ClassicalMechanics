@@ -1,0 +1,1343 @@
+PAPERS | JUNE 01 2024
+
+Lagrange points and regionally conserved quantities
+Eric M. Edlund
+
+Am. J. Phys. 92, 414–423 (2024)
+https://doi.org/10.1119/5.0160904
+
+ 
+View
+Online
+
+Export
+Citation
+
+23 May 2024 13:53:50
+
+Lagrange points and regionally conserved quantities
+Eric M. Edlunda)
+Department of Physics, SUNY Cortland, Cortland, New York 13045
+
+(Received 6 June 2023; accepted 12 March 2024)
+Lagrange points are the equilibrium points within a restricted three-body system, epitomized by
+the Trojan asteroids near the L4 and L5 points of the Sun–Jupiter system. They also play a crucial
+role in some space missions, including the James Webb Space Telescope which is located at the
+Sun–Earth L2 point. While the existence of five Lagrange points is a well-known feature of the
+restricted three-body problem, the equations describing the precise location of all five points are
+not extensively documented. This work presents a derivation of all Lagrange points using polar
+coordinates and a new normalization scheme that offers a simpler interpretation of solutions
+compared to prior analyses. A subtle issue concerning the treatment of angular momentum in the
+potential formulation of this problem is addressed and resolved. The supplementary material to
+this work contains additional mathematical details and discussion. # 2024 Author(s). All article content,
+except where otherwise noted, is licensed under a Creative Commons Attribution (CC BY) license (https://
+creativecommons.org/licenses/by/4.0/).
+
+https://doi.org/10.1119/5.0160904
+
+I. INTRODUCTION
+
+*
+
+Equilibrium points of a dynamical system are sometimes referred to as stationary points. Less commonly, these particular equilibrium points are
+known as libration points. Some sources distinguish the points by geometry, with the first three being the colinear libration points and latter two
+being the triangular or equilateral libration points. Other sources (e.g., Ref.
+8) refer to the first three equilibrium points as the Euler points, with L4
+and L5 described as the Lagrange points. The nomenclature used here follows that of many other texts and refers to all equilibrium points of the
+restricted three-body problem as Lagrange points.
+
+414
+
+Am. J. Phys. 92 (6), June 2024
+
+Fig. 1. (Color online) The configuration of the five Lagrange points are
+shown for two cases with m2 =m1 of (a) 0.024, about twice the mass ratio of
+the Earth–Moon system, and (b) unity. The smaller of the two masses is
+located on the right in the first case. The convention is that the L4 point leads
+and the L5 point follows m2 in its orbit. Given this, the sense of rotation is
+counter-clockwise in this figure, and is the same throughout this work.
+
+http://aapt.org/ajp
+
+C
+V
+
+Author(s) 2024.
+
+414
+
+23 May 2024 13:53:50
+
+The equilibrium points of the restricted three-body system are known as Lagrange points.* (The word “restricted”
+means that one mass is so much smaller than the other two
+that it can be ignored when calculating the dynamics of
+the two more massive bodies.) The near-Earth Lagrange
+points of the Sun–Earth system, located approximately
+1:5  106 km from Earth, have been home to multiple
+satellites: SOHO, WMAP, Planck, and the James Webb
+Space Telescope (JWST).1 The first of these is located near
+the sun-facing L1 point for continuous solar observations.
+In their search for signals of cosmic origin, these other
+observatories have been parked near the L2 point to take
+advantage of the clear view of deep space.2 Dust clouds
+have been observed at the L4 and L5 points of the
+Earth–Moon system.3 Further afield, the Trojan asteroids
+cluster around Jupiter’s L4 and L5 points. The L3 point has
+no known natural or man-made significance.
+While the pattern of five Lagrange points for the
+Sun–Earth system is relatively well-known, the configuration of these points in systems with significantly larger
+mass ratios, like the Pluto–Charon system with a mass
+ratio of about 0.12 or an equal-mass binary star system, is
+likely less familiar to readers. A symmetry argument for
+the latter readily establishes that the configuration for such
+a system must look quite different from those for stellar–
+planetary systems. Figure 1 compares the locations of the
+five Lagrange points for two scenarios, one for a system
+with very disparate masses and the other with equal
+masses. Beyond the qualitative aspect of the relative location of the Lagrange points, one might want to know how
+
+exactly NASA mission engineers determined that the
+JWST should be located at a distance of 1:5  106 km
+from Earth?
+The definitive text on the subject of Lagrange points is
+Theory of Orbits: the Restricted Problem of Three
+Bodies.4 Unfortunately, it and many other sources5–10 analyze the motion in cartesian coordinates, which does not
+reflect the natural geometry of the problem. Where this
+problem appears in undergraduate physics textbooks, it
+receives very abbreviated treatment.11–13 The number of
+articles aimed at the undergraduate and educator audiences are few and light on details.14,15 Of these sources,
+
+only Ref. 4 provides approximate solutions to higher than
+first-order.
+This work presents a thorough analysis of all equilibrium
+points using physically motivated arguments and polar coordinates. Many mathematical curiosities will be encountered
+on this journey, including the implications of Galois theory
+of quintic polynomials, expansions in fractional powers of a
+small parameter, symmetries, symmetry breaking, and a
+challenge to the local/global dichotomy of conserved quantities. While this work does not calculate the stability of the
+equilibrium points, it should be noted that stability can be
+calculated by extending the formalism presented here to second derivatives of the potential and including the effect of
+the Coriolis force. Such calculations show that only the L4
+and L5 points are truly stable.
+Section II presents preliminary aspects, including a definition of the coordinate system and a discussion of the effective potential. Building on this foundation, Sec. III analyzes
+the solutions for three cases. A discussion in Sec. IV summarizes the findings and offers some reflections on a few of the
+subtler points of the analysis, which is followed by concluding remarks in Sec. V.
+II. PRELIMINARIES
+
+A. Coordinate system
+Figure 2 presents the coordinate system describing this
+problem. All bodies are constrained to move in a plane on
+circular paths whose orbital radii (r1, r2, and r) are measured from the center of mass of the system, with r1 and r2
+related through m1 r1 ¼ m2 r2 , since m3 is considered negligible in comparison to m1 and m2. This analysis can be
+extended to elliptical orbits, but the approximation of circular orbits is quite good for many planetary bodies: Earth’s
+orbital eccentricity is less than 0.02 and Jupiter’s is approximately 0.05. The angular position of the tertiary in the
+rotating frame of the m1-m2 system, denoted by h, is measured from the line connecting the center of mass and m2. A
+tertiary located at an equilibrium point will co-rotate with
+the m1-m2 system, meaning that both r and h will be constant. The distances between the tertiary and the primaries
+are described by r10 and r20 , which can be expressed in single
+form as
+h
+i1=2
+rj0 ¼ r 2 6 2rrj cosðhÞ þ rj2
+:
+†
+
+(1)
+
+Though the smaller of two massive objects is sometimes referred to as the
+secondary, the standard of the literature is to refer to both m1 and m2 as
+primaries.
+
+415
+
+Am. J. Phys., Vol. 92, No. 6, June 2024
+
+In this and the following three equations, the index j is either
+1 (evaluated with the upper sign) or 2 (evaluated with the
+lower sign). The net force on the tertiary will involve the
+derivatives of Eq. (1) with respect to h and r. They are
+drj0 7rrj sinðhÞ
+¼
+;
+dh
+rj0
+
+(2)
+
+drj0 r 6 rj cosðhÞ
+¼
+:
+dr
+rj0
+
+(3)
+
+and
+
+B. Rotation frequency of the m1-m2 system
+The mass of the tertiary is taken to be so much smaller
+than the other two that it can be ignored when calculating the
+orbital dynamics of the primaries. It follows that the orbital
+frequency of the m1-m2 system is determined only by the
+masses of the primaries and the distance between them.
+Newton’s second law for the primaries can be expressed in a
+single equation as
+mj rj x20 ¼
+
+Gm1 m2
+ðr1 þ r2 Þ2
+
+;
+
+(4)
+
+where x0 is the angular rotation frequency. An expression
+for x0 that is symmetric in the parameters describing the primaries will be useful. Adding m1 r2 to both sides of the center
+of mass condition, m1 r1 ¼ m2 r2 , and rearranging yields
+m1 =r2 ¼ ðm1 þ m2 Þ=ðr1 þ r2 Þ. Evaluating Eq. (4) for m2 and
+using the last equality gives
+x20 ¼
+
+G ðm 1 þ m 2 Þ
+:
+ðr1 þ r2 Þ3
+
+(5)
+
+C. The effective potential
+Of the large number of undergraduate physics and engineering textbooks surveyed for this work, only four discuss the
+Lagrange point problem: Analytical Mechanics by Fowles and
+Cassiday,11 Classical Mechanics by Goldstein et al.,12
+Eric M. Edlund
+
+415
+
+23 May 2024 13:53:50
+
+The analytical goals of this work are formulas for the equilibrium points of a satellite that is gravitationally bound to
+two massive bodies. The two massive bodies, with masses
+m1 and m2, will be called the primaries, and the satellite,
+with mass m3, will be called the tertiary.† Subsections
+II A–II G define the coordinate system, the rotation frequency of the system, the effective potential, discuss the
+curious nature of angular momentum in this problem, present
+the azimuthal and radial components of the force, and introduce the dimensionless form that will be used in the final
+analysis.
+
+Fig. 2. (Color online) The coordinate system used for this analysis considers
+the positions of the masses in the rotating reference frame of the m1-m2 system. The small open circle represents the center of mass of the system. The
+parameters in the square brackets are the associated dimensionless variables
+that are introduced in Sec. II F.
+
+An Introduction to Mechanics by Kleppner and Kolenkow,13
+and Orbital Mechanics for Engineering Students by Curtis.9
+The latter analyzes the problem in cartesian coordinates. The
+text by Kleppner and Kolenkow presents a very limited treatment of the L4 and L5 points, which assumes without proof that
+the geometry is described by an equilateral triangle. The
+Classical Mechanics text introduces the problem through the
+Lagrangian, but stops short of any further analysis and motivates the solutions through a qualitative analysis by reference
+to an illustration of equipotential contours. A brief discussion
+of the Lagrangian approach can be found in Appendix A.
+These and other sources often provide a visual representation
+of the solution space through contour plots of the effective
+potential (see, for example, Fig. 7.4.4 on page 294 of Ref. 11
+and Fig. 3.30 on page 124 of Ref. 12). The Analytical
+Mechanics text by Fowles and Cassiday presents the effective
+potential that was used to generate such figures, which is of the
+form
+
+ðr; hÞ ¼ 
+Veff
+
+Gm1 m3 Gm2 m3 1
+
+ m3 r 2 x20 :
+r10
+r20
+2
+
+(6)
+
+conservation laws where local conservation (e.g., of charge)
+necessarily implies global conservation. The phrase
+“regionally conserved quantity” is introduced here to describe
+the peculiar nature of angular momentum conservation over a
+small region. This concept is similar to quasi-local conservation in general relativity where a locally flat but globally
+curved spacetime allows energy and momentum to be treated
+as both conserved and not-conserved depending on scale.17–20
+In the vicinity of a Lagrange point, the azimuthal force is
+very weak given a small displacement from equilibrium.
+Because this force can be approximated as a linear function
+of the angular deviation over these scales, the first correction
+to the angular momentum will average to zero over an epicycle due to the fact that this force is an odd symmetric function. It follows that any net change to the angular momentum
+over longer time scales must enter as a second-order or
+higher effect and will, therefore, have zero derivative at the
+equilibrium point. It is in this sense that we can take the
+angular momentum to be conserved in a local region around
+each equilibrium point.
+E. The angular derivative
+
+Veff ðr; hÞ ¼ 
+
+Gm1 m3 Gm2 m3
+L2
+
+þ
+;
+r10
+r20
+2m3 r2
+
+(7)
+
+where r10 and r20 are functions of h and r through Eq. (1) and
+L refers to the angular momentum of the tertiary. As simple
+as it is, Eq. (7) contains a problem. This would be a fine
+equation to use if the angular momentum of the tertiary were
+a conserved quantity. However, it is only the total angular
+momentum that is conserved in a three-body system and it
+cannot be assumed that the angular momentum of any single
+body is itself conserved.‡ It is, therefore, unclear how the
+angular momentum should be treated in this potential. The
+resolution to this conundrum is presented subsequently.
+D. Conservation of angular momentum
+The only possible resolution to the aforementioned puzzle is
+that the angular momentum must be conserved in a small
+region around each equilibrium point but is not conserved on
+larger scales. This sense of local but not global conservation is
+rather opposite to the conventional understanding of
+‡
+
+Given this, one might object that the potential is ill-defined because the
+angular momentum will not, in general, be conserved when integrating
+from infinity to r as is often done when defining potentials. This issue is
+resolved by taking the reference point to be the Lagrange point itself and
+adding a constant to Eq. (7), which leaves the subsequent analysis
+unchanged.
+
+416
+
+Am. J. Phys., Vol. 92, No. 6, June 2024
+
+The search for equilibrium points proceeds by analyzing
+the zeros of the azimuthal and radial forces, which are calculated from the negative gradient of Eq. (7), treating L as a
+constant of the motion. Applying the r 1 ð@=@hÞ operator
+to Veff gives the azimuthal force,
+ 
+ 
+1 Gm1 m3 @r10
+1 Gm2 m3 @r20
+
+:
+(8)
+Fh ¼ 
+@h
+@h
+r r102
+r r202
+The inertial term has no angular dependence and vanishes
+with this derivative. Resolving the derivatives using Eq. (2),
+it is found that the first term includes a factor of m1 r1 and the
+second a factor of m2 r2 , which are equal. Removing this
+common factor in the form of m1 r1 yields
+
+
+
+1
+1
+(9)
+Fh ¼ Gm1 m3 r1 sinðhÞ 03  03 :
+r1 r2
+Equilibrium points of the system require Fh ¼ 0, which
+admits three cases: (A) h ¼ 0, (B) h ¼ p, and (C) r10 ¼ r20 .
+Case A yields Lagrange points L1 and L2, and case B yields
+Lagrange point L3. The third case indicates that the position
+of the equilibrium point must lie along the bisector of the
+axis between the primaries, which describes Lagrange points
+L4 and L5.
+F. The radial derivative
+It is essential that the conditions derived in the prior section be applied after the radial derivative is calculated. The
+radial force, calculated from ð@=@rÞ applied to Eq. (7), is
+ 
+ 
+Gm1 m3 @r10
+Gm2 m3 @r20
+L2
+(10)
+Fr ¼ 
+
+þ 3:
+02
+02
+@r
+@r
+mr
+r1
+r2
+With the derivatives properly calculated, L can now be
+replaced with mr 2 x0 , which results in
+ 
+ 
+Gm1 m3 @r10
+Gm2 m3 @r20
+
+þ mrx20 : (11)
+Fr ¼ 
+@r
+@r
+r102
+r202
+Eric M. Edlund
+
+416
+
+23 May 2024 13:53:50
+
+Curiously, the sign of the inertial term in Eq. (6) is negative. One might be inclined to chalk this up to a typographical error, except that it yields correct solutions to the
+Lagrange point problem. The effective potential of Eq. (6)
+is also known as Jacobi’s constant, a lesser-known conserved quantity that is found by integrating the radial force
+multiplied by r_ under the constraint of constant angular
+velocity.16 Further commentary on the nature of Eq. (6) follows in Sec. II F.
+Alternatively, the analysis can begin with an effective
+potential that leans on intuition from two-body systems
+where the centrifugal term is positive. The extension of such
+a form to the restricted three-body problem is
+
+Before proceeding, we pause to consider the meaning of Eq.
+(6) in light of Eq. (11). That form of the effective potential,
+with the negative centrifugal term, is recovered when the
+inverse operation is applied to Eq. (11). While this is a valid
+mathematical operation, it is one that is devoid of physical
+meaning because the angular velocity is not a constant of the
+motion yet is assumed to be equal to x0 as r varies. One may
+wonder why Eq. (6) is used at all if it has questionable physical meaning? One answer is that is a convenient short-hand
+that skirts the complications of the angular momentum.
+Another is that the physically meaningful form of the effective potential described by Eq. (7) does not lend itself to
+visual analysis of the solution space since it has no extrema
+at the Lagrange points, whereas Eq. (6) does. This point is
+revisited in Sec. IV and comparative illustrations of Eqs. (6)
+and (7) are presented in the supplementary material.21
+Applying the derivative with respect to r given in
+Eq. (3) and the definition of x20 from Eq. (5) to Eq.
+(11) yields the final form that will be used in the
+subsequent analysis
+
+
+
+m1 r þ r1 cosðhÞ
+Fr ¼ Gm3 
+r103
+
+
+
+m2 r  r2 cosðhÞ
+ðm1 þ m2 Þ
+
+þ
+r :
+(12)
+r203
+ðr1 þ r2 Þ3
+G. Dimensionless forms
+
+where x ¼ r=r2 ; x01 ¼ r10 =r2 , and x02 ¼ r20 =r2 . The collection
+of constants in front of the square brackets is ignored hereafter. Equation (13) has an interesting interpretation when the
+centrifugal term (the final term inside the brackets) is interpreted as the gravitational force from a mass of x located at a
+distance of 1 þ l beyond the tertiary. While this interpretation does not have any physical meaning, viewing it this way
+may help to understand the importance of the Coriolis force
+as an essential stabilizing effect.
+417
+
+Am. J. Phys., Vol. 92, No. 6, June 2024
+
+III. SOLUTIONS TO THE LAGRANGE POINT
+PROBLEM
+The analysis is now reduced to a purely mathematical
+problem of finding the radial and angular coordinates that
+allow both components of the force to vanish simultaneously. Solutions are discovered analyzing the dimensionless part of Eq. (13) subject to the three cases defined in Sec.
+II E. For multiple reasons, it is helpful to begin by exploring
+first-order approximations to Eq. (13) before delving into the
+search for exact and higher-order solutions. The results of
+these analyses are summarized in Fig. 4, which shows how
+the radial coordinates of the Lagrange points vary with l.
+
+Fig. 3. (Color online) The locations of m1 and the five Lagrange points are
+shown as l is varied between zero and unity. The arrows indicate the evolution of the Lagrange points with increasing l. The black line indicates the
+location of m1 in normalized coordinates, while m2 is fixed at a radius of 1 in
+dimensionless units. The open circle represents the center of mass.
+Eric M. Edlund
+
+417
+
+23 May 2024 13:53:50
+
+The main goal of using dimensionless forms is to separate
+the scale and shape of the problem to simplify the analysis.
+The terms in square brackets in Eq. (12) can be put in a
+dimensionless form by scaling the lengths by a normalization
+length, R, and the masses by normalization mass, M. Ideal
+dimensionless forms of Eq. (12) have ðr1 þ r2 Þ=R ¼
+ðm1 þ m2 Þ=M because this results in a greatly simplified centrifugal term. The method used here takes R ¼ r2 and
+M ¼ m1, which satisfies the prior condition since r1 =r2 ¼
+m2 =m1 is equivalent to the center of mass condition. Under
+this transformation, the dimensionless form of m1 becomes 1
+and the dimensionless form of m2 is defined as m2 =m1 ¼ l,
+which is known as the mass ratio. It follows that the dimensionless forms of r1 and r2 are l and 1, respectively. Since
+both the mass and radial scales are described by a single
+parameter, l, cases with l0 > 1 need not be considered since
+they are described by l ¼ 1=l0 with the locations of m1 and
+m2 swapped. Therefore, l is limited to the range 0 < l  1
+in this analysis. Under this normalization scheme, the radial
+force is
+"
+#
+Gm1 m3 xþlcosðhÞ lð xcosðhÞÞ
+x
+
+
+þ
+; (13)
+Fr ¼
+r22
+x03
+x03
+ð1þlÞ2
+1
+2
+
+Szebehely,4 Cornish,5 and Widnall et al.6 take an alternate
+approach and use R ¼ r1 þ r2 and M ¼ m1 þ m2 , which also
+satisfies ðr1 þ r2 Þ=R ¼ ðm1 þ m2 Þ=M, where l ¼ m2 =
+ðm1 þ m2 Þ is the dimensionless maas ratio (note: while those
+texts also use the symbol l, the “” is added here to differentiate this definition from the definition of l used in this
+work). These two definitions of the mass ratio are related
+through l ¼ l =ð1  l Þ. While the use of l instead of l is
+a departure from the standard of the literature, it is argued
+here that it has several advantages. First, there is the aesthetic quality that l spans the range 0 < l  1 whereas l
+spans the range 0 < l  1=2. Second, the first-order
+approximations of the radial force equation for the L1 and L2
+points are much simpler when described in terms of l. Third,
+Ref. 4 presents series solutions for the radial locations of L1
+and L2 in terms of a quantity l =ð1  l Þ, which is equal to
+l and suggests that l is in fact an optimal dimensionless
+form. Finally, and most importantly, the radial location of
+the L2 point is non-monotonic when described in terms of l
+and the L4 and L5 points decrease with increasing l , both of
+which are rather counterintuitive and require significant care
+to correctly interpret. In contrast, the formulas for the L2
+point and the L4 and L5 points are increasing monotonic
+functions when described in terms of l. Figure 3 depicts the
+pattern of solutions with increasing l for all five Lagrange
+points. A detailed comparison of these normalization
+schemes, their associated solutions for the Lagrange points,
+and the transformations between them can be found in the
+supplementary material.21
+
+Some readers may notice that the coefficient of l in Eq. (16)
+differs from that found in other texts on the subject, such as
+Refs. 5 and 6, which present the coefficient of D as having
+the value 5/12. This difference is a result of the different normalization schemes used between the analyses, and the
+above is readily shown to be equivalent to the previously
+established results.§
+For the L1 and L2 points that exist in the neighborhood of
+m2, the gravitational force from m2 enters much more
+strongly as l=D2 . The direction of gravitational force from
+m2 depends on whether x > 1 (L2) or x < 1 (L1). In this and
+the following analyses, the upper sign will be associated
+with the L2 branch and the lower sign with the L1 branch.
+The specific form of the dimensionless part of Eq. (13) evaluated with h ¼ 0 is
+Fig. 4. (Color online) Numerically derived solutions for the locations of all
+five Lagrange points are plotted as the solid color lines. The thin dashed
+lines represent the first-order approximations for L1 and L2 that are
+described in Sec. III A. The thick dotted lines are the higher-order approximations described in Eqs. (21)–(23).
+
+A. First-order approximations to the radial force
+equation
+
+
+
+1
+l
+x
+
+þ
+¼ 0:
+2
+2
+x
+
+l
+ðx þ 1Þ
+ð
+Þ
+ð1 þ l Þ2
+
+(14)
+
+It is useful to start with a qualitative discussion of the balance of forces. Recall, the first term in Eq. (14) represents
+the attraction of m3 to m1, the second represents the attraction of m3 to m2, and the last is the inertial term. Because m1
+is far more massive than m2 in the limit of small l and the
+latter is located further from the tertiary, the motion of m3 is
+dominated by its interaction with m1. Therefore, the orbital
+radius of the tertiary should be similar to that of m2. That is,
+the analysis is best done when considering r ¼ r2 þ Dr in
+dimensional variables, which is equivalent to x ¼ 1 þ D with
+D  1 in dimensionless variables. Two effects increase the
+gravitational force at x ¼ 1 for finite l compared to the l ¼ 0
+case: m1 is shifted slightly toward m3, and the gravitational
+force of m2 on m3 adds to that of m1 on m3. These effects
+require an outward shift of the tertiary (positive D) to maintain synchronous orbit. Changing variables from x to D and
+conducting a first-order Taylor series expansion for small
+parameters (l and D) gives
+l
+ð1  2D þ 2lÞ  þ ð1 þ D  2lÞ  0:
+4
+
+(15)
+
+After gathering like terms, this equation becomes
+ð17=4Þl þ 3D  0, from which the approximate solution
+D  ð17=12Þl emerges. This is equivalent to
+
+418
+
+Am. J. Phys., Vol. 92, No. 6, June 2024
+
+(16)
+
+(17)
+
+Changing variables using x ¼ 1 þ D, the denominator of the
+middle term becomes D2 , which results in a very different
+scaling compared to the L3 solution. A first-order Taylor
+series expansion of the first and third terms yields
+ð1  2D  2lÞ7
+
+l
+þ ð1 þ D  2lÞ  0:
+D2
+
+(18)
+
+After canceling terms, this equation reduces to 7l=D2
+þ3D  0, which is equivalent to
+ 1=3
+l
+x2;1  16
+:
+3
+
+(19)
+
+The Sun–Earth system has ðmE =3mS Þ1=3  1=100 to an
+accuracy of better than one part in a thousand. It follows that
+the distance of the L1 and L2 points from Earth is very close
+to 1=100th of the Earth–Sun distance (about 150  106 km),
+yielding the 1.5  106 km value that was cited in the introduction. At the Sun–Earth L2 point, the angle subtended by
+the Sun is approximately 9.3 mrad, whereas that of the Earth
+is approximately 8.5 mrad. It follows that the visible fraction
+of the Sun’s area at L2 is about 1  ð8:5=9:3Þ2 , or roughly
+20% of the total, though the actual fraction of solar radiation
+received there is somewhat less than this due to solar limb
+darkening.22
+B. Numerical analysis
+An alternative to symbolic analysis is the discovery of solutions through a search procedure that calculates a finite
+table of solutions. The results of such a numerical search are
+presented as the solid color lines in Fig. 4. Many different
+numerical methods and tools can be used for such purposes.
+Two possible approaches are described here. Figure 4 was
+generated using a simple Python script with a nested loop
+structure. The first loop evolved l through a specified set of
+values, and a secondary loop then scanned x values for each
+value of l to find the roots of the relevant polynomials (presented subsequently) for the L1, L2, and L3 Lagrange points.
+A simple and convenient way to explore the solution space
+§
+
+17
+x3  1 þ l:
+12
+
+1
+l
+x
+7
+þ
+¼ 0:
+2
+2
+ðx þ lÞ
+ð x  1Þ
+ð1 þ l Þ2
+
+This is easily proven by replacing l with l =ð1  l Þ and then calculating
+a new x3 by scaling x3 by r2 =ðr2 þ r1 Þ ¼ 1=ð1 þ lÞ ¼ 1  l , which gives
+x3 ¼ 1 þ ð5=12Þl .
+Eric M. Edlund
+
+418
+
+23 May 2024 13:53:50
+
+As will be shown, exact, closed-form equations for the
+locations of L4 and L5 exist, so no approximations for these
+cases are needed. This section focuses on first-order approximate solutions for the other three Lagrange points. The analysis of the L3 point is the easiest to understand and provides
+a good starting point for this discussion. The equation for the
+L3 point is found by setting h ¼ p in the terms in square
+brackets of Eq. (13). Equilibrium at L3 requires
+
+
+
+can be done using graphing software, like Desmos
+(https://www.desmos.com/), with a first equation that specifies the range of l values to be explored with a second equation defining the relevant polynomial. The roots can then be
+inspected by hand and a graph constructed from a table of
+solutions. Other tools, such as root-finding functions that are
+common in many programming languages, can be used to
+the same effect.
+
+Table I. Coefficients of the function f ðx; lÞ:
+f0
+f1
+f2
+f3
+f4
+f5
+
+1  2l  l2 7 l3 7 2l4 7 l5
+2 þ 4l þ ð3 7 2Þl2 7 4l3 7 2l4
+1 7 l  ð362Þl2 7 l3
+1  4l þ l2
+2 þ 2l
+1
+
+C. Higher-order approximations and exact solutions
+The following subsections present higher-order, quasianalytic approximations for the L1, L2, and L3 points, and
+derive exact solutions for the L4 and L5 points.
+1. Case A: h 5 0
+
+f ðD; lÞ ¼ 7lð1 þ lÞ2 ð1 þ l þ DÞ2
+h
+i
+
+þ D3 3 þ 4l þ l2 þ ð3 þ 2lÞD þ D2 :
+(20)
+
+Fig. 5. (Color online) Plots of the function f ðx; l ¼ 0:5Þ showing the
+branches particular to the L1 point (green, upper curve) and the L2 point
+(blue, lower curve). The dotted lines show the continuation of the functions
+into the non-physical regions.
+419
+
+Am. J. Phys., Vol. 92, No. 6, June 2024
+
+Fig. 6. (Color online) Plots of the function gðx; l ¼ 0:5Þ with the x < l
+branch (orange, upper curve) and the x > l (L3) branch (red, lower curve).
+The dotted lines show the continuation of the functions into their nonphysical regions. The x < l branch has no real-valued roots and therefore
+does not represent a solution to the Lagrange point problem.
+Eric M. Edlund
+
+419
+
+23 May 2024 13:53:50
+
+This case considers Lagrange points L1 and L2 that exist
+along the axis extending from m1 through m2. The search for
+analytic solutions proceeds best when using an alternate
+form of Eq. (13) that seeks zeros of the numerator after a
+common denominator has been extracted. The numerator
+becomes P
+a fifth-order polynomial, which is described as
+n¼5
+fn xn , where the coefficients are given in
+f ðx; lÞ ¼ n¼0
+Table I. Examples of the two forms of f ðx; lÞ, calculated for
+the specific case of l ¼ 0:5, are presented in Fig. 5. A single
+real-valued and positive root exists for each branch. Since all
+of the denominators of Eq. (13) are squared, and therefore
+positive, the sign of the effective radial force has been preserved in the transformations leading to f ðx; lÞ. This means
+that the sign of the curves in Fig. 5 can be interpreted as the
+direction of the net radial force. This also illustrates the
+unstable nature of these equilibria since a positive displacement will lead to a positive force in both cases.
+A change of variables from x to D using x ¼ 1 þ D results
+in the cancellation of many terms in f, yielding the simplified
+form
+
+In the limit of small l, a logical way to order this equation
+would be to group terms by powers of l and D and then
+ignore second-order and higher terms. A naive approach to
+generating solutions is to begin by keeping only the lowest
+order terms by ignoring the D3 term and everything multiplying it in Eq. (20). The only way to balance the equation in
+this limit is by requiring D  ð1 þ lÞ. However, this is
+incorrect since it does not provide positive solutions
+(required for L2), does not allow D to go to zero as l vanishes, and does not reproduce anything like the approximate
+form found in the prior section. This approach fails because
+the approximation scheme is inconsistent if D is proportional
+to a fractional power of l since it would then be improper to
+ignore higher powers of D as these can be of the same or
+lower order as l. The only way to resolve this inconsistency
+is to balance the lowest order components of the first term in
+Eq. (20), being 7l, with the lowest order component of the
+second term with square brackets, 3D3 . Doing so yields
+the approximate equation 7l þ 3D3  0, which gives
+D  6ðl=3Þ1=3 , in agreement with the conclusions based on
+the physical reasoning described in Sec. III A. This illustrates
+the importance of beginning with simpler solutions that can
+help put the full analysis on the right path (Figs. 6 and 7).
+Galois theory of polynomials has established that the roots
+of quintic and higher-order polynomials cannot, in general,
+be expressed in terms of elementary functions, a result of
+group theory analysis often referred to as “the insolvability
+of the quantic.” Therefore, an exact expression for the solution of Eq. (20) must be represented as an infinite series.
+Because the first-order term scales like l1=3 , all higher-order
+terms in the series expansion must be integer powers of l1=3 .
+Following a significant amount of algebra, which is
+
+presented in the supplementary material, two relatively efficient approximate forms are found to be
+ 1=3
+ 
+ 
+ 
+l
+1 l 2=3 1 l 3=3 176 l 4=3
+þ
+þ
+
+;
+x1  1 
+3
+3 3
+9 3
+81 3
+(21)
+and
+ 1=3
+ 
+ 
+ 
+l
+1 l 2=3 1 l 3=3 203 l 4=3
+x2  1 þ
+þ
+
+þ
+:
+3
+3 3
+9 3
+81 3
+(22)
+
+2. Case B: h 5 p
+Similar to the prior case, there are two sub-cases for
+h ¼ p, depending on whether the radial location of m3 is
+greater than or less than r1, which are illustrated in Fig. 6 for
+the case of l ¼ 0.5. However, given that the linear approximations of Sec. III A established that there is only one viable
+branch for h ¼ p, only the x > l branch is analyzed here. A
+full analysis of this case, including both branches, can be
+found in the supplementary material. Proceeding as for the
+prior case by changing variables from x to D, the fifth-order
+Pn¼5
+gn Dn whose
+polynomial for the L3 point is gðD; lÞ ¼ n¼0
+coefficients of are given in Table II.
+Unlike the solutions for L1 and L2 that required expansion
+in fractional powers of l, the solution for the L3 point is
+solved with integer powers of l. A quasi-analytic approximation for x3 with average deviation from the numerical solutions of less than 103 is
+x3  1 þ
+
+17
+412
+l  4 l3 :
+12
+12
+
+3. Case C: r10 5 r20
+The third case is defined by the condition that the tertiary
+be equidistant from the primaries and gives rise to the L4 and
+L5 points. By itself, this condition requires that the triangle
+formed by the locations of the masses be isosceles, with the
+tertiary at the point of symmetry. As will be shown, the additional constraint imposed by the requirement that the radial
+derivative of the effective potential vanish leads to the conclusion that the locations of the masses form an equilateral
+triangle for all values of l.
+A closed-form solution for this cases exists. This can be
+arrived at by first equating r102 and r202 , using Eq. (1), to solve
+for cos ðhÞ ¼ ðr2  r1 Þ=2r ¼ ð1  lÞ=2x. Then, replacing the
+cos ðhÞ term in the expressions for r10 and r20 with the prior
+form yields r10 ¼ r20 ¼ ðr 2 þ r1 r2 Þ1=2 , which is equivalent to
+x01 ¼ x02 ¼ ðx2 þ lÞ1=2 in dimensionless variables. As before,
+a governing function is generated for this case by creating a
+common denominator in the dimensionless part of Eq. (13).
+Doing so and applying the results just found yields
+h
+ 2
+3=2 i
+3
+:
+(24)
+hðx; lÞ ¼ x ð1 þ lÞ þ x þ l
+The only physically allowable zeros of this expression are
+x ¼ 0 and the value of x that causes the quantity in square
+brackets to vanish. The former is the limiting value of the L1
+branch when l ¼ 1. The latter provides the solution for the
+radius of the L4 and L5 Lagrange points, which is given by
+pﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+x4;5 ¼ 1 þ l þ l2 :
+(25)
+Using this result, a simple form for the angular positions is
+found to be
+1
+1l
+cosðhÞ ¼ pﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ :
+2 1 þ l þ l2
+
+(26)
+
+Figure 7 presents Eq. (25) with l ¼ 0.5. Equation (26)
+admits two solutions, which produce the well-known angular
+positions of 6p=3 (660 ) in the limit of l ¼ 0. Because h is
+
+(23)
+
+Table II. Coefficients of the function gðD; lÞ:
+g0
+g1
+g2
+g3
+g4
+g5
+
+0  17l þ 0l2 þ 2l3 þ 0l4  l5
+12  34l þ 2l2 þ 2l3 þ 2l4
+24  29l þ 2l2  l3
+19  12l þ l2
+7  2l
+1
+Fig. 7. (Color online) Plot of the function hðx; l ¼ 0:5Þ.
+
+420
+
+Am. J. Phys., Vol. 92, No. 6, June 2024
+
+Eric M. Edlund
+
+420
+
+23 May 2024 13:53:50
+
+The exact values of the coefficients of the final terms are
+220=81 and þ212=81, respectively. These terms have been
+modified from their actual values to better match the solutions calculated through numerical analysis. These quasianalytic forms work well over the entire range of l and have
+average deviations, measured over the range 0  l  1,
+from the numerical solutions of less than 102 . Exact expansions out to sixth-order can be found in Appendix B and derivations of these terms are presented in the supplementary
+material.
+This pair of solutions possess interesting symmetry properties. The magnitudes of the coefficients of x1 and x2 are
+symmetric in the first three terms and then deviate starting at
+the fourth term, which begins with the introduction of the l2
+term at that order in the expansion. In this light, the solutions
+to Eq. (20) possess qualities that may inspire thoughts of
+explicit symmetry breaking that is frequently encountered in
+quantum mechanics, as in Zeeman splitting.23
+
+The coefficient of the l2 term is identically zero, and the
+exact value of the l3 coefficient is 1127=124 , though a
+much better approximation for this truncated series is
+achieved when this coefficient is reduced substantially.
+
+measured from the center of mass location, it is not obvious
+what geometry between the masses is implied by this solution
+for other values of l. This is readily resolved by observing that
+the distance between the primaries is 1 þ l and, as established
+previously, the other two sides have lengths of ðx2 þ lÞ1=2 ¼
+ð1 þ 2l þ l2 Þ1=2 ¼ 1 þ l, using Eq. (25). Therefore, the
+shape formed by the locations of the masses is always an equilateral triangle.
+IV. DISCUSSION
+
+421
+
+Am. J. Phys., Vol. 92, No. 6, June 2024
+
+Fig. 8. (Color online) The norm of the net force at each location in space is
+calculated for the case l ¼ 0:192 and presented as a countour plot. The open
+circle in the center of the contour plot is the center of mass of the m1-m2 system. The contour levels represent a nonlinear scale.
+
+Of course, all such forms should be taken with a grain of salt
+since they lose their physical meaning outside of a small
+neighborhood around each of the Lagrange points where the
+angular momentum cannot be treated as a constant of the
+motion.
+V. CONCLUSIONS
+The primary goal of this work is a thorough analysis of the
+restricted three-body problem using the natural geometry
+described by polar coordinates, culminating in formulas that
+describe the locations of all Lagrange points. This problem
+was originally solved as special cases of the more general
+problem of harmonic motion in the three-body problem, first
+by Leonhard Euler in 1767 for the L1, L2, and L3 points,24,25
+and subsequently by Joseph Louis Lagrange in 1772 for the
+L4 and L5 points.26 It is humbling to revisit the studies of the
+past and see how much was done with so little, and it is
+remarkable that this problem, now over 250 years old, continues to provide fertile ground for new insights.
+A number of interesting puzzles and mathematical curiosities were encountered throughout this work, among them an
+application of Galois theory of polynomials, symmetry and
+symmetry-breaking, and the role of normalization in shaping
+the solutions. A new contribution of this work is a set of
+quasi-analytic approximations for the radial locations of the
+L1, L2, and L3 points that describe the solution space to high
+accuracy for all values of l. Perhaps the most important
+aspect of this work is the clarification regarding the nature of
+angular momentum. The proper formulation of the problem
+requires that angular momentum be treated as an invariant
+near the equilibrium points even though it is not a locally
+conserved quantity. This observation naturally leads to the
+recognition that a third kind of conservation law, described
+here as regional conservation, is needed. Students of general
+relativity, in particular, may benefit from thinking of this
+aspect of the Lagrange point problem as they ponder the
+nature of energy conservation on local and cosmic scales.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The author has no conflicts to disclose.
+Eric M. Edlund
+
+421
+
+23 May 2024 13:53:50
+
+The foregoing analysis has shown how the positions of all
+Lagrange points can be calculated for arbitrary mass ratios.
+A relatively simple image of the solutions emerges when one
+considers the mass ratio as describing a fixed m1, such as a
+star, with the mass of the second primary increasing from
+something infinitesimal in comparison (e.g., a small planet)
+to that of an equal mass binary star system. In this representation, all points except for the L1 point move outward with
+increasing l. The solutions presented here stand in contrast
+to other analyses which, using a different normalization
+scheme, generate solutions that are non-monotonic or
+decreasing functions of the mass ratio and whose interpretations require more care.
+One of the main contributions of this work has been to
+clarify the meaning of the curious form of the effective
+potential described in Eq. (6), which is often used in discussions of the Lagrange points, either directly or indirectly
+through contour plots. While this form gives the correct
+equilibrium points upon taking a derivative with respect to r,
+it is a form that is rather devoid of physical meaning since it
+requires that the angular velocity be treated as a constant of
+the motion. This cannot be true since departures from stationary points result in epicyclic motion with variable angular velocity even in two-body systems.16 Rather than being
+mere convenience, it seems likely that the use of this unphysical form of the effective potential stems from the fact that
+contour plots of Eq. (6) conveniently illustrate the correct
+locations of the Lagrange points, in contrast to Eq. (7), which
+does not reveal the Lagrange points. This is because, fundamentally, the analysis of the Lagrange points is a force analysis, which means that illustrations of the solution space
+require a function that represents the spatial structure of the
+forces. While Eq. (7) is the correct starting place for this
+analysis, it does not lend itself to visualization of the solution
+space since the centrifugal term changes sign after taking the
+radial derivative of Eq. (7), which must be followed by a
+change of variables from L to m3 r 2 x0 . Conversely, Eq. (6)
+preserves the overall structure of the forces and lends itself
+to visual representation. A comparison of contour plots generated in Eqs. (6) and (7) is presented in Sec. V of the supplementary material notes.
+One might object that, despite being the more accurate
+physical representation, the loss of the ability to visualize the
+problem when using Eq. (7) is a loss of intuition and that Eq.
+(6) is justified on these grounds. That would be a good argument in favor of continued use of Eq. (6) if it were not for a
+third path. It is possible to maintain rigor by using Eq. (7) as
+a starting point for the analysis and presenting a visual illustration of the solution space through a contour plot of the
+norm of the total force, as is done in Fig. 8. The norm of
+the total force is a quantity that has minima (zeros) at the
+Lagrange points and therefore similarly motivates this
+analysis without any of the misleading aspects of Eq. (6).
+
+APPENDIX A: LAGRANGIAN ANALYSIS
+Some texts, like Ref. 12 approach this problem through
+analysis of the Lagrangian for the restricted three-body system. The stationary points of the system are found by requiring that the time derivatives of all coordinates are zero.
+Importantly, such constraints on the motion are compatible
+with the Lagrangian method only when they are imposed
+after the variations are allowed. The following equations outline how the equilibrium points can be derived from the
+Lagrangian. Ignoring the z coordinate and taking h to be
+measured in the rotating frame of the m1-m2 system, the
+Lagrangian and its associated Euler equations for h and r are
+
+2 Gm1 m Gm2 m
+1
+1
+L ¼ mr_ 2 þ mr 2 x0 þ h_ þ
+þ
+; (A1)
+2
+2
+r10
+r20
+ 
+ 
+
+Gm1 m dr10
+Gm2 m dr10
+d 
+ 02
+ m r 2 x0 þ _h ¼ 0;
+ 02
+dh
+dh
+dt
+r1
+r2
+(A2)
+
+analysis are provided in the supplementary material that
+accompany this text. The sixth-order expansions for the L1,
+L2, and L3 points are
+ 1=3
+ 
+ 
+l
+1 l 2=3 1 l 3=3
+x1 ¼ 1 
+þ
+þ
+3
+3 3
+9 3
+ 4=3
+ 5=3
+ 
+220 l
+92 l
+4 l 6=3
+
+þ
+þ
+81 3
+243 3
+9 3
+þ Oðl7=3 Þ;
+ 1=3
+ 
+ 
+l
+1 l 2=3 1 l 3=3
+þ
+
+3
+3 3
+9 3
+ 4=3
+ 5=3
+ 
+212 l
+124 l
+4 l 6=3
+þ
+þ
+
+81 3
+243 3
+9 3
+
+x2 ¼ 1 þ
+
+þ Oðl7=3 Þ;
+
+17
+1127
+19159 4 3217389 5
+l  4 l3 þ
+l 
+l
+12
+127
+12
+125
+145523287 6
+þ
+l þ Oðl7 Þ:
+128
+
+x3 ¼ 1 þ
+
+
+
+
+2 Gm1 m
+mr x0 þ h_  02
+dr
+r
+ 0 1
+Gm2 m dr1
+d
+ m r_ ¼ 0:
+ 02
+dr
+dt
+r2
+dr10
+
+(A3)
+
+(A4)
+
+and
+mrx20 
+
+ 
+ 
+Gm1 m dr10
+Gm2 m dr10
+
+¼ 0;
+dr
+dr
+r102
+r202
+
+(A5)
+
+which are identical to Eqs. (8) and (11), respectively.
+APPENDIX B: HIGHER-ORDER EXPANSIONS
+Expansions to higher order in l can be carried out, though
+with progressively more effort required for each additional
+term due to the nonlinear nature of the generating equations
+for the series expansions. Further details of this aspect of the
+422
+
+Am. J. Phys., Vol. 92, No. 6, June 2024
+
+(B3)
+
+a)
+
+Electronic mail: eric.edlund@cortland.edu, ORCID: 0000-0001-53204996.
+1
+NASA, see https://map.gsfc.nasa.gov/mission/observatory_l2.html for
+“The Lagrange Points” (2012).
+2
+A. Witze, see https://www.nature.com/articles/d41586-022-00128-0 for
+“Webb telescope reaches its final destination far from Earth” (2022).
+3
+J. Slız-Balogh, A. Madai, P. Sari, A. Barta, and G. Horvath, “First polarimetric evidence of the existence of the Kordylewski Dust Cloud at the L4
+Lagrange point of the Earth-Moon system,” Mon. Not. R. Astron. Soc.
+518(4), 5236–5241 (2023).
+4
+V. Szebehely, Theory of Orbits: The Restricted Problem of Three Bodies
+(Academic Press, New York, 1967).
+5
+Neil Cornish, see https://map.gsfc.nasa.gov/ContentMedia/lagrange.pdf
+for “The Lagrange Points” (1998).
+6
+S. Widnall, J. Deyst, and E. Greitzer, see https://ocw.mit.edu/courses/
+16-07-dynamics-fall-2009/resources/mit16_07f09_lec18/ for “Lecture
+L18—Exploring the Neighborhood: the Restricted Three-Body
+Problem,” 2009.
+7
+H. Geiges, The Geometry of Celestial Mechanics (Cambridge U. P.,
+Cambridge, UK, 2016).
+8
+Z. E. Musielak and B. Quarles, “The three-body problem,” Rep. Prog.
+Phys. 77(6), 065901 (2014).
+9
+H. D. Curtis, Orbital Mechanics for Engineering Students (Elsevier,
+Amsterdam, 2014).
+10
+R. Greenberg and D. R. Davis, “Stability at potential maxima: The L4 and
+L5 points of the restricted three-body problem,” Am. J. Phys. 46(10),
+1068–1070 (1978).
+11
+G. R. Fowles and G. L. Cassiday, Analytical Mechanics (Brooks Cole,
+Belmont, CA, 2005).
+12
+H. Goldstein, C. P. Poole, and J. Safko, Classical Mechanics (AddisonWesley, San Francisco, CA, 2011).
+13
+D. Kleppner and R. Kolenkow, An Introduction to Mechanics (Cambridge
+U. P., Cambridge, UK, 2014).
+14
+H. S. Zapolsky, “More on the restricted three-body problem,” Am. J. Phys.
+49(9), 889–890 (1981).
+15
+M. S. Lovell, “The Lagrange points,” Phys. Educ. 42(3), 262–266 (2007).
+16
+J. Binney and S. Tremaine, Galactic Dynamics (Princeton U. P.,
+Princeton, NJ, 1987).
+17
+C. W. Misner, K. S. Thorne, and J. A. Wheeler, Gravitation (Princeton U.
+P., Princeton, NJ, 1973).
+18
+R. M. Wald, General Relativity (University of Chicago Press, Chicago, IL,
+1984).
+Eric M. Edlund
+
+422
+
+23 May 2024 13:53:50
+
+With the variation applied to the Lagrangian, it is now
+possible to solve for stationary points by enforcing time
+_ ¼ constant and
+independence, which requires r2 ðx0 þ hÞ
+r_ ¼ constant. The former is a statement that the angular
+momentum of the tertiary is a constant. If it is to remain at
+an equilibrium point, then it must also be the case that _h ¼ 0
+and r_ ¼ 0. Importantly, the angular momentum is not generally constant for this system, but is constant for an object in
+equilibrium at a stationary point of the system. Given that
+this conclusion was arrived at by allowing all local variations
+of the paths, which is akin to establishing consistency of the
+dynamics in a neighborhood of the physical path, this is
+equivalent to the statement that the angular momentum is a
+constant of the motion in a region around the equilibrium
+point. Applying the stationarity constraints to the Euler equations gives
+ 
+ 
+Gm1 m dr10
+Gm2 m dr10
+ 02
+ 02
+¼ 0;
+dh
+dh
+r1
+r2
+
+(B2)
+
+and
+
+and
+
+
+(B1)
+
+19
+
+J. D. Brown and J. W. York, “Quasilocal energy and conserved charges
+derived from the gravitational action,” Phys. Rev. D 47(4), 1407–1419 (1993).
+20
+L. B. Szabados, “Quasi-local energy-momentum and angular momentum
+in general relativity,” Living Rev. Relativ. 12(1), 4–163 (2009).
+21
+See the supplementary material online for additional mathematical details
+and discussion not covered in the main text.
+22
+F. Sanchez-Bajo, J. M. Vaquero, and M. P. Rubio Montero, “Measuring
+solar limb-darkening with modest equipment,” Eur. J. Phys. 23(3),
+323–330 (2002).
+
+23
+
+W. L. Virgo, “Simultaneous Stark and Zeeman effects in atoms with
+hyperfine structure,” Am. J. Phys. 81(12), 936–942 (2013).
+24
+L. Euler, “De moto rectilineo trium corporum se mutuo
+attrahentium,” Novi Comment. Acad. Sci. Imp. Petropolitanae 11,
+144–151 (1767).
+25
+S. R. Bistafa, “Euler’s three-body problem,” Euleriana 1(2), 181–187
+(2021).
+26
+J. L. Lagrange, “Essai sur le problème des trois corps,” Euvres 6, 229–231
+(1772).
+
+23 May 2024 13:53:50
+
+423
+
+Am. J. Phys., Vol. 92, No. 6, June 2024
+
+Eric M. Edlund
+
+423
+
+

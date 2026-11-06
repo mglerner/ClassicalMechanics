@@ -1,0 +1,62 @@
+{{Short description|Finnish mathematician (1873–1949)}}
+[[File:Karl Sundman.jpg|thumb|right|Karl F. Sundman.]]
+'''Karl Frithiof Sundman''' (28 October 1873, in [[Kaskinen]] – 28 September 1949, in [[Helsinki]]) was a [[Finland|Finnish]] [[mathematician]]<ref name='hist-st.andrews'>[http://www-history.mcs.st-andrews.ac.uk/Biographies/Sundman.html Karl Frithiof Sundman bio]</ref> who used analytic methods to prove the existence of a convergent [[infinite series]] solution to the [[N-body problem#Three-body problem|three-body problem]] in two papers published in 1907<ref>{{Cite journal|last=Sundman|first=Karl F.|title=Recherches sur le problème des trois corps|journal=Acta Societatis Scientiarum Fennicae|volume=XXXIV |year=1907 |issue=6}}</ref> and 1909.<ref>{{Cite journal|last=Sundman|first=Karl F.|title=Nouvelles recherches sur le problème des trois corps|journal=Acta Societatis Scientiarum Fennicae|volume=XXXV |year=1909 |issue=9}}</ref> His results gained fame when they were reproduced in ''[[Acta Mathematica]]'' in 1912.<ref>{{cite journal|title=Mémoire sur le problème des trois corps|journal=[[Acta Mathematica]] | year=1912 | volume=36 | pages=105–179|author=Sundman, K.|url=https://babel.hathitrust.org/cgi/pt?id=msu.31293004078543;view=1up;seq=577|doi=10.1007/BF02422379|doi-access=free}}</ref> He also published a paper on [[regularization (physics)|regularization]] methods in [[mechanics]] in 1912.
+
+==Awards, recognition==
+Sundman was awarded the Pontécoulant prize by the [[French Academy of Sciences]] in 1913 for his work on the 3-body problem.<ref name='hist-st.andrews'/>  In 1908, Sundman was elected member of the [[Finnish Society of Sciences and Letters]]<ref>{{Cite book|last=Elfving|first=Fredr.|title=Finska Vetenskapssocietetens historia 1838-1938|publisher=Societas Scientiarum Fennica|year=1938|series=Commentationes Humanarum Litterarum|location=Helsingfors|language=Swedish}}</ref> and in 1947  foreign member of the [[Royal Swedish Academy of Sciences]].<ref>{{Cite web|title=Lista över ledamöter av Kungliga Vetenskapsakademien|url=http://www.owlapps.net/owlapps_apps/articles?id=1334660&lang=sv|archive-url=https://web.archive.org/web/20220104213423/http://www.owlapps.net/owlapps_apps/articles?id=1334660&lang=sv|url-status=usurped|archive-date=January 4, 2022|access-date=2022-01-04}}</ref> The crater [[Sundman (crater)|Sundman]] on the [[Moon]] is named after him, as is the asteroid [[1424 Sundmania]].
+
+==See also==
+*[[Qiudong Wang]] generalized Sundman's solution to the case of more than three bodies In the 1990s.<ref>{{citation
+ | last = Babadzanjanz | first = L. K.
+ | doi = 10.1007/BF01236607
+ | issue = 1
+ | journal = Celestial Mechanics
+ | mr = 538663
+ | pages = 43–57
+ | title = Existence of the continuations in the ''N''-body problem
+ | volume = 20
+ | year = 1979| bibcode = 1979CeMec..20...43B
+ | s2cid = 120358878
+ }}.</ref><ref>{{citation
+ | last = Wang | first = Qiu Dong | authorlink = Qiudong Wang
+ | bibcode = 1991CeMDA..50...73W
+ | doi = 10.1007/BF00048987
+ | issue = 1
+ | journal = Celestial Mechanics and Dynamical Astronomy
+ | mr = 1117788
+ | pages = 73–88
+ | title = The global solution of the ''n''-body problem
+ | volume = 50
+ | year = 1991| s2cid = 118132097 }}.</ref><ref>{{citation
+ | last = Babadzanjanz | first = L. K.
+ | doi = 10.1007/BF00691812
+ | issue = 3
+ | journal = Celestial Mechanics and Dynamical Astronomy
+ | mr = 1225892
+ | pages = 427–449
+ | title = On the global solution of the ''N''-body problem
+ | volume = 56
+ | year = 1993| bibcode = 1993CeMDA..56..427B
+ | s2cid = 120617936
+ }}.</ref>
+
+==References==
+<references/>
+
+==Sources==
+* Järnefelt, G.: "Karl Fridhiof Sundman." ''Soc. Sci. Fenn. Arsbok'' '''30''' (2) (1953), 1–13.
+* Järnefelt, G.: "Karl F. Sundman in Memoriam." ''Acta Mathematica'' '''83''' (1950), i–vi.
+*Barrow-Green, June (2010). "The dramatic episode of Sundman. ''Historia Mathematica'', '''37''' (2): 164-203.
+
+{{Authority control}}
+
+{{DEFAULTSORT:Sundman, Karl F.}}
+[[Category:1873 births]]
+[[Category:1949 deaths]]
+[[Category:Finnish mathematicians]]
+[[Category:Members of the Royal Swedish Academy of Sciences]]
+[[Category:People from Kaskinen]]
+
+
+{{finland-scientist-stub}}
+{{Europe-mathematician-stub}}

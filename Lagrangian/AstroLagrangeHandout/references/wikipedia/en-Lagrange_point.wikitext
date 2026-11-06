@@ -1,0 +1,334 @@
+{{Short description|Equilibrium points near two orbiting bodies}}
+{{for|the video game|Lagrange Point (video game){{!}}''Lagrange Point'' (video game)}}
+{{Use American English|date=January 2026}}
+{{Use dmy dates|date=January 2026}}
+[[File:Lagrange points simple.svg|thumb|upright=1.35|Lagrange points in the Sun–Earth system (not to scale). This view is from the north, such that Earth's orbit is counterclockwise.]]
+[[File:Lagrange points2.svg|thumb|A [[contour plot]] of the [[effective potential]] due to gravity and the [[centrifugal pseudo-force]] of a two-body system in a rotating frame of reference. The arrows indicate the downhill gradients of the potential around the five Lagrange points, toward them ({{red|red}}) and away from them ({{blue|blue}}). Counterintuitively, the L<sub>4</sub> and L<sub>5</sub> points are the [[Maxima and minima|high points]] of the potential. At the points themselves these forces are balanced.]]
+{{Astrodynamics}}
+
+In [[celestial mechanics]], the '''Lagrange points''' ({{IPAc-en|l|ə|ˈ|ɡ|r|ɑː|n|dʒ}}), also called the '''Lagrangian points''' or '''libration points''', are points of [[mechanical equilibrium|equilibrium]] for small-mass objects under the [[gravity|gravitational]] influence of two massive [[orbit]]ing bodies. Mathematically, this involves the solution of the [[restricted three-body problem]].<ref name="Lagrange Cornish" />
+
+Normally, the two massive bodies exert an unbalanced gravitational force at a point, altering the orbit of any other celestial body at that point. At the Lagrange points, the [[gravitation]]al forces of the two large bodies and the [[centrifugal pseudo-force]] balance each other.<ref>{{Cite web |url=https://scienceworld.wolfram.com/physics/LagrangePoints.html |title=Lagrange Points |first=Eric W. |last=Weisstein |author-link=Eric W. Weisstein |website=Eric Weisstein's World of Physics }}</ref> This can make Lagrange points an excellent location for satellites, as [[Orbital station-keeping|orbit corrections]], and hence fuel requirements, needed to maintain the desired orbit are kept at a minimum. 
+
+For any combination of two orbital bodies, there are five Lagrange points, L<sub>1</sub> to L<sub>5</sub>, all in the orbital plane of the two large bodies. There are five Lagrange points for the Sun–Earth system, and five ''different'' Lagrange points for the Earth–Moon system. L<sub>1</sub>, L<sub>2</sub>, and L<sub>3</sub> are on the line through the centers of the two large bodies, while L<sub>4</sub> and L<sub>5</sub> each act as the third [[Vertex (geometry)|vertex]] of an [[equilateral triangle]] formed with the centers of the two large bodies.
+
+When the mass ratio of the two bodies is large enough, the L<sub>4</sub> and L<sub>5</sub> points are stable points,<!--not gravity wells--> meaning that objects can orbit them and that they have a tendency to pull objects into them. Several planets have [[Trojan (astronomy)|trojan asteroids]] near their L<sub>4</sub> and L<sub>5</sub> points with respect to the Sun; [[Jupiter#Interaction with the Solar System|Jupiter]] has more than one million of these trojans. 
+
+Some Lagrange points are being used for space exploration. Two important Lagrange points in the Sun–Earth system are L<sub>1</sub>, between the Sun and Earth, and L<sub>2</sub>, on the same line at the opposite side of the Earth; both are well outside the Moon's orbit. The [[Deep Space Climate Observatory]] (DSCOVR), an [[artificial satellite]], is located at L<sub>1</sub> to study [[solar wind]] coming toward Earth from the Sun and to monitor Earth's climate by taking images of it.<ref>{{cite web |url=https://solarsystem.nasa.gov/missions/DSCOVR/in-depth/ |title=DSCOVR: In-Depth |website=NASA Solar System Exploration |date=14 January 2019 |publisher=NASA |access-date=27 October 2021}}</ref> The [[James Webb Space Telescope]] (JWST), a powerful infrared space observatory, is located at L<sub>2</sub>.<ref>{{Cite web |url=https://webb.nasa.gov/content/about/orbit.html |title=About Orbit |website=NASA |access-date=1 January 2022 }}</ref> This allows the satellite's sunshield to protect the telescope from the light and heat of the Sun, Earth and Moon simultaneously with no need to rotate the sunshield. The [[Nancy Grace Roman Space Telescope]] launched from  NASA’s Kennedy Space Center to L<sub>2</sub> on 30 August 2026.<ref>{{Cite web | url=https://science.nasa.gov/blogs/roman/2026/06/03/hello-world-nasa-shares-new-home-for-roman-space-telescope-updates/ |title=Hello, World! NASA Shares New Home for Roman Space Telescope Updates |website=NASA |date=3 June 2026 |access-date=17 August 2026 }}</ref> The L<sub>1</sub> and L<sub>2</sub> Lagrange points are located about 1,500,000 km from Earth.
+
+The European Space Agency's earlier [[Gaia (spacecraft)|Gaia]] telescope, and its newly launched [[Euclid (spacecraft)|Euclid]], also occupy orbits around L<sub>2</sub>. Gaia keeps a tighter [[Lissajous orbit]] around L<sub>2</sub>, while Euclid follows a [[halo orbit]] similar to JWST. Each of the space observatories benefits from being far enough from Earth's shadow to utilize solar panels for power, from not needing much power or propellant for station-keeping, from not being subjected to the Earth's magnetospheric effects, and from having direct line-of-sight to Earth for data transfer.
+
+==History==
+The three collinear Lagrange points (L<sub>1</sub>, L<sub>2</sub>, L<sub>3</sub>) were discovered by the Swiss mathematician [[Leonhard Euler]] around 1750, a decade before the Italian-born [[Joseph-Louis Lagrange]] discovered the remaining two (L<sub>4</sub> and L<sub>5</sub>).<ref>{{Cite book |title=Dynamical Systems, the Three-Body Problem, and Space Mission Design |last1=Koon |first1=Wang Sang |first2=Martin W. |last2=Lo |author-link2=Martin Lo |first3=Jerrold E. |last3=Marsden |author-link3= Jerrold E. Marsden |first4=Shane D. |last4=Ross |url=http://www.cds.caltech.edu/~marsden/books/Mission_Design.html |date=2006 |page=9 |access-date=9 June 2008 |archive-url=https://web.archive.org/web/20080527145955/http://www.cds.caltech.edu/~marsden/books/Mission_Design.html |archive-date=27 May 2008 |url-status=dead }} (16MB)</ref><ref name="E327">{{cite book|author-link=Leonhard Euler|first=Leonhard|last=Euler |url=http://www.math.dartmouth.edu/~euler/docs/originals/E327.pdf |title=De motu rectilineo trium corporum se mutuo attrahentium |date=1765}}</ref>
+
+In 1772, Lagrange published an "Essay on the [[three-body problem]]". In the first chapter he considered the general three-body problem. From that, in the second chapter, he demonstrated two special [[Three-body problem#General solution|constant-pattern solutions]], the collinear and the equilateral, for any three masses, with [[circular orbit]]s.<ref name="gallica.bnf.fr">{{Cite book |last=Lagrange |first=Joseph-Louis |author-link=Joseph-Louis Lagrange |title=Œuvres de Lagrange |date=1867–1892 |publisher=Gauthier-Villars |chapter=Tome 6, Chapitre II: Essai sur le problème des trois corps |pages=229–334 |chapter-url=http://gallica.bnf.fr/ark:/12148/bpt6k229225j/f231.image.r=Oeuvres+de+Lagrange.langFR |language=fr }}</ref>
+
+==Lagrange points==
+{{See also|List of objects at Lagrange points}}
+
+The five Lagrange points are labeled and defined as follows:
+
+=== {{L1|nolink=yes}} point===
+The {{L1|nolink=yes}} point lies on the line defined between the two large masses ''M''<sub>1</sub> and ''M''<sub>2</sub>. It is the point where the gravitational attraction of ''M''<sub>2</sub> and that of ''M''<sub>1</sub> combine to produce an equilibrium. An object that [[orbit]]s the [[Sun]] more closely than [[Earth]] would typically have a shorter orbital period than Earth, but that ignores the effect of Earth's gravitational pull. If the object is directly between Earth and the Sun, then [[Gravity of Earth|Earth's gravity]] counteracts some of the Sun's pull on the object, increasing the object's orbital period. The closer to Earth the object is, the greater this effect is. At the {{L1|nolink=yes}} point, the object's orbital period becomes exactly equal to Earth's orbital period. {{L1|nolink=yes}} is about 1.5&nbsp;million kilometers, or 0.01 [[Astronomical unit|au]], from Earth in the direction of the Sun.<ref name="Lagrange Cornish">{{cite web|last1=Cornish|first1=Neil J. |date=1998 |title=The Lagrange Points |publisher=WMAP Education and Outreach |url=http://www.physics.montana.edu/faculty/cornish/lagrange.pdf| archive-url     =https://web.archive.org/web/20150907090116/http://www.physics.montana.edu/faculty/cornish/lagrange.pdf|archive-date=7 September 2015|url-status=dead|access-date=15 December 2015}}</ref>
+
+==={{L2|nolink=yes}} point===
+The {{L2|nolink=yes}} point lies on the line through the two large masses beyond the smaller of the two. Here, the combined gravitational forces of the two large masses balance the centrifugal force on a body at {{L2|nolink=yes}}. On the opposite side of Earth from the Sun, the orbital period of an object would normally be greater than Earth's. The extra pull of Earth's gravity decreases the object's orbital period, and at the {{L2|nolink=yes}} point, that orbital period becomes equal to Earth's. Like L<sub>1</sub>, L<sub>2</sub> is about 1.5&nbsp;million kilometers or 0.01 [[Astronomical unit|au]] from Earth (away from the sun). Examples of spacecraft designed to operate near the Earth–Sun L<sub>2</sub> are the [[James Webb Space Telescope|Webb]] and [[Nancy Grace Roman Space Telescope|Roman]] space telescopes.<ref name="stsci.edu">{{cite web |url=http://www.stsci.edu/jwst/overview/design/orbit|archive-url=https://wayback.archive-it.org/all/20140203174537/http://www.stsci.edu/jwst/overview/design/orbit|url-status=dead|archive-date=3 February 2014 |title=L2 Orbit|publisher=Space Telescope Science Institute|access-date=28 August 2016}}</ref><ref>{{Cite web |last=Elkins |first=Kel |date=2026-08-25 |title=NASA Scientific Visualization Studio {{!}} Roman Telescope Launch and Orbit at L2 |url=https://svs.gsfc.nasa.gov/5673 |access-date=2026-08-30 |website=NASA Scientific Visualization Studio |language=english}}</ref> Earlier examples include the [[Wilkinson Microwave Anisotropy Probe]] and its successor, ''[[Planck (spacecraft)|Planck]]''.
+
+==={{L3|nolink=yes}} point===
+The {{L3|nolink=yes}} point lies on the line defined by the two large masses, beyond the larger of the two. Within the Sun–Earth system, the {{L3|nolink=yes}} point exists on the opposite side of the Sun, a little outside Earth's orbit and slightly farther from the [[Barycenter (astronomy)|barycenter]] of the Earth–Sun system than Earth is. This placement occurs because the Sun is also affected by Earth's gravity and so orbits around the two bodies' barycenter, which is well inside the body of the Sun. An object at Earth's distance from the Sun would have an orbital period of one year if only the Sun's gravity is considered. But an object on the opposite side of the Sun from Earth and directly in line with both "feels" Earth's gravity adding slightly to the Sun's and therefore must orbit a little farther from the barycenter of Earth and Sun in order to have the same 1-year period. It is at the {{L3|nolink=yes}} point that the combined pull of Earth and Sun causes the object to orbit with the same period as Earth, in effect orbiting an Earth+Sun mass with the Earth-Sun barycenter at one focus of its orbit. For the above argument, it is important to distinguish between the center of the Sun and the Earth-Sun barycenter. The distance between the {{L3|nolink=yes}} point and the center of the Sun is actually ''smaller'' than the distance between the center of the Earth and the center of the Sun.<ref name="Solar System Dynamics">{{cite book |last1=Murray |first1=Carl D. |last2=Dermott |first2=Stanley F. |title=Solar system dynamics |date=2012 |publisher=Cambridge University Press |location=Cambridge |isbn=9780521575973 |page=80}}</ref>
+
+==={{L4|nolink=yes}} and {{L5|nolink=yes}} points <span class="anchor" id="L4andL5"></span>===
+[[File:L4 diagram.svg|thumb|Gravitational accelerations at {{L4|nolink=yes}}]]
+
+The {{L4|nolink=yes}} and {{L5|nolink=yes}} points lie at the third vertices of the two [[equilateral triangle]]s in the plane of orbit whose common base is the line between the centers of the two masses, such that the point lies 60° ahead of ({{L4|nolink=yes}}) or behind ({{L5|nolink=yes}}) the smaller mass with regard to its orbit around the larger mass.
+
+===Stability===
+The triangular points ({{L4|nolink=yes}} and {{L5|nolink=yes}}) are stable equilibria, provided that the ratio of {{sfrac|''M''<sub>1</sub>|''M''<sub>2</sub>}} is greater than 24.96.{{Efn|name=exact_stability_threshold|Actually {{sfrac|(25 + 3{{sqrt|69}})|2}} ≈ {{val|24.9599357944}} {{OEIS|A230242}}}} This is the case for the Sun–Earth system, the Sun–Jupiter system, and, by a smaller margin, the Earth–Moon system. When a body at these points is perturbed, it moves away from the point, but the factor opposite of that which is increased or decreased by the perturbation (either gravity or angular momentum-induced speed) will also increase or decrease, bending the object's path into a stable, [[kidney bean]]-shaped orbit around the point (as seen in the corotating [[frame of reference]]).<ref name="cornish">{{cite web |url=https://map.gsfc.nasa.gov/ContentMedia/lagrange.pdf |title=The Lagrange Points |date=1998 |publisher=NASA |first1=Neil J. |last1=Cornish }}</ref>
+
+The points {{L1|nolink=yes}}, {{L2|nolink=yes}}, and {{L3|nolink=yes}} are positions of [[Mechanical equilibrium|unstable equilibrium]]. Any object orbiting at {{L1|nolink=yes}}, {{L2|nolink=yes}}, or {{L3|nolink=yes}} will tend to fall out of orbit; it is therefore rare to find natural objects there, and spacecraft inhabiting these areas must employ a small but critical amount of [[Orbital station-keeping|station keeping]] in order to maintain their position.
+
+==Natural objects at Lagrange points==
+{{Main|List of objects at Lagrange points}}
+
+Due to the natural stability of {{L4|nolink=yes}} and {{L5|nolink=yes}}, it is common for natural objects to be found orbiting in those Lagrange points of planetary systems. Objects that inhabit those points are generically referred to as '[[Trojan (celestial body)|trojans]]' or 'trojan asteroids'. The name derives from the names that were given to asteroids discovered orbiting at the Sun–Jupiter {{L4|nolink=yes}} and {{L5|nolink=yes}} points, which were taken from mythological characters appearing in [[Homer]]'s ''[[Iliad]]'', an [[Epic poetry|epic poem]] set during the [[Trojan War]]. [[Asteroid|Asteroids]] at the {{L4|nolink=yes}} point, ahead of Jupiter, are named after [[Greeks|Greek]] ([[Achaeans_(Homer)|Achaean]]) characters in the ''Iliad'' and referred to as the "[[List of Jupiter Trojans (Greek camp)|Greek camp]]". Those at the {{L5|nolink=yes}} point are named after Trojan characters and referred to as the "[[List of Jupiter trojans (Trojan camp)|Trojan camp]]". Both camps are considered to be types of trojan bodies.
+
+As the Sun and Jupiter are the two most massive objects in the Solar System, there are more known Sun–Jupiter trojans than for any other pair of bodies. However, smaller numbers of objects are known at the Lagrange points of other orbital systems:
+* The Sun–Earth {{L4|nolink=yes}} and {{L5|nolink=yes}} points contain interplanetary dust and at least two asteroids, {{mpl|2010 TK|7}} and {{mpl|2020 XL|5}}.<ref>{{Cite web |url=https://www.space.com/12443-earth-asteroid-companion-discovered-2010-tk7.html |title=First Asteroid Companion of Earth Discovered at Last |first=Charles Q. |last=Choi |website=Space.com |date=27 July 2011 }}</ref><ref>{{Cite web |url=https://www.nasa.gov/home/hqnews/2011/jul/HQ_11-247_WISE_Trojan.html |title=NASA – NASA's Wise Mission Finds First Trojan Asteroid Sharing Earth's Orbit |website=www.nasa.gov |access-date=25 January 2020 |archive-date=22 March 2019 |archive-url=https://web.archive.org/web/20190322085646/https://www.nasa.gov/home/hqnews/2011/jul/HQ_11-247_WISE_Trojan.html |url-status=dead }}</ref><ref name="Hui2021">{{cite journal
+ |first1      = Man-To |last1 = Hui
+ |first2      = Paul A. |last2 = Wiegert |author-link2=Paul Wiegert 
+ |first3      = David J. |last3 = Tholen |author-link3=David J. Tholen
+ |first4      = Dora |last4 = Föhring
+ |title       = The Second Earth Trojan 2020 XL5
+ |journal = The Astrophysical Journal Letters
+ |date        = November 2021
+ |volume = 922
+ |issue = 2
+ |pages = L25
+ |doi = 10.3847/2041-8213/ac37bf
+ |arxiv      = 2111.05058
+ |bibcode = 2021ApJ...922L..25H
+ |s2cid = 243860678
+ |doi-access = free
+ }}</ref>
+* The Earth–Moon {{L4|nolink=yes}} and {{L5|nolink=yes}} points contain concentrations of [[Interplanetary dust cloud|interplanetary dust]], known as [[Kordylewski cloud]]s.<ref>{{cite journal|title=Celestial mechanics and polarization optics of the Kordylewski dust cloud in the Earth-Moon Lagrange point L<sub>5</sub> – Part I. Three-dimensional celestial mechanical modelling of dust cloud formation |first1=Judit |last1=Slíz-Balogh |first2=András |last2=Barta |first3=Gábor |last3=Horváth |journal=Monthly Notices of the Royal Astronomical Society |volume=480 |issue=4 |pages=5550–5559 |date=2018 |doi=10.1093/mnras/sty2049|doi-access=free |arxiv=1910.07466 |bibcode=2018MNRAS.480.5550S }}</ref><ref>{{cite journal|title=Celestial mechanics and polarization optics of the Kordylewski dust cloud in the Earth-Moon Lagrange point L5. Part II. Imaging polarimetric observation: new evidence for the existence of Kordylewski dust cloud |first1=Judit |last1=Slíz-Balogh |first2=András |last2=Barta |first3=Gábor |last3=Horváth |journal=Monthly Notices of the Royal Astronomical Society |volume=482 |issue=1 |pages=762–770  |date=2019 |doi=10.1093/mnras/sty2630|arxiv=1910.07471 |bibcode=2019MNRAS.482..762S |doi-access=free }}</ref> Stability at these specific points is greatly complicated by solar gravitational influence.<ref>{{cite journal|url=http://www.rfreitas.com/Astro/SearchIcarus1980.htm |title=A Search for Natural or Artificial Objects Located at the Earth–Moon Libration Points |first1=Robert |last1=Freitas |first2=Francisco |last2=Valdes |journal=[[Icarus (journal)|Icarus]] |volume=42 |issue=3 |pages=442–447 |date=1980 |doi=10.1016/0019-1035(80)90106-2 |bibcode=1980Icar...42..442F|url-access=subscription }}</ref>
+* The Sun–[[Neptune]] {{L4|nolink=yes}} and {{L5|nolink=yes}} points contain several dozen known objects, the [[Neptune trojan]]s.<ref name="ntrojans">{{cite web | title=List Of Neptune Trojans | publisher=Minor Planet Center | url=http://www.minorplanetcenter.org/iau/lists/NeptuneTrojans.html |access-date=27 October 2010| archive-url = https://web.archive.org/web/20110725075646/http://www.minorplanetcenter.org/iau/lists/NeptuneTrojans.html |archive-date=25 July 2011 | url-status=live}}</ref>
+* [[Mars]] has four accepted [[Mars trojan]]s: [[5261 Eureka]], {{mpl|1999 UJ|7}}, {{mpl|1998 VF|31}}, and {{mpl|2007 NS|2}}.
+* Saturn's moon [[Tethys (moon)|Tethys]] has two smaller moons of Saturn in its {{L4|nolink=yes}} and {{L5|nolink=yes}} points, [[Telesto (moon)|Telesto]] and [[Calypso (moon)|Calypso]]. Another Saturn moon, [[Dione (moon)|Dione]], also has two Lagrange co-orbitals, [[Helene (moon)|Helene]] at its {{L4|nolink=yes}} point and [[Polydeuces (moon)|Polydeuces]] at {{L5|nolink=yes}}. The moons wander [[azimuth]]ally about the Lagrange points, with Polydeuces describing the largest deviations, moving up to 32° away from the Saturn–Dione {{L5|nolink=yes}} point.
+* One version of the [[giant impact hypothesis]] postulates that an object named [[Theia (planet)|Theia]] formed at the Sun–Earth {{L4|nolink=yes}} or {{L5|nolink=yes}} point and crashed into Earth after its orbit destabilized, forming the Moon.<ref name=belbruno-2005>{{cite journal |first1=Edward |last1=Belbruno |author-link1=Edward Belbruno |first2=J. Richard |last2=Gott III |author-link2=J. Richard Gott |title=Where Did The Moon Come From? |journal=The Astronomical Journal |volume=129 |issue=3 |pages=1724–1745 |date=2005 |doi=10.1086/427539 |arxiv=astro-ph/0405372 |bibcode=2005AJ....129.1724B |s2cid=12983980 }}</ref>
+* In [[binary star]]s, the [[Roche lobe]] has its apex located at {{L1|nolink=yes}}; if one of the stars expands past its Roche lobe, then it will lose matter to its [[companion star]], known as [[Roche lobe overflow]].<ref>{{cite journal |title=Equipotential Surfaces and Lagrangian Points in Nonsynchronous, Eccentric Binary and Planetary Systems |last1=Sepinsky |first1=Jeremy F. |last2=Willems |first2=Bart |last3=Kalogera |first3=Vicky |author-link3=Vicky Kalogera |journal=The Astrophysical Journal |volume=660 |issue=2 |pages=1624–1635 |date=May 2007 |doi=10.1086/513736 |arxiv=astro-ph/0612508 |bibcode=2007ApJ...660.1624S |s2cid=15519581 }}</ref>
+
+Objects which are on [[horseshoe orbit]]s are sometimes erroneously described as trojans, but do not occupy Lagrange points. Known objects on horseshoe orbits include [[3753 Cruithne]] with Earth, and Saturn's moons [[Epimetheus (moon)|Epimetheus]] and [[Janus (moon)|Janus]].
+
+==Physical and mathematical details==
+
+[[File:Lagrangian points equipotential.png|thumb|link={{filepath:Lagrangian_points_equipotential.gif}}|Visualization of the relationship between the Lagrange points (red) of a planet (blue) orbiting a star (yellow) counterclockwise, and the [[effective potential]] in the plane containing the orbit (grey rubber-sheet model with purple contours of equal potential).<ref>{{Cite journal|title=The Roche Problem: Some Analytics|first=Zakir F.|last=Seidov|date=1 March 2004|journal=The Astrophysical Journal|volume=603|issue=1|pages=283–284|doi=10.1086/381315|arxiv=astro-ph/0311272|bibcode=2004ApJ...603..283S|s2cid=16724058}}</ref><br />[[:File:Lagrangian points equipotential.gif|Click for animation.]] ]]
+
+Lagrange points are the constant-pattern solutions of the restricted [[three-body problem]]. For example, given two massive bodies in orbits around their common [[barycenter]], there are five positions in space where a third body, of comparatively negligible [[mass]], could be placed so as to maintain its position relative to the two massive bodies. This occurs because the combined gravitational forces of the two massive bodies provide the exact [[centripetal force]] required to maintain the [[circular motion]] that matches their orbital motion.
+
+Alternatively, when seen in a [[rotating reference frame]] that matches the [[angular velocity]] of the two co-orbiting bodies, at the Lagrange points the combined [[gravitational field]]s of two massive bodies balance the [[centrifugal force|centrifugal pseudo-force]], allowing the smaller third body to remain stationary (in this frame) with respect to the first two.
+
+==={{L1|nolink=yes}}===
+<!-- Other articles link here. -->
+
+The location of L<sub>1</sub> is the solution to the following equation, gravitation providing the centripetal force:
+<math display="block">\frac{M_1}{(R-r)^2}-\frac{M_2}{r^2}=\left(\frac{M_1}{M_1+M_2}R-r\right)\frac{M_1+M_2}{R^3}</math>
+where ''r'' is the distance of the L<sub>1</sub> point from the smaller object, ''R'' is the distance between the two main objects, and ''M''<sub>1</sub> and ''M''<sub>2</sub> are the masses of the large and small object, respectively. The quantity in parentheses on the right is the distance of L<sub>1</sub> from the center of mass. The solution for ''r'' is the only [[Real number|real]] [[Zero of a function|root]] of the following [[quintic function]]
+
+<math display="block">x^5 + (\mu - 3) x^4 + (3 - 2\mu) x^3 - (\mu) x^2 + (2\mu) x - \mu = 0</math>
+where <math display="block"> \mu = \frac{M_2}{M_1+M_2} </math>
+is the mass fraction of ''M''<sub>2</sub> and <math display="block"> x = \frac{r}{R} </math>
+is the normalized distance. If the mass of the smaller object (''M''<sub>2</sub>) is much smaller than the mass of the larger object (''M''<sub>1</sub>) then {{L1|nolink=yes}} and {{L2|nolink=yes}} are at approximately equal distances ''r'' from the smaller object, equal to the radius of the [[Hill sphere]], given by:
+<math display="block">r \approx R \sqrt[3]{\frac{\mu}{3}}</math>
+
+We may also write this as:
+<math display="block">\frac{M_2}{r^3}\approx 3\frac{M_1}{R^3}</math>
+Since the [[Tidal force|tidal]] effect of a body is proportional to its mass divided by the distance cubed, this means that the tidal effect of the smaller body at the L{{sub|1}} or at the L{{sub|2}} point is about three times of that body. We may also write:
+<math display="block">\rho_2\left(\frac{d_2}{r}\right)^3\approx 3\rho_1\left(\frac{d_1}{R}\right)^3</math>
+where ''ρ''{{sub|1}} and ''ρ''{{sub|2}} are the average densities of the two bodies and ''d''{{sub|1}} and ''d''{{sub|2}} are their diameters. The ratio of diameter to distance gives the angle subtended by the body, showing that viewed from these two Lagrange points, the apparent sizes of the two bodies will be similar, especially if the density of the smaller one is about thrice that of the larger, as in the case of the Earth and the Sun.
+
+This distance can be described as being such that the [[orbital period]], corresponding to a circular orbit with this distance as radius around ''M''<sub>2</sub> in the absence of ''M''<sub>1</sub>, is that of ''M''<sub>2</sub> around ''M''<sub>1</sub>, divided by {{sqrt|3}} ≈ 1.73:
+<math display="block">T_{s,M_2}(r) = \frac{T_{M_2,M_1}(R)}{\sqrt{3}}.</math>
+
+==={{L2|nolink=yes}}===
+<!-- Other articles link here. -->
+[[File:L2 rendering.jpg|thumb|right|upright=1.35|The Lagrangian L<sub>2</sub> point for the [[Sun]]–[[Earth]] system]]
+The location of L<sub>2</sub> is the solution to the following equation, gravitation providing the centripetal force:
+<math display="block">\frac{M_1}{(R+r)^2}+\frac{M_2}{r^2}=\left(\frac{M_1}{M_1+M_2}R+r\right)\frac{M_1+M_2}{R^3}</math>
+with parameters defined as for the L<sub>1</sub> case. The corresponding quintic equation is
+<math display="block">x^5 + x^4 (3 - \mu) + x^3 (3 - 2\mu) - x^2 (\mu) - x (2\mu) - \mu = 0</math>
+
+Again, if the mass of the smaller object (''M''<sub>2</sub>) is much smaller than the mass of the larger object (''M''<sub>1</sub>) then L<sub>2</sub> is at approximately the radius of the [[Hill sphere]], given by:
+<math display="block">r \approx R \sqrt[3]{\frac{\mu}{3}}</math>
+
+The same remarks about tidal influence and apparent size apply as for the L{{sub|1}} point. For example, the angular radius of the Sun as viewed from L<sub>2</sub> is arcsin({{sfrac|{{val|695.5e3}}|{{val|151.1e6}}}})&nbsp;≈&nbsp;0.264°, whereas that of the Earth is arcsin({{sfrac|6371|{{val|1.5e6}}}})&nbsp;≈&nbsp;0.242°. Looking toward the Sun from L<sub>2</sub> one sees an [[annular eclipse]]. It is necessary for a spacecraft, like [[Gaia (spacecraft)|Gaia]], to follow a [[Lissajous orbit]] or a [[halo orbit]] around L<sub>2</sub> in order for its solar panels to get full sun.
+
+===L<sub>3</sub>===
+<!-- Other articles link here. -->
+The location of L<sub>3</sub> is the solution to the following equation, gravitation providing the centripetal force:
+<math display="block">\frac{M_1}{\left(R-r\right)^2}+\frac{M_2}{\left(2R-r\right)^2}=\left(\frac{M_2}{M_1+M_2}R+R-r\right)\frac{M_1+M_2}{R^3}</math>
+with parameters ''M''<sub>1</sub>, ''M''<sub>2</sub>, and ''R'' defined as for the L<sub>1</sub> and L<sub>2</sub> cases, and ''r'' being defined such that the distance of L<sub>3</sub> from the center of the larger object is ''R''&nbsp;−&nbsp;''r''. If the mass of the smaller object (''M''<sub>2</sub>) is much smaller than the mass of the larger object (''M''<sub>1</sub>), then:<ref>{{Cite web|url=https://ocw.mit.edu/courses/16-07-dynamics-fall-2009/pages/lecture-notes/|title=Lecture Notes &#124; Dynamics &#124; Aeronautics and Astronautics|website=MIT OpenCourseWare}}</ref>
+
+<math display="block">r\approx R(1-\tfrac{5}{12}\mu).</math><!-- in the source the factor that appears in the equation is 5/12, but that is the distance from L<sub>3</sub> to the center of mass, here we are showing the distance between L<sub>3</sub> and the orbit of the smaller object -->
+
+Thus the distance from L<sub>3</sub> to the larger object is less than the separation of the two objects (although the distance between L<sub>3</sub> and the barycentre is greater than the distance between the smaller object and the barycentre).
+
+==={{L4|nolink=yes}} and {{L5|nolink=yes}}===
+{{Further|Trojan (celestial body)}}
+
+The reason these points are in balance is that at {{L4|nolink=yes}} and {{L5|nolink=yes}} the distances to the two masses are equal. Accordingly, the gravitational forces from the two massive bodies are in the same ratio as the masses of the two bodies, and so the resultant force acts through the [[Barycenter (astronomy)|barycenter]] of the system.  Additionally, the geometry of the triangle ensures that the [[Parallelogram law|resultant]] acceleration is to the distance from the barycenter in the same [[ratio]] as for the two massive bodies. The barycenter being both the [[center of mass]] and center of rotation of the three-body system, this resultant force is exactly that required to keep the smaller body at the Lagrange point in orbital [[Rigid body dynamics|equilibrium]] with the other two larger bodies of the system (indeed, the third body needs to have negligible mass). The general triangular configuration was discovered by Lagrange working on the [[three-body problem]].
+
+===Radial acceleration===
+[[File:Radial acceleration Earth-Moon Lagrangian.svg|thumb|upright=1.5|Net radial acceleration of a point orbiting along the Earth–Moon line]]
+
+The radial acceleration ''a'' of an object in orbit at a point along the line passing through both bodies is given by:
+<math display="block">a = -\frac{G M_1}{r^2}\sgn(r)+\frac{G M_2}{(R-r)^2}\sgn(R-r)+\frac{G\bigl((M_1+M_2) r-M_2 R\bigr)}{R^3}</math>
+where ''r'' is the distance from the large body ''M''<sub>1</sub>, ''R'' is the distance between the two main objects, and sgn(''x'') is the [[sign function]] of ''x''. The terms in this function represent respectively: force from ''M''<sub>1</sub>; force from ''M''<sub>2</sub>; and centripetal force. The points L<sub>3</sub>, L<sub>1</sub>, L<sub>2</sub> occur where the acceleration is zero — see chart at right. Positive acceleration is acceleration towards the right of the chart and negative acceleration is towards the left; that is why acceleration has opposite signs on opposite sides of the gravity wells.
+
+==Stability==
+<!--"Lagrangian point" links here.-->
+[[File:Roche_potential.stl|thumb|upright=1.5|link=https://viewstl.com/classic/?embedded&url=https://upload.wikimedia.org/wikipedia/commons/8/86/Roche_potential.stl&shading=smooth&orientation=bottom&bgcolor=black|[[STL (file format)|STL 3D model]] of the Roche potential of two orbiting bodies, rendered half as a surface and half as a mesh]]
+
+Although the {{L1|nolink=yes}}, {{L2|nolink=yes}}, and {{L3|nolink=yes}} points are nominally unstable, there are quasi-stable periodic orbits called [[Halo orbit|''halo orbits'']] around these points in a three-body system. A full ''n''-body [[dynamical system]] such as the [[Solar System]] does not contain these periodic orbits, but does contain quasi-periodic (i.e. bounded but not precisely repeating) [[Lissajous orbit]]s. These are what most of Lagrangian-point space missions have used until now. Although they are not perfectly stable, a modest effort of [[Orbital station-keeping|station keeping]] keeps a spacecraft in a desired Lissajous orbit for a long time.
+
+For Sun–Earth-{{L1|nolink=yes}} missions, it is preferable for the spacecraft to be in a large-amplitude ({{convert|100000|–|200000|km|abbr=on|disp=or}}) Lissajous orbit around {{L1|nolink=yes}} than to stay at {{L1|nolink=yes}}, because the line between Sun and Earth has increased solar [[Interference (wave propagation)|interference]] on Earth–spacecraft communications. Similarly, a large-amplitude Lissajous orbit around {{L2|nolink=yes}} keeps a probe out of Earth's shadow and therefore ensures continuous illumination of its solar panels.
+
+The {{L4}} and {{L5}} points are stable provided that the mass of the primary body (e.g. the Earth) is at least 25{{Efn|name=exact_stability_threshold}} times the mass of the secondary body (e.g. the Moon),<ref name="Fitzpatrick">{{cite web|last1=Fitzpatrick|first1=Richard|title=Stability of Lagrange Points|url=http://farside.ph.utexas.edu/teaching/336k/Newtonhtml/node126.html|website=Newtonian Dynamics|publisher=University of Texas}}</ref><ref name="Greenspan">{{cite web|last1=Greenspan|first1=Thomas|title=Stability of the Lagrange Points, L<sub>4</sub> and L<sub>5</sub>|url=https://www.math.cornell.edu/~templier/junior/final_paper/Thomas_Greenspan-Stability_of_Lagrange_points.pdf|date=7 January 2014|access-date=28 February 2018|archive-date=18 April 2018|archive-url=https://web.archive.org/web/20180418011225/http://www.math.cornell.edu/~templier/junior/final_paper/Thomas_Greenspan-Stability_of_Lagrange_points.pdf|url-status=dead}}</ref> The Earth is over 81 times the mass of the Moon (the Moon is 1.23% of the mass of the Earth<ref name = "Pitjeva">{{cite journal |last1=Pitjeva |first1=Elena V. |author-link1=Elena V. Pitjeva |last2=Standish |first2=E. Myles |author-link2=E. Myles Standish |title=Proposals for the masses of the three largest asteroids, the Moon-Earth mass ratio and the Astronomical Unit |journal=Celestial Mechanics and Dynamical Astronomy |date=1 April 2009 |volume=103 |issue=4 |pages=365–372 |doi=10.1007/s10569-009-9203-8 |bibcode=2009CeMDA.103..365P |s2cid=121374703 |url=https://zenodo.org/record/1000691 }}</ref>). Although the {{L4|nolink=yes}} and {{L5|nolink=yes}} points are found at the top of a "hill", as in the effective potential contour plot above, they are nonetheless stable. The reason for the stability is a second-order effect: as a body moves away from the exact Lagrange position, [[Coriolis acceleration]] (which depends on the velocity of an orbiting object and cannot be modeled as a contour map)<ref name="Greenspan" /> curves the trajectory into a path around (rather than away from) the point.<ref name="Greenspan" /><ref>Cacolici, Gianna Nicole, ''et al.,'' "[http://math.arizona.edu/~gabitov/teaching/141/math_485/Final_Report/Lagrange_Final_Report.pdf Stability of Lagrange Points: James Webb Space Telescope"], University of Arizona. Retrieved 17 Sept. 2018.</ref> Because the source of stability is the Coriolis force, the resulting orbits can be stable, but generally are not planar, but "three-dimensional": they lie on a warped surface intersecting the ecliptic plane. The kidney-shaped orbits typically shown nested around {{L4|nolink=yes}} and {{L5|nolink=yes}} are the projections of the orbits on a plane (e.g. the ecliptic) and not the full 3-D orbits.
+
+== Solar System values ==
+[[File:Lagrange points of planets relative to sun.svg|thumb|upright|link={{filepath:Lagrange_points_of_planets_relative_to_sun.svg}}|Sun–planet Lagrange points to scale (Click for clearer points.)]]
+
+This table lists sample values of L<sub>1</sub>, L<sub>2</sub>, and L<sub>3</sub> within the Solar System. Calculations assume the two bodies orbit in a perfect circle with separation equal to the semimajor axis and no other bodies are nearby. Distances are measured from the larger body's center of mass (but see [[barycenter]] especially in the case of Earth-Moon and Sun-Jupiter) with L<sub>3</sub> showing a negative direction. The percentage columns show the distance from the orbit compared to the semimajor axis. E.g. for the Moon, L<sub>1</sub> is {{val|326400|u=km}} from Earth's center, which is 84.9% of the Earth–Moon distance or 15.1% "in front of" (Earthwards from) the Moon; L<sub>2</sub> is located {{val|448900|u=km}} from Earth's center, which is 116.8% of the Earth–Moon distance or 16.8% beyond the Moon; and L<sub>3</sub> is located {{val|-381700|u=km}} from Earth's center, which is 99.3% of the Earth–Moon distance or 0.7084% inside (Earthward) of the Moon's 'negative' position.
+
+{| class="wikitable"
+|+ Lagrangian points in Solar System
+|-
+!scope=col| Body pair
+!scope=col| Semimajor axis, SMA (&times;10<sup>9</sup>&thinsp;m)
+!scope=col| L<sub>1</sub> (&times;10<sup>9</sup>&nbsp;m)
+!scope=col| 1&nbsp;−&nbsp;L<sub>1</sub>/SMA (%)
+!scope=col| L<sub>2</sub> (&times;10<sup>9</sup>&nbsp;m)
+!scope=col| L<sub>2</sub>/SMA&nbsp;−&nbsp;1 (%)
+!scope=col| L<sub>3</sub> (&times;10<sup>9</sup>&nbsp;m)
+!scope=col| 1 + L<sub>3</sub>/SMA (%)
+|-
+!scope=row | Earth–Moon
+| {{val|0.3844}}
+| {{val|0.32639}}
+| {{val|15.09}}
+| {{val|0.4489}}
+| {{val|16.78}}
+| {{val|-0.38168}}
+| {{val|0.7084}}
+|-
+!scope=row style="text-align:left;"| Sun–Mercury
+| {{val|57.909}}
+| {{val|57.689}}
+| {{val|0.3806}}
+| {{val|58.13}}
+| {{val|0.3815}}
+| {{val|-57.909}}
+| {{val|0.000009683}}
+|-
+!scope=row style="text-align:left;"| Sun–Venus
+| {{val|108.21}}
+| {{val|107.2}}
+| {{val|0.9315}}
+| {{val|109.22}}
+| {{val|0.9373}}
+| {{val|-108.21}}
+| {{val|0.0001428}}
+|-
+!scope=row style="text-align:left;"| Sun–Earth
+| {{val|149.598}}
+| {{val|148.11}}
+| {{val|0.997}}
+| {{val|151.1}}
+| {{val|1.004}}
+| {{val|-149.6}}
+| {{val|0.0001752}}
+|-
+!scope=row style="text-align:left;"| Sun–Mars
+| {{val|227.94}}
+| {{val|226.86}}
+| {{val|0.4748}}
+| {{val|229.03}}
+| {{val|0.4763}}
+| {{val|-227.94}}
+| {{val|0.00001882}}
+|-
+!scope=row style="text-align:left;"| Sun–Jupiter
+| {{val|778.34}}
+| {{val|726.45}}
+| {{val|6.667}}
+| {{val|832.65}}
+| {{val|6.978}}
+| {{val|-777.91}}
+| {{val|0.05563}}
+|-
+!scope=row style="text-align:left;"| Sun–Saturn
+| {{val|1426.7}}
+| {{val|1362.5}}
+| {{val|4.496}}
+| {{val|1492.8}}
+| {{val|4.635}}
+| {{val|-1426.4}}
+| {{val|0.01667}}
+|-
+!scope=row style="text-align:left;"| Sun–Uranus
+| {{val|2870.7}}
+| {{val|2801.1}}
+| {{val|2.421}}
+| {{val|2941.3}}
+| {{val|2.461}}
+| {{val|-2870.6}}
+| {{val|0.002546}}
+|-
+!scope=row style="white-space:nowrap"| Sun–Neptune
+| {{val|4498.4}}
+| {{val|4383.4}}
+| {{val|2.557}}
+| {{val|4615.4}}
+| {{val|2.602}}
+| {{val|-4498.3}}
+| {{val|0.003004}}
+|}
+
+==Spaceflight applications==
+{{anchor|Spacecraft and missions|Lagrangian spacecraft and missions}}<!-- Links that are apparently unused, added here just to be safe. So they don't need to be part of the headline. -->
+{{Main|List of objects at Lagrange points}}
+
+=== Sun–Earth ===
+[[File:ACE at L1.png|thumb|The satellite [[Advanced Composition Explorer|ACE]] in an orbit around Sun–Earth {{L1|nolink=yes}}]]
+[[File:The orbits of Gaia and Webb ESA23998736.png|thumb|The [[Gaia (spacecraft)|Gaia]] (yellow) and [[James Webb Space Telescope]] (blue) orbits around Sun–Earth {{L2|nolink=yes}}]]
+
+Sun–Earth {{L1|nolink=yes}} is suited for making observations of the Sun–Earth system. Objects here are never shadowed by Earth or the Moon and, if observing Earth, always view the sunlit hemisphere. The first mission of this type was the 1978 [[International Cometary Explorer|International Sun Earth Explorer 3]] (ISEE-3) mission used as an interplanetary early warning storm monitor for solar disturbances.<ref name="nasa_sse">{{cite web |url=http://solarsystem.nasa.gov/missions/profile.cfm?MCode=ISEEICE |title=ISEE-3/ICE |work=Solar System Exploration |publisher=NASA |access-date=8 August 2015 |archive-url=https://web.archive.org/web/20150720021218/http://solarsystem.nasa.gov/missions/profile.cfm?MCode=ISEEICE |archive-date=20 July 2015 |url-status=dead }}</ref> Since June 2015, [[Deep Space Climate Observatory|DSCOVR]] has orbited the L<sub>1</sub> point. Conversely, it is also useful for space-based [[solar telescope]]s, because it provides an uninterrupted view of the Sun and any [[space weather]] (including the [[solar wind]] and [[coronal mass ejections]]) reaches L<sub>1</sub> up to an hour before Earth. Solar and heliospheric missions currently located around L<sub>1</sub> include the [[Solar and Heliospheric Observatory]], [[Wind (spacecraft)|Wind]], [[Aditya-L1|Aditya-L<sub>1</sub> Mission]] and the [[Advanced Composition Explorer]]. Planned missions include the [[Interstellar Mapping and Acceleration Probe]](IMAP) and the [[NEO Surveyor]]. Recently explored concepts have also included the positioning of a large occulting membrane at the L<sub>1</sub> point, as part of a [[Space_sunshade|space-based solar radiation management]] solution to mitigate global warming.<ref name="seifritz">{{cite journal |last1=Seifritz |first1=W |title=Mirrors to halt global warming |journal=Nature |date=1989 |volume=340 |issue=6235 |page=603 |doi=10.1038/340603a0 |bibcode=1989Natur.340..603S }}</ref><ref>{{Cite news |last1=Flavelle |first1=Christopher |last2=Gelles |first2=David |date=2024-09-13 |title=U.K. to Fund 'Small-Scale' Outdoor Geoengineering Tests |url=https://www.nytimes.com/2024/09/13/climate/united-kingdom-geoengineering-research.html |access-date=2025-01-15 |work=The New York Times |language=en-US |issn=0362-4331}}</ref>
+
+Sun–Earth {{L2|nolink=yes}} is a good spot for space-based observatories. Because an object around {{L2|nolink=yes}} will maintain the same relative position with respect to the Sun and Earth, shielding and calibration are much simpler. It is, however, slightly beyond the reach of Earth's [[Umbra, penumbra and antumbra|umbra]],<ref>Angular size of the Sun at 1 AU + 1.5 million kilometres: 31.6′, angular size of Earth at 1.5 million kilometres: 29.3′</ref> so solar radiation is not completely blocked at L<sub>2</sub>. Spacecraft generally orbit around L<sub>2</sub>, avoiding partial eclipses of the Sun to maintain a constant temperature. From locations near L<sub>2</sub>, the Sun, Earth and Moon are relatively close together in the sky; this means that a large sunshade with the telescope on the dark-side can allow the telescope to cool passively to around 50 K – this is especially helpful for [[infrared astronomy]] and observations of the [[cosmic microwave background]]. The James Webb Space Telescope was positioned in a halo orbit about L<sub>2</sub> on 24 January 2022.
+
+Sun–Earth {{L1|nolink=yes}} and {{L2|nolink=yes}} are [[saddle point]]s and exponentially unstable with [[time constant]] of roughly 23 days. Satellites at these points will wander off in a few months unless course corrections are made.<ref name="cornish" /> 
+
+Sun–Earth {{L3|nolink=yes}} was a popular place to put a "[[Counter-Earth]]" in [[Pulp magazine|pulp]] [[science fiction]] and [[comic book]]s, despite the fact that the existence of a planetary body in this location had been understood as an impossibility once orbital mechanics and the perturbations of planets upon each other's orbits came to be understood, long before the Space Age; the influence of an Earth-sized body on other planets would not have gone undetected, nor would the fact that the foci of Earth's orbital ellipse would not have been in their expected places, due to the mass of the counter-Earth. The Sun–Earth {{L3|nolink=yes}}, however, is a weak saddle point and exponentially unstable with time constant of roughly 150 years.<ref name="cornish" /> Moreover, it could not contain a natural object, large or small, for very long because the gravitational forces of the other planets are stronger than that of Earth (for example, [[Venus]] comes within 0.3&nbsp;[[Astronomical unit|AU]] of this {{L3|nolink=yes}} every 20&nbsp;months).<ref name=DUNCOMBE2>{{cite web|last=Duncombe|first=R. L.|title=Appendix E. Report on Numerical Experiment on the Possible Existence of an "Anti-Earth"|url=http://files.ncas.org/condon/text/appndx-e.htm|work=1968|publisher=U.S. NAVAL OBSERVATORY|access-date=24 October 2013|quote=The separation of [a Counter-Earth] from the line joining the Earth and the Sun shows a variation with increasing amplitude in time, the effect being most pronounced for the largest assumed mass. During the 112 years covered by the integration the separation becomes large enough in all cases that Clarion should have been directly observed, particularly at times of morning or evening twilight and during total solar eclipses.}}</ref>
+
+A spacecraft orbiting near Sun–Earth {{L3|nolink=yes}} would be able to closely monitor the evolution of active sunspot regions before they rotate into a geoeffective position, so that a seven-day early warning could be issued by the [[National Oceanic and Atmospheric Administration|NOAA]] [[Space Weather Prediction Center]]. Moreover, a satellite near Sun–Earth {{L3|nolink=yes}} would provide very important observations not only for Earth forecasts, but also for deep space support (Mars predictions and for crewed missions to [[Near-Earth object#Near-Earth asteroids|near-Earth asteroids]]). In 2010, spacecraft transfer trajectories to Sun–Earth {{L3|nolink=yes}} were studied and several designs were considered.<ref name="transferslibthree">{{Cite journal|title=Spacecraft trajectories to the {{L3|nolink=yes}} point of the Sun–Earth three-body problem |journal=Celestial Mechanics and Dynamical Astronomy |last1=Tantardini|first1=Marco |last2=Fantino|first2=Elena |first3=Yuan |last3=Ren |first4=Pierpaolo |last4=Pergola |first5=Gerard |last5=Gómez |first6=Josep J. |last6=Masdemont |date=2010 |doi=10.1007/s10569-010-9299-x |volume=108 |issue=3 |pages=215–232|bibcode = 2010CeMDA.108..215T |s2cid=121179935 |url=https://hal.archives-ouvertes.fr/hal-00568378/file/PEER_stage2_10.1007%252Fs10569-010-9299-x.pdf }}</ref>
+
+===Earth–Moon===
+Earth–Moon {{L1|nolink=yes}} allows comparatively easy access to lunar and Earth orbits with minimal change in velocity and this has as an advantage to position a habitable [[space station]] intended to help transport cargo and personnel to the Moon and back. The [[SMART-1]] mission <ref>{{Cite web|url=http://www.moontoday.net/news/viewsr.html?pid=14345|archiveurl=https://web.archive.org/web/20051102120549/http://www.moontoday.net/news/viewsr.html?pid=14345|url-status=dead|title=SMART-1: On Course for Lunar Capture &#124; Moon Today – Your Daily Source of Moon News|archivedate=2 November 2005|website=www.moontoday.net}}</ref> passed through the L<sub>1</sub> Lagrangian Point on 11 November 2004 and passed into the area dominated by the Moon's [[gravity|gravitational]] influence.
+
+Earth–Moon {{L2|nolink=yes}} has been used for a [[communications satellite]] covering the Moon's far side, for example, [[Queqiao relay satellite|Queqiao]], launched in 2018,<ref name="magpie-earth-moon-l2">{{cite magazine |last=Jones |first=Andrew |title=Chang'e-4 relay satellite enters halo orbit around Earth-Moon L2, microsatellite in lunar orbit |url=https://spacenews.com/change-4-relay-satellite-enters-halo-orbit-around-earth-moon-l2-microsatellite-in-lunar-orbit/ |magazine=SpaceNews |date=14 June 2018}}</ref> and would be "an ideal location" for a [[propellant depot]] as part of the proposed depot-based space transportation architecture.<ref name="aiaa20100902_p4">{{cite web |last1=Zegler |first1=Frank |title=Evolving to a Depot-Based Space Transportation Architecture |url=http://www.ulalaunch.com/uploads/docs/Published_Papers/Exploration/DepotBasedTransportationArchitecture2010.pdf |work=AIAA SPACE 2010 Conference & Exposition |publisher=AIAA |access-date=25 January 2011 |first2=Bernard |last2=Kutter |date=2 September 2010 |page=4 |quote=L<sub>2</sub> is in deep space far away from any planetary surface and hence the thermal, micrometeoroid, and atomic oxygen environments are vastly superior to those in LEO. Thermodynamic stasis and extended hardware life are far easier to obtain without these punishing conditions seen in LEO. L<sub>2</sub> is not just a great gateway—it is a great place to store propellants. ...&nbsp;L<sub>2</sub> is an ideal location to store propellants and cargos: it is close, high energy, and cold. More importantly, it allows the continuous onward movement of propellants from LEO depots, thus suppressing their size and effectively minimizing the near-Earth boiloff penalties. |archive-url=https://web.archive.org/web/20140624125633/http://www.ulalaunch.com/uploads/docs/Published_Papers/Exploration/DepotBasedTransportationArchitecture2010.pdf |archive-date=24 June 2014 |url-status=dead }}</ref>
+
+Earth–Moon {{L4|nolink=yes}} and {{L5|nolink=yes}} are the locations for the [[Kordylewski cloud|Kordylewski dust clouds]].<ref name="kordylewski">{{cite magazine |last=Kordylewski |first=Kazimierz |author-link=Kazimierz Kordylewski |title=Photographische Untersuchungen des Librationspunktes L<sub>5</sub> im System Erde-Mond |url=https://adsabs.harvard.edu/full/1961AcA....11..165K |magazine=Acta Astronomica |date=1961|volume=11 |page=165 |bibcode=1961AcA....11..165K }}</ref> The [[L5 Society]]'s name comes from the L<sub>4</sub> and L<sub>5</sub> Lagrangian points in the Earth–Moon system proposed as locations for their huge rotating space habitats. Both positions are also proposed for communication satellites covering the Moon like communication satellites in [[geosynchronous orbit]] cover the Earth.<ref name="TychoESAmoonlight">{{cite magazine |last=Hornig |first=Andreas |title=TYCHO: Supporting Permanently Crewed Lunar Exploration with High-Speed Optical Communication from Everywhere |url=https://ideas.esa.int/servlet/hype/IMT?userAction=Browse&templateName=&documentId=e3f5e00bb992b91a4378e46176b02376 |magazine=ESA |date=1 May 2022}}</ref><ref name="TychoVideo">{{cite magazine |last=Hornig |first=Andreas |title=TYCHO mission to Earth-Moon libration point EML-4 @ IAC 2013 |url=https://www.youtube.com/watch?v=7RJSLFP7yyA |magazine=IAC2013 |date=6 October 2013}}</ref>
+
+===Sun–Venus===
+Scientists at the [[B612 Foundation]] were<ref>{{Cite web |last=Foust |first=Jeff |date=20 June 2017 |url=https://spacenews.com/b612-studying-smallsat-missions-to-search-for-near-earth-objects/ |title=B612 studying smallsat missions to search for near Earth objects |website=SpaceNews.com |access-date=6 May 2025 }}</ref> planning to use [[Venus]]'s L<sub>3</sub> point to position their planned [[Sentinel (space telescope)|Sentinel telescope]], which aimed to look back towards Earth's orbit and compile a catalog of [[near-Earth object|near-Earth asteroids]].<ref>{{cite web|url=https://b612foundation.org/sentinel-mission/ |archive-url=https://web.archive.org/web/20120630034544/http://b612foundation.org/sentinel-mission/ |url-status=dead |archive-date=30 June 2012 |title=The Sentinel Mission |publisher=B612 Foundation |access-date=1 February 2014}}</ref>
+
+===Sun–Mars===
+In 2017, the idea of positioning a [[magnetic dipole]] shield at the Sun–Mars {{L1|nolink=yes}} point for use as an artificial magnetosphere for Mars was discussed at a NASA conference.<ref>{{Cite web |url=https://phys.org/news/2017-03-nasa-magnetic-shield-mars-atmosphere.html |title=NASA proposes a magnetic shield to protect Mars' atmosphere |website=phys.org |date=3 March 2017 }}</ref> The idea is that this would protect the planet's atmosphere from the Sun's radiation and the solar wind.
+
+==See also==
+{{Portal|Astronomy|Spaceflight}}
+<!-- Please keep entries in alphabetical order & add a short description [[WP:SEEALSO]] -->
+{{div col}}
+* {{Annotated link|Co-orbital configuration}}
+* {{Annotated link|Euler's three-body problem}}
+* {{Annotated link|Gegenschein}}
+* {{Annotated link|Interplanetary Transport Network}}
+* {{Annotated link|Klemperer rosette}}
+* {{Annotated link|L5 Society|L<sub>5</sub> Society}}
+* {{Annotated link|Lagrange point colonization}}
+* {{Annotated link|Lagrangian mechanics}}
+* {{Annotated link|List of objects at Lagrange points}}
+* {{Annotated link|Lunar space elevator}}
+* {{Annotated link|Oberth effect}}
+{{div col end}}
+<!-- please keep entries in alphabetical order -->
+
+==Explanatory notes==
+{{Notelist}}
+
+==References==
+{{Reflist}}
+
+==Further reading==
+* Joseph-Louis, Comte Lagrange, from ''Œuvres'', Tome 6, « Essai sur le Problème des Trois Corps »—[https://web.archive.org/web/20160506112535/http://www.ltas-vis.ulg.ac.be/cmsms/uploads/File/Lagrange_essai_3corps.pdf Essai (PDF)]; source [http://gallica.bnf.fr/ark:/12148/bpt6k229225j.image.r=Lagrange%2C+Joseph-Louis%2C.langEN.f231.pagination Tome 6 (Viewer)]
+** "Essay on the Three-Body Problem" by J.-L. Lagrange, translated from the above, in [http://www.merlyn.demon.co.uk/essai-3c.htm merlyn.demon.co.uk] {{Webarchive|url=https://web.archive.org/web/20190623015513/http://www.merlyn.demon.co.uk/essai-3c.htm |date=23 June 2019 }}.
+* [http://eulerarchive.maa.org/pages/E304.html Considerationes de motu corporum coelestium]—[[Leonhard Euler]]—transcription and translation at [http://www.merlyn.demon.co.uk/euler304.htm merlyn.demon.co.uk] {{Webarchive|url=https://web.archive.org/web/20200803041106/http://www.merlyn.demon.co.uk/euler304.htm |date=3 August 2020 }}.
+* {{cite web |last=Cornish |first=Neil J. |url=http://www.physics.montana.edu/faculty/cornish/lagrange.html |archive-url=https://web.archive.org/web/20030605101737/http://www.physics.montana.edu/faculty/cornish/lagrange.html |archive-date=5 June 2003 |title=Explanation of Lagrange Points |website=Physics.Montana.edu |publisher=[[Montana State University]] }}
+* [https://web.archive.org/web/20200229000635/https://www.haydenplanetarium.org/tyson/essays/2002-04-the-five-points-of-lagrange.php The Five Points of Lagrange] by [[Neil deGrasse Tyson]]
+* {{Cite web |last=Stanway |first=Elizabeth |author-link=<!-- No article at present (February 2026); Stanway is an astrophysicist at the University of Warwick who has been published in [[Foundation (journal)]], among others (see https://warwick.ac.uk/fac/sci/physics/research/astro/people/stanway/sciencefiction); Wikidata Q127710708 --> |date=2026-02-08 |title=Home on Lagrange |url=https://warwick.ac.uk/fac/sci/physics/research/astro/people/stanway/sciencefiction/cosmicstories/home-on-lagrange/ |url-status=live |archive-url=https://web.archive.org/web/20260208120822/https://warwick.ac.uk/fac/sci/physics/research/astro/people/stanway/sciencefiction/cosmicstories/home-on-lagrange/ |archive-date=2026-02-08 |access-date=2026-02-08 |website=[[Warwick University]] |series=Cosmic Stories Blog}}
+
+==External links==
+{{Commons category|Lagrange points}}
+* [https://www.esa.int/Enabling_Support/Operations/What_are_Lagrange_points What are Lagrange points?]—[[European Space Agency]] page, with good animations
+* [https://map.gsfc.nasa.gov/mission/observatory_l2.html A NASA explanation]
+* [http://math.ucr.edu/home/baez/lagrange.html Explanation of Lagrange points]—[[John C. Baez]]
+* [http://www.phy6.org/stargaze/Slagrang.htm Locations of Lagrange points, with approximations]—David Peter Stern
+* [http://www.astronomycast.com/physics/ep-76-lagrange-points/ ''Astronomy Cast''—Ep. 76: "Lagrange Points"] by Fraser Cain and [[Pamela L. Gay]]
+* See the Lagrange Points and Halo Orbits subsection under the section on Geosynchronous Transfer Orbit in [https://solarsystem.nasa.gov/basics/chapter5-1#critical ''NASA: Basics of Space Flight'', Chapter 5]
+
+{{Orbits}}
+{{Spaceflight}}{{Solar System}}{{Authority control}}
+
+[[Category:Lagrangian mechanics|*]]
+[[Category:Trojans (astronomy)|*]]
+[[Category:Celestial mechanics]]
+[[Category:Gravity]]

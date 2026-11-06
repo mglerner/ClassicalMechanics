@@ -1,0 +1,2035 @@
+Paradoxes of dissipation-induced destabilization
+or
+
+arXiv:0906.1650v1 [math-ph] 9 Jun 2009
+
+who opened Whitney’s umbrella?
+
+October 30, 2018
+
+Oleg N. Kirillov
+Dynamics and Vibrations Group, Department of Mechanical Engineering,
+Technical University of Darmstadt, Hochschulstr. 1, 64289 Darmstadt, Germany
+
+Ferdinand Verhulst
+Mathematisch Instituut, University of Utrecht,
+PO Box 80.010, 3508 TA Utrecht, the Netherlands
+Abstract
+The paradox of destabilization of a conservative or non-conservative system by small dissipation, or
+Ziegler’s paradox (1952), has stimulated an ever growing interest in the sensitivity of reversible and Hamiltonian systems with respect to dissipative perturbations. Since the last decade it has been widely accepted
+that dissipation-induced instabilities are closely related to singularities arising on the stability boundary.
+What is less known is that the first complete explanation of Ziegler’s paradox by means of the Whitney
+umbrella singularity dates back to 1956. We revisit this undeservedly forgotten pioneering result by Oene
+Bottema that outstripped later findings for about half a century. We discuss subsequent developments of
+the perturbation analysis of dissipation-induced instabilities and applications over this period, involving
+structural stability of matrices, Krein collision, Hamilton-Hopf bifurcation and related bifurcations.
+
+MSC:
+Keywords: Dissipation-induced instabilities, destabilization paradox, Ziegler’s pendulum, Whitney’s umbrella
+
+1
+
+Introduction
+
+‘Il n’y a de nouveau que ce qui est oublié’—this paraphrase of the Ecclesiastes 1:10, attributed to MarieAntoinette, perfectly summarizes the story of the mathematical description of the destabilizing effect of vanishing
+dissipation in non-conservative systems.
+1
+
+There is a fascinating category of mechanical and physical systems which exhibit the following paradoxical
+behavior: when modeled as systems without damping they possess stable equilibria or stable steady motions,
+but when small damping is introduced, some of these equilibria or steady motions become unstable.
+The paradoxical effect of damping on dynamic instability was noticed first for rotor systems which have
+stable steady motions for a certain range of speed, but which become unstable when the speed is changed to a
+value outside the range.
+In 1879 Thomson and Tait [79] showed that a statically unstable conservative system which has been stabilized by gyroscopic forces could be destabilized again by the introduction of small damping forces. More
+generally, they consider conservative and nonconservative linear two degrees of freedom systems in remarkable
+detail. The destabilization by damping, using Routh’s theorems, is implicit in their calculations, it is not
+formulated as a paradox.
+In 1924, to explain the destabilization of a flexible rotor in stable rotation at a speed above the critical
+speed for resonance, Kimball [36] introduced a damping of the rotation, which has lead to non-conservative
+positional (circulatory) forces in the equations of motion of a gyroscopic system. In 1933 Smith [76] found that
+
+this non-conservative rotor system loses stability when the speed of rotation Ω > ω 1 + νδ , where ω is the
+
+undamped natural whirling frequency (the critical speed for resonance) and δ and ν are the viscous damping
+
+constants for the stationary and rotating damping mechanisms. In Smith’s model, the destabilizing effect of
+the damping of rotation (ν), observed also by Kapitsa [34], was compensated by the stationary damping (δ).
+This was a first demonstration of a strong influence of the spatial distribution of damping (or equivalently the
+modal distribution) on the borderlines between stability and instability domains in multi-modal non-conservative
+systems [19, 89].
+In the 1950s and 1960s the publications of Ziegler [90, 91], Bolotin [10, 11], and Herrmann [25, 26], motivated
+by aerodynamics applications, initiated a considerable activity in the investigation of dynamic instability of
+equilibrium configurations of structures under non-conservative loads. The canonical problem was the flutter
+of a vertical flexible cantilever column under a compressive non-conservative or follower load which remains
+tangent to the bending column. In the flutter mode the tip of the column is preponderantly slanted towards the
+left during the half-cycle in which the tip is moving towards the right and vice versa in the following half-cycle.
+This snake-like oscillation permits the follower force to do positive work on each cycle [19].
+The strong influence of the spatial or modal distribution of damping within the structure on its stability
+under non-conservative loading, observed in these publications, should not have been surprising in the light
+of earlier findings of rotor dynamists. However, they revealed explicitly the most dramatic and paradoxical
+aspect of the sensitivity of the stability of the nonconservative structures to small damping forces. It turned out
+that the critical load for a structure with small damping may be considerably smaller than that for the same
+structure without damping. In other words, there is a wide range of loads for which the undamped structure is
+stable, but which produce instability as soon as a tiny bit of damping is added to the structure.
+These phenomena were actively studied in the 1960’s to provide more basic understanding and they have
+
+2
+
+continued to be studied with more sophisticated tools, including early attempts to employ singularity theory
+[81], until in the mid 1990s it was understood [30, 71] that the destabilization paradox is related to the Whitney
+umbrella singularity of the stability boundary [84, 85]. After describing in the first sections Whitney’s umbrella
+and Ziegler’s paradox, we make in section 4 a sharp turn to the 1950s to revisit an article of Oene Bottema [14],
+who in 1956 first made this discovery and clarified the paradox. Surprisingly, this paper surpassed the attention
+of most scientists during five decades.
+In section 2 we will relate these results to singularity theory, in sections 5 and 7 we show in various ways
+their extension to finite- and infinite-dimensional systems using perturbation theory of multiple eigenvalues, in
+section 6 we focus on periodic systems, and in the remainder we discuss applications in physics and engineering.
+
+2
+
+Whitney’s umbrella
+
+In a remarkable paper of 1943 [84], Hassler Whitney described singularities of maps of a differential n-manifold
+into E m with m = 2n − 1. It turns out that in this case a special kind of singularity plays a prominent
+role. Later, the local geometric structure of the manifold near the singularity has been aptly called ‘Whitney’s
+umbrella’. In Fig. 1 we reproduce the original sketch of the singular surface from the companion article [85].
+The paper contains two main theorems. Consider the C k map f : E n 7→ E m with m = 2n − 1.
+1. The map f can be altered slightly, forming f ∗ , for which the singular points are isolated. For each such
+an isolated singular point p, a technical regularity condition C is valid which relates to the map f ∗ of the
+independent vectors near p and of the differentials, the vectors in tangent space.
+2. Consider the map f ∗ which satisfies condition C. Then we can choose coordinates x = (x1 , x2 , · · · , xn ) in
+a neighborhood of p and coordinates y = (y1 , y2 , · · · , ym ) (with m = 2n − 1) in a neighborhood of y = f (p)
+such that in a neighborhood of f ∗ (p) we have exactly
+y1
+
+=
+
+x21 ,
+
+yi
+
+=
+
+xi , i = 2, · · · , n,
+
+yn+i−1
+
+=
+
+x1 xi , i = 2, · · · , n.
+
+If for instance n = 2, m = 3, the simplest interesting case, we have near the origin
+y1 = x21 , y2 = x2 , y3 = x1 x2 ,
+
+(1)
+
+so that y1 ≥ 0 and on eliminating x1 and x2 :
+y1 y22 − y32 = 0.
+
+(2)
+
+Starting on the y2 -axis for y1 = y3 = 0, the surface widens up for increasing values of y1 . For each y2 , the
+cross-section is a parabola; as y2 passes through 0, the parabola degenerates to a half-ray, and opens out again
+(with sense reversed); see Fig. 1.
+3
+
+Figure 1: Whitney’s original sketch of the umbrella [85].
+Note that because of the C k assumption for the differentiable map f , the analysis is delicate. There is a
+considerable simplification of the treatment if the map is analytical.
+The analysis of singularities of functions and maps is a fundamental ingredient for bifurcation studies of
+differential equations. After the pioneering work of Hassler Whitney and Marston Morse, it has become a huge
+research field, both in theoretical investigations and in applications. We can not even present a summary of
+this field here, so we restrict ourselves to citing a number of survey texts and discussing a few key concepts and
+examples. In particular we mention [3], [21], [22], [4], [2] and [5]. A monograph relating bifurcation theory with
+normal forms and numerics is [55].
+The relation between singularities of functions and critical points or equilibria of differential equations
+becomes relatively simple when considering Hamiltonian and gradient systems. Consider for instance the timeindependent Hamiltonian function H(p, q) with p, q ∈ Rn . Singularities of the function H are found in the set
+
+R2n where
+
+∂H
+∂H
+=
+= 0.
+∂p
+∂q
+These points correspond with the critical points (equilibria) of the Hamiltonian equations of motion
+ṗ =
+
+∂H
+∂H
+, q̇ = −
+.
+∂q
+∂p
+
+More in general, consider the dynamical system described by the autonomous ODE
+ẋ = f (x), x ∈ Rn , f : Rn 7→ Rn .
+An equilibrium x0 of the system arises if f (x0 ) = 0. With a little smoothness of the map f we can linearize
+4
+
+near x0 so that we can write
+ẋ = A(x − x0 ) + g(x)
+
+(3)
+
+with A a constant n × n− matrix, g(x) contains higher-order terms only. In other words
+lim
+
+kg(x)k
+
+x→x0 kx − x0 k
+
+= 0,
+
+g(x) is tangent to the linear map in x0 .
+The properties of the matrix A determine in a large number of cases the local behavior of the dynamical
+system. In a seminal paper [3], Arnold considers families of matrices, smoothly depending on a number of
+parameters (denoted by vector p). So, for the constant n × n− matrix we write Ap . Suppose that for p = 0, A0
+is in Jordan normal form. Choosing p in a neighborhood of p = 0 produces a deformation (or perturbation) of
+A0 , assuming that near p = 0 the entries of Ap can be expanded in a convergent power series in the parameters.
+A deformation is versal if all other deformations near p = 0 are equivalent under smooth change of parameters.
+The paper [3] uses normal forms to obtain suitable versal deformations. These are associated with the
+bifurcations of the linearized system (3). Note that although a matrix induces a linear map, the corresponding
+eigenvalue problem produces a nonlinear characteristic equation. In addition, the parameters involved, make
+it necessary to analyze maps of Rn into Rm . For instance in the following sections we meet with maps from
+R2 into R3 as studied by Whitney [84]. Nevertheless, in 1943 it was hard to imagine that this study of global
+analysis, a pure mathematical abstraction, would find already an industrial application in the next decade.
+
+3
+
+Ziegler’s paradox
+
+In 1952 Hans Ziegler of ETH Zurich published a paper [90] that became classical and widely known in the
+community of mechanical engineers; it also attracted the attention of mathematicians. Studying a simplified twodimensional model of an elastic rod, fixed at one end and compressed by a tangential end load, he unexpectedly
+encountered a phenomenon with a paradoxal character: the domain of stability of the Ziegler’s pendulum
+changes in a discontinuous way when one passes from the case in which the damping is very small to that where
+it has vanished [90, 91].
+Ziegler’s double pendulum presented in Fig. 2(a) consists of two rigid rods of length l each, whose inclinations
+with respect to the vertical are denoted as ϕ1 and ϕ2 . Two masses m1 and m2 with the weights G1 and G2 are
+concentrated at the distances a1 and a2 from the joints. The elastic restoring torques and the damping torques
+at the joints are cϕ1 , c(ϕ2 − ϕ1 ) and b1 ϕ̇1 , b2 (ϕ̇2 − ϕ̇1 ), respectively. With these assumptions the kinetic energy
+of the system is
+T =
+while the potential energy reads
+V =
+
+
+1
+(m1 a21 + m2 l2 )ϕ̇21 + 2m2 la2 ϕ̇1 ϕ̇2 + m2 a22 ϕ̇22 ,
+2
+
+
+1
+(G1 a1 + G2 l + 2c)ϕ21 − 2cϕ1 ϕ2 + (G2 a2 + c)ϕ22 .
+2
+5
+
+(4)
+
+(5)
+
+Figure 2: Original drawings from the Ziegler’s work of 1952 [90]: (a) double linked pendulum under the follower
+load, (b) (bold line) stability interval of the undamped pendulum and (shaded area) the domain of asymptotic
+stability of the damped pendulum with equal coefficients of dissipation in both joints. If b = 0 we have no
+dissipation and stability for follower force P if P < Pk .
+The generalized dissipative and non-conservative forces are then
+Q1 = P l(ϕ1 − ϕ2 ) − ((b1 + b2 )ϕ̇1 − b2 ϕ̇2 ),
+
+Q2 = b2 (ϕ̇1 − ϕ̇2 ).
+
+(6)
+
+Writing the Lagrange’s equations of motion L̇ϕ̇i − Lϕi = Qi , where L = T − V and a dot denotes time
+differentiation, and assuming G1 = 0 and G2 = 0 for simplicity, we find
+
+ 
+
+ 
+
+ϕ̈1
+b1 + b2 −b2
+ϕ̇1
+−P l + 2c
+m1 a21 + m2 l2 m2 la2
+
++
+
++
+
+ϕ̈2
+−b2
+b2
+ϕ̇2
+−c
+m2 la2 m2 a22
+
+Pl − c
+c
+
+
+
+
+ϕ1
+ϕ2
+
+
+
+ = 0.
+
+(7)
+
+With the substitution ϕi = Ai exp(λt), equation (7) yields a 4-dimensional eigenvalue problem with respect to
+the spectral parameter λ.
+Putting m1 = 2m, m2 = m, a1 = a2 = l, b1 = b2 = b and assuming that dissipation is absent (b = 0),
+Ziegler found from the characteristic equation that the vertical equilibrium position of the pendulum looses its
+stability when the magnitude of the follower force exceeds the critical value Pk , where
+
+
+7 √
+c
+c
+Pk =
+− 2
+≃ 2.086 .
+2
+l
+l
+
+(8)
+
+In the presence of damping (b > 0) the Routh-Hurwitz condition yields the new critical follower load that
+depends on the square of the damping coefficient b
+Pk (b) =
+
+41 c 1 b2
+.
++
+28 l
+2 ml3
+
+(9)
+
+Ziegler found that the domain of asymptotic stability for the damped pendulum is given by the inequalities
+P < Pk (b) and b > 0 and he plotted it against the stability interval P < Pk of the undamped system, Fig. 2(b).
+6
+
+Surprisingly, the limit of the critical load Pk (b) when b tends to zero turned out to be significantly lower than
+the critical load of the undamped system
+Pk∗ = lim Pk (b) =
+b→0
+
+c
+41 c
+≃ 1.464 < Pk .
+28 l
+l
+
+(10)
+
+Note that in the original work of Ziegler, formula (9) contains a misprint which yields linear dependency of
+the critical follower load on the damping coefficient b. Nevertheless, the domain of asymptotic stability found
+in [90] and reproduced in Fig. 2(b), is correct.
+Some authors considered extensions of Ziegler’s model by adding a conservative load and by assuming unequal
+damping coefficients [11, 25, 37, 51, 80]. Fig. 3 demonstrates how the domain of instability for the undamped
+Ziegler’s pendulum with the partially follower load (η = 1 corresponds to the pure follower load), shown in dark
+gray in the (η, p)-plane, extends in a discontinuous manner in the presence of dissipation when b2 = 0.3b1 and
+b1 → 0. The portion of the stability domain that became unstable is depicted in light gray [37, 80]. Therefore,
+the two-dimensional stability diagrams of the undamped system and the system with vanishingly small damping
+differ by a region of positive measure.
+Ziegler drew attention both to the substantial decrease in the critical load of the damped non-conservative
+system with vanishingly small dissipation and to the high sensitivity of the critical follower load with respect to
+the variation of the damping distribution. In the mechanical engineering literature these two effects are called
+the Ziegler’s paradox of destabilization by small damping.
+
+P
+
+p
+
+Stability
+
+Figure 3: Ziegler’s pendulum with the partially follower force [37]: (dark gray) Instability domain in the absence
+of damping (b1 = 0, b2 = 0) and (light gray) its increment in the presence of damping with b2 = 0.3b1 and b1 → 0.
+In the conclusion to his classical book [10], Bolotin emphasized that the discrepancy between the stability
+domains of undamped non-conservative systems and that of systems with infinitesimally small dissipation is a
+topic of the greatest theoretical interest in stability theory. Encouraging further research of the destabilization
+paradox, Bolotin was not aware that the crucial ideas for its explanation were formulated as early as 1956.
+7
+
+4
+
+Bottema’s solution
+
+In 1956, in the journal ‘Indagationes Mathematicae’, there appeared an article by Oene Bottema (1901-1992)
+[14], then Rector Magnificus of the Technical University of Delft and an expert in classical geometry and mechanics, that outstripped later findings for decades. Bottema’s work in 1955 [13] can be seen as an introduction,
+it was directly motivated by Ziegler’s paradox. However, instead of examining the particular model of Ziegler,
+he studied in [14] a much more general class of non-conservative systems.
+Following [13, 14], we consider a holonomic scleronomic linear system with two degrees of freedom, of which
+the coordinates x and y are chosen in such a way that the kinetic energy is T = (ẋ2 + ẏ 2 )/2. Hence the Lagrange
+equations of small oscillations near the equilibrium configuration x = y = 0 are as follows
+ẍ + a11 x + a12 y + b11 ẋ + b12 ẏ
+
+=
+
+0,
+
+ÿ + a21 x + a22 y + b21 ẋ + b22 ẏ
+
+=
+
+0,
+
+(11)
+
+where aij and bij are constants, A := (aij ) is the matrix of the forces depending on the coordinates, B := (bij )
+of those depending on the velocities. If A is symmetrical and while disregarding the damping associated with
+the matrix B, there exists a potential energy function V = (a11 x2 + 2a12 xy + a22 y 2 )/2, if it is antisymmetrical,
+the forces are circulatory. When the matrix B is symmetrical, we have a non-gyroscopic damping force, which
+is positive when the dissipative function (b11 x2 + 2b12 xy + b22 y 2 )/2 is positive definite. If B is antisymmetrical
+the forces depending on the velocities are purely gyroscopic.
+The matrices A and B can both be written uniquely as the sum of symmetrical and antisymmetrical parts:
+A = K + N and B = D + G, where
+
+
+
+
+0 ν
+k11 k12
+, N = 
+,
+K=
+k21 k22
+−ν 0
+
+
+
+D=
+
+d11
+
+d12
+
+d21
+
+d22
+
+
+
+,
+
+
+
+G=
+
+0
+
+Ω
+
+−Ω
+
+0
+
+
+
+,
+
+(12)
+
+with k11 = a11 , k22 = a22 , k12 = k21 = (a12 + a21 )/2, ν = (a12 − a21 )/2 and d11 = b11 , d22 = b22 , d12 = d21 =
+
+(b12 + b21 )/2, Ω = (b12 − b21 )/2.
+The system (12) has a potential energy function (disregarding damping) when ν = 0, it is purely circulatory
+for k11 = k12 = k22 = 0, it is non-gyroscopic for Ω = 0, and has no damping when d11 = d12 = d22 = 0. If
+damping exists, we suppose in this section that it is positive.
+In order to solve the equations (12) we put x = C1 exp(λt), y = C2 exp(λt) and obtain the characteristic
+equation for the frequencies of the small oscillations around equilibrium
+Q := λ4 + a1 λ3 + a2 λ2 + a3 λ + a4 = 0,
+
+(13)
+
+where [37, 38, 45]
+a1 = trD,
+
+a2 = trK + det D + Ω2 ,
+
+a3 = trKtrD − trKD + 2Ων,
+
+a4 = det K + ν 2 .
+
+(14)
+
+For the equilibrium to be stable all roots of the characteristic equation (13) must be semi-simple and have real
+parts which are non positive.
+8
+
+It is always possible to write, in at least one way, the left hand-side as the product of two quadratic forms
+with real coefficients, Q = (λ2 + p1 λ + q1 )(λ2 + p2 λ + q2 ). Hence
+a1 = p 1 + p 2 ,
+
+a2 = p1 p2 + q1 + q2 ,
+
+a3 = p1 q2 + p2 q1 ,
+
+a4 = q1 q2 .
+
+(15)
+
+For all the roots of the equation (13) to be in the left side of the complex plane (L) it is obviously necessary
+and sufficient that pi and qi are positive. Therefore in view of (15) we have: a necessary condition for the roots
+Q = 0 having negative real parts is ai > 0 (i = 1, 2, 3, 4). This system of conditions however is not sufficient,
+as the example (λ2 − λ + 2)(λ2 + 2λ + 3) = λ4 + λ3 + 3λ2 + λ + 6 shows. But if ai > 0 it is not possible
+that either one root of three roots lies in L (for then a4 ≤ 0); it is also impossible that no root is in it (for,
+then a4 ≤ 0). Hence if ai > 0 at least two roots are in L; the other ones are either both in L, or both on the
+imaginary axis, or both in R. In order to distinguish between these cases we deduce the condition for two roots
+being on the imaginary axis. If µi (µ 6= 0 is real) is a root, then µ4 − a2 µ2 + a4 = 0 and −a1 µ2 + a3 = 0. Hence
+
+H := a21 a4 + a23 − a1 a2 a3 = 0. Now by means of (15) we have
+
+H = −p1 p2 (a1 a3 + (q1 − q2 )2 ).
+
+(16)
+
+In view of a1 > 0, a3 > 0 the second factor is positive; furthermore a1 = p1 + p2 > 0, hence p1 and p2 cannot
+both be negative. Therefore H < 0 implies p1 > 0, p2 > 0, for H = 0 we have either p1 = 0 or p2 = 0 (and
+not both, because a3 > 0), for H > 0 p1 and p2 have different signs. We see from the decomposition of the
+polynomial (13) that all its roots are in L if p1 and p2 are positive.
+Hence: a set of necessary and sufficient conditions for all roots of (13) to be on the left hand-side of the
+complex plane is
+ai > 0 (i = 1, 2, 3, 4),
+
+H < 0.
+
+(17)
+
+We now proceed to the cases where all roots have non-positive real parts, so that they lie either in L or on
+the imaginary axis. If three roots are in L and one on the imaginary axis, this root must be λ = 0. Reasoning
+along the same lines as before we find that necessary and sufficient conditions for this are ai > 0 (i = 1, 2, 3),
+a4 = 0, and H < 0. If two roots are in L and two (different) roots on the imaginary axis we have p1 > 0, q1 > 0,
+p2 = 0, q2 > 0 and the conditions are ai > 0 (i = 1, 2, 3, 4) and H = 0. If one root is in L and three are on
+the imaginary axis, then p1 > 0, q1 = 0, p2 = 0, q2 > 0 and the conditions are ai > 0 (i = 1, 2, 3), a4 = 0, and
+H = 0.
+The obtained conditions are border cases of (17). This does not occur with the last type we have to consider:
+all roots are on the imaginary axis. We now have p1 = 0, p2 = 0, q1 > 0, q2 > 0. Hence a2 > 0, a4 > 0,
+a1 = a3 = 0 and therefore H = 0. This set of relations is necessary, but not sufficient, as the example
+Q = λ4 + 6λ2 + 25 = 0 (which has two roots in L and two in the righthand side of the complex plane (R))
+shows. The proof given above is not valid because as seen from (17), H = 0 does not imply now p1 p2 = 0, the
+second factor being zero for a1 a3 = 0 and q1 = q2 . The condition can of course easily be given; the equation
+(13) is λ4 + a2 λ2 + a4 = 0 and therefore it reads a2 > 0, a4 > 0, a22 > 4a4 .
+9
+
+Summing up we have: all roots of (13) (assumed to be different) have non-positive real parts if and only if
+one of the two following sets of conditions is satisfied [14]
+A:
+B:
+
+a21 a4 + a23
+,
+a1 a3
+√
+a1 = 0, a2 > 0, a3 = 0, a4 > 0, a2 > 2 a4 .
+a1 > 0, a2 > 0, a3 > 0, a4 ≥ 0, a2 ≥
+
+(18)
+
+Note that a1 represents the damping coefficients b11 and b22 in the system. One could expect B to be a
+limit of A, so that for a1 → 0, a3 → 0 the set A would continuously tend to B. That is not the case.
+Remark first of all that the roots of (13) never lie outside R if a1 = 0, a3 6= 0 (or a1 6= 0, a3 = 0).
+Furthermore, if A is satisfied and we take a1 = εb1 , a3 = εb3 , where b1 and b3 are fixed and ε → 0, the last
+condition of A reads (ε 6= 0)
+a2 >
+
+b21 a4 + b23
+= g1
+b1 b3
+
+while for ε = 0 we have
+√
+a2 > 2 a4 = g 2 .
+Obviously we have [14]
+g1 − g2 =
+
+√
+(b1 a4 − b3 )2
+b1 b3
+
+√
+√
+so that (g1 > g2 ) but for b3 = b1 a4 . That means that in all cases where b3 6= b1 a4 we have a discontinuity
+in our stability condition. The phenomenon of the discontinuity was illustrated by Bottema in a geometrical
+diagram, Fig. 4.
+Following Bottema [14] we substitute in (13) λ = cµ, where c is the positive fourth root of a4 > 0. The new
+equation reads P := µ4 + b1 µ3 + b2 µ2 + b3 µ + 1 = 0, where bi = ai /ci (i = 1, 2, 3, 4). If we substitute ai = ci bi in
+A and B we get the same condition as when we write bi for ai , which was to be expected, because if the roots
+of (13) are outside R, those of P = 0 are also outside R and inversely. We can therefore restrict ourselves to the
+case a4 = 1, so that we have only three parameters a1 , a2 , a3 . We take them as coordinates in an orthogonal
+coordinate system.
+The condition H = 0 or
+a1 a2 a3 = a21 + a23
+
+(19)
+
+is the equation of a surface V of the third degree, which we have to consider for a1 ≥ 0, a3 ≥ 0, Fig. 4. Obviously
+V is a ruled surface, the line a3 = ma1 , a2 = m + 1/m (0 < m < ∞) being on V . The line is parallel to the
+0a1 a3 -plane and intersects the a2 -axis in a1 = a3 = 0, a2 = m + 1/m ≥ 2. The a2 -axis is the double line of V ,
+a2 > 2 being its active part. Two generators pass through each point of it; they coincide for a2 = 2 (m = 1),
+and for a2 → ∞ their directions tend to those of the a1 and a3 -axis (m = 0, m = ∞). The conditions A and B
+express that the image point (a1 , a2 , a3 ) lies on V or above V . The point (0, 2, 0) is on V , but if we go to the
+a2 -axis along the line a3 = ma1 the coordinate a2 has the limit m + 1/m, which is > 2 but for m = 1. Curiously
+enough, even half a century later, there appear papers repeating this reasoning and the result almost literally,
+see for instance [68].
+10
+
+Figure 4: Original drawing (left) from the 1956 work [14] of Oene Bottema (right), showing the domain of the
+asymptotic stability of the real polynomial of fourth order and of the two-dimensional non-conservative system
+with Whitney’s umbrella singularity. The ruled surface (called V in the text) is given by equation (19)
+Note that we started off with 8 parameters in eq. (11), but that the surface V bounding the stability domain
+is described by 3 parameters. It is described by a map of E 2 into E 3 as in Whitney’s papers [84, 85]. Explicitly,
+a transformation of (19) to (2) is given by
+a1 =
+
+1
+1
+y3 + w, a2 = 2 + y2 , a3 = − y3 + w
+2
+2
+
+with w2 = 41 y32 + y1 y2 .
+Returning to the non-conservative system (11) (ν 6= 0), with damping, but without gyroscopic forces, so
+Ω = 0, and assuming as in [13] that k12 = 0, k11 > 0, and k22 > 0 (a similar setting but with d12 = 0 and
+k12 6= 0 was considered later by Bolotin in [10, 12]), we find that the condition for stability H ≤ 0 reads
+ν2 <
+
+(d11 − d22 )2 (k11 − k22 )2 − 4(k11 d22 + k22 d11 )(d11 d22 − d212 )(d11 + d22 )
+(k11 − k22 )2
+.
+−
+4
+4(d11 + d22 )2
+
+(20)
+
+Suppose now that the damping force decreases in a uniform way, so we put d11 = εd′11 , d12 = εd′12 , d22 = εd′22 ,
+where d11 , d12 , d22 are constants and ε → 0. Then, for the inequality (20) we get
+2
+ν 2 < νcr
+:=
+
+(k11 − k22 )2
+(d′ − d′22 )2 (k11 − k22 )2
+.
+− 11
+4
+4(d′11 + d′22 )2
+
+But if there is no damping, we have to make use of condition B, which gives
+2
+
+trK
+(k11 − k22 )2
+2
+2
+− det K.
+=
+ν < ν0 :=
+4
+2
+11
+
+(21)
+
+(22)
+
+Obviously
+2
+ν0 2 − νcr
+=
+
+2
+
+(d′11 − d′22 )2 (k11 − k22 )2
+2trKD − trKtrD
+≥ 0,
+=
+4(d′11 + d′22 )2
+2trD
+
+(23)
+
+where the expressions written in terms of the invariants of the matrices involved [45] are valid also without the
+restrictions on the matrices D and K that were adopted in [10, 12, 13]. For the values of 2trKD−trKtrD
+which
+2trD
+are small with respect to ν0 we can approximately write [39, 40]
+νcr ≃ ν0 −
+
+2
+
+1 2trKD − trKtrD
+.
+2ν0
+2trD
+
+(24)
+
+If D depends on two parameters, say δ1 and δ2 , then (24) has a canonical form (2) for the Whitney’s umbrella
+in the (δ1 , δ2 , ν)-space. Due to discontinuity existing for 2trKD − trKtrD 6= 0 the equilibrium may be stable
+if there is no damping, but unstable if there is damping, however small it may be. We observe also that the
+critical non-conservative parameter, νcr , depends on the ratio of the damping coefficients and thus is strongly
+sensitive to the distribution of damping similarly to how it happens in rotor dynamics. This is the results which
+Ziegler [90, 91] found in a special case.
+
+5
+
+‘Hopf meets Hamilton under Whitney’s umbrella’
+
+The title of this section derives from a nice tutorial paper by Langford [56]. As we have seen, Bottema was
+the first who established that the asymptotic stability domain of a real polynomial of fourth order in the space
+of its coefficients consists of one of the ‘pockets’ of the Whitney umbrella. The corresponding singularity was
+later identified as generic in the three parameter families of real matrices by V.I. Arnold [3, 4], who named it
+‘deadlock of an edge’. In this respect Bottema’s results in [14] can be seen as an early study of bifurcations and
+structural stability of polynomials and matrices, and therefore of the singularities of their stability boundaries
+whose systematical treatment was initiated since the beginning of the 1970s in [3, 4, 57, 58].
+Although Bottema applied his result to nonconservative systems without gyroscopic forces, there are reasons
+for the singularity to appear in the case when gyroscopic forces are taken into account because the stability
+is determined by the roots of a similar fourth order characteristic polynomial. In order to study this case we
+consider separately the following m-dimensional version of the non-conservative system (11)
+ẍ + (ΩG + δD)ẋ + (K + νN)x = 0,
+
+(25)
+
+where a dot stands for time differentiation, x ∈ Rm , and real matrix K = KT corresponds to potential forces.
+Real matrices D = DT , G = −GT , and N = −NT are related to dissipative (damping), gyroscopic, and non-
+
+conservative positional (circulatory) forces with magnitudes controlled by scaling factors δ, Ω, and ν respectively.
+A circulatory system, to which the undamped Ziegler’s pendulum is attributed [40, 62, 70], is obtained from
+(25) by neglecting velocity-dependent forces
+ẍ + (K + νN)x = 0,
+
+12
+
+(26)
+
+while a gyroscopic one has no damping and non-conservative positional forces
+ẍ + ΩGẋ + Kx = 0.
+
+(27)
+
+Circulatory and gyroscopic systems (26) and (27) possess fundamental symmetries that are evident after transformation of equation (25) to the form ẏ = Cy with
+
+− 1 ΩG
+C= 2
+1 2 2
+1
+2 δΩDG + 4 Ω G − K − νN
+
+I
+−δD − 21 ΩG
+
+where I is the identity matrix.
+
+
+
+
+
+, y = 
+
+x
+ẋ+ 12 ΩGx
+
+In the absence of damping and gyroscopic forces (δ = Ω = 0), RCR = −C with
+
+
+I
+0
+.
+R = R−1 = 
+0 −I
+
+
+
+,
+
+(28)
+
+(29)
+
+This means that the matrix C has a time reversal symmetry, and equation (26) describes a reversible dynamical
+system [62]. Due to this property,
+det(C − λI) = det(R(C − λI)R) = det(C + λI),
+
+(30)
+
+and the eigenvalues of circulatory system (26) appear in pairs (−λ, λ). Without damping and non-conservative
+positional forces (δ = ν = 0) the matrix C possesses the Hamiltonian symmetry JCJ = CT , where J is a
+symplectic matrix [4, 60, 9] with
+
+
+
+J = −J−1 = 
+
+As a consequence,
+
+0
+
+I
+
+−I 0
+
+
+
+.
+
+det(C − λI) = det(J(C − λI)J) = det(CT + λI) = det(C + λI),
+
+(31)
+
+(32)
+
+which implies that if λ is an eigenvalue of C then so is −λ, similar to the reversible case. Therefore, an equilibrium
+of a circulatory or of a gyroscopic system is either unstable or all its eigenvalues lie on the imaginary axis of
+the complex plane, in the last case implying marginal stability if they are semi-simple.
+It is well known that in the Hamiltonian case, the transition from gyroscopic stability to flutter instability
+occurs through the interaction of simple purely imaginary eigenvalues with the opposite Krein signature known
+as the Krein collision or the Hamiltonian Hopf bifurcation [23, 56, 59, 60, 61]. The collision occurs at the border
+of marginal stability, say at Ω = Ω0 for (27), and it yields a double pure imaginary eigenvalue with the Jordan
+chain of vectors, which splits into a a complex conjugate pair under destabilizing variation of the parameter Ω.
+Let iω0 be the double eigenvalue at Ω = Ω0 with the Jordan chain of generalized eigenvectors u0 , u1 ,
+satisfying the equations [46]
+(−Iω02 + iω0 Ω0 G + K)u0
+
+=
+
+0,
+
+(−Iω02 + iω0 Ω0 G + K)u1
+
+=
+
+−(2iω0 I + Ω0 G)u0 .
+
+13
+
+(33)
+
+Then, the Krein collision in the gyroscopic system (27) is described by the following expressions
+iω(Ω) =
+u(Ω) =
+
+p
+1
+iω0 ± iµ Ω − Ω0 + o(|Ω − Ω0 | 2 ),
+p
+1
+u0 ± iµu1 Ω − Ω0 + o(|Ω − Ω0 | 2 ),
+
+(34)
+
+where the real coefficient µ is according to [46]
+µ2 = −
+
+2ω02 uT0 u0
++
+T
+T
+Ω0 (ω02 uT1 u1 − uT1 Ku1 − iω0 Ω+
+0 u1 Gu1 − u0 u0 )
+
+(35)
+
+with the bar over a symbol denoting complex conjugate.
+Perturbing the system (27) by small damping and circulatory forces yields an increment to a simple pure
+imaginary eigenvalue [40, 46]
+λ = iω(Ω) −
+
+ω 2 (Ω)uT (Ω)Du(Ω)δ − iωuT (Ω)Nu(Ω)ν
++ o(δ, ν).
+uT (Ω)Ku(Ω) + ω 2 uT (Ω)u(Ω)
+
+(36)
+
+With the expressions (34), equation (36) is used for the calculation of the deviation from the imaginary axis
+of the eigenvalues that participated in the Krein collision in the presence of the non-Hamiltonian perturbation
+that makes the merging of modes an imperfect one [28].
+Since D and K are real symmetric matrices and N is a real skew-symmetric one, the first-order increment
+to the eigenvalue iω(Ω) given by (36) is real-valued. Consequently, in the first approximation in δ and ν, the
+simple eigenvalue iω(Ω) remains on the imaginary axis, if ν = γ(Ω)δ, where
+γ(Ω) = −iω(Ω)
+
+uT (Ω)Du(Ω)
+.
+uT (Ω)Nu(Ω)
+
+(37)
+
+With the expansions (34) the formula (37) reads
+√
+p
+d1 ∓ µd2 Ω − Ω0
+√
+,
+γ(Ω) = −(ω0 ± µ Ω − Ω0 )
+n1 ± µn2 Ω − Ω0
+
+where we define
+d1
+
+=
+
+Re(uT0 Du0 ),
+
+d2 = Im(uT0 Du1 − uT1 Du0 ),
+
+n1
+
+=
+
+Im(uT0 Nu0 ),
+
+n2 = Re(uT0 Nu1 − uT1 Nu0 ),
+
+γ∗ = −iω0
+
+(38)
+
+uT0 Du0
+.
+uT0 Nu0
+
+(39)
+
+From (38) it follows that in the vicinity of γ := ν/δ = γ∗ the limit of the critical value of the gyroscopic parameter
+Ωcr of the near-Hamiltonian system as δ → 0 exceeds the threshold of gyroscopic stabilization determined by
+the Krein collision (see [46])
+Ωcr (γ) = Ω0 +
+
+n21 (γ − γ∗ )2
+≥ Ω0 .
+2
+µ (ω0 d2 − γ∗ n2 − d1 )2
+
+(40)
+
+Substituting γ = νδ in expression (40) yields a simple estimate for the critical value of the gyroscopic
+parameter Ωcr (δ, ν) that has a canonical form (2) and therefore describes the Whitney’s umbrella surface in the
+(δ, ν, Ω)-space [46]
+Ωcr (δ, ν) = Ω0 +
+
+n21 (ν − γ∗ δ)2
+.
+µ2 (ω0 d2 − γ∗ n2 − d1 )2 δ 2
+14
+
+(41)
+
+In case of two oscillators (m = 2) the approximation (41) is transformed to [44, 45, 46]
+Ωcr (δ, ν) = Ω0 + Ω0
+
+2
+(ν − γ∗ δ)2 ,
+(ω0 trD)2 δ 2
+
+γ∗ :=
+
+trKD + (Ω0 2 − ω02 )trD
+,
+2Ω0
+
+(42)
+
+p
+√
+√
+where ω0 = 4 det K and Ω0 = −trK + 2 det K in the assumption that det K > 0 and trK < 0. Due to
+
+the singularity the gyroscopic stabilization in the presence of dissipative and non-conservative positional forces
+depends on the ratio νδ and is thus very sensitive to non-Hamiltonian perturbations. We will discuss gyroscopic
+stabilization in more detail in section 7.1.
+We note that the sensitivity of simple eigenvalues of Hamiltonian and gyroscopic systems to dissipative
+perturbations was a subject of intensive investigations, see, e.g., MacKay [60], Haller [23], and Bloch et al.
+[9]. MacKay pointed out the necessity to extend such a perturbation analysis to multiple eigenvalues [60].
+Maddocks and Overton [61] initiated the study of multiple eigenvalues and showed that for an appropriate class
+of dissipatively perturbed Hamiltonian systems, the number of unstable modes of the dynamics linearized at a
+nondegenerate equilibrium is determined solely by the index of the equilibrium regarded as a critical point of the
+Hamiltonian. They analyzed the movement of the eigenvalues in the limit of vanishing dissipation without direct
+application, however, to the destabilization paradox and approximation of the singular stability boundary. Our
+calculations performed in this section use the ideas developed in [44, 45, 46, 50] that, however, can be traced
+back to the works of Andreichikov and Yudovich [1] and Crandall [19].
+We see that in Hamiltonian mechanics, the Hamiltonian-Hopf bifurcation in which two pairs of complex
+conjugate eigenvalues approach the imaginary axis symmetrically from the left and right, then merge in double
+purely imaginary eigenvalues and separate along the imaginary axis (or the reverse) has codimension one. In
+the general case of non-Hamiltonian vector fields, the occurrence of double imaginary eigenvalues has codimension three. The interface between these two cases possesses the Whitney umbrella singularity; the Hamiltonian
+systems lie on its handle. Quoting Langford from his introductory paper [55] linking Hopf bifurcation, Hamiltonian mechanics and Whitneys umbrella: ‘Hopf meets Hamilton under Whitney’s umbrella’, which, we add,
+was opened by Bottema.
+
+6
+
+Parametric resonance in systems with dissipation.
+
+Parametric resonance arises usually in applications if we have an independent (periodic) source of energy. The
+classical example is the mathematical pendulum with oscillating support and a typical equation studied in this
+context is the Mathieu equation:
+ẍ + (ω 2 + ε cos νt)x = 0.
+In the case of this equation, basic questions are: for what values of the parameters ω, ε, ν is the trivial solution
+x = ẋ = 0 stable or unstable? Another basic question is, what happens on adding damping effects? In the
+theory, certain resonance relations between the frequencies ω and ν play a crucial part. See for instance [4],
+[10], [73], [86] or [83] and Fig. 7(a) for this classical case.
+15
+
+In applications with parametric excitation where usually more degrees of freedom play a part, many combination resonances are possible. For a number of interesting cases, analysis and more references see [10, 73]. In
+what follows, the so-called sum resonance will be important.
+First we will consider the general procedure for systems with this combination resonance, after which we
+will discuss an application.
+
+6.1
+
+Normalization of oscillators in sum resonance
+
+In [30] a geometrical explanation is presented for damping induced instability in parametric systems using ‘all’
+the parameters of the system as unfolding parameters. It will turn out that, using symmetry and normalization,
+four parameters are needed to give a complete description in a two degrees of freedom system, or more generally
+systems where three frequencies are in resonance, but three parameters suffice to visualize the situation.
+Consider the following type of nonlinear differential equation with three frequencies
+ẋ = Ax + εf (x, ω0 t), x ∈ R4 ,
+
+(43)
+
+which describes for instance a system of two parametrically forced coupled oscillators. A is a 4 × 4 matrix,
+containing a number of parameters, with purely imaginary eigenvalues ±iω1 and ±iω2 . Assume that A is
+semi-simple, so, if necessary, we can put A into diagonal form. The vector valued function f contains both
+linear and nonlinear terms and is 2π-periodic in ω0 t, f (0, ω0 t) = 0 for all t. Eq. (43) can be resonant in many
+different ways, but as announced, we consider here the sum resonance
+ω1 + ω2 = ω0 ,
+where the system may exhibit instability. The parameter δ is used to control the detuning δ = (δ1 , δ2 ) of the
+frequencies (ω1 , ω2 ) near resonance and the parameter µ = (µ1 , µ2 ) derives from the damping coefficients. So
+we may put A = A(δ, µ). We summarize the analysis from [30].
+The basic approach will be to put eq. (43) into normal form by normalization or averaging whereas the
+theory from [3] will play a part. In the normalized equation the time-dependence is removed from lower order
+and appears only in the higher order terms. It turns out that the autonomous, linear part of this equation
+contains already enough information to determine the stability regions of small amplitude oscillations near the
+origin. The linear part of the normal form can be written as
+ż = A(δ, µ)z
+with 4-dimensional
+
+and
+
+
+
+0
+
+0
+
+B(δ, µ)
+
+iδ1 − µ1
+
+α1
+
+α2
+
+−iδ2 − µ2
+
+A(δ, µ) = 
+
+
+B(δ, µ) = 
+
+
+
+B(δ, µ)
+
+16
+
+,
+
+
+
+.
+
+(44)
+
+(45)
+
+Figure 5: The critical surface in (µ+ , µ− , δ+ ) space for eq. (43). µ+ = µ1 + µ2 , µ− = µ1 − µ2 , δ+ = δ1 + δ2 .
+Only the part µ+ > 0 and δ+ > 0 is shown. The parameters δ1 , δ2 control the detuning of the frequencies, the
+parameters µ1 , µ2 the damping of the oscillators (vertical direction). The base of the umbrella lies along the
+δ+ -axis.
+Since A(δ, µ) is the complexification of a real matrix, it commutes with complex conjugation. Furthermore,
+according to the normalization described in [4], [32] and [69] and if ω1 and ω2 are independent over the integers,
+the normal form of eq. (43) has a continuous symmetry group. The second step is then to test the linear part
+A(δ, µ) of the normalized equation for structural stability i.e. to answer the question whether there exist open
+sets in parameter space where the dynamics is qualitatively the same. The analysis follows [3] and [4]. The
+family of matrices A(δ, µ) is parameterized by the detuning δ and the damping µ. The procedure is to identify
+the most degenerate member N of this family, which turns out to be A(δ, 0) and then show that A(δ, µ) is its
+versal unfolding in the sense of [4]. The family A(δ, µ) is equivalent to a versal unfolding of the degenerate
+member N. For details we refer again to [30, 83], an explicit example is discussed in the next subsection.
+We can put the conclusions in a different way: the family A(δ, µ) is structurally stable for δ, µ > 0, whereas
+A(δ, 0) is not. This has interesting consequences in applications as small damping and zero damping may
+exhibit very different behavior. In parameter space, the stability regions of the trivial solution are separated
+17
+
+by a critical surface which is the hypersurface where A(δ, µ) has at least one pair of purely imaginary complex
+conjugate eigenvalues. As before, this critical surface is diffeomorphic to the Whitney umbrella, see Fig. 5.
+It is the singularity of the Whitney umbrella that causes the discontinuous behavior displayed in the stability
+diagram in the subsection 6.3. The structural stability argument guarantees that the results are ‘universally
+valid’, i.e. they qualitatively hold for generic systems in sum resonance.
+Above we have described the basic normalization approach, but if we are interested only in the shape of the
+resonance (instability) tongues, there are faster methods. For instance using the Poincaré-Linstedt method, see
+[83].
+
+6.2
+
+Rotor dynamics without damping
+
+The effects of adding linear damping to a parametrically excited system have already been observed and described in for instance [10], [86], [78], or [73]. The following example is based on [66].
+z
+disk
+Ω
+
+u
+y
+
+x
+
+Figure 6: Rotor with diskmass M , elastically mounted with axial (u) and lateral directions.
+Consider a rigid rotor consisting of a heavy disk of mass M which is rotating with constant rotation speed
+Ω around an axis. The axis of rotation is elastically mounted on a foundation; the connections which are
+holding the rotor in an upright position are also elastic. To describe the position of the rotor we have the axial
+displacement u in the vertical direction (positive upwards), the angle of the axis of rotation with respect to the
+z-axis and around the z-axis. Instead of these two angles we will use the projection of the center of gravity
+motion on the horizontal (x, y)-plane, see Fig. 6. Assuming small oscillations in the upright (u) position,
+
+18
+
+frequency 2η, the equations of motion without damping become after rescaling:
+ẍ + 2αẏ + (1 + 4εη 2 cos 2ηt)x =
+
+0,
+
+ÿ − 2αẋ + (1 + 4εη 2 cos 2ηt)y
+
+0.
+
+=
+
+(46)
+
+The parameter α is proportional to the rotation speed Ω. System (46) constitutes a conservative system of
+coupled Mathieu-like equations. Abbreviating P (t) = 4η 2 cos 2ηt, the corresponding Hamiltonian is:
+H=
+
+1
+1
+1
+1
+(1 + α2 + εP (t))x2 + p2x + (1 + α2 + εP (t))y 2 + p2y + αxpy − αypx ,
+2
+2
+2
+2
+
+where px , py are the momenta. The natural frequencies of the unperturbed system (46), ε = 0, are ω1 =
+√
+√
+α2 + 1 + α and ω2 = α2 + 1 − α. By putting z = x + iy, system (46) can be written as:
+z̈ − 2αiż + (1 + 4εη 2 cos 2ηt)z = 0.
+
+(47)
+
+v = e−iαt z,
+
+(48)
+
+Introducing the new variable:
+
+and rescaling time ηt = τ , we obtain:
+v ′′ +
+
+
+
+1 + α2
++ 4ε cos 2τ
+η2
+
+
+
+v = 0,
+
+(49)
+
+where the prime denotes differentiation with respect to τ. By writing down the real and imaginary parts of this
+equation, we have actually got two identical Mathieu equations.
+Using the classical and well-known results on the Mathieu equation, we conclude that the trivial solution is
+√
+stable for ε small enough, provided that 1 + α2 is not close to nη , for n = 1, 2, 3, .... The first-order and most
+prominent interval of instability, n = 1, arises if:
+p
+1 + α2 ≈ η.
+
+(50)
+
+If condition (50) is satisfied, the trivial solution of equation (49) is unstable. Therefore, the trivial solution of
+system (46) is also unstable. Note that this instability arises when:
+ω1 + ω2 = 2η,
+i.e. when the sum of the eigenfrequencies of the unperturbed system equals the excitation frequency 2η which
+is the sum resonance of first order. The domain of instability is bounded by:
+ηb =
+
+p
+1 + α2 (1 ± ε) + O(ε2 )
+
+.
+
+(51)
+
+See Fig. 7(b) where the V-shaped instability domain is presented in the case of rotor rotation (α 6= 0) without
+damping.
+Higher order combination resonances can be studied in the same way; the domains of instability in parameter
+space continue to narrow as n increases. As noted, the parameter α is proportional to the rotation speed Ω of
+the disk and also to the ratio of the moments of inertia.
+19
+
+6.3
+
+Rotor dynamics with damping
+
+We add small linear damping to system (46), with positive damping parameter µ = 2εκ. This leads to the
+equations:
+ẍ + 2αẏ + (1 + 4εη 2 cos 2ηt)x + 2εκẋ =
+
+0,
+
+ÿ − 2αẋ + (1 + 4εη 2 cos 2ηt)y + 2εκẏ
+
+0.
+
+=
+
+(52)
+
+and using the complex variable z:
+
+z̈ − 2αiż + 1 + 4εη 2 cos 2ηt z + 2εκż = 0.
+
+(53)
+
+Because of the damping term, we can no longer reduce the complex eq. (53) to two identical second order
+real equations, as we did previously.
+In the sum resonance of the first order, we have ω1 + ω2 ≈ 2η and the solution of the unperturbed (ε = 0)
+equation can be written as:
+z(t) = z1 eiω1 t + z2 e−iω2 t ,
+√
+with ω1 = α2 + 1 + α,
+
+√
+ω2 = α2 + 1 − α.
+
+z1 , z2 ∈ C,
+
+(54)
+
+Applying variation of constants leads to equations for z1 and z2 :
+ż1
+
+=
+
+ż2
+
+=
+
+iε
+(2κ(iω1 z1 − iω2 z2 e−i(ω1 +ω2 )t ) +
+ω1 + ω2
+4η 2 cos 2ηt(z1 + z2 e−i(ω1 +ω2 )t )),
+−iε
+(2κ(iω1 z1 ei(ω1 +ω2 )t − iω2 z2 ) +
+ω1 + ω2
+4η 2 cos 2ηt(z1 ei(ω1 +ω2 )t + z2 )).
+
+To calculate the instability interval around the value η0 = 21 (ω1 + ω2 ) =
+
+(55)
+
+√
+α2 + 1, we apply normal form or
+
+(periodic solution) perturbation theory, see [66] for details, to find for the stability boundary:
+s
+!
+p
+κ2
+2
+2
+,
+ηb =
+1 + α 1 ± ε 1 + α − 2 + ....
+η0
+
+
+s
+
+2
+p
+µ
+=
+1 + α2 1 ± (1 + α2 )ε2 −
++ .... .
+2η0
+
+(56)
+
+It follows that, as in other examples we have seen, the domain of instability actually becomes larger when
+
+damping is introduced. See Fig. 7b.
+The instability interval, shows a discontinuity at κ = 0.
+
+√
+√
+If κ → 0, then the boundaries of the instability domain tend to the limits ηb → 1 + α2 (1 ± ε 1 + α2 )
+√
+which differs from the result we found when κ = 0 : ηb = 1 + α2 (1 ± ε). For reasons of comparison, we display
+the instability tongues in Fig. 7 in the four cases with and without rotation, with and without damping.
+Mathematically, the bifurcational behavior is again described by the Whitney umbrella as indicated in
+subsection 6.1. In mechanical terms, the broadening of the instability-domain is caused by the coupling between
+the two degrees of freedom of the rotor in lateral directions which arises in the presence of damping.
+20
+
+Figure 7: (a) The classical case as we find for instance for the Mathieu equation with and without damping; in
+the case of damping the instability tongue is lifted off from the η-axis and the instability domain is reduced.
+(b) The instability tongues for the rotor system. Again, because of damping the instability tongue is lifted off
+from the η-axis, but the tongue broadens. The boundaries of the V -shaped tongue without damping are to first
+√
+√
+approximation described by the expression η = 1 + α2 (1 ± ε), η0 = 1 + α2 .
+
+7
+
+Manifestation of the destabilization paradox in other applications
+
+In this section we discuss additional applications from physics and engineering, both finite- and infinitedimensional.
+
+7.1
+
+Gyroscopic systems of rotor dynamics
+
+Investigation of the stability of equilibria of the Hauger’s [24] and Crandall’s [19, 67] gyropendulums as well as
+of the Tippe Top [15, 53] and the Rising Egg [15] leads to the system of linear equations known as the modified
+Maxwell-Bloch equations [9].
+The modified Maxwell-Bloch equations are the normal form for rotationally symmetric, planar dynamical
+systems [9, 15]. They follow from the equation (25) for m = 2, D = I, and K = κI, where κ corresponds to
+potential forces, and thus can be written as a single differential equation with complex coefficients
+ẍ + iΩẋ + δ ẋ + iνx + κx = 0, x = x1 − ix2 .
+
+(57)
+
+According to (17) the solution x = 0 of equation (57) is asymptotically stable if and only if
+δ > 0,
+
+Ω>
+
+δ
+ν
+− κ.
+δ
+ν
+
+(58)
+
+For κ > 0 the domain of asymptotic stability is a dihedral angle with the Ω-axis serving as its edge, Fig. 8(b).
+Its sections by the planes Ω = const are contained in the angle-shaped regions with the boundaries
+√
+Ω ± Ω2 + 4κ
+δ.
+ν=
+2
+21
+
+(59)
+
+√
+At Ω = 0 the angle is bounded by the lines ν = ±δ κ and thus it is less than π. The domain of asymptotic
+stability is twisting around the Ω-axis in such a manner that it always remains in the half-space δ > 0, Fig. 8(b).
+Consequently, the system that is statically stable at Ω = 0 and δ ≥ 0 can become unstable at greater Ω in the
+presence of non-conservative positional forces, as shown in Fig. 8(b) by the dashed line. The larger magnitudes
+of circulatory forces, the lower |Ω| at the onset of instability. This is a typical example of dissipation-induced
+instability in the sense of [9, 52, 53, 54] when only non-Hamiltonian perturbations can cause the destabilizing
+movements of eigenvalues with definite Krein signature [48].
+
+Figure 8: (a) Hauger’s gyropendulum; (b) Dissipation-induced destabilization of its statically stable equilibrium
+(κ > 0) in the presence of circulatory forces; (c) Singular domain of gyroscopic stabilization of its statically unstable equilibrium (κ < 0) in the presence of non-Hamiltonian perturbations yields the destabilization paradox.
+As κ > 0 decreases, the hypersurfaces forming the dihedral angle approach each other so that, at κ = 0, they
+temporarily merge along the line ν = 0 and a new configuration originates for κ < 0, Fig. 8(c). The new domain
+of asymptotic stability consists of two disjoint parts that are pockets of two Whitney’s umbrellas singled out by
+inequality δ > 0. The absolute values of the gyroscopic parameter Ω in the stability domain are always not less
+√
+than Ω0 = 2 −κ. As a consequence, the system that is statically unstable at Ω = 0 can become asymptotically
+stable at greater Ω in the presence of circulatory forces, as shown in Fig. 8(c) by the dashed line.
+As a mechanical example we consider Hauger’s gyropendulum [24], which is an axisymmetric rigid body
+of mass m hinged at the point O on the axis of symmetry as shown in Fig. (8)(a). The body’s moment of
+inertia with respect to the axis through the point O perpendicular to the axis of symmetry is denoted by I,
+the body’s moment of inertia with respect to the axis of symmetry is denoted by I0 , and the distance between
+the fastening point and the center of mass is s. The orientation of the pendulum, which is associated with
+the trihedron Oxf yf zf , with respect to the fixed trihedron Oxi yi zi is specified by the angles ψ, θ, and φ. The
+pendulum experiences the force of gravity G = mg and a follower torque T that lies in the plane of the zi and
+zf coordinate axes. The moment vector makes an angle of ηα with the axis zi , where η is a parameter (η 6= 1)
+and α is the angle between the zi and zf axes. Additionally, the pendulum experiences the restoring elastic
+moment R = −rα in the hinge and the dissipative moments B = −bωs and K = −kφ, where ωs is the angular
+velocity of an auxiliary coordinate system Oxs ys zs with respect to the inertial system and r, b, and k are the
+22
+
+corresponding coefficients.
+Linearization of the nonlinear equations of motion derived in [24] with the new variables x1 = ψ and x2 = θ
+and the subsequent nondimensionalization yield the Maxwell-Bloch equations (57) where the dimensionless
+parameters are given by
+Ω=
+
+1−η
+T
+b
+r − mgs
+I0
+, ν=
+T, ω = − .
+, δ=
+, κ=
+I
+Iω
+Iω 2
+Iω 2
+k
+
+(60)
+
+The domain of asymptotic stability of the Hauger gyropendulum, given by (58), is shown in Fig. 8(b,c).
+For the statically unstable gyropendulum (κ < 0) the singular points on the Ω-axis correspond to the critical
+√
+√
+values ±Ω0 = ±2 −κ and the critical frequency ω0 = −κ. We find approximations of the stability boundary
+near the Whitney umbrella singularity as derived in [46, 50]:
+√
+√
+1 (ν ∓ δ −κ)2
+.
+Ωcr (ν, δ) = ±2 −κ ± √
+δ2
+−κ
+
+(61)
+
+Thus, Hauger’s gyropendulum, which is statically unstable at Ω = 0, can become asymptotically stable for
+sufficiently large |Ω| ≥ Ω0 under a suitable distribution of dissipative and nonconservative positional forces.
+For almost all combinations of δ and ν the onset of gyroscopic stabilization of the non-conservative system is
+greater than that of a pure gyroscopic one (destabilization paradox: Ωcr (ν, δ) ≥ Ω0 ). The obtained results are
+valid also for the equilibria of Tippe Top, Rising Egg, and Crandall’s gyropendulum [44, 45].
+
+7.2
+
+Circulatory systems of rotor dynamics
+
+In some rotor dynamics applications gyroscopic effects are neglected [34, 53]. For example, in the modeling
+of friction-induced oscillations in disc- and drum brakes, clutches and other machinery, the speed of rotation
+is assumed to be small. This frequently yields the linearized equations of motion in the form of a circulatory
+system with or without damping. In recent models the damping is included because it is believed that high
+sensitivity of the squeal onset to the damping distribution might be responsible for the poor reproducibility of
+the laboratory experiments with the squealing machinery.
+Hoffmann and Gaul [28] studied a model of a mass sliding over a conveyor belt with friction and detected
+that small damping in this circulatory system destroys the reversible Hopf bifurcation and makes the collision
+of eigenvalues imperfect, exactly as it happens with the eigenvalues of Ziegler’s pendulum [40, 47].
+In order to study squeal vibration in drum brakes Hultén [31, 75] introduced a model shown in Fig. 9(a).
+This model is composed of a mass m held against a moving band; the contact between the mass and the band
+is modeled by two plates supported by two different springs. It is assumed that the mass and band surfaces are
+always in contact and that the contact can be expressed by two cubic stiffnesses. Damping is included as shown
+in Fig. 9(a). The friction coefficient at contact is assumed to be constant and the band moves at a constant
+velocity. Then it is assumed that the direction of friction force does not change because the relative velocity
+between the band speed and ẋ1 or ẋ2 is assumed to be positive. The tangential force FT due to friction contact
+is assumed to be proportional to the normal force FN as given by Coulomb’s law: FT = µFN . Assuming the
+23
+
+Figure 9: (a) A model of a drum brake [31]; (b) Its numerically calculated critical friction coefficient at the
+onset of flutter instability as a function of damping parameters [75]; (c) A model of a disc brake [64]; (d) Its
+critical friction coefficient at the onset of flutter instability as a function of damping parameters calculated both
+numerically and perturbatively [47].
+normal force FN is linearly related to the displacement of the mass normal to the contact surface, the resulting
+equations of motion can be expressed as
+
+
+
+1 0
+η ω
+
+ ẍ +  1 0,1
+0 1
+0
+
+0
+η2 ω0,2
+
+
+
+
+
+ ẋ + 
+
+2
+ω0,1
+2
+µω0,1
+
+2
+−µω0,2
+2
+ω0,2
+
+
+
+ x = 0,
+
+being exactly of the form considered by Bottema. Here the relative damping coefficients are denoted by ηi =
+p
+√
+ci / mi ki (i = 1, 2) and natural pulsations are ω0,i = ki /mi (i = 1, 2). Fig. 9(b) shows the numerically
+
+calculated domain of asymptotic stability of the drum brake in the space of the friction coefficient µ and two
+damping coefficients η1 and η2 with the Whitney umbrella singularity [75].
+
+In Fig. 9(c) a model of a disc brake proposed in [64] is demonstrated. Its linearized equations of motion are
+again that of a circulatory system with small damping. It is not surprising that the critical friction coefficient
+at the onset of friction-induced vibrations as a function of two damping coefficients is represented in Fig. 9(d)
+
+24
+
+by a surface with the Whitney umbrella singularity [47].
+In both examples a selected distribution of damping exists that yields an increase in the critical load rather
+than decrease that happens for all other distributions. This possibility for stabilization was first pointed out in
+[71] for the Ziegler’s pendulum. We will discuss this effect below in more detail.
+
+7.3
+
+Infinite-dimensional near-reversible and near-Hamiltonian systems
+
+Dynamic instability, or flutter, is a general phenomenon which commonly occurs in coupled fluid-structure
+systems including pipes conveying fluids and airfoils [10, 26, 27]. Typically, the models are finite dimensional
+or continuous reversible systems that demonstrate the destabilization paradox in the presence of damping. In
+a recent study [87] Ziegler’s paradox was observed in a problem of a vocal fold vibration (phonation) onset.
+7.3.1
+
+Near-reversible case: Beck’s column with external and internal damping
+
+Beck’s column loaded by a follower force is a paradigmatic model for studying dynamical instability of structures. In 1969 Bolotin and Zhinzher [11] investigated the effects of damping distribution on its stability. They
+considered on the interval x ∈ [0, 1] the non-selfadjoint boundary eigenvalue problem of the form
+Lu := N (q)u + λD(d1 , d2 )u + λ2 M u = 0,
+
+Uu := UN (q)u + λUD (d1 , d2 )u + λ2 UM u = 0,
+
+(62)
+
+where λ is an eigenvalue with the eigenfunction u(x). The operators in the differential expression
+N = ∂x4 + q∂x2 ,
+
+D = d1 ∂x4 + d2 I,
+
+M =I
+
+(63)
+
+depend on the magnitude of the follower load q and the parameters of external, d2 , and internal (Kelvin-Voight),
+d1 , damping. The matrices of boundary conditions in [11] are UD = 0, UM = 0, and
+
+
+1 0 0 0 0 0 0 0
+
+
+
+
+ 0 1 0 0 0 0 0 0 
+
+,
+UN = 
+
+ 0 0 0 0 0 0 1 0 
+
+
+0 0 0 0 0 0 0 1
+
+(64)
+
+and the vector u = (u(0), ∂x u(0), ∂x2 u(0), ∂x3 u(0), u(1), ∂x u(1), ∂x2 u(1), ∂x3 u(1))T . Some authors considered differ-
+
+ent boundary conditions that depend both on the physical parameters and on the spectral parameter [63, 88]
+The undamped Beck’s column is stable for q < q0 ≃ 20.05 [17]. Stability is lost at q ≥ q0 when after
+the reversible Hopf bifurcation the double pure imaginary eigenvalue iω0 ≃ 11.02 splits into a pair of complex
+eigenvalues. In [11] it was found that in the presence of infinitesimally small Kelvin-Voight damping the critical
+load is reduced to q = qcr ≃ 10.94 and the critical frequency drops to ω = ωcr ≃ 5.40.
+There were numerous attempts to find an approximation of the new critical load by studying the splitting of
+the double eigenvalue iω0 of the unperturbed reversible system due to dissipative perturbations [70]. Banichuk
+et al. [6, 7] have emphasized the importance of degenerate perturbations, the linear part of which is in the
+tangent plane to the Whitney umbrella singularity. Nevertheless, their analysis is not complete.
+25
+
+Further development of the approach of [6, 7] in [37, 40, 41, 42, 43, 74] resulted in the approximation to the
+critical load in the form
+qcr (d) = q0 +
+
+ω2
+(hf , di+hHd, di)2
+− 0 hGd, di,
+fehh, di2
+fe
+
+(65)
+
+where the vector of the damping parameters d=(d1 , d2 ) and angular brackets denote the scalar product in R2 .
+The components of the vector f and the real scalar fe are
+
+
+
+
+∂D
+e ∗ ∂UD u0 , fe= ∂N u0 , v0 + v∗ V
+e ∗ ∂UN u0 , r = 1, 2,
+fr =
+u0 , v0 + v0∗ V
+0
+0 0
+∂dr
+∂dr
+∂q
+∂q
+
+(66)
+
+and the components of the vector h are defined as
+ihr =
+
+
+
+∂D
+u1 , v0
+∂dr
+
+
+
++
+
+
+
+∂D
+u0 , v1
+∂dr
+
+
+
+e 0∗ ∂UD u0 + v0∗ V
+e 0∗ ∂UD u1 + v0∗
++ v1∗ V
+∂dr
+∂dr
+
+with the asterisk denoting complex conjugate transposition and (u, v) =
+
+R1
+
+∂e
+V
+∂ λ̄
+
+!∗
+
+∂UD
+u0 , r = 1, 2
+∂dr
+
+0 u(x)v̄(x)dx.
+
+(67)
+
+The derivatives are
+
+taken at d = 0 and q = q0 corresponding to the eigenvalue λ = iω0 with the eigen- and associated functions u0
+and u1 . The real matrix H has the components
+
+ 2
+1 e ∗ ∂ 2 UD
+∂ D
+1
+u0 , v0 + v0∗ V
+u0 , r, σ = 1, 2
+Hrσ =
+0
+2 ∂dr ∂dσ
+2
+∂dr ∂dσ
+
+(68)
+
+and the real matrix G is defined by the expression
+hGd, di =
+
+2
+X
+r=1
+
+dr
+
+
+
+
+∂D
+∗ e ∗ ∂UD
+ŵ2 , v0 + v0 V0
+ŵ2 ,
+∂dr
+∂dr
+
+(69)
+
+where ŵ2 is the solution of the boundary value problem
+N (q0 )ŵ2 − ω02 M ŵ2 =
+
+2
+X
+r=1
+
+dr
+
+∂D
+u0 ,
+∂dr
+
+UN (q0 )ŵ2 − ω02 UM ŵ2 =
+
+2
+X
+
+dr
+
+r=1
+
+∂UD
+u0 .
+∂dr
+
+(70)
+
+The eigenfunctions u0 and v0 and the associated functions u1 and v1 of the original and adjoint eigenvalue
+problems are chosen to satisfy the bi-orthogonality and normalization conditions
+2iω0 (M u1 , v1 ) +
+
+(M u0 , v1 ) + (M u1 , v0 ) + (Ṽ0 v1 + Ṽλ̄′ v0 )∗ (2iω0 UM u1 + UM u0 ) + v0∗ Ṽ0∗ UM u1 = 0,
+
+2iω0 (M u1 , v0 ) +
+
+2iω0 v0∗ Ṽ0∗ UM u1 = 1,
+
+(71)
+
+where the adjoint boundary value problems are connected by the Lagrange formula
+(Lu, v) − (u, L∗ v) = (Vv)∗ Ũu − (Ṽv)∗ Uu.
+
+(72)
+
+Formula (65) can serve for the approximation of the jump in the critical load. In the finite dimensional case
+with two degrees of freedom the expression for the limit of the critical load reduces to (24) [40]. For the Beck
+column described by the equations (62) we calculate the critical load as [41, 42]
+qcr (d1 , d2 ) = q0 −
+
+1902d21
++ 12.68d1 d2 + 0.053d22 .
+(14.34d1 + 0.091d2 )2
+
+26
+
+(73)
+
+Additionally, (65) captures more information on the geometry of the stability domain. For example one can plot
+the cross sections of the stability domain (73) for the different levels of q and find that some combinations of
+internal and external damping increase the critical load for the Beck’s column, as shown in the central and right
+pictures of Fig. 10. The form of the stability boundary with the Whitney umbrella singularity approximated
+by equation (73) was confirmed later by numerical computations in [33]. The limit in the critical load following
+from (73) agrees well with the numerical data of [1].
+
+Figure 10: (Hatched) Cross sections of the approximation (73) to the stability domain of the damped Beck’s
+column showing the possibility of the increase of the critical load by small damping.
+Structural mechanics also has examples of near-Hamiltonian continuous systems showing discontinuous
+changes in the stability domain. As a modern application we mention a moving beam with frictional contact investigated in [77]. Below we will consider an interesting example of the occurrence of the destabilization
+paradox in fluid dynamics.
+7.3.2
+
+Near-Hamiltonian case: The instability of baroclinic zonal currents
+
+In the 1940s the first studies appeared of instability of baroclinic zonal (west-east) currents in the Earth’s
+atmosphere [18, 20]. It is remarkable that the unexpected destabilizing effect due to the introduction of dissipation was discovered in the linear stability analyses of this hydrodynamical problem by Holopainen (1961) [29]
+and Romea (1977) [65] at the very same period of active research on the destabilization paradox in structural
+mechanics. Recently these studies were revisited by Krechetnikov and Marsden [54] with the aim to handle
+rigorously the treatment of dissipation-induced instability.
+Romea considered an infinite channel in the periodic zonal direction x of width L in the meridional direction
+y that is rotating with an angular velocity Ω. Two layers of incompressible, homogeneous fluids of slightly
+different densities (the lighter fluid on top) are confined by the side walls and by horizontal planes, a distance D
+apart. For simplicity, it is assumed that, in the absence of motion, the interface is located halfway between the
+horizontal planes, and is flat so that centrifugal effects may be ignored. Each layer moves downstream with a
+constant velocity and the slope of the interface is related to these velocities through the thermal wind relation.
+
+27
+
+It is implicitly assumed that this basic state is maintained against dissipation by an external energy source
+which is unimportant with respect to the rest of the problem [65].
+The linearized equations for each layer near the basic state, characterized by the geostrophic streamfunctions
+−U1 y and −U2 y, are according to [65, 54]:
+(∂t + U1 ∂x )[∇2 ϕ1 + F (ϕ2 − ϕ1 )] + [β + F (U1 − U2 )]∂x ϕ1
+
+= −r∇2 ϕ1 ,
+
+(∂t + U2 ∂x )[∇2 ϕ2 + F (ϕ1 − ϕ2 )] + [β − F (U1 − U2 )]∂x ϕ2
+
+= −r∇2 ϕ2 .
+
+(74)
+
+where F is the internal rotational Froude number, r ≥ 0 is the measure of the effect of Ekman suction (Ekman
+layer dissipation), and β is the planetary vorticity factor introduced to take into account the variation of the
+Coriolis parameter with latitude (β-effect).
+Assuming the wave solutions ϕ1,2 ∼ eiα(x−ct) sin(mπy), where real α > 0 is the x wavenumber, Romea
+obtained a dispersion relation for the complex phase speed c = cr + ici in the form of the second-order complex
+polynomial. The real part of c is the speed of propagation of the perturbation, while αci is the growth rate of
+the wave. If ci > 0, the wave grows, and the system is unstable.
+In the inviscid case when the Ekman layer dissipation is set to zero, the transition to instability occurs
+through the Krein collision that occurs at Uc := U1 − U2 = UcI , where [65, 54]
+UcI =
+
+2βF
+√
+a2 4F 2 − a4
+
+(75)
+
+with a2 = α2 + m2 π 2 . The critical shear UcI as a function of the wavenumber is plotted in Fig. 11(left). This
+curve bounds the region of marginal stability of the system without dissipation.
+In the limit of vanishing viscosity (r → 0), the stability boundary differs from (75)
+UcR =
+
+2βF
+√
+.
+a(a2 + F ) 2F − a2
+
+(76)
+
+The discrepancy between the stability domains of viscous and inviscid systems is clearly seen in Fig. 11(left).
+Therefore, Romea demonstrated that an introduction of infinitesimally small dissipation destabilizes the system,
+lowering the curve of marginal stability by an O(1) amount. This is the appearance of the destabilization paradox
+in a continuous near-Hamiltonian system, which is similar to that found in near-reversible systems like Ziegler’s
+pendulum (cf. Fig. 3) and Beck’s column with dissipation [11, 80]. Fig. 11(right) reproduces the original drawing
+from [65] showing the typical imperfect merging of modes [28] that substitutes the ‘perfect’ Krein collision in
+near-Hamiltonian and near-reversible systems. Approximation to the eigenvalue branches in imperfect merging
+can be efficiently calculated by means of the perturbation theory of multiple eigenvalues for a wide class of
+non-conservative systems [37, 39, 40, 42, 43, 49].
+
+8
+
+Conclusion
+
+We have revisited the pioneering result of Oene Bottema who in 1956 resolved the paradox of destabilization by
+small damping and interpreted it by means of what is now called the Whitney umbrella singularity. We have
+28
+
+Figure 11: Original drawings from the 1977 work of Romea [65]: (left) Critical shear as a function of wavenumber demonstrates a discontinuous transition from the case when the Ekman layer dissipation r = 0 initially
+(UcI ) to the case when r → 0 (UcR ); (right) a typical imperfect merging of modes (growth rates) that substitutes the ‘perfect’ Krein collision in near-Hamiltonian and near-reversible systems and is characteristic for the
+destabilization paradox [11], [12].
+shown that this phenomenon frequently occurs in near-Hamiltonian and near-reversible systems originating in
+very different areas of mechanics and physics ranging from hydrodynamics to contact mechanics and we have
+presented a unified treatment of it. There are a few related topics upon we did not touch. We mention interesting
+connections of this effect to structured pseudospectra [35] and to eigenvalue optimization problems [16]. We
+did not even consider the effect of nonlinearites. We mention the closely related effect of discontinuous change
+of the critical flutter frequency due to small dissipation [11, 42] and its connection to the Whitney umbrella
+singularity at the exceptional points on the eigenvalue surfaces [72]. Another related topic is the role of the
+spectral exceptional points in modern non-Hermitian physics including crystal optics, open quantum systems,
+and PT -symmetric quantum mechanics [8]. All this shows that modern non-conservative and non-Hermitian
+problems are a perfect field of applied mathematics with a big potential for new discoveries.
+
+Acknowledgements
+The work of O.N.K. has been supported by the research grant DFG HA 1060/43-1.
+
+References
+[1] I.P. Andreichikov, V.I. Yudovich, The stability of visco-elastic rods, Izv. Acad. Nauk SSSR. MTT, 1 (1975),
+150–154.
+
+29
+
+[2] D.V. Anosov and V.I. Arnold (eds.), Dynamical Systems I, Encyclopaedia of Mathematical Sciences,
+Springer, Berlin etc. 1988.
+[3] V.I. Arnold, On matrices depending on parameters, Russian Math. Surveys., 26 (1971), 29–43.
+[4] V.I. Arnold, Geometrical Methods in the Theory of Ordinary Differential Equations, New York: SpringerVerlag, 1983.
+[5] V.I. Arnold (ed.), Dynamical Systems VIII, Encyclopaedia of Mathematical Sciences, Springer, Berlin etc.
+1993.
+[6] N.V. Banichuk, A.S. Bratus, A.D. Myshkis, On destabilizing influence of small dissipative forces to nonconservative systems, Doklady AN SSSR 309(6) (1989), 1325–1327.
+[7] N.V. Banichuk, A.S. Bratus, A.D. Myshkis, Stabilizing and destabilizing effects in nonconservative systems,
+PMM U.S.S.R., 53(2) (1989), 158–164.
+[8] M.V. Berry, Physics of non-Hermitian degeneracies, Czech. J. Phys. 54 (2004), 1039–1047.
+[9] A.M. Bloch, P.S. Krishnaprasad, J.E. Marsden, T.S. Ratiu, Dissipation-induced instabilities, Annales de
+l’Institut Henri Poincaré, 11(1) (1994), 37–90.
+[10] V.V. Bolotin, Non-conservative Problems of the Theory of Elastic Stability, Fizmatgiz (in Russian), Moscow,
+1961; Pergamon, Oxford, 1963.
+[11] V.V. Bolotin, N.I. Zhinzher, Effects of damping on stability of elastic systems subjected to nonconservative
+forces, Int. J. Solids Struct. 5 (1969), 965–989.
+[12] V.V. Bolotin, A.A. Grishko, M.Yu. Panov, Effect of damping on the postcritical behavior of autonomous
+non-conservative systems, Intern. J. of Nonl. Mechs. 37 (2002), 1163–1179.
+[13] O. Bottema, On the stability of the equilibrium of a linear mechanical system, Z. Angew. Math. Phys. 6
+(1955), 97–104.
+[14] O. Bottema, The Routh-Hurwitz condition for the biquadratic equation, Indagationes Mathematicae, 18
+(1956), 403–406.
+[15] N. M. Bou-Rabee, J. E. Marsden, L. A. Romero, Dissipation-Induced Heteroclinic Orbits in Tippe Tops,
+SIAM Review, 50(2) (2008), 325–344.
+[16] J.V. Burke, D. Henrion, A.S. Lewis, M.L. Overton, Stabilization via Nonsmooth, Nonconvex Optimization,
+IEEE Transactions on Automatic Control, 51(11) (2006), 1760–1769.
+[17] J. Carr, M.Z.M. Malhardeen, Beck’s problem, SIAM J. Appl. Math. 37(2) (1979), 261–262.
+
+30
+
+[18] J.G. Charney, A. Eliassen, A numerical method for predicting the perturbations of the middle latitude
+westerlies, Tellus 1 (1949) 38–54.
+[19] S.H. Crandall, The effect of damping on the stability of gyroscopic pendulums. Z. angew. Math. Phys. 46
+(1995), S761–S780.
+[20] E.T. Eady, Long waves and cyclone waves, Tellus 1 (1949) 38–52.
+[21] M. Golubitsky and D.G. Schaeffer, Singularities and maps in bifurcation theory, vol. 1, Applied Mathematical Sciences 51, Springer, Berlin etc. 1985.
+[22] M. Golubitsky, D.G. Schaeffer and I. Stewart, Singularities and maps in bifurcation theory, vol. 2, Applied
+Mathematical Sciences 69, Springer, Berlin etc. 1988.
+[23] G. Haller, Gyroscopic stability and its loss in systems with two essential coordinates, Intern. J. of Nonl.
+Mechs., 27 (1992), 113–127.
+[24] W. Hauger, Stability of a gyroscopic non-conservative system, Trans. ASME, J. Appl. Mech., 42 (1975),
+739–740.
+[25] G. Herrmann and I. C. Jong, On the destabilizing effect of damping in nonconservative elastic systems,
+ASME J. of Appl. Mechs., 32(3) (1965), 592–597.
+[26] G. Herrmann, Stability of equilibrium of elastic systems subjected to non-conservative forces, Appl. Mech.
+Revs. 20 (1967), 103–108.
+[27] K. Higuchi, E.H. Dowell, Effect of structural damping on flutter of plates with a follower force, AIAA J.
+30(3) (1992), 820–825.
+[28] N. Hoffmann, L. Gaul, Effects of damping on mode-coupling instability in friction induced oscillations, Z.
+angew. Math. Mech., 83 (2003), 524–534.
+[29] E.O. Holopainen, On the effect of friction in baroclinic waves, Tellus. 13(3) (1961), 363–367.
+[30] I. Hoveijn, M. Ruijgrok, The stability of parametrically forced coupled oscillators in sum resonance, Z.
+angew. Math. Phys., 46 (1995), 384–392.
+[31] J. Hultén, Drum brake squeal—a self-exciting mechanism with constant friction. In: SAE Truck and Bus
+Meeting, 1993, Detroit, Mi, USA, SAE Paper 932965.
+[32] G. Iooss, M. Adelmeyer, Topics in bifurcation theory, World Scientific, Singapore (1992).
+[33] D.V. Kapitanov, V.F. Ovchinnikov, L.V. Smirnov, Numerical-analytical stability investigation of beam with
+servo force fixed as cantilever at free end, Problems of Strength and Plasticity. 69 (2007), 177–184.
+
+31
+
+[34] P.L. Kapitsa, Stability and passage through the critical speed of the fast spinning rotors in the presence of
+damping, Zh. Tech. Phys. 9(2) (1939), 124–147.
+[35] P. Kessler, O.M. O’Reilly, A.-L. Raphael, M. Zworski, On dissipation-induced destabilization and brake
+squeal: a perspective using structured pseudospectra, J. Sound Vib. 308 (2007), 1–11.
+[36] A.L. Kimball, Internal friction theory of shaft whirling, Gen. Elec. Rev. 27 (1924), 224–251.
+[37] O.N. Kirillov, How do small velocity-dependent forces (de)stabilize a non-conservative system? DCAMM
+Report. No. 681. April 2003. 40 pages.
+[38] O.N. Kirillov, How do small velocity-dependent forces (de)stabilize a non-conservative system? Proceedings
+of the International Conference ”Physics and Control”. St.-Petersburg. Russia. August 20-22. 2003. Vol. 4,
+1090–1095.
+[39] O.N. Kirillov, Destabilization paradox, Doklady Physics, 49(4) (2004), 239–245.
+[40] O.N. Kirillov, A theory of the destabilization paradox in non-conservative systems, Acta Mechanica. 174(34) (2005), 145–166.
+[41] O.N. Kirillov, A.P. Seyranian, Stabilization and destabilization of a circulatory system by small velocitydependent forces, J. Sound Vibr., 283(3-5) (2005), 781–800.
+[42] O.N. Kirillov, A.P. Seyranian, The effect of small internal and external damping on the stability of distributed non-conservative systems, J. Appl. Math. Mech. 69(4) (2005), 529–552.
+[43] O.N. Kirillov, A.P. Seyranian, Instability of distributed nonconservative systems caused by weak dissipation,
+Doklady Mathematics. 71(3) (2005), 470–475.
+[44] O.N. Kirillov, Gyroscopic stabilization of non-conservative systems, Phys. Lett. A. 359(3) (2006), 204–210.
+[45] O.N. Kirillov, Destabilization paradox due to breaking the Hamiltonian and reversible symmetry, Int. J.
+Non-Lin. Mech. 42(1) (2007), 71–87.
+[46] O.N. Kirillov, Gyroscopic stabilization in the presence of nonconservative forces, Dokl. Math. 76(2) (2007),
+780–785.
+[47] O.N. Kirillov, Bifurcation of the roots of the characteristic polynomial and destabilization paradox in friction
+induced oscillations, Theor. Appl. Mech. 34(2) (2007), 87–109.
+[48] O.N. Kirillov, Subcritical flutter in the acoustics of friction, Proc. R. Soc. A 464(2097) (2008), 2321–2339.
+[49] O.N. Kirillov, Perturbation of multiparameter non-self-adjoint boundary eigenvalue problems for operator
+matrices. Preprint arXiv:0803.2248v2 [math-ph] 14 Mar 2008.
+
+32
+
+[50] O.N. Kirillov, Sensitivity analysis of Hamiltonian and reversible systems prone to dissipation-induced instabilities. in: Matrix methods: theory, algorithms, applications, E. Tyrtyshnikov and V. Olshevsky, eds.
+World Scientific. 2009. P. 31–68.
+[51] A.N. Kounadis, On the paradox of the destabilizing effect of damping in nonconservative systems, Intern.
+J. of Nonl. Mechs., 27 (1992), 597–609.
+[52] R. Krechetnikov, J.E. Marsden, On destabilizing effects of two fundamental non-conservative forces, Physica
+D, 214 (2006), 25–32.
+[53] R. Krechetnikov, J.E. Marsden, Dissipation-induced instabilities in finite dimensions, Rev. Mod. Phys. 79
+(2007), 519–553.
+[54] R. Krechetnikov, J.E. Marsden, Dissipation-Induced Instability Phenomena in Infinite-Dimensional Systems, Arch. Rat. Mech. Anal. (2009). DOI 10.1007/s00205-008-0193-6
+[55] Yu.A. Kuznetsov, Elements of applied bifurcation theory, Applied Mathematical Sciences 112, Springer,
+Berlin etc. 2004.
+[56] W.F. Langford, Hopf meets Hamilton under Whitney’s umbrella, in IUTAM symposium on nonlinear
+stochastic dynamics. Proceedings of the IUTAM symposium, Monticello, IL, USA, Augsut 26-30, 2002,
+Solid Mech. Appl. 110, S. N. Namachchivaya, et al., eds., Kluwer, Dordrecht, 2003, pp. 157–165.
+[57] L.V. Levantovskii, The boundary of a set of stable matrices, Uspekhi Mat. Nauk 35 (1980), no. 2(212),
+213–214.
+[58] L.V. Levantovskii, Singularities of the boundary of a region of stability, (Russian) Funktsional. Anal. i
+Prilozhen. 16 (1982), no. 1, 44–48, 96.
+[59] R.S. MacKay, Stability of equilibria of Hamiltonian systems. In Nonlinear Phenomena and Chaos (ed. S.
+Sarkar), Adam Hilger, Bristol, (1986), 254–270.
+[60] R.S. MacKay, Movement of eigenvalues of Hamiltonian equilibria under non-Hamiltonian perturbation,
+Phys. Lett. A, 155 (1991), 266–268.
+[61] J. Maddocks, M.L. Overton, Stability theory for dissipatively perturbed Hamiltonian systems, Comm. Pure
+and Applied Math., 48 (1995), 583–610.
+[62] O.M. O’Reilly, N.K. Malhotra, N.S. Namachchivaya, Some aspects of destabilization in reversible dynamical
+systems with application to follower forces, Nonlin. Dyn. 10 (1996), 63–87.
+[63] Ya.G. Panovko, S.V. Sorokin, On quasi-stability of viscoelastic systems with the follower forces, Izv. Acad.
+Nauk SSSR. Mekh. Tverd. Tela. 5 (1987), 135–139.
+
+33
+
+[64] K. Popp, M. Rudolph, M. Kröger, M. Lindner, Mechanisms to generate and to avoid friction induced
+vibrations, VDI-Berichte 1736, VDI-Verlag, Düsseldorf, 2002.
+[65] R.A. Romea, The effects of friction and β on finite-amplitude baroclinic waves, J. Atmos. Sci. 34 (1977),
+1689–1695.
+[66] M. Ruijgrok, A. Tondl, F. Verhulst, Resonance in a Rigid Rotor with Elastic Support, Z. angew. Math.
+Mech. 73 (1993), 255–263.
+[67] A.K. Samantaray, R. Bhattacharyya, A. Mukherjee, On the stability of Crandall gyropendulum, Phys. Lett.
+A 372 (2008), 238–243
+[68] V.A. Samsonov, T.S. Sumin, On the stability of the equilibrium position of a mechanical system with two
+degrees of freedom, Vestnik Moskov. Univ. Ser. I Mat. Mekh., 4 (2004), 60–62, 72.
+[69] J.A. Sanders, F. Verhulst, J. Murdock, Averaging methods in nonlinear dynamical systems, Applied Math.
+Sciences 59, Springer (2007, rev. ed.).
+[70] A.P. Seyranian, Destabilization paradox in stability problems of non-conservative systems, Advances in
+Mechanics, 13(2) (1990), 89–124.
+[71] A.P. Seyranian, On stabilization of non-conservative systems by dissipative forces and uncertainty of critical
+load, Doklady Akademii Nauk. 348 (1996), 323–326.
+[72] A.P. Seyranian, O.N. Kirillov, A.A. Mailybaev, Coupling of eigenvalues of complex matrices at diabolic and
+exceptional points, J. Phys. A: Math. Gen. 38(8) (2005), 1723–1740.
+[73] A.P. Seyranian, A.A. Mailybaev, Multiparameter stability theory with mechanical applications, World Scientific, series A, vol. 13 (2003).
+[74] A.P. Seyranian, O.N. Kirillov, Effect of small dissipative and gyroscopic forces on the stability of nonconservative systems, Doklady Physics, 48(12) (2003), 679–684.
+[75] J.-J. Sinou, L. Jezequel, Mode coupling instability in friction-induced vibrations and its dependency on
+system parameters including damping, Eur. J. Mech. A. 26 (2007), 106–122.
+[76] D.M. Smith, The motion of a rotor carried by a flexible shaft in flexible bearings, Proc. Roy. Soc. London
+A 142 (1933), 92–118.
+[77] G. Spelsberg-Korspeter, O.N. Kirillov, P. Hagedorn, Modeling and stability analysis of an axially moving
+beam with frictional contact, Trans. ASME, J. Appl. Mech. 75(3) (2008), 031001.
+[78] W. Szemplinska-Stupnicka, The behaviour of nonlinear vibrating systems, Vol. II, Kluwer, Dordrecht etc.
+(1990).
+
+34
+
+[79] W. Thomson, P.G. Tait, Treatise on Natural Philosophy, Vol. I, Part I, New Edition, pp. 387-391, Cambridge
+Univ. Press, Cambridge (1879).
+[80] J.J. Thomsen, Chaotic dynamics of the partially follower-loaded elastic double pendulum, J. Sound Vibr.
+188(3) (1995), 385–405.
+[81] H. Troger, K. Zeman, Zur korrekten Modellbildung in der Dynamik diskreter Systeme, Ing.-Arch. 51 (1981),
+31–43.
+[82] F. Verhulst, Parametric and Autoparametric Resonance, Acta Appl. Math., 70(1-3) (2002), 231–264.
+[83] F. Verhulst. Perturbation analysis of parametric resonance, Encyclopedia of Complexity and Systems Science, Springer, 2009.
+[84] H. Whitney, The general type of singularity of a set of 2n − 1 smooth functions of n variables, Duke Math.
+J., 10 (1943), 161–172.
+[85] H. Whitney, The singularities of a smooth n-manifold in (2n − 1)-space, Ann. of Math., 45(2) (1944),
+247–293.
+[86] V.A. Yakubovich, V.M. Starzhinskii, Linear differential equations with periodic coefficients, 2 vols., John
+Wiley, New York etc. (1975).
+[87] Z.Y. Zhang, J. Neubauer, D.A. Berry, Physical mechanisms of phonation onset: A linear stability analysis
+of an aeroelastic continuum model of phonation. J. Acoust. Soc. of Amer., 122(4) (2007), 2279–2295.
+[88] N.I. Zhinzher, Effect of dissipative forces with incomplete dissipation on the stability of elastic systems, Izv.
+Ross. Acad. Nauk. MTT 19 (1994), 149–155.
+[89] V.F. Zhuravlev, Nutational vibrations of a free gyroscope, Izv. Ross. Akad. Nauk, Mekh. Tverd. Tela, 6
+(1992), 13–16.
+[90] H. Ziegler, Die Stabilitätskriterien der Elastomechanik, Ing.-Arch., 20 (1952), 49–56.
+[91] H. Ziegler, Linear elastic stability: A critical analysis of methods, Z. Angew. Math. Phys, 4 (1953), 89–121.
+
+35
+
+

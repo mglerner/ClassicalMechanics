@@ -1,0 +1,68 @@
+{{Short description|Concept in celestial mechanics}}
+[[File:Jacobi const zero velocity suface curve.png|thumb|Jacobi constant, Zero Velocity Surface and Curve]]
+In [[celestial mechanics]], '''Jacobi's integral''' (also known as the '''Jacobi integral''' or '''Jacobi constant''') is the only known conserved quantity for the [[circular restricted three-body problem]].<ref name=BnF>[http://visualiseur.bnf.fr/StatutConsulter?N=VERESS3-1201640420309&B=1&E=PDF&O=NUMM-90217 Bibliothèque nationale de France] {{Webarchive|url=https://web.archive.org/web/20170202093206/http://visualiseur.bnf.fr/StatutConsulter?N=VERESS3-1201640420309&B=1&E=PDF&O=NUMM-90217 |date=2017-02-02 }}. {{cite journal|last=Jacobi|first=Carl G. J.|title=Sur le movement d'un point et sur un cas particulier du problème des trois corps|journal=Comptes Rendus de l'Académie des Sciences de Paris|date=1836|volume=3|pages=59–61}}</ref> Unlike in the two-body problem, the energy and momentum of each of the bodies comprising the system are not conserved separately, and a general analytical solution is not possible. With the gravitational force being conservative, the total energy (Hamiltonian), the linear momentum and the angular momentum of an isolated three-body system (the problem being either restricted or not) are conserved.
+
+It was named after German mathematician [[Carl Gustav Jacob Jacobi]].
+
+== Definition ==
+
+===Synodic system===
+[[Image:ThreeBodyProblem Synodic.svg|thumb|right|Co-rotating system]]
+One of the suitable coordinate systems used is the so-called ''synodic'' or co-rotating system, placed at the [[barycentre]], with the line connecting the two masses ''μ''<sub>1</sub>, ''μ''<sub>2</sub> chosen as ''x''-axis and the length unit equal to their distance.  As the system co-rotates with the two masses, they remain '''stationary''' and positioned at (−''μ''<sub>2</sub>,&nbsp;0) and (+''μ''<sub>1</sub>,&nbsp;0).{{efn|This coordinate system is [[non-inertial reference frame|non-inertial]], which explains the appearance of terms related to [[centrifugal force|centrifugal]]  and [[Coriolis force|Coriolis]] accelerations.}}
+
+In the (''x'',&nbsp;''y'')-coordinate system, the Jacobi constant is expressed as follows:
+
+:<math>C_J=n^2 \left(x^2+y^2\right) + 2 \left(\frac{\mu_1}{r_1}+\frac{\mu_2}{r_2}\right) - \left(\dot x^2+\dot y^2+\dot z^2\right)</math>
+
+where:
+
+*''n'' = {{sfrac|2{{pi}}|''T''}} is the [[mean motion]] ([[orbital period]] ''T'')
+*''μ''<sub>1</sub> = ''Gm''<sub>1</sub>, ''μ''<sub>2</sub> = ''Gm''<sub>2</sub>, for the two masses ''m''<sub>1</sub>, ''m''<sub>2</sub> and the [[gravitational constant]]&nbsp;''G''
+*''r''<sub>1</sub>, ''r''<sub>2</sub> are distances of the [[test particle]] from the two masses
+
+Note that the Jacobi integral is minus twice the total energy per unit mass in the rotating frame of reference: the first term relates to [[Centrifugal force|centrifugal]] [[potential energy]], the second represents [[gravitational potential]] and the third is the [[kinetic energy]]. In this system of reference, the forces that act on the particle are the two gravitational attractions, the centrifugal force and the Coriolis force. Since the first three can be derived from potentials and the last one is perpendicular to the trajectory, they are all conservative, so the energy measured in this system of reference (and hence, the Jacobi integral) is a constant of motion. For a direct computational proof, see below.
+
+===Sidereal system===
+[[Image:ThreeBodyProblem sidereal.svg|thumb|right|Inertial system]]
+In the inertial, sidereal co-ordinate system (''ξ'',&nbsp;''η'',&nbsp;''ζ''), the masses are orbiting the [[barycentre]]. In these co-ordinates the Jacobi constant is expressed by<ref name="Murray">{{cite book|first1=Carl D.|last1=Murray|first2=Stanley F.|last2=Dermott|title=Solar System Dynamics|publisher=Cambridge University Press|date=1999|pages=66–70|isbn=9780521575973|edition=1st |author1-link=Carl D. Murray }}</ref>
+
+:<math>C_J=2 \left(\frac{\mu_1}{r_1}+\frac{\mu_2}{r_2}\right) + 2n\left(\xi \dot \eta- \eta \dot \xi\right) - \left(\dot \xi ^2+\dot \eta ^2+\dot \zeta^2\right).</math>
+
+== Derivation ==
+In the co-rotating system, the accelerations can be expressed as derivatives of a single scalar function
+
+: <math>U(x,y,z)=\frac{n^2}{2}\left(x^2+y^2\right)+\frac{\mu_1}{r_1}+\frac{\mu_2}{r_2}</math>
+
+Using Lagrangian representation of the equations of motion:
+
+{{NumBlk|:|<math>\ddot x - 2n\dot y = \frac{\delta U}{\delta x}</math>|{{EquationRef|1}}}}
+
+{{NumBlk|:|<math>\ddot y + 2n\dot x = \frac{\delta U}{\delta y}</math>|{{EquationRef|2}}}}
+
+{{NumBlk|:|<math>\ddot z = \frac{\delta U}{\delta z}</math>|{{EquationRef|3}}}}
+
+Multiplying Eqs. ({{EquationNote|1}}), ({{EquationNote|2}}), and ({{EquationNote|3}}) by ''ẋ'', ''ẏ'' and ''ż'' respectively and adding all three yields
+
+: <math>\dot x \ddot x+\dot y \ddot y +\dot z \ddot z = \frac{\delta U}{\delta x}\dot x + \frac{\delta U}{\delta y}\dot y + \frac{\delta U}{\delta z}\dot z = \frac{dU}{dt} </math>
+
+Integrating yields
+
+: <math>\dot x^2+\dot y^2+\dot z^2=2U-C_J </math>
+
+where ''C''<sub>''J''</sub> is the constant of integration.
+
+The left side represents the square of the velocity ''v'' of the test particle in the co-rotating system.
+
+== See also ==
+*[[Rotating reference frame]]
+*[[Tisserand's criterion]]
+*[[Zero-velocity surface|Zero velocity surface]]
+
+==Notes==
+{{notelist}}
+{{Reflist}}
+
+==Bibliography==
+*Carl D. Murray and Stanley F. Dermot ''Solar System Dynamics'' [Cambridge, England: Cambridge University Press, 1999], pages 68–71. ({{ISBN|0-521-57597-4}})
+
+[[Category:Orbits]]
