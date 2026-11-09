@@ -3,7 +3,7 @@
 
 Taylor's own problem statement (from the textbook scan, bands in _shared/taylor-bands-ch<N>.txt)
 and the ISM worked solution (from the pack's solution PDFs via the `Solutions:` line) for the
-PCCI, for every problem named in the notes' In-class problems section, and for the day's posted
+PCCI, for every problem named in the notes' Class plan section, and for the day's posted
 lists (Will's in-class menu and look-at problems); plus the solution pages nothing claimed.
 shared/make_pack_html.py places each crop under its problem.
 
@@ -125,7 +125,7 @@ def posted_for(n):
 
 def main(only=None):
     """Write crops.json (in the pack's build folder) per pack: Taylor's statement and the ISM crop for the PCCI, for every
-    problem named in the In-class problems section, and for the day's posted lists (Will's
+    problem named in the Class plan section, and for the day's posted lists (Will's
     in-class menu and look-at problems), plus the solution pages nothing claimed.
     shared/make_pack_html.py places them under the problems on the pack page."""
     wrote = cropped = statements = 0

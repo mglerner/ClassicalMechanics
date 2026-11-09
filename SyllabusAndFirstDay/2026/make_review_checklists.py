@@ -9,7 +9,7 @@ goes live (mandatory: students may ask about it in that class)
 before it is due). This script enumerates those problems per day from
 the calendar generator -- PCCI, CHAPTER_PROBLEMS, HWS -- so the lists
 stay correct when the assignments change. The in-class problems come
-from the pack's own plan (the `## In-class problems` section of its
+from the pack's own plan (the `## Class plan` section of its
 notes; packnotes.Notes) when it has one, else from Will's
 CHAPTER_PROBLEMS menu. Rerun after any generator edit or pack-notes
 edit:
@@ -111,7 +111,7 @@ def hw_events():
 
 
 def pack_plan(pack):
-    """(problems, notes path relative to the pack) from the pack's `## In-class problems` section;
+    """(problems, notes path relative to the pack) from the pack's `## Class plan` section;
     ([], None) when there is no pack, no notes, or old-format (timed-plan) notes."""
     if pack is None:
         return [], None
@@ -134,7 +134,7 @@ def checklist(row, all_rows, hws, pack=None):
     plan, rel = pack_plan(pack)
     # The pack's plan is what gets worked (prep process 2026-10-03); Will's list is a menu, used
     # only when the pack has no plan to read (no pack, old-format notes, or no problem numbers).
-    plan_line = (f"- [ ] In-class problems today (the `## In-class problems` section of `{rel}`): "
+    plan_line = (f"- [ ] In-class problems today (the `## Class plan` section of `{rel}`): "
                  + ", ".join(f"**{p}**" for p in plan)) if plan else None
     if d in CAL.EXAMS:
         lines.append("- [ ] EXAM DAY: the exam worked through end to end, every version you are printing")
