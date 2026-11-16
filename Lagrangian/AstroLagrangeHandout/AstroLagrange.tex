@@ -3,7 +3,7 @@
 % handout in the 210 repo (MathematicalPhysics/CoupledDEs/ThreeSpringsHandout): same macros.tex,
 % same shape (a credit line, a rule, then the highlights, result first and the steps after).
 % The figure ueff_contours.pdf is drawn by make_figure.py in this folder.
-% Section 3 is the redshift written as a homework problem (statement, then the key behind \ifmaster).
+% Section 3 is the redshift written as a problem (statement, then the solutions on a new page behind \ifmaster).
 % Build (solutions in): latexmk -pdf AstroLagrange.tex
 % Student copy (solutions out):
 %   latexmk -pdf -jobname="AstroLagrange (student)" -usepretex='\def\studentcopy{1}' AstroLagrange.tex
@@ -67,7 +67,7 @@ first cover the restricted three-body problem as it relates to Lagrange points
 Safko~\cite{goldstein}, Section~3.12);
 the second half, in which we examine cosmic red shift and Hubble drag for a
 particle in an expanding universe follows Peebles~\cite{peebles}, Chapter~II.
-The redshift is also written up as a homework problem, statement and solutions
+The redshift is also written up as a problem to work, with solutions
 (Section~\ref{sec:redshift-problem}).
 \fi
 We restrict ourselves to Newtonian physics
@@ -1460,18 +1460,13 @@ reason is the general result used in Step~6(b),
 $d\Ham/dt = -\partial\Lag/\partial t$, and here
 $\partial\Lag/\partial t \neq 0$. We just get to use the whole universe as an example.
 
-\section{The redshift as a homework problem}
+\section{The redshift as a problem}
 \label{sec:redshift-problem}
-
-The problem of Section~\ref{sec:redshift-straight}, posed the way the
-course's optional challenge problems are posed: the setup is given, and parts (a)--(f) walk the
-same road, from $\Lag(r, \dot r, t)$ to the redshift. The solutions follow the statement
-\ifmaster (the student copy leaves them out)\else (this is the student copy; they are left out)\fi.
 
 \medskip
 
-\tocentry[subsection]{Challenge problem: a free particle in an expanding universe}
-\taylor{\textbf{Challenge problem (optional): a free particle in an expanding universe.}
+\tocentry[subsection]{Problem: a free particle in an expanding universe}
+\taylor{\textbf{Problem: a free particle in an expanding universe.}
 In Newtonian cosmology, space is filled with matter of uniform density $\rho(t)$ (it depends
 on $t$ because mass is conserved while space expands, so $\rho \propto 1/a^3$), and every
 distance grows by one common factor: a particle that just rides the expansion sits at
@@ -1516,7 +1511,7 @@ Now consider a particle of mass $m$ that moves along a line through the origin b
 \end{enumerate}}
 
 \ifmaster
-\medskip
+\clearpage
 \tocentry[subsection]{Solutions}
 \noindent\textbf{Solutions.}
 
