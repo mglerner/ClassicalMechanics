@@ -1472,7 +1472,8 @@ same road, from $\Lag(r, \dot r, t)$ to the redshift. The solutions follow the s
 
 \tocentry[subsection]{Challenge problem: a free particle in an expanding universe}
 \taylor{\textbf{Challenge problem (optional): a free particle in an expanding universe.}
-In Newtonian cosmology, space is filled with matter of uniform density $\rho(t)$, and every
+In Newtonian cosmology, space is filled with matter of uniform density $\rho(t)$ (it depends
+on $t$ because mass is conserved while space expands, so $\rho \propto 1/a^3$), and every
 distance grows by one common factor: a particle that just rides the expansion sits at
 $r = a(t)\,x$ with $x$ fixed, where $a(t)$ is the \emph{scale factor} and $x$ is its
 \emph{comoving coordinate}. By Newton's shell theorem the matter inside radius $r$ pulls a
@@ -1492,7 +1493,7 @@ Now consider a particle of mass $m$ that moves along a line through the origin b
   conservation tests (an ignorable coordinate, Section~7.6; no explicit $t$ in $\Lag$,
   Section~7.8) hands you a conserved quantity here.
 \item Change to the comoving coordinate $x = r/a(t)$ (a generalized coordinate whose relation
-  to $r$ involves $t$, as in Example~7.6). Show that
+  to $r$ involves $t$, which Section~7.3 allows). Show that
   \[
     \Lag = \tfrac12 m a^2\dot x^2 + \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\,x^2\Bigr).
   \]
@@ -1523,9 +1524,14 @@ Now consider a particle of mass $m$ that moves along a line through the origin b
 \[
   \boxed{\;\Lag(r, \dot r, t) = \tfrac12 m\dot r^2 - \frac{2\pi G}{3}\,m\rho(t)\,r^2\;}
 \]
-Euler-Lagrange time! $\partial\Lag/\partial\dot r = m\dot r$ and
-$\partial\Lag/\partial r = -\frac{4\pi G}{3} m\rho\, r$, so
-$\frac{d}{dt}\partial\Lag/\partial\dot r = \partial\Lag/\partial r$ reads
+Euler-Lagrange time!
+\begin{align*}
+  \frac{d}{dt}\pd{\Lag}{\dot r} &= \pd{\Lag}{r} \\
+  \frac{d}{dt}\bigl(m\dot r\bigr) &= -\frac{2\pi G}{3}\, m\rho\cdot 2r
+  && \text{(differentiate $\Lag$)} \\
+  m\ddot r &= -\frac{4\pi G}{3}\,m\rho\, r ,
+\end{align*}
+so
 \[
   \boxed{\; m\ddot r = -\frac{4\pi G}{3}\,m\rho\, r \;}
 \]
@@ -1556,8 +1562,11 @@ Put that in:
 \]
 The two $\tfrac12 m\dot a^2 x^2$ terms cancel. Friedmann, $\ddot a = -\frac{4\pi G}{3}\rho\,a$,
 turns the $a\ddot a$ term into
-$-\tfrac12 m a\bigl(-\frac{4\pi G}{3}\rho\,a\bigr)x^2 = +\frac{2\pi G}{3}\,m\rho\,a^2x^2$, which
-cancels the potential term exactly. What is left is
+\[
+  -\tfrac12 m a\ddot a\,x^2 = -\tfrac12 m a\Bigl(-\frac{4\pi G}{3}\rho\,a\Bigr)x^2
+  = +\frac{2\pi G}{3}\,m\rho\,a^2x^2 ,
+\]
+which cancels the potential term exactly. What is left is
 \[
   \boxed{\;\Lag = \tfrac12 m a^2\dot x^2 + \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\,x^2\Bigr)\;}
 \]
@@ -1566,12 +1575,23 @@ gravity, so in coordinates that expand with it, the gravity is already accounted
 
 \medskip
 \noindent\textbf{(c)} Write $F = \tfrac12 m a\dot a\,x^2$, a function of $x$ and $t$ only. Adding $dF/dt$
-to $\Lag$ adds $\int_{t_1}^{t_2}(dF/dt)\,dt = F(t_2) - F(t_1)$ to the action, and Hamilton's
-principle holds $x(t_1)$ and $x(t_2)$ fixed, so that number is the same for every path being
-compared. The stationary path, and so the equation of motion, is unchanged. (Problem~7.48 checks
-the same thing at the level of Lagrange's equations: $\partial(dF/dt)/\partial x$ and
-$\frac{d}{dt}\partial(dF/dt)/\partial\dot x$ are both $\partial_x\partial_t F + \dot x\,\partial_x^2 F$,
-so they cancel.)
+to $\Lag$ adds $\int_{t_1}^{t_2}(dF/dt)\,dt = F(t_2) - F(t_1)$ to the action. Every path
+Hamilton's principle compares has the same $x$ at $t_1$ and the same $x$ at $t_2$, but the
+velocities there may differ; since $F$ depends only on $x$ and $t$ (no $\dot x$), that number is
+the same for every path being compared. The stationary path, and so the equation of motion, is
+unchanged. (Had $F$ depended on $\dot x$, $F(t_2) - F(t_1)$ would differ from path to path, and
+the argument would fail.)
+
+Problem~7.48 checks the same thing at the level of Lagrange's equations. With
+$\Lag = dF/dt = \partial_t F + \dot x\,\partial_x F$,
+\begin{align*}
+  \pd{\Lag}{\dot x} &= \partial_x F,\\
+  \frac{d}{dt}\pd{\Lag}{\dot x} &= \partial_t\partial_x F + \dot x\,\partial_x^2 F
+  && \text{(chain rule)}\\
+  \pd{\Lag}{x} &= \partial_x\partial_t F + \dot x\,\partial_x^2 F ,
+\end{align*}
+and the last two are equal (mixed partial derivatives are equal), so Lagrange's equation for
+$dF/dt$ alone reads $0 = 0$.
 
 \medskip
 \noindent\textbf{(d)} With $\Lag = \tfrac12 m a^2\dot x^2$, $x$ does not appear: $x$ is ignorable, and
@@ -1583,7 +1603,7 @@ In terms of the peculiar velocity, $p = m a\,(a\dot x) = m a\,\vpec$, and $p$ is
 \[
   \boxed{\;\vpec \propto \frac1a\;}
 \]
-Double the universe, halve every peculiar velocity.
+Double the universe, halve every peculiar velocity. This is called \emph{Hubble drag}.
 
 \medskip
 \noindent\textbf{(e)} With $p = m a^2\dot x$,
@@ -1596,7 +1616,10 @@ the kinetic energy in the peculiar velocity. It is not $T + U$: $T = \tfrac12 m\
 That is allowed, because the relation $r = a(t)x$ between the generalized coordinate and the
 position involves $t$ (Section~7.8's condition for $\Ham = T + U$ fails). It is not conserved
 either: $\Lag$ depends on $t$ through $a$, so by the chain rule
-$\partial\Lag/\partial t = \tfrac12 m(2a\dot a)\dot x^2 = m a\dot a\,\dot x^2$, and
+\[
+  \pd{\Lag}{t} = \tfrac12 m\,(2a\dot a)\,\dot x^2 = m a\dot a\,\dot x^2 ,
+\]
+and
 \[
   \frac{d\Ham}{dt} = -\pd{\Lag}{t} = -m a\dot a\,\dot x^2 = -2\,\frac{\dot a}{a}\cdot\tfrac12 m a^2\dot x^2
   = -2\,\frac{\dot a}{a}\,\Ham
@@ -1622,7 +1645,7 @@ locally that momentum falls as $1/a$, which is Hubble drag for a galaxy and the 
 photon. Energy is not conserved, and the formalism says exactly why: $t$ is in $\Lag$, the
 expanding universe has no time-translation symmetry, and $d\Ham/dt = -\partial\Lag/\partial t$
 gives the rate. The one hand-wave is the shell theorem on an infinite medium; general relativity
-makes that honest and gives (f) without borrowing.
+makes that more rigorous and gives (f) without borrowing.
 \fi
 \fi   % end of \ifdefined\sectiononeonly\else
 
