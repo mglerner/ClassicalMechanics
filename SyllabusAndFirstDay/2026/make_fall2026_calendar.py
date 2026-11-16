@@ -48,11 +48,14 @@ LAST_DAY = TERM.LAST_DAY       # last MWF meeting
 # which shifted every later slot back one and consumed the Oct 5 holder below.
 # A 317-only lost meeting is added here; a Smith-wide one goes in the core's.
 NO_CLASS = dict(TERM.NO_CLASS)
+# Fri Nov 13: Michael was sick (317 only). Exam 2 moved to Fri Nov 20 and Exam 3 to Wed Dec 9;
+# the last flex day (Dec 14) is gone (Michael, 2026-11-16).
+NO_CLASS[date(2026, 11, 13)] = "No class"
 
 # Days students must bring a laptop. The schedule sheet (embedded in Moodle)
 # tags the topic "[BRING LAPTOP]" and the review checklist repeats it, so one
 # list drives both (a student asked not to carry a laptop every day, 2026-09-14).
-LAPTOP_DAYS = {date(2026, 9, 11), date(2026, 12, 11)}  # the chaos-notebook day: Dec 11 -> Dec 4 (2026-10-08 flex move), Dec 9 (2026-10-17 slip), Dec 11 again (2026-11-06 slip)
+LAPTOP_DAYS = {date(2026, 9, 11), date(2026, 12, 14)}  # the chaos-notebook day: Dec 11 -> Dec 4 (2026-10-08 flex move), Dec 9 (2026-10-17 slip), Dec 11 again (2026-11-06 slip), Dec 14 (2026-11-16, Nov 13 lost)
 
 def class_days():
     """The meetings held, in order (a generator)."""
@@ -85,6 +88,8 @@ def class_days():
 #     day after the HW, all of Ch 8 taught before it -- and it restores
 #     changing orbits (8.7-8.8) to its place ahead of the exam.
 #   Exam 3 = Mon Dec 7 (Will's was 37; Michael: fine as is).
+#   2026-11-16: Fri Nov 13 lost (Michael sick); Exam 2 -> Fri Nov 20, Exam 3 -> Wed Dec 9 so the
+#     double pendulum (Mon Dec 7) still precedes the exam that covers it.
 # Keyed by DATE. They were keyed by 0-based slot index until 2026-09-24,
 # when deleting a meeting silently moved all three exams; a date says what
 # it means and the build asserts it lands on a class day.
@@ -93,8 +98,8 @@ def class_days():
 # was a typo; the 3x3 redemption-problem arithmetic proves 8, 9, 11).
 EXAMS = {
     date(2026, 10, 16): ("EXAM 1 (Ch 2-4)", {2, 3, 4}),
-    date(2026, 11, 16): ("EXAM 2 (Ch 5-7)", {5, 6, 7}),
-    date(2026, 12, 7): ("EXAM 3 (Ch 8, 9, 11)", {8, 9, 11}),
+    date(2026, 11, 20): ("EXAM 2 (Ch 5-7)", {5, 6, 7}),
+    date(2026, 12, 9): ("EXAM 3 (Ch 8, 9, 11)", {8, 9, 11}),
 }
 CONTENT = [
     ("Syllabus; notation; Newton's laws; polar coordinates", "Ch. 1",
@@ -224,8 +229,8 @@ PREDECESSOR_CONTENT = [
 ]
 PREDECESSOR_ASSESSMENT = {
     date(2026, 10, 16): "2025-10-06",   # his Exam 1
-    date(2026, 11, 16): "2025-11-10",   # his Exam 2
-    date(2026, 12, 7): "2025-12-08",    # his Exam 3
+    date(2026, 11, 20): "2025-11-10",   # his Exam 2
+    date(2026, 12, 9): "2025-12-08",    # his Exam 3
 }
 # Flex days (2026-10-08, Michael): days with no content of their own, the budget a slip spends and
 # the place extra time goes (Noether's theorem first, Taylor 7.8 beyond the simple version;
@@ -236,15 +241,15 @@ PREDECESSOR_ASSESSMENT = {
 # (lilac on the course map and the schedule). Keyed by date like EXAMS. A flex day used for a
 # topic is moved into CONTENT.
 FLEX_TOPIC = "Flex day: Noether's theorem (Taylor 7.8) OR Jarzynski OR catch-up"
+# 2026-11-16: the lost Fri Nov 13 took the third flex day (was Dec 14, "Last day: flex"); the two
+# left are the ones the 2026-10-19 and 2026-11-06 slips consume, so none is open.
 FLEX = {
-    date(2026, 12, 9): FLEX_TOPIC,
     date(2026, 12, 11): FLEX_TOPIC,
-    date(2026, 12, 14): "Last day: flex (Noether OR Jarzynski OR wrap-up)",
+    date(2026, 12, 14): FLEX_TOPIC,
 }
-PREDECESSOR_FLEX = {                    # his three open days, in order
-    date(2026, 12, 9): "2025-11-07",    # his catch-up day before Exam 2
-    date(2026, 12, 11): "2025-11-24",   # his catch-up day before Exam 3
-    date(2026, 12, 14): "2025-12-10",   # his last day
+PREDECESSOR_FLEX = {                    # his open days, in order
+    date(2026, 12, 11): "2025-11-07",   # his catch-up day before Exam 2
+    date(2026, 12, 14): "2025-11-24",   # his catch-up day before Exam 3
 }
 # Slips (2026-10-08): (date of the class, +1 or -1, note). +1 = that class ran a whole day long:
 # the content after it moves one meeting later, the next class becomes "<topic> (continued)",
@@ -359,10 +364,10 @@ HWS = [
      "two-body setup",
      "7.27, 7.31, 7.34, 7.38 [optional challenge], 7.46 [Noether: rotational "
      "invariance gives conservation of L_z], 8.2"),
-    (10, date(2026, 11, 20), date(2026, 11, 11), {8},    # 8.15, 8.18, 8.23 are class 26, Wed Nov 11, after the 2026-11-06 slip
+    (10, date(2026, 11, 20), date(2026, 11, 16), {8},    # changing orbits is Mon Nov 16 after the lost Nov 13; due on the Exam 2 day (HW_ON_EXAM_DAY)
      "8.3-8.8: central-force motion, orbits, changing orbits",
      "8.9, 8.13, 8.14 [optional challenge], 8.15, 8.18, 8.23"),
-    (11, date(2026, 11, 30), date(2026, 11, 20), {8, 9},
+    (11, date(2026, 12, 2), date(2026, 11, 30), {8, 9},    # was Mon Nov 30; Coriolis is Nov 30 after the lost Nov 13 (Michael, 2026-11-16)
      "8.8, Ch 9: non-inertial frames, Coriolis",
      "8.27 [optional challenge], 8.33, 9.3, 9.9, 9.15 [Northampton "
      "colatitude 48 deg], 9.17, 9.28, 9.29 [optional challenge]"),
@@ -371,7 +376,7 @@ HWS = [
     # is held at Wed Dec 2 (class 33, normal coordinates) so the due > covers_through guard builds;
     # with Dec 4 it fires. Michael's call: move the due date (Mon Dec 7 is Exam 3), move 11.14/11.17
     # to HW13, or accept the same-day gap.
-    (12, date(2026, 12, 4), date(2026, 12, 2), {11},
+    (12, date(2026, 12, 7), date(2026, 12, 4), {11},    # was Fri Dec 4; Ch 11 is now Dec 2, 4, 7 and Exam 3 Wed Dec 9 (2026-11-16); double pendulum taught on the due day
      "Ch 11: coupled oscillators, normal modes, double pendulum",
      "11.6, 11.9, 11.12, 11.14 [Lagrangian supplied as a check], 11.17 "
      "[optional]"),
@@ -394,7 +399,10 @@ HW_GRACE = {5: date(2026, 10, 19)}
 # Sets deliberately due on an exam day. Allowed only where the exam does not
 # cover the set's chapters (HW05 is Ch 5; Exam 1 is Ch 2-4) -- the
 # chapters-overlap guard below is the one that actually matters.
-HW_ON_EXAM_DAY = {5}
+HW_ON_EXAM_DAY = {5, 10}    # HW10 is Ch 8; Exam 2 (Ch 5-7) moved onto its date 2026-11-16
+
+# Sets due on a day that became a no-class day after the deadline passed (HW09: Fri Nov 13).
+HW_DUE_ON_LOST_DAY = {9}
 
 # ---------------------------------------------------------------- PCCIs
 # Pre-Class Check-Ins, same machinery as PHY 210 (decision 2026-09-02):
@@ -449,22 +457,23 @@ _PCCI = {   # the hand table; PCCI below is the effective one (a PCCI follows it
     date(2026, 11, 6): "8.28",
     # Ch 9 -- 9.1 before Exam 2 (Mon Nov 16), the rest after
     date(2026, 11, 11): "9.1",
-    date(2026, 11, 13): "9.7",
+    date(2026, 11, 16): "9.7",
     date(2026, 11, 18): "9.12",
     # Ch 11
-    date(2026, 11, 20): "11.1",
-    date(2026, 11, 23): "Read 11.3: in a sentence or two, what happens to "
+    date(2026, 11, 23): "11.1",
+    date(2026, 11, 30): "Read 11.3: in a sentence or two, what happens to "
                         "the energy of two weakly coupled pendulums over time?",
-    date(2026, 11, 30): "Write down the Lagrangian of a simple pendulum "
+    date(2026, 12, 2): "Write down the Lagrangian of a simple pendulum "
                         "(length L, angle phi); no need to solve it",
+    # 2026-11-16: keys from 9.7 on moved one meeting for the lost Nov 13; the flex day's
+    # "Bring one question for the final-exam review" went with the Dec 14 flex day.
     # Ch 12 (keys are the original dates: Dec 2 and 4, before Exam 3 as Will had it; after the two slips the
     # two chaos days are Dec 9 and 11, after Exam 3, and Dec 14 is the one flex day left)
-    date(2026, 12, 2): "Read 12.1-12.2: in a sentence, what does it mean "
+    date(2026, 12, 4): "Read 12.1-12.2: in a sentence, what does it mean "
                        "for an equation of motion to be linear, and what do "
                        "we lose when it isn't?",
-    date(2026, 12, 4): "Log into jupyterhub.smith.edu and open the driven-"
+    date(2026, 12, 7): "Log into jupyterhub.smith.edu and open the driven-"
                        "pendulum notebook on Moodle; bring your laptop",
-    date(2026, 12, 14): "Bring one question for the final-exam review",
 }
 # The PCCI of a slip-made "(continued)" day, keyed by its actual date (calendar_rows.continued_pcci).
 CONTINUED_PCCI = {
@@ -603,7 +612,7 @@ def build(outpath):
         assert due > through, (
             f"HW{hw:02d} due {due} but draws on class {through}")
         assert through in days, f"HW{hw:02d} covers_through is not a class day"
-        assert due not in NO_CLASS, f"HW{hw:02d} due on a no-class day"
+        assert due not in NO_CLASS or hw in HW_DUE_ON_LOST_DAY, f"HW{hw:02d} due on a no-class day"
         assert due not in exam_days or hw in HW_ON_EXAM_DAY, (
             f"HW{hw:02d} due on an exam day; if that is deliberate, add it "
             f"to HW_ON_EXAM_DAY")

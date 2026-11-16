@@ -65,13 +65,13 @@ DAY_LOGISTICS = {
     # build_add_317.py examN-redo (a restore-only merge). Edit its dates if the hand-back moves.
     date(2026, 10, 19): ["Hand back the graded Exam 1 papers; redos go on Moodle as one PDF, due Mon Oct 26 at the "
                          "start of class. The 'Exam 1 redo' Moodle item must already exist (build_add_317.py exam1-redo)."],
-    date(2026, 11, 16): ["Exam 2: printed copies + a spare; per-problem score sheet ready"],   # exam is Mon Nov 16
-    date(2026, 11, 18): ["Hand back the graded Exam 2 papers; redos go on Moodle as one PDF, due Mon Nov 30 at the "
+    date(2026, 11, 20): ["Exam 2: printed copies + a spare; per-problem score sheet ready"],   # exam is Fri Nov 20 (moved from Mon Nov 16 on 2026-11-16: Fri Nov 13 lost)
+    date(2026, 11, 23): ["Hand back the graded Exam 2 papers; redos go on Moodle as one PDF, due Mon Nov 30 at the "
                          "start of class (no class Nov 25/27). The 'Exam 2 redo' Moodle item must already exist "
                          "(build_add_317.py exam2-redo)."],
-    date(2026, 12, 7): ["Exam 3: printed copies + a spare; per-problem score sheet ready"],
-    date(2026, 12, 9): ["Hand back the graded Exam 3 papers; redos go on Moodle as one PDF, due Wed Dec 16 at 13:20 "
-                        "(one week; after the last class, Mon Dec 14 -- Michael to confirm). The 'Exam 3 redo' Moodle item "
+    date(2026, 12, 9): ["Exam 3: printed copies + a spare; per-problem score sheet ready"],   # moved from Mon Dec 7 on 2026-11-16
+    date(2026, 12, 11): ["Hand back the graded Exam 3 papers; redos go on Moodle as one PDF, due Mon Dec 14, the last "
+                        "class (build_add_317.py; three days -- Michael to confirm). The 'Exam 3 redo' Moodle item "
                         "must already exist (build_add_317.py exam3-redo)."],
     # the chaos-sensitivity (notebook) class: Dec 11 originally, Dec 9 after the 2026-10-17 slip, Dec 11 again after the 2026-11-06 slip
     date(2026, 12, 11): ["iPad with the folio keyboard (AirPlay as usual) for the driven-pendulum notebook; students bring laptops"],
