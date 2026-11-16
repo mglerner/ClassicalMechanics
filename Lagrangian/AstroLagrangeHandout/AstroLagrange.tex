@@ -1158,20 +1158,36 @@ conserved quantity:
 \item $t$ \emph{does} appear in $\Lag$, through $a(t)$, so there is no conserved Hamiltonian
   and no conserved energy (for any particle with $\vpec \neq 0$; one riding the flow has
   $\Ham = 0$ throughout). The expanding universe does not have time-translation symmetry, and
-  Noether's theorem has nothing to give.
+  Noether's theorem does not provide an analogous conserved quantity!
 \end{itemize}
-Steps 1--4 are where \eqref{eq:Lcosmo} comes from; Step~6 is what it says about light.
+Below, steps 1--4 get us \eqref{eq:Lcosmo}; Step~5 has us writing out Lagrange's
+equation, and Step~6 reflects\footnote{Ha! Ha ha! Ha ha ha ha ha!} on
+applications to light.
 
 \medskip
 
-\tocentry[subsection]{Step 1: set up the problem}
-\noindent\textbf{Step 1: set up the problem.} Fill space with matter of uniform density
-$\rho(t)$, expanding so that every distance grows by the same factor $a(t)$ (the scale
-factor). Pick any point as the origin and a test particle of mass $m$ at position $\vr = (X, Y, Z)$, a distance $r = |\vr|$ from it. Newton's shell theorem (the matter outside the
-sphere of radius $r$ exerts no net force; the matter inside pulls as if all of it sat at the origin;
-that the outside cancels is the one place Newtonian cosmology has to wave its hands, and
-general relativity makes the argument honest) and
-Newton's law of gravitation give the force on the particle, toward the origin,
+\tocentry[subsection]{Step 1: setting up the problem}
+\noindent\textbf{Step 1: setting up the problem.} We're making a simplified
+model here, but we do still need matter for this to work. So, we fill space with
+matter of uniform density $\rho(t)$,\footnote{I suppose $\rho(t)$ could be arbitrary,
+  but we're mostly introducing it here so that density can decrease as the
+  universe expands, leaving us with conservation of matter (specifically, $\rho \propto 1/a^3$).} expanding so that every distance grows by the
+same factor $a(t)$ (called the scale factor). Pick any point as the origin and
+consider a test particle of mass $m$ at position $\vr = (X, Y, Z)$,\footnote{We
+  follow the same convention here as in the Lagrange-point problem: we know
+  we're going to change coordinates, so we use capital letters for the
+  plain inertial Cartesian coordinates we start from, and lowercase letters for
+  the coordinate we end up using. Here, that is the single comoving coordinate
+  $x$ from above. We use it briefly in Step~1, and then make it our generalized
+  coordinate in Step~4. The distance $r$ stays lowercase only because $r$ is
+  everyone's name for a distance; it is a physical distance, like $X$.} a
+distance $r = |\vr|$ from that origin. Newton's shell theorem\footnote{You may
+  not know it by this name, but you know it: the matter outside a sphere of
+  radius $r$ exerts no net force, while the matter inside pulls as if all of it
+  sat at the origin. For the claim that the outside cancels, Newtonian cosmology
+  has to wave its hands a bit; and general relativity makes the argument more
+  rigorous.} and Newton's law of gravitation give the force on the particle,
+toward the origin,
 \begin{equation*}
   F = -\frac{GmM(<r)}{r^2} = -\frac{Gm}{r^2}\cdot\frac{4\pi}{3}\rho r^3 = -\frac{4\pi G}{3}\,m\rho\, r,
   \qquad M(<r) = \tfrac{4\pi}{3}\rho r^3 \text{ the mass inside radius } r .
@@ -1195,26 +1211,34 @@ particle reads
   \ddot a &= -\frac{4\pi G}{3}\,\rho\, a , && \text{(cancel $x$)}
   \label{eq:friedmann2}
 \end{align}
-the Friedmann acceleration equation for a universe of pressureless matter (general
-relativity's version has extra terms for pressure and for the cosmological constant; with those
-set to zero it is exactly this). It is the one fact about the background we will use.
+which is the famous Friedmann acceleration equation for a universe of pressureless matter (general
+relativity's version has extra terms for pressure and for the cosmological
+constant; in our simplified model those are zero, and what is left is exactly
+this). We'll make use of this fact about the background later.
 
 \medskip
 
-\tocentry[subsection]{Step 2: the Lagrangian, with nothing left out}
-\noindent\textbf{Step 2: the Lagrangian, with nothing left out.} One particle with three
-Cartesian coordinates and no constraint yet, so as in Section~7.1, $\Lag = T - U$ with
+\tocentry[subsection]{Step 2: write out the Lagrangian, leaving nothing out}
+\noindent\textbf{Step 2: write out the Lagrangian, leaving nothing out.} One particle with three
+Cartesian coordinates and no constraint (yet), so, as in Section~7.1, $\Lag = T - U$ with
 $r^2 = X^2 + Y^2 + Z^2$ in \eqref{eq:Phi}:
 \begin{equation}
   \label{eq:L3dcosmo}
   \Lag = \tfrac12 m\bigl(\dot X^2 + \dot Y^2 + \dot Z^2\bigr)
   - \frac{2\pi G}{3}\, m\rho(t)\,\bigl(X^2 + Y^2 + Z^2\bigr) .
 \end{equation}
-Lagrange's equations are Newton's second law: for $X$, $\partial\Lag/\partial\dot X = m\dot X$ and
-$\partial\Lag/\partial X = -\frac{2\pi G}{3} m\rho\cdot 2X = -\frac{4\pi G}{3} m\rho\, X$, so
-$\frac{d}{dt}\partial\Lag/\partial\dot X = \partial\Lag/\partial X$ reads
-$m\ddot X = -\frac{4\pi G}{3} m\rho\, X$, and likewise for $Y$ and $Z$; together,
-$m\ddot{\vr} = -\frac{4\pi G}{3} m\rho\,\vr$. The time $t$ appears explicitly through $\rho(t)$,
+Lagrange's equations are Newton's second law. For $X$,
+\begin{align*}
+  \frac{d}{dt}\pd{\Lag}{\dot X} &= \pd{\Lag}{X} \\
+  \frac{d}{dt}\bigl(m\dot X\bigr) &= -\frac{2\pi G}{3}\, m\rho\cdot 2X
+  && \text{(differentiate \eqref{eq:L3dcosmo})} \\
+  m\ddot X &= -\frac{4\pi G}{3}\, m\rho\, X ,
+\end{align*}
+and likewise for $Y$ and $Z$; together,
+\begin{equation*}
+  m\ddot{\vr} = -\frac{4\pi G}{3}\, m\rho\,\vr .
+\end{equation*}
+The time $t$ appears explicitly through $\rho(t)$,
 so Section~7.8's guarantee of a constant $\Ham$ does not apply (Step~6(b) shows $\Ham$ does
 change), and no coordinate is yet ignorable, since $U$ depends on all three. (The force is central,
 so the angular momentum about the origin is conserved; no Cartesian coordinate shows that, but
@@ -1223,14 +1247,14 @@ Step~3 uses it.)
 \medskip
 
 \tocentry[subsection]{Step 3: the constraints}
-\noindent\textbf{Step 3: the constraints.} Two things are being held fixed, the same two kinds
-as in Section~\ref{sec:straight}.
+\noindent\textbf{Step 3: the constraints.} We hold two things fixed, in the same
+fashion as Section~\ref{sec:straight}.
 
 \smallskip
 \noindent (i) \emph{The background is prescribed.} $\rho(t)$ and $a(t)$ are given functions,
 not coordinates to be varied: the test particle does not change the universe it moves in
-(as the primaries' orbit is prescribed in the Lagrange-point problem, and the hoop's rotation
-in Example~7.6). This is what put $t$ into $\Lag$.
+(as the primaries' orbit is prescribed in the Lagrange-point problem). That is why $t$ appears explicitly in \eqref{eq:L3dcosmo}, through $\rho(t)$
+(and, after Step~4, through $a(t)$).
 
 \smallskip
 \noindent (ii) \emph{Motion along one line.} The particle has three coordinates; we use one.
@@ -1238,7 +1262,8 @@ This is not a constraint in Section~7.3's sense, since nothing holds the particl
 line. It is a choice of initial conditions that the equations of motion respect: the force
 $-\frac{4\pi G}{3}m\rho\,\vr$ is along $\vr$, so a particle whose velocity is along $\vr$
 keeps its velocity along $\vr$ (the force is central, so it exerts no torque about the origin; the particle's angular
-momentum $m\vr\times\dot{\vr}$ is therefore conserved, and for such a particle it starts at zero). We look only at those motions.
+momentum $m\vr\times\dot{\vr}$ is therefore conserved, and for such a particle it
+starts at zero). We look only at those motions in these notes.
 
 \smallskip
 \noindent So once the background is prescribed, the particle has three degrees of freedom;
@@ -1255,17 +1280,20 @@ loses $Y$ and $Z$; writing $r$ for $X$ (the signed distance from the origin alon
   \label{eq:Lfree}
   \Lag = \tfrac12 m\dot r^2 - \frac{2\pi G}{3}\, m\rho(t)\, r^2 .
 \end{equation}
-The only question left is which coordinate to use for the line. The $t$ in \eqref{eq:Lfree} is
-there because the background expands, so use a coordinate that expands with it: the comoving
-coordinate $x = r/a(t)$, a time-dependent coordinate change of the kind Section~7.3 allows
-(Example~7.6 again). Then $r = a x$ and, by the product rule,
+The only question left is which coordinate to use for the line. The $t$ in
+\eqref{eq:Lfree} is there because the background expands, so let's use a
+coordinate that expands with it: the comoving coordinate $x = r/a(t)$, a
+time-dependent coordinate change of the kind Section~7.3 allows. Then $r = a x$
+and, by the product rule,
 \begin{equation}
   \label{eq:rdot2}
-  \dot r = \dot a\, x + a\,\dot x ,
+  \dot r = \dot a\, x + a\,\dot x .
 \end{equation}
-the Hubble flow $\dot a\,x = (\dot a/a)\,r$ (Hubble's law: the whole velocity of a particle
-riding the expansion, $\dot x = 0$) plus the peculiar velocity $\vpec \equiv a\dot x$, the motion
-relative to the flow. Put $r = ax$
+The two terms are the two pieces of the particle's velocity. The first,
+$\dot a\,x = (\dot a/a)\,r$, is the \emph{Hubble flow}: the velocity the particle
+would have if it just rode the expansion ($\dot x = 0$), and it is Hubble's law,
+recession speed proportional to distance. The second, $\vpec \equiv a\dot x$, is
+the \emph{peculiar velocity}, the motion relative to the flow. Put $r = ax$
 and \eqref{eq:rdot2} into \eqref{eq:Lfree} and expand the square:
 \begin{equation}
   \label{eq:Lexp2}
@@ -1273,7 +1301,7 @@ and \eqref{eq:rdot2} into \eqref{eq:Lfree} and expand the square:
   = \tfrac12 m a^2\dot x^2 + m a\dot a\, x\dot x + \tfrac12 m\dot a^2 x^2
   - \frac{2\pi G}{3}\, m\rho\, a^2 x^2 .
 \end{equation}
-The cross term is the one to tame. By the product rule,
+We can be clever with the cross term. By the product rule,
 \begin{align*}
   \frac{d}{dt}\Bigl(\tfrac12 m a\dot a\, x^2\Bigr)
   &= \tfrac12 m\,\frac{d}{dt}(a\dot a)\,x^2 + \tfrac12 m a\dot a\,\frac{d}{dt}x^2 \\
@@ -1303,16 +1331,23 @@ which cancels the potential term exactly. What is left is
   \label{eq:Lcomoving2}
   \Lag = \tfrac12 m a^2\dot x^2 + \frac{dF}{dt}, \qquad F \equiv \tfrac12 m a\dot a\, x^2 .
 \end{equation}
-A total time derivative added to $\Lag$ changes nothing: it adds $\int_{t_1}^{t_2}(dF/dt)\,dt = F(t_2) - F(t_1)$ to the
-action, and since $F = \tfrac12 m a\dot a\,x^2$ depends only on $x$ and $t$, which Hamilton's
-principle (Section~7.1) holds fixed at the endpoints, that number is the same for every path
-with the same endpoints, so the stationary path is the same
-(Problem~7.48 asks you to check this at the level of Lagrange's equations. The check: put
-$\Lag = dF/dt = \partial_t F + \dot x\,\partial_x F$ into Lagrange's equation by itself:
-$\partial\Lag/\partial\dot x = \partial_x F$, so
-$\frac{d}{dt}\,\partial\Lag/\partial\dot x = \partial_t\partial_x F + \dot x\,\partial_x^2 F$,
-which is exactly $\partial\Lag/\partial x = \partial_x\partial_t F + \dot x\,\partial_x^2 F$
-(mixed partial derivatives are equal), and the equation reads $0 = 0$.) So
+
+Now we can be clever again. A total time derivative added to $\Lag$ changes nothing: it adds $\int_{t_1}^{t_2}(dF/dt)\,dt = F(t_2) - F(t_1)$ to the
+action, and since $F = \tfrac12 m a\dot a\,x^2$ depends only on $x$ and $t$, and every path
+Hamilton's principle (Section~7.1) compares has the same $x$ at $t_1$ and the same $x$ at
+$t_2$ (the velocities there may differ, which is why it matters that $F$ has no $\dot x$),
+that number is the same for every path, so the stationary path is the
+same.\footnote{Problem~7.48 asks you to check this at the level of Lagrange's
+  equations. The check: put $\Lag = dF/dt = \partial_t F + \dot x\,\partial_x F$
+  into Lagrange's equation by itself. Then
+  \begin{align*}
+    \pd{\Lag}{\dot x} &= \partial_x F,\\
+    \frac{d}{dt}\pd{\Lag}{\dot x} &= \partial_t\partial_x F + \dot x\,\partial_x^2 F
+    && \text{(chain rule)}\\
+    \pd{\Lag}{x} &= \partial_x\partial_t F + \dot x\,\partial_x^2 F ,
+  \end{align*}
+  and the last two are equal (mixed partial derivatives are equal), so Lagrange's
+  equation reads $0 = 0$.} So
 \begin{equation}
   \label{eq:Lcosmo2}
   \boxed{\;\Lag = \tfrac12\, m\, a(t)^2\, \dot x^2\;}
@@ -1329,7 +1364,7 @@ already accounts for it.
 \medskip
 
 \tocentry[subsection]{Step 5: Lagrange's equation}
-\noindent\textbf{Step 5: Lagrange's equation.} From \eqref{eq:Lcosmo2},
+\noindent\textbf{Step 5: Lagrange's equation.} Let's do it! From \eqref{eq:Lcosmo2},
 $\partial\Lag/\partial\dot x = m a^2\dot x$ and $\partial\Lag/\partial x = 0$, so
 $\frac{d}{dt}\partial\Lag/\partial\dot x = \partial\Lag/\partial x$ reads
 \begin{equation}
@@ -1347,30 +1382,37 @@ in comoving coordinates, while the universe expands
 \medskip
 
 \tocentry[subsection]{Step 6: read off results}
-\noindent\textbf{Step 6: read off results.} Two, each one line from \eqref{eq:Lcosmo2} or
-\eqref{eq:eom2}.
+\noindent\textbf{Step 6: read off results.} We get two, both read off
+\eqref{eq:Lcosmo2}.
 
 \smallskip
 \tocentry[subsubsection]{(a) What is conserved?}
-\noindent (a) \emph{What is conserved?} $x$ is ignorable (Section~7.6), so its generalized
-momentum $p \equiv \partial\Lag/\partial\dot x = m a^2\dot x$ is conserved; that is what
-\eqref{eq:eom2} says. In terms of the peculiar velocity, $p = m a\,(a\dot x) = m a\,\vpec$,
+\noindent (a) \emph{What is conserved?} $x$ does not appear in \eqref{eq:Lcosmo2}, so it is
+ignorable (Section~7.6) and its generalized momentum
+$p \equiv \partial\Lag/\partial\dot x = m a^2\dot x$ is conserved; that's just what
+\eqref{eq:eom2} says.
+In terms of the peculiar velocity, $p = m a\,(a\dot x) = m a\,\vpec$,
 and $p$ is constant, so
 \begin{equation}
   \label{eq:hubbledrag2}
   \vpec \propto \frac1a :
 \end{equation}
-when the universe doubles in size, every freely coasting peculiar velocity halves. The
-argument assumed $T = \tfrac12 m v^2$, so by itself it says nothing about light. General
+when the universe doubles in size, every freely coasting peculiar velocity
+halves. This is called \emph{Hubble drag}.
+
+\noindent \emph{What about light?} The
+argument assumed $T = \tfrac12 m v^2$, so by itself it does not directly apply to light. General
 relativity gives the same result for any freely moving particle, massive or not: the momentum conjugate to $x$ is conserved, and the
 momentum a local observer measures is that conserved momentum divided by one factor of $a$
 (here $p/a = m\vpec$; the factor converts the comoving $x$ to a proper distance). For a photon
-the measured momentum is $h/\lambda$, so $h/\lambda \propto 1/a$, $\lambda \propto a$, and
+the measured momentum is $h/\lambda$, so $h/\lambda \propto 1/a$ and $\lambda \propto a$.
+Astronomers measure this stretch with the \emph{redshift} $z$, defined by
+$1 + z \equiv \lambda_{\rm obs}/\lambda_{\rm emit}$, so
 \begin{equation}
   \label{eq:redshift2}
-  1 + z \equiv \frac{\lambda_{\rm obs}}{\lambda_{\rm emit}} = \frac{a_{\rm obs}}{a_{\rm emit}} ,
+  1 + z = \frac{\lambda_{\rm obs}}{\lambda_{\rm emit}} = \frac{a_{\rm obs}}{a_{\rm emit}} ,
 \end{equation}
-the cosmological redshift. A photon emitted when the universe was half its present size
+the \emph{cosmological redshift}. A photon emitted when the universe was half its present size
 arrives with twice its wavelength: $z = 1$.
 
 \smallskip
@@ -1398,24 +1440,25 @@ and Section~7.8's general result $d\Ham/dt = -\partial\Lag/\partial t$ gives
 That is
 consistent with \eqref{eq:hubbledrag2}: $\Ham = \tfrac12 m\vpec^2$ and $\vpec \propto 1/a$. The energy is not conserved, and the formalism says
 exactly why: the expanding universe has no time-translation symmetry, so Noether's theorem
-has nothing to give. 
+does not give us a conserved quantity. 
 \smallskip
-\noindent And we are done, except for one question.
+\noindent And we are done, but ...
 
 \medskip
 
 \tocentry[subsection]{Where does the photon's energy go?}
-\noindent\textbf{Where does the photon's energy go?} Nowhere. $E = pc \propto 1/a$ simply
+\noindent\textbf{Where does the photon's energy go?} Nowhere! $E = pc \propto 1/a$ simply
 decreases. The question presumes a conserved total energy, and Noether's theorem says where
 that would have to come from: time-translation symmetry. An expanding universe does not have
-it, so there is no global energy to balance the books with. (Locally, in any small
-freely-falling laboratory, energy is conserved as usual; it is the bookkeeping across
-cosmological distances that has no ledger.) Compare Taylor's Section~7.8, as Monday's slide put it: ``if $\Lag$ does not
+it, so there is no global energy to balance the books with. (Note: locally, in
+e.g.\ a small
+freely-falling laboratory, energy is conserved as usual; we only run into these
+bookkeeping issues at cosmological distances.) Compare Taylor's Section~7.8, as Monday's slide put it: ``if $\Lag$ does not
 depend explicitly on time, then energy is conserved.'' That statement run the other way, $t$ in
 $\Lag$ so no conserved energy, is not a logical consequence of it and needs its own reason. The
 reason is the general result used in Step~6(b),
 $d\Ham/dt = -\partial\Lag/\partial t$, and here
-$\partial\Lag/\partial t \neq 0$. The whole universe is the example.
+$\partial\Lag/\partial t \neq 0$. We just get to use the whole universe as an example.
 
 \section{The redshift as a homework problem}
 \label{sec:redshift-problem}
@@ -1466,8 +1509,9 @@ Now consider a particle of mass $m$ that moves along a line through the origin b
   $d\Ham/dt = -\partial\Lag/\partial t$ (Section~7.8) to find how $\Ham$ depends on $a$.
 \item General relativity gives the same conservation law for light: the momentum a local
   observer measures is the conserved momentum divided by $a$. With $p_{\rm local} = h/\lambda$,
-  deduce the cosmological redshift $1 + z \equiv \lambda_{\rm obs}/\lambda_{\rm emit} =
-  a_{\rm obs}/a_{\rm emit}$.
+  deduce the cosmological redshift: the \emph{redshift} $z$ is defined by
+  $1 + z \equiv \lambda_{\rm obs}/\lambda_{\rm emit}$; show that
+  $1 + z = a_{\rm obs}/a_{\rm emit}$.
 \end{enumerate}}
 
 \ifmaster
@@ -1563,7 +1607,8 @@ with (d): $\Ham = \tfrac12 m\vpec^2$ and $\vpec \propto 1/a$.
 
 \medskip
 \noindent\textbf{(f)} The local momentum is $p/a$ with $p$ constant, so $p_{\rm local} \propto 1/a$. For
-a photon $p_{\rm local} = h/\lambda$, so $h/\lambda \propto 1/a$, i.e.\ $\lambda \propto a$, and
+a photon $p_{\rm local} = h/\lambda$, so $h/\lambda \propto 1/a$, i.e.\ $\lambda \propto a$, and the redshift
+$z$, defined by $1 + z \equiv \lambda_{\rm obs}/\lambda_{\rm emit}$, is
 \[
   \boxed{\;1 + z = \frac{\lambda_{\rm obs}}{\lambda_{\rm emit}} = \frac{a_{\rm obs}}{a_{\rm emit}}\;}
 \]
